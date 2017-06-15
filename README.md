@@ -82,6 +82,8 @@ The space utility converts shorthand margin and padding props to margin and padd
 
 ## Responsive Styles
 
+T/K
+
 ## Higher Order Component
 
 ```jsx
@@ -92,8 +94,6 @@ const Box = hoc('div')
 ```jsx
 <Box p={2} />
 ```
-
-## `<Box />`
 
 ## Breakpoints
 
@@ -151,15 +151,17 @@ const App = props => (
 
 MIT License
 
----
+<!--
 
 - [x] travis
 - [x] install
 - [x] usage
-- [ ] width
-- [ ] font-size
+- [x] width
+- [x] font-size
 - [ ] space
 - [ ] hoc
 - [ ] Box
 - [ ] config
 - [ ] related
+
+-->
