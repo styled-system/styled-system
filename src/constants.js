@@ -27,5 +27,5 @@ const fontSizes = [
 module.exports = {
   breakpoints,
   scale,
-  fontSizes
+  fontSizes,
 }

@@ -1,17 +1,36 @@
-const { arr, px } = require('./util')
+const {
+  arr,
+  idx,
+  px,
+  neg,
+  num,
+  breaks,
+  dec,
+  media
+} = require('./util')
+const { scale } = require('./constants')
 
-const REG = /^[mp][trblxy]$/
+const REG = /^[mp][trblxy]?$/
 
 module.exports = props => {
   const keys = Object.keys(props).filter(key => REG.test(key))
+  const bp = breaks(props)
+  const sc = idx([ 'theme', 'scale' ], props) || scale
 
   return keys.map(key => {
     const val = arr(props[key])
     const p = getProperties(key)
-    return val.map((v, i) => {
-    }).join('')
-  })
+    return val
+      .map(mx(sc))
+      .map(dec(p))
+      .map(media(bp))
+      .join('')
+  }).join('')
 }
+
+const mx = scale => n => num(n)
+  ? px((scale[Math.abs(n)] || Math.abs(n)) * (neg(n) ? -1 : 1))
+  : n
 
 const getProperties = key => {
   const [ a, b ] = key.split('')

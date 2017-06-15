@@ -50,10 +50,10 @@ test('space returns directional margins', t => {
   const y = space({ my: 2 })
   t.is(top, 'margin-top: 8px;')
   t.is(r, 'margin-right: 16px;')
-  t.is(b, 'margin-right: 32px;')
-  t.is(l, 'margin-right: 64px;')
+  t.is(b, 'margin-bottom: 32px;')
+  t.is(l, 'margin-left: 64px;')
   t.is(x, 'margin-left: 8px;margin-right: 8px;')
-  t.is(y, 'margin-left: 16px;margin-right: 16px;')
+  t.is(y, 'margin-top: 16px;margin-bottom: 16px;')
 })
 
 test('space returns responsive margins', t => {
@@ -82,10 +82,10 @@ test('space returns directional paddings', t => {
   const y = space({ py: 2 })
   t.is(top, 'padding-top: 8px;')
   t.is(r, 'padding-right: 16px;')
-  t.is(b, 'padding-right: 32px;')
-  t.is(l, 'padding-right: 64px;')
+  t.is(b, 'padding-bottom: 32px;')
+  t.is(l, 'padding-left: 64px;')
   t.is(x, 'padding-left: 8px;padding-right: 8px;')
-  t.is(y, 'padding-left: 16px;padding-right: 16px;')
+  t.is(y, 'padding-top: 16px;padding-bottom: 16px;')
 })
 
 test('space returns responsive paddings', t => {
@@ -97,3 +97,50 @@ test('width returns percentage widths', t => {
   const a = width({ width: 1/2 })
   t.is(a, 'width: 50%;')
 })
+
+test('width returns pixel values', t => {
+  const a = width({ width: 256 })
+  t.is(a, 'width: 256px;')
+})
+
+test('width returns string values', t => {
+  const a = width({ width: 'auto' })
+  t.is(a, 'width: auto;')
+})
+
+test('width returns responsive values', t => {
+  const a = width({ width: [ 1, 1/2 ] })
+  t.is(a, 'width: 100%;@media screen and (min-width: 40em){width: 50%;}')
+})
+
+test('width returns responsive pixel values', t => {
+  const a = width({ width: [ 128, 256 ] })
+  t.is(a, 'width: 128px;@media screen and (min-width: 40em){width: 256px;}')
+})
+
+test.todo('width returns 0 value')
+
+test('fontSize returns scale values', t => {
+  const a = fontSize({ fontSize: 1 })
+  const b = fontSize({ fontSize: 2 })
+  const c = fontSize({ fontSize: 3 })
+  t.is(a, 'font-size: 14px;')
+  t.is(b, 'font-size: 16px;')
+  t.is(c, 'font-size: 20px;')
+})
+
+test('fontSize returns pixel values', t => {
+  const a = fontSize({ fontSize: 24 })
+  t.is(a, 'font-size: 24px;')
+})
+
+test('fontSize returns string values', t => {
+  const a = fontSize({ fontSize: '2em' })
+  t.is(a, 'font-size: 2em;')
+})
+
+test('fontSize returns responsive values', t => {
+  const a = fontSize({ fontSize: [ 1, 2 ] })
+  t.is(a, 'font-size: 14px;@media screen and (min-width: 40em){font-size: 16px;}')
+})
+
