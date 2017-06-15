@@ -63,26 +63,49 @@ And arrays are converted to [responsive width styles](#responsive-styles).
 ## fontSize
 
 The fontSize utility parses a component's `fontSize` prop and converts it into a CSS font-size declaration.
-Numbers from 0-8 are converted to values on the fontSizes scale.
-Numbers greater than x are converted to raw pixel values.
+Numbers from 0-8 are converted to values on the [font size scale](#font-size-scale).
+Numbers greater than 8 are converted to raw pixel values.
 String values are passed as raw CSS values.
 And array values are converted into [responsive values](#responsive-styles).
 
 ## space
 
 The space utility converts shorthand margin and padding props to margin and padding CSS declarations.
+Numbers from 0-4 are converted to values on the [spacing scale](#spacing-scale).
+Negative values can be used for negative margins.
+Numbers greater than 4 are converted to raw pixel values.
+String values are converted passed as raw CSS values.
+And array values are converted into [responsive values](#responsive-styles).
 
-<!--
-- scale
-- Negative margins
-- pixel values
-- Strings
-- Arrays
--->
+Margin and padding props follow a shorthand syntax for specifying direction.
+
+- `m`:  margin
+- `mt`: margin-top
+- `mr`: margin-right
+- `mb`: margin-bottom
+- `ml`: margin-left
+- `mx`: margin-left and margin-right
+- `my`: margin-top and margin-bottom
+- `p`:  padding
+- `pt`: padding-top
+- `pr`: padding-right
+- `pb`: padding-bottom
+- `pl`: padding-left
+- `px`: padding-left and padding-right
+- `py`: padding-top and padding-bottom
+
 
 ## Responsive Styles
 
-T/K
+All props accept arrays as values for mobile-first responsive styles.
+
+```jsx
+// 100% below the smallest breakpoint,
+// 50% from the next breakpoint and up,
+// and 25% from the next breakpoint and up
+<Box w={[ 1, 1/2, 1/4 ]} />
+```
+
 
 ## Higher Order Component
 
@@ -97,8 +120,11 @@ const Box = hoc('div')
 
 ## Breakpoints
 
+styled-system uses a mobile-first responsive approach,
+where any value set works from that breakpoint and wider.
+
 ```js
-[ '40em', '52em', '64em' ]
+[ 40, 52, 64 ]
 ```
 
 ## Font Size Scale
