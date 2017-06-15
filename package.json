@@ -5,7 +5,9 @@
   "main": "dist/index.js",
   "scripts": {
     "prepublish": "babel src -d dist",
-    "start": "relab docs/Example.js -o -s docs/base.css",
+    "start": "webpack-dev-server",
+    "build": "NODE_ENV=production webpack",
+    "dev": "relab docs/Example.js -o -s docs/base.css",
     "test": "ava"
   },
   "keywords": [],
@@ -15,13 +17,18 @@
     "ava": "^0.19.1",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
+    "babel-loader": "^7.0.0",
     "babel-preset-env": "^1.5.2",
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.24.1",
+    "grid-styled": "^2.0.0-1",
     "react": "^15.6.0",
     "react-dom": "^15.6.0",
+    "react-live": "^1.6.1",
     "react-test-renderer": "^15.5.4",
     "relab": "^1.0.0-12",
-    "styled-components": "^2.0.1"
+    "styled-components": "^2.0.1",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
   }
 }

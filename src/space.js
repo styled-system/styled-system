@@ -15,7 +15,7 @@ const REG = /^[mp][trblxy]?$/
 module.exports = props => {
   const keys = Object.keys(props).filter(key => REG.test(key))
   const bp = breaks(props)
-  const sc = idx([ 'theme', 'scale' ], props) || scale
+  const sc = idx([ 'theme', 'space' ], props) || scale
 
   return keys.map(key => {
     const val = arr(props[key])
