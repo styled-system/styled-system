@@ -9,10 +9,9 @@ import {
 import {
   space,
   width,
-  fontSize,
-  Box,
-  hoc
+  fontSize
 } from '../src'
+import { Box, hoc } from '../styled-components'
 
 const Button = hoc('button').extend`
   display: block;

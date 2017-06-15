@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, hoc } from '../src'
+import { Box, hoc } from '../styled-components'
 import Demo from './Demo'
 
 const App = props => (

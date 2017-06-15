@@ -1,4 +1,4 @@
-import { hoc } from '../src'
+import { hoc } from '../styled-components'
 
 const bold = props => props.bold ? `font-weight:bold;` : null
 

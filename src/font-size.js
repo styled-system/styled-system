@@ -1,4 +1,4 @@
-const { is, idx, arr, num, px, breaks, dec, media } = require('./util')
+const { is, idx, arr, num, px, breaks, dec, media, joinObj } = require('./util')
 const { fontSizes } = require('./constants')
 
 module.exports = props => {
@@ -13,7 +13,7 @@ module.exports = props => {
     .map(fx(scale))
     .map(dec('font-size'))
     .map(media(bp))
-    .join('')
+    .reduce(joinObj, {})
 }
 
 const fx = scale => n => num(n) ? px(scale[n] || n) : n

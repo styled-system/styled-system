@@ -6,7 +6,8 @@ const {
   num,
   breaks,
   dec,
-  media
+  media,
+  joinObj
 } = require('./util')
 const { scale } = require('./constants')
 
@@ -24,8 +25,8 @@ module.exports = props => {
       .map(mx(sc))
       .map(dec(p))
       .map(media(bp))
-      .join('')
-  }).join('')
+      .reduce(joinObj, {})
+  }).reduce(joinObj, {})
 }
 
 const mx = scale => n => num(n)
