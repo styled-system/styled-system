@@ -178,6 +178,17 @@ test('space returns responsive paddings', t => {
   t.is(a, 'padding: 0px;@media screen and (min-width: 40em){padding: 8px;}')
 })
 
+test('space can be configured with a theme', t => {
+  const a = space({ theme, m: 1 })
+  const b = space({ theme, m: 2 })
+  const c = space({ theme, m: 3 })
+  const d = space({ theme, m: 4 })
+  t.is(a, 'margin: 6px;')
+  t.is(b, 'margin: 12px;')
+  t.is(c, 'margin: 18px;')
+  t.is(d, 'margin: 24px;')
+})
+
 test('width returns percentage widths', t => {
   const a = width({ width: 1/2 })
   t.is(a, 'width: 50%;')
@@ -240,4 +251,26 @@ test('fontSize returns responsive values', t => {
 test('fontSize accepts shortcut prop', t => {
   const a = fontSize({ f: 2 })
   t.is(a, 'font-size: 16px;')
+})
+
+test('fontSize can be configured with a theme', t => {
+  const a = fontSize({ theme, f: 0 })
+  const b = fontSize({ theme, f: 1 })
+  const c = fontSize({ theme, f: 2 })
+  const d = fontSize({ theme, f: 3 })
+  const d = fontSize({ theme, f: 4 })
+  const d = fontSize({ theme, f: 5 })
+  t.is(a, 'font-size: 12px;')
+  t.is(b, 'font-size: 16px;')
+  t.is(c, 'font-size: 18px;')
+  t.is(d, 'font-size: 24px;')
+  t.is(e, 'font-size: 36px;')
+  t.is(f, 'font-size: 72px;')
+})
+
+test('breakpoints can be configured with a theme', t => {
+  const a = space({ theme, m: [ 1, 2, 3, 4 ] })
+  t.regex(a, /min\-width:\s32em/)
+  t.regex(a, /min\-width:\s48em/)
+  t.regex(a, /min\-width:\s64em/)
 })

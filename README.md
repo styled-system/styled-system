@@ -62,6 +62,10 @@ And arrays are converted to [responsive width styles](#responsive-styles).
 
 ## fontSize
 
+```js
+import { fontSize } from 'styled-system'
+```
+
 The fontSize utility parses a component's `fontSize` prop and converts it into a CSS font-size declaration.
 Numbers from 0-8 are converted to values on the [font size scale](#font-size-scale).
 Numbers greater than 8 are converted to raw pixel values.
@@ -69,6 +73,10 @@ String values are passed as raw CSS values.
 And array values are converted into [responsive values](#responsive-styles).
 
 ## space
+
+```js
+import { fontSize } from 'styled-system'
+```
 
 The space utility converts shorthand margin and padding props to margin and padding CSS declarations.
 Numbers from 0-4 are converted to values on the [spacing scale](#spacing-scale).
@@ -104,10 +112,21 @@ All props accept arrays as values for mobile-first responsive styles.
 // 50% from the next breakpoint and up,
 // and 25% from the next breakpoint and up
 <Box w={[ 1, 1/2, 1/4 ]} />
+
+// responsive font size
+<Box fontSize={[ 1, 2, 3, 4 ]} />
+
+// responsive margin
+<Box m={[ 1, 2, 3, 4 ]} />
+
+// responsive padding
+<Box p={[ 1, 2, 3, 4 ]} />
 ```
 
 
 ## Higher Order Component
+
+styled-system includes a higher order component to add style props to any component.
 
 ```jsx
 import { hoc } from 'styled-system'
@@ -115,25 +134,39 @@ const Box = hoc('div')
 ```
 
 ```jsx
-<Box p={2} />
+<Box w={[ 1, 1/2 ]} p={2} />
 ```
 
 ## Breakpoints
 
 styled-system uses a mobile-first responsive approach,
 where any value set works from that breakpoint and wider.
+The default set of breakpoints aims to cover a wide range of devices from mobile to desktop.
+Breakpoints can be customized using styled-components' [ThemeProvider](#configuration).
 
 ```js
 [ 40, 52, 64 ]
+// @media screen and (min-width: 40em)
+// @media screen and (min-width: 52em)
+// @media screen and (min-width: 64em)
 ```
 
 ## Font Size Scale
+
+Using a typographic scale helps create visual rhythm and reduces the
+number of decisions needed when designing UI.
+Styled system uses a modular scale that covers most of a UI's needs,
+but it can be customized with styled-components' [ThemeProvider](#configuration).
 
 ```js
 [ 12, 14, 16, 20, 24, 32, 48, 64, 72 ]
 ```
 
 ## Spacing Scale
+
+Using a scale for spacing helps ensure elements line up, even when nested inside one another.
+styled-system uses a spacing scale based on an 8px, powers-of-two grid for margin and padding
+by default and can be customized with styled-components' [ThemeProvider](#configuration).
 
 ```js
 [ 0, 8, 16, 32, 64 ]
@@ -176,18 +209,3 @@ const App = props => (
 - [grid-styled](https://github.com/jxnblk/grid-styled)
 
 MIT License
-
-<!--
-
-- [x] travis
-- [x] install
-- [x] usage
-- [x] width
-- [x] font-size
-- [ ] space
-- [ ] hoc
-- [ ] Box
-- [ ] config
-- [ ] related
-
--->
