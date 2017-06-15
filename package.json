@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "prepublish": "babel src -d dist",
-    "start": "relab docs/Example.js -o",
+    "start": "relab docs/Example.js -o -s docs/base.css",
     "test": "ava"
   },
   "keywords": [],
@@ -21,6 +21,7 @@
     "react": "^15.6.0",
     "react-dom": "^15.6.0",
     "react-test-renderer": "^15.5.4",
+    "relab": "^1.0.0-12",
     "styled-components": "^2.0.1"
   }
 }

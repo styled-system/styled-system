@@ -1,7 +1,7 @@
 const { is, arr, num, px, breaks, dec, media } = require('./util')
 
 module.exports = props => {
-  const w = props.width || props.w
+  const w = is(props.width) ? props.width : props.width || props.w
   if (!is(w)) return null
 
   const bp = breaks(props)

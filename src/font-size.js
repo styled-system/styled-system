@@ -2,7 +2,7 @@ const { is, idx, arr, num, px, breaks, dec, media } = require('./util')
 const { fontSizes } = require('./constants')
 
 module.exports = props => {
-  const f = props.fontSize || props.f
+  const f = is(props.fontSize) ? props.fontSize : props.fontSize || props.f
   if (!is(f)) return null
 
   const bp = breaks(props)
