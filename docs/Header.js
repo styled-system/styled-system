@@ -1,5 +1,5 @@
 import React from 'react'
-import { hoc, Box } from '../src'
+import { hoc } from '../styled-components'
 import Text from './Text'
 import Button from './Button'
 

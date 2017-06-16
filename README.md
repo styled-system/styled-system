@@ -1,6 +1,6 @@
 # styled-system
 
-Design system utilities for styled-components
+Design system utilities for CSS in JS (like styled-components, glamorous, etc.)
 
 [![Build Status](https://travis-ci.org/jxnblk/styled-system.svg?branch=master)](https://travis-ci.org/jxnblk/styled-system)
 
@@ -9,6 +9,8 @@ npm i styled-system
 ```
 
 ## Usage
+
+**With `styled-components`**
 
 ```jsx
 import styled from 'styled-components'
@@ -20,6 +22,17 @@ const Box = styled.div`
   ${fontSize}
 `
 ```
+
+**Or with `glamorous`**
+
+```jsx
+import glamorous from 'glamorous'
+import { space, width, fontSize } from 'styled-system'
+
+const Box = glamorous.div(space, width, fontSize)
+```
+
+Then use `Box`:
 
 ```jsx
 // width: 50%
@@ -128,8 +141,17 @@ All props accept arrays as values for mobile-first responsive styles.
 
 styled-system includes a higher order component to add style props to any component.
 
+**With `styled-components`**
+
 ```jsx
-import { hoc } from 'styled-system'
+import { hoc } from 'styled-system/styled-components'
+const Box = hoc('div')
+```
+
+**Or with `glamorous`**
+
+```jsx
+import { hoc } from 'styled-system/glamorous'
 const Box = hoc('div')
 ```
 
@@ -179,6 +201,7 @@ styled-system can be configured with styled-components'
 
 ```jsx
 import { ThemeProvider } from 'styled-components'
+// or import { ThemeProvider } from 'glamorous'
 import MyComponent from './MyComponent'
 
 const theme = {
@@ -206,6 +229,7 @@ const App = props => (
 ## Related
 
 - [styled-components](https://github.com/styled-components/styled-components)
+- [glamorous](https://github.com/paypal/glamorous)
 - [grid-styled](https://github.com/jxnblk/grid-styled)
 
 MIT License

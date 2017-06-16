@@ -11,9 +11,9 @@ const mq = n => `@media screen and (min-width: ${n}em)`
 const breaks = props => [ null, ...(idx([ 'theme', 'breakpoints' ], props) || breakpoints).map(mq) ]
 
 const dec = props => val => arr(props)
-  .map(prop => prop + ': ' + val + ';')
-  .join('')
-const media = bp => (d, i) => bp[i] ? `${bp[i]}{${d}}` : d
+  .reduce((acc, prop) => (acc[prop] = val, acc), {})
+const media = bp => (d, i) => bp[i] ? ({[bp[i]]: d}) : d
+const joinObj = (acc, obj) => Object.assign(acc, obj)
 
 module.exports = {
   is,
@@ -25,4 +25,5 @@ module.exports = {
   breaks,
   media,
   dec,
+  joinObj,
 }
