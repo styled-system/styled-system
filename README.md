@@ -1,6 +1,6 @@
 # styled-system
 
-Design system utilities for CSS in JS (like styled-components, glamorous, etc.)
+Design system utilities for styled-components, glamorous, and other css-in-js libraries
 
 [![Build Status](https://travis-ci.org/jxnblk/styled-system.svg?branch=master)](https://travis-ci.org/jxnblk/styled-system)
 
@@ -10,9 +10,8 @@ npm i styled-system
 
 ## Usage
 
-**With `styled-components`**
-
 ```jsx
+// With styled-components
 import styled from 'styled-components'
 import { space, width, fontSize } from 'styled-system'
 
@@ -23,16 +22,13 @@ const Box = styled.div`
 `
 ```
 
-**Or with `glamorous`**
-
 ```jsx
+// Or with glamorous
 import glamorous from 'glamorous'
 import { space, width, fontSize } from 'styled-system'
 
 const Box = glamorous.div(space, width, fontSize)
 ```
-
-Then use `Box`:
 
 ```jsx
 // width: 50%
@@ -134,29 +130,6 @@ All props accept arrays as values for mobile-first responsive styles.
 
 // responsive padding
 <Box p={[ 1, 2, 3, 4 ]} />
-```
-
-
-## Higher Order Component
-
-styled-system includes a higher order component to add style props to any component.
-
-**With `styled-components`**
-
-```jsx
-import { hoc } from 'styled-system/styled-components'
-const Box = hoc('div')
-```
-
-**Or with `glamorous`**
-
-```jsx
-import { hoc } from 'styled-system/glamorous'
-const Box = hoc('div')
-```
-
-```jsx
-<Box w={[ 1, 1/2 ]} p={2} />
 ```
 
 ## Breakpoints
