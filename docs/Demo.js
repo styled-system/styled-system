@@ -1,24 +1,43 @@
 import React from 'react'
 import styled from 'styled-components'
+import { connect } from 'funcup'
 import {
   LiveProvider,
   LivePreview,
   LiveError,
   LiveEditor,
 } from 'react-live'
+import { Flex, Box } from 'grid-styled'
+import XRay from 'react-x-ray'
 import {
   space,
   width,
   fontSize
 } from '../src'
-import { Box, hoc } from '../styled-components'
+import { hoc } from '../styled-components'
+import banner from './banner'
+import { toggleXRay } from './updaters'
+import colors from './colors'
+import Bar from './Bar'
 
-const Button = hoc('button').extend`
-  display: block;
+const Button = hoc('a').extend`
+  display: inline-flex;
+  text-decoration: none;
   text-align: center;
+  padding: 12px;
   border: 0;
   border-radius: 6px;
-  background-color: tomato;
+  color: white;
+  background-color: #07c;
+`
+
+const Heading = hoc('h1').extend`
+  margin: 0;
+`
+
+const Text = hoc('p').extend`
+  margin: 0;
+  ${props => props.bold ? { fontWeight: 'bold' } : null}
 `
 
 const scope = {
@@ -26,29 +45,62 @@ const scope = {
   space,
   width,
   fontSize,
+  Flex,
   Box,
   hoc,
+  Heading,
+  Text,
   Button,
 }
 
+const Provider = styled(LiveProvider)`
+  position: relative;
+`
+
+const Preview = styled(LivePreview)`
+  height: calc(80vh - 48px);
+  min-height: 448px;
+  overflow: auto;
+`
+
+const Editor = styled(LiveEditor)`
+  ${space}
+  height: 30vh;
+  min-height: 256px;
+  overflow: auto;
+  outline: none;
+  color: ${colors.blue};
+  background-color: ${colors.dark};
+`
+
+const Err = styled(LiveError)`
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  font-family: 'SF Mono', Menlo, monospace;
+  font-size: 13px;
+  padding: 16px;
+  color: #fff;
+  background-color: #f00;
+`
+
 const Demo = props => (
-  <LiveProvider
+  <Provider
     scope={scope}
-    code={code}>
-    <LivePreview />
-    <LiveError />
-    <LiveEditor />
-  </LiveProvider>
+    code={banner}
+    mountStylesheet={false}>
+    <Err />
+    <XRay
+      color={colors.blue}
+      backgroundColor={colors.dark}
+      disabled={!props.xray}>
+      <Preview />
+    </XRay>
+    <Bar />
+    <Editor p={3} />
+  </Provider>
 )
 
-const code = `<Box p={3}>
-  <Button
-    width={[ 1, 1/2 ]}
-    mx='auto'
-    fontSize={4}
-    p={2}
-    children='Hello'
-  />
-</Box>`
 
-export default Demo
+export default connect()(Demo)

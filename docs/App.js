@@ -1,12 +1,14 @@
 import React from 'react'
+import { createProvider } from 'funcup'
 import { Box, hoc } from '../styled-components'
 import Demo from './Demo'
 
 const App = props => (
-  <Box p={2}>
-    <h1>styled-system</h1>
-    <Demo />
-  </Box>
+  <Demo />
 )
 
-export default App
+const state = {
+  xray: false
+}
+
+export default createProvider(state)(App)
