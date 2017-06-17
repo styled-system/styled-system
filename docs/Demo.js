@@ -58,14 +58,14 @@ const Provider = styled(LiveProvider)`
 `
 
 const Preview = styled(LivePreview)`
-  height: calc(65vh - 48px);
+  height: calc(80vh - 48px);
   min-height: 448px;
   overflow: auto;
 `
 
 const Editor = styled(LiveEditor)`
   ${space}
-  height: 35vh;
+  height: 30vh;
   min-height: 256px;
   overflow: auto;
   outline: none;

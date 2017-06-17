@@ -4,13 +4,11 @@ import { Box, hoc } from '../styled-components'
 import Demo from './Demo'
 
 const App = props => (
-  <div>
-    <Demo />
-  </div>
+  <Demo />
 )
 
 const state = {
-  xray: true
+  xray: false
 }
 
 export default createProvider(state)(App)
