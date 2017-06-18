@@ -13,21 +13,22 @@ npm i styled-system
 ```jsx
 // With styled-components
 import styled from 'styled-components'
-import { space, width, fontSize } from 'styled-system'
+import { space, width, fontSize, color } from 'styled-system'
 
 const Box = styled.div`
   ${space}
   ${width}
   ${fontSize}
+  ${color}
 `
 ```
 
 ```jsx
 // Or with glamorous
 import glamorous from 'glamorous'
-import { space, width, fontSize } from 'styled-system'
+import { space, width, fontSize, color } from 'styled-system'
 
-const Box = glamorous.div(space, width, fontSize)
+const Box = glamorous.div(space, width, fontSize, color)
 ```
 
 ```jsx
@@ -42,6 +43,12 @@ const Box = glamorous.div(space, width, fontSize)
 
 // padding: 32px
 <Box p={3} />
+
+// color
+<Box color='tomato' />
+
+// background color
+<Box bg='tomato' />
 
 // responsive width
 <Box width={[ 1, 1/2, 1/4 ]} />
@@ -110,6 +117,17 @@ Margin and padding props follow a shorthand syntax for specifying direction.
 - `pl`: padding-left
 - `px`: padding-left and padding-right
 - `py`: padding-top and padding-bottom
+
+## color
+
+```js
+import { color } from 'styled-system'
+```
+
+The color utility parses a component's `color` and `bg` props and converts them into CSS declarations.
+By default the raw value of the prop is returned.
+Color palettes can be configured with the [ThemeProvider](#configuration) to use keys as prop values.
+Array values are converted into [responsive values](#responsive-styles).
 
 
 ## Responsive Styles

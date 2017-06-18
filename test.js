@@ -3,7 +3,7 @@ import {
   space,
   width,
   fontSize,
-  colors,
+  color,
   util
 } from './src'
 
@@ -294,22 +294,22 @@ test('fontSize can be configured with a theme', t => {
   t.deepEqual(f, {'fontSize': '72px'})
 })
 
-test('colors returns color and backgroundColor styles', t => {
-  const a = colors({ color: 'tomato' })
-  const b = colors({ bg: 'tomato' })
+test('color returns color and backgroundColor styles', t => {
+  const a = color({ color: 'tomato' })
+  const b = color({ bg: 'tomato' })
   t.deepEqual(a, { color: 'tomato' })
   t.deepEqual(b, { backgroundColor: 'tomato' })
 })
 
-test('colors returns theme.colors values', t => {
-  const a = colors({ theme, color: 'blue' })
-  const b = colors({ theme, bg: 'green' })
+test('color returns theme.colors values', t => {
+  const a = color({ theme, color: 'blue' })
+  const b = color({ theme, bg: 'green' })
   t.deepEqual(a, { color: theme.colors.blue })
   t.deepEqual(b, { backgroundColor: theme.colors.green })
 })
 
-test('colors returns responsive values', t => {
-  const a = colors({ theme, color: [ 'blue', 'green' ] })
+test('color returns responsive values', t => {
+  const a = color({ theme, color: [ 'blue', 'green' ] })
   t.deepEqual(a, {
     color: theme.colors.blue,
     '@media screen and (min-width: 32em)': {
@@ -318,8 +318,8 @@ test('colors returns responsive values', t => {
   })
 })
 
-test('colors works with array theme.colors', t => {
-  const a = colors({
+test('color works with array theme.colors', t => {
+  const a = color({
     theme: {
       colors: [ 'tomato', 'plum' ]
     },
