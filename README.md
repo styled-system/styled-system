@@ -84,7 +84,7 @@ And array values are converted into [responsive values](#responsive-styles).
 ## space
 
 ```js
-import { fontSize } from 'styled-system'
+import { space } from 'styled-system'
 ```
 
 The space utility converts shorthand margin and padding props to margin and padding CSS declarations.
