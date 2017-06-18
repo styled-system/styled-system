@@ -1,10 +1,20 @@
 import test from 'ava'
-import {space, width, fontSize, util} from './src'
+import {
+  space,
+  width,
+  fontSize,
+  colors,
+  util
+} from './src'
 
 const theme = {
   breakpoints: [32, 48, 64],
   space: [0, 6, 12, 18, 24],
   fontSizes: [12, 16, 18, 24, 36, 72],
+  colors: {
+    blue: '#07c',
+    green: '#1c0'
+  }
 }
 
 test('exports space, width, and fontSize', t => {
@@ -249,7 +259,7 @@ test('fontSize returns pixel values', t => {
   t.deepEqual(a, {'fontSize': '24px'})
 })
 
-test('fontSize returns object values', t => {
+test('fontSize returns string values', t => {
   const a = fontSize({fontSize: '2em'})
   t.deepEqual(a, {'fontSize': '2em'})
 })
@@ -257,9 +267,9 @@ test('fontSize returns object values', t => {
 test('fontSize returns responsive values', t => {
   const a = fontSize({fontSize: [1, 2]})
   t.deepEqual(a, {
-    'fontSize': '14px',
+    fontSize: '14px',
     '@media screen and (min-width: 40em)': {
-      'fontSize': '16px',
+      fontSize: '16px',
     },
   })
 })
@@ -282,6 +292,40 @@ test('fontSize can be configured with a theme', t => {
   t.deepEqual(d, {'fontSize': '24px'})
   t.deepEqual(e, {'fontSize': '36px'})
   t.deepEqual(f, {'fontSize': '72px'})
+})
+
+test('colors returns color and backgroundColor styles', t => {
+  const a = colors({ color: 'tomato' })
+  const b = colors({ bg: 'tomato' })
+  t.deepEqual(a, { color: 'tomato' })
+  t.deepEqual(b, { backgroundColor: 'tomato' })
+})
+
+test('colors returns theme.colors values', t => {
+  const a = colors({ theme, color: 'blue' })
+  const b = colors({ theme, bg: 'green' })
+  t.deepEqual(a, { color: theme.colors.blue })
+  t.deepEqual(b, { backgroundColor: theme.colors.green })
+})
+
+test('colors returns responsive values', t => {
+  const a = colors({ theme, color: [ 'blue', 'green' ] })
+  t.deepEqual(a, {
+    color: theme.colors.blue,
+    '@media screen and (min-width: 32em)': {
+      color: theme.colors.green
+    }
+  })
+})
+
+test('colors works with array theme.colors', t => {
+  const a = colors({
+    theme: {
+      colors: [ 'tomato', 'plum' ]
+    },
+    color: 0
+  })
+  t.is(a.color, 'tomato')
 })
 
 test('breakpoints can be configured with a theme', t => {
