@@ -46,11 +46,11 @@ const properties = {
 }
 
 const directions = {
-  t: [ '-top' ],
-  r: [ '-right' ],
-  b: [ '-bottom' ],
-  l: [ '-left' ],
-  x: [ '-left', '-right' ],
-  y: [ '-top', '-bottom' ],
+  t: [ 'Top' ],
+  r: [ 'Right' ],
+  b: [ 'Bottom' ],
+  l: [ 'Left' ],
+  x: [ 'Left', 'Right' ],
+  y: [ 'Top', 'Bottom' ],
 }
 
