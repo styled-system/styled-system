@@ -11,7 +11,7 @@ module.exports = props => {
 
   return val
     .map(fx(scale))
-    .map(dec('font-size'))
+    .map(dec('fontSize'))
     .map(media(bp))
     .reduce(joinObj, {})
 }
