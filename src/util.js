@@ -26,4 +26,5 @@ module.exports = {
   media,
   dec,
   joinObj,
+  mq
 }
