@@ -156,6 +156,18 @@ test('space returns responsive margins', t => {
   })
 })
 
+test('space returns responsive directional margins', t => {
+  const a = space({mt: [0, 1], mb: [2, 3]})
+  t.deepEqual(a, {
+    marginBottom: '16px',
+    marginTop: '0px',
+    '@media screen and (min-width: 40em)': {
+      marginBottom: '32px',
+      marginTop: '8px',
+    },
+  })
+})
+
 test('space returns padding declarations', t => {
   const dec = space({p: 1})
   t.deepEqual(dec, {padding: '8px'})
@@ -189,6 +201,18 @@ test('space returns responsive paddings', t => {
     padding: '0px',
     '@media screen and (min-width: 40em)': {
       padding: '8px',
+    },
+  })
+})
+
+test('space returns responsive directional paddings', t => {
+  const a = space({pt: [0, 1], pb: [2, 3]})
+  t.deepEqual(a, {
+    paddingBottom: '16px',
+    paddingTop: '0px',
+    '@media screen and (min-width: 40em)': {
+      paddingBottom: '32px',
+      paddingTop: '8px',
     },
   })
 })
