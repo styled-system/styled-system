@@ -1,8 +1,8 @@
 const glamorous = require('glamorous').default
-const fontSize = require('../font-size')
-const width = require('../width')
-const space = require('../space')
-const color = require('../color')
+const fontSize = require('../../dist/font-size')
+const width = require('../../dist/width')
+const space = require('../../dist/space')
+const color = require('../../dist/color')
 
 module.exports = Component => {
   const SystemComponent = glamorous(Component)(fontSize, width, space, color)

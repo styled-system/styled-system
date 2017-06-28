@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { connect } from 'funcup'
 import { Flex, Box } from 'grid-styled'
-import { hoc } from '../styled-components'
+import { hoc } from './styled-components'
 import { toggleXRay } from './updaters'
 import colors from './colors'
 
