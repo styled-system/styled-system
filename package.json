@@ -26,7 +26,6 @@
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.24.1",
     "funcup": "^1.0.0-0",
-    "glamorous": "^3.23.2",
     "grid-styled": "^2.0.0-2",
     "react": "^15.6.0",
     "react-dom": "^15.6.0",
