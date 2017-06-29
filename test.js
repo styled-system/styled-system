@@ -112,6 +112,29 @@ test('util.dec returns declaration strings', t => {
   t.deepEqual(b, {foo: 'bar', baz: 'bar'})
 })
 
+test('util.joinObj reduces objects', t => {
+  const a = [
+    {
+      a: 'hello',
+      b: {
+        beep: 'boop'
+      }
+    },
+    {
+      b: {
+        hello: 'hi'
+      }
+    }
+  ].reduce(util.joinObj, {})
+  t.deepEqual(a, {
+    a: 'hello',
+    b: {
+      beep: 'boop',
+      hello: 'hi'
+    }
+  })
+})
+
 test('space returns margin declarations', t => {
   const dec = space({m: 1})
   t.deepEqual(dec, {margin: '8px'})
