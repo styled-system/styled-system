@@ -13,7 +13,19 @@ const breaks = props => [ null, ...(idx([ 'theme', 'breakpoints' ], props) || br
 const dec = props => val => arr(props)
   .reduce((acc, prop) => (acc[prop] = val, acc), {})
 const media = bp => (d, i) => bp[i] ? ({[bp[i]]: d}) : d
-const joinObj = (acc, obj) => Object.assign(acc, obj)
+const joinObj = (acc, obj) =>
+  Object.assign(
+    acc,
+    Object.keys(obj).reduce(
+      (result, key) =>
+        Object.assign(result, {
+          [key]: typeof acc[key] === 'object' && typeof obj[key] === 'object'
+            ? [acc[key], obj[key]].reduce(joinObj, {})
+            : obj[key],
+        }),
+      {}
+    )
+  );
 
 module.exports = {
   is,
