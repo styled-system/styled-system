@@ -1,4 +1,4 @@
-import { hoc } from '../styled-components'
+import { hoc } from './styled-components'
 
 const Button = hoc('a').extend`
   display: inline-flex;

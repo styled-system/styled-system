@@ -32,11 +32,8 @@
     "react-live": "^1.6.1",
     "react-test-renderer": "^15.5.4",
     "react-x-ray": "^1.0.0-2",
+    "styled-components": "^2.1.0",
     "webpack": "^2.6.1",
     "webpack-dev-server": "^2.4.5"
-  },
-  "dependencies": {
-    "glamorous": "^3.23.2",
-    "styled-components": "^2.1.0"
   }
 }

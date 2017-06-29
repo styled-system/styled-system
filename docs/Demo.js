@@ -14,7 +14,7 @@ import {
   width,
   fontSize
 } from '../src'
-import { hoc } from '../styled-components'
+import { hoc } from './styled-components'
 import banner from './banner'
 import { toggleXRay } from './updaters'
 import colors from './colors'
