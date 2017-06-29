@@ -204,7 +204,11 @@ const theme = {
   ],
   fontSizes: [
     12, 16, 18, 24, 36, 72
-  ]
+  ],
+  colors: {
+    black: '#111',
+    blue: '#07c',
+  }
 }
 
 const App = props => (
@@ -212,6 +216,7 @@ const App = props => (
     <MyComponent
       fontSize={4}
       my={[ 2, 3 ]}
+      color='blue'
     />
   </ThemeProvider>
 )
@@ -219,9 +224,9 @@ const App = props => (
 
 ## Related
 
+- [grid-styled](https://github.com/jxnblk/grid-styled)
 - [styled-components](https://github.com/styled-components/styled-components)
 - [glamorous](https://github.com/paypal/glamorous)
-- [grid-styled](https://github.com/jxnblk/grid-styled)
 
 MIT License
 
