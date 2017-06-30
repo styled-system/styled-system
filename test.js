@@ -112,7 +112,7 @@ test('util.dec returns declaration strings', t => {
   t.deepEqual(b, {foo: 'bar', baz: 'bar'})
 })
 
-test('util.joinObj reduces objects', t => {
+test('util.merge reduces objects', t => {
   const a = [
     {
       a: 'hello',
@@ -125,12 +125,44 @@ test('util.joinObj reduces objects', t => {
         hello: 'hi'
       }
     }
-  ].reduce(util.joinObj, {})
+  ].reduce(util.merge, {})
   t.deepEqual(a, {
     a: 'hello',
     b: {
       beep: 'boop',
       hello: 'hi'
+    }
+  })
+})
+
+test('util.merge merges objects', t => {
+  const a = util.merge({
+    a: 'hello',
+    b: {
+      beep: 'boop'
+    },
+    c: {
+      d: 2,
+      e: 'f'
+    }
+  }, {
+    b: {
+      hello: 'hi'
+    },
+    c: {
+      g: 3
+    }
+  })
+  t.deepEqual(a, {
+    a: 'hello',
+    b: {
+      beep: 'boop',
+      hello: 'hi'
+    },
+    c: {
+      d: 2,
+      e: 'f',
+      g: 3
     }
   })
 })

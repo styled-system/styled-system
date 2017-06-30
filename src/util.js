@@ -8,24 +8,22 @@ const arr = n => Array.isArray(n) ? n : [ n ]
 const idx = (p, obj) => p.reduce((a, b) => (a && a[b]) ? a[b] : null, obj)
 
 const mq = n => `@media screen and (min-width: ${n}em)`
-const breaks = props => [ null, ...(idx([ 'theme', 'breakpoints' ], props) || breakpoints).map(mq) ]
+
+const breaks = props => [
+  null,
+  ...(idx([ 'theme', 'breakpoints' ], props) || breakpoints).map(mq)
+]
 
 const dec = props => val => arr(props)
   .reduce((acc, prop) => (acc[prop] = val, acc), {})
+
 const media = bp => (d, i) => bp[i] ? ({[bp[i]]: d}) : d
-const joinObj = (acc, obj) =>
-  Object.assign(
-    acc,
-    Object.keys(obj).reduce(
-      (result, key) =>
-        Object.assign(result, {
-          [key]: typeof acc[key] === 'object' && typeof obj[key] === 'object'
-            ? [acc[key], obj[key]].reduce(joinObj, {})
-            : obj[key],
-        }),
-      {}
-    )
-  );
+
+const merge = (a, b) => Object.assign({}, a, b, Object.keys(b).reduce((obj, key) =>
+  Object.assign(obj, {
+    [key]: typeof a[key] === 'object' ? merge(a[key], b[key]) : b[key]
+  }),
+  {}))
 
 module.exports = {
   is,
@@ -37,6 +35,6 @@ module.exports = {
   breaks,
   media,
   dec,
-  joinObj,
+  merge,
   mq
 }

@@ -1,4 +1,4 @@
-const { is, arr, num, px, breaks, dec, media, joinObj } = require('./util')
+const { is, arr, num, px, breaks, dec, media, merge } = require('./util')
 
 module.exports = props => {
   const w = is(props.width) ? props.width : props.width || props.w
@@ -11,7 +11,7 @@ module.exports = props => {
     .map(wx)
     .map(dec('width'))
     .map(media(bp))
-    .reduce(joinObj, {})
+    .reduce(merge, {})
 }
 
 const wx = n => !num(n) || n > 1 ? px(n) : (n * 100) + '%'
