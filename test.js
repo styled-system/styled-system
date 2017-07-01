@@ -4,6 +4,7 @@ import {
   width,
   fontSize,
   color,
+  removeProps,
   util
 } from './src'
 
@@ -413,4 +414,35 @@ test('breakpoints can be configured with a theme', t => {
   t.is(b, '@media screen and (min-width: 32em)')
   t.is(c, '@media screen and (min-width: 48em)')
   t.is(d, '@media screen and (min-width: 64em)')
+})
+
+test('removeProps removes style props', t => {
+  const a = removeProps({
+    name: 'hello',
+    type: 'text',
+    value: 'Hi',
+    m: 1,
+    mt: 2,
+    mr: 3,
+    mb: 4,
+    mx: 5,
+    my: 6,
+    p: 1,
+    pt: 2,
+    pr: 3,
+    pb: 4,
+    px: 5,
+    py: 6,
+    w: 1/2,
+    width: 1/4,
+    f: 4,
+    fontSize: 5,
+    color: 'tomato',
+    bg: 'lime'
+  })
+  t.deepEqual(a, {
+    name: 'hello',
+    type: 'text',
+    value: 'Hi',
+  })
 })
