@@ -150,6 +150,37 @@ All props accept arrays as values for mobile-first responsive styles.
 <Box p={[ 1, 2, 3, 4 ]} />
 ```
 
+## Remove Props
+
+Styled-components attempts to remove invalid HTML attributes from props,
+but does not remove `width`, `fontSize`, or `color`.
+When using styled-system with other CSS-in-JS libraries,
+it can also be helpful to remove style props.
+To ensure style props are not passed to the element, a `removeProps`
+utility can be used.
+
+```jsx
+import React from 'react'
+import styled from 'styled-components'
+import {
+  width,
+  fontSize,
+  space,
+  removeProps
+} from 'styled-system'
+
+const BaseComponent = props => {
+  const next = removeProps(props)
+  return <div {...next} />
+}
+
+const Component = styled(BaseComponent)([],
+  width,
+  fontSize,
+  space
+)
+```
+
 ## Breakpoints
 
 styled-system uses a mobile-first responsive approach,
