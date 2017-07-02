@@ -18,7 +18,8 @@ module.exports = props => {
   }).reduce(merge, {})
 }
 
-const cx = obj => n => obj[n] || n
+const cx = obj => n => idx(getKeys(n), obj) || n
+const getKeys = n => typeof n === 'string' ? n.split('.') : [ n ]
 
 const properties = {
   bg: 'backgroundColor'

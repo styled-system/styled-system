@@ -46,6 +46,7 @@ const Box = glamorous.div(space, width, fontSize, color)
 
 // color
 <Box color='tomato' />
+<Box color='grays.0' />
 
 // background color
 <Box bg='tomato' />
@@ -126,7 +127,7 @@ import { color } from 'styled-system'
 
 The color utility parses a component's `color` and `bg` props and converts them into CSS declarations.
 By default the raw value of the prop is returned.
-Color palettes can be configured with the [ThemeProvider](#configuration) to use keys as prop values.
+Color palettes can be configured with the [ThemeProvider](#configuration) to use keys as prop values, with support for dot notation.
 Array values are converted into [responsive values](#responsive-styles).
 
 

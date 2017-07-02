@@ -1,4 +1,5 @@
 import test from 'ava'
+import palx from 'palx'
 import {
   space,
   width,
@@ -7,6 +8,8 @@ import {
   removeProps,
   util
 } from './src'
+
+const palette = palx('#07c')
 
 const theme = {
   breakpoints: [32, 48, 64],
@@ -406,6 +409,16 @@ test('color works with array theme.colors', t => {
     color: 0
   })
   t.is(a.color, 'tomato')
+})
+
+test('color keys support dot notation', t => {
+  const a = color({
+    theme: {
+      colors: palette
+    },
+    color: 'gray.2'
+  })
+  t.is(a.color, palette.gray[2])
 })
 
 test('breakpoints can be configured with a theme', t => {
