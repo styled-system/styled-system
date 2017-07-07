@@ -151,6 +151,30 @@ All props accept arrays as values for mobile-first responsive styles.
 <Box p={[ 1, 2, 3, 4 ]} />
 ```
 
+## responsiveStyle
+
+The `responsiveStyle` utility can be used to handle array-based responsive style props for other CSS properties.
+
+```js
+import styled from 'styled-components'
+import { responsiveStyle } from 'styled-system'
+
+// Usage
+// responsiveStyle(cssProperty[, propName][, booleanValue])
+
+const Flex = styled.div`
+  display: flex;
+  ${responsiveStyle('flex-direction', 'direction')}
+`
+
+const App = props => (
+  <Flex direction={[ 'column', 'row' ]}>
+    <div>Responsive</div>
+    <div>Direction</div>
+  </Flex>
+)
+```
+
 ## Remove Props
 
 Styled-components attempts to remove invalid HTML attributes from props,
