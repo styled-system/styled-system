@@ -5,6 +5,7 @@ import {
   width,
   fontSize,
   color,
+  responsiveStyle,
   removeProps,
   util
 } from './src'
@@ -419,6 +420,61 @@ test('color keys support dot notation', t => {
     color: 'gray.2'
   })
   t.is(a.color, palette.gray[2])
+})
+
+test('responsiveStyle returns a function', t => {
+  const sx = responsiveStyle('order')
+  t.is(typeof sx, 'function')
+})
+
+test('responsiveStyle‘s returned function returns a style object', t => {
+  const order = responsiveStyle('order')
+  const a = order({ order: 1 })
+  t.deepEqual(a, { order: 1 })
+})
+
+test('responsiveStyle‘s returned function returns null', t => {
+  const order = responsiveStyle('order')
+  const a = order({ })
+  t.is(a, null)
+})
+
+test('responsiveStyle allows property aliases', t => {
+  const direction = responsiveStyle('flex-direction', 'direction')
+  const a = direction({ direction: 'column' })
+  t.deepEqual(a, {
+    'flex-direction': 'column'
+  })
+})
+
+test('responsiveStyle allows array values', t => {
+  const direction = responsiveStyle('flex-direction', 'direction')
+  const a = direction({ direction: [ 'column', 'row' ] })
+  t.deepEqual(a, {
+    'flex-direction': 'column',
+    '@media screen and (min-width: 40em)': {
+      'flex-direction': 'row',
+    }
+  })
+})
+
+test('responsiveStyle can be configured for boolean props', t => {
+  const wrap = responsiveStyle('flex-wrap', 'wrap', 'wrap')
+  const a = wrap({ wrap: true })
+  t.deepEqual(a, {
+    'flex-wrap': 'wrap'
+  })
+})
+
+test('responsiveStyle boolean props handle arrays', t => {
+  const wrap = responsiveStyle('flex-wrap', 'wrap', 'wrap')
+  const a = wrap({ wrap: [ true, false ] })
+  t.deepEqual(a, {
+    'flex-wrap': 'wrap',
+    '@media screen and (min-width: 40em)': {
+      'flex-wrap': false
+    }
+  })
 })
 
 test('breakpoints can be configured with a theme', t => {
