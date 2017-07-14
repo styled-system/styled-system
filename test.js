@@ -228,6 +228,19 @@ test('space returns responsive directional margins', t => {
   })
 })
 
+test('space sorts responsive directional margins', t => {
+  const a = space({
+    mb: 2,
+    m: [0, 1]
+  })
+  const keys = Object.keys(a)
+  t.deepEqual(keys, [
+    'margin',
+    '@media screen and (min-width: 40em)',
+    'marginBottom'
+  ])
+})
+
 test('space returns padding declarations', t => {
   const dec = space({p: 1})
   t.deepEqual(dec, {padding: '8px'})

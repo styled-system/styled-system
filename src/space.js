@@ -14,7 +14,9 @@ const { scale } = require('./constants')
 const REG = /^[mp][trblxy]?$/
 
 module.exports = props => {
-  const keys = Object.keys(props).filter(key => REG.test(key))
+  const keys = Object.keys(props)
+    .filter(key => REG.test(key))
+    .sort()
   const bp = breaks(props)
   const sc = idx([ 'theme', 'space' ], props) || scale
 
@@ -37,7 +39,7 @@ const getProperties = key => {
   const [ a, b ] = key.split('')
   const prop = properties[a]
   const dirs = directions[b] || [ '' ]
-  return dirs.map(dir => prop + dir)
+  return dirs.map(dir => prop + dir) //.sort((a, b) => a < b)
 }
 
 const properties = {
