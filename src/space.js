@@ -14,7 +14,9 @@ const { scale } = require('./constants')
 const REG = /^[mp][trblxy]?$/
 
 module.exports = props => {
-  const keys = Object.keys(props).filter(key => REG.test(key))
+  const keys = Object.keys(props)
+    .filter(key => REG.test(key))
+    .sort()
   const bp = breaks(props)
   const sc = idx([ 'theme', 'space' ], props) || scale
 
