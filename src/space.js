@@ -39,7 +39,7 @@ const getProperties = key => {
   const [ a, b ] = key.split('')
   const prop = properties[a]
   const dirs = directions[b] || [ '' ]
-  return dirs.map(dir => prop + dir) //.sort((a, b) => a < b)
+  return dirs.map(dir => prop + dir)
 }
 
 const properties = {
