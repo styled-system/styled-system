@@ -7,8 +7,16 @@ module.exports = (key, prop, boolValue) => props => {
 
   const bp = breaks(props)
   const scale = idx([ 'theme', prop ], props) || {}
-  const val = arr(n)
 
+  if (!Array.isArray(n)) {
+    return {
+      [key]: sx(scale)(
+        bool(boolValue)(n)
+      )
+    }
+  }
+
+  const val = arr(n)
   return val
     .map(bool(boolValue))
     .map(sx(scale))
