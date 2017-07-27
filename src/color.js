@@ -8,8 +8,15 @@ module.exports = props => {
   const palette = idx([ 'theme', 'colors' ], props) || {}
 
   return keys.map(key => {
-    const val = arr(props[key])
+    const val = props[key]
     const prop = properties[key] || key
+
+    if (!Array.isArray(val)) {
+      return {
+        [prop]: cx(palette)(val)
+      }
+    }
+
     return val
       .map(cx(palette))
       .map(dec(prop))

@@ -17,7 +17,9 @@ const breaks = props => [
 const dec = props => val => arr(props)
   .reduce((acc, prop) => (acc[prop] = val, acc), {})
 
-const media = bp => (d, i) => bp[i] ? ({[bp[i]]: d}) : d
+const media = bp => (d, i) => is(d)
+  ? bp[i] ? ({ [bp[i]]: d }) : d
+  : null
 
 const merge = (a, b) => Object.assign({}, a, b, Object.keys(b).reduce((obj, key) =>
   Object.assign(obj, {

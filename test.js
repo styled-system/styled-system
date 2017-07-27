@@ -5,6 +5,7 @@ import {
   width,
   fontSize,
   color,
+  style,
   responsiveStyle,
   removeProps,
   util
@@ -28,6 +29,7 @@ test('exports space, width, and fontSize', t => {
   t.is(typeof fontSize, 'function')
 })
 
+// util
 test('util.is checks for non null values', t => {
   const a = util.is(null)
   const b = util.is()
@@ -105,9 +107,11 @@ test('util.breaks returns a media queries array', t => {
 
 test('util.media returns media query wrapped rules', t => {
   const a = util.media([])('hello')
-  const b = util.media(['hi'])('hello', 0)
+  const b = util.media([ 'hi' ])('hello', 0)
+  const c = util.media([ 'hi' ])(null, 0)
   t.is(a, 'hello')
-  t.deepEqual(b, {hi: 'hello'})
+  t.deepEqual(b, { hi: 'hello' })
+  t.is(c, null)
 })
 
 test('util.dec returns declaration strings', t => {
@@ -172,6 +176,7 @@ test('util.merge merges objects', t => {
   })
 })
 
+// space
 test('space returns margin declarations', t => {
   const dec = space({m: 1})
   t.deepEqual(dec, {margin: '8px'})
@@ -301,6 +306,7 @@ test('space can be configured with a theme', t => {
   t.deepEqual(d, {margin: '24px'})
 })
 
+// width
 test('width returns percentage widths', t => {
   const a = width({width: 1 / 2})
   t.deepEqual(a, {width: '50%'})
@@ -337,11 +343,17 @@ test('width returns 0 value', t => {
   t.deepEqual(a, {width: '0%'})
 })
 
+test('width returns null ', t => {
+  const a = width({})
+  t.is(a, null)
+})
+
 test('width accepts shortcut prop', t => {
   const a = width({w: 1 / 2})
   t.deepEqual(a, {width: '50%'})
 })
 
+// fontSize
 test('fontSize returns scale values', t => {
   const a = fontSize({fontSize: 0})
   const b = fontSize({fontSize: 1})
@@ -391,6 +403,12 @@ test('fontSize can be configured with a theme', t => {
   t.deepEqual(f, {'fontSize': '72px'})
 })
 
+test('fontSize returns null', t => {
+  const a = fontSize({})
+  t.is(a, null)
+})
+
+// color
 test('color returns color and backgroundColor styles', t => {
   const a = color({ color: 'tomato' })
   const b = color({ bg: 'tomato' })
@@ -435,6 +453,49 @@ test('color keys support dot notation', t => {
   t.is(a.color, palette.gray[2])
 })
 
+// style
+test('style returns a function', t => {
+  const sx = style({
+    prop: 'color',
+    key: 'colors'
+  })
+  t.is(typeof sx, 'function')
+})
+
+test('style function returns a style object', t => {
+  const a = style({
+    prop: 'color',
+    key: 'colors'
+  })({ color: 'tomato' })
+  t.is(typeof a, 'object')
+  t.deepEqual(a, { color: 'tomato' })
+})
+
+test('style function returns null', t => {
+  const sx = style({
+    prop: 'color'
+  })
+  const a = sx({})
+  t.is(a, null)
+})
+
+test('style function returns scale values', t => {
+  const sx = style({
+    key: 'colors',
+    prop: 'color'
+  })
+  const a = sx({
+    color: 'blue',
+    theme: {
+      colors: {
+        blue: '#07c'
+      }
+    }
+  })
+  t.is(a.color, '#07c')
+})
+
+// responsiveStyle
 test('responsiveStyle returns a function', t => {
   const sx = responsiveStyle('order')
   t.is(typeof sx, 'function')
@@ -462,10 +523,13 @@ test('responsiveStyle allows property aliases', t => {
 
 test('responsiveStyle allows array values', t => {
   const direction = responsiveStyle('flex-direction', 'direction')
-  const a = direction({ direction: [ 'column', 'row' ] })
+  const a = direction({ direction: [ 'column', null, 'row' ] })
   t.deepEqual(a, {
     'flex-direction': 'column',
     '@media screen and (min-width: 40em)': {
+      'flex-direction': null
+    },
+    '@media screen and (min-width: 52em)': {
       'flex-direction': 'row',
     }
   })
@@ -490,6 +554,7 @@ test('responsiveStyle boolean props handle arrays', t => {
   })
 })
 
+// theme
 test('breakpoints can be configured with a theme', t => {
   const a = space({theme, m: [1, 2, 3, 4]})
   const [, b, c, d] = Object.keys(a)
@@ -498,6 +563,7 @@ test('breakpoints can be configured with a theme', t => {
   t.is(d, '@media screen and (min-width: 64em)')
 })
 
+// removeProps
 test('removeProps removes style props', t => {
   const a = removeProps({
     name: 'hello',

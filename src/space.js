@@ -21,9 +21,16 @@ module.exports = props => {
   const sc = idx([ 'theme', 'space' ], props) || scale
 
   return keys.map(key => {
-    const val = arr(props[key])
+    const val = props[key]
     const p = getProperties(key)
-    return val
+
+    if (!Array.isArray(val)) {
+      return p.reduce((a, b) => Object.assign(a, {
+        [b]: mx(sc)(val)
+      }), {})
+    }
+
+    return arr(val)
       .map(mx(sc))
       .map(dec(p))
       .map(media(bp))
