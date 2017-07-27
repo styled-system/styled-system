@@ -4,6 +4,7 @@ const {
   width,
   fontSize,
   color,
+  style,
   responsiveStyle
 } = require('../src')
 
@@ -21,6 +22,9 @@ suite
   })
   .add('color', () => {
     color({ color: 'tomato' })
+  })
+  .add('style', () => {
+    style({ prop: 'color' })({ color: 'tomato' })
   })
   .add('responsiveStyle', () => {
     responsiveStyle('color')({ color: 'tomato' })

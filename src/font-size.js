@@ -14,6 +14,7 @@ module.exports = props => {
   }
 
   const bp = breaks(props)
+
   return n
     .map(fx(scale))
     .map(dec('fontSize'))
