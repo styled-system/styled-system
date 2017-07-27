@@ -8,7 +8,8 @@
     "start": "webpack-dev-server",
     "build": "NODE_ENV=production webpack -p",
     "bench": "node bench",
-    "test": "ava"
+    "cover": "npm t && nyc report --reporter=html",
+    "test": "nyc ava"
   },
   "keywords": [
     "react",
@@ -30,6 +31,7 @@
     "funcup": "^1.0.0-0",
     "grid-styled": "^2.0.0-2",
     "microtime": "^2.1.6",
+    "nyc": "^11.0.3",
     "palx": "^1.0.2",
     "react": "^15.6.0",
     "react-dom": "^15.6.0",
@@ -39,5 +41,12 @@
     "styled-components": "^2.1.0",
     "webpack": "^2.6.1",
     "webpack-dev-server": "^2.4.5"
+  },
+  "nyc": {
+    "ignore": [
+      "test.js",
+      "docs",
+      "bench"
+    ]
   }
 }
