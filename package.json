@@ -7,6 +7,7 @@
     "prepublish": "babel src -d dist",
     "start": "webpack-dev-server",
     "build": "NODE_ENV=production webpack -p",
+    "bench": "node bench",
     "test": "ava"
   },
   "keywords": [
@@ -25,8 +26,10 @@
     "babel-preset-env": "^1.5.2",
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.24.1",
+    "benchmark": "^2.1.4",
     "funcup": "^1.0.0-0",
     "grid-styled": "^2.0.0-2",
+    "microtime": "^2.1.6",
     "palx": "^1.0.2",
     "react": "^15.6.0",
     "react-dom": "^15.6.0",
