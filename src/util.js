@@ -23,7 +23,9 @@ const media = bp => (d, i) => is(d)
 
 const merge = (a, b) => Object.assign({}, a, b, Object.keys(b).reduce((obj, key) =>
   Object.assign(obj, {
-    [key]: typeof a[key] === 'object' ? merge(a[key], b[key]) : b[key]
+    [key]: a[key] !== null && typeof a[key] === 'object'
+    ? merge(a[key], b[key])
+    : b[key]
   }),
   {}))
 
