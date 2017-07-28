@@ -2,7 +2,13 @@
 
 Design system utilities for styled-components, glamorous, and other css-in-js libraries
 
-[![Build Status](https://travis-ci.org/jxnblk/styled-system.svg?branch=master)](https://travis-ci.org/jxnblk/styled-system)
+[![Build Status][build-badge]][build]
+[![Coverage][coverage-badge]][coverage]
+
+[build-badge]: https://img.shields.io/travis/jxnblk/styled-system/master.svg?style=flat-square
+[build]: https://travis-ci.org/jxnblk/styled-system
+[coverage-badge]: https://img.shields.io/codecov/c/github/jxnblk/styled-system.svg?style=flat-square
+[coverage]: https://codecov.io/github/jxnblk/styled-system
 
 ```sh
 npm i styled-system
