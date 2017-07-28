@@ -8,7 +8,7 @@
     "start": "webpack-dev-server",
     "build": "NODE_ENV=production webpack -p",
     "bench": "node bench",
-    "cover": "npm t && nyc report --reporter=html",
+    "cover": "nyc report --reporter=html --reporter=lcov > coverage.lcov && codecov",
     "test": "nyc ava"
   },
   "keywords": [
@@ -28,6 +28,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.24.1",
     "benchmark": "^2.1.4",
+    "codecov": "^2.2.0",
     "funcup": "^1.0.0-0",
     "grid-styled": "^2.0.0-2",
     "microtime": "^2.1.6",
