@@ -287,6 +287,7 @@ const App = props => (
 ## Related
 
 - [grid-styled](https://github.com/jxnblk/grid-styled)
+- [Rebass](http://jxnblk.com/rebass)
 - [styled-components](https://github.com/styled-components/styled-components)
 - [glamorous](https://github.com/paypal/glamorous)
 
