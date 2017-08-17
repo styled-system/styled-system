@@ -217,6 +217,7 @@ const Component = styled(BaseComponent)([],
 styled-system uses a mobile-first responsive approach,
 where any value set works from that breakpoint and wider.
 The default set of breakpoints aims to cover a wide range of devices from mobile to desktop.
+Breakpoints default to `em` but can be overridden by passing strings with unit appended.
 Breakpoints can be customized using styled-components' [ThemeProvider](#configuration).
 
 ```js
@@ -224,6 +225,11 @@ Breakpoints can be customized using styled-components' [ThemeProvider](#configur
 // @media screen and (min-width: 40em)
 // @media screen and (min-width: 52em)
 // @media screen and (min-width: 64em)
+
+[ '300px', '600px', '1200px' ]
+// @media screen and (min-width: 300px)
+// @media screen and (min-width: 600px)
+// @media screen and (min-width: 1200px)
 ```
 
 ## Font Size Scale

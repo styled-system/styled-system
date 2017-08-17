@@ -52,6 +52,13 @@ test('util.px adds px unit to numbers', t => {
   t.is(b, '2em')
 })
 
+test('util.em adds em unit to numbers', t => {
+  const a = util.em(1)
+  const b = util.em('2px')
+  t.is(a, '1em')
+  t.is(b, '2px')
+})
+
 test('util.neg checks for negative number', t => {
   const a = util.neg(0)
   const b = util.neg(1)
@@ -103,6 +110,15 @@ test('util.breaks returns a media queries array', t => {
     },
   })
   t.deepEqual(a, [null, '@media screen and (min-width: 24em)'])
+})
+
+test('util.breaks accepts non-em breakpoints', t => {
+  const a = util.breaks({
+    theme: {
+      breakpoints: ["600px"],
+    },
+  })
+  t.deepEqual(a, [null, '@media screen and (min-width: 600px)'])
 })
 
 test('util.media returns media query wrapped rules', t => {
