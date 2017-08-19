@@ -9,7 +9,7 @@ const {
   media,
   merge
 } = require('./util')
-const { scale } = require('./constants')
+const { space } = require('./constants')
 
 const REG = /^[mp][trblxy]?$/
 
@@ -18,7 +18,7 @@ module.exports = props => {
     .filter(key => REG.test(key))
     .sort()
   const bp = breaks(props)
-  const sc = idx([ 'theme', 'space' ], props) || scale
+  const sc = idx([ 'theme', 'space' ], props) || space
 
   return keys.map(key => {
     const val = props[key]
