@@ -554,6 +554,28 @@ test('responsiveStyle boolean props handle arrays', t => {
   })
 })
 
+test('responsiveStyle take an array of properties and responsive values', t => {
+  const basis = responsiveStyle(['flex-basis', 'width'], 'basis')
+  const a = basis({ basis: [ '10px', 'auto' ] })
+  t.deepEqual(a, {
+    'flex-basis': '10px',
+    width: '10px',
+    '@media screen and (min-width: 40em)': {
+      'flex-basis': 'auto',
+      'width': 'auto',
+    },
+  })
+})
+
+test('responsiveStyle take an array of properties and single value', t => {
+  const basis = responsiveStyle(['flex-basis', 'width'], 'basis')
+  const a = basis({ basis: '10px' })
+  t.deepEqual(a, {
+    'flex-basis': '10px',
+    width: '10px',
+  })
+})
+
 // theme
 test('breakpoints can be configured with a theme', t => {
   const a = space({theme, m: [1, 2, 3, 4]})
