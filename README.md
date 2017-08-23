@@ -252,6 +252,9 @@ by default and can be customized with styled-components' [ThemeProvider](#config
 styled-system can be configured with styled-components'
 [ThemeProvider](https://www.styled-components.com/docs/advanced#theming)
 
+As opposed to the built-in configurations, arrays given to the `breakpoints`, `space`, and
+`fontSizes` theme properties can be of arbitrary lengths.
+
 ```jsx
 import { ThemeProvider } from 'styled-components'
 // or import { ThemeProvider } from 'glamorous'
