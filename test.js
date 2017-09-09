@@ -306,6 +306,11 @@ test('space can be configured with a theme', t => {
   t.deepEqual(d, {margin: '24px'})
 })
 
+test('space can accept string values', t => {
+  const a = space({ theme: { space: ['1em', '2em'] }, m: -1 })
+  t.deepEqual(a, {margin: '2em'})
+})
+
 // width
 test('width returns percentage widths', t => {
   const a = width({width: 1 / 2})
