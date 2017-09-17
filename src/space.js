@@ -38,9 +38,18 @@ module.exports = props => {
   }).reduce(merge, {})
 }
 
-const mx = scale => n => num(n)
-  ? px((scale[Math.abs(n)] || Math.abs(n)) * (neg(n) ? -1 : 1))
-  : n
+const mx = scale => n => {
+  if (!num(n)) {
+    return n
+  }
+
+  const value = scale[Math.abs(n)] || Math.abs(n)
+  if (!num(value)) {
+    return value
+  }
+
+  return px(value * (neg(n) ? -1 : 1));
+}
 
 const getProperties = key => {
   const [ a, b ] = key.split('')
@@ -62,4 +71,3 @@ const directions = {
   x: [ 'Left', 'Right' ],
   y: [ 'Top', 'Bottom' ],
 }
-
