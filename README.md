@@ -213,6 +213,48 @@ import { fontWeight } from 'styled-system'
 // props.theme.fontWeights.bold
 ```
 
+### alignItems (responsive)
+
+```js
+import { alignItems } from 'styled-system'
+// <Flex alignItems='center' />
+```
+
+### justifyContent (responsive)
+
+```js
+import { justifyContent } from 'styled-system'
+// <Flex justifyContent='center' />
+```
+
+### flexWrap (responsive)
+
+```js
+import { flexWrap } from 'styled-system'
+// <Flex flexWrap />
+```
+
+### flexDirection (responsive)
+
+```js
+import { flexDirection } from 'styled-system'
+// <Flex flexDirection='column' />
+```
+
+### flex (responsive)
+
+```js
+import { flex } from 'styled-system'
+// <Box flex='none' />
+```
+
+### alignSelf (responsive)
+
+```js
+import { alignSelf } from 'styled-system'
+// <Box alignSelf='baseline' />
+```
+
 ### borderRadius
 
 ```js
