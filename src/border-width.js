@@ -1,11 +1,32 @@
 const style = require('./style')
 
-module.exports = props => {
-  const width = style({
-    prop: 'borderWidth'
-  })(props)
-  const borderStyle = { borderStyle: 'solid' }
-  // todo: directional borders
+const getDirectionProp = template => dir => template(dir)
+const getWidthProp = getDirectionProp(dir => `border${dir}Width`)
+const getStyleProp = getDirectionProp(dir => `border${dir}Style`)
 
-  return props.borderWidth ? Object.assign({}, width, borderStyle) : null
+const getDirections = props => {
+  const directions = []
+  if (props.borderTop) directions.push('Top')
+  if (props.borderRight) directions.push('Right')
+  if (props.borderBottom) directions.push('Bottom')
+  if (props.borderLeft) directions.push('Left')
+  return directions.length ? directions : null
+}
+
+module.exports = props => {
+  const directions = getDirections(props)
+  const borderWidths = directions
+    ? directions.map(dir => style({
+      prop: 'borderWidth',
+      cssProperty: getWidthProp(dir)
+    })(props))
+    : [ style({ prop: 'borderWidth' })(props) ]
+
+  const borderStyles = directions
+    ? directions.map(dir => ({
+      [getStyleProp(dir)]: 'solid'
+    }))
+    : [ { borderStyle: 'solid' } ]
+
+  return props.borderWidth ? Object.assign({}, ...borderWidths, ...borderStyles) : null
 }

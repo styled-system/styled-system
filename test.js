@@ -739,6 +739,53 @@ test('borderWidth returns null', t => {
   t.is(a, null)
 })
 
+test('borderWidth returns borderTopWidth and borderTopStyle', t => {
+  const a = borderWidth({ borderWidth: '2px', borderTop: true })
+  t.deepEqual(a, {
+    borderTopWidth: '2px',
+    borderTopStyle: 'solid'
+  })
+})
+
+test('borderWidth returns borderRightWidth and borderRightStyle', t => {
+  const a = borderWidth({ borderWidth: '2px', borderRight: true })
+  t.deepEqual(a, {
+    borderRightWidth: '2px',
+    borderRightStyle: 'solid'
+  })
+})
+
+test('borderWidth returns borderBottomWidth and borderBottomWidth', t => {
+  const a = borderWidth({ borderWidth: '2px', borderBottom: true })
+  t.deepEqual(a, {
+    borderBottomWidth: '2px',
+    borderBottomStyle: 'solid'
+  })
+})
+
+test('borderWidth returns borderLeftWidth and borderLeftStyle', t => {
+  const a = borderWidth({ borderWidth: '2px', borderLeft: true })
+  t.deepEqual(a, {
+    borderLeftWidth: '2px',
+    borderLeftStyle: 'solid'
+  })
+})
+
+test('borderWidth returns multiple directions', t => {
+  const a = borderWidth({
+    borderWidth: '2px',
+    borderLeft: true,
+    borderRight: true,
+  })
+  t.deepEqual(a, {
+    borderLeftWidth: '2px',
+    borderLeftStyle: 'solid',
+    borderRightWidth: '2px',
+    borderRightStyle: 'solid'
+  })
+})
+
+
 test('boxShadow returns box-shadow styles', t => {
   const a = boxShadow({ boxShadow: '0 0 8px rgba(0, 0, 0, .125)' })
   t.deepEqual(a, { boxShadow: '0 0 8px rgba(0, 0, 0, .125)' })
