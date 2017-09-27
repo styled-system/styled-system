@@ -420,12 +420,14 @@ The `responsiveStyle` utility can be used to handle array-based responsive style
 import styled from 'styled-components'
 import { responsiveStyle } from 'styled-system'
 
-// Usage
-// responsiveStyle(cssProperty[, propName][, booleanValue])
+const flexDirection = responsiveStyle({
+  prop: 'direction',
+  cssProperty: 'flexDirection'
+})
 
 const Flex = styled.div`
   display: flex;
-  ${responsiveStyle('flex-direction', 'direction')}
+  ${flexDirection}
 `
 
 const App = props => (
