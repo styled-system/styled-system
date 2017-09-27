@@ -29,7 +29,7 @@ npm i styled-system
 > – [Kye Hohenberger](https://mobile.twitter.com/tkh44/status/905474043729416192)
 
 > "Coming from @tachyons_css, the styled-system utilities from @jxnblk is the missing link I’ve been looking for."
-> - [Nathan Young](https://mobile.twitter.com/nathanyoung/status/891353221880360960)
+> – [Nathan Young](https://mobile.twitter.com/nathanyoung/status/891353221880360960)
 
 ## Usage
 
