@@ -900,7 +900,7 @@ test('focus uses theme values', t => {
 
 test('active returns a style object', t => {
   const a = active({
-    activeStyle: {
+    active: {
       color: 'tomato'
     }
   })
@@ -914,7 +914,7 @@ test('active returns a style object', t => {
 test('active uses theme values', t => {
   const a = active({
     theme,
-    activeStyle: {
+    active: {
       color: 'blue',
       backgroundColor: 'green'
     }

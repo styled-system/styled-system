@@ -315,7 +315,7 @@ import { focus } from 'styled-system'
 
 ```js
 import { active } from 'styled-system'
-// <Box activeStyle={{ color: 'navy' }} />
+// <Box active={{ color: 'navy' }} />
 // props.theme.colors.navy
 ```
 

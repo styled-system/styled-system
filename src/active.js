@@ -1,5 +1,5 @@
 const pseudoStyle = require('./pseudo-style')
-module.exports = pseudoStyle('active', 'activeStyle')({
+module.exports = pseudoStyle('active')({
   color: 'colors',
   backgroundColor: 'colors',
   borderColor: 'colors',
