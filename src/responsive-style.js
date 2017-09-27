@@ -1,6 +1,7 @@
 const { get } = require('dot-prop')
 const { is, arr, num, px, breaks, dec, media, merge } = require('./util')
 
+// todo: support object arguments
 module.exports = (key, prop, boolValue) => props => {
   prop = prop || key
   const n = props[prop]

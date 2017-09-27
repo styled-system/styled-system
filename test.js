@@ -12,6 +12,12 @@ import system, {
   util,
   textAlign,
   fontWeight,
+  alignItems,
+  justifyContent,
+  flexWrap,
+  flexDirection,
+  flex,
+  alignSelf,
   borderRadius,
   borderColor,
   borderWidth,
@@ -708,6 +714,37 @@ test('fontWeight returns a scalar style', t => {
     fontWeight: 2
   })
   t.deepEqual(a, { fontWeight: 800 })
+})
+
+test('alignItems returns a style', t => {
+  const a = alignItems({ align: 'center' })
+  t.deepEqual(a, { alignItems: 'center' })
+})
+
+test('justifyContent returns a style', t => {
+  const a = justifyContent({ justify: 'center' })
+  t.deepEqual(a, { justifyContent: 'center' })
+})
+
+test('flexWrap returns a style', t => {
+  const a = flexWrap({ wrap: true })
+  t.deepEqual(a, { flexWrap: 'wrap' })
+})
+
+test('flexDirection returns a style', t => {
+  const a = flexDirection({ flexDirection: 'column' })
+  t.deepEqual(a, { flexDirection: 'column' })
+})
+
+
+test('flex returns a style', t => {
+  const a = flex({ flex: 'none' })
+  t.deepEqual(a, { flex: 'none' })
+})
+
+test('alignSelf returns a style', t => {
+  const a = alignSelf({ alignSelf: 'center' })
+  t.deepEqual(a, { alignSelf: 'center' })
 })
 
 test('borderRadius returns borderRadius', t => {

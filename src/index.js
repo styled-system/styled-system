@@ -11,12 +11,14 @@ const responsiveStyle = require('./responsive-style')
 const pseudoStyle = require('./pseudo-style')
 
 // extras
-// const alignItems = require('./align-items')
-// const justifyContent = require('./justify-content')
-// const flex = require('./flex')
-// const alignSelf = require('./align-self')
 const textAlign = require('./text-align')
 const fontWeight = require('./font-weight')
+const alignItems = require('./align-items')
+const justifyContent = require('./justify-content')
+const flexWrap = require('./flex-wrap')
+const flexDirection = require('./flex-direction')
+const flex = require('./flex')
+const alignSelf = require('./align-self')
 const borderRadius = require('./border-radius')
 const borderColor = require('./border-color')
 const borderWidth = require('./border-width')
@@ -40,12 +42,14 @@ module.exports = {
   style,
   responsiveStyle,
   pseudoStyle,
-  // alignItems,
-  // justifyContent,
-  // flex,
-  // alignSelf,
   textAlign,
   fontWeight,
+  alignItems,
+  justifyContent,
+  flexWrap,
+  flexDirection,
+  flex,
+  alignSelf,
   borderRadius,
   borderColor,
   borderWidth,
