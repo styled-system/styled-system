@@ -1,12 +1,14 @@
 import test from 'ava'
 import palx from 'palx'
 import {
+  system,
   space,
   width,
   fontSize,
   color,
   style,
   responsiveStyle,
+  pseudoStyle,
   removeProps,
   util,
   textAlign,
@@ -15,6 +17,10 @@ import {
   borderColor,
   borderWidth,
   boxShadow,
+  hover,
+  focus,
+  active,
+  disabled,
 } from './src'
 
 const palette = palx('#07c')
@@ -33,6 +39,11 @@ test('exports space, width, and fontSize', t => {
   t.is(typeof space, 'function')
   t.is(typeof width, 'function')
   t.is(typeof fontSize, 'function')
+})
+
+test('system gets theme values', t => {
+  const a = system('colors.blue')({ theme })
+  t.is(a, theme.colors.blue)
 })
 
 // util
@@ -581,6 +592,44 @@ test('responsiveStyle boolean props handle arrays', t => {
   })
 })
 
+test('psuedoStyle returns a function', t => {
+  const hover = pseudoStyle('hover')
+  const hoverStyle = pseudoStyle('hover')({})
+  t.is(typeof hover, 'function')
+  t.is(typeof hoverStyle, 'function')
+})
+
+test('pseudoStyle returns a style object', t => {
+  const hoverStyle = pseudoStyle('hover')({})
+  const a = hoverStyle({
+    hover: {
+      color: 'tomato'
+    }
+  })
+  t.deepEqual(a, {
+    '&:hover': {
+      color: 'tomato'
+    }
+  })
+})
+
+test('pseudoStyle uses theme values', t => {
+  const hoverStyle = pseudoStyle('hover')({
+    color: 'colors'
+  })
+  const a = hoverStyle({
+    theme,
+    hover: {
+      color: 'blue'
+    }
+  })
+  t.deepEqual(a, {
+    '&:hover': {
+      color: theme.colors.blue
+    }
+  })
+})
+
 // theme
 test('breakpoints can be configured with a theme', t => {
   const a = space({theme, m: [1, 2, 3, 4]})
@@ -703,3 +752,130 @@ test('boxShadow returns theme value', t => {
   t.deepEqual(a, { boxShadow: '0 0 8px rgba(0, 0, 0, .125)' })
 })
 
+test('hover returns a style object', t => {
+  const a = hover({})({
+    hover: {
+      color: 'tomato'
+    }
+  })
+  t.deepEqual(a, {
+    '&:hover': {
+      color: 'tomato'
+    }
+  })
+})
+
+test('hover uses theme values', t => {
+  const a = hover({
+    color: 'colors',
+    backgroundColor: 'colors'
+  })({
+    theme,
+    hover: {
+      color: 'blue',
+      backgroundColor: 'green'
+    }
+  })
+  t.deepEqual(a, {
+    '&:hover': {
+      color: theme.colors.blue,
+      backgroundColor: theme.colors.green,
+    }
+  })
+})
+
+test('focus returns a style object', t => {
+  const a = focus({})({
+    focus: {
+      color: 'tomato'
+    }
+  })
+  t.deepEqual(a, {
+    '&:focus': {
+      color: 'tomato'
+    }
+  })
+})
+
+test('focus uses theme values', t => {
+  const a = focus({
+    color: 'colors',
+    backgroundColor: 'colors'
+  })({
+    theme,
+    focus: {
+      color: 'blue',
+      backgroundColor: 'green'
+    }
+  })
+  t.deepEqual(a, {
+    '&:focus': {
+      color: theme.colors.blue,
+      backgroundColor: theme.colors.green,
+    }
+  })
+})
+
+test('active returns a style object', t => {
+  const a = active({})({
+    active: {
+      color: 'tomato'
+    }
+  })
+  t.deepEqual(a, {
+    '&:active': {
+      color: 'tomato'
+    }
+  })
+})
+
+test('active uses theme values', t => {
+  const a = active({
+    color: 'colors',
+    backgroundColor: 'colors'
+  })({
+    theme,
+    active: {
+      color: 'blue',
+      backgroundColor: 'green'
+    }
+  })
+  t.deepEqual(a, {
+    '&:active': {
+      color: theme.colors.blue,
+      backgroundColor: theme.colors.green,
+    }
+  })
+})
+
+test('disabled returns a style object', t => {
+  const a = disabled({})({
+    disabled: {
+      color: 'tomato'
+    }
+  })
+  t.deepEqual(a, {
+    '&:disabled': {
+      color: 'tomato'
+    }
+  })
+})
+
+test('disabled uses theme values', t => {
+  const a = disabled({
+    color: 'colors',
+    backgroundColor: 'colors'
+  })({
+    theme,
+    disabled: {
+      color: 'blue',
+      backgroundColor: 'green'
+    }
+  })
+  t.deepEqual(a, {
+    '&:disabled': {
+      color: theme.colors.blue,
+      backgroundColor: theme.colors.green,
+    }
+  })
+})

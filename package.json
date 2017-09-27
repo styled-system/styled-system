@@ -60,5 +60,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jxnblk/styled-system.git"
+  },
+  "dependencies": {
+    "dot-prop": "^4.2.0"
   }
 }
