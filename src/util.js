@@ -1,3 +1,4 @@
+const { get } = require('dot-prop')
 const { breakpoints } = require('./constants')
 
 const is = n => n !== undefined && n !== null
@@ -6,13 +7,15 @@ const px = n => num(n) ? n + 'px' : n
 const em = n => num(n) ? n + 'em' : n
 const neg = n => n < 0
 const arr = n => Array.isArray(n) ? n : [ n ]
-const idx = (p, obj) => p.reduce((a, b) => (a && a[b]) ? a[b] : null, obj)
+
+// keeping for backwards-compatibility only
+const idx = (keys, obj) => get(obj, keys.join('.')) || null
 
 const mq = n => `@media screen and (min-width: ${em(n)})`
 
 const breaks = props => [
   null,
-  ...(idx([ 'theme', 'breakpoints' ], props) || breakpoints).map(mq)
+  ...get(props, 'theme.breakpoints', breakpoints).map(mq)
 ]
 
 const dec = props => val => arr(props)

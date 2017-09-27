@@ -1,4 +1,5 @@
-const { is, idx, arr, num, px, breaks, dec, media, merge } = require('./util')
+const { get } = require('dot-prop')
+const { is, arr, num, px, breaks, dec, media, merge } = require('./util')
 
 module.exports = (key, prop, boolValue) => props => {
   prop = prop || key
@@ -6,7 +7,7 @@ module.exports = (key, prop, boolValue) => props => {
   if (!is(n)) return null
 
   const bp = breaks(props)
-  const scale = idx([ 'theme', prop ], props) || {}
+  const scale = get(props, [ 'theme', prop ].join('.'), {})
 
   if (!Array.isArray(n)) {
     return {

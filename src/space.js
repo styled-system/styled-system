@@ -1,6 +1,6 @@
+const { get } = require('dot-prop')
 const {
   arr,
-  idx,
   px,
   neg,
   num,
@@ -18,7 +18,7 @@ module.exports = props => {
     .filter(key => REG.test(key))
     .sort()
   const bp = breaks(props)
-  const sc = idx([ 'theme', 'space' ], props) || space
+  const sc = get(props, 'theme.space', space)
 
   return keys.map(key => {
     const val = props[key]

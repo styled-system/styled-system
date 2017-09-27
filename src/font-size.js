@@ -1,11 +1,12 @@
-const { is, idx, arr, num, px, breaks, dec, media, merge } = require('./util')
+const { get } = require('dot-prop')
+const { is, arr, num, px, breaks, dec, media, merge } = require('./util')
 const { fontSizes } = require('./constants')
 
 module.exports = props => {
   const n = is(props.fontSize) ? props.fontSize : props.fontSize || props.f
   if (!is(n)) return null
 
-  const scale = idx([ 'theme', 'fontSizes' ], props) || fontSizes
+  const scale = get(props, 'theme.fontSizes', fontSizes)
 
   if (!Array.isArray(n)) {
     return {
