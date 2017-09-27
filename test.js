@@ -597,6 +597,20 @@ test('responsiveStyle boolean props handle arrays', t => {
   })
 })
 
+test('responsiveStyle accepts and object argument', t => {
+  const direction = responsiveStyle({
+    cssProperty: 'flexDirection',
+    prop: 'direction'
+  })
+  const a = direction({ direction: [ 'column', 'row' ] })
+  t.deepEqual(a, {
+    'flexDirection': 'column',
+    '@media screen and (min-width: 40em)': {
+      'flexDirection': 'row'
+    }
+  })
+})
+
 test('psuedoStyle returns a function', t => {
   const hover = pseudoStyle('hover')
   const hoverStyle = pseudoStyle('hover')()
