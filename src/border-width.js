@@ -4,8 +4,8 @@ module.exports = props => {
   const width = style({
     prop: 'borderWidth'
   })(props)
-  const borderStyle = props.borderWidth ? { borderStyle: 'solid' } : null
+  const borderStyle = { borderStyle: 'solid' }
   // todo: directional borders
 
-  return Object.assign({}, width, borderStyle)
+  return props.borderWidth ? Object.assign({}, width, borderStyle) : null
 }

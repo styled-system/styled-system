@@ -594,7 +594,7 @@ test('responsiveStyle boolean props handle arrays', t => {
 
 test('psuedoStyle returns a function', t => {
   const hover = pseudoStyle('hover')
-  const hoverStyle = pseudoStyle('hover')({})
+  const hoverStyle = pseudoStyle('hover')()
   t.is(typeof hover, 'function')
   t.is(typeof hoverStyle, 'function')
 })
@@ -732,6 +732,11 @@ test('borderWidth returns borderWidth and borderStyle', t => {
     borderWidth: '2px',
     borderStyle: 'solid'
   })
+})
+
+test('borderWidth returns null', t => {
+  const a = borderWidth({})
+  t.is(a, null)
 })
 
 test('boxShadow returns box-shadow styles', t => {
