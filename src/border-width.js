@@ -17,10 +17,16 @@ module.exports = props => {
   const directions = getDirections(props)
   const borderWidths = directions
     ? directions.map(dir => style({
+      key: 'borderWidths',
       prop: 'borderWidth',
       cssProperty: getWidthProp(dir)
     })(props))
-    : [ style({ prop: 'borderWidth' })(props) ]
+    : [
+      style({
+        key: 'borderWidths',
+        prop: 'borderWidth'
+      })(props)
+    ]
 
   const borderStyles = directions
     ? directions.map(dir => ({

@@ -1,7 +1,6 @@
 import test from 'ava'
 import palx from 'palx'
-import {
-  system,
+import system, {
   space,
   width,
   fontSize,
@@ -41,8 +40,8 @@ test('exports space, width, and fontSize', t => {
   t.is(typeof fontSize, 'function')
 })
 
-test('system gets theme values', t => {
-  const a = system('colors.blue')({ theme })
+test('system.theme gets theme values', t => {
+  const a = system.theme('colors.blue')({ theme })
   t.is(a, theme.colors.blue)
 })
 
@@ -805,7 +804,7 @@ test('boxShadow returns theme value', t => {
 })
 
 test('hover returns a style object', t => {
-  const a = hover({})({
+  const a = hover({
     hover: {
       color: 'tomato'
     }
@@ -819,9 +818,6 @@ test('hover returns a style object', t => {
 
 test('hover uses theme values', t => {
   const a = hover({
-    color: 'colors',
-    backgroundColor: 'colors'
-  })({
     theme,
     hover: {
       color: 'blue',
@@ -837,7 +833,7 @@ test('hover uses theme values', t => {
 })
 
 test('focus returns a style object', t => {
-  const a = focus({})({
+  const a = focus({
     focus: {
       color: 'tomato'
     }
@@ -851,9 +847,6 @@ test('focus returns a style object', t => {
 
 test('focus uses theme values', t => {
   const a = focus({
-    color: 'colors',
-    backgroundColor: 'colors'
-  })({
     theme,
     focus: {
       color: 'blue',
@@ -869,8 +862,8 @@ test('focus uses theme values', t => {
 })
 
 test('active returns a style object', t => {
-  const a = active({})({
-    active: {
+  const a = active({
+    activeStyle: {
       color: 'tomato'
     }
   })
@@ -883,11 +876,8 @@ test('active returns a style object', t => {
 
 test('active uses theme values', t => {
   const a = active({
-    color: 'colors',
-    backgroundColor: 'colors'
-  })({
     theme,
-    active: {
+    activeStyle: {
       color: 'blue',
       backgroundColor: 'green'
     }
@@ -901,8 +891,8 @@ test('active uses theme values', t => {
 })
 
 test('disabled returns a style object', t => {
-  const a = disabled({})({
-    disabled: {
+  const a = disabled({
+    disabledStyle: {
       color: 'tomato'
     }
   })
@@ -915,11 +905,8 @@ test('disabled returns a style object', t => {
 
 test('disabled uses theme values', t => {
   const a = disabled({
-    color: 'colors',
-    backgroundColor: 'colors'
-  })({
     theme,
-    disabled: {
+    disabledStyle: {
       color: 'blue',
       backgroundColor: 'green'
     }
