@@ -71,13 +71,13 @@ responsively per-breakpoint.
 ## API
 
 - [**Core**](#core)
-  - [space](#space) (margins & paddings)
-  - [width](#width)
-  - [fontSize](#fontSize)
-  - [color](#color) (and background-color)
+  - [space](#space-responsive) (margins & paddings)
+  - [width](#width-responsive)
+  - [fontSize](#fontSize-responsive)
+  - [color](#color-responsive) (and background-color)
   - [Responsive Styles](#responsive-styles)
 - [**Extras**](#extras)
-  - [textAlign](#textAlign)
+  - [textAlign](#textAlign-responsive)
   - [fontWeight](#fontWeight)
   - [borderRadius](#borderRadius)
   - [borderColor](#borderColor)
