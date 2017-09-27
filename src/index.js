@@ -5,13 +5,15 @@ const color = require('./color')
 const style = require('./style')
 const responsiveStyle = require('./responsive-style')
 
+// const theme = require('./theme')
+
 const textAlign = require('./text-align')
 const fontWeight = require('./font-weight')
 
 const borderRadius = require('./border-radius')
 const borderColor = require('./border-color')
 const borderWidth = require('./border-width')
-// const boxShadow = require('./box-shadow')
+const boxShadow = require('./box-shadow')
 
 // const pseudoClass = require('./pseudo-class')
 // const hover = require('./hover')
@@ -35,7 +37,7 @@ module.exports = {
   borderRadius,
   borderColor,
   borderWidth,
-  // boxShadow,
+  boxShadow,
   // pseudoClass,
   // hover,
   // focus,

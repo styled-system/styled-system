@@ -14,6 +14,7 @@ import {
   borderRadius,
   borderColor,
   borderWidth,
+  boxShadow,
 } from './src'
 
 const palette = palx('#07c')
@@ -684,4 +685,21 @@ test('borderWidth returns borderWidth and borderStyle', t => {
   })
 })
 
+test('boxShadow returns box-shadow styles', t => {
+  const a = boxShadow({ boxShadow: '0 0 8px rgba(0, 0, 0, .125)' })
+  t.deepEqual(a, { boxShadow: '0 0 8px rgba(0, 0, 0, .125)' })
+})
+
+test('boxShadow returns theme value', t => {
+  const a = boxShadow({
+    theme: {
+      shadows: [
+        '0 0 4px rgba(0, 0, 0, .125)',
+        '0 0 8px rgba(0, 0, 0, .125)',
+      ]
+    },
+    boxShadow: 1
+  })
+  t.deepEqual(a, { boxShadow: '0 0 8px rgba(0, 0, 0, .125)' })
+})
 
