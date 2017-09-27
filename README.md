@@ -25,6 +25,12 @@ npm i styled-system
 - Responsive prop values for quickly setting responsive font-size, margin, padding, width, and more
 - Works with most css-in-js libraries, including [styled-components][sc], [glamorous][glamorous], [emotion][emotion], [fela][fela], and [cxs][cxs]
 
+> "The future of css-in-js is going to look something like styled-system with its responsive values."
+> – [Kye Hohenberger](https://mobile.twitter.com/tkh44/status/905474043729416192)
+
+> "Coming from @tachyons_css, the styled-system utilities from @jxnblk is the missing link I’ve been looking for."
+> - [Nathan Young](https://mobile.twitter.com/nathanyoung/status/891353221880360960)
+
 ## Usage
 
 ```jsx
