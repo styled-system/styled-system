@@ -231,6 +231,14 @@ import { borderWidth } from 'styled-system'
 // props.theme.borderWidths
 ```
 
+```js
+// Only apply border in one direction
+<Box borderWidth={1} borderBottom />
+
+// Or in multiple directions
+<Box borderWidth={1} borderTop borderBottom />
+```
+
 ### boxShadow
 
 ```js
