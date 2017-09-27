@@ -1,11 +1,12 @@
-const { breaks, idx, merge, arr, dec, media } = require('./util')
+const { get } = require('dot-prop')
+const { breaks, merge, arr, dec, media } = require('./util')
 
 const REG = /^color|bg$/
 
 module.exports = props => {
   const keys = Object.keys(props).filter(key => REG.test(key))
   const bp = breaks(props)
-  const palette = idx([ 'theme', 'colors' ], props) || {}
+  const palette = get(props, 'theme.colors', {})
 
   return keys.map(key => {
     const val = props[key]
@@ -25,8 +26,7 @@ module.exports = props => {
   }).reduce(merge, {})
 }
 
-const cx = obj => n => idx(getKeys(n), obj) || n
-const getKeys = n => typeof n === 'string' ? n.split('.') : [ n ]
+const cx = obj => n => get(obj, n + '', n)
 
 const properties = {
   bg: 'backgroundColor'

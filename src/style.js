@@ -1,4 +1,5 @@
-const { is, idx } = require('./util')
+const { get } = require('dot-prop')
+const { is } = require('./util')
 
 module.exports = ({
   key,          // key for theme object
@@ -7,7 +8,7 @@ module.exports = ({
 }) => props => {
   const n = props[prop]
   if (!is(n)) return null
-  const scale = idx([ 'theme', key ], props) || {}
+  const scale = get(props, [ 'theme', key ].join('.'), {})
   const val = scale[n] || n
 
   return { [cssProperty || prop]: val }

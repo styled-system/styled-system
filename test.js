@@ -1,14 +1,31 @@
 import test from 'ava'
 import palx from 'palx'
-import {
+import system, {
   space,
   width,
   fontSize,
   color,
   style,
   responsiveStyle,
+  pseudoStyle,
   removeProps,
-  util
+  util,
+  textAlign,
+  fontWeight,
+  alignItems,
+  justifyContent,
+  flexWrap,
+  flexDirection,
+  flex,
+  alignSelf,
+  borderRadius,
+  borderColor,
+  borderWidth,
+  boxShadow,
+  hover,
+  focus,
+  active,
+  disabled,
 } from './src'
 
 const palette = palx('#07c')
@@ -27,6 +44,11 @@ test('exports space, width, and fontSize', t => {
   t.is(typeof space, 'function')
   t.is(typeof width, 'function')
   t.is(typeof fontSize, 'function')
+})
+
+test('system.theme gets theme values', t => {
+  const a = system.theme('colors.blue')({ theme })
+  t.is(a, theme.colors.blue)
 })
 
 // util
@@ -575,6 +597,58 @@ test('responsiveStyle boolean props handle arrays', t => {
   })
 })
 
+test('responsiveStyle accepts and object argument', t => {
+  const direction = responsiveStyle({
+    cssProperty: 'flexDirection',
+    prop: 'direction'
+  })
+  const a = direction({ direction: [ 'column', 'row' ] })
+  t.deepEqual(a, {
+    'flexDirection': 'column',
+    '@media screen and (min-width: 40em)': {
+      'flexDirection': 'row'
+    }
+  })
+})
+
+test('psuedoStyle returns a function', t => {
+  const hover = pseudoStyle('hover')
+  const hoverStyle = pseudoStyle('hover')()
+  t.is(typeof hover, 'function')
+  t.is(typeof hoverStyle, 'function')
+})
+
+test('pseudoStyle returns a style object', t => {
+  const hoverStyle = pseudoStyle('hover')({})
+  const a = hoverStyle({
+    hover: {
+      color: 'tomato'
+    }
+  })
+  t.deepEqual(a, {
+    '&:hover': {
+      color: 'tomato'
+    }
+  })
+})
+
+test('pseudoStyle uses theme values', t => {
+  const hoverStyle = pseudoStyle('hover')({
+    color: 'colors'
+  })
+  const a = hoverStyle({
+    theme,
+    hover: {
+      color: 'blue'
+    }
+  })
+  t.deepEqual(a, {
+    '&:hover': {
+      color: theme.colors.blue
+    }
+  })
+})
+
 // theme
 test('breakpoints can be configured with a theme', t => {
   const a = space({theme, m: [1, 2, 3, 4]})
@@ -613,5 +687,285 @@ test('removeProps removes style props', t => {
     name: 'hello',
     type: 'text',
     value: 'Hi',
+  })
+})
+
+// textAlign
+test('textAlign returns text-align', t => {
+  const a = textAlign({ align: 'center' })
+  t.deepEqual(a, { textAlign: 'center' })
+})
+
+// textAlign
+test('textAlign returns text-align', t => {
+  const a = textAlign({ align: 'center' })
+  t.deepEqual(a, { textAlign: 'center' })
+})
+
+test('textAlign returns responsive text-align', t => {
+  const a = textAlign({ align: [ 'center', 'left' ] })
+  t.deepEqual(a, {
+    textAlign: 'center',
+    '@media screen and (min-width: 40em)': {
+      textAlign: 'left',
+    }
+  })
+})
+
+// fontWeight
+test('fontWeight returns fontWeight', t => {
+  const a = fontWeight({ fontWeight: 'bold' })
+  t.deepEqual(a, { fontWeight: 'bold' })
+})
+
+test('fontWeight returns a scalar style', t => {
+  const a = fontWeight({
+    theme: {
+      fontWeights: [
+        400, 600, 800
+      ]
+    },
+    fontWeight: 2
+  })
+  t.deepEqual(a, { fontWeight: 800 })
+})
+
+test('alignItems returns a style', t => {
+  const a = alignItems({ align: 'center' })
+  t.deepEqual(a, { alignItems: 'center' })
+})
+
+test('justifyContent returns a style', t => {
+  const a = justifyContent({ justify: 'center' })
+  t.deepEqual(a, { justifyContent: 'center' })
+})
+
+test('flexWrap returns a style', t => {
+  const a = flexWrap({ wrap: true })
+  t.deepEqual(a, { flexWrap: 'wrap' })
+})
+
+test('flexDirection returns a style', t => {
+  const a = flexDirection({ flexDirection: 'column' })
+  t.deepEqual(a, { flexDirection: 'column' })
+})
+
+
+test('flex returns a style', t => {
+  const a = flex({ flex: 'none' })
+  t.deepEqual(a, { flex: 'none' })
+})
+
+test('alignSelf returns a style', t => {
+  const a = alignSelf({ alignSelf: 'center' })
+  t.deepEqual(a, { alignSelf: 'center' })
+})
+
+test('borderRadius returns borderRadius', t => {
+  const a = borderRadius({ borderRadius: '4px' })
+  t.deepEqual(a, { borderRadius: '4px' })
+})
+
+test('borderColor returns borderColor', t => {
+  const a = borderColor({ borderColor: 'blue' })
+  t.deepEqual(a, { borderColor: 'blue' })
+})
+
+test('borderColor returns borderColor', t => {
+  const a = borderColor({ borderColor: 'blue' })
+  t.deepEqual(a, { borderColor: 'blue' })
+})
+
+test('borderWidth returns borderWidth and borderStyle', t => {
+  const a = borderWidth({ borderWidth: '2px' })
+  t.deepEqual(a, {
+    borderWidth: '2px',
+    borderStyle: 'solid'
+  })
+})
+
+test('borderWidth returns null', t => {
+  const a = borderWidth({})
+  t.is(a, null)
+})
+
+test('borderWidth returns borderTopWidth and borderTopStyle', t => {
+  const a = borderWidth({ borderWidth: '2px', borderTop: true })
+  t.deepEqual(a, {
+    borderTopWidth: '2px',
+    borderTopStyle: 'solid'
+  })
+})
+
+test('borderWidth returns borderRightWidth and borderRightStyle', t => {
+  const a = borderWidth({ borderWidth: '2px', borderRight: true })
+  t.deepEqual(a, {
+    borderRightWidth: '2px',
+    borderRightStyle: 'solid'
+  })
+})
+
+test('borderWidth returns borderBottomWidth and borderBottomWidth', t => {
+  const a = borderWidth({ borderWidth: '2px', borderBottom: true })
+  t.deepEqual(a, {
+    borderBottomWidth: '2px',
+    borderBottomStyle: 'solid'
+  })
+})
+
+test('borderWidth returns borderLeftWidth and borderLeftStyle', t => {
+  const a = borderWidth({ borderWidth: '2px', borderLeft: true })
+  t.deepEqual(a, {
+    borderLeftWidth: '2px',
+    borderLeftStyle: 'solid'
+  })
+})
+
+test('borderWidth returns multiple directions', t => {
+  const a = borderWidth({
+    borderWidth: '2px',
+    borderLeft: true,
+    borderRight: true,
+  })
+  t.deepEqual(a, {
+    borderLeftWidth: '2px',
+    borderLeftStyle: 'solid',
+    borderRightWidth: '2px',
+    borderRightStyle: 'solid'
+  })
+})
+
+
+test('boxShadow returns box-shadow styles', t => {
+  const a = boxShadow({ boxShadow: '0 0 8px rgba(0, 0, 0, .125)' })
+  t.deepEqual(a, { boxShadow: '0 0 8px rgba(0, 0, 0, .125)' })
+})
+
+test('boxShadow returns theme value', t => {
+  const a = boxShadow({
+    theme: {
+      shadows: [
+        '0 0 4px rgba(0, 0, 0, .125)',
+        '0 0 8px rgba(0, 0, 0, .125)',
+      ]
+    },
+    boxShadow: 1
+  })
+  t.deepEqual(a, { boxShadow: '0 0 8px rgba(0, 0, 0, .125)' })
+})
+
+test('hover returns a style object', t => {
+  const a = hover({
+    hover: {
+      color: 'tomato'
+    }
+  })
+  t.deepEqual(a, {
+    '&:hover': {
+      color: 'tomato'
+    }
+  })
+})
+
+test('hover uses theme values', t => {
+  const a = hover({
+    theme,
+    hover: {
+      color: 'blue',
+      backgroundColor: 'green'
+    }
+  })
+  t.deepEqual(a, {
+    '&:hover': {
+      color: theme.colors.blue,
+      backgroundColor: theme.colors.green,
+    }
+  })
+})
+
+test('focus returns a style object', t => {
+  const a = focus({
+    focus: {
+      color: 'tomato'
+    }
+  })
+  t.deepEqual(a, {
+    '&:focus': {
+      color: 'tomato'
+    }
+  })
+})
+
+test('focus uses theme values', t => {
+  const a = focus({
+    theme,
+    focus: {
+      color: 'blue',
+      backgroundColor: 'green'
+    }
+  })
+  t.deepEqual(a, {
+    '&:focus': {
+      color: theme.colors.blue,
+      backgroundColor: theme.colors.green,
+    }
+  })
+})
+
+test('active returns a style object', t => {
+  const a = active({
+    active: {
+      color: 'tomato'
+    }
+  })
+  t.deepEqual(a, {
+    '&:active': {
+      color: 'tomato'
+    }
+  })
+})
+
+test('active uses theme values', t => {
+  const a = active({
+    theme,
+    active: {
+      color: 'blue',
+      backgroundColor: 'green'
+    }
+  })
+  t.deepEqual(a, {
+    '&:active': {
+      color: theme.colors.blue,
+      backgroundColor: theme.colors.green,
+    }
+  })
+})
+
+test('disabled returns a style object', t => {
+  const a = disabled({
+    disabledStyle: {
+      color: 'tomato'
+    }
+  })
+  t.deepEqual(a, {
+    '&:disabled': {
+      color: 'tomato'
+    }
+  })
+})
+
+test('disabled uses theme values', t => {
+  const a = disabled({
+    theme,
+    disabledStyle: {
+      color: 'blue',
+      backgroundColor: 'green'
+    }
+  })
+  t.deepEqual(a, {
+    '&:disabled': {
+      color: theme.colors.blue,
+      backgroundColor: theme.colors.green,
+    }
   })
 })
