@@ -1,6 +1,6 @@
 # styled-system
 
-Design system utilities for styled-components, glamorous, and other css-in-js libraries
+Design system utilities for styled-components and other css-in-js libraries
 
 [![Build Status][build-badge]][build]
 [![Coverage][coverage-badge]][coverage]
@@ -17,10 +17,11 @@ npm i styled-system
 ## Usage
 
 ```jsx
-// With styled-components
+// Example uses styled-components, but works with most other css-in-js libraries as well
 import styled from 'styled-components'
 import { space, width, fontSize, color } from 'styled-system'
 
+// Add styled-system functions to your component
 const Box = styled.div`
   ${space}
   ${width}
@@ -29,13 +30,10 @@ const Box = styled.div`
 `
 ```
 
-```jsx
-// Or with glamorous
-import glamorous from 'glamorous'
-import { space, width, fontSize, color } from 'styled-system'
-
-const Box = glamorous.div(space, width, fontSize, color)
-```
+Each style function exposes its own set of props that style
+elements based on values defined in a theme.
+Some props allow an array value to be passed to set styles
+responsively per-breakpoint.
 
 ```jsx
 // width: 50%
@@ -70,32 +68,36 @@ const Box = glamorous.div(space, width, fontSize, color)
 <Box p={[ 1, 2, 3 ]} />
 ```
 
-## width
+## API
 
-```js
-import { width } from 'styled-system'
-```
+- [**Core**](#core)
+  - [space](#space) (margins & paddings)
+  - [width](#width)
+  - [fontSize](#fontSize)
+  - [color](#color) (and background-color)
+  - [Responsive Styles](#responsive-styles)
+- [**Extras**](#extras)
+  - [textAlign](#textAlign)
+  - [fontWeight](#fontWeight)
+  - [borderRadius](#borderRadius)
+  - [borderColor](#borderColor)
+  - [borderWidth](#borderWidth)
+  - [boxShadow](#boxShadow)
+  - [hover](#hover)
+  - [focus](#focus)
+  - [active](#active)
+  - [disabled](#disabled)
+- [**Utilities**](#utilities)
+  - [theme](#theme)
+  - [removeProps](#removeProps)
+- [**Low-level**](#Low-level-style-functions)
+  - [style](#style)
+  - [responsiveStyle](#responsiveStyle)
+  - [pseudoStyle](#pseudoStyle)
 
-The width utility parses a component's `width` prop and converts it into a CSS width declaration.
+## Core
 
-Numbers from 0-1 are converted to percentage widths.
-Numbers greater than 1 are converted to pixel values.
-String values are passed as raw CSS values.
-And arrays are converted to [responsive width styles](#responsive-styles).
-
-## fontSize
-
-```js
-import { fontSize } from 'styled-system'
-```
-
-The fontSize utility parses a component's `fontSize` prop and converts it into a CSS font-size declaration.
-Numbers from 0-8 are converted to values on the [font size scale](#font-size-scale).
-Numbers greater than 8 are converted to raw pixel values.
-String values are passed as raw CSS values.
-And array values are converted into [responsive values](#responsive-styles).
-
-## space
+### space (responsive)
 
 ```js
 import { space } from 'styled-system'
@@ -125,7 +127,32 @@ Margin and padding props follow a shorthand syntax for specifying direction.
 - `px`: padding-left and padding-right
 - `py`: padding-top and padding-bottom
 
-## color
+### width (responsive)
+
+```js
+import { width } from 'styled-system'
+```
+
+The width utility parses a component's `width` prop and converts it into a CSS width declaration.
+
+- Numbers from 0-1 are converted to percentage widths.
+- Numbers greater than 1 are converted to pixel values.
+- String values are passed as raw CSS values.
+- And arrays are converted to [responsive width styles](#responsive-styles).
+
+### fontSize (responsive)
+
+```js
+import { fontSize } from 'styled-system'
+```
+
+The fontSize utility parses a component's `fontSize` prop and converts it into a CSS font-size declaration.
+Numbers from 0-8 are converted to values on the [font size scale](#font-size-scale).
+Numbers greater than 8 are converted to raw pixel values.
+String values are passed as raw CSS values.
+And array values are converted into [responsive values](#responsive-styles).
+
+### color (responsive)
 
 ```js
 import { color } from 'styled-system'
@@ -136,10 +163,11 @@ By default the raw value of the prop is returned.
 Color palettes can be configured with the [ThemeProvider](#configuration) to use keys as prop values, with support for dot notation.
 Array values are converted into [responsive values](#responsive-styles).
 
+---
 
-## Responsive Styles
+### Responsive Styles
 
-All props accept arrays as values for mobile-first responsive styles.
+All core function props accept arrays as values for mobile-first responsive styles.
 
 ```jsx
 // 100% below the smallest breakpoint,
@@ -157,28 +185,108 @@ All props accept arrays as values for mobile-first responsive styles.
 <Box p={[ 1, 2, 3, 4 ]} />
 ```
 
-## responsiveStyle
+---
 
-The `responsiveStyle` utility can be used to handle array-based responsive style props for other CSS properties.
+## Extras
+
+These functions are for adding other theme-based style props to a component.
+For practical reasons, some props do not accept arrays for responsive styles.
+
+### textAlign (responsive)
+
+```js
+import { textAlign } from 'styled-system'
+// <Text align='center' />
+```
+
+### fontWeight
+
+```js
+import { fontWeight } from 'styled-system'
+// <Text weight='bold' />
+// props.theme.fontWeights.bold
+```
+
+### borderRadius
+
+```js
+import { borderRadius } from 'styled-system'
+// <Box borderRadius={1} />
+// props.theme.radii[1]
+```
+
+### borderColor
+
+```js
+import { borderColor } from 'styled-system'
+// <Box borderColor='blue' />
+// props.theme.colors.blue
+```
+
+### borderWidth
+
+```js
+import { borderWidth } from 'styled-system'
+// <Box borderWidth={1} />
+// props.theme.borderWidths
+```
+
+### boxShadow
+
+```js
+import { boxShadow } from 'styled-system'
+// <Box boxShadow={1} />
+// props.theme.shadows[1]
+```
+
+### hover
+
+```js
+import { hover } from 'styled-system'
+// <Box hover={{ color: 'blue' }} />
+// props.theme.colors.blue
+```
+
+### focus
+
+```js
+import { focus } from 'styled-system'
+// <Box focus={{ color: 'blue' }} />
+// props.theme.colors.blue
+```
+
+### active
+
+```js
+import { active } from 'styled-system'
+// <Box activeStyle={{ color: 'navy' }} />
+// props.theme.colors.navy
+```
+
+### disabled
+
+```js
+import { disabled } from 'styled-system'
+// <Box disabledStyle={{ color: 'gray' }} />
+// props.theme.colors.gray
+```
+
+---
+
+## Utilities
+
+### theme
+
+The theme function can be used in any style declaration to get a value
+from your theme, with support for fallback values.
 
 ```js
 import styled from 'styled-components'
-import { responsiveStyle } from 'styled-system'
+import { theme } from 'styled-system'
 
-// Usage
-// responsiveStyle(cssProperty[, propName][, booleanValue])
-
-const Flex = styled.div`
-  display: flex;
-  ${responsiveStyle('flex-direction', 'direction')}
+const Box = styled.div`
+  border-radius: ${theme('radii.small')};
 `
-
-const App = props => (
-  <Flex direction={[ 'column', 'row' ]}>
-    <div>Responsive</div>
-    <div>Direction</div>
-  </Flex>
-)
 ```
 
 ## Remove Props
@@ -211,6 +319,97 @@ const Component = styled(BaseComponent)([],
   space
 )
 ```
+
+---
+
+## Low-level style functions
+
+To convert other CSS properties into styled-system props,
+use the following low-level utility functions.
+
+### style
+
+Sets non-responsive styles using thematic values, based on props.
+
+```js
+import styled from 'styled-components'
+import { style } from 'styled-system'
+
+const textShadow = style({
+  // React prop name
+  prop: 'shadow',
+  // The corresponding CSS property
+  cssProperty: 'textShadow',
+  // set a key to find values from `props.theme`
+  key: 'shadows'
+})
+
+const ShadowText = styled(Text)`
+  ${textShadow}
+`
+
+// with a `theme.shadows` array
+const App = props => (
+  <ShadowText shadow={0}>
+    Shady
+  </ShadowText>
+)
+```
+
+### responsiveStyle
+
+The `responsiveStyle` utility can be used to handle array-based responsive style props for other CSS properties.
+
+```js
+import styled from 'styled-components'
+import { responsiveStyle } from 'styled-system'
+
+// Usage
+// responsiveStyle(cssProperty[, propName][, booleanValue])
+
+const Flex = styled.div`
+  display: flex;
+  ${responsiveStyle('flex-direction', 'direction')}
+`
+
+const App = props => (
+  <Flex direction={[ 'column', 'row' ]}>
+    <div>Responsive</div>
+    <div>Direction</div>
+  </Flex>
+)
+```
+
+### pseudoStyle
+
+Adds style props for pseudoclasses like `hover`, `focus`, `active`, etc.
+
+```js
+import styled from 'styled-components'
+import { pseudoStyle } from 'styled-system'
+
+const checkedStyle = pseudoStyle('checked', 'checkedSyle')({
+  // keys for theme-based values
+  color: 'colors',
+  backgroundColor: 'colors',
+})
+
+const FancyCheckbox = styled.input`
+  /* ...base styles */
+  ${checkedStyle}
+`
+FancyCheckbox.defaultProps = {
+  type: 'checkbox'
+}
+
+// <FancyCheckbox checkedStyle={{ backgroundColor: 'blue' }} />
+```
+
+---
+
+## Default Theme
+
+If no theme is provided, styled-system uses smart defaults for breakpoints, the typographic scale, and the spacing scale.
 
 ## Breakpoints
 
@@ -263,7 +462,6 @@ As opposed to the built-in configurations, arrays given to the `breakpoints`, `s
 
 ```jsx
 import { ThemeProvider } from 'styled-components'
-// or import { ThemeProvider } from 'glamorous'
 import MyComponent from './MyComponent'
 
 const theme = {
@@ -297,6 +495,7 @@ const App = props => (
 
 - [grid-styled](https://github.com/jxnblk/grid-styled)
 - [Rebass](http://jxnblk.com/rebass)
+- [cxs](http://jxnblk.com/cxs)
 - [styled-components](https://github.com/styled-components/styled-components)
 - [glamorous](https://github.com/paypal/glamorous)
 
