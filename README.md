@@ -1,6 +1,6 @@
 # styled-system
 
-Design system utilities for styled-components and other css-in-js libraries
+Design system utilities for [styled-components][sc] and other css-in-js libraries
 
 [![Build Status][build-badge]][build]
 [![Coverage][coverage-badge]][coverage]
@@ -13,6 +13,17 @@ Design system utilities for styled-components and other css-in-js libraries
 ```sh
 npm i styled-system
 ```
+
+## Features
+
+- Add style props that hook into your own theme
+- Influenced by constraint-based design system principles
+- Typographic scale
+- Spacing scale for margin and padding
+- Default 8px grid
+- Works with any color palette
+- Responsive prop values for quickly setting responsive font-size, margin, padding, width, and more
+- Works with most css-in-js libraries, including [styled-components][sc], [glamorous][glamorous], [emotion][emotion], [fela][fela], and [cxs][cxs]
 
 ## Usage
 
@@ -113,7 +124,7 @@ The space utility converts shorthand margin and padding props to margin and padd
 Numbers from 0-4 are converted to values on the [spacing scale](#spacing-scale).
 Negative values can be used for negative margins.
 Numbers greater than 4 are converted to raw pixel values.
-String values are converted passed as raw CSS values.
+String values are passed as raw CSS values.
 And array values are converted into [responsive values](#responsive-styles).
 
 Margin and padding props follow a shorthand syntax for specifying direction.
@@ -512,7 +523,7 @@ by default and can be customized with styled-components' [ThemeProvider](#config
 
 ## Configuration
 
-styled-system can be configured with styled-components'
+styled-system can be configured with styled-components' (or other library's)
 [ThemeProvider](https://www.styled-components.com/docs/advanced#theming)
 
 As opposed to the built-in configurations, arrays given to the `breakpoints`, `space`, and
@@ -553,9 +564,17 @@ const App = props => (
 
 - [grid-styled](https://github.com/jxnblk/grid-styled)
 - [Rebass](http://jxnblk.com/rebass)
-- [cxs](http://jxnblk.com/cxs)
-- [styled-components](https://github.com/styled-components/styled-components)
-- [glamorous](https://github.com/paypal/glamorous)
+- [styled-components][sc]
+- [glamorous][glamorous]
+- [emotion][emotion]
+- [fela][fela]
+- [cxs][cxs]
+
+[sc]: https://github.com/styled-components/styled-components
+[glamorous]: https://github.com/paypal/glamorous
+[emotion]: https://github.com/emotion-js/emotion
+[fela]: https://github.com/rofrischmann/fela
+[cxs]: https://github.com/jxnblk/cxs
 
 MIT License
 
