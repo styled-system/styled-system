@@ -8,7 +8,12 @@ import {
   style,
   responsiveStyle,
   removeProps,
-  util
+  util,
+  textAlign,
+  fontWeight,
+  borderRadius,
+  borderColor,
+  borderWidth,
 } from './src'
 
 const palette = palx('#07c')
@@ -615,3 +620,68 @@ test('removeProps removes style props', t => {
     value: 'Hi',
   })
 })
+
+// textAlign
+test('textAlign returns text-align', t => {
+  const a = textAlign({ align: 'center' })
+  t.deepEqual(a, { textAlign: 'center' })
+})
+
+// textAlign
+test('textAlign returns text-align', t => {
+  const a = textAlign({ align: 'center' })
+  t.deepEqual(a, { textAlign: 'center' })
+})
+
+test('textAlign returns responsive text-align', t => {
+  const a = textAlign({ align: [ 'center', 'left' ] })
+  t.deepEqual(a, {
+    textAlign: 'center',
+    '@media screen and (min-width: 40em)': {
+      textAlign: 'left',
+    }
+  })
+})
+
+// fontWeight
+test('fontWeight returns fontWeight', t => {
+  const a = fontWeight({ fontWeight: 'bold' })
+  t.deepEqual(a, { fontWeight: 'bold' })
+})
+
+test('fontWeight returns a scalar style', t => {
+  const a = fontWeight({
+    theme: {
+      fontWeights: [
+        400, 600, 800
+      ]
+    },
+    fontWeight: 2
+  })
+  t.deepEqual(a, { fontWeight: 800 })
+})
+
+test('borderRadius returns borderRadius', t => {
+  const a = borderRadius({ borderRadius: '4px' })
+  t.deepEqual(a, { borderRadius: '4px' })
+})
+
+test('borderColor returns borderColor', t => {
+  const a = borderColor({ borderColor: 'blue' })
+  t.deepEqual(a, { borderColor: 'blue' })
+})
+
+test('borderColor returns borderColor', t => {
+  const a = borderColor({ borderColor: 'blue' })
+  t.deepEqual(a, { borderColor: 'blue' })
+})
+
+test('borderWidth returns borderWidth and borderStyle', t => {
+  const a = borderWidth({ borderWidth: '2px' })
+  t.deepEqual(a, {
+    borderWidth: '2px',
+    borderStyle: 'solid'
+  })
+})
+
+

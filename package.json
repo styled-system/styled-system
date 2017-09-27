@@ -53,7 +53,9 @@
     ]
   },
   "bundlesize": [
-    { "path": "dist/*.js" }
+    {
+      "path": "dist/*.js"
+    }
   ],
   "repository": {
     "type": "git",
