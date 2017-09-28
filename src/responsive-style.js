@@ -1,4 +1,4 @@
-const { get } = require('dot-prop')
+const get = require('lodash.get')
 const { is, arr, num, px, breaks, dec, media, merge } = require('./util')
 
 module.exports = (...args) => props => {

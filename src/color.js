@@ -1,4 +1,4 @@
-const { get } = require('dot-prop')
+const get = require('lodash.get')
 const { breaks, merge, arr, dec, media } = require('./util')
 
 const REG = /^color|bg$/

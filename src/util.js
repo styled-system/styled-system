@@ -1,4 +1,4 @@
-const { get } = require('dot-prop')
+const get = require('lodash.get')
 const { breakpoints } = require('./constants')
 
 const is = n => n !== undefined && n !== null

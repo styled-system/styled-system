@@ -62,6 +62,6 @@
     "url": "git+https://github.com/jxnblk/styled-system.git"
   },
   "dependencies": {
-    "dot-prop": "^4.2.0"
+    "lodash.get": "^4.4.2"
   }
 }

@@ -1,4 +1,4 @@
-const { get } = require('dot-prop')
+const get = require('lodash.get')
 
 module.exports = (pseudoclass, prop) => (keys = {}) => props => {
   const style = props[prop || pseudoclass]
