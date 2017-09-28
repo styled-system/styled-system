@@ -1,5 +1,5 @@
-const get = require('lodash.get')
 const {
+  get,
   arr,
   px,
   neg,

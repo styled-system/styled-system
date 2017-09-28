@@ -1,4 +1,4 @@
-const get = require('lodash.get')
+const { get } = require('./util')
 
 module.exports = (pseudoclass, prop) => (keys = {}) => props => {
   const style = props[prop || pseudoclass]

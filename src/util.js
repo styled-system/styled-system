@@ -1,4 +1,3 @@
-const get = require('lodash.get')
 const { breakpoints } = require('./constants')
 
 const is = n => n !== undefined && n !== null
@@ -8,8 +7,8 @@ const em = n => num(n) ? n + 'em' : n
 const neg = n => n < 0
 const arr = n => Array.isArray(n) ? n : [ n ]
 
-// keeping for backwards-compatibility only
-const idx = (keys, obj) => get(obj, keys.join('.')) || null
+const get = (obj, path, fallback) => path.split('.')
+  .reduce((a, b) => (a && a[b]) ? a[b] : null, obj) || fallback
 
 const mq = n => `@media screen and (min-width: ${em(n)})`
 
@@ -33,7 +32,11 @@ const merge = (a, b) => Object.assign({}, a, b, Object.keys(b).reduce((obj, key)
   }),
   {}))
 
+// keeping for backwards-compatibility only
+const idx = (keys, obj) => get(obj, keys.join('.')) || null
+
 module.exports = {
+  get,
   is,
   px,
   em,
