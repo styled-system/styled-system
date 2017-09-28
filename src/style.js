@@ -1,5 +1,4 @@
-const get = require('lodash.get')
-const { is } = require('./util')
+const { get, is } = require('./util')
 
 module.exports = ({
   key,          // key for theme object

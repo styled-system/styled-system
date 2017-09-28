@@ -60,8 +60,5 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jxnblk/styled-system.git"
-  },
-  "dependencies": {
-    "lodash.get": "^4.4.2"
   }
 }

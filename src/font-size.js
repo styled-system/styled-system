@@ -1,5 +1,4 @@
-const get = require('lodash.get')
-const { is, arr, num, px, breaks, dec, media, merge } = require('./util')
+const { get, is, arr, num, px, breaks, dec, media, merge } = require('./util')
 const { fontSizes } = require('./constants')
 
 module.exports = props => {
