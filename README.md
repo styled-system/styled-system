@@ -76,7 +76,7 @@ elements based on values defined in a theme.
 
 Set responsive width, margin, padding, font-size,
 and other properties with a shorthand
-array syntax. [Read more](#responsive-style)
+array syntax. [Read more](#responsive-styles)
 
 ```
 // responsive width
