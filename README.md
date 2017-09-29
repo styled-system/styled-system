@@ -393,6 +393,35 @@ const Component = styled(BaseComponent)([],
 )
 ```
 
+## Preset Style Functions
+
+`preset` allows you to set fallback props for your style functions.
+Most CSS-in-JS libraries don't strip out duplicate properties, this
+requires that you ensure proper ordering of styles.  
+
+
+```jsx
+import React from 'react'
+import styled from "styled-components"
+import { fontSize, space, color, preset } from "styled-system"
+
+// Example of named preset.
+const presetFontSize = preset(fontSize, { f: [24, 36, 60, 72] })
+
+const Button = styled.button`
+  ${presetFontSize} 
+  ${preset(color, { color: "red" })} 
+  ${space}
+`;
+
+const App = props => (
+  <div>
+    <Button f={[36, 40, 44, 50]}>Classic red button</Button>
+    <Button color="blue">New blue button</Button>
+  </div>
+)
+```
+
 ---
 
 ## Low-level style functions

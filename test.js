@@ -26,6 +26,7 @@ import system, {
   focus,
   active,
   disabled,
+  preset
 } from './src'
 
 const palette = palx('#07c')
@@ -968,4 +969,21 @@ test('disabled uses theme values', t => {
       backgroundColor: theme.colors.green,
     }
   })
+})
+
+test('preset uses fallback values when key is missing', t => {
+  const a = preset(color, { color: 'tomato' })({ bg: "green" })  
+  t.deepEqual(a, { color: 'tomato', backgroundColor: "green" })  
+})
+
+test('preset fallbacks can be overridden by component props', t => {
+  const a = preset(color, { color: 'tomato' })({ bg: "blue", color: "green" })  
+  t.deepEqual(a, { backgroundColor: "blue", color: 'green' })    
+})
+
+test('preset returns a new style function', t => {
+  const a = preset(color, { color: 'tomato' })
+  const b = a({ bg: "blue", color: "green" })  
+  t.deepEqual(typeof a, "function")
+  t.deepEqual(b, { backgroundColor: "blue", color: 'green' })  
 })
