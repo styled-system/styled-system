@@ -17,12 +17,12 @@ npm i styled-system
 ## Features
 
 - Add style props that hook into your own theme
+- Responsive prop values for quickly setting responsive font-size, margin, padding, width, and more
 - Influenced by constraint-based design system principles
 - Typographic scale
 - Spacing scale for margin and padding
 - Default 8px grid
 - Works with any color palette
-- Responsive prop values for quickly setting responsive font-size, margin, padding, width, and more
 - Works with most css-in-js libraries, including [styled-components][sc], [glamorous][glamorous], [emotion][emotion], [fela][fela], and [cxs][cxs]
 
 > "The future of css-in-js is going to look something like styled-system with its responsive values."<br/>
@@ -34,7 +34,8 @@ npm i styled-system
 ## Usage
 
 ```jsx
-// Example uses styled-components, but works with most other css-in-js libraries as well
+// Example uses styled-components,
+// but styled-system works with most other css-in-js libraries as well
 import styled from 'styled-components'
 import { space, width, fontSize, color } from 'styled-system'
 
@@ -49,8 +50,6 @@ const Box = styled.div`
 
 Each style function exposes its own set of props that style
 elements based on values defined in a theme.
-Some props allow an array value to be passed to set styles
-responsively per-breakpoint.
 
 ```jsx
 // width: 50%
@@ -71,7 +70,15 @@ responsively per-breakpoint.
 
 // background color
 <Box bg='tomato' />
+```
 
+## Responsive Style Props
+
+Set responsive width, margin, padding, font-size,
+and other properties with a shorthand
+array syntax. [Read more](#responsive-style)
+
+```
 // responsive width
 <Box width={[ 1, 1/2, 1/4 ]} />
 
@@ -94,18 +101,18 @@ responsively per-breakpoint.
   - [color](#color-responsive) (and background-color)
   - [Responsive Styles](#responsive-styles)
 - [**Extras**](#extras)
-  - [textAlign](#textAlign-responsive)
-  - [fontWeight](#fontWeight)
-  - [alignItems](#alignItems)
-  - [justifyContent](#justifyContent)
-  - [flexWrap](#flexWrap)
-  - [flexDirection](#flexDirection)
+  - [textAlign](#textalign-responsive)
+  - [fontWeight](#fontweight)
+  - [alignItems](#alignitems)
+  - [justifyContent](#justifycontent)
+  - [flexWrap](#flexwrap)
+  - [flexDirection](#flexdirection)
   - [flex](#flex)
-  - [alignSelf](#alignSelf)
-  - [borderRadius](#borderRadius)
-  - [borderColor](#borderColor)
-  - [borderWidth](#borderWidth)
-  - [boxShadow](#boxShadow)
+  - [alignSelf](#alignself)
+  - [borderRadius](#borderradius)
+  - [borderColor](#bordercolor)
+  - [borderWidth](#borderwidth)
+  - [boxShadow](#boxshadow)
   - [hover](#hover)
   - [focus](#focus)
   - [active](#active)
@@ -113,10 +120,10 @@ responsively per-breakpoint.
 - [**Utilities**](#utilities)
   - [theme](#theme)
   - [removeProps](#removeProps)
-- [**Low-level**](#Low-level-style-functions)
+- [**Low-level**](#low-level-style-functions)
   - [style](#style)
-  - [responsiveStyle](#responsiveStyle)
-  - [pseudoStyle](#pseudoStyle)
+  - [responsiveStyle](#responsivestyle)
+  - [pseudoStyle](#pseudostyle)
 
 ## Core
 
@@ -193,10 +200,13 @@ Array values are converted into [responsive values](#responsive-styles).
 All core function props accept arrays as values for mobile-first responsive styles.
 
 ```jsx
-// 100% below the smallest breakpoint,
-// 50% from the next breakpoint and up,
-// and 25% from the next breakpoint and up
-<Box w={[ 1, 1/2, 1/4 ]} />
+<Box
+  width={[
+    1,    // 100% below the smallest breakpoint
+    1/2,  // 50% from the next breakpoint and up
+    1/4   // 25% from the next breakpoint and up
+  ]}
+/>
 
 // responsive font size
 <Box fontSize={[ 1, 2, 3, 4 ]} />
