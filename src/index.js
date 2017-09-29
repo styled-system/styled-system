@@ -33,6 +33,7 @@ const theme = require('./theme')
 const removeProps = require('./remove-props')
 const util = require('./util')
 const constants = require('./constants')
+const preset = require('./preset')
 
 module.exports = {
   space,
@@ -61,5 +62,6 @@ module.exports = {
   theme,
   removeProps,
   util,
-  constants
+  constants,
+  preset
 }
