@@ -78,7 +78,7 @@ Set responsive width, margin, padding, font-size,
 and other properties with a shorthand
 array syntax. [Read more](#responsive-styles)
 
-```
+```jsx
 // responsive width
 <Box width={[ 1, 1/2, 1/4 ]} />
 
