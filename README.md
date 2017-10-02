@@ -236,7 +236,7 @@ import { textAlign } from 'styled-system'
 
 ```js
 import { fontWeight } from 'styled-system'
-// <Text weight='bold' />
+// <Text fontWeight='bold' />
 // props.theme.fontWeights.bold
 ```
 
@@ -244,21 +244,21 @@ import { fontWeight } from 'styled-system'
 
 ```js
 import { alignItems } from 'styled-system'
-// <Flex alignItems='center' />
+// <Flex align='center' />
 ```
 
 ### justifyContent (responsive)
 
 ```js
 import { justifyContent } from 'styled-system'
-// <Flex justifyContent='center' />
+// <Flex justify='center' />
 ```
 
 ### flexWrap (responsive)
 
 ```js
 import { flexWrap } from 'styled-system'
-// <Flex flexWrap />
+// <Flex wrap />
 ```
 
 ### flexDirection (responsive)
@@ -370,6 +370,23 @@ import { theme } from 'styled-system'
 const Box = styled.div`
   border-radius: ${theme('radii.small')};
 `
+```
+
+### propTypes
+
+Prop type definitions are available for each style function to add to your component's propTypes object.
+
+```jsx
+import styled from 'styled-components'
+import { width, propTypes } from 'styled-system'
+
+const Box = styled.div`
+  ${width}
+`
+
+Box.propTypes = {
+  ...propTypes.width
+}
 ```
 
 ## Remove Props
