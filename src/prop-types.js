@@ -113,7 +113,6 @@ const disabled = {
 }
 
 const propTypes = {
-  responsive,
   width,
   space,
   fontSize,

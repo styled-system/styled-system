@@ -1,13 +1,16 @@
+const propTypes = require('./prop-types')
 
-const REG = /^([mpfw][trblxy]?|width|fontSize|color|bg)$/
+const blacklist = Object.keys(propTypes)
+  .reduce((a, key) => [
+    ...a,
+    ...Object.keys(propTypes[key])
+  ], [])
 
 module.exports = props => {
   const next = {}
 
   for (let key in props) {
-    if (REG.test(key)) {
-      continue
-    }
+    if (blacklist.includes(key)) continue
     next[key] = props[key]
   }
 
