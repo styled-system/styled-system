@@ -36,7 +36,8 @@ const theme = {
   fontSizes: [12, 16, 18, 24, 36, 72],
   colors: {
     blue: '#07c',
-    green: '#1c0'
+    green: '#1c0',
+    gray: ['#ccc', '#555']
   }
 }
 
@@ -774,6 +775,11 @@ test('borderColor returns borderColor', t => {
 test('borderColor returns borderColor', t => {
   const a = borderColor({ borderColor: 'blue' })
   t.deepEqual(a, { borderColor: 'blue' })
+})
+
+test('borderColor returns borderColor', t => {
+  const a = borderColor({ theme, borderColor: 'gray.0' })
+  t.deepEqual(a, { borderColor: theme.colors.gray[0] })
 })
 
 test('borderWidth returns borderWidth and borderStyle', t => {

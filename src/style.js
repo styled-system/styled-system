@@ -7,8 +7,7 @@ module.exports = ({
 }) => props => {
   const n = props[prop]
   if (!is(n)) return null
-  const scale = get(props, [ 'theme', key ].join('.'), {})
-  const val = scale[n] || n
+  const val = get(props, [ 'theme', key, n ].join('.'), n)
 
   return { [cssProperty || prop]: val }
 }
