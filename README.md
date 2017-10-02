@@ -119,7 +119,9 @@ array syntax. [Read more](#responsive-styles)
   - [disabled](#disabled)
 - [**Utilities**](#utilities)
   - [theme](#theme)
-  - [removeProps](#removeProps)
+  - [propTypes](#proptype)
+  - [cleanElement](#cleanelement)
+  - [removeProps](#removeprops)
 - [**Low-level**](#low-level-style-functions)
   - [style](#style)
   - [responsiveStyle](#responsivestyle)
@@ -389,14 +391,37 @@ Box.propTypes = {
 }
 ```
 
-## Remove Props
+### cleanElement
 
-Styled-components attempts to remove invalid HTML attributes from props,
-but does not remove `width`, `fontSize`, or `color`.
-When using styled-system with other CSS-in-JS libraries,
-it can also be helpful to remove style props.
-To ensure style props are not passed to the element, a `removeProps`
-utility can be used.
+Styled-components and other libraries attempt to remove invalid HTML attributes from props using a whitelist,
+but do not remove `width`, `fontSize`, `color`, or other valid HTML attributes when used as props.
+
+To ensure that style props are not passed on to the underlying DOM element,
+even in cases where a prop is a valid HTML attribute, like `width` or `align`, use the `cleanElement` higher order component to create a base component
+that remove props defined in `propTypes`.
+
+```jsx
+import styled from 'styled-components'
+import { textAlign, propTypes, cleanElement } from 'styled-system'
+
+const CleanDiv = cleanElement('div')
+
+CleanDiv.propTypes = {
+  ...propTypes.textAlign
+}
+
+const Box = styled(CleanDiv)`
+  ${textAlign}
+`
+
+// <Box align='center' />
+// `align` prop is picked up by styled-components,
+// but not passed on to the HTML element
+```
+
+### removeProps
+
+This is an alternative to the `cleanElement` utility for removing style props from HTML.
 
 ```jsx
 import React from 'react'
