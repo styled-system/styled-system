@@ -30,6 +30,7 @@ const disabled = require('./disabled')
 
 // other
 const theme = require('./theme')
+const propTypes = require('./prop-types')
 const removeProps = require('./remove-props')
 const util = require('./util')
 const constants = require('./constants')
@@ -59,6 +60,7 @@ module.exports = {
   active,
   disabled,
   theme,
+  propTypes,
   removeProps,
   util,
   constants
