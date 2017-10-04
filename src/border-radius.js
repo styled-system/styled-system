@@ -2,5 +2,6 @@ const style = require('./style')
 
 module.exports = style({
   prop: 'borderRadius',
-  key: 'radii'
+  key: 'radii',
+  numberToPx: true
 })

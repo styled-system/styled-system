@@ -8,9 +8,8 @@ module.exports = ({
 }) => props => {
   const n = props[prop]
   if (!is(n)) return null
-  const val = get(props, [ 'theme', key, n ].join('.'),
-    numberToPx ? px(n) : n
-  )
+  const val = get(props, [ 'theme', key, n ].join('.'), n)
+  const value = numberToPx ? px(val) : val
 
-  return { [cssProperty || prop]: val }
+  return { [cssProperty || prop]: value }
 }

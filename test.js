@@ -918,6 +918,19 @@ test('borderRadius returns borderRadius', t => {
   t.deepEqual(a, { borderRadius: '4px' })
 })
 
+test('borderRadius returns a pixel value', t => {
+  const a = borderRadius({ borderRadius: 4 })
+  t.deepEqual(a, { borderRadius: '4px' })
+})
+
+test('borderRadius returns a pixel value from theme', t => {
+  const a = borderRadius({
+    theme,
+    borderRadius: 0
+  })
+  t.deepEqual(a, { borderRadius: '2px' })
+})
+
 test('borderColor returns borderColor', t => {
   const a = borderColor({ borderColor: 'blue' })
   t.deepEqual(a, { borderColor: 'blue' })
@@ -935,6 +948,14 @@ test('borderColor returns borderColor', t => {
 
 test('borderWidth returns borderWidth and borderStyle', t => {
   const a = borderWidth({ borderWidth: '2px' })
+  t.deepEqual(a, {
+    borderWidth: '2px',
+    borderStyle: 'solid'
+  })
+})
+
+test('borderWidth returns a pixel value', t => {
+  const a = borderWidth({ borderWidth: 2 })
   t.deepEqual(a, {
     borderWidth: '2px',
     borderStyle: 'solid'
