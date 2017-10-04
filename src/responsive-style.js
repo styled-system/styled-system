@@ -3,7 +3,13 @@ const { get, is, arr, num, px, breaks, dec, media, merge } = require('./util')
 module.exports = (...args) => props => {
   // support for legacy API
   const [ arg, _prop, _bool ] = args
-  let { cssProperty, prop, boolValue, key } = typeof arg === 'string'
+  let {
+    cssProperty,
+    prop,
+    boolValue,
+    key,
+    numberToPx
+  } = typeof arg === 'string'
     ? { cssProperty: arg, prop: _prop, boolValue: _bool }
     : arg
 
@@ -13,10 +19,11 @@ module.exports = (...args) => props => {
 
   const bp = breaks(props)
   const scale = get(props, [ 'theme', key || prop ].join('.'), {})
+  const sx = val => get(scale, '' + val, numberToPx ? px(val) : val)
 
   if (!Array.isArray(n)) {
     return {
-      [cssProperty]: sx(scale)(
+      [cssProperty]: sx(
         bool(boolValue)(n)
       )
     }
@@ -25,11 +32,10 @@ module.exports = (...args) => props => {
   const val = arr(n)
   return val
     .map(bool(boolValue))
-    .map(sx(scale))
+    .map(sx)
     .map(dec(cssProperty))
     .map(media(bp))
     .reduce(merge, {})
 }
 
 const bool = val => n => n === true ? val : n
-const sx = scale => n => is(n) ? scale[n] || n : n

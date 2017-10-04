@@ -38,6 +38,7 @@ const theme = {
   breakpoints: [32, 48, 64],
   space: [0, 6, 12, 18, 24],
   fontSizes: [12, 16, 18, 24, 36, 72],
+  radii: [ 2, 4 ],
   colors: {
     blue: '#07c',
     green: '#1c0',
@@ -543,6 +544,29 @@ test('style function returns scale values', t => {
   t.is(a.color, '#07c')
 })
 
+test('style function returns pixels for number values', t => {
+  const sx = style({
+    prop: 'borderRadius',
+    numberToPx: true
+  })
+  const a = sx({
+    borderRadius: 4,
+    theme: {}
+  })
+  t.is(a.borderRadius, '4px')
+})
+
+test('style function returns unitless number values', t => {
+  const sx = style({
+    prop: 'borderRadius'
+  })
+  const a = sx({
+    borderRadius: 4,
+    theme: {}
+  })
+  t.is(a.borderRadius, 4)
+})
+
 // responsiveStyle
 test('responsiveStyle returns a function', t => {
   const sx = responsiveStyle('order')
@@ -602,7 +626,7 @@ test('responsiveStyle boolean props handle arrays', t => {
   })
 })
 
-test('responsiveStyle accepts and object argument', t => {
+test('responsiveStyle accepts an object argument', t => {
   const direction = responsiveStyle({
     cssProperty: 'flexDirection',
     prop: 'direction'
@@ -612,6 +636,85 @@ test('responsiveStyle accepts and object argument', t => {
     'flexDirection': 'column',
     '@media screen and (min-width: 40em)': {
       'flexDirection': 'row'
+    }
+  })
+})
+
+test('responsiveStyle returns pixel values for numbers', t => {
+  const radius = responsiveStyle({
+    cssProperty: 'borderRadius',
+    prop: 'radius',
+    numberToPx: true
+  })
+  const a = radius({ radius: 4 })
+  t.deepEqual(a, {
+    borderRadius: '4px'
+  })
+})
+
+test('responsiveStyle returns pixel values for number arrays', t => {
+  const radius = responsiveStyle({
+    cssProperty: 'borderRadius',
+    prop: 'radius',
+    numberToPx: true
+  })
+  const a = radius({ radius: [ 4, 5, 6 ] })
+  t.deepEqual(a, {
+    borderRadius: '4px',
+    '@media screen and (min-width: 40em)': {
+      borderRadius: '5px'
+    },
+    '@media screen and (min-width: 52em)': {
+      borderRadius: '6px'
+    }
+  })
+})
+
+test('responsiveStyle returns unitless numbers', t => {
+  const radius = responsiveStyle({
+    cssProperty: 'borderRadius',
+    prop: 'radius'
+  })
+  const a = radius({ radius: 4 })
+  t.deepEqual(a, {
+    borderRadius: 4
+  })
+})
+
+test('responsiveStyle returns a theme value', t => {
+  const sx = responsiveStyle({
+    cssProperty: 'borderColor',
+    key: 'colors',
+  })
+  const a = sx({
+    theme,
+    borderColor: [
+      'blue',
+      'green'
+    ]
+  })
+  t.deepEqual(a, {
+    borderColor: theme.colors.blue,
+    '@media screen and (min-width: 32em)': {
+      borderColor: theme.colors.green
+    }
+  })
+})
+
+test('responsiveStyle returns a theme number value in px', t => {
+  const sx = responsiveStyle({
+    cssProperty: 'borderRadius',
+    key: 'radii',
+    numberToPx: true
+  })
+  const a = sx({
+    theme,
+    borderRadius: [ 0, 1 ]
+  })
+  t.deepEqual(a, {
+    borderRadius: theme.radii[0],
+    '@media screen and (min-width: 32em)': {
+      borderRadius: theme.radii[1],
     }
   })
 })
@@ -650,6 +753,24 @@ test('pseudoStyle uses theme values', t => {
   t.deepEqual(a, {
     '&:hover': {
       color: theme.colors.blue
+    }
+  })
+})
+
+test('pseudoStyle returns number pixel values', t => {
+  const hoverStyle = pseudoStyle('hover')({
+    numberToPx: {
+      borderRadius: true
+    }
+  })
+  const a = hoverStyle({
+    hover: {
+      borderRadius: 4
+    }
+  })
+  t.deepEqual(a, {
+    '&:hover': {
+      borderRadius: '4px'
     }
   })
 })
