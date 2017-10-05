@@ -57,7 +57,7 @@ const fontWeight = {
 }
 
 const alignItems = {
-  alignItems: responsive
+  align: responsive
 }
 
 const justifyContent = {

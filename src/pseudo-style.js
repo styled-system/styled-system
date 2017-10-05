@@ -1,11 +1,16 @@
-const { get } = require('./util')
+const { get, px } = require('./util')
 
 module.exports = (pseudoclass, prop) => (keys = {}) => props => {
   const style = props[prop || pseudoclass]
+  const numberToPx = keys.numberToPx || {}
   for (let key in style) {
-    if (!keys[key]) continue
+    const toPx = numberToPx[key]
+
+    if (!keys[key] && !toPx) continue
     const themeKey = [ keys[key], style[key] ].join('.')
     style[key] = get(props.theme, themeKey, style[key])
+
+    if (toPx) style[key] = px(style[key])
   }
 
   return {

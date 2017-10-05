@@ -19,12 +19,14 @@ module.exports = props => {
     ? directions.map(dir => style({
       key: 'borderWidths',
       prop: 'borderWidth',
-      cssProperty: getWidthProp(dir)
+      cssProperty: getWidthProp(dir),
+      numberToPx: true
     })(props))
     : [
       style({
         key: 'borderWidths',
-        prop: 'borderWidth'
+        prop: 'borderWidth',
+        numberToPx: true
       })(props)
     ]
 
