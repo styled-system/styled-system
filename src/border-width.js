@@ -36,5 +36,7 @@ module.exports = props => {
     }))
     : [ { borderStyle: 'solid' } ]
 
-  return props.borderWidth ? Object.assign({}, ...borderWidths, ...borderStyles) : null
+  return props.borderWidth || props.borderWidth === 0
+    ? Object.assign({}, ...borderWidths, ...borderStyles)
+    : null
 }

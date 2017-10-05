@@ -962,6 +962,14 @@ test('borderWidth returns a pixel value', t => {
   })
 })
 
+test('borderWidth returns 0', t => {
+  const a = borderWidth({ borderWidth: 0 })
+  t.deepEqual(a, {
+    borderWidth: '0px',
+    borderStyle: 'solid'
+  })
+})
+
 test('borderWidth returns null', t => {
   const a = borderWidth({})
   t.is(a, null)
