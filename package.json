@@ -24,6 +24,7 @@
     "ava": "^0.19.1",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
+    "babel-engine-plugin": "^0.1.2",
     "babel-loader": "^7.0.0",
     "babel-preset-env": "^1.5.2",
     "babel-preset-react": "^6.24.1",
