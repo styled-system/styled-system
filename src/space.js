@@ -7,7 +7,8 @@ const {
   breaks,
   dec,
   media,
-  merge
+  merge,
+  is
 } = require('./util')
 const { space } = require('./constants')
 
@@ -25,9 +26,10 @@ module.exports = props => {
     const p = getProperties(key)
 
     if (!Array.isArray(val)) {
-      return p.reduce((a, b) => Object.assign(a, {
-        [b]: mx(sc)(val)
-      }), {})
+      const value = mx(sc)(val)
+      return is(value) ? p.reduce((a, b) => Object.assign(a, {
+        [b]: value
+      }), {}) : {}
     }
 
     return arr(val)
@@ -39,6 +41,10 @@ module.exports = props => {
 }
 
 const mx = scale => n => {
+  if (!is(n)) {
+    return null
+  }
+
   if (!num(n)) {
     return n
   }

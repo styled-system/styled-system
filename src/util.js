@@ -18,11 +18,15 @@ const breaks = props => [
 ]
 
 const dec = props => val => arr(props)
-  .reduce((acc, prop) => (acc[prop] = val, acc), {})
+  .reduce((acc, prop) => {
+    if (is(val)) acc[prop] = val
+    return acc
+  }, {})
 
-const media = bp => (d, i) => is(d)
+const media = bp => (d, i) =>
+  is(d) && !(typeof d === 'object' && Object.keys(d).length === 0)
   ? bp[i] ? ({ [bp[i]]: d }) : d
-  : null
+  : {}
 
 const merge = (a, b) => Object.assign({}, a, b, Object.keys(b).reduce((obj, key) =>
   Object.assign(obj, {

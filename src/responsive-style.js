@@ -22,11 +22,12 @@ module.exports = (...args) => props => {
   const sx = val => get(scale, '' + val, numberToPx ? px(val) : val)
 
   if (!Array.isArray(n)) {
-    return {
-      [cssProperty]: sx(
-        bool(boolValue)(n)
-      )
-    }
+    const val = sx(
+      bool(boolValue)(n)
+    )
+    return is(val) ? {
+      [cssProperty]: val
+    } : null
   }
 
   const val = arr(n)
