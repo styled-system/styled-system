@@ -2,6 +2,7 @@ docs
 src
 .nyc_output
 coverage
+coverage.lcov
 bench
 .travis.yml
 test.js
