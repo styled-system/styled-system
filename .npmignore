@@ -1,3 +1,8 @@
 docs
+src
 .nyc_output
 coverage
+bench
+.travis.yml
+test.js
+webpack.config.js
