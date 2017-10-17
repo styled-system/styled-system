@@ -30,7 +30,7 @@ const disabled = require('./disabled')
 
 // other
 const theme = require('./theme')
-const propTypes = require('./prop-types')
+const propTypes = require('./propTypes')
 const cleanElement = require('./clean-element')
 const removeProps = require('./remove-props')
 const util = require('./util')
