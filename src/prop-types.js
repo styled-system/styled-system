@@ -92,6 +92,10 @@ const borderWidth = {
   borderLeft: PropTypes.bool
 }
 
+const borderColor = {
+  borderColor: PropTypes.string
+}
+
 const boxShadow = {
   boxShadow: PropTypes.string
 }
