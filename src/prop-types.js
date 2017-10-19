@@ -97,7 +97,10 @@ const borderColor = {
 }
 
 const boxShadow = {
-  boxShadow: PropTypes.string
+  boxShadow: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
 }
 
 const hover = {
