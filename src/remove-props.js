@@ -1,4 +1,4 @@
-const propTypes = require('./prop-types')
+const propTypes = require('./proptypes')
 
 const blacklist = Object.keys(propTypes)
   .reduce((a, key) => [
