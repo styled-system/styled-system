@@ -322,6 +322,8 @@ import { borderWidth } from 'styled-system'
 import { boxShadow } from 'styled-system'
 // <Box boxShadow={1} />
 // props.theme.shadows[1]
+// -- OR --
+// <Box boxShadow={'1px 1px 0 black'} />
 ```
 
 ### hover
