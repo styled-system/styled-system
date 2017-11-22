@@ -16,6 +16,7 @@ import system, {
   util,
   textAlign,
   fontWeight,
+  letterSpacing,
   alignItems,
   justifyContent,
   flexWrap,
@@ -880,6 +881,24 @@ test('fontWeight returns a scalar style', t => {
     fontWeight: 2
   })
   t.deepEqual(a, { fontWeight: 800 })
+})
+
+// letterSpacing
+test('letterSpacing returns letterSpacing', t => {
+  const a = letterSpacing({ letterSpacing: 2 })
+  t.deepEqual(a, { letterSpacing: '2px' })
+})
+
+test('letterSpacing returns a scalar style', t => {
+  const a = letterSpacing({
+    theme: {
+      letterSpacings: [
+        1, 2, 3
+      ]
+    },
+    letterSpacing: 2
+  })
+  t.deepEqual(a, { letterSpacing: '3px' })
 })
 
 test('alignItems returns a style', t => {
