@@ -26,6 +26,7 @@ import system, {
   borderColor,
   borderWidth,
   boxShadow,
+  measure,
   hover,
   focus,
   active,
@@ -1039,6 +1040,56 @@ test('boxShadow returns theme value', t => {
   })
   t.deepEqual(a, { boxShadow: '0 0 8px rgba(0, 0, 0, .125)' })
 })
+
+test('measure returns width styles', t => {
+  const a = measure({ measure: 123 })
+  t.deepEqual(a, { width: '123px' })
+})
+
+test('measure returns null when blank', t => {
+  const a = measure({ measure: null })
+  t.is(a, null)
+})
+
+test('measure returns scalar styles', t => {
+  const a = measure({
+    theme: {
+      measures: [
+        21, 31, 47
+      ]
+    },
+    measure: 1
+  })
+  t.deepEqual(a, { width: '31px' })
+})
+
+test('measure returns responsive widths', t => {
+  const a = measure({ measure: [0, 1] })
+  t.deepEqual(a, {
+    width: '24px',
+    '@media screen and (min-width: 40em)': {
+      width: '32px'
+    }
+  })
+})
+
+test('measure returns responsive widths based on scalar styles', t => {
+  const a = measure({
+    theme: {
+      measures: [
+        23, 31
+      ]
+    },
+    measure: [0, 1]
+  })
+  t.deepEqual(a, {
+    width: '23px',
+    '@media screen and (min-width: 40em)': {
+      width: '31px'
+    }
+  })
+})
+
 
 test('hover returns a style object', t => {
   const a = hover({

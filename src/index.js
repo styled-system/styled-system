@@ -23,6 +23,7 @@ const borderRadius = require('./border-radius')
 const borderColor = require('./border-color')
 const borderWidth = require('./border-width')
 const boxShadow = require('./box-shadow')
+const measure = require('./measure')
 const hover = require('./hover')
 const focus = require('./focus')
 const active = require('./active')
@@ -56,6 +57,7 @@ module.exports = {
   borderColor,
   borderWidth,
   boxShadow,
+  measure,
   hover,
   focus,
   active,

@@ -24,8 +24,15 @@ const fontSizes = [
   72
 ]
 
+const measures = [
+  24,
+  32,
+  48
+]
+
 module.exports = {
   breakpoints,
   space,
   fontSizes,
+  measures
 }
