@@ -113,6 +113,7 @@ array syntax. [Read more](#responsive-styles)
   - [borderColor](#bordercolor)
   - [borderWidth](#borderwidth)
   - [boxShadow](#boxshadow)
+  - [measure](#measure-responsive)
   - [hover](#hover)
   - [focus](#focus)
   - [active](#active)
@@ -322,6 +323,14 @@ import { borderWidth } from 'styled-system'
 import { boxShadow } from 'styled-system'
 // <Box boxShadow={1} />
 // props.theme.shadows[1]
+```
+
+### measure (responsive)
+
+```js
+import { measure } from 'styled-system'
+// <Box measure={[0, 1, 2]} />
+// props.theme.measures
 ```
 
 ### hover
