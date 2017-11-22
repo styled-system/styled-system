@@ -102,6 +102,7 @@ array syntax. [Read more](#responsive-styles)
   - [Responsive Styles](#responsive-styles)
 - [**Extras**](#extras)
   - [textAlign](#textalign-responsive)
+  - [lineHeight](#lineheight)
   - [fontWeight](#fontweight)
   - [alignItems](#alignitems-responsive)
   - [justifyContent](#justifycontent-responsive)
@@ -232,6 +233,14 @@ For practical reasons, some props do not accept arrays for responsive styles.
 ```js
 import { textAlign } from 'styled-system'
 // <Text align='center' />
+```
+
+### lineHeight
+
+```js
+import { lineHeight } from 'styled-system'
+// <Text lineHeight={1}
+// props.theme.lineHeights[1]
 ```
 
 ### fontWeight
