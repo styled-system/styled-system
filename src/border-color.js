@@ -1,6 +1,6 @@
-const style = require('./style')
+import style from './style'
 
-module.exports = style({
+export default style({
   prop: 'borderColor',
   key: 'colors'
 })

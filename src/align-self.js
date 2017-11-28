@@ -1,2 +1,2 @@
-const responsiveStyle = require('./responsive-style')
-module.exports = responsiveStyle('alignSelf', 'alignSelf')
+import responsiveStyle from './responsive-style'
+export default responsiveStyle('alignSelf', 'alignSelf')

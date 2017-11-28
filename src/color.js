@@ -1,8 +1,8 @@
-const { get, breaks, merge, arr, dec, media } = require('./util')
+import { get, breaks, merge, arr, dec, media } from './util'
 
 const REG = /^color|bg$/
 
-module.exports = props => {
+export default props => {
   const keys = Object.keys(props).filter(key => REG.test(key))
   const bp = breaks(props)
   const palette = get(props, 'theme.colors', {})

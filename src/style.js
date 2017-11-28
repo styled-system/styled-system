@@ -1,6 +1,6 @@
-const { get, is, px } = require('./util')
+import { get, is, px } from './util'
 
-module.exports = ({
+export default ({
   key,          // key for theme object
   prop,         // react prop
   cssProperty,  // css property

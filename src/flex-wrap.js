@@ -1,2 +1,2 @@
-const responsiveStyle = require('./responsive-style')
-module.exports = responsiveStyle('flexWrap', 'wrap', 'wrap')
+import responsiveStyle from './responsive-style'
+export default responsiveStyle('flexWrap', 'wrap', 'wrap')

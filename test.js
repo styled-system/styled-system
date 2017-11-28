@@ -2,7 +2,8 @@ import test from 'ava'
 import React from 'react'
 import { create as render } from 'react-test-renderer'
 import palx from 'palx'
-import system, {
+import * as system from './src'
+import {
   space,
   width,
   fontSize,

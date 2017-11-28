@@ -1,4 +1,4 @@
-const style = require('./style')
+import style from './style'
 
 const getDirectionProp = template => dir => template(dir)
 const getWidthProp = getDirectionProp(dir => `border${dir}Width`)
@@ -13,7 +13,7 @@ const getDirections = props => {
   return directions.length ? directions : null
 }
 
-module.exports = props => {
+export default props => {
   const directions = getDirections(props)
   const borderWidths = directions
     ? directions.map(dir => style({

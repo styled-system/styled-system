@@ -1,5 +1,5 @@
-const pseudoStyle = require('./pseudo-style')
-module.exports = pseudoStyle('focus')({
+import pseudoStyle from './pseudo-style'
+export default pseudoStyle('focus')({
   color: 'colors',
   backgroundColor: 'colors',
   borderColor: 'colors',

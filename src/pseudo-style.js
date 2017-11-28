@@ -1,6 +1,6 @@
-const { get, px } = require('./util')
+import { get, px } from './util'
 
-module.exports = (pseudoclass, prop) => (keys = {}) => props => {
+export default (pseudoclass, prop) => (keys = {}) => props => {
   const style = props[prop || pseudoclass]
   const numberToPx = keys.numberToPx || {}
   for (let key in style) {

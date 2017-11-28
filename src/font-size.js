@@ -1,7 +1,7 @@
-const { get, is, arr, num, px, breaks, dec, media, merge } = require('./util')
-const { fontSizes } = require('./constants')
+import { get, is, arr, num, px, breaks, dec, media, merge } from './util'
+import { fontSizes } from './constants'
 
-module.exports = props => {
+export default props => {
   const n = is(props.fontSize) ? props.fontSize : props.fontSize || props.f
   if (!is(n)) return null
 

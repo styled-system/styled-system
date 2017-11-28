@@ -1,4 +1,4 @@
-const propTypes = require('./prop-types')
+import * as propTypes from './prop-types'
 
 const blacklist = Object.keys(propTypes)
   .reduce((a, key) => [
@@ -6,7 +6,7 @@ const blacklist = Object.keys(propTypes)
     ...Object.keys(propTypes[key])
   ], [])
 
-module.exports = props => {
+export default props => {
   const next = {}
 
   for (let key in props) {
