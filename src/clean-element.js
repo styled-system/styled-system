@@ -1,4 +1,4 @@
-const React = require('react')
+import React from 'react'
 
 const cleanElement = Component => {
   const Cleaned = props => {
@@ -15,4 +15,4 @@ const cleanElement = Component => {
   return Cleaned
 }
 
-module.exports = cleanElement
+export default cleanElement

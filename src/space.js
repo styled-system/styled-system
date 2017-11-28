@@ -1,4 +1,4 @@
-const {
+import {
   get,
   arr,
   px,
@@ -8,12 +8,12 @@ const {
   dec,
   media,
   merge
-} = require('./util')
-const { space } = require('./constants')
+} from './util'
+import { space } from './constants'
 
 const REG = /^[mp][trblxy]?$/
 
-module.exports = props => {
+export default props => {
   const keys = Object.keys(props)
     .filter(key => REG.test(key))
     .sort()

@@ -1,27 +1,27 @@
-const PropTypes = require('prop-types')
+import PropTypes from 'prop-types'
 
-const responsive = PropTypes.oneOfType([
+export const responsive = PropTypes.oneOfType([
   PropTypes.number,
   PropTypes.string,
   PropTypes.array
 ])
 
-const responsiveBoolean = PropTypes.oneOfType([
+export const responsiveBoolean = PropTypes.oneOfType([
   PropTypes.bool,
   PropTypes.array
 ])
 
-const numberOrString = PropTypes.oneOfType([
+export const numberOrString = PropTypes.oneOfType([
   PropTypes.number,
   PropTypes.string
 ])
 
-const width = {
+export const width = {
   width: responsive,
   w: responsive
 }
 
-const space = {
+export const space = {
   m: responsive,
   mt: responsive,
   mr: responsive,
@@ -38,53 +38,53 @@ const space = {
   py: responsive
 }
 
-const fontSize = {
+export const fontSize = {
   fontSize: responsive,
   f: responsive
 }
 
-const color = {
+export const color = {
   color: responsive,
   bg: responsive
 }
 
-const textAlign = {
+export const textAlign = {
   align: responsive
 }
 
-const fontWeight = {
+export const fontWeight = {
   fontWeight: numberOrString
 }
 
-const alignItems = {
+export const alignItems = {
   align: responsive
 }
 
-const justifyContent = {
+export const justifyContent = {
   justify: responsive
 }
 
-const flexWrap = {
+export const flexWrap = {
   wrap: responsiveBoolean
 }
 
-const flexDirection = {
+export const flexDirection = {
   flexDirection: responsive
 }
 
-const flex = {
+export const flex = {
   flex: responsive
 }
 
-const alignSelf = {
+export const alignSelf = {
   alignSelf: responsive
 }
 
-const borderRadius = {
+export const borderRadius = {
   borderRadius: numberOrString
 }
 
-const borderWidth = {
+export const borderWidth = {
   borderWidth: numberOrString,
   borderTop: PropTypes.bool,
   borderRight: PropTypes.bool,
@@ -92,46 +92,22 @@ const borderWidth = {
   borderLeft: PropTypes.bool
 }
 
-const boxShadow = {
+export const boxShadow = {
   boxShadow: PropTypes.string
 }
 
-const hover = {
+export const hover = {
   hover: PropTypes.object
 }
 
-const focus = {
+export const focus = {
   focus: PropTypes.object
 }
 
-const active = {
+export const active = {
   active: PropTypes.object
 }
 
-const disabled = {
+export const disabled = {
   disabledStyle: PropTypes.object
 }
-
-const propTypes = {
-  width,
-  space,
-  fontSize,
-  color,
-  textAlign,
-  fontWeight,
-  alignItems,
-  justifyContent,
-  flexWrap,
-  flexDirection,
-  flex,
-  alignSelf,
-  borderRadius,
-  borderWidth,
-  boxShadow,
-  hover,
-  focus,
-  active,
-  disabled
-}
-
-module.exports = propTypes

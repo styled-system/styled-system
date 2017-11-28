@@ -1,5 +1,5 @@
-const pseudoStyle = require('./pseudo-style')
-module.exports = pseudoStyle('hover')({
+import pseudoStyle from './pseudo-style'
+export default pseudoStyle('hover')({
   color: 'colors',
   backgroundColor: 'colors',
   borderColor: 'colors',

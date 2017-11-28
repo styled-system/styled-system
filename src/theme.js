@@ -1,3 +1,3 @@
 // theme getter
-const { get } = require('./util')
-module.exports = (keys, fallback) => props => get(props.theme, keys, fallback)
+import { get } from './util'
+export default (keys, fallback) => props => get(props.theme, keys, fallback)

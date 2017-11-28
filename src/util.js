@@ -1,30 +1,30 @@
-const { breakpoints } = require('./constants')
+import { breakpoints } from './constants'
 
-const is = n => n !== undefined && n !== null
-const num = n => typeof n === 'number' && !isNaN(n)
-const px = n => num(n) ? n + 'px' : n
-const em = n => num(n) ? n + 'em' : n
-const neg = n => n < 0
-const arr = n => Array.isArray(n) ? n : [ n ]
+export const is = n => n !== undefined && n !== null
+export const num = n => typeof n === 'number' && !isNaN(n)
+export const px = n => num(n) ? n + 'px' : n
+export const em = n => num(n) ? n + 'em' : n
+export const neg = n => n < 0
+export const arr = n => Array.isArray(n) ? n : [ n ]
 
-const get = (obj, path, fallback) => path.split('.')
+export const get = (obj, path, fallback) => path.split('.')
   .reduce((a, b) => (a && a[b]) ? a[b] : null, obj) || fallback
 
-const mq = n => `@media screen and (min-width: ${em(n)})`
+export const mq = n => `@media screen and (min-width: ${em(n)})`
 
-const breaks = props => [
+export const breaks = props => [
   null,
   ...get(props, 'theme.breakpoints', breakpoints).map(mq)
 ]
 
-const dec = props => val => arr(props)
+export const dec = props => val => arr(props)
   .reduce((acc, prop) => (acc[prop] = val, acc), {})
 
-const media = bp => (d, i) => is(d)
+export const media = bp => (d, i) => is(d)
   ? bp[i] ? ({ [bp[i]]: d }) : d
   : null
 
-const merge = (a, b) => Object.assign({}, a, b, Object.keys(b).reduce((obj, key) =>
+export const merge = (a, b) => Object.assign({}, a, b, Object.keys(b).reduce((obj, key) =>
   Object.assign(obj, {
     [key]: a[key] !== null && typeof a[key] === 'object'
     ? merge(a[key], b[key])
@@ -33,20 +33,4 @@ const merge = (a, b) => Object.assign({}, a, b, Object.keys(b).reduce((obj, key)
   {}))
 
 // keeping for backwards-compatibility only
-const idx = (keys, obj) => get(obj, keys.join('.')) || null
-
-module.exports = {
-  get,
-  is,
-  px,
-  em,
-  neg,
-  num,
-  arr,
-  idx,
-  breaks,
-  media,
-  dec,
-  merge,
-  mq
-}
+export const idx = (keys, obj) => get(obj, keys.join('.')) || null

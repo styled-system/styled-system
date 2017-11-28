@@ -1,6 +1,6 @@
-const { get, is, arr, num, px, breaks, dec, media, merge } = require('./util')
+import { get, is, arr, num, px, breaks, dec, media, merge } from './util'
 
-module.exports = (...args) => props => {
+export default (...args) => props => {
   // support for legacy API
   const [ arg, _prop, _bool ] = args
   let {
