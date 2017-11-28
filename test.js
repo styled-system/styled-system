@@ -1042,8 +1042,8 @@ test('boxShadow returns theme value', t => {
 })
 
 test('measure returns width styles', t => {
-  const a = measure({ measure: 123 })
-  t.deepEqual(a, { width: '123px' })
+  const a = measure({ measure: 23 })
+  t.deepEqual(a, { width: '23em' })
 })
 
 test('measure returns null when blank', t => {
@@ -1060,15 +1060,15 @@ test('measure returns scalar styles', t => {
     },
     measure: 1
   })
-  t.deepEqual(a, { width: '31px' })
+  t.deepEqual(a, { width: '31em' })
 })
 
 test('measure returns responsive widths', t => {
   const a = measure({ measure: [0, 1] })
   t.deepEqual(a, {
-    width: '24px',
+    width: '24em',
     '@media screen and (min-width: 40em)': {
-      width: '32px'
+      width: '32em'
     }
   })
 })
@@ -1083,9 +1083,9 @@ test('measure returns responsive widths based on scalar styles', t => {
     measure: [0, 1]
   })
   t.deepEqual(a, {
-    width: '23px',
+    width: '23em',
     '@media screen and (min-width: 40em)': {
-      width: '31px'
+      width: '31em'
     }
   })
 })

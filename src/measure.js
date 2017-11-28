@@ -1,4 +1,4 @@
-const { get, is, px, num, breaks, dec, media, merge } = require('./util')
+const { get, is, em, num, breaks, dec, media, merge } = require('./util')
 const { measures } = require('./constants')
 const width = require('./width')
 
@@ -24,4 +24,4 @@ module.exports = props => {
     .reduce(merge, {})
 }
 
-const mx = scale => n => num(n) ? px(scale[n] || n) : n
+const mx = scale => n => num(n) ? em(scale[n] || n) : n
