@@ -239,7 +239,7 @@ import { textAlign } from 'styled-system'
 
 ```js
 import { lineHeight } from 'styled-system'
-// <Text lineHeight={1}
+// <Text lineHeight={1} />
 // props.theme.lineHeights[1]
 ```
 
