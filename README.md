@@ -533,7 +533,7 @@ Adds style props for pseudoclasses like `hover`, `focus`, `active`, etc.
 import styled from 'styled-components'
 import { pseudoStyle } from 'styled-system'
 
-const checkedStyle = pseudoStyle('checked', 'checkedSyle')({
+const checkedStyle = pseudoStyle('checked', 'checkedStyle')({
   // keys for theme-based values
   color: 'colors',
   backgroundColor: 'colors',
