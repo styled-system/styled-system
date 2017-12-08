@@ -104,6 +104,7 @@ array syntax. [Read more](#responsive-styles)
   - [textAlign](#textalign-responsive)
   - [lineHeight](#lineheight)
   - [fontWeight](#fontweight)
+  - [letterSpacing](#letterspacing)
   - [alignItems](#alignitems-responsive)
   - [justifyContent](#justifycontent-responsive)
   - [flexWrap](#flexwrap-responsive)
@@ -249,6 +250,14 @@ import { lineHeight } from 'styled-system'
 import { fontWeight } from 'styled-system'
 // <Text fontWeight='bold' />
 // props.theme.fontWeights.bold
+```
+
+### letterSpacing
+
+```js
+import { letterSpacing } from 'styled-system'
+// <Text letterSpacing={1} />
+// props.theme.letterSpacings[1]
 ```
 
 ### alignItems (responsive)
