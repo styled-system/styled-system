@@ -97,12 +97,14 @@ array syntax. [Read more](#responsive-styles)
 - [**Core**](#core)
   - [space](#space-responsive) (margins & paddings)
   - [width](#width-responsive)
-  - [fontSize](#fontSize-responsive)
+  - [fontSize](#fontsize-responsive)
   - [color](#color-responsive) (and background-color)
   - [Responsive Styles](#responsive-styles)
 - [**Extras**](#extras)
   - [textAlign](#textalign-responsive)
+  - [lineHeight](#lineheight)
   - [fontWeight](#fontweight)
+  - [letterSpacing](#letterspacing)
   - [alignItems](#alignitems-responsive)
   - [justifyContent](#justifycontent-responsive)
   - [flexWrap](#flexwrap-responsive)
@@ -119,7 +121,7 @@ array syntax. [Read more](#responsive-styles)
   - [disabled](#disabled)
 - [**Utilities**](#utilities)
   - [theme](#theme)
-  - [propTypes](#proptype)
+  - [propTypes](#proptypes)
   - [cleanElement](#cleanelement)
   - [removeProps](#removeprops)
 - [**Low-level**](#low-level-style-functions)
@@ -234,12 +236,28 @@ import { textAlign } from 'styled-system'
 // <Text align='center' />
 ```
 
+### lineHeight
+
+```js
+import { lineHeight } from 'styled-system'
+// <Text lineHeight={1} />
+// props.theme.lineHeights[1]
+```
+
 ### fontWeight
 
 ```js
 import { fontWeight } from 'styled-system'
 // <Text fontWeight='bold' />
 // props.theme.fontWeights.bold
+```
+
+### letterSpacing
+
+```js
+import { letterSpacing } from 'styled-system'
+// <Text letterSpacing={1} />
+// props.theme.letterSpacings[1]
 ```
 
 ### alignItems (responsive)
@@ -517,7 +535,7 @@ Adds style props for pseudoclasses like `hover`, `focus`, `active`, etc.
 import styled from 'styled-components'
 import { pseudoStyle } from 'styled-system'
 
-const checkedStyle = pseudoStyle('checked', 'checkedSyle')({
+const checkedStyle = pseudoStyle('checked', 'checkedStyle')({
   // keys for theme-based values
   color: 'colors',
   backgroundColor: 'colors',

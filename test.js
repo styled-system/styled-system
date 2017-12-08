@@ -15,7 +15,9 @@ import system, {
   removeProps,
   util,
   textAlign,
+  lineHeight,
   fontWeight,
+  letterSpacing,
   alignItems,
   justifyContent,
   flexWrap,
@@ -848,12 +850,6 @@ test('textAlign returns text-align', t => {
   t.deepEqual(a, { textAlign: 'center' })
 })
 
-// textAlign
-test('textAlign returns text-align', t => {
-  const a = textAlign({ align: 'center' })
-  t.deepEqual(a, { textAlign: 'center' })
-})
-
 test('textAlign returns responsive text-align', t => {
   const a = textAlign({ align: [ 'center', 'left' ] })
   t.deepEqual(a, {
@@ -862,6 +858,25 @@ test('textAlign returns responsive text-align', t => {
       textAlign: 'left',
     }
   })
+})
+
+// lineHeight
+test('lineHeight returns line-height', t => {
+  const a = lineHeight({ lineHeight: 1.23 })
+  t.deepEqual(a, { lineHeight: 1.23 })
+})
+
+test('lineHeight returns a scalar style', t => {
+  const a = lineHeight({
+    theme: {
+      lineHeights: [
+        1, 2, 3
+      ]
+    },
+    lineHeight: 1
+  })
+
+  t.deepEqual(a, { lineHeight: 2 })
 })
 
 // fontWeight
@@ -880,6 +895,24 @@ test('fontWeight returns a scalar style', t => {
     fontWeight: 2
   })
   t.deepEqual(a, { fontWeight: 800 })
+})
+
+// letterSpacing
+test('letterSpacing returns letterSpacing', t => {
+  const a = letterSpacing({ letterSpacing: 2 })
+  t.deepEqual(a, { letterSpacing: '2px' })
+})
+
+test('letterSpacing returns a scalar style', t => {
+  const a = letterSpacing({
+    theme: {
+      letterSpacings: [
+        1, 2, 3
+      ]
+    },
+    letterSpacing: 2
+  })
+  t.deepEqual(a, { letterSpacing: '3px' })
 })
 
 test('alignItems returns a style', t => {
