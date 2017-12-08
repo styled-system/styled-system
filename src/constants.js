@@ -24,15 +24,15 @@ const fontSizes = [
   72
 ]
 
-const measures = [
-  24,
-  32,
-  48
+const maxWidths = [
+  380,
+  512,
+  768
 ]
 
 module.exports = {
   breakpoints,
   space,
   fontSizes,
-  measures
+  maxWidths
 }

@@ -26,7 +26,7 @@ import system, {
   borderColor,
   borderWidth,
   boxShadow,
-  measure,
+  maxWidth,
   hover,
   focus,
   active,
@@ -1041,55 +1041,55 @@ test('boxShadow returns theme value', t => {
   t.deepEqual(a, { boxShadow: '0 0 8px rgba(0, 0, 0, .125)' })
 })
 
-test('measure returns width styles', t => {
-  const a = measure({ measure: 23 })
-  t.deepEqual(a, { width: '23em' })
+test('maxWidth returns width styles', t => {
+  const a = maxWidth({ maxWidth: 234 })
+  t.deepEqual(a, { maxWidth: '234px' })
 })
 
-test('measure returns null when blank', t => {
-  const a = measure({ measure: null })
+test('maxWidth returns null when blank', t => {
+  const a = maxWidth({ maxWidth: null })
   t.is(a, null)
 })
 
-test('measure returns scalar styles', t => {
-  const a = measure({
+test('maxWidth returns scalar styles', t => {
+  const a = maxWidth({
     theme: {
-      measures: [
-        21, 31, 47
+      maxWidths: [
+        123, 456, 789
       ]
     },
-    measure: 1
+    maxWidth: 1
   })
-  t.deepEqual(a, { width: '31em' })
+  t.deepEqual(a, { maxWidth: '456px' })
 })
 
-test('measure returns responsive widths', t => {
-  const a = measure({ measure: [0, 1] })
+test('maxWidth returns responsive widths', t => {
+  const a = maxWidth({ maxWidth: [0, 1] })
   t.deepEqual(a, {
-    width: '24em',
+    maxWidth: '380px',
     '@media screen and (min-width: 40em)': {
-      width: '32em'
+      maxWidth: '512px'
     }
   })
 })
 
-test('measure returns responsive widths based on scalar styles', t => {
-  const a = measure({
+test('maxWidth returns responsive widths based on scalar styles', t => {
+  const a = maxWidth({
     theme: {
-      measures: [
-        23, 31
+      maxWidths: [
+        234, 456
       ]
     },
-    measure: [0, 1]
+    maxWidth: [0, 1]
   })
+
   t.deepEqual(a, {
-    width: '23em',
+    maxWidth: '234px',
     '@media screen and (min-width: 40em)': {
-      width: '31em'
+      maxWidth: '456px'
     }
   })
 })
-
 
 test('hover returns a style object', t => {
   const a = hover({
