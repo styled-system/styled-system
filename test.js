@@ -15,6 +15,7 @@ import system, {
   removeProps,
   util,
   textAlign,
+  lineHeight,
   fontWeight,
   alignItems,
   justifyContent,
@@ -862,6 +863,25 @@ test('textAlign returns responsive text-align', t => {
       textAlign: 'left',
     }
   })
+})
+
+// lineHeight
+test('lineHeight returns line-height', t => {
+  const a = lineHeight({ lineHeight: 1.23 })
+  t.deepEqual(a, { lineHeight: 1.23 })
+})
+
+test('lineHeight returns a scalar style', t => {
+  const a = lineHeight({
+    theme: {
+      lineHeights: [
+        1, 2, 3
+      ]
+    },
+    lineHeight: 1
+  })
+
+  t.deepEqual(a, { lineHeight: 2 })
 })
 
 // fontWeight

@@ -12,6 +12,7 @@ const pseudoStyle = require('./pseudo-style')
 
 // extras
 const textAlign = require('./text-align')
+const lineHeight = require('./line-height')
 const fontWeight = require('./font-weight')
 const alignItems = require('./align-items')
 const justifyContent = require('./justify-content')
@@ -45,6 +46,7 @@ module.exports = {
   responsiveStyle,
   pseudoStyle,
   textAlign,
+  lineHeight,
   fontWeight,
   alignItems,
   justifyContent,
