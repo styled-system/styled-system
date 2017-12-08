@@ -134,6 +134,7 @@ const propTypes = {
   alignSelf,
   borderRadius,
   borderWidth,
+  borderColor,
   boxShadow,
   hover,
   focus,
