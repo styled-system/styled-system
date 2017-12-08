@@ -113,7 +113,7 @@ array syntax. [Read more](#responsive-styles)
   - [borderColor](#bordercolor)
   - [borderWidth](#borderwidth)
   - [boxShadow](#boxshadow)
-  - [measure](#measure-responsive)
+  - [maxWidth](#maxWidth-responsive)
   - [hover](#hover)
   - [focus](#focus)
   - [active](#active)
@@ -325,12 +325,12 @@ import { boxShadow } from 'styled-system'
 // props.theme.shadows[1]
 ```
 
-### measure (responsive)
+### maxWidth (responsive)
 
 ```js
 import { measure } from 'styled-system'
-// <Box measure={[0, 1, 2]} />
-// props.theme.measures
+// <Box maxWidth={[0, 1, 2]} />
+// props.theme.maxWidths
 ```
 
 ### hover
@@ -644,4 +644,3 @@ const App = props => (
 [cxs]: https://github.com/jxnblk/cxs
 
 MIT License
-
