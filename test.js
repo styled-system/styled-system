@@ -849,12 +849,6 @@ test('textAlign returns text-align', t => {
   t.deepEqual(a, { textAlign: 'center' })
 })
 
-// textAlign
-test('textAlign returns text-align', t => {
-  const a = textAlign({ align: 'center' })
-  t.deepEqual(a, { textAlign: 'center' })
-})
-
 test('textAlign returns responsive text-align', t => {
   const a = textAlign({ align: [ 'center', 'left' ] })
   t.deepEqual(a, {
