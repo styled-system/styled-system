@@ -92,8 +92,15 @@ const borderWidth = {
   borderLeft: PropTypes.bool
 }
 
+const borderColor = {
+  borderColor: PropTypes.string
+}
+
 const boxShadow = {
-  boxShadow: PropTypes.string
+  boxShadow: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
 }
 
 const hover = {
@@ -127,6 +134,7 @@ const propTypes = {
   alignSelf,
   borderRadius,
   borderWidth,
+  borderColor,
   boxShadow,
   hover,
   focus,
