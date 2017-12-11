@@ -328,7 +328,7 @@ import { boxShadow } from 'styled-system'
 ### maxWidth (responsive)
 
 ```js
-import { measure } from 'styled-system'
+import { maxWidth } from 'styled-system'
 // <Box maxWidth={[0, 1, 2]} />
 // props.theme.maxWidths
 ```

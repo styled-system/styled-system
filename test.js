@@ -1064,7 +1064,7 @@ test('maxWidth returns scalar styles', t => {
 })
 
 test('maxWidth returns responsive widths', t => {
-  const a = maxWidth({ maxWidth: [0, 1] })
+  const a = maxWidth({ maxWidth: [380, 512] })
   t.deepEqual(a, {
     maxWidth: '380px',
     '@media screen and (min-width: 40em)': {
@@ -1077,7 +1077,7 @@ test('maxWidth returns responsive widths based on scalar styles', t => {
   const a = maxWidth({
     theme: {
       maxWidths: [
-        234, 456
+        '234px', '456px'
       ]
     },
     maxWidth: [0, 1]
