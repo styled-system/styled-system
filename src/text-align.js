@@ -1,2 +1,2 @@
 const responsiveStyle = require('./responsive-style')
-module.exports = responsiveStyle('textAlign', 'align')
+module.exports = responsiveStyle('textAlign', 'text-align')
