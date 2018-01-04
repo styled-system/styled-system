@@ -617,6 +617,14 @@ test('responsiveStyle can be configured for boolean props', t => {
   })
 })
 
+test('responsiveStyle can be configured with boolean fallback array', t => {
+  const wrap = responsiveStyle('flex-wrap', 'wrap', ['wrap', 'nowrap'])
+  const a = wrap({ wrap: false })
+  t.deepEqual(a, {
+    'flex-wrap': 'nowrap'
+  })
+})
+
 test('responsiveStyle boolean props handle arrays', t => {
   const wrap = responsiveStyle('flex-wrap', 'wrap', 'wrap')
   const a = wrap({ wrap: [ true, false ] })
@@ -624,6 +632,17 @@ test('responsiveStyle boolean props handle arrays', t => {
     'flex-wrap': 'wrap',
     '@media screen and (min-width: 40em)': {
       'flex-wrap': false
+    }
+  })
+})
+
+test('responsiveStyle boolean fallback props handle arrays', t => {
+  const wrap = responsiveStyle('flex-wrap', 'wrap', ['wrap', 'nowrap'])
+  const a = wrap({ wrap: [true, false] })
+  t.deepEqual(a, {
+    'flex-wrap': 'wrap',
+    '@media screen and (min-width: 40em)': {
+      'flex-wrap': 'nowrap'
     }
   })
 })
