@@ -92,6 +92,65 @@ array syntax. [Read more](#responsive-styles)
 <Box p={[ 1, 2, 3 ]} />
 ```
 
+## Getting Started
+
+Although it's not required, styled-system works best with a theme that's tailored to your own custom styles.
+Create a `theme.js` file that exports an object and add a [ThemeProvider](https://www.styled-components.com/docs/advanced#theming)
+to the root of your application.
+
+```js
+// empty theme.js
+const theme = {}
+
+export default theme
+```
+
+```jsx
+// root App component
+import React from 'react'
+import { ThemeProvider } from 'styled-components'
+import theme from './theme'
+
+const App = props => (
+  <ThemeProvider theme={theme}>
+    {/* ... */}
+  </ThemeProvider>
+)
+```
+
+Most utility functions in styled-system will attempt to find a value from your theme first,
+then fallback to a hard-coded value if it hasn't been defined in your theme.
+For example, defining a `colors` object can make using a common color palette across your app simpler.
+
+```js
+// theme.js
+const colors = {
+  text: '#024',
+  blue: '#07c'
+}
+
+const theme = {
+  colors
+}
+
+export default theme
+```
+
+With a component that uses the `color` function from styled-system, the name of the color defined in your theme can be used as a prop.
+
+```jsx
+// picks up the value `#07c` from the theme
+<Box color='blue' />
+```
+
+When a value is passed that's **not** in the theme, it will be passed as a raw value.
+
+```jsx
+// renders the CSS `tomato` color since it's not defined in theme
+<Box color='tomato' />
+```
+
+
 ## API
 
 - [**Core**](#core)
