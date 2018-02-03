@@ -35,6 +35,14 @@ npm i styled-system
 > "Coming from @tachyons_css, the styled-system utilities from @jxnblk is the missing link I’ve been looking for."<br/>
 > – [Nathan Young](https://mobile.twitter.com/nathanyoung/status/891353221880360960)
 
+- [Usage](#usage)
+- [Getting Started](#getting-started)
+- [How it works](#how-it-works)
+- [API](#api)
+- [Default Theme](#default-theme)
+- [Configuration](#configuration)
+- [Related](#Related)
+
 ## Usage
 
 ```jsx
@@ -243,7 +251,7 @@ export default theme
 
 Next, create a set of UI components that provide convenient style props to the values defined in the theme.
 It's recommended to keep components simple and focused on doing one thing well.
-For style components, it's common to separate them according to different concerns, such as layout, typography, and other styles.
+For UI components, it's common to separate them according to different concerns, such as layout, typography, and other styles.
 However, there may be some general purpose style props that you'd like to apply consistently across your entire component set, such as margin, padding, and color.
 
 ```js
@@ -321,6 +329,8 @@ such as [glamorous][glamorous] and [emotion][emotion].
 
 The core utilities in styled-system are built on this pattern and consist of functions that take `props` as an argument
 and returns a style object, while simplifying using values from a theme and setting styles responsively across breakpoints.
+
+These style functions can be written on a one-off basis, but styled-system is meant to help reduce boilerplate, ensure a consistent styling API, and speed the development of React-based design systems.
 
 
 ## API
