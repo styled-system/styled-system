@@ -35,6 +35,8 @@ npm i styled-system
 > "Coming from @tachyons_css, the styled-system utilities from @jxnblk is the missing link I’ve been looking for."<br/>
 > – [Nathan Young](https://mobile.twitter.com/nathanyoung/status/891353221880360960)
 
+### Table of Contents
+
 - [Usage](#usage)
 - [Getting Started](#getting-started)
 - [How it works](#how-it-works)
@@ -329,7 +331,7 @@ By using style objects instead of embedded CSS strings, styled-system is compati
 such as [glamorous][glamorous] and [emotion][emotion].
 
 The core utilities in styled-system are built on this pattern and consist of functions that take `props` as an argument
-and returns a style object, while simplifying using values from a theme and setting styles responsively across breakpoints.
+and return style objects, while simplifying using values from a theme and setting styles responsively across breakpoints.
 
 These style functions can be written on a one-off basis, but styled-system is meant to help reduce boilerplate, ensure a consistent styling API, and speed the development of React-based design systems.
 
@@ -409,11 +411,12 @@ import { space } from 'styled-system'
 ```
 
 The space utility converts shorthand margin and padding props to margin and padding CSS declarations.
-Numbers from 0-4 are converted to values on the [spacing scale](#spacing-scale).
-Negative values can be used for negative margins.
-Numbers greater than 4 are converted to raw pixel values.
-String values are passed as raw CSS values.
-And array values are converted into [responsive values](#responsive-styles).
+
+- Numbers from 0-4 (or the length of `theme.space`) are converted to values on the [spacing scale](#spacing-scale).
+- Negative values can be used for negative margins.
+- Numbers greater than the length of the `theme.space` array are converted to raw pixel values.
+- String values are passed as raw CSS values.
+- And array values are converted into [responsive values](#responsive-styles).
 
 Margin and padding props follow a shorthand syntax for specifying direction.
 
@@ -432,6 +435,25 @@ Margin and padding props follow a shorthand syntax for specifying direction.
 - `px`: padding-left and padding-right
 - `py`: padding-top and padding-bottom
 
+```jsx
+// examples (margin prop)
+
+// sets margin value of `theme.space[2]`
+<Box m={2} />
+
+// sets margin value of `-1 * theme.space[2]`
+<Box m={-2} />
+
+// sets a margin value of `16px` since it's greater than `theme.space.length`
+<Box m={16} />
+
+// sets margin `'auto'`
+<Box m='auto' />
+
+// sets margin `8px` on all viewports and `16px` from the smallest breakpoint and up
+<Box m={[ 1, 2 ]} />
+```
+
 ### width (responsive)
 
 ```js
@@ -445,6 +467,22 @@ The width utility parses a component's `width` prop and converts it into a CSS w
 - String values are passed as raw CSS values.
 - And arrays are converted to [responsive width styles](#responsive-styles).
 
+```jsx
+// examples
+
+// width `50%`
+<Box width={1/2} />
+
+// width `256px`
+<Box width={256} />
+
+// width `'2em'`
+<Box width='2em' />
+
+// width `100%` on all viewports and `50%` from the smallest breakpoint and up
+<Box width={[ 1, 1/2 ]} />
+```
+
 ### fontSize (responsive)
 
 ```js
@@ -452,10 +490,27 @@ import { fontSize } from 'styled-system'
 ```
 
 The fontSize utility parses a component's `fontSize` prop and converts it into a CSS font-size declaration.
-Numbers from 0-8 are converted to values on the [font size scale](#font-size-scale).
-Numbers greater than 8 are converted to raw pixel values.
-String values are passed as raw CSS values.
-And array values are converted into [responsive values](#responsive-styles).
+
+- Numbers from 0-8 (or `theme.fontSizes.length`) are converted to values on the [font size scale](#font-size-scale).
+- Numbers greater than `theme.fontSizes.length` are converted to raw pixel values.
+- String values are passed as raw CSS values.
+- And array values are converted into [responsive values](#responsive-styles).
+
+```jsx
+// examples
+
+// font-size of `theme.fontSizes[3]`
+<Text fontSize={3} />
+
+// font-size `32px`
+<Text fontSize={32} />
+
+// font-size `'2em'`
+<Text fontSize='2em' />
+
+// font-size `10px` on all viewports and `12px` from the smallest breakpoint and up
+<Text fontSize={[ 10, 12 ]} />
+```
 
 ### color (responsive)
 
@@ -467,6 +522,20 @@ The color utility parses a component's `color` and `bg` props and converts them 
 By default the raw value of the prop is returned.
 Color palettes can be configured with the [ThemeProvider](#configuration) to use keys as prop values, with support for dot notation.
 Array values are converted into [responsive values](#responsive-styles).
+
+```jsx
+// examples
+
+// picks the value defined in `theme.colors['blue']`
+<Box color='blue' />
+
+// picks up a nested color value using dot notation
+// `theme.colors['gray'][0]`
+<Box color='gray.0' />
+
+// raw CSS color value
+<Box color='#f00' />
+```
 
 ---
 
