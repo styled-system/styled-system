@@ -1005,6 +1005,7 @@ const breakpoints = [ '40em', '52em', '64em' ]
 const fontSizes = [ 12, 14, 16, 20, 24, 32, 48, 64, 72 ]
 
 // Spacing Scale
+// used for margin and padding
 const space = [ 0, 8, 16, 32, 64 ]
 ```
 
