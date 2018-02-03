@@ -390,7 +390,7 @@ import styled from 'styled-components'
 import { theme } from 'styled-system'
 
 const Box = styled.div`
-  border-radius: ${theme('radii.small')};
+  border-radius: ${theme('radii.small', '4px')};
 `
 ```
 
