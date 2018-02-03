@@ -24,12 +24,13 @@ npm i styled-system
 - Default 8px grid
 - Works with any color palette
 - Works with most css-in-js libraries, including [styled-components][sc], [glamorous][glamorous], [emotion][emotion], [fela][fela], and [cxs][cxs]
+- Used in [Rebass](http://jxnblk.com/rebass), [Grid Styled](http://jxnblk.com/grid-styled/), and the [Priceline Design System](https://github.com/pricelinelabs/design-system)
 
 > "The future of css-in-js is going to look something like styled-system with its responsive values."<br/>
 > – [Kye Hohenberger](https://mobile.twitter.com/tkh44/status/905474043729416192)
 
 > "Fantastic set of tools that offer the ease and API of tachyons/functional CSS but, are way more customisable."
-> - [Varun Vachhar](https://mobile.twitter.com/winkerVSbecks/status/955619873463431168)
+> – [Varun Vachhar](https://mobile.twitter.com/winkerVSbecks/status/955619873463431168)
 
 > "Coming from @tachyons_css, the styled-system utilities from @jxnblk is the missing link I’ve been looking for."<br/>
 > – [Nathan Young](https://mobile.twitter.com/nathanyoung/status/891353221880360960)
@@ -239,6 +240,87 @@ const theme = {
 
 export default theme
 ```
+
+Next, create a set of UI components that provide convenient style props to the values defined in the theme.
+It's recommended to keep components simple and focused on doing one thing well.
+For style components, it's common to separate them according to different concerns, such as layout, typography, and other styles.
+However, there may be some general purpose style props that you'd like to apply consistently across your entire component set, such as margin, padding, and color.
+
+```js
+import styled from 'styled-components'
+import {
+  space,
+  color,
+  width,
+  fontSize,
+  fontWeight,
+  textAlign,
+  lineHeight
+} from 'styled-system'
+
+// Example of a general purpose Box layout component
+export const Box = styled.div`
+  ${space}
+  ${color}
+  ${width}
+`
+
+// General purpose typographic component
+export const Text = styled.div`
+  ${space}
+  ${color}
+  ${fontSize}
+  ${fontWeight}
+  ${textAlign}
+  ${lineHeight}
+`
+```
+
+## How it works
+
+Most CSS-in-JS libraries accept functions as arguments to create dynamic styles based on props.
+For example, the following sets color dynamically in styled-components based on the `color` prop:
+
+```js
+import styled from 'styled-components'
+
+const Box = styled.div`
+  color: ${props => props.color};
+`
+```
+
+Beyond just passing a dynamic value, an entire style declaration can be returned in functions like this.
+
+```js
+import styled from 'styled-components'
+
+const getColor = props => `color: ${props.color};`
+
+const Box = styled.div`
+  ${getColor}
+`
+```
+
+Style object can also be returned, which is a much simpler way to handle dynamic values in JavaScript.
+
+```js
+import styled from 'styled-components'
+
+// works exactly the same as the previous function
+const getColor = props => ({
+  color: props.color
+})
+
+const Box = styled.div`
+  ${getColor}
+`
+```
+
+By using style objects instead of embedded CSS strings, styled-system is compatible with other libraries,
+such as [glamorous][glamorous] and [emotion][emotion].
+
+The core utilities in styled-system are built on this pattern and consist of functions that take `props` as an argument
+and returns a style object, while simplifying using values from a theme and setting styles responsively across breakpoints.
 
 
 ## API
