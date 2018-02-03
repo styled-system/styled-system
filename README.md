@@ -713,7 +713,12 @@ Pseudo-class utility props accept style objects that can pick up certain values,
 import { hover } from 'styled-system'
 ```
 ```jsx
-<Box hover={{ color: 'blue' }} />
+<Box
+  hover={{
+    textDecoration: 'underline',
+    color: 'blue'
+  }}
+/>
 // props.theme.colors.blue
 ```
 
@@ -866,7 +871,8 @@ import { width, color } from' styled-system'
 const Box = styled(({
   width,
   color,
-  bg
+  bg,
+  ...props
 }) => <div {...props} />)`
   ${width}
   ${color}
@@ -885,7 +891,7 @@ use the following low-level utility functions.
 
 ### style
 
-Sets non-responsive styles using thematic values, based on props.
+Create a non-responsive style utility.
 
 ```js
 import styled from 'styled-components'
@@ -916,7 +922,7 @@ const App = props => (
 
 ### responsiveStyle
 
-The `responsiveStyle` utility can be used to handle array-based responsive style props for other CSS properties.
+Create a responsive style utility that accepts array-based responsive prop values.
 
 ```js
 import styled from 'styled-components'
@@ -942,7 +948,7 @@ const App = props => (
 
 ### pseudoStyle
 
-Adds style props for pseudoclasses like `hover`, `focus`, `active`, etc.
+Create a pseudo-class style utility that accepts a style object prop value.
 
 ```js
 import styled from 'styled-components'
@@ -967,7 +973,7 @@ FancyCheckbox.defaultProps = {
 
 ## system-components
 
-For an even simpler authoring experience when using styled-system with styled-components, see [system-components](https://github.com/jxnblk/system-components), which is a lite wrapper around the two libraries.
+For an even simpler authoring experience when using styled-system with styled-components, see [system-components](https://github.com/jxnblk/system-components), which is a lightweight wrapper around the two libraries.
 
 ```js
 import system from 'system-components'
@@ -981,91 +987,29 @@ const Box = system({
 
 ---
 
-## Default Theme
+### Default Theme
 
 If no theme is provided, styled-system uses smart defaults for breakpoints, the typographic scale, and the spacing scale.
 
-## Breakpoints
-
-styled-system uses a mobile-first responsive approach,
-where any value set works from that breakpoint and wider.
-The default set of breakpoints aims to cover a wide range of devices from mobile to desktop.
-Breakpoints default to `em` but can be overridden by passing strings with unit appended.
-Breakpoints can be customized using styled-components' [ThemeProvider](#configuration).
-
 ```js
-[ '40em', '52em', '64em' ]
+// Breakpoints
+const breakpoints = [ '40em', '52em', '64em' ]
 // @media screen and (min-width: 40em)
 // @media screen and (min-width: 52em)
 // @media screen and (min-width: 64em)
 
-[ '300px', '600px', '1200px' ]
-// @media screen and (min-width: 300px)
-// @media screen and (min-width: 600px)
-// @media screen and (min-width: 1200px)
-```
+// Other units work as well, but em units are recommended
+// const breakpoints = [ '300px', '600px', '1200px' ]
 
-## Font Size Scale
-
-Using a typographic scale helps create visual rhythm and reduces the
-number of decisions needed when designing UI.
-Styled system uses a modular scale that covers most of a UI's needs,
-but it can be customized with styled-components' [ThemeProvider](#configuration).
-
-```js
+// Typographic Scale
 // numbers are converted to px values
-[ 12, 14, 16, 20, 24, 32, 48, 64, 72 ]
+const fontSizes = [ 12, 14, 16, 20, 24, 32, 48, 64, 72 ]
+
+// Spacing Scale
+const space = [ 0, 8, 16, 32, 64 ]
 ```
 
-## Spacing Scale
-
-Using a scale for spacing helps ensure elements line up, even when nested inside one another.
-styled-system uses a spacing scale based on an 8px, powers-of-two grid for margin and padding
-by default and can be customized with styled-components' [ThemeProvider](#configuration).
-
-```js
-// numbers are converted to px values
-[ 0, 8, 16, 32, 64 ]
-```
-
-## Configuration
-
-styled-system can be configured with styled-components' (or other library's)
-[ThemeProvider](https://www.styled-components.com/docs/advanced#theming)
-
-As opposed to the built-in configurations, arrays given to the `breakpoints`, `space`, and
-`fontSizes` theme properties can be of arbitrary lengths.
-
-```jsx
-import { ThemeProvider } from 'styled-components'
-import MyComponent from './MyComponent'
-
-const theme = {
-  breakpoints: [
-    32, 48, 64
-  ],
-  space: [
-    0, 6, 12, 18, 24
-  ],
-  fontSizes: [
-    12, 16, 18, 24, 36, 72
-  ],
-  colors: {
-    black: '#111',
-    blue: '#07c',
-  }
-}
-
-const App = props => (
-  <ThemeProvider theme={theme}>
-    <MyComponent
-      fontSize={4}
-      my={[ 2, 3 ]}
-      color='blue'
-    />
-  </ThemeProvider>
-)
-```
+---
 
 ### Troubleshooting
 
@@ -1086,6 +1030,8 @@ you might want to consider using a flatter or better organized folder structure 
 
 See https://github.com/jxnblk/grid-styled/issues/51#issuecomment-336116426
 
+---
+
 ## Related
 
 - [system-components](https://github.com/jxnblk/system-components)
@@ -1103,5 +1049,7 @@ See https://github.com/jxnblk/grid-styled/issues/51#issuecomment-336116426
 [fela]: https://github.com/rofrischmann/fela
 [cxs]: https://github.com/jxnblk/cxs
 
-MIT License
+---
+
+[MIT License](LICENSE.md)
 
