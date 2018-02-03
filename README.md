@@ -39,7 +39,7 @@ npm i styled-system
 
 - [Usage](#usage)
 - [Getting Started](#getting-started)
-- [How it works](#how-it-works)
+- [How it Works](#how-it-works)
 - [Responsive Styles](#responsive-styles)
 - [API](#api)
 - [Default Theme](#default-theme)
@@ -288,7 +288,7 @@ export const Text = styled.div`
 `
 ```
 
-## How it works
+## How it Works
 
 Most CSS-in-JS libraries accept functions as arguments to create dynamic styles based on props.
 For example, the following sets color dynamically in styled-components based on the `color` prop:
@@ -883,7 +883,7 @@ https://github.com/styled-components/styled-components/issues/439
 
 ---
 
-## Low-level style functions
+## Low-level Style Functions
 
 To create custom utilities for other CSS properties,
 use the following low-level utility functions.
