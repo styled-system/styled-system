@@ -5,8 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "prepublish": "babel src -d dist",
-    "start": "x0 dev docs/App.js -op8888",
-    "build": "x0 build docs/App.js -d docs",
+    "start": "x0 dev docs/App.js -op 8888",
+    "build": "x0 build docs/App.js -d docs --cssLibrary='styled-components'",
     "bench": "node bench",
     "size": "bundlesize",
     "cover": "nyc report --reporter=html --reporter=lcov > coverage.lcov && codecov",
@@ -21,8 +21,10 @@
   "author": "Brent Jackson",
   "license": "MIT",
   "devDependencies": {
+    "@compositor/x0": "^3.1.1",
     "ava": "^0.25.0",
     "babel-cli": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.5.2",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
@@ -37,6 +39,9 @@
     "react-dom": "^16.2.0",
     "react-live": "^1.6.1",
     "react-test-renderer": "^16.2.0",
+    "remark": "^9.0.0",
+    "remark-react": "^4.0.1",
+    "remark-slug": "^5.0.0",
     "styled-components": "^3.1.6"
   },
   "nyc": {
