@@ -1,6 +1,6 @@
 {
   "name": "styled-system",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Design system utilities for styled-components, glamorous, and other css-in-js libraries",
   "main": "dist/index.js",
   "scripts": {
