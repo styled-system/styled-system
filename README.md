@@ -553,7 +553,10 @@ For practical reasons, some props do not accept arrays for responsive styles.
 
 ```js
 import { textAlign } from 'styled-system'
-// <Text align='center' />
+```
+
+```jsx
+<Text align='center' />
 ```
 
 ### lineHeight
@@ -571,7 +574,10 @@ import { lineHeight } from 'styled-system'
 
 ```js
 import { fontWeight } from 'styled-system'
-// <Text fontWeight='bold' />
+```
+
+```jsx
+<Text fontWeight='bold' />
 // props.theme.fontWeights.bold
 ```
 
@@ -579,7 +585,10 @@ import { fontWeight } from 'styled-system'
 
 ```js
 import { letterSpacing } from 'styled-system'
-// <Text letterSpacing={1} />
+```
+
+```jsx
+<Text letterSpacing={1} />
 // props.theme.letterSpacings[1]
 ```
 
@@ -587,49 +596,63 @@ import { letterSpacing } from 'styled-system'
 
 ```js
 import { alignItems } from 'styled-system'
-// <Flex align='center' />
+```
+```jsx
+<Flex align='center' />
 ```
 
 ### justifyContent (responsive)
 
 ```js
 import { justifyContent } from 'styled-system'
-// <Flex justify='center' />
+```
+```jsx
+<Flex justify='center' />
 ```
 
 ### flexWrap (responsive)
 
 ```js
 import { flexWrap } from 'styled-system'
-// <Flex wrap />
+```
+```jsx
+<Flex wrap />
 ```
 
 ### flexDirection (responsive)
 
 ```js
 import { flexDirection } from 'styled-system'
-// <Flex flexDirection='column' />
+```
+```jsx
+<Flex flexDirection='column' />
 ```
 
 ### flex (responsive)
 
 ```js
 import { flex } from 'styled-system'
-// <Box flex='none' />
+```
+```jsx
+<Box flex='none' />
 ```
 
 ### alignSelf (responsive)
 
 ```js
 import { alignSelf } from 'styled-system'
-// <Box alignSelf='baseline' />
+```
+```jsx
+<Box alignSelf='baseline' />
 ```
 
 ### borderRadius
 
 ```js
 import { borderRadius } from 'styled-system'
-// <Box borderRadius={1} />
+```
+```jsx
+<Box borderRadius={1} />
 // props.theme.radii[1]
 ```
 
@@ -637,7 +660,9 @@ import { borderRadius } from 'styled-system'
 
 ```js
 import { borderColor } from 'styled-system'
-// <Box borderColor='blue' />
+```
+```jsx
+<Box borderColor='blue' />
 // props.theme.colors.blue
 ```
 
@@ -645,7 +670,9 @@ import { borderColor } from 'styled-system'
 
 ```js
 import { borderWidth } from 'styled-system'
-// <Box borderWidth={1} />
+```
+```jsx
+<Box borderWidth={1} />
 // props.theme.borderWidths
 ```
 
@@ -661,19 +688,32 @@ import { borderWidth } from 'styled-system'
 
 ```js
 import { boxShadow } from 'styled-system'
-// <Box boxShadow={1} />
+```
+
+```jsx
+<Box boxShadow={1} />
 // props.theme.shadows[1]
-// -- OR --
-// <Box boxShadow='1px 1px 0 black' />
+```
+```jsx
+<Box boxShadow='large' />
+// props.theme.shadows.large
+```
+```jsx
+// raw value
+<Box boxShadow='1px 1px 0 black' />
 ```
 
 ## Pseudo-classes
+
+Pseudo-class utility props accept style objects that can pick up certain values, such as color, from a theme.
 
 ### hover
 
 ```js
 import { hover } from 'styled-system'
-// <Box hover={{ color: 'blue' }} />
+```
+```jsx
+<Box hover={{ color: 'blue' }} />
 // props.theme.colors.blue
 ```
 
@@ -681,7 +721,9 @@ import { hover } from 'styled-system'
 
 ```js
 import { focus } from 'styled-system'
-// <Box focus={{ color: 'blue' }} />
+```
+```jsx
+<Box focus={{ color: 'blue' }} />
 // props.theme.colors.blue
 ```
 
@@ -689,7 +731,9 @@ import { focus } from 'styled-system'
 
 ```js
 import { active } from 'styled-system'
-// <Box active={{ color: 'navy' }} />
+```
+```jsx
+<Box active={{ color: 'navy' }} />
 // props.theme.colors.navy
 ```
 
@@ -697,7 +741,9 @@ import { active } from 'styled-system'
 
 ```js
 import { disabled } from 'styled-system'
-// <Box disabledStyle={{ color: 'gray' }} />
+```
+```jsx
+<Box disabledStyle={{ color: 'gray' }} />
 // props.theme.colors.gray
 ```
 
