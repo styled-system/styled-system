@@ -825,7 +825,7 @@ https://github.com/styled-components/styled-components/issues/439
 
 ## Low-level style functions
 
-To convert other CSS properties into styled-system props,
+To create custom utilities for other CSS properties,
 use the following low-level utility functions.
 
 ### style
@@ -843,6 +843,8 @@ const textShadow = style({
   cssProperty: 'textShadow',
   // set a key to find values from `props.theme`
   key: 'shadows'
+  // convert number values to pixels
+  numberToPx: false
 })
 
 const ShadowText = styled(Text)`
@@ -865,21 +867,21 @@ The `responsiveStyle` utility can be used to handle array-based responsive style
 import styled from 'styled-components'
 import { responsiveStyle } from 'styled-system'
 
-const flexDirection = responsiveStyle({
-  prop: 'direction',
-  cssProperty: 'flexDirection'
+const borderRadius = responsiveStyle({
+  prop: 'borderRadius',
+  cssProperty: 'borderRadius',
+  // convert number values to pixels
+  numberToPx: true,
+  // set a key for values in theme
+  key: 'radii'
 })
 
-const Flex = styled.div`
-  display: flex;
-  ${flexDirection}
+const RoundedBox = styled.div`
+  ${borderRadius}
 `
 
 const App = props => (
-  <Flex direction={[ 'column', 'row' ]}>
-    <div>Responsive</div>
-    <div>Direction</div>
-  </Flex>
+  <RoundedBox borderRadius={[ 0, 2 ]} />
 )
 ```
 
@@ -908,6 +910,20 @@ FancyCheckbox.defaultProps = {
 // <FancyCheckbox checkedStyle={{ backgroundColor: 'blue' }} />
 ```
 
+## system-components
+
+For an even simpler authoring experience when using styled-system with styled-components, see [system-components](https://github.com/jxnblk/system-components), which is a lite wrapper around the two libraries.
+
+```js
+import system from 'system-components'
+
+// creates a Box component with default props tied to your theme
+const Box = system({
+  p: 2,
+  bg: 'blue'
+})
+```
+
 ---
 
 ## Default Theme
@@ -923,7 +939,7 @@ Breakpoints default to `em` but can be overridden by passing strings with unit a
 Breakpoints can be customized using styled-components' [ThemeProvider](#configuration).
 
 ```js
-[ 40, 52, 64 ]
+[ '40em', '52em', '64em' ]
 // @media screen and (min-width: 40em)
 // @media screen and (min-width: 52em)
 // @media screen and (min-width: 64em)
@@ -942,6 +958,7 @@ Styled system uses a modular scale that covers most of a UI's needs,
 but it can be customized with styled-components' [ThemeProvider](#configuration).
 
 ```js
+// numbers are converted to px values
 [ 12, 14, 16, 20, 24, 32, 48, 64, 72 ]
 ```
 
@@ -952,6 +969,7 @@ styled-system uses a spacing scale based on an 8px, powers-of-two grid for margi
 by default and can be customized with styled-components' [ThemeProvider](#configuration).
 
 ```js
+// numbers are converted to px values
 [ 0, 8, 16, 32, 64 ]
 ```
 
@@ -1015,6 +1033,7 @@ See https://github.com/jxnblk/grid-styled/issues/51#issuecomment-336116426
 
 ## Related
 
+- [system-components](https://github.com/jxnblk/system-components)
 - [grid-styled](https://github.com/jxnblk/grid-styled)
 - [Rebass](http://jxnblk.com/rebass)
 - [styled-components][sc]
