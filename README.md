@@ -38,10 +38,11 @@ npm i styled-system
 - [Usage](#usage)
 - [Getting Started](#getting-started)
 - [How it works](#how-it-works)
+- [Responsive Styles](#responsive-styles)
 - [API](#api)
 - [Default Theme](#default-theme)
 - [Configuration](#configuration)
-- [Related](#Related)
+- [Related](#related)
 
 ## Usage
 
@@ -333,6 +334,36 @@ and returns a style object, while simplifying using values from a theme and sett
 These style functions can be written on a one-off basis, but styled-system is meant to help reduce boilerplate, ensure a consistent styling API, and speed the development of React-based design systems.
 
 
+## Responsive Styles
+
+Often when working on responsive layouts, it's useful to adjust styles across a singular dimension –
+such as font-size, margin, padding, and width.
+Instead of manually managing media queries and adding nested style objects throughout a code base,
+styled-system offers a convenient shorthand syntax for adding responsive styles with a mobile-first approach.
+While this syntax can seem odd at first, it can become a powerful way to manage responsive typography and layouts.
+
+All core function props accept arrays as values for mobile-first responsive styles.
+
+```jsx
+<Box
+  width={[
+    1,    // 100% below the smallest breakpoint
+    1/2,  // 50% from the next breakpoint and up
+    1/4   // 25% from the next breakpoint and up
+  ]}
+/>
+
+// responsive font size
+<Box fontSize={[ 1, 2, 3, 4 ]} />
+
+// responsive margin
+<Box m={[ 1, 2, 3, 4 ]} />
+
+// responsive padding
+<Box p={[ 1, 2, 3, 4 ]} />
+```
+
+
 ## API
 
 - [**Core**](#core)
@@ -340,7 +371,6 @@ These style functions can be written on a one-off basis, but styled-system is me
   - [width](#width-responsive)
   - [fontSize](#fontsize-responsive)
   - [color](#color-responsive) (and background-color)
-  - [Responsive Styles](#responsive-styles)
 - [**Extras**](#extras)
   - [textAlign](#textalign-responsive)
   - [lineHeight](#lineheight)
@@ -437,31 +467,6 @@ The color utility parses a component's `color` and `bg` props and converts them 
 By default the raw value of the prop is returned.
 Color palettes can be configured with the [ThemeProvider](#configuration) to use keys as prop values, with support for dot notation.
 Array values are converted into [responsive values](#responsive-styles).
-
----
-
-### Responsive Styles
-
-All core function props accept arrays as values for mobile-first responsive styles.
-
-```jsx
-<Box
-  width={[
-    1,    // 100% below the smallest breakpoint
-    1/2,  // 50% from the next breakpoint and up
-    1/4   // 25% from the next breakpoint and up
-  ]}
-/>
-
-// responsive font size
-<Box fontSize={[ 1, 2, 3, 4 ]} />
-
-// responsive margin
-<Box m={[ 1, 2, 3, 4 ]} />
-
-// responsive padding
-<Box p={[ 1, 2, 3, 4 ]} />
-```
 
 ---
 
