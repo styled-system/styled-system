@@ -668,7 +668,7 @@ import { boxShadow } from 'styled-system'
 // <Box boxShadow='1px 1px 0 black' />
 ```
 
-## Psuedo-classes
+## Pseudo-classes
 
 ### hover
 
