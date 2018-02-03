@@ -392,6 +392,7 @@ All core function props accept arrays as values for mobile-first responsive styl
   - [focus](#focus)
   - [active](#active)
   - [disabled](#disabled)
+- [**Table of Style Props**](#table-of-style-props)
 - [**Utilities**](#utilities)
   - [theme](#theme)
   - [propTypes](#proptypes)
@@ -690,6 +691,41 @@ import { disabled } from 'styled-system'
 // <Box disabledStyle={{ color: 'gray' }} />
 // props.theme.colors.gray
 ```
+
+---
+
+## Table of Style Props
+
+Function Name | Prop       | CSS Property    | Theme Field  | Responsive
+--------------|------------|-----------------|--------------|-----------
+`space`       | `m`        | `margin`        | `space`      | yes
+`space`       | `mt`       | `margin-top`    | `space`      | yes
+`space`       | `mr`       | `margin-right`  | `space`      | yes
+`space`       | `mb`       | `margin-bottom` | `space`      | yes
+`space`       | `ml`       | `margin-left`   | `space`      | yes
+`space`       | `p`        | `padding`       | `space`      | yes
+`space`       | `pt`       | `padding-top`   | `space`      | yes
+`space`       | `pr`       | `padding-right` | `space`      | yes
+`space`       | `pb`       | `padding-bottom` | `space`     | yes
+`space`       | `pl`       | `padding-left`  | `space`      | yes
+`width`       | `width` `w` | `width`        | none         | yes
+`fontSize`    | `fontSize` `f`|`font-size`   |`fontSizes`   | yes
+`color`       | `color`    | `color`         | `colors`     | yes
+`color`       | `bg`       | `background-color`| `colors`   | yes
+`textAlign`   | `align`    | `text-align`   | none         | yes
+`lineHeight`  | `lineHeight` | `line-height` | `lineHeights` | no
+`fontWeight`  | `fontWeight` | `font-weight` | `fontWeights` | no
+`letterSpacing` | `letterSpacing` | `letter-spacing` | `letterSpacings` | no
+`alignItems`  | `align`    | `align-items`   | none         | yes
+`justifyContent` | `justify` | `justify-content` | none     | yes
+`flexWrap` | `wrap` (boolean) | `flex-wrap` | none | yes
+`flexDirection` | `flexDirection` | `flex-direction` | none | yes
+`flex` | `flex` | `flex` (shorthand) | none | yes
+`alignSelf` | `alignSelf` | `align-self` | none | yes
+`borderRadius` | `borderRadius` | `border-radius` | `radii` | no
+`borderColor` | `borderColor` | `border-color` | `colors` | no
+`borderWidth` | `borderWidth` | `border-width` | `borderWidths` | no
+`boxShadow` | `boxShadow` | `box-shadow` | `shadows` | no
 
 ---
 
