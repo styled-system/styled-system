@@ -43,7 +43,6 @@ npm i styled-system
 - [Responsive Styles](#responsive-styles)
 - [API](#api)
 - [Default Theme](#default-theme)
-- [Configuration](#configuration)
 - [Related](#related)
 
 ## Usage
