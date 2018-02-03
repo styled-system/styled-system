@@ -733,8 +733,15 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 
 ### theme
 
-The theme function can be used in any style declaration to get a value
+The theme function is an existential getter function
+that can be used in any style declaration to get a value
 from your theme, with support for fallback values.
+This helps prevent errors from throwing when a theme value is missing,
+which can be helpful when unit testing styled-components.
+
+```js
+theme(objectPath, fallbackValue)
+```
 
 ```js
 import styled from 'styled-components'
@@ -748,6 +755,7 @@ const Box = styled.div`
 ### propTypes
 
 Prop type definitions are available for each style function to add to your component's propTypes object.
+Each value in `propTypes` is an object which should be assigned (or spread) to the component's `propTypes`.
 
 ```jsx
 import styled from 'styled-components'
@@ -777,6 +785,7 @@ import { textAlign, propTypes, cleanElement } from 'styled-system'
 
 const CleanDiv = cleanElement('div')
 
+// props that are defined as propTypes are removed
 CleanDiv.propTypes = {
   ...propTypes.textAlign
 }
@@ -790,31 +799,27 @@ const Box = styled(CleanDiv)`
 // but not passed on to the HTML element
 ```
 
-### removeProps
+**Manually omitting props**
 
-This is an alternative to the `cleanElement` utility for removing style props from HTML.
+As an alternative to using the `cleanElement` function, removing style props from styled-components can be done manually, with a more React-like approach.
 
-```jsx
+```js
 import React from 'react'
 import styled from 'styled-components'
-import {
-  width,
-  fontSize,
-  space,
-  removeProps
-} from 'styled-system'
+import { width, color } from' styled-system'
 
-const BaseComponent = props => {
-  const next = removeProps(props)
-  return <div {...next} />
-}
-
-const Component = styled(BaseComponent)([],
+const Box = styled(({
   width,
-  fontSize,
-  space
-)
+  color,
+  bg
+}) => <div {...props} />)`
+  ${width}
+  ${color}
+`
 ```
+
+See this discussion for more information:
+https://github.com/styled-components/styled-components/issues/439
 
 ---
 
@@ -990,6 +995,8 @@ const App = props => (
 ```
 
 ### Troubleshooting
+
+#### Unknown
 
 #### Issues with prop-types
 
