@@ -38,4 +38,9 @@ module.exports = (...args) => props => {
     .reduce(merge, {})
 }
 
-const bool = val => n => n === true ? val : n
+const bool = val => n => {
+  if (Array.isArray(val))
+    return n === true ? val[0] : val[1];
+
+  return n === true ? val : n;
+}
