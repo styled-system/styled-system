@@ -69,17 +69,19 @@ elements based on values defined in a theme.
 // width: 50%
 <Box width={1/2} />
 
-// font-size: 20px
+// font-size: 20px (theme.fontSizes[4])
 <Box fontSize={4} />
 
-// margin: 16px
+// margin: 16px (theme.space[2])
 <Box m={2} />
 
-// padding: 32px
+// padding: 32px (theme.space[3])
 <Box p={3} />
 
 // color
 <Box color='tomato' />
+
+// color: #333 (theme.colors.gray[0])
 <Box color='grays.0' />
 
 // background color
@@ -165,7 +167,7 @@ When a value is passed that's **not** in the theme, it will be passed as a raw v
 
 It's recommended to add objects and array scales to your theme to ensure consistent, constraint-based values are used throughout your app.
 All theme values are optional, so use your own discretion when creating a theme.
-See the [Default Theme](#default-theme) section for a reference for fallback values.
+See the [Default Theme](#default-theme) section for a reference to the default fallback values.
 
 ```js
 // theme.js
@@ -331,7 +333,8 @@ By using style objects instead of embedded CSS strings, styled-system is compati
 such as [glamorous][glamorous] and [emotion][emotion].
 
 The core utilities in styled-system are built on this pattern and consist of functions that take `props` as an argument
-and return style objects, while simplifying using values from a theme and setting styles responsively across breakpoints.
+and return style objects,
+while making it simpler to use values from a theme and apply styles responsively across breakpoints.
 
 These style functions can be written on a one-off basis, but styled-system is meant to help reduce boilerplate, ensure a consistent styling API, and speed the development of React-based design systems.
 
@@ -344,7 +347,7 @@ Instead of manually managing media queries and adding nested style objects throu
 styled-system offers a convenient shorthand syntax for adding responsive styles with a mobile-first approach.
 While this syntax can seem odd at first, it can become a powerful way to manage responsive typography and layouts.
 
-All core function props accept arrays as values for mobile-first responsive styles.
+All core props accept arrays as values for mobile-first responsive styles.
 
 ```jsx
 <Box
@@ -388,6 +391,7 @@ All core function props accept arrays as values for mobile-first responsive styl
   - [borderColor](#bordercolor)
   - [borderWidth](#borderwidth)
   - [boxShadow](#boxshadow)
+- [**Pseudo-classes**](#pseudo-classes)
   - [hover](#hover)
   - [focus](#focus)
   - [active](#active)
@@ -560,6 +564,10 @@ import { lineHeight } from 'styled-system'
 // props.theme.lineHeights[1]
 ```
 
+Function Name | Prop | CSS Property | Theme Field | Responsive
+---|---|---|---|---
+`lineHeight` | `lineHeight` | `line-height` | `lineHeights` | no
+
 ### fontWeight
 
 ```js
@@ -659,6 +667,8 @@ import { boxShadow } from 'styled-system'
 // -- OR --
 // <Box boxShadow='1px 1px 0 black' />
 ```
+
+## Psuedo-classes
 
 ### hover
 
