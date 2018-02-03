@@ -996,7 +996,9 @@ const App = props => (
 
 ### Troubleshooting
 
-#### Unknown
+#### Unknown attribute warnings in React 16
+
+See [`cleanElement`](#cleanelement)
 
 #### Issues with prop-types
 
