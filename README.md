@@ -560,13 +560,12 @@ import { textAlign } from 'styled-system'
 
 ```js
 import { lineHeight } from 'styled-system'
-// <Text lineHeight={1} />
-// props.theme.lineHeights[1]
 ```
 
-Function Name | Prop | CSS Property | Theme Field | Responsive
----|---|---|---|---
-`lineHeight` | `lineHeight` | `line-height` | `lineHeights` | no
+```jsx
+<Text lineHeight={1} />
+// props.theme.lineHeights[1]
+```
 
 ### fontWeight
 
