@@ -1,7 +1,6 @@
 import test from 'ava'
 import React from 'react'
 import { create as render } from 'react-test-renderer'
-import palx from 'palx'
 import system, {
   space,
   width,
@@ -33,8 +32,6 @@ import system, {
   active,
   disabled,
 } from './src'
-
-const palette = palx('#07c')
 
 const theme = {
   breakpoints: [32, 48, 64],
@@ -497,11 +494,17 @@ test('color works with array theme.colors', t => {
 test('color keys support dot notation', t => {
   const a = color({
     theme: {
-      colors: palette
+      colors: {
+        gray: [
+          '#333',
+          '#666',
+          '#999',
+        ]
+      }
     },
     color: 'gray.2'
   })
-  t.is(a.color, palette.gray[2])
+  t.is(a.color, '#999')
 })
 
 // style
