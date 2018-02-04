@@ -6,7 +6,7 @@
   "scripts": {
     "prepublish": "babel src -d dist",
     "start": "x0 dev docs/App.js -op 8888",
-    "build": "x0 build docs/App.js -d docs --cssLibrary='styled-components'",
+    "build": "x0 build docs/App.js -d docs --static --cssLibrary='styled-components'",
     "bench": "node bench",
     "size": "bundlesize",
     "cover": "nyc report --reporter=html --reporter=lcov > coverage.lcov && codecov",

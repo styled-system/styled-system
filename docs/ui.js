@@ -31,7 +31,9 @@ export const theme = {
     blue: '#08d',
     cyan: '#0af',
     magenta: '#c0f',
-    gray: '#fafafa',
+    gray: '#fafaff',
+    gray2: '#dde',
+    lighten: `rgba(255, 255, 255, ${1/8})`
   }
 }
 
@@ -155,6 +157,7 @@ pre.propTypes = {
 export const Pre = styled(pre)`
   font-family: 'Roboto Mono', Menlo, monospace;
   overflow: auto;
+  line-height: 1.5;
   ${space}
   ${fontSize}
   ${color}
@@ -197,7 +200,7 @@ ul.propTypes = {
 export const UL = styled(ul)`
   ${space}
   ${fontSize}
-  line-height: 1.5;
+  line-height: 1.6;
   & p {
     font-size: inherit;
     margin: 0;
@@ -213,7 +216,7 @@ export const Divider = styled.hr`
   ${space}
   width: 128px;
   border: 0;
-  border-bottom: 4px solid ${system.theme('colors.magenta')};
+  border-bottom: 4px solid ${system.theme('colors.cyan')};
 `
 Divider.defaultProps = {
   mx: 0,
@@ -234,6 +237,7 @@ export const Table = styled(props => (
   border-spacing: 0;
   max-width: 100%;
   width: 100%;
+  background-color: white;
 
   & th {
     text-align: left;
@@ -243,7 +247,7 @@ export const Table = styled(props => (
     vertical-align: middle;
     border-bottom-width: 1px;
     border-bottom-style: solid;
-    border-bottom-color: ${system.theme('colors.gray')};
+    border-bottom-color: ${system.theme('colors.gray2')};
   }
   & th,
   & td {
@@ -254,3 +258,28 @@ export const Table = styled(props => (
     line-height: inherit;
   }
 `
+
+const dots = props => `radial-gradient(${system.theme('colors.' + props.gridColor)(props)} 1px, transparent 1px)`
+
+const dotImage = props => props.disabled ? null : {
+  backgroundImage: dots(props)
+}
+
+const dotSize = props => ({
+  backgroundSize: `${props.size}px ${props.size}px`,
+})
+
+const dotPosition = props => ({
+  backgroundPosition: `${props.size / 2}px ${props.size / 2}px`,
+})
+
+export const DotGrid = styled.div`
+  ${dotImage}
+  ${dotSize}
+  ${dotPosition}
+  ${color}
+`
+DotGrid.defaultProps = {
+  size: 16,
+  gridColor: 'gray2'
+}

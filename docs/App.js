@@ -13,8 +13,13 @@ import {
   Button,
   Title,
   Lead,
+  DotGrid,
 } from './ui'
 import Markdown from './Markdown'
+
+const InstallPre = Pre.extend`
+  display: inline-block;
+`
 
 class App extends React.Component {
   static async getInitialProps () {
@@ -72,33 +77,61 @@ class App extends React.Component {
         </head>
         <ThemeProvider theme={theme}>
           <Root>
-            <Box
-              px={[ 3, 4 ]}
-              py={[ 4, 5 ]}
+            <DotGrid
               color='white'
-              bg='black'>
-              <Container>
-                <Title mb={0}>
-                  Styled System
-                </Title>
-                <Lead mb={4} color='magenta'>
-                  Design system utilities for styled-components
-                </Lead>
-                <Pre color='black' bg='magenta'>
-                  npm i styled-system
-                </Pre>
-                <Button href='https://github.com/jxnblk/styled-system'>
-                  GitHub
-                </Button>
-              </Container>
-            </Box>
-            <Box px={[ 3, 4 ]} py={4}>
-              <Container>
-                <Markdown>
-                  {readme}
-                </Markdown>
-              </Container>
-            </Box>
+              bg='black'
+              gridColor='lighten'>
+              <Box
+                px={[ 3, 4 ]}
+                py={[ 4, 5, 6 ]}
+                >
+                <Container>
+                  <header>
+                    <Title mb={0}>
+                      Styled System
+                    </Title>
+                    <Lead mb={4} color='cyan'>
+                      Design system utilities for styled-components
+                    </Lead>
+                    <InstallPre
+                      mr={3}
+                      color='black'
+                      bg='cyan'>
+                      npm i styled-system
+                    </InstallPre>
+                    <Button href='https://github.com/jxnblk/styled-system'>
+                      GitHub
+                    </Button>
+                  </header>
+                </Container>
+              </Box>
+            </DotGrid>
+            <DotGrid>
+              <Box px={[ 3, 4 ]} py={4}>
+                <Container>
+                  <main>
+                    <Markdown>
+                      {readme}
+                    </Markdown>
+                  </main>
+                </Container>
+              </Box>
+              <Box px={[ 3, 4 ]} py={5}>
+                <Container>
+                  <footer>
+                    <Button
+                      fontSize={0}
+                      mr={3}
+                      href='https://github.com/jxnblk/styled-system'>
+                      GitHub
+                    </Button>
+                    <Button fontSize={0} href='http://jxnblk.com'>
+                      Made by Jxnblk
+                    </Button>
+                  </footer>
+                </Container>
+              </Box>
+            </DotGrid>
           </Root>
         </ThemeProvider>
       </React.Fragment>

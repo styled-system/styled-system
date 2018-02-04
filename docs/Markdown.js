@@ -13,29 +13,33 @@ import {
   Table,
 } from './ui'
 
+const removeIDPrefix = str => str.replace(/^user\-content\-/, '')
 const heading = (type, styleProps) => props =>
   <Heading
     is={type}
     {...styleProps}
-    {...props}>
-    <Link href={'#' + props.id} color="inherit">
+    {...props}
+    id={removeIDPrefix(props.id)}>
+    <Link
+      href={'#' + removeIDPrefix(props.id)}
+      color="inherit">
       {props.children}
     </Link>
   </Heading>
 
 const remarkReactComponents = {
-  h1: heading('h2', { fontSize: 6, mt: 5, mb: 2 }),
-  h2: heading('h2', { fontSize: 6, mt: 5, mb: 2 }),
-  h3: heading('h3', { fontSize: 5, mt: 4, mb: 2 }),
-  h4: heading('h4', { fontSize: 4, mt: 4, mb: 2 }),
-  h5: heading('h5', { fontSize: 4, mt: 3, mb: 2 }),
-  h6: heading('h6', { fontSize: 4, mt: 3, mb: 2 }),
+  h1: heading('h2', { fontSize: 6, lineHeight: 4/3, mt: 5, mb: 2 }),
+  h2: heading('h2', { fontSize: 6, lineHeight: 4/3, mt: 5, mb: 2 }),
+  h3: heading('h3', { fontSize: 5, lineHeight: 1.5, mt: 4, mb: 2 }),
+  h4: heading('h4', { fontSize: 4, lineHeight: 4/3, mt: 4, mb: 2 }),
+  h5: heading('h5', { fontSize: 4, lineHeight: 4/3, mt: 3, mb: 2 }),
+  h6: heading('h6', { fontSize: 4, lineHeight: 4/3, mt: 3, mb: 2 }),
   p: props =>
     <Text
       {...props}
       is='p'
       fontSize={3}
-      lineHeight={1.5}
+      lineHeight={1.6}
       mt={0}
       mb={3}
     />,
@@ -45,10 +49,10 @@ const remarkReactComponents = {
       fontSize={1}
       mt={0}
       mb={4}
-      color='#9100b7'
+      color='blue'
       bg='gray'
     />,
-  code: props => <Code {...props} bg='gray' />,
+  code: props => <Code {...props} color='blue' />,
   a: props => <Link {...props} />,
   ul: props => <UL fontSize={3} {...props} />,
   blockquote: props =>
