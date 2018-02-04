@@ -39,42 +39,40 @@ class App extends React.Component {
 
     return (
       <React.Fragment>
-        <head>
-          <title>Styled System</title>
-          <meta
-            name='viewport'
-            content='width=device-width,initial-scale=1,viewport-fit=cover'
-          />
-          <meta
-            name='desription'
-            content={pkg.description}
-          />
-          <meta
-            name='twitter:card'
-            content='summary'
-          />
-          <meta
-            name='twitter:site'
-            content='@jxnblk'
-          />
-          <meta
-            name='twitter:title'
-            content='Styled System'
-          />
-          <meta
-            name='twitter:description'
-            content={pkg.description}
-          />
-          <meta
-            name='twitter:image'
-            content='http://jxnblk.com/styled-system/icon.png'
-          />
-          <CSS />
-          <link
-            rel='stylesheet'
-            href='https://fonts.googleapis.com/css?family=Roboto+Mono'
-          />
-        </head>
+        <title>Styled System</title>
+        <meta
+          name='viewport'
+          content='width=device-width,initial-scale=1,viewport-fit=cover'
+        />
+        <meta
+          name='desription'
+          content={pkg.description}
+        />
+        <meta
+          name='twitter:card'
+          content='summary'
+        />
+        <meta
+          name='twitter:site'
+          content='@jxnblk'
+        />
+        <meta
+          name='twitter:title'
+          content='Styled System'
+        />
+        <meta
+          name='twitter:description'
+          content={pkg.description}
+        />
+        <meta
+          name='twitter:image'
+          content='http://jxnblk.com/styled-system/icon.png'
+        />
+        <CSS />
+        <link
+          rel='stylesheet'
+          href='https://fonts.googleapis.com/css?family=Roboto+Mono'
+        />
         <ThemeProvider theme={theme}>
           <Root>
             <DotGrid
