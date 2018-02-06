@@ -4,70 +4,47 @@ import {
   responsiveStyle
 } from './util'
 
+// util
+export {
+  style,
+  pseudoStyle,
+  responsiveStyle
+}
+
 // core
-const space = require('./space')
-const width = require('./width')
-const fontSize = require('./font-size')
-const color = require('./color')
+export const space = require('./space')
+export const width = require('./width')
+export const fontSize = require('./font-size')
+export const color = require('./color')
 
 // extras
-const textAlign = require('./text-align')
-const lineHeight = require('./line-height')
-const fontWeight = require('./font-weight')
-const letterSpacing = require('./letter-spacing')
-const alignItems = require('./align-items')
-const justifyContent = require('./justify-content')
-const flexWrap = require('./flex-wrap')
-const flexDirection = require('./flex-direction')
-const flex = require('./flex')
-const alignSelf = require('./align-self')
-const borderRadius = require('./border-radius')
-const borderColor = require('./border-color')
-const borderWidth = require('./border-width')
-const boxShadow = require('./box-shadow')
-const hover = require('./hover')
-const focus = require('./focus')
-const active = require('./active')
-const disabled = require('./disabled')
+export const textAlign = responsiveStyle({
+  cssProperty: 'textAlign',
+  prop: 'align'
+})
+
+export const lineHeight = require('./line-height')
+export const fontWeight = require('./font-weight')
+export const letterSpacing = require('./letter-spacing')
+export const alignItems = require('./align-items')
+export const justifyContent = require('./justify-content')
+export const flexWrap = require('./flex-wrap')
+export const flexDirection = require('./flex-direction')
+export const flex = require('./flex')
+export const alignSelf = require('./align-self')
+export const borderRadius = require('./border-radius')
+export const borderColor = require('./border-color')
+export const borderWidth = require('./border-width')
+export const boxShadow = require('./box-shadow')
+export const hover = require('./hover')
+export const focus = require('./focus')
+export const active = require('./active')
+export const disabled = require('./disabled')
 
 // other
-const theme = require('./theme')
-const propTypes = require('./prop-types')
-const cleanElement = require('./clean-element')
-const removeProps = require('./remove-props')
-const util = require('./util')
-const constants = require('./constants')
-
-module.exports = {
-  space,
-  width,
-  fontSize,
-  color,
-  style,
-  responsiveStyle,
-  pseudoStyle,
-  textAlign,
-  lineHeight,
-  fontWeight,
-  letterSpacing,
-  alignItems,
-  justifyContent,
-  flexWrap,
-  flexDirection,
-  flex,
-  alignSelf,
-  borderRadius,
-  borderColor,
-  borderWidth,
-  boxShadow,
-  hover,
-  focus,
-  active,
-  disabled,
-  theme,
-  propTypes,
-  cleanElement,
-  removeProps,
-  util,
-  constants
-}
+export const theme = require('./theme')
+export const propTypes = require('./prop-types')
+export const cleanElement = require('./clean-element')
+export const removeProps = require('./remove-props')
+export const util = require('./util')
+export const constants = require('./constants')

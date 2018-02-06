@@ -51,7 +51,7 @@ test('exports space, width, and fontSize', t => {
   t.is(typeof fontSize, 'function')
 })
 
-test('system.theme gets theme values', t => {
+test.skip('system.theme gets theme values', t => {
   const a = system.theme('colors.blue')({ theme })
   t.is(a, theme.colors.blue)
 })
