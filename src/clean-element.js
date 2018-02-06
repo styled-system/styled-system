@@ -1,6 +1,6 @@
-const React = require('react')
+import React from 'react'
 
-const cleanElement = Component => {
+export default Component => {
   return class Cleaned extends React.Component {
     render() {
       const next = {}
@@ -14,5 +14,3 @@ const cleanElement = Component => {
     }
   }
 }
-
-module.exports = cleanElement

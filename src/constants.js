@@ -1,10 +1,10 @@
-const breakpoints = [
+export const breakpoints = [
   40,
   52,
   64
 ]
 
-const space = [
+export const space = [
   0,
   8,
   16,
@@ -12,7 +12,7 @@ const space = [
   64
 ]
 
-const fontSizes = [
+export const fontSizes = [
   12,
   14,
   16,
@@ -23,9 +23,3 @@ const fontSizes = [
   64,
   72
 ]
-
-module.exports = {
-  breakpoints,
-  space,
-  fontSizes,
-}

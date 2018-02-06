@@ -108,7 +108,7 @@ const bool = val => n => {
 
 const theme = (keys, fallback) => props => get(props.theme, keys, fallback)
 
-module.exports = {
+export {
   get,
   is,
   px,

@@ -1,6 +1,6 @@
-const { is, arr, num, px, breaks, dec, media, merge } = require('./util')
+import { is, arr, num, px, breaks, dec, media, merge } from './util'
 
-module.exports = props => {
+export default props => {
   const n = is(props.width) ? props.width : props.width || props.w
   if (!is(n)) return null
 
@@ -20,4 +20,3 @@ module.exports = props => {
 }
 
 const wx = n => !num(n) || n > 1 ? px(n) : (n * 100) + '%'
-

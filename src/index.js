@@ -1,5 +1,5 @@
 import * as util from './util'
-import constants from './constants'
+import * as constants from './constants'
 import {
   style,
   pseudoStyle,
@@ -17,10 +17,10 @@ export {
 }
 
 // core
-export const space = require('./space')
-export const width = require('./width')
-export const fontSize = require('./font-size')
-export const color = require('./color')
+export const space = require('./space').default
+export const width = require('./width').default
+export const fontSize = require('./font-size').default
+export const color = require('./color').default
 
 // extras
 export const textAlign = responsiveStyle({
@@ -83,7 +83,7 @@ export const borderColor = style({
   key: 'colors'
 })
 
-export const borderWidth = require('./border-width')
+export const borderWidth = require('./border-width').default
 
 export const boxShadow = style({
   prop: 'boxShadow',
@@ -119,6 +119,6 @@ export const disabled = pseudoStyle('disabled', 'disabledStyle')({
 })
 
 // other
-export const propTypes = require('./prop-types')
-export const cleanElement = require('./clean-element')
-export const removeProps = require('./remove-props')
+export const propTypes = require('./prop-types').default
+export const cleanElement = require('./clean-element').default
+export const removeProps = require('./remove-props').default

@@ -1,4 +1,4 @@
-const PropTypes = require('prop-types')
+import PropTypes from 'prop-types'
 
 const responsive = PropTypes.oneOfType([
   PropTypes.number,
@@ -142,4 +142,4 @@ const propTypes = {
   disabled
 }
 
-module.exports = propTypes
+export default propTypes
