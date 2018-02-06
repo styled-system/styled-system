@@ -35,6 +35,78 @@ const merge = (a, b) => Object.assign({}, a, b, Object.keys(b).reduce((obj, key)
 // keeping for backwards-compatibility only
 const idx = (keys, obj) => get(obj, keys.join('.')) || null
 
+const style = ({
+  key,          // key for theme object
+  prop,         // react prop
+  cssProperty,  // css property
+  numberToPx
+}) => props => {
+  const n = props[prop]
+  if (!is(n)) return null
+  const val = get(props, [ 'theme', key, n ].join('.'), n)
+  const value = numberToPx ? px(val) : val
+
+  return { [cssProperty || prop]: value }
+}
+
+const pseudoStyle = (pseudoclass, prop) => (keys = {}) => props => {
+  const style = props[prop || pseudoclass]
+  const numberToPx = keys.numberToPx || {}
+  for (let key in style) {
+    const toPx = numberToPx[key]
+
+    if (!keys[key] && !toPx) continue
+    const themeKey = [ keys[key], style[key] ].join('.')
+    style[key] = get(props.theme, themeKey, style[key])
+
+    if (toPx) style[key] = px(style[key])
+  }
+
+  return {
+    ['&:' + pseudoclass]: style
+  }
+}
+
+const responsiveStyle = ({
+  cssProperty,
+  prop,
+  boolValue,
+  key,
+  numberToPx
+}) => props => {
+  prop = prop || cssProperty
+  const n = props[prop]
+  if (!is(n)) return null
+
+  const bp = breaks(props)
+  const scale = get(props, [ 'theme', key || prop ].join('.'), {})
+  const sx = val => get(scale, '' + val, numberToPx ? px(val) : val)
+
+  if (!Array.isArray(n)) {
+    return {
+      [cssProperty]: sx(
+        bool(boolValue)(n)
+      )
+    }
+  }
+
+  const val = arr(n)
+  return val
+    .map(bool(boolValue))
+    .map(sx)
+    .map(dec(cssProperty))
+    .map(media(bp))
+    .reduce(merge, {})
+}
+
+const bool = val => n => {
+  if (Array.isArray(val))
+    return n === true ? val[0] : val[1];
+
+  return n === true ? val : n;
+}
+
+
 module.exports = {
   get,
   is,
@@ -48,5 +120,8 @@ module.exports = {
   media,
   dec,
   merge,
-  mq
+  mq,
+  style,
+  pseudoStyle,
+  responsiveStyle
 }
