@@ -1,14 +1,19 @@
+import * as util from './util'
+import constants from './constants'
 import {
   style,
   pseudoStyle,
-  responsiveStyle
+  responsiveStyle,
+  theme
 } from './util'
 
-// util
+// utils
 export {
   style,
   pseudoStyle,
-  responsiveStyle
+  responsiveStyle,
+  theme,
+  util
 }
 
 // core
@@ -23,28 +28,97 @@ export const textAlign = responsiveStyle({
   prop: 'align'
 })
 
-export const lineHeight = require('./line-height')
-export const fontWeight = require('./font-weight')
-export const letterSpacing = require('./letter-spacing')
-export const alignItems = require('./align-items')
-export const justifyContent = require('./justify-content')
-export const flexWrap = require('./flex-wrap')
-export const flexDirection = require('./flex-direction')
-export const flex = require('./flex')
-export const alignSelf = require('./align-self')
-export const borderRadius = require('./border-radius')
-export const borderColor = require('./border-color')
+export const lineHeight = style({
+  prop: 'lineHeight',
+  key: 'lineHeights'
+})
+
+export const fontWeight = style({
+  prop: 'fontWeight',
+  key: 'fontWeights'
+})
+
+export const letterSpacing = style({
+  prop: 'letterSpacing',
+  key: 'letterSpacings',
+  numberToPx: true
+})
+
+export const alignItems = responsiveStyle({
+  cssProperty: 'alignItems'
+})
+
+export const justifyContent = responsiveStyle({
+  cssProperty: 'justifyContent',
+  prop: 'justifyContent'
+})
+
+
+export const flexWrap = responsiveStyle({
+  cssProperty: 'flexWrap',
+  prop: 'wrap',
+  boolValue: 'wrap'
+})
+
+export const flexDirection = responsiveStyle({
+  cssProperty: 'flexDirection'
+})
+
+export const flex = responsiveStyle({
+  cssProperty: 'flex'
+})
+
+export const alignSelf = responsiveStyle({
+  cssProperty: 'alignSelf',
+  prop: 'alignSelf'
+})
+
+export const borderRadius = style({
+  prop: 'borderRadius',
+  key: 'radii',
+  numberToPx: true
+})
+export const borderColor = style({
+  prop: 'borderColor',
+  key: 'colors'
+})
+
 export const borderWidth = require('./border-width')
-export const boxShadow = require('./box-shadow')
-export const hover = require('./hover')
-export const focus = require('./focus')
-export const active = require('./active')
-export const disabled = require('./disabled')
+
+export const boxShadow = style({
+  prop: 'boxShadow',
+  key: 'shadows'
+})
+
+export const hover = pseudoStyle('hover')({
+  color: 'colors',
+  backgroundColor: 'colors',
+  borderColor: 'colors',
+  boxShadow: 'shadows'
+})
+
+export const focus = pseudoStyle('focus')({
+  color: 'colors',
+  backgroundColor: 'colors',
+  borderColor: 'colors',
+  boxShadow: 'shadows'
+})
+
+export const active = pseudoStyle('active')({
+  color: 'colors',
+  backgroundColor: 'colors',
+  borderColor: 'colors',
+  boxShadow: 'shadows'
+})
+
+export const disabled = pseudoStyle('disabled', 'disabledStyle')({
+  color: 'colors',
+  backgroundColor: 'colors',
+  borderColor: 'colors',
+  boxShadow: 'shadows'
+})
 
 // other
-export const theme = require('./theme')
 export const propTypes = require('./prop-types')
 export const cleanElement = require('./clean-element')
 export const removeProps = require('./remove-props')
-export const util = require('./util')
-export const constants = require('./constants')

@@ -960,12 +960,12 @@ test('letterSpacing returns a scalar style', t => {
 })
 
 test('alignItems returns a style', t => {
-  const a = alignItems({ align: 'center' })
+  const a = alignItems({ alignItems: 'center' })
   t.deepEqual(a, { alignItems: 'center' })
 })
 
 test('justifyContent returns a style', t => {
-  const a = justifyContent({ justify: 'center' })
+  const a = justifyContent({ justifyContent: 'center' })
   t.deepEqual(a, { justifyContent: 'center' })
 })
 
