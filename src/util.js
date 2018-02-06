@@ -106,6 +106,7 @@ const bool = val => n => {
   return n === true ? val : n;
 }
 
+const theme = (keys, fallback) => props => get(props.theme, keys, fallback)
 
 module.exports = {
   get,
@@ -123,5 +124,6 @@ module.exports = {
   mq,
   style,
   pseudoStyle,
-  responsiveStyle
+  responsiveStyle,
+  theme
 }
