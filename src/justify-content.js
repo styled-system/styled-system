@@ -1,2 +1,5 @@
 const responsiveStyle = require('./responsive-style')
-module.exports = responsiveStyle('justifyContent', 'justify')
+module.exports = responsiveStyle({
+  cssProperty: 'justifyContent',
+  prop: 'justify'
+})

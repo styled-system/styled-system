@@ -1,18 +1,12 @@
 const { get, is, arr, num, px, breaks, dec, media, merge } = require('./util')
 
-module.exports = (...args) => props => {
-  // support for legacy API
-  const [ arg, _prop, _bool ] = args
-  let {
-    cssProperty,
-    prop,
-    boolValue,
-    key,
-    numberToPx
-  } = typeof arg === 'string'
-    ? { cssProperty: arg, prop: _prop, boolValue: _bool }
-    : arg
-
+module.exports = ({
+  cssProperty,
+  prop,
+  boolValue,
+  key,
+  numberToPx
+}) => props => {
   prop = prop || cssProperty
   const n = props[prop]
   if (!is(n)) return null

@@ -574,24 +574,27 @@ test('style function returns unitless number values', t => {
 
 // responsiveStyle
 test('responsiveStyle returns a function', t => {
-  const sx = responsiveStyle('order')
+  const sx = responsiveStyle({ cssProperty: 'order' })
   t.is(typeof sx, 'function')
 })
 
 test('responsiveStyle‘s returned function returns a style object', t => {
-  const order = responsiveStyle('order')
+  const order = responsiveStyle({ cssProperty: 'order' })
   const a = order({ order: 1 })
   t.deepEqual(a, { order: 1 })
 })
 
 test('responsiveStyle‘s returned function returns null', t => {
-  const order = responsiveStyle('order')
+  const order = responsiveStyle({ cssProperty: 'order' })
   const a = order({ })
   t.is(a, null)
 })
 
 test('responsiveStyle allows property aliases', t => {
-  const direction = responsiveStyle('flex-direction', 'direction')
+  const direction = responsiveStyle({
+    cssProperty: 'flex-direction',
+    prop: 'direction'
+  })
   const a = direction({ direction: 'column' })
   t.deepEqual(a, {
     'flex-direction': 'column'
@@ -599,7 +602,10 @@ test('responsiveStyle allows property aliases', t => {
 })
 
 test('responsiveStyle allows array values', t => {
-  const direction = responsiveStyle('flex-direction', 'direction')
+  const direction = responsiveStyle({
+    cssProperty: 'flex-direction',
+    prop: 'direction'
+  })
   const a = direction({ direction: [ 'column', null, 'row' ] })
   t.deepEqual(a, {
     'flex-direction': 'column',
@@ -613,7 +619,11 @@ test('responsiveStyle allows array values', t => {
 })
 
 test('responsiveStyle can be configured for boolean props', t => {
-  const wrap = responsiveStyle('flex-wrap', 'wrap', 'wrap')
+  const wrap = responsiveStyle({
+    cssProperty: 'flex-wrap',
+    prop: 'wrap',
+    boolValue: 'wrap'
+  })
   const a = wrap({ wrap: true })
   t.deepEqual(a, {
     'flex-wrap': 'wrap'
@@ -621,7 +631,11 @@ test('responsiveStyle can be configured for boolean props', t => {
 })
 
 test('responsiveStyle can be configured with boolean fallback array', t => {
-  const wrap = responsiveStyle('flex-wrap', 'wrap', ['wrap', 'nowrap'])
+  const wrap = responsiveStyle({
+    cssProperty: 'flex-wrap',
+    prop: 'wrap',
+    boolValue: ['wrap', 'nowrap']
+  })
   const a = wrap({ wrap: false })
   t.deepEqual(a, {
     'flex-wrap': 'nowrap'
@@ -629,7 +643,11 @@ test('responsiveStyle can be configured with boolean fallback array', t => {
 })
 
 test('responsiveStyle boolean props handle arrays', t => {
-  const wrap = responsiveStyle('flex-wrap', 'wrap', 'wrap')
+  const wrap = responsiveStyle({
+    cssProperty: 'flex-wrap',
+    prop: 'wrap',
+    boolValue: 'wrap'
+  })
   const a = wrap({ wrap: [ true, false ] })
   t.deepEqual(a, {
     'flex-wrap': 'wrap',
@@ -640,7 +658,11 @@ test('responsiveStyle boolean props handle arrays', t => {
 })
 
 test('responsiveStyle boolean fallback props handle arrays', t => {
-  const wrap = responsiveStyle('flex-wrap', 'wrap', ['wrap', 'nowrap'])
+  const wrap = responsiveStyle({
+    cssProperty: 'flex-wrap',
+    prop: 'wrap',
+    boolValue: ['wrap', 'nowrap']
+  })
   const a = wrap({ wrap: [true, false] })
   t.deepEqual(a, {
     'flex-wrap': 'wrap',

@@ -1,2 +1,6 @@
 const responsiveStyle = require('./responsive-style')
-module.exports = responsiveStyle('flexWrap', 'wrap', 'wrap')
+module.exports = responsiveStyle({
+  cssProperty: 'flexWrap',
+  prop: 'wrap',
+  boolValue: 'wrap'
+})

@@ -1,2 +1,5 @@
 const responsiveStyle = require('./responsive-style')
-module.exports = responsiveStyle('alignItems', 'align')
+module.exports = responsiveStyle({
+  cssProperty: 'alignItems',
+  prop: 'align'
+})

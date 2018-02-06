@@ -1,2 +1,4 @@
 const responsiveStyle = require('./responsive-style')
-module.exports = responsiveStyle('flex')
+module.exports = responsiveStyle({
+  cssProperty: 'flex'
+})
