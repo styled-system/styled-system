@@ -113,7 +113,7 @@ array syntax. [Read more](#responsive-styles)
   - [borderColor](#bordercolor)
   - [borderWidth](#borderwidth)
   - [boxShadow](#boxshadow)
-  - [maxWidth](#maxWidth-responsive)
+  - [maxWidth](#maxWidth)
   - [hover](#hover)
   - [focus](#focus)
   - [active](#active)
@@ -325,11 +325,11 @@ import { boxShadow } from 'styled-system'
 // props.theme.shadows[1]
 ```
 
-### maxWidth (responsive)
+### maxWidth
 
 ```js
 import { maxWidth } from 'styled-system'
-// <Box maxWidth={[0, 1, 2]} />
+// <Box maxWidth={1} />
 // props.theme.maxWidths
 ```
 

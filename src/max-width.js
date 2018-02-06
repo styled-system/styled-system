@@ -1,6 +1,6 @@
-const responsiveStyle = require('./responsive-style')
+const style = require('./style')
 
-module.exports = responsiveStyle({
+module.exports = style({
   prop: 'maxWidth',
   cssProperty: 'maxWidth',
   key: 'maxWidths',

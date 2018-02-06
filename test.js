@@ -1063,34 +1063,6 @@ test('maxWidth returns scalar styles', t => {
   t.deepEqual(a, { maxWidth: '456px' })
 })
 
-test('maxWidth returns responsive widths', t => {
-  const a = maxWidth({ maxWidth: [380, 512] })
-  t.deepEqual(a, {
-    maxWidth: '380px',
-    '@media screen and (min-width: 40em)': {
-      maxWidth: '512px'
-    }
-  })
-})
-
-test('maxWidth returns responsive widths based on scalar styles', t => {
-  const a = maxWidth({
-    theme: {
-      maxWidths: [
-        '234px', '456px'
-      ]
-    },
-    maxWidth: [0, 1]
-  })
-
-  t.deepEqual(a, {
-    maxWidth: '234px',
-    '@media screen and (min-width: 40em)': {
-      maxWidth: '456px'
-    }
-  })
-})
-
 test('hover returns a style object', t => {
   const a = hover({
     hover: {
