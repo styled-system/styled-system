@@ -10,9 +10,6 @@ export default Component => {
         next[key] = this.props[key]
       }
 
-      console.log(next)
-      console.log(keys)
-
       return React.createElement(Component, next)
     }
   }

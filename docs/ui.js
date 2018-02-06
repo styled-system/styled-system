@@ -9,7 +9,7 @@ import system, {
   lineHeight,
   cleanElement,
   propTypes
-} from '../src'
+} from '../core/src'
 
 const tag = type => props => {
   const isEl = typeof type === 'string'

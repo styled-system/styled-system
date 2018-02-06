@@ -49,7 +49,7 @@ const color = {
 }
 
 const textAlign = {
-  textAlign: responsive
+  align: responsive
 }
 
 const fontWeight = {

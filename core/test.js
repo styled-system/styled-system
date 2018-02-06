@@ -10,7 +10,6 @@ import system, {
   responsiveStyle,
   pseudoStyle,
   propTypes,
-  cleanElement,
   removeProps,
   util,
   textAlign,
@@ -828,32 +827,6 @@ test('breakpoints can be configured with a theme', t => {
   t.is(b, '@media screen and (min-width: 32em)')
   t.is(c, '@media screen and (min-width: 48em)')
   t.is(d, '@media screen and (min-width: 64em)')
-})
-
-// cleanElement
-test('removes props defined with propTypes', t => {
-  const Clean = cleanElement('div')
-  Clean.propTypes = propTypes.textAlign
-  const json = render(React.createElement(Clean, {
-    align: 'center',
-    id: 'beep',
-    children: 'Hello'
-  })).toJSON()
-  t.is(json.props.align, undefined)
-  t.is(json.props.id, 'beep')
-  t.deepEqual(json.children, [ 'Hello' ])
-})
-
-test('does not remove props without propTypes', t => {
-  const Clean = cleanElement('div')
-  const json = render(React.createElement(Clean, {
-    align: 'center',
-    id: 'beep',
-    children: 'Hello'
-  })).toJSON()
-  t.is(json.props.align, 'center')
-  t.is(json.props.id, 'beep')
-  t.deepEqual(json.children, [ 'Hello' ])
 })
 
 // removeProps

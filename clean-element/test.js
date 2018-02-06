@@ -2,21 +2,30 @@ import test from 'ava'
 import React from 'react'
 import styled from 'styled-components'
 import { renderToString } from 'react-dom/server'
-import { textAlign, propTypes } from '../src'
+import { textAlign, propTypes } from '../core/src'
 import cleanElement from './src'
 
-const CleanDiv = cleanElement('div')
+test('it removes props with prop types', t => {
+  const Clean = cleanElement('div')
+  Clean.propTypes = {
+    ...propTypes.textAlign
+  }
+  const Box = styled(Clean)`
+    ${textAlign}
+  `
 
-CleanDiv.propTypes = {
-  ...propTypes.textAlign
-}
+  const result = renderToString(<Box id='beep' align='center' children='hello' />)
 
-const Box = styled(CleanDiv)`
-  ${textAlign}
-`
+  t.snapshot(result)
+})
 
-test('it removes props', t => {
-  const result = renderToString(<Box textAlign='center' />)
+test('does not remove props without propTypes', t => {
+  const Clean = cleanElement('div')
+  const Box = styled(Clean)`
+    ${textAlign}
+  `
+
+  const result = renderToString(<Box id='beep' align='center' children='hello' />)
 
   t.snapshot(result)
 })
