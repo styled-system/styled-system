@@ -1,14 +1,14 @@
+import {
+  style,
+  pseudoStyle,
+  responsiveStyle
+} from './util'
 
 // core
 const space = require('./space')
 const width = require('./width')
 const fontSize = require('./font-size')
 const color = require('./color')
-
-// low-level style function creators
-const style = require('./style')
-const responsiveStyle = require('./responsive-style')
-const pseudoStyle = require('./pseudo-style')
 
 // extras
 const textAlign = require('./text-align')
