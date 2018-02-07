@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "repository": "jxnblk/styled-system",
   "scripts": {
-    "prepublish": "babel src -d dist",
+    "prepare": "babel src -d dist",
     "test": "ava"
   },
   "keywords": [

@@ -3,7 +3,9 @@
   "name": "styled-system",
   "scripts": {
     "bench": "node bench",
-    "test": "node scripts/test"
+    "clean": "node scripts/clean",
+    "test": "node scripts/test",
+    "prepare": "node scripts/run install"
   },
   "keywords": [
     "react",

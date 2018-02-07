@@ -4,7 +4,7 @@
   "description": "Design system utilities for styled-components, glamorous, and other css-in-js libraries",
   "main": "dist/index.js",
   "scripts": {
-    "prepublish": "babel src -d dist",
+    "prepare": "babel src -d dist",
     "start": "x0 dev docs/App.js -op 8888",
     "build": "x0 build docs/App.js -d docs --static --cssLibrary='styled-components'",
     "bench": "node bench",
