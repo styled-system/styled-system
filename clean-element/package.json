@@ -21,6 +21,7 @@
     "@compositor/x0": "^3.1.1",
     "ava": "^0.25.0",
     "babel-cli": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "styled-components": "^3.1.6"
   },
   "ava": {
@@ -31,8 +32,5 @@
   },
   "peerDependencies": {
     "react": "^0.14.x || ^15.x || ^16.x"
-  },
-  "dependencies": {
-    "babel-plugin-transform-runtime": "^6.23.0"
   }
 }
