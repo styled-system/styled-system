@@ -7,6 +7,10 @@ const blacklist = Object.keys(propTypes)
   ], [])
 
 export default props => {
+  if (process.env.NODE_ENV === 'development') {
+    console.log('remove-props is deprecated and will be removed in v3 of styled-system')
+  }
+
   const next = {}
 
   for (let key in props) {
