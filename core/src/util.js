@@ -32,9 +32,6 @@ const merge = (a, b) => Object.assign({}, a, b, Object.keys(b).reduce((obj, key)
   }),
   {}))
 
-// keeping for backwards-compatibility only
-const idx = (keys, obj) => get(obj, keys.join('.')) || null
-
 const style = ({
   key,          // key for theme object
   prop,         // react prop
@@ -116,7 +113,6 @@ export {
   neg,
   num,
   arr,
-  idx,
   breaks,
   media,
   dec,

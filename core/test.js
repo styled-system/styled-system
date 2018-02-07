@@ -112,23 +112,6 @@ test('util.arr converts values to arrays', t => {
   t.true(Array.isArray(b))
 })
 
-test('util.idx checks for existential values', t => {
-  const props = {
-    a: {
-      b: {
-        c: 'hello',
-      },
-    },
-    x: 'x',
-  }
-  const a = util.idx(['a', 'b', 'c'], props)
-  const b = util.idx(['x'], props)
-  const c = util.idx(['x', 'y', 'z'], props)
-  t.is(a, 'hello')
-  t.is(b, 'x')
-  t.is(c, null)
-})
-
 test('util.breaks returns a media queries array', t => {
   const a = util.breaks({
     theme: {
