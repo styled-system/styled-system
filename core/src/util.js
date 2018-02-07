@@ -1,3 +1,4 @@
+import propTypes from './prop-types'
 const { breakpoints } = require('./constants')
 
 const is = n => n !== undefined && n !== null
@@ -31,6 +32,27 @@ const merge = (a, b) => Object.assign({}, a, b, Object.keys(b).reduce((obj, key)
     : b[key]
   }),
   {}))
+
+const blacklist = Object.keys(propTypes)
+  .reduce((a, key) => [
+    ...a,
+    ...Object.keys(propTypes[key])
+  ], [])
+
+const removeProps = props => {
+  if (process.env.NODE_ENV === 'development') {
+    console.log('remove-props is deprecated and will be removed in v3 of styled-system')
+  }
+
+  const next = {}
+
+  for (let key in props) {
+    if (blacklist.includes(key)) continue
+    next[key] = props[key]
+  }
+
+  return next
+}
 
 const style = ({
   key,          // key for theme object
@@ -118,6 +140,7 @@ export {
   dec,
   merge,
   mq,
+  removeProps,
   style,
   pseudoStyle,
   responsiveStyle,

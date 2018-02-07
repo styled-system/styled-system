@@ -4,12 +4,12 @@ import fontSize from './font-size'
 import color from './color'
 import borderWidth from './border-width'
 import propTypes from './prop-types'
-import removeProps from './remove-props'
 
 import * as util from './util'
 import * as constants from './constants'
 
 import {
+  removeProps,
   style,
   pseudoStyle,
   responsiveStyle,
