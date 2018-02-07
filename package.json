@@ -2,7 +2,8 @@
   "private": true,
   "name": "styled-system",
   "scripts": {
-    "bench": "node bench"
+    "bench": "node bench",
+    "test": "node scripts/test"
   },
   "keywords": [
     "react",
