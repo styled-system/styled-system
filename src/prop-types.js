@@ -56,6 +56,10 @@ const fontWeight = {
   fontWeight: numberOrString
 }
 
+const lineHeight = {
+  lineHeight: numberOrString,
+}
+
 const alignItems = {
   align: responsive
 }
@@ -126,6 +130,7 @@ const propTypes = {
   color,
   textAlign,
   fontWeight,
+  lineHeight,
   alignItems,
   justifyContent,
   flexWrap,
