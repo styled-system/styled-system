@@ -1,5 +1,4 @@
 import space from './space'
-import color from './color'
 import borderWidth from './border-width'
 import propTypes from './prop-types'
 
@@ -24,7 +23,6 @@ export {
 
   //core
   space,
-  color,
 
   // TODO: Directions option for styles
   borderWidth,
@@ -49,6 +47,21 @@ export const fontSize = responsiveStyle({
   key: 'fontSizes',
   numberToPx: true
 })
+
+export const textColor = responsiveStyle({
+  prop: 'color',
+  key: 'colors',
+})
+export const bgColor = responsiveStyle({
+  prop: 'bg',
+  cssProperty: 'backgroundColor',
+  key: 'colors'
+})
+
+export const color = props => Object.assign({},
+  textColor(props),
+  bgColor(props)
+)
 
 // typography
 export const textAlign = responsiveStyle({
