@@ -58,10 +58,11 @@ const style = ({
   key,          // key for theme object
   prop,         // react prop
   cssProperty,  // css property
+  alias,        // shorthand alias for react prop
   numberToPx
 }) => props => {
   cssProperty = cssProperty || prop
-  const n = props[prop]
+  const n = is(props[prop]) ? props[prop] : props[alias]
   if (!is(n)) return null
   const val = get(props, [ 'theme', key, n ].join('.'), n)
   const value = numberToPx ? px(val) : val
@@ -90,11 +91,12 @@ const pseudoStyle = (pseudoclass, prop) => (keys = {}) => props => {
 const responsiveStyle = ({
   prop,
   cssProperty,
+  alias,
   key,
   numberToPx
 }) => props => {
   cssProperty = cssProperty || prop
-  const n = props[prop]
+  const n = is(props[prop]) ? props[prop] : props[alias]
   if (!is(n)) return null
 
   const bp = breaks(props)
