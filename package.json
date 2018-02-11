@@ -1,12 +1,12 @@
 {
   "name": "styled-system",
-  "version": "1.0.8",
+  "version": "1.1.5",
   "description": "Design system utilities for styled-components, glamorous, and other css-in-js libraries",
   "main": "dist/index.js",
   "scripts": {
     "prepublish": "babel src -d dist",
-    "start": "webpack-dev-server",
-    "build": "NODE_ENV=production webpack -p",
+    "start": "x0 dev docs/App.js -op 8888",
+    "build": "x0 build docs/App.js -d docs --static --cssLibrary='styled-components'",
     "bench": "node bench",
     "size": "bundlesize",
     "cover": "nyc report --reporter=html --reporter=lcov > coverage.lcov && codecov",
@@ -21,29 +21,28 @@
   "author": "Brent Jackson",
   "license": "MIT",
   "devDependencies": {
-    "ava": "^0.19.1",
+    "@compositor/x0": "^3.1.1",
+    "ava": "^0.25.0",
     "babel-cli": "^6.24.1",
-    "babel-core": "^6.25.0",
-    "babel-loader": "^7.0.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.5.2",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.24.1",
     "benchmark": "^2.1.4",
-    "bundlesize": "^0.13.2",
+    "bundlesize": "^0.16.0",
     "codecov": "^2.2.0",
-    "funcup": "^1.0.0-0",
     "grid-styled": "^2.0.0-2",
     "microtime": "^2.1.6",
     "nyc": "^11.0.3",
-    "palx": "^1.0.2",
-    "react": "^15.6.0",
-    "react-dom": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "react-live": "^1.6.1",
-    "react-test-renderer": "^15.5.4",
-    "react-x-ray": "^1.0.0-2",
-    "styled-components": "^2.1.0",
-    "webpack": "^2.6.1",
-    "webpack-dev-server": "^2.4.5"
+    "react-test-renderer": "^16.2.0",
+    "remark": "^9.0.0",
+    "remark-react": "^4.0.1",
+    "remark-slug": "^5.0.0",
+    "styled-components": "^3.1.6"
   },
   "nyc": {
     "ignore": [
@@ -63,5 +62,8 @@
   },
   "dependencies": {
     "prop-types": "^15.6.0"
+  },
+  "peerDependencies": {
+    "react": "^0.14.x || ^15.x || ^16.x"
   }
 }

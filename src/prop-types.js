@@ -56,6 +56,10 @@ const fontWeight = {
   fontWeight: numberOrString
 }
 
+const lineHeight = {
+  lineHeight: numberOrString,
+}
+
 const alignItems = {
   align: responsive
 }
@@ -92,8 +96,15 @@ const borderWidth = {
   borderLeft: PropTypes.bool
 }
 
+const borderColor = {
+  borderColor: PropTypes.string
+}
+
 const boxShadow = {
-  boxShadow: PropTypes.string
+  boxShadow: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
 }
 
 const hover = {
@@ -119,6 +130,7 @@ const propTypes = {
   color,
   textAlign,
   fontWeight,
+  lineHeight,
   alignItems,
   justifyContent,
   flexWrap,
@@ -127,6 +139,7 @@ const propTypes = {
   alignSelf,
   borderRadius,
   borderWidth,
+  borderColor,
   boxShadow,
   hover,
   focus,

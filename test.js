@@ -1,7 +1,6 @@
 import test from 'ava'
 import React from 'react'
 import { create as render } from 'react-test-renderer'
-import palx from 'palx'
 import system, {
   space,
   width,
@@ -15,7 +14,9 @@ import system, {
   removeProps,
   util,
   textAlign,
+  lineHeight,
   fontWeight,
+  letterSpacing,
   alignItems,
   justifyContent,
   flexWrap,
@@ -32,8 +33,6 @@ import system, {
   active,
   disabled,
 } from './src'
-
-const palette = palx('#07c')
 
 const theme = {
   breakpoints: [32, 48, 64],
@@ -496,11 +495,17 @@ test('color works with array theme.colors', t => {
 test('color keys support dot notation', t => {
   const a = color({
     theme: {
-      colors: palette
+      colors: {
+        gray: [
+          '#333',
+          '#666',
+          '#999',
+        ]
+      }
     },
     color: 'gray.2'
   })
-  t.is(a.color, palette.gray[2])
+  t.is(a.color, '#999')
 })
 
 // style
@@ -616,6 +621,14 @@ test('responsiveStyle can be configured for boolean props', t => {
   })
 })
 
+test('responsiveStyle can be configured with boolean fallback array', t => {
+  const wrap = responsiveStyle('flex-wrap', 'wrap', ['wrap', 'nowrap'])
+  const a = wrap({ wrap: false })
+  t.deepEqual(a, {
+    'flex-wrap': 'nowrap'
+  })
+})
+
 test('responsiveStyle boolean props handle arrays', t => {
   const wrap = responsiveStyle('flex-wrap', 'wrap', 'wrap')
   const a = wrap({ wrap: [ true, false ] })
@@ -623,6 +636,17 @@ test('responsiveStyle boolean props handle arrays', t => {
     'flex-wrap': 'wrap',
     '@media screen and (min-width: 40em)': {
       'flex-wrap': false
+    }
+  })
+})
+
+test('responsiveStyle boolean fallback props handle arrays', t => {
+  const wrap = responsiveStyle('flex-wrap', 'wrap', ['wrap', 'nowrap'])
+  const a = wrap({ wrap: [true, false] })
+  t.deepEqual(a, {
+    'flex-wrap': 'wrap',
+    '@media screen and (min-width: 40em)': {
+      'flex-wrap': 'nowrap'
     }
   })
 })
@@ -849,12 +873,6 @@ test('textAlign returns text-align', t => {
   t.deepEqual(a, { textAlign: 'center' })
 })
 
-// textAlign
-test('textAlign returns text-align', t => {
-  const a = textAlign({ align: 'center' })
-  t.deepEqual(a, { textAlign: 'center' })
-})
-
 test('textAlign returns responsive text-align', t => {
   const a = textAlign({ align: [ 'center', 'left' ] })
   t.deepEqual(a, {
@@ -863,6 +881,25 @@ test('textAlign returns responsive text-align', t => {
       textAlign: 'left',
     }
   })
+})
+
+// lineHeight
+test('lineHeight returns line-height', t => {
+  const a = lineHeight({ lineHeight: 1.23 })
+  t.deepEqual(a, { lineHeight: 1.23 })
+})
+
+test('lineHeight returns a scalar style', t => {
+  const a = lineHeight({
+    theme: {
+      lineHeights: [
+        1, 2, 3
+      ]
+    },
+    lineHeight: 1
+  })
+
+  t.deepEqual(a, { lineHeight: 2 })
 })
 
 // fontWeight
@@ -881,6 +918,24 @@ test('fontWeight returns a scalar style', t => {
     fontWeight: 2
   })
   t.deepEqual(a, { fontWeight: 800 })
+})
+
+// letterSpacing
+test('letterSpacing returns letterSpacing', t => {
+  const a = letterSpacing({ letterSpacing: 2 })
+  t.deepEqual(a, { letterSpacing: '2px' })
+})
+
+test('letterSpacing returns a scalar style', t => {
+  const a = letterSpacing({
+    theme: {
+      letterSpacings: [
+        1, 2, 3
+      ]
+    },
+    letterSpacing: 2
+  })
+  t.deepEqual(a, { letterSpacing: '3px' })
 })
 
 test('alignItems returns a style', t => {
