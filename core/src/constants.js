@@ -27,3 +27,9 @@ export const fontSizes = [
   64,
   72
 ]
+
+export default {
+  breakpoints,
+  space,
+  fontSizes
+}

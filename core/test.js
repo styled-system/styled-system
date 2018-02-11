@@ -34,7 +34,7 @@ import {
 } from './src'
 
 const theme = {
-  breakpoints: [32, 48, 64],
+  breakpoints: [32, 48, 64].map(n => n + 'em'),
   space: [0, 6, 12, 18, 24],
   fontSizes: [12, 16, 18, 24, 36, 72],
   radii: [ 2, 4 ],
@@ -79,13 +79,6 @@ test('util.px adds px unit to numbers', t => {
   t.is(b, '2em')
 })
 
-test('util.em adds em unit to numbers', t => {
-  const a = util.em(1)
-  const b = util.em('2px')
-  t.is(a, '1em')
-  t.is(b, '2px')
-})
-
 test('util.neg checks for negative number', t => {
   const a = util.neg(0)
   const b = util.neg(1)
@@ -119,16 +112,16 @@ test('util.breaks returns a media queries array', t => {
       breakpoints: [24],
     },
   })
-  t.deepEqual(a, [null, '@media screen and (min-width: 24em)'])
+  t.deepEqual(a, [null, '@media screen and (min-width: 24px)'])
 })
 
-test('util.breaks accepts non-em breakpoints', t => {
+test('util.breaks accepts string breakpoints', t => {
   const a = util.breaks({
     theme: {
-      breakpoints: ["600px"],
+      breakpoints: [ '60em' ],
     },
   })
-  t.deepEqual(a, [null, '@media screen and (min-width: 600px)'])
+  t.deepEqual(a, [null, '@media screen and (min-width: 60em)'])
 })
 
 test('util.media returns media query wrapped rules', t => {
@@ -555,6 +548,17 @@ test('style function returns unitless number values', t => {
   t.is(a.borderRadius, 4)
 })
 
+test('style function accepts a getter option', t => {
+  const sx = style({
+    prop: 'width',
+    getter: n => !util.num(n) || n > 1 ? util.px(n) : (n * 100) + '%'
+  })
+  const a = sx({ width: 1/2 })
+  const b = sx({ width: 24 })
+  t.is(a.width, '50%')
+  t.is(b.width, '24px')
+})
+
 // responsiveStyle
 test('responsiveStyle returns a function', t => {
   const sx = responsiveStyle({ prop: 'order' })
@@ -687,9 +691,9 @@ test('responsiveStyle returns a theme number value in px', t => {
     borderRadius: [ 0, 1 ]
   })
   t.deepEqual(a, {
-    borderRadius: theme.radii[0],
+    borderRadius: theme.radii[0] + 'px',
     '@media screen and (min-width: 32em)': {
-      borderRadius: theme.radii[1],
+      borderRadius: theme.radii[1] + 'px'
     }
   })
 })

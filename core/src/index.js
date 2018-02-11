@@ -1,7 +1,4 @@
 import space from './space'
-import width from './width'
-import fontSize from './font-size'
-import color from './color'
 import borderWidth from './border-width'
 import propTypes from './prop-types'
 
@@ -26,9 +23,6 @@ export {
 
   //core
   space,
-  width,
-  fontSize,
-  color,
 
   // TODO: Directions option for styles
   borderWidth,
@@ -37,6 +31,37 @@ export {
   propTypes,
   removeProps
 }
+
+// core
+const getWidth = n => !util.num(n) || n > 1 ? util.px(n) : (n * 100) + '%'
+export const width = responsiveStyle({
+  prop: 'width',
+  alias: 'w',
+  getter: getWidth
+})
+
+export const fontSize = responsiveStyle({
+  prop: 'fontSize',
+  alias: 'f',
+  key: 'fontSizes',
+  numberToPx: true
+})
+
+export const textColor = responsiveStyle({
+  prop: 'color',
+  key: 'colors',
+})
+
+export const bgColor = responsiveStyle({
+  prop: 'bg',
+  cssProperty: 'backgroundColor',
+  key: 'colors'
+})
+
+export const color = props => Object.assign({},
+  textColor(props),
+  bgColor(props)
+)
 
 // typography
 export const textAlign = responsiveStyle({

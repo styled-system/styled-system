@@ -1,17 +1,18 @@
 import propTypes from './prop-types'
-const { breakpoints } = require('./constants')
+import defaultTheme, { breakpoints } from './constants'
 
 const is = n => n !== undefined && n !== null
 const num = n => typeof n === 'number' && !isNaN(n)
 const px = n => num(n) ? n + 'px' : n
-const em = n => num(n) ? n + 'em' : n
 const neg = n => n < 0
 const arr = n => Array.isArray(n) ? n : [ n ]
 
 const get = (obj, path, fallback) => path.split('.')
   .reduce((a, b) => (a && a[b]) ? a[b] : null, obj) || fallback
 
-const mq = n => `@media screen and (min-width: ${em(n)})`
+const mq = n => `@media screen and (min-width: ${px(n)})`
+
+const fallbackTheme = props => get(props, 'theme', defaultTheme)
 
 const breaks = props => [
   null,
@@ -54,38 +55,30 @@ const removeProps = props => {
   return next
 }
 
+const getValue = (val, getter, toPx) =>
+  typeof getter === 'function'
+    ? getter(val)
+    : toPx ? px(val) : val
+
 const style = ({
-  key,          // key for theme object
   prop,         // react prop
   cssProperty,  // css property
   alias,        // shorthand alias for react prop
+  key,          // key for theme object
+  getter,       // accessor function for converting values
   numberToPx
 }) => props => {
   cssProperty = cssProperty || prop
   const n = is(props[prop]) ? props[prop] : props[alias]
+  const th = fallbackTheme(props)
   if (!is(n)) return null
-  const val = get(props, [ 'theme', key, n ].join('.'), n)
-  const value = numberToPx ? px(val) : val
+  const value = getValue(
+    get(th, [ key, n ].join('.'), n),
+    getter,
+    numberToPx
+  )
 
   return { [cssProperty]: value }
-}
-
-const pseudoStyle = (pseudoclass, prop) => (keys = {}) => props => {
-  const style = props[prop || pseudoclass]
-  const numberToPx = keys.numberToPx || {}
-  for (let key in style) {
-    const toPx = numberToPx[key]
-
-    if (!keys[key] && !toPx) continue
-    const themeKey = [ keys[key], style[key] ].join('.')
-    style[key] = get(props.theme, themeKey, style[key])
-
-    if (toPx) style[key] = px(style[key])
-  }
-
-  return {
-    ['&:' + pseudoclass]: style
-  }
 }
 
 const responsiveStyle = ({
@@ -93,6 +86,7 @@ const responsiveStyle = ({
   cssProperty,
   alias,
   key,
+  getter,
   numberToPx
 }) => props => {
   cssProperty = cssProperty || prop
@@ -100,8 +94,12 @@ const responsiveStyle = ({
   if (!is(n)) return null
 
   const bp = breaks(props)
-  const scale = get(props, [ 'theme', key || prop ].join('.'), {})
-  const sx = val => get(scale, '' + val, numberToPx ? px(val) : val)
+  const th = fallbackTheme(props)
+  const sx = n => getValue(
+    get(th, [ key || prop, n ].join('.'), n),
+    getter,
+    numberToPx
+  )
 
   if (!Array.isArray(n)) {
     return {
@@ -117,13 +115,31 @@ const responsiveStyle = ({
     .reduce(merge, {})
 }
 
+const pseudoStyle = (pseudoclass, prop) => (keys = {}) => props => {
+  const style = props[prop || pseudoclass]
+  const numberToPx = keys.numberToPx || {}
+  for (let key in style) {
+    const toPx = numberToPx[key]
+
+    if (!keys[key] && !toPx) continue
+    const themeKey = [ keys[key], style[key] ].join('.')
+    const th = fallbackTheme(props)
+    style[key] = get(th, themeKey, style[key])
+
+    if (toPx) style[key] = px(style[key])
+  }
+
+  return {
+    ['&:' + pseudoclass]: style
+  }
+}
+
 const theme = (keys, fallback) => props => get(props.theme, keys, fallback)
 
 export {
   get,
   is,
   px,
-  em,
   neg,
   num,
   arr,
@@ -133,6 +149,7 @@ export {
   merge,
   mq,
   removeProps,
+  getValue,
   style,
   pseudoStyle,
   responsiveStyle,
