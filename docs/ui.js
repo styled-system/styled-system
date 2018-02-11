@@ -1,17 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
-import {
+import system, {
   space,
   color,
   width,
   fontSize,
   fontWeight,
   lineHeight,
-  propTypes,
-  theme as themeGetter
-} from '../core/src'
-import cleanElement from '../clean-element/src'
-
+  cleanElement,
+  propTypes
+} from '../src'
 
 const tag = type => props => {
   const isEl = typeof type === 'string'
@@ -127,7 +125,7 @@ export const Button = styled(a)`
   ${color}
 
   &:hover {
-    color: ${themeGetter('colors.cyan')};
+    color: ${system.theme('colors.cyan')};
   }
 `
 Button.defaultProps = {
@@ -218,7 +216,7 @@ export const Divider = styled.hr`
   ${space}
   width: 128px;
   border: 0;
-  border-bottom: 4px solid ${themeGetter('colors.cyan')};
+  border-bottom: 4px solid ${system.theme('colors.cyan')};
 `
 Divider.defaultProps = {
   mx: 0,
@@ -249,7 +247,7 @@ export const Table = styled(props => (
     vertical-align: middle;
     border-bottom-width: 1px;
     border-bottom-style: solid;
-    border-bottom-color: ${themeGetter('colors.gray2')};
+    border-bottom-color: ${system.theme('colors.gray2')};
   }
   & th,
   & td {
@@ -261,7 +259,7 @@ export const Table = styled(props => (
   }
 `
 
-const dots = props => `radial-gradient(${themeGetter('colors.' + props.gridColor)(props)} 1px, transparent 1px)`
+const dots = props => `radial-gradient(${system.theme('colors.' + props.gridColor)(props)} 1px, transparent 1px)`
 
 const dotImage = props => props.disabled ? null : {
   backgroundImage: dots(props)
