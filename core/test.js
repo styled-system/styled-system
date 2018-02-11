@@ -555,6 +555,17 @@ test('style function returns unitless number values', t => {
   t.is(a.borderRadius, 4)
 })
 
+test('style function accepts a getter option', t => {
+  const sx = style({
+    prop: 'width',
+    getter: n => !util.num(n) || n > 1 ? util.px(n) : (n * 100) + '%'
+  })
+  const a = sx({ width: 1/2 })
+  const b = sx({ width: 24 })
+  t.is(a.width, '50%')
+  t.is(b.width, '24px')
+})
+
 // responsiveStyle
 test('responsiveStyle returns a function', t => {
   const sx = responsiveStyle({ prop: 'order' })
