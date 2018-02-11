@@ -556,18 +556,18 @@ test('style function returns unitless number values', t => {
 
 // responsiveStyle
 test('responsiveStyle returns a function', t => {
-  const sx = responsiveStyle({ cssProperty: 'order' })
+  const sx = responsiveStyle({ prop: 'order' })
   t.is(typeof sx, 'function')
 })
 
 test('responsiveStyle‘s returned function returns a style object', t => {
-  const order = responsiveStyle({ cssProperty: 'order' })
+  const order = responsiveStyle({ prop: 'order' })
   const a = order({ order: 1 })
   t.deepEqual(a, { order: 1 })
 })
 
 test('responsiveStyle‘s returned function returns null', t => {
-  const order = responsiveStyle({ cssProperty: 'order' })
+  const order = responsiveStyle({ prop: 'order' })
   const a = order({ })
   t.is(a, null)
 })
@@ -600,7 +600,7 @@ test('responsiveStyle allows array values', t => {
   })
 })
 
-test('responsiveStyle can be configured for boolean props', t => {
+test.skip('responsiveStyle can be configured for boolean props', t => {
   const wrap = responsiveStyle({
     cssProperty: 'flex-wrap',
     prop: 'wrap',
@@ -612,7 +612,7 @@ test('responsiveStyle can be configured for boolean props', t => {
   })
 })
 
-test('responsiveStyle can be configured with boolean fallback array', t => {
+test.skip('responsiveStyle can be configured with boolean fallback array', t => {
   const wrap = responsiveStyle({
     cssProperty: 'flex-wrap',
     prop: 'wrap',
@@ -624,7 +624,7 @@ test('responsiveStyle can be configured with boolean fallback array', t => {
   })
 })
 
-test('responsiveStyle boolean props handle arrays', t => {
+test.skip('responsiveStyle boolean props handle arrays', t => {
   const wrap = responsiveStyle({
     cssProperty: 'flex-wrap',
     prop: 'wrap',
@@ -639,7 +639,7 @@ test('responsiveStyle boolean props handle arrays', t => {
   })
 })
 
-test('responsiveStyle boolean fallback props handle arrays', t => {
+test.skip('responsiveStyle boolean fallback props handle arrays', t => {
   const wrap = responsiveStyle({
     cssProperty: 'flex-wrap',
     prop: 'wrap',
@@ -711,7 +711,7 @@ test('responsiveStyle returns unitless numbers', t => {
 
 test('responsiveStyle returns a theme value', t => {
   const sx = responsiveStyle({
-    cssProperty: 'borderColor',
+    prop: 'borderColor',
     key: 'colors',
   })
   const a = sx({
@@ -731,7 +731,7 @@ test('responsiveStyle returns a theme value', t => {
 
 test('responsiveStyle returns a theme number value in px', t => {
   const sx = responsiveStyle({
-    cssProperty: 'borderRadius',
+    prop: 'borderRadius',
     key: 'radii',
     numberToPx: true
   })
@@ -846,12 +846,12 @@ test('removeProps removes style props', t => {
 
 // textAlign
 test('textAlign returns text-align', t => {
-  const a = textAlign({ align: 'center' })
+  const a = textAlign({ textAlign: 'center' })
   t.deepEqual(a, { textAlign: 'center' })
 })
 
 test('textAlign returns responsive text-align', t => {
-  const a = textAlign({ align: [ 'center', 'left' ] })
+  const a = textAlign({ textAlign: [ 'center', 'left' ] })
   t.deepEqual(a, {
     textAlign: 'center',
     '@media screen and (min-width: 40em)': {
@@ -926,7 +926,7 @@ test('justifyContent returns a style', t => {
 })
 
 test('flexWrap returns a style', t => {
-  const a = flexWrap({ wrap: true })
+  const a = flexWrap({ flexWrap: 'wrap' })
   t.deepEqual(a, { flexWrap: 'wrap' })
 })
 

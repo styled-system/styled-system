@@ -60,12 +60,13 @@ const style = ({
   cssProperty,  // css property
   numberToPx
 }) => props => {
+  cssProperty = cssProperty || prop
   const n = props[prop]
   if (!is(n)) return null
   const val = get(props, [ 'theme', key, n ].join('.'), n)
   const value = numberToPx ? px(val) : val
 
-  return { [cssProperty || prop]: value }
+  return { [cssProperty]: value }
 }
 
 const pseudoStyle = (pseudoclass, prop) => (keys = {}) => props => {
@@ -87,13 +88,13 @@ const pseudoStyle = (pseudoclass, prop) => (keys = {}) => props => {
 }
 
 const responsiveStyle = ({
-  cssProperty,
   prop,
+  cssProperty,
   boolValue,
   key,
   numberToPx
 }) => props => {
-  prop = prop || cssProperty
+  cssProperty = cssProperty || prop
   const n = props[prop]
   if (!is(n)) return null
 
