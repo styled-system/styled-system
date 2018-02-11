@@ -4,14 +4,13 @@ import defaultTheme, { breakpoints } from './constants'
 const is = n => n !== undefined && n !== null
 const num = n => typeof n === 'number' && !isNaN(n)
 const px = n => num(n) ? n + 'px' : n
-const em = n => num(n) ? n + 'em' : n
 const neg = n => n < 0
 const arr = n => Array.isArray(n) ? n : [ n ]
 
 const get = (obj, path, fallback) => path.split('.')
   .reduce((a, b) => (a && a[b]) ? a[b] : null, obj) || fallback
 
-const mq = n => `@media screen and (min-width: ${em(n)})`
+const mq = n => `@media screen and (min-width: ${px(n)})`
 
 const fallbackTheme = props => get(props, 'theme', defaultTheme)
 
@@ -141,7 +140,6 @@ export {
   get,
   is,
   px,
-  em,
   neg,
   num,
   arr,
