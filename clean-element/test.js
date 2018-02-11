@@ -14,7 +14,7 @@ test('it removes props with prop types', t => {
     ${textAlign}
   `
 
-  const result = renderToString(<Box id='beep' align='center' children='hello' />)
+  const result = renderToString(<Box id='beep' textAlign='center' children='hello' />)
 
   t.snapshot(result)
 })
@@ -25,7 +25,7 @@ test('does not remove props without propTypes', t => {
     ${textAlign}
   `
 
-  const result = renderToString(<Box id='beep' align='center' children='hello' />)
+  const result = renderToString(<Box id='beep' textAlign='center' children='hello' />)
 
   t.snapshot(result)
 })
