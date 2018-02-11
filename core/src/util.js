@@ -54,20 +54,62 @@ const removeProps = props => {
   return next
 }
 
+const getValue = (val, getter, toPx) =>
+  typeof getter === 'function'
+    ? getter(val)
+    : toPx ? px(val) : val
+
 const style = ({
-  key,          // key for theme object
   prop,         // react prop
   cssProperty,  // css property
   alias,        // shorthand alias for react prop
+  key,          // key for theme object
+  getter,       // accessor function for converting values
   numberToPx
 }) => props => {
   cssProperty = cssProperty || prop
   const n = is(props[prop]) ? props[prop] : props[alias]
   if (!is(n)) return null
-  const val = get(props, [ 'theme', key, n ].join('.'), n)
-  const value = numberToPx ? px(val) : val
+  const value = getValue(
+    get(props, [ 'theme', key, n ].join('.'), n),
+    getter,
+    numberToPx
+  )
 
   return { [cssProperty]: value }
+}
+
+const responsiveStyle = ({
+  prop,
+  cssProperty,
+  alias,
+  key,
+  getter,
+  numberToPx
+}) => props => {
+  cssProperty = cssProperty || prop
+  const n = is(props[prop]) ? props[prop] : props[alias]
+  if (!is(n)) return null
+
+  const bp = breaks(props)
+  const sx = n => getValue(
+    get(props, [ 'theme', key || prop, n ].join('.'), n),
+    getter,
+    numberToPx
+  )
+
+  if (!Array.isArray(n)) {
+    return {
+      [cssProperty]: sx(n)
+    }
+  }
+
+  const val = arr(n)
+  return val
+    .map(sx)
+    .map(dec(cssProperty))
+    .map(media(bp))
+    .reduce(merge, {})
 }
 
 const pseudoStyle = (pseudoclass, prop) => (keys = {}) => props => {
@@ -88,35 +130,6 @@ const pseudoStyle = (pseudoclass, prop) => (keys = {}) => props => {
   }
 }
 
-const responsiveStyle = ({
-  prop,
-  cssProperty,
-  alias,
-  key,
-  numberToPx
-}) => props => {
-  cssProperty = cssProperty || prop
-  const n = is(props[prop]) ? props[prop] : props[alias]
-  if (!is(n)) return null
-
-  const bp = breaks(props)
-  const scale = get(props, [ 'theme', key || prop ].join('.'), {})
-  const sx = val => get(scale, '' + val, numberToPx ? px(val) : val)
-
-  if (!Array.isArray(n)) {
-    return {
-      [cssProperty]: sx(n)
-    }
-  }
-
-  const val = arr(n)
-  return val
-    .map(sx)
-    .map(dec(cssProperty))
-    .map(media(bp))
-    .reduce(merge, {})
-}
-
 const theme = (keys, fallback) => props => get(props.theme, keys, fallback)
 
 export {
@@ -133,6 +146,7 @@ export {
   merge,
   mq,
   removeProps,
+  getValue,
   style,
   pseudoStyle,
   responsiveStyle,

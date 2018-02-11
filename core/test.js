@@ -687,9 +687,9 @@ test('responsiveStyle returns a theme number value in px', t => {
     borderRadius: [ 0, 1 ]
   })
   t.deepEqual(a, {
-    borderRadius: theme.radii[0],
+    borderRadius: theme.radii[0] + 'px',
     '@media screen and (min-width: 32em)': {
-      borderRadius: theme.radii[1],
+      borderRadius: theme.radii[1] + 'px'
     }
   })
 })
