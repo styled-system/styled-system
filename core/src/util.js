@@ -90,7 +90,6 @@ const pseudoStyle = (pseudoclass, prop) => (keys = {}) => props => {
 const responsiveStyle = ({
   prop,
   cssProperty,
-  boolValue,
   key,
   numberToPx
 }) => props => {
@@ -104,26 +103,16 @@ const responsiveStyle = ({
 
   if (!Array.isArray(n)) {
     return {
-      [cssProperty]: sx(
-        bool(boolValue)(n)
-      )
+      [cssProperty]: sx(n)
     }
   }
 
   const val = arr(n)
   return val
-    .map(bool(boolValue))
     .map(sx)
     .map(dec(cssProperty))
     .map(media(bp))
     .reduce(merge, {})
-}
-
-const bool = val => n => {
-  if (Array.isArray(val))
-    return n === true ? val[0] : val[1];
-
-  return n === true ? val : n;
 }
 
 const theme = (keys, fallback) => props => get(props.theme, keys, fallback)

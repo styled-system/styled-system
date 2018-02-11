@@ -600,60 +600,6 @@ test('responsiveStyle allows array values', t => {
   })
 })
 
-test.skip('responsiveStyle can be configured for boolean props', t => {
-  const wrap = responsiveStyle({
-    cssProperty: 'flex-wrap',
-    prop: 'wrap',
-    boolValue: 'wrap'
-  })
-  const a = wrap({ wrap: true })
-  t.deepEqual(a, {
-    'flex-wrap': 'wrap'
-  })
-})
-
-test.skip('responsiveStyle can be configured with boolean fallback array', t => {
-  const wrap = responsiveStyle({
-    cssProperty: 'flex-wrap',
-    prop: 'wrap',
-    boolValue: ['wrap', 'nowrap']
-  })
-  const a = wrap({ wrap: false })
-  t.deepEqual(a, {
-    'flex-wrap': 'nowrap'
-  })
-})
-
-test.skip('responsiveStyle boolean props handle arrays', t => {
-  const wrap = responsiveStyle({
-    cssProperty: 'flex-wrap',
-    prop: 'wrap',
-    boolValue: 'wrap'
-  })
-  const a = wrap({ wrap: [ true, false ] })
-  t.deepEqual(a, {
-    'flex-wrap': 'wrap',
-    '@media screen and (min-width: 40em)': {
-      'flex-wrap': false
-    }
-  })
-})
-
-test.skip('responsiveStyle boolean fallback props handle arrays', t => {
-  const wrap = responsiveStyle({
-    cssProperty: 'flex-wrap',
-    prop: 'wrap',
-    boolValue: ['wrap', 'nowrap']
-  })
-  const a = wrap({ wrap: [true, false] })
-  t.deepEqual(a, {
-    'flex-wrap': 'wrap',
-    '@media screen and (min-width: 40em)': {
-      'flex-wrap': 'nowrap'
-    }
-  })
-})
-
 test('responsiveStyle accepts an object argument', t => {
   const direction = responsiveStyle({
     cssProperty: 'flexDirection',
