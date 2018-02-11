@@ -1,5 +1,5 @@
 import propTypes from './prop-types'
-const { breakpoints } = require('./constants')
+import defaultTheme, { breakpoints } from './constants'
 
 const is = n => n !== undefined && n !== null
 const num = n => typeof n === 'number' && !isNaN(n)
@@ -12,6 +12,8 @@ const get = (obj, path, fallback) => path.split('.')
   .reduce((a, b) => (a && a[b]) ? a[b] : null, obj) || fallback
 
 const mq = n => `@media screen and (min-width: ${em(n)})`
+
+const fallbackTheme = props => get(props, 'theme', defaultTheme)
 
 const breaks = props => [
   null,
@@ -69,9 +71,10 @@ const style = ({
 }) => props => {
   cssProperty = cssProperty || prop
   const n = is(props[prop]) ? props[prop] : props[alias]
+  const th = fallbackTheme(props)
   if (!is(n)) return null
   const value = getValue(
-    get(props, [ 'theme', key, n ].join('.'), n),
+    get(th, [ key, n ].join('.'), n),
     getter,
     numberToPx
   )
@@ -92,8 +95,9 @@ const responsiveStyle = ({
   if (!is(n)) return null
 
   const bp = breaks(props)
+  const th = fallbackTheme(props)
   const sx = n => getValue(
-    get(props, [ 'theme', key || prop, n ].join('.'), n),
+    get(th, [ key || prop, n ].join('.'), n),
     getter,
     numberToPx
   )
@@ -120,7 +124,8 @@ const pseudoStyle = (pseudoclass, prop) => (keys = {}) => props => {
 
     if (!keys[key] && !toPx) continue
     const themeKey = [ keys[key], style[key] ].join('.')
-    style[key] = get(props.theme, themeKey, style[key])
+    const th = fallbackTheme(props)
+    style[key] = get(th, themeKey, style[key])
 
     if (toPx) style[key] = px(style[key])
   }

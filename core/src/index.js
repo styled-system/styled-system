@@ -1,6 +1,5 @@
 import space from './space'
 import width from './width'
-import fontSize from './font-size'
 import color from './color'
 import borderWidth from './border-width'
 import propTypes from './prop-types'
@@ -27,7 +26,6 @@ export {
   //core
   space,
   width,
-  fontSize,
   color,
 
   // TODO: Directions option for styles
@@ -38,6 +36,8 @@ export {
   removeProps
 }
 
+// core
+
 // typography
 export const textAlign = responsiveStyle({
   prop: 'textAlign'
@@ -46,6 +46,13 @@ export const textAlign = responsiveStyle({
 export const lineHeight = style({
   prop: 'lineHeight',
   key: 'lineHeights'
+})
+
+export const fontSize = responsiveStyle({
+  prop: 'fontSize',
+  alias: 'f',
+  key: 'fontSizes',
+  numberToPx: true
 })
 
 export const fontWeight = style({
