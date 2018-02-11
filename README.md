@@ -585,7 +585,6 @@ import { fontWeight } from 'styled-system'
 ```js
 import { letterSpacing } from 'styled-system'
 ```
-
 ```jsx
 <Text letterSpacing={1} />
 // props.theme.letterSpacings[1]

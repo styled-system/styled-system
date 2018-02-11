@@ -6,7 +6,7 @@ const {
   color,
   style,
   responsiveStyle
-} = require('../src')
+} = require('../core/dist')
 
 const suite = new Benchmark.Suite()
 
