@@ -84,6 +84,10 @@ const alignSelf = {
   alignSelf: responsive
 }
 
+const maxWidth = {
+  maxWidth: numberOrString
+}
+
 const borderRadius = {
   borderRadius: numberOrString
 }
@@ -137,6 +141,7 @@ const propTypes = {
   flexDirection,
   flex,
   alignSelf,
+  maxWidth,
   borderRadius,
   borderWidth,
   borderColor,
