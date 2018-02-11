@@ -390,7 +390,7 @@ All core props accept arrays as values for mobile-first responsive styles.
   - [borderColor](#bordercolor)
   - [borderWidth](#borderwidth)
   - [boxShadow](#boxshadow)
-  - [maxWidth](#maxWidth)
+  - [maxWidth](#maxwidth)
 - [**Pseudo-classes**](#pseudo-classes)
   - [hover](#hover)
   - [focus](#focus)
