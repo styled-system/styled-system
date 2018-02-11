@@ -1,7 +1,8 @@
 import test from 'ava'
 import React from 'react'
 import { create as render } from 'react-test-renderer'
-import system, {
+import * as system from './src'
+import {
   space,
   width,
   fontSize,
@@ -50,9 +51,9 @@ test('exports space, width, and fontSize', t => {
   t.is(typeof fontSize, 'function')
 })
 
-test.skip('system.theme gets theme values', t => {
-  const a = system.theme('colors.blue')({ theme })
-  t.is(a, theme.colors.blue)
+test('system.theme gets theme values', t => {
+  const a = system.theme('colors.gray.0')({ theme })
+  t.is(a, theme.colors.gray[0])
 })
 
 // util
@@ -204,7 +205,7 @@ test('util.merge merges objects', t => {
 // space
 test('space returns margin declarations', t => {
   const dec = space({m: 1})
-  t.deepEqual(dec, {margin: '8px'})
+  t.deepEqual(dec, {margin: '4px'})
 })
 
 test('space returns non-scalar margins', t => {
@@ -217,7 +218,7 @@ test('space returns non-scalar margins', t => {
 test('space returns negative margins', t => {
   const a = space({m: -1})
   const b = space({m: -24})
-  t.deepEqual(a, {margin: '-8px'})
+  t.deepEqual(a, {margin: '-4px'})
   t.deepEqual(b, {margin: '-24px'})
 })
 
@@ -228,12 +229,12 @@ test('space returns directional margins', t => {
   const l = space({ml: 4})
   const x = space({mx: 1})
   const y = space({my: 2})
-  t.deepEqual(top, {'marginTop': '8px'})
-  t.deepEqual(r, {'marginRight': '16px'})
-  t.deepEqual(b, {'marginBottom': '32px'})
-  t.deepEqual(l, {'marginLeft': '64px'})
-  t.deepEqual(x, {'marginLeft': '8px', 'marginRight': '8px'})
-  t.deepEqual(y, {'marginTop': '16px', 'marginBottom': '16px'})
+  t.deepEqual(top, {'marginTop': '4px'})
+  t.deepEqual(r, {'marginRight': '8px'})
+  t.deepEqual(b, {'marginBottom': '16px'})
+  t.deepEqual(l, {'marginLeft': '32px'})
+  t.deepEqual(x, {'marginLeft': '4px', 'marginRight': '4px'})
+  t.deepEqual(y, {'marginTop': '8px', 'marginBottom': '8px'})
 })
 
 test('space returns responsive margins', t => {
@@ -241,7 +242,7 @@ test('space returns responsive margins', t => {
   t.deepEqual(a, {
     margin: '0px',
     '@media screen and (min-width: 40em)': {
-      margin: '8px',
+      margin: '4px',
     },
   })
 })
@@ -249,11 +250,11 @@ test('space returns responsive margins', t => {
 test('space returns responsive directional margins', t => {
   const a = space({mt: [0, 1], mb: [2, 3]})
   t.deepEqual(a, {
-    marginBottom: '16px',
+    marginBottom: '8px',
     marginTop: '0px',
     '@media screen and (min-width: 40em)': {
-      marginBottom: '32px',
-      marginTop: '8px',
+      marginBottom: '16px',
+      marginTop: '4px',
     },
   })
 })
@@ -273,7 +274,7 @@ test('space sorts responsive directional margins', t => {
 
 test('space returns padding declarations', t => {
   const dec = space({p: 1})
-  t.deepEqual(dec, {padding: '8px'})
+  t.deepEqual(dec, {padding: '4px'})
 })
 
 test('space returns non-scalar paddings', t => {
@@ -290,12 +291,12 @@ test('space returns directional paddings', t => {
   const l = space({pl: 4})
   const x = space({px: 1})
   const y = space({py: 2})
-  t.deepEqual(top, {'paddingTop': '8px'})
-  t.deepEqual(r, {'paddingRight': '16px'})
-  t.deepEqual(b, {'paddingBottom': '32px'})
-  t.deepEqual(l, {'paddingLeft': '64px'})
-  t.deepEqual(x, {'paddingLeft': '8px', 'paddingRight': '8px'})
-  t.deepEqual(y, {'paddingTop': '16px', 'paddingBottom': '16px'})
+  t.deepEqual(top, {'paddingTop': '4px'})
+  t.deepEqual(r, {'paddingRight': '8px'})
+  t.deepEqual(b, {'paddingBottom': '16px'})
+  t.deepEqual(l, {'paddingLeft': '32px'})
+  t.deepEqual(x, {'paddingLeft': '4px', 'paddingRight': '4px'})
+  t.deepEqual(y, {'paddingTop': '8px', 'paddingBottom': '8px'})
 })
 
 test('space returns responsive paddings', t => {
@@ -303,7 +304,7 @@ test('space returns responsive paddings', t => {
   t.deepEqual(a, {
     padding: '0px',
     '@media screen and (min-width: 40em)': {
-      padding: '8px',
+      padding: '4px',
     },
   })
 })
@@ -311,11 +312,11 @@ test('space returns responsive paddings', t => {
 test('space returns responsive directional paddings', t => {
   const a = space({pt: [0, 1], pb: [2, 3]})
   t.deepEqual(a, {
-    paddingBottom: '16px',
+    paddingBottom: '8px',
     paddingTop: '0px',
     '@media screen and (min-width: 40em)': {
-      paddingBottom: '32px',
-      paddingTop: '8px',
+      paddingBottom: '16px',
+      paddingTop: '4px',
     },
   })
 })
