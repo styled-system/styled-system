@@ -33,7 +33,6 @@ export {
 }
 
 // core
-
 const getWidth = n => !util.num(n) || n > 1 ? util.px(n) : (n * 100) + '%'
 export const width = responsiveStyle({
   prop: 'width',
@@ -52,6 +51,7 @@ export const textColor = responsiveStyle({
   prop: 'color',
   key: 'colors',
 })
+
 export const bgColor = responsiveStyle({
   prop: 'bg',
   cssProperty: 'backgroundColor',
