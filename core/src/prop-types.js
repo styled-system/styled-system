@@ -44,7 +44,7 @@ const color = {
 }
 
 const textAlign = {
-  align: responsive
+  textAlign: responsive
 }
 
 const fontWeight = {
@@ -60,7 +60,7 @@ const justifyContent = {
 }
 
 const flexWrap = {
-  wrap: responsive
+  flexWrap: responsive
 }
 
 const flexDirection = {
