@@ -60,12 +60,13 @@ const style = ({
   cssProperty,  // css property
   numberToPx
 }) => props => {
+  cssProperty = cssProperty || prop
   const n = props[prop]
   if (!is(n)) return null
   const val = get(props, [ 'theme', key, n ].join('.'), n)
   const value = numberToPx ? px(val) : val
 
-  return { [cssProperty || prop]: value }
+  return { [cssProperty]: value }
 }
 
 const pseudoStyle = (pseudoclass, prop) => (keys = {}) => props => {
@@ -87,13 +88,12 @@ const pseudoStyle = (pseudoclass, prop) => (keys = {}) => props => {
 }
 
 const responsiveStyle = ({
-  cssProperty,
   prop,
-  boolValue,
+  cssProperty,
   key,
   numberToPx
 }) => props => {
-  prop = prop || cssProperty
+  cssProperty = cssProperty || prop
   const n = props[prop]
   if (!is(n)) return null
 
@@ -103,26 +103,16 @@ const responsiveStyle = ({
 
   if (!Array.isArray(n)) {
     return {
-      [cssProperty]: sx(
-        bool(boolValue)(n)
-      )
+      [cssProperty]: sx(n)
     }
   }
 
   const val = arr(n)
   return val
-    .map(bool(boolValue))
     .map(sx)
     .map(dec(cssProperty))
     .map(media(bp))
     .reduce(merge, {})
-}
-
-const bool = val => n => {
-  if (Array.isArray(val))
-    return n === true ? val[0] : val[1];
-
-  return n === true ? val : n;
 }
 
 const theme = (keys, fallback) => props => get(props.theme, keys, fallback)

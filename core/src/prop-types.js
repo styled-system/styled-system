@@ -6,11 +6,6 @@ const responsive = PropTypes.oneOfType([
   PropTypes.array
 ])
 
-const responsiveBoolean = PropTypes.oneOfType([
-  PropTypes.bool,
-  PropTypes.array
-])
-
 const numberOrString = PropTypes.oneOfType([
   PropTypes.number,
   PropTypes.string
@@ -65,7 +60,7 @@ const justifyContent = {
 }
 
 const flexWrap = {
-  wrap: responsiveBoolean
+  wrap: responsive
 }
 
 const flexDirection = {

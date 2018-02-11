@@ -40,8 +40,7 @@ export {
 
 // typography
 export const textAlign = responsiveStyle({
-  cssProperty: 'textAlign',
-  prop: 'align'
+  prop: 'textAlign'
 })
 
 export const lineHeight = style({
@@ -62,30 +61,26 @@ export const letterSpacing = style({
 
 // layout
 export const alignItems = responsiveStyle({
-  cssProperty: 'alignItems'
+  prop: 'alignItems'
 })
 
 export const justifyContent = responsiveStyle({
-  cssProperty: 'justifyContent',
   prop: 'justifyContent'
 })
 
 export const flexWrap = responsiveStyle({
-  cssProperty: 'flexWrap',
-  prop: 'wrap',
-  boolValue: 'wrap'
+  prop: 'flexWrap',
 })
 
 export const flexDirection = responsiveStyle({
-  cssProperty: 'flexDirection'
+  prop: 'flexDirection'
 })
 
 export const flex = responsiveStyle({
-  cssProperty: 'flex'
+  prop: 'flex'
 })
 
 export const alignSelf = responsiveStyle({
-  cssProperty: 'alignSelf',
   prop: 'alignSelf'
 })
 
