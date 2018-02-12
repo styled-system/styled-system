@@ -60,7 +60,8 @@ const justifyContent = {
 }
 
 const flexWrap = {
-  flexWrap: responsive
+  flexWrap: responsive,
+  wrap: responsive
 }
 
 const flexDirection = {

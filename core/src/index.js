@@ -95,6 +95,7 @@ export const justifyContent = responsiveStyle({
 
 export const flexWrap = responsiveStyle({
   prop: 'flexWrap',
+  alias: 'wrap'
 })
 
 export const flexDirection = responsiveStyle({

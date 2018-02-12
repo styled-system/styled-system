@@ -399,7 +399,6 @@ All core props accept arrays as values for mobile-first responsive styles.
 - [**Utilities**](#utilities)
   - [theme](#theme)
   - [propTypes](#proptypes)
-  - [cleanElement](#cleanelement)
   - [removeProps](#removeprops)
 - [**Low-level**](#low-level-style-functions)
   - [style](#style)
@@ -555,7 +554,7 @@ import { textAlign } from 'styled-system'
 ```
 
 ```jsx
-<Text align='center' />
+<Text textAlign='center' />
 ```
 
 ### lineHeight
@@ -596,7 +595,7 @@ import { letterSpacing } from 'styled-system'
 import { alignItems } from 'styled-system'
 ```
 ```jsx
-<Flex align='center' />
+<Flex alignItems='center' />
 ```
 
 ### justifyContent (responsive)
@@ -605,7 +604,7 @@ import { alignItems } from 'styled-system'
 import { justifyContent } from 'styled-system'
 ```
 ```jsx
-<Flex justify='center' />
+<Flex justifyContent='center' />
 ```
 
 ### flexWrap (responsive)
@@ -614,7 +613,7 @@ import { justifyContent } from 'styled-system'
 import { flexWrap } from 'styled-system'
 ```
 ```jsx
-<Flex wrap />
+<Flex flexWrap='wrap' />
 ```
 
 ### flexDirection (responsive)
@@ -770,13 +769,13 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 `fontSize`    | `fontSize` `f`|`font-size`   |`fontSizes`   | yes
 `color`       | `color`    | `color`         | `colors`     | yes
 `color`       | `bg`       | `background-color`| `colors`   | yes
-`textAlign`   | `align`    | `text-align`   | none         | yes
+`textAlign`   | `textAlign`    | `text-align`   | none         | yes
 `lineHeight`  | `lineHeight` | `line-height` | `lineHeights` | no
 `fontWeight`  | `fontWeight` | `font-weight` | `fontWeights` | no
 `letterSpacing` | `letterSpacing` | `letter-spacing` | `letterSpacings` | no
-`alignItems`  | `align`    | `align-items`   | none         | yes
-`justifyContent` | `justify` | `justify-content` | none     | yes
-`flexWrap` | `wrap` (boolean) | `flex-wrap` | none | yes
+`alignItems`  | `alignItems`    | `align-items`   | none         | yes
+`justifyContent` | `justifyContent` | `justify-content` | none     | yes
+`flexWrap` | `flexWrap` `wrap` | `flex-wrap` | none | yes
 `flexDirection` | `flexDirection` | `flex-direction` | none | yes
 `flex` | `flex` | `flex` (shorthand) | none | yes
 `alignSelf` | `alignSelf` | `align-self` | none | yes
@@ -828,58 +827,6 @@ Box.propTypes = {
 }
 ```
 
-### cleanElement
-
-Styled-components and other libraries attempt to remove invalid HTML attributes from props using a whitelist,
-but do not remove `width`, `fontSize`, `color`, or other valid HTML attributes when used as props.
-
-To ensure that style props are not passed on to the underlying DOM element,
-even in cases where a prop is a valid HTML attribute, like `width` or `align`, use the `cleanElement` higher order component to create a base component
-that remove props defined in `propTypes`.
-
-```jsx
-import styled from 'styled-components'
-import { textAlign, propTypes, cleanElement } from 'styled-system'
-
-const CleanDiv = cleanElement('div')
-
-// props that are defined as propTypes are removed
-CleanDiv.propTypes = {
-  ...propTypes.textAlign
-}
-
-const Box = styled(CleanDiv)`
-  ${textAlign}
-`
-
-// <Box align='center' />
-// `align` prop is picked up by styled-components,
-// but not passed on to the HTML element
-```
-
-**Manually omitting props**
-
-As an alternative to using the `cleanElement` function, removing style props from styled-components can be done manually, with a more React-like approach.
-
-```js
-import React from 'react'
-import styled from 'styled-components'
-import { width, color } from' styled-system'
-
-const Box = styled(({
-  width,
-  color,
-  bg,
-  ...props
-}) => <div {...props} />)`
-  ${width}
-  ${color}
-`
-```
-
-See this discussion for more information:
-https://github.com/styled-components/styled-components/issues/439
-
 ---
 
 ## Low-level Style Functions
@@ -898,12 +845,16 @@ import { style } from 'styled-system'
 const textShadow = style({
   // React prop name
   prop: 'shadow',
-  // The corresponding CSS property
+  // The corresponding CSS property (defaults to prop argument)
   cssProperty: 'textShadow',
-  // set a key to find values from `props.theme`
-  key: 'shadows'
+  // key for theme values
+  key: 'shadows',
   // convert number values to pixels
-  numberToPx: false
+  numberToPx: false,
+  // accessor function for transforming the value
+  getter: n => n,
+  // shorthand alias React prop name
+  alias: 'sh'
 })
 
 const ShadowText = styled(Text)`
@@ -927,12 +878,18 @@ import styled from 'styled-components'
 import { responsiveStyle } from 'styled-system'
 
 const borderRadius = responsiveStyle({
+  // React prop name
   prop: 'borderRadius',
+  // corresponding CSS property (defaults to prop argument)
   cssProperty: 'borderRadius',
+  // key for theme values
+  key: 'radii',
   // convert number values to pixels
   numberToPx: true,
-  // set a key for values in theme
-  key: 'radii'
+  // accessor function for transforming the value
+  getter: n => n,
+  // shorthand alias React prop name
+  alias: 'radius'
 })
 
 const RoundedBox = styled.div`
@@ -996,16 +953,11 @@ const breakpoints = [ '40em', '52em', '64em' ]
 // @media screen and (min-width: 52em)
 // @media screen and (min-width: 64em)
 
-// Other units work as well, but em units are recommended
-// const breakpoints = [ '300px', '600px', '1200px' ]
-
-// Typographic Scale
-// numbers are converted to px values
+// Typographic Scale (numbers are converted to px values)
 const fontSizes = [ 12, 14, 16, 20, 24, 32, 48, 64, 72 ]
 
-// Spacing Scale
-// used for margin and padding
-const space = [ 0, 8, 16, 32, 64 ]
+// Spacing Scale (used for margin and padding)
+const space = [ 0, 4, 8, 16, 32, 64, 128, 256, 512 ]
 ```
 
 ---
@@ -1014,7 +966,9 @@ const space = [ 0, 8, 16, 32, 64 ]
 
 #### Unknown attribute warnings in React 16
 
-See [`cleanElement`](#cleanelement)
+##### cleanElement
+
+See [`cleanElement`](clean-element)
 
 #### Issues with prop-types
 
