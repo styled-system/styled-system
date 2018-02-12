@@ -34,27 +34,6 @@ const merge = (a, b) => Object.assign({}, a, b, Object.keys(b).reduce((obj, key)
   }),
   {}))
 
-const blacklist = Object.keys(propTypes)
-  .reduce((a, key) => [
-    ...a,
-    ...Object.keys(propTypes[key])
-  ], [])
-
-const removeProps = props => {
-  if (process.env.NODE_ENV === 'development') {
-    console.log('remove-props is deprecated and will be removed in v3 of styled-system')
-  }
-
-  const next = {}
-
-  for (let key in props) {
-    if (blacklist.includes(key)) continue
-    next[key] = props[key]
-  }
-
-  return next
-}
-
 const getValue = (val, getter, toPx) =>
   typeof getter === 'function'
     ? getter(val)
@@ -148,7 +127,6 @@ export {
   dec,
   merge,
   mq,
-  removeProps,
   getValue,
   style,
   pseudoStyle,
