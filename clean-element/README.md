@@ -29,6 +29,29 @@ const Box = styled(CleanDiv)`
 // but not passed on to the HTML element
 ```
 
+**Manually omitting props**
+
+As an alternative to using the `cleanElement` function, removing style props from styled-components can be done manually, with a more React-like approach.
+
+```js
+import React from 'react'
+import styled from 'styled-components'
+import { width, color } from' styled-system'
+
+const Box = styled(({
+  width,
+  color,
+  bg,
+  ...props
+}) => <div {...props} />)`
+  ${width}
+  ${color}
+`
+```
+
+See this discussion for more information:
+https://github.com/styled-components/styled-components/issues/439
+
 ---
 
 ## Related
