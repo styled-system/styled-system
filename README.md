@@ -555,7 +555,7 @@ import { textAlign } from 'styled-system'
 ```
 
 ```jsx
-<Text align='center' />
+<Text textAlign='center' />
 ```
 
 ### lineHeight
@@ -596,7 +596,7 @@ import { letterSpacing } from 'styled-system'
 import { alignItems } from 'styled-system'
 ```
 ```jsx
-<Flex align='center' />
+<Flex alignItems='center' />
 ```
 
 ### justifyContent (responsive)
@@ -605,7 +605,7 @@ import { alignItems } from 'styled-system'
 import { justifyContent } from 'styled-system'
 ```
 ```jsx
-<Flex justify='center' />
+<Flex justifyContent='center' />
 ```
 
 ### flexWrap (responsive)
@@ -614,7 +614,7 @@ import { justifyContent } from 'styled-system'
 import { flexWrap } from 'styled-system'
 ```
 ```jsx
-<Flex wrap />
+<Flex flexWrap='wrap' />
 ```
 
 ### flexDirection (responsive)
@@ -770,13 +770,13 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 `fontSize`    | `fontSize` `f`|`font-size`   |`fontSizes`   | yes
 `color`       | `color`    | `color`         | `colors`     | yes
 `color`       | `bg`       | `background-color`| `colors`   | yes
-`textAlign`   | `align`    | `text-align`   | none         | yes
+`textAlign`   | `textAlign`    | `text-align`   | none         | yes
 `lineHeight`  | `lineHeight` | `line-height` | `lineHeights` | no
 `fontWeight`  | `fontWeight` | `font-weight` | `fontWeights` | no
 `letterSpacing` | `letterSpacing` | `letter-spacing` | `letterSpacings` | no
-`alignItems`  | `align`    | `align-items`   | none         | yes
-`justifyContent` | `justify` | `justify-content` | none     | yes
-`flexWrap` | `wrap` (boolean) | `flex-wrap` | none | yes
+`alignItems`  | `alignItems`    | `align-items`   | none         | yes
+`justifyContent` | `justifyContent` | `justify-content` | none     | yes
+`flexWrap` | `flexWrap` `wrap` | `flex-wrap` | none | yes
 `flexDirection` | `flexDirection` | `flex-direction` | none | yes
 `flex` | `flex` | `flex` (shorthand) | none | yes
 `alignSelf` | `alignSelf` | `align-self` | none | yes
@@ -898,12 +898,16 @@ import { style } from 'styled-system'
 const textShadow = style({
   // React prop name
   prop: 'shadow',
-  // The corresponding CSS property
+  // The corresponding CSS property (defaults to prop argument)
   cssProperty: 'textShadow',
-  // set a key to find values from `props.theme`
-  key: 'shadows'
+  // key for theme values
+  key: 'shadows',
   // convert number values to pixels
-  numberToPx: false
+  numberToPx: false,
+  // accessor function for transforming the value
+  getter: n => n,
+  // shorthand alias React prop name
+  alias: 'sh'
 })
 
 const ShadowText = styled(Text)`
@@ -927,12 +931,18 @@ import styled from 'styled-components'
 import { responsiveStyle } from 'styled-system'
 
 const borderRadius = responsiveStyle({
+  // React prop name
   prop: 'borderRadius',
+  // corresponding CSS property (defaults to prop argument)
   cssProperty: 'borderRadius',
+  // key for theme values
+  key: 'radii',
   // convert number values to pixels
   numberToPx: true,
-  // set a key for values in theme
-  key: 'radii'
+  // accessor function for transforming the value
+  getter: n => n,
+  // shorthand alias React prop name
+  alias: 'radius'
 })
 
 const RoundedBox = styled.div`
