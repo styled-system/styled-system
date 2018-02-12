@@ -9,7 +9,7 @@ export {
   style,
   pseudoStyle,
   responsiveStyle,
-  theme
+  themeGet
 } from './util'
 export { default as propTypes } from './prop-types'
 export { default as space } from './space'
@@ -54,7 +54,9 @@ export const fontFamily = responsiveStyle({
 })
 
 export const textAlign = responsiveStyle({
-  prop: 'textAlign'
+  prop: 'textAlign',
+  // for backwards compatibility - will cause bugs when used with alignItems
+  alias: 'align'
 })
 
 export const lineHeight = style({
@@ -129,7 +131,9 @@ export const size = props => Object.assign({},
 
 // flexbox
 export const alignItems = responsiveStyle({
-  prop: 'alignItems'
+  prop: 'alignItems',
+  // for backwards compatibility - will cause bugs when used with textAlign
+  alias: 'align'
 })
 
 export const alignContent = responsiveStyle({
@@ -140,6 +144,7 @@ export const justifyContent = responsiveStyle({
   prop: 'justifyContent'
 })
 
+// consider shim for wrap={true}
 export const flexWrap = responsiveStyle({
   prop: 'flexWrap',
   alias: 'wrap'
@@ -288,3 +293,20 @@ export const disabled = pseudoStyle('disabled', 'disabledStyle')({
   borderColor: 'colors',
   boxShadow: 'shadows'
 })
+
+// for backwards-compatibility
+// these will be removed in v3
+const __DEV__ = (process.env.NODE_ENV !== 'production' && typeof console !== 'undefined')
+
+export { themeGet as theme } from './util'
+
+export const borderWidth = props => {
+  if (__DEV__) {
+    console.warning('borderWidth is deprecated. Please use the `borders` utility instead')
+  }
+  return style({
+    prop: 'borderWidth',
+    key: 'borderWidths',
+  })(props)
+}
+
