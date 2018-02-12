@@ -1,0 +1,23 @@
+{
+  "name": "clean-tag",
+  "version": "1.0.0-0",
+  "description": "",
+  "main": "dist.js",
+  "scripts": {
+    "prepublish": "babel index.js -o dist.js",
+    "test": "nyc ava"
+  },
+  "keywords": [],
+  "author": "Brent Jackson",
+  "license": "MIT",
+  "dependencies": {
+    "html-tags": "^2.0.0",
+    "react": "^16.2.0",
+    "styled-system": "^1.1.7"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1"
+  }
+}
