@@ -228,8 +228,8 @@ const radii = [
   0, 2, 4, 8
 ]
 
-const borderWidths = [
-  0, 1, 2
+const borders = [
+  0, '1px solid', '2px solid'
 ]
 
 const shadows = [
@@ -246,7 +246,7 @@ const theme = {
   fontWeights,
   letterSpacings,
   radii,
-  borderWidths,
+  borders,
   shadows,
 }
 
@@ -388,7 +388,7 @@ All core props accept arrays as values for mobile-first responsive styles.
   - [alignSelf](#alignself-responsive)
   - [borderRadius](#borderradius)
   - [borderColor](#bordercolor)
-  - [borderWidth](#borderwidth)
+  - [borders](#borders)
   - [boxShadow](#boxshadow)
 - [**Pseudo-classes**](#pseudo-classes)
   - [hover](#hover)
@@ -663,23 +663,28 @@ import { borderColor } from 'styled-system'
 // props.theme.colors.blue
 ```
 
-### borderWidth
+### borders
+
+Sets shorthand border-width and border-style values.
+Intended to be used in conjunction with `borderColor`
 
 ```js
-import { borderWidth } from 'styled-system'
+import { borders } from 'styled-system'
 ```
+
 ```jsx
-<Box borderWidth={1} />
-// props.theme.borderWidths
+<Box border={1} borderColor='blue' />
+// props.theme.borders[1]
 ```
 
 ```js
-// Only apply border in one direction
-<Box borderWidth={1} borderBottom />
+<Box borderTop={1} />
 
 // Or in multiple directions
-<Box borderWidth={1} borderTop borderBottom />
+<Box borderTop={1} borderBottom={1} />
 ```
+
+Number values greater than 0 that don't reference values in `theme.borders` will be coverted to shorthand syntax without a color specified.
 
 ### boxShadow
 
@@ -781,7 +786,11 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 `alignSelf` | `alignSelf` | `align-self` | none | yes
 `borderRadius` | `borderRadius` | `border-radius` | `radii` | no
 `borderColor` | `borderColor` | `border-color` | `colors` | no
-`borderWidth` | `borderWidth` | `border-width` | `borderWidths` | no
+`borders` | `border` | `border` | `borders` | yes
+`borders` | `borderTop` | `border-top` | `borders` | yes
+`borders` | `borderRight` | `border-right` | `borders` | yes
+`borders` | `borderBottom` | `border-bottom` | `borders` | yes
+`borders` | `borderLeft` | `border-left` | `borders` | yes
 `boxShadow` | `boxShadow` | `box-shadow` | `shadows` | no
 
 ---

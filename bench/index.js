@@ -27,7 +27,7 @@ suite
     style({ prop: 'color' })({ color: 'tomato' })
   })
   .add('responsiveStyle', () => {
-    responsiveStyle('color')({ color: 'tomato' })
+    responsiveStyle({ prop: 'color' })({ color: 'tomato' })
   })
   .add('width-array', () => {
     width({
@@ -50,7 +50,7 @@ suite
     })
   })
   .add('responsiveStyle-array', () => {
-    responsiveStyle('color')({
+    responsiveStyle({ prop: 'color' })({
       color: [
         'tomato', 'red', 'green', 'blue', 'cyan'
       ]

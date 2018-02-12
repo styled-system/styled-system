@@ -25,7 +25,7 @@ import {
   alignSelf,
   borderRadius,
   borderColor,
-  borderWidth,
+  borders,
   boxShadow,
   hover,
   focus,
@@ -930,79 +930,69 @@ test('borderColor returns borderColor', t => {
   t.deepEqual(a, { borderColor: theme.colors.gray[0] })
 })
 
-test('borderWidth returns borderWidth and borderStyle', t => {
-  const a = borderWidth({ borderWidth: '2px' })
-  t.deepEqual(a, {
-    borderWidth: '2px',
-    borderStyle: 'solid'
-  })
+test('borders returns a border shorthand style', t => {
+  const a = borders({ border: '1px solid' })
+  t.is(a.border, '1px solid')
 })
 
-test('borderWidth returns a pixel value', t => {
-  const a = borderWidth({ borderWidth: 2 })
-  t.deepEqual(a, {
-    borderWidth: '2px',
-    borderStyle: 'solid'
-  })
+test('borders converts numbers to a border shorthand style', t => {
+  const a = borders({ border: 1 })
+  t.is(a.border, '1px solid')
 })
 
-test('borderWidth returns 0', t => {
-  const a = borderWidth({ borderWidth: 0 })
-  t.deepEqual(a, {
-    borderWidth: '0px',
-    borderStyle: 'solid'
-  })
+test('borders handles responsive styles', t => {
+  const a = borders({ border: [ 0, 1 ] })
+  t.is(a.border, 0)
+  t.is(a['@media screen and (min-width: 40em)'].border , '1px solid')
 })
 
-test('borderWidth returns null', t => {
-  const a = borderWidth({})
-  t.is(a, null)
+test('borders converts borderTop shorthand styles', t => {
+  const a = borders({ borderTop: '1px solid' })
+  t.is(a.borderTop, '1px solid')
 })
 
-test('borderWidth returns borderTopWidth and borderTopStyle', t => {
-  const a = borderWidth({ borderWidth: '2px', borderTop: true })
-  t.deepEqual(a, {
-    borderTopWidth: '2px',
-    borderTopStyle: 'solid'
-  })
+test('borders converts borderTop number shorthand styles', t => {
+  const a = borders({ borderTop: 1 })
+  t.is(a.borderTop, '1px solid')
 })
 
-test('borderWidth returns borderRightWidth and borderRightStyle', t => {
-  const a = borderWidth({ borderWidth: '2px', borderRight: true })
-  t.deepEqual(a, {
-    borderRightWidth: '2px',
-    borderRightStyle: 'solid'
-  })
+test('borders converts borderRight shorthand styles', t => {
+  const a = borders({ borderRight: '1px solid' })
+  t.is(a.borderRight, '1px solid')
 })
 
-test('borderWidth returns borderBottomWidth and borderBottomWidth', t => {
-  const a = borderWidth({ borderWidth: '2px', borderBottom: true })
-  t.deepEqual(a, {
-    borderBottomWidth: '2px',
-    borderBottomStyle: 'solid'
-  })
+test('borders converts borderRight number shorthand styles', t => {
+  const a = borders({ borderRight: 1 })
+  t.is(a.borderRight, '1px solid')
 })
 
-test('borderWidth returns borderLeftWidth and borderLeftStyle', t => {
-  const a = borderWidth({ borderWidth: '2px', borderLeft: true })
-  t.deepEqual(a, {
-    borderLeftWidth: '2px',
-    borderLeftStyle: 'solid'
-  })
+test('borders converts borderBottom shorthand styles', t => {
+  const a = borders({ borderBottom: '1px solid' })
+  t.is(a.borderBottom, '1px solid')
 })
 
-test('borderWidth returns multiple directions', t => {
-  const a = borderWidth({
-    borderWidth: '2px',
-    borderLeft: true,
-    borderRight: true,
+test('borders converts borderBottom number shorthand styles', t => {
+  const a = borders({ borderBottom: 1 })
+  t.is(a.borderBottom, '1px solid')
+})
+
+test('borders converts borderLeft shorthand styles', t => {
+  const a = borders({ borderLeft: '1px solid' })
+  t.is(a.borderLeft, '1px solid')
+})
+
+test('borders converts borderLeft number shorthand styles', t => {
+  const a = borders({ borderLeft: 1 })
+  t.is(a.borderLeft, '1px solid')
+})
+
+test('borders combines multiple border styles', t => {
+  const a = borders({
+    borderTop: 1,
+    borderBottom: 2
   })
-  t.deepEqual(a, {
-    borderLeftWidth: '2px',
-    borderLeftStyle: 'solid',
-    borderRightWidth: '2px',
-    borderRightStyle: 'solid'
-  })
+  t.is(a.borderTop, '1px solid')
+  t.is(a.borderBottom, '2px solid')
 })
 
 
