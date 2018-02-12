@@ -785,16 +785,35 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 `fontSize`    | `fontSize` `f`|`font-size`   |`fontSizes`   | yes
 `color`       | `color`    | `color`         | `colors`     | yes
 `color`       | `bg`       | `background-color`| `colors`   | yes
+
+Function Name | Prop       | CSS Property    | Theme Field  | Responsive
+--------------|------------|-----------------|--------------|-----------
 `textAlign`   | `textAlign`    | `text-align`   | none         | yes
 `lineHeight`  | `lineHeight` | `line-height` | `lineHeights` | no
 `fontWeight`  | `fontWeight` | `font-weight` | `fontWeights` | no
 `letterSpacing` | `letterSpacing` | `letter-spacing` | `letterSpacings` | no
-`alignItems`  | `alignItems`    | `align-items`   | none         | yes
-`justifyContent` | `justifyContent` | `justify-content` | none     | yes
+
+Function Name | Prop       | CSS Property    | Theme Field  | Responsive
+--------------|------------|-----------------|--------------|-----------
+`maxWidth` | `maxWidth` | `max-width` | `maxWidths` | yes
+`minWidth` | `minWidth` | `min-width` | `minWidths` | yes
+`height` | `height` | `height` | `heights` | yes
+`maxHeight` | `maxHeight` | `max-height` | `maxHeights` | yes
+`minHeight` | `minHeight` | `min-height` | `minHeights` | yes
+`size` | `size` | `width` `height` | none | yes
+
+Function Name | Prop       | CSS Property    | Theme Field  | Responsive
+--------------|------------|-----------------|--------------|-----------
+`alignItems`  | `alignItems` | `align-items` | none | yes
+`justifyContent` | `justifyContent` | `justify-content` | none | yes
 `flexWrap` | `flexWrap` `wrap` | `flex-wrap` | none | yes
 `flexDirection` | `flexDirection` | `flex-direction` | none | yes
 `flex` | `flex` | `flex` (shorthand) | none | yes
+`alignContent`  | `alignContent` | `align-content` | none | yes
 `alignSelf` | `alignSelf` | `align-self` | none | yes
+
+Function Name | Prop       | CSS Property    | Theme Field  | Responsive
+--------------|------------|-----------------|--------------|-----------
 `borderRadius` | `borderRadius` | `border-radius` | `radii` | no
 `borderColor` | `borderColor` | `border-color` | `colors` | no
 `borders` | `border` | `border` | `borders` | yes
@@ -803,7 +822,14 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 `borders` | `borderBottom` | `border-bottom` | `borders` | yes
 `borders` | `borderLeft` | `border-left` | `borders` | yes
 `boxShadow` | `boxShadow` | `box-shadow` | `shadows` | no
-`maxWidth` | `maxWidth` | `max-width` | `maxWidths` | no
+
+Function Name | Prop       | CSS Property    | Theme Field  | Responsive
+--------------|------------|-----------------|--------------|-----------
+`zIndex` | `zIndex` | `z-index` | none | no
+`top` | `top` | `top` | none | yes
+`right` | `right` | `right` | none | yes
+`bottom` | `bottom` | `bottom` | none | yes
+`left` | `left` | `left` | none | yes
 
 ---
 

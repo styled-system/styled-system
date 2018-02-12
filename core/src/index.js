@@ -1,32 +1,19 @@
-import space from './space'
-import propTypes from './prop-types'
-
 import * as util from './util'
-import * as constants from './constants'
-
 import {
-  removeProps,
+  style,
+  pseudoStyle,
+  responsiveStyle
+} from './util'
+
+export {
   style,
   pseudoStyle,
   responsiveStyle,
   theme
 } from './util'
-
-export {
-  // utils
-  style,
-  pseudoStyle,
-  responsiveStyle,
-  theme,
-  util,
-
-  //core
-  space,
-
-  // other
-  propTypes,
-  removeProps
-}
+export { default as propTypes } from './prop-types'
+export { default as space } from './space'
+export * as util from './util'
 
 // core
 const getWidth = n => !util.num(n) || n > 1 ? util.px(n) : (n * 100) + '%'
@@ -60,6 +47,12 @@ export const color = props => Object.assign({},
 )
 
 // typography
+export const fontFamily = responsiveStyle({
+  prop: 'fontFamily',
+  alias: 'font',
+  key: 'fonts'
+})
+
 export const textAlign = responsiveStyle({
   prop: 'textAlign'
 })
@@ -81,8 +74,66 @@ export const letterSpacing = style({
 })
 
 // layout
+export const display = responsiveStyle({
+  prop: 'display'
+})
+
+export const maxWidth = responsiveStyle({
+  prop: 'maxWidth',
+  key: 'maxWidths',
+  numberToPx: true
+})
+
+export const minWidth = responsiveStyle({
+  prop: 'minWidth',
+  key: 'minWidths',
+  numberToPx: true
+})
+
+export const height = responsiveStyle({
+  prop: 'height',
+  key: 'heights',
+  numberToPx: true
+})
+
+export const maxHeight = responsiveStyle({
+  prop: 'maxHeight',
+  key: 'maxHeights',
+  numberToPx: true
+})
+
+export const minHeight = responsiveStyle({
+  prop: 'minHeight',
+  key: 'minHeights',
+  numberToPx: true
+})
+
+export const sizeWidth = responsiveStyle({
+  prop: 'size',
+  cssProperty: 'width',
+  numberToPx: true
+})
+
+export const sizeHeight = responsiveStyle({
+  prop: 'size',
+  cssProperty: 'height',
+  numberToPx: true
+})
+
+export const size = props => Object.assign({},
+  sizeWidth(props),
+  sizeHeight(props)
+)
+
+// export const ratio = props => null
+
+// flexbox
 export const alignItems = responsiveStyle({
   prop: 'alignItems'
+})
+
+export const alignContent = responsiveStyle({
+  prop: 'alignContent'
 })
 
 export const justifyContent = responsiveStyle({
@@ -161,6 +212,52 @@ export const borderColor = style({
 export const boxShadow = style({
   prop: 'boxShadow',
   key: 'shadows'
+})
+
+// backgrounds
+export const background = style({
+  prop: 'background'
+})
+
+export const backgroundImage = style({
+  prop: 'backgroundImage',
+  alias: 'bgImage',
+  getter: n => `url(${n})`
+})
+
+export const backgroundSize = style({
+  prop: 'backgroundSize',
+  alias: 'bgSize',
+})
+
+export const backgroundPosition = style({
+  prop: 'backgroundPosition',
+  alias: 'bgPosition',
+})
+
+// position
+export const zIndex = style({
+  prop: 'zIndex'
+})
+
+export const top = responsiveStyle({
+  prop: 'top',
+  numberToPx: true
+})
+
+export const right = responsiveStyle({
+  prop: 'right',
+  numberToPx: true
+})
+
+export const bottom = responsiveStyle({
+  prop: 'bottom',
+  numberToPx: true
+})
+
+export const left = responsiveStyle({
+  prop: 'left',
+  numberToPx: true
 })
 
 // pseudos
