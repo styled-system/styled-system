@@ -51,6 +51,10 @@ const fontWeight = {
   fontWeight: numberOrString
 }
 
+const lineHeight = {
+  lineHeight: numberOrString,
+}
+
 const alignItems = {
   alignItems: responsive
 }
@@ -74,6 +78,10 @@ const flex = {
 
 const alignSelf = {
   alignSelf: responsive
+}
+
+const maxWidth = {
+  maxWidth: numberOrString
 }
 
 const borderRadius = {
@@ -122,12 +130,14 @@ const propTypes = {
   color,
   textAlign,
   fontWeight,
+  lineHeight,
   alignItems,
   justifyContent,
   flexWrap,
   flexDirection,
   flex,
   alignSelf,
+  maxWidth,
   borderRadius,
   borderWidth,
   borderColor,

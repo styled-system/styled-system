@@ -390,6 +390,7 @@ All core props accept arrays as values for mobile-first responsive styles.
   - [borderColor](#bordercolor)
   - [borders](#borders)
   - [boxShadow](#boxshadow)
+  - [maxWidth](#maxwidth)
 - [**Pseudo-classes**](#pseudo-classes)
   - [hover](#hover)
   - [focus](#focus)
@@ -709,6 +710,16 @@ import { boxShadow } from 'styled-system'
 
 Pseudo-class utility props accept style objects that can pick up certain values, such as color, from a theme.
 
+### maxWidth
+
+```js
+import { maxWidth } from 'styled-system'
+```
+```jsx
+<Box maxWidth={1} />
+// props.theme.maxWidths
+```
+
 ### hover
 
 ```js
@@ -792,6 +803,7 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 `borders` | `borderBottom` | `border-bottom` | `borders` | yes
 `borders` | `borderLeft` | `border-left` | `borders` | yes
 `boxShadow` | `boxShadow` | `box-shadow` | `shadows` | no
+`maxWidth` | `maxWidth` | `max-width` | `maxWidths` | no
 
 ---
 
@@ -1011,7 +1023,5 @@ See https://github.com/jxnblk/grid-styled/issues/51#issuecomment-336116426
 [fela]: https://github.com/rofrischmann/fela
 [cxs]: https://github.com/jxnblk/cxs
 
----
 
 [MIT License](LICENSE.md)
-

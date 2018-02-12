@@ -27,6 +27,7 @@ import {
   borderColor,
   borders,
   boxShadow,
+  maxWidth,
   hover,
   focus,
   active,
@@ -1012,6 +1013,28 @@ test('boxShadow returns theme value', t => {
     boxShadow: 1
   })
   t.deepEqual(a, { boxShadow: '0 0 8px rgba(0, 0, 0, .125)' })
+})
+
+test('maxWidth returns width styles', t => {
+  const a = maxWidth({ maxWidth: 234 })
+  t.deepEqual(a, { maxWidth: '234px' })
+})
+
+test('maxWidth returns null when blank', t => {
+  const a = maxWidth({ maxWidth: null })
+  t.is(a, null)
+})
+
+test('maxWidth returns scalar styles', t => {
+  const a = maxWidth({
+    theme: {
+      maxWidths: [
+        123, 456, 789
+      ]
+    },
+    maxWidth: 1
+  })
+  t.deepEqual(a, { maxWidth: '456px' })
 })
 
 test('hover returns a style object', t => {
