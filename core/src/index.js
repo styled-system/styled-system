@@ -242,6 +242,31 @@ export const backgroundPosition = style({
   alias: 'bgPosition',
 })
 
+// position
+export const zIndex = style({
+  prop: 'zIndex'
+})
+
+export const top = responsiveStyle({
+  prop: 'top',
+  numberToPx: true
+})
+
+export const right = responsiveStyle({
+  prop: 'right',
+  numberToPx: true
+})
+
+export const bottom = responsiveStyle({
+  prop: 'bottom',
+  numberToPx: true
+})
+
+export const left = responsiveStyle({
+  prop: 'left',
+  numberToPx: true
+})
+
 // pseudos
 export const hover = pseudoStyle('hover')({
   color: 'colors',
