@@ -953,16 +953,11 @@ const breakpoints = [ '40em', '52em', '64em' ]
 // @media screen and (min-width: 52em)
 // @media screen and (min-width: 64em)
 
-// Other units work as well, but em units are recommended
-// const breakpoints = [ '300px', '600px', '1200px' ]
-
-// Typographic Scale
-// numbers are converted to px values
+// Typographic Scale (numbers are converted to px values)
 const fontSizes = [ 12, 14, 16, 20, 24, 32, 48, 64, 72 ]
 
-// Spacing Scale
-// used for margin and padding
-const space = [ 0, 8, 16, 32, 64 ]
+// Spacing Scale (used for margin and padding)
+const space = [ 0, 4, 8, 16, 32, 64, 128, 256, 512 ]
 ```
 
 ---
