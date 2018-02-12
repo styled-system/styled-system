@@ -1,5 +1,4 @@
 import space from './space'
-import borderWidth from './border-width'
 import propTypes from './prop-types'
 
 import * as util from './util'
@@ -23,9 +22,6 @@ export {
 
   //core
   space,
-
-  // TODO: Directions option for styles
-  borderWidth,
 
   // other
   propTypes,
@@ -110,6 +106,46 @@ export const alignSelf = responsiveStyle({
 })
 
 // borders
+export const getBorder = n => util.num(n) && n > 0 ? n + 'px solid' : n
+
+export const border = responsiveStyle({
+  prop: 'border',
+  key: 'borders',
+  getter: getBorder
+})
+
+export const borderTop = responsiveStyle({
+  prop: 'borderTop',
+  key: 'borders',
+  getter: getBorder
+})
+
+export const borderRight = responsiveStyle({
+  prop: 'borderRight',
+  key: 'borders',
+  getter: getBorder
+})
+
+export const borderBottom = responsiveStyle({
+  prop: 'borderBottom',
+  key: 'borders',
+  getter: getBorder
+})
+
+export const borderLeft = responsiveStyle({
+  prop: 'borderLeft',
+  key: 'borders',
+  getter: getBorder
+})
+
+export const borders = props => Object.assign({},
+  border(props),
+  borderTop(props),
+  borderRight(props),
+  borderBottom(props),
+  borderLeft(props)
+)
+
 export const borderRadius = style({
   prop: 'borderRadius',
   key: 'radii',
