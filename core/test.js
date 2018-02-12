@@ -11,13 +11,21 @@ import {
   responsiveStyle,
   pseudoStyle,
   propTypes,
-  removeProps,
   util,
   textAlign,
+  fontFamily,
   lineHeight,
   fontWeight,
   letterSpacing,
+  display,
+  maxWidth,
+  minWidth,
+  height,
+  maxHeight,
+  minHeight,
+  size,
   alignItems,
+  alignContent,
   justifyContent,
   flexWrap,
   flexDirection,
@@ -27,7 +35,18 @@ import {
   borderColor,
   borders,
   boxShadow,
-  maxWidth,
+
+  background,
+  backgroundImage,
+  backgroundSize,
+  backgroundPosition,
+
+  zIndex,
+  top,
+  right,
+  bottom,
+  left,
+
   hover,
   focus,
   active,
@@ -764,38 +783,6 @@ test('breakpoints can be configured with a theme', t => {
   t.is(d, '@media screen and (min-width: 64em)')
 })
 
-// removeProps
-test('removeProps removes style props', t => {
-  const a = removeProps({
-    name: 'hello',
-    type: 'text',
-    value: 'Hi',
-    m: 1,
-    mt: 2,
-    mr: 3,
-    mb: 4,
-    mx: 5,
-    my: 6,
-    p: 1,
-    pt: 2,
-    pr: 3,
-    pb: 4,
-    px: 5,
-    py: 6,
-    w: 1/2,
-    width: 1/4,
-    f: 4,
-    fontSize: 5,
-    color: 'tomato',
-    bg: 'lime'
-  })
-  t.deepEqual(a, {
-    name: 'hello',
-    type: 'text',
-    value: 'Hi',
-  })
-})
-
 // textAlign
 test('textAlign returns text-align', t => {
   const a = textAlign({ textAlign: 'center' })
@@ -810,6 +797,11 @@ test('textAlign returns responsive text-align', t => {
       textAlign: 'left',
     }
   })
+})
+
+test('fontFamily returns font-family', t => {
+  const a = fontFamily({ font: 'system-ui' })
+  t.is(a.fontFamily, 'system-ui')
 })
 
 // lineHeight
@@ -867,9 +859,67 @@ test('letterSpacing returns a scalar style', t => {
   t.deepEqual(a, { letterSpacing: '3px' })
 })
 
+test('display returns display', t => {
+  const a = display({ display: 'inline-block' })
+  t.is(a.display, 'inline-block')
+})
+
+test('minWidth returns minWidth', t => {
+  const a = minWidth({ minWidth: 256 })
+  t.is(a.minWidth, '256px')
+})
+
+test('maxWidth returns width styles', t => {
+  const a = maxWidth({ maxWidth: 234 })
+  t.deepEqual(a, { maxWidth: '234px' })
+})
+
+test('maxWidth returns null when blank', t => {
+  const a = maxWidth({ maxWidth: null })
+  t.is(a, null)
+})
+
+test('maxWidth returns scalar styles', t => {
+  const a = maxWidth({
+    theme: {
+      maxWidths: [
+        123, 456, 789
+      ]
+    },
+    maxWidth: 1
+  })
+  t.deepEqual(a, { maxWidth: '456px' })
+})
+
+test('height returns height', t => {
+  const a = height({ height: 256 })
+  t.is(a.height, '256px')
+})
+
+test('minHeight returns minHeight', t => {
+  const a = minHeight({ minHeight: 256 })
+  t.is(a.minHeight, '256px')
+})
+
+test('maxHeight returns maxHeight', t => {
+  const a = maxHeight({ maxHeight: 256 })
+  t.is(a.maxHeight, '256px')
+})
+
+test('size returns width and height', t => {
+  const a = size({ size: 256 })
+  t.is(a.width, '256px')
+  t.is(a.height, '256px')
+})
+
 test('alignItems returns a style', t => {
   const a = alignItems({ alignItems: 'center' })
   t.deepEqual(a, { alignItems: 'center' })
+})
+
+test('alignContent returns a style', t => {
+  const a = alignContent({ alignContent: 'center' })
+  t.deepEqual(a, { alignContent: 'center' })
 })
 
 test('justifyContent returns a style', t => {
@@ -1015,26 +1065,49 @@ test('boxShadow returns theme value', t => {
   t.deepEqual(a, { boxShadow: '0 0 8px rgba(0, 0, 0, .125)' })
 })
 
-test('maxWidth returns width styles', t => {
-  const a = maxWidth({ maxWidth: 234 })
-  t.deepEqual(a, { maxWidth: '234px' })
+test('background returns background', t => {
+  const a = background({ background: 'tomato' })
+  t.is(a.background, 'tomato')
 })
 
-test('maxWidth returns null when blank', t => {
-  const a = maxWidth({ maxWidth: null })
-  t.is(a, null)
+test('backgroundImage returns backgroundImage', t => {
+  const a = backgroundImage({ backgroundImage: 'kitten.png' })
+  t.is(a.backgroundImage, 'url(kitten.png)')
 })
 
-test('maxWidth returns scalar styles', t => {
-  const a = maxWidth({
-    theme: {
-      maxWidths: [
-        123, 456, 789
-      ]
-    },
-    maxWidth: 1
-  })
-  t.deepEqual(a, { maxWidth: '456px' })
+test('backgroundSize returns backgroundSize', t => {
+  const a = backgroundSize({ backgroundSize: 'cover' })
+  t.is(a.backgroundSize, 'cover')
+})
+
+test('backgroundPosition returns backgroundPosition', t => {
+  const a = backgroundPosition({ backgroundPosition: 'center' })
+  t.is(a.backgroundPosition, 'center')
+})
+
+test('zIndex returns zIndex', t => {
+  const a = zIndex({ zIndex: 2 })
+  t.is(a.zIndex, 2)
+})
+
+test('top returns top', t => {
+  const a = top({ top: 2 })
+  t.is(a.top, '2px')
+})
+
+test('right returns right', t => {
+  const a = right({ right: 2 })
+  t.is(a.right, '2px')
+})
+
+test('bottom returns bottom', t => {
+  const a = bottom({ bottom: 2 })
+  t.is(a.bottom, '2px')
+})
+
+test('left returns left', t => {
+  const a = left({ left: 2 })
+  t.is(a.left, '2px')
 })
 
 test('hover returns a style object', t => {

@@ -1,32 +1,19 @@
-import space from './space'
-import propTypes from './prop-types'
-
 import * as util from './util'
-import * as constants from './constants'
-
 import {
-  removeProps,
+  style,
+  pseudoStyle,
+  responsiveStyle
+} from './util'
+
+export {
   style,
   pseudoStyle,
   responsiveStyle,
   theme
 } from './util'
-
-export {
-  // utils
-  style,
-  pseudoStyle,
-  responsiveStyle,
-  theme,
-  util,
-
-  //core
-  space,
-
-  // other
-  propTypes,
-  removeProps
-}
+export { default as propTypes } from './prop-types'
+export { default as space } from './space'
+export * as util from './util'
 
 // core
 const getWidth = n => !util.num(n) || n > 1 ? util.px(n) : (n * 100) + '%'
@@ -122,12 +109,14 @@ export const minHeight = responsiveStyle({
 })
 
 export const sizeWidth = responsiveStyle({
-  prop: 'width',
+  prop: 'size',
+  cssProperty: 'width',
   numberToPx: true
 })
 
 export const sizeHeight = responsiveStyle({
-  prop: 'height',
+  prop: 'size',
+  cssProperty: 'height',
   numberToPx: true
 })
 
@@ -141,6 +130,10 @@ export const size = props => Object.assign({},
 // flexbox
 export const alignItems = responsiveStyle({
   prop: 'alignItems'
+})
+
+export const alignContent = responsiveStyle({
+  prop: 'alignContent'
 })
 
 export const justifyContent = responsiveStyle({
