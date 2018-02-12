@@ -1,5 +1,17 @@
-import propTypes from './prop-types'
+import PropTypes from 'prop-types'
 import defaultTheme, { breakpoints } from './constants'
+
+const propTypes = {
+  responsivePropType: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+    PropTypes.array
+  ]),
+  numberOrString: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string
+  ])
+}
 
 export const is = n => n !== undefined && n !== null
 export const num = n => typeof n === 'number' && !isNaN(n)
@@ -46,18 +58,27 @@ export const style = ({
   key,          // key for theme object
   getter,       // accessor function for converting values
   numberToPx
-}) => props => {
-  cssProperty = cssProperty || prop
-  const n = is(props[prop]) ? props[prop] : props[alias]
-  const th = fallbackTheme(props)
-  if (!is(n)) return null
-  const value = getValue(
-    get(th, [ key, n ].join('.'), n),
-    getter,
-    numberToPx
-  )
+}) => {
+  const fn = props => {
+    cssProperty = cssProperty || prop
+    const n = is(props[prop]) ? props[prop] : props[alias]
+    const th = fallbackTheme(props)
+    if (!is(n)) return null
+    const value = getValue(
+      get(th, [ key, n ].join('.'), n),
+      getter,
+      numberToPx
+    )
 
-  return { [cssProperty]: value }
+    return { [cssProperty]: value }
+  }
+  fn.propTypes = {
+    [prop]: propTypes.numberOrString
+  }
+  if (alias) {
+    fn.propTypes[alias] = propTypes.numberOrString
+  }
+  return fn
 }
 
 export const responsiveStyle = ({
@@ -67,31 +88,43 @@ export const responsiveStyle = ({
   key,
   getter,
   numberToPx
-}) => props => {
-  cssProperty = cssProperty || prop
-  const n = is(props[prop]) ? props[prop] : props[alias]
-  if (!is(n)) return null
+}) => {
+  const fn = props => {
+    cssProperty = cssProperty || prop
+    const n = is(props[prop]) ? props[prop] : props[alias]
+    if (!is(n)) return null
 
-  const bp = breaks(props)
-  const th = fallbackTheme(props)
-  const sx = n => getValue(
-    get(th, [ key || prop, n ].join('.'), n),
-    getter,
-    numberToPx
-  )
+    const bp = breaks(props)
+    const th = fallbackTheme(props)
+    const sx = n => getValue(
+      get(th, [ key || prop, n ].join('.'), n),
+      getter,
+      numberToPx
+    )
 
-  if (!Array.isArray(n)) {
-    return {
-      [cssProperty]: sx(n)
+    if (!Array.isArray(n)) {
+      return {
+        [cssProperty]: sx(n)
+      }
     }
+
+    const val = arr(n)
+    return val
+      .map(sx)
+      .map(dec(cssProperty))
+      .map(media(bp))
+      .reduce(merge, {})
   }
 
-  const val = arr(n)
-  return val
-    .map(sx)
-    .map(dec(cssProperty))
-    .map(media(bp))
-    .reduce(merge, {})
+  // add propTypes object to returned function
+  fn.propTypes = {
+    [prop]: propTypes.responsive
+  }
+  if (alias) {
+    fn.propTypes[alias] = propTypes.responsive
+  }
+
+  return fn
 }
 
 export const pseudoStyle = (pseudoclass, prop) => (keys = {}) => props => {

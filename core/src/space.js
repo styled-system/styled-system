@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import {
   get,
   arr,
@@ -9,16 +10,16 @@ import {
   media,
   merge
 } from './util'
-import { space } from './constants'
+import theme from './constants'
 
 const REG = /^[mp][trblxy]?$/
 
-export default props => {
+export const space = props => {
   const keys = Object.keys(props)
     .filter(key => REG.test(key))
     .sort()
   const bp = breaks(props)
-  const sc = get(props, 'theme.space', space)
+  const sc = get(props, 'theme.space', theme.space)
 
   return keys.map(key => {
     const val = props[key]
@@ -71,3 +72,28 @@ const directions = {
   x: [ 'Left', 'Right' ],
   y: [ 'Top', 'Bottom' ],
 }
+
+const responsive = PropTypes.oneOfType([
+  PropTypes.number,
+  PropTypes.string,
+  PropTypes.array
+])
+
+space.propTypes = {
+  m: responsive,
+  mt: responsive,
+  mr: responsive,
+  mb: responsive,
+  ml: responsive,
+  mx: responsive,
+  my: responsive,
+  p: responsive,
+  pt: responsive,
+  pr: responsive,
+  pb: responsive,
+  pl: responsive,
+  px: responsive,
+  py: responsive
+}
+
+export default space
