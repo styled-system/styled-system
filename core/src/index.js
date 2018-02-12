@@ -106,6 +106,12 @@ export const alignSelf = responsiveStyle({
   prop: 'alignSelf'
 })
 
+export const maxWidth = responsiveStyle({
+  prop: 'maxWidth',
+  key: 'maxWidths',
+  numberToPx: true
+})
+
 // borders
 export const getBorder = n => util.num(n) && n > 0 ? n + 'px solid' : n
 
