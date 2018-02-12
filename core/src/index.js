@@ -60,6 +60,12 @@ export const color = props => Object.assign({},
 )
 
 // typography
+export const fontFamily = responsiveStyle({
+  prop: 'fontFamily',
+  alias: 'font',
+  key: 'fonts'
+})
+
 export const textAlign = responsiveStyle({
   prop: 'textAlign'
 })
@@ -81,6 +87,58 @@ export const letterSpacing = style({
 })
 
 // layout
+export const display = responsiveStyle({
+  prop: 'display'
+})
+
+export const maxWidth = responsiveStyle({
+  prop: 'maxWidth',
+  key: 'maxWidths',
+  numberToPx: true
+})
+
+export const minWidth = responsiveStyle({
+  prop: 'minWidth',
+  key: 'minWidths',
+  numberToPx: true
+})
+
+export const height = responsiveStyle({
+  prop: 'height',
+  key: 'heights',
+  numberToPx: true
+})
+
+export const maxHeight = responsiveStyle({
+  prop: 'maxHeight',
+  key: 'maxHeights',
+  numberToPx: true
+})
+
+export const minHeight = responsiveStyle({
+  prop: 'minHeight',
+  key: 'minHeights',
+  numberToPx: true
+})
+
+export const sizeWidth = responsiveStyle({
+  prop: 'width',
+  numberToPx: true
+})
+
+export const sizeHeight = responsiveStyle({
+  prop: 'height',
+  numberToPx: true
+})
+
+export const size = props => Object.assign({},
+  sizeWidth(props),
+  sizeHeight(props)
+)
+
+// export const ratio = props => null
+
+// flexbox
 export const alignItems = responsiveStyle({
   prop: 'alignItems'
 })
@@ -104,12 +162,6 @@ export const flex = responsiveStyle({
 
 export const alignSelf = responsiveStyle({
   prop: 'alignSelf'
-})
-
-export const maxWidth = responsiveStyle({
-  prop: 'maxWidth',
-  key: 'maxWidths',
-  numberToPx: true
 })
 
 // borders
@@ -167,6 +219,27 @@ export const borderColor = style({
 export const boxShadow = style({
   prop: 'boxShadow',
   key: 'shadows'
+})
+
+// backgrounds
+export const background = style({
+  prop: 'background'
+})
+
+export const backgroundImage = style({
+  prop: 'backgroundImage',
+  alias: 'bgImage',
+  getter: n => `url(${n})`
+})
+
+export const backgroundSize = style({
+  prop: 'backgroundSize',
+  alias: 'bgSize',
+})
+
+export const backgroundPosition = style({
+  prop: 'backgroundPosition',
+  alias: 'bgPosition',
 })
 
 // pseudos
