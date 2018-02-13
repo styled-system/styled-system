@@ -51,6 +51,8 @@ import {
   focus,
   active,
   disabled,
+
+  borderWidth
 } from './src'
 
 const theme = {
@@ -1224,4 +1226,9 @@ test('disabled uses theme values', t => {
       backgroundColor: theme.colors.green,
     }
   })
+})
+
+test('deprecated borderWidth utility returns border styles', t => {
+  const a = borderWidth({ borderWidth: 1 })
+  t.is(a.border, '1px solid')
 })

@@ -75,3 +75,5 @@ export const propTypes = {}
 Object.keys(styles).forEach(key => {
   propTypes[key] = styles[key].propTypes
 })
+
+export default styles

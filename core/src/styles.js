@@ -294,10 +294,12 @@ export { themeGet as theme } from './util'
 
 export const borderWidth = props => {
   if (__DEV__) {
-    console.warning('borderWidth is deprecated. Please use the `borders` utility instead')
+    console.warn('borderWidth is deprecated. Please use the `borders` utility instead')
   }
   return style({
     prop: 'borderWidth',
+    cssProperty: 'border',
     key: 'borderWidths',
+    getter: getBorder
   })(props)
 }
