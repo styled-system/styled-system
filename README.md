@@ -781,8 +781,8 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 `space`       | `pr`       | `padding-right` | `space`      | yes
 `space`       | `pb`       | `padding-bottom` | `space`     | yes
 `space`       | `pl`       | `padding-left`  | `space`      | yes
-`width`       | `width` `w` | `width`        | none         | yes
-`fontSize`    | `fontSize` `f`|`font-size`   |`fontSizes`   | yes
+`width`       | `width`    | `width`         | none         | yes
+`fontSize`    | `fontSize` |`font-size`      |`fontSizes`   | yes
 `color`       | `color`    | `color`         | `colors`     | yes
 `color`       | `bg`       | `background-color`| `colors`   | yes
 
@@ -806,7 +806,7 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 --------------|------------|-----------------|--------------|-----------
 `alignItems`  | `alignItems` | `align-items` | none | yes
 `justifyContent` | `justifyContent` | `justify-content` | none | yes
-`flexWrap` | `flexWrap` `wrap` | `flex-wrap` | none | yes
+`flexWrap` | `flexWrap` | `flex-wrap` | none | yes
 `flexDirection` | `flexDirection` | `flex-direction` | none | yes
 `flex` | `flex` | `flex` (shorthand) | none | yes
 `alignContent`  | `alignContent` | `align-content` | none | yes
@@ -863,14 +863,14 @@ Each value in `propTypes` is an object which should be assigned (or spread) to t
 
 ```jsx
 import styled from 'styled-components'
-import { width, propTypes } from 'styled-system'
+import { width } from 'styled-system'
 
 const Box = styled.div`
   ${width}
 `
 
 Box.propTypes = {
-  ...propTypes.width
+  ...width.propTypes
 }
 ```
 
