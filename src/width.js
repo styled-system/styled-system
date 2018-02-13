@@ -5,9 +5,10 @@ module.exports = props => {
   if (!is(n)) return null
 
   if (!Array.isArray(n)) {
-    return {
+    const val = wx(n)
+    return is(val) ? {
       width: wx(n)
-    }
+    } : null
   }
 
   const bp = breaks(props)

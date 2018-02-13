@@ -155,14 +155,18 @@ test('util.media returns media query wrapped rules', t => {
   const c = util.media([ 'hi' ])(null, 0)
   t.is(a, 'hello')
   t.deepEqual(b, { hi: 'hello' })
-  t.is(c, null)
+  t.deepEqual(c, {})
 })
 
 test('util.dec returns declaration strings', t => {
   const a = util.dec('foo')('bar')
   const b = util.dec(['foo', 'baz'])('bar')
+  const c = util.dec('foo')(null)
+  const d = util.dec(['foo', 'baz'])(null)
   t.deepEqual(a, {foo: 'bar'})
   t.deepEqual(b, {foo: 'bar', baz: 'bar'})
+  t.deepEqual(c, {})
+  t.deepEqual(d, {})
 })
 
 test('util.merge reduces objects', t => {
@@ -355,6 +359,11 @@ test('space can accept string values', t => {
   t.deepEqual(a, {margin: '2em'})
 })
 
+test('space returns an empty object', t => {
+  const dec = space({m: null})
+  t.deepEqual(dec, {})
+})
+
 // width
 test('width returns percentage widths', t => {
   const a = width({width: 1 / 2})
@@ -394,7 +403,9 @@ test('width returns 0 value', t => {
 
 test('width returns null ', t => {
   const a = width({})
+  const b = width({width: null})
   t.is(a, null)
+  t.is(b, null)
 })
 
 test('width accepts shortcut prop', t => {
@@ -602,10 +613,18 @@ test('responsiveStyle allows property aliases', t => {
 test('responsiveStyle allows array values', t => {
   const direction = responsiveStyle('flex-direction', 'direction')
   const a = direction({ direction: [ 'column', null, 'row' ] })
+  const b = direction({ direction: [ 'column', false, 'row' ] })
+  const result = 
   t.deepEqual(a, {
     'flex-direction': 'column',
+    '@media screen and (min-width: 52em)': {
+      'flex-direction': 'row',
+    }
+  })
+  t.deepEqual(b, {
+    'flex-direction': 'column',
     '@media screen and (min-width: 40em)': {
-      'flex-direction': null
+      'flex-direction': false
     },
     '@media screen and (min-width: 52em)': {
       'flex-direction': 'row',
@@ -616,8 +635,12 @@ test('responsiveStyle allows array values', t => {
 test('responsiveStyle can be configured for boolean props', t => {
   const wrap = responsiveStyle('flex-wrap', 'wrap', 'wrap')
   const a = wrap({ wrap: true })
+  const b = wrap({ wrap: false })
   t.deepEqual(a, {
     'flex-wrap': 'wrap'
+  })
+  t.deepEqual(b, {
+    'flex-wrap': false
   })
 })
 
@@ -742,6 +765,20 @@ test('responsiveStyle returns a theme number value in px', t => {
       borderRadius: theme.radii[1],
     }
   })
+})
+
+test('responsiveStyle returns null', t => {
+  const order = responsiveStyle('order')
+  const a = order({})
+  const b = order({order: null})
+  t.is(a, null)
+  t.is(b, null)
+})
+
+test('responsiveStyle returns an empty object', t => {
+  const order = responsiveStyle('order')
+  const a = order({ order: [ null, null, undefined] })
+  t.deepEqual(a, {})
 })
 
 test('psuedoStyle returns a function', t => {
