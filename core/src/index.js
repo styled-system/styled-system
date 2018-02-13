@@ -20,7 +20,7 @@ export {
   maxHeight,
   minHeight,
   size,
-  // ratio,
+  ratio,
   // flexbox
   alignItems,
   alignContent,
