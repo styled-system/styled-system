@@ -24,6 +24,7 @@ import {
   maxHeight,
   minHeight,
   size,
+  ratio,
   alignItems,
   alignContent,
   justifyContent,
@@ -912,6 +913,12 @@ test('size returns width and height', t => {
   const a = size({ size: 256 })
   t.is(a.width, '256px')
   t.is(a.height, '256px')
+})
+
+test('ratio returns height and paddingBottom', t => {
+  const a = ratio({ ratio: 1/2 })
+  t.is(a.height, 0)
+  t.is(a.paddingBottom, '50%')
 })
 
 test('alignItems returns a style', t => {

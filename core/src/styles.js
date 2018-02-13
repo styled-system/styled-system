@@ -31,10 +31,10 @@ export const bgColor = responsiveStyle({
   key: 'colors'
 })
 
-export const color = props => Object.assign({},
-  textColor(props),
-  bgColor(props)
-)
+export const color = props => ({
+  ...textColor(props),
+  ...bgColor(props)
+})
 
 // typography
 export const fontFamily = responsiveStyle({
@@ -112,12 +112,21 @@ export const sizeHeight = responsiveStyle({
   numberToPx: true
 })
 
-export const size = props => Object.assign({},
-  sizeWidth(props),
-  sizeHeight(props)
-)
+export const size = props => ({
+  ...sizeWidth(props),
+  ...sizeHeight(props)
+})
 
-// export const ratio = props => null
+export const ratioPadding = style({
+  prop: 'ratio',
+  cssProperty: 'paddingBottom',
+  getter: n => (n * 100) + '%'
+})
+
+export const ratio = props => ({
+  height: 0,
+  ...ratioPadding(props)
+})
 
 // flexbox
 export const alignItems = responsiveStyle({
@@ -189,13 +198,13 @@ export const borderLeft = responsiveStyle({
   getter: getBorder
 })
 
-export const borders = props => Object.assign({},
-  border(props),
-  borderTop(props),
-  borderRight(props),
-  borderBottom(props),
-  borderLeft(props)
-)
+export const borders = props => ({
+  ...border(props),
+  ...borderTop(props),
+  ...borderRight(props),
+  ...borderBottom(props),
+  ...borderLeft(props)
+})
 
 export const borderColor = style({
   prop: 'borderColor',
