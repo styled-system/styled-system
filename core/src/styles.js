@@ -37,7 +37,7 @@ export const color = props => ({
 })
 
 // typography
-export const fontFamily = responsiveStyle({
+export const fontFamily = style({
   prop: 'fontFamily',
   alias: 'font',
   key: 'fonts'
@@ -244,6 +244,10 @@ export const backgroundPosition = style({
 })
 
 // position
+export const position = responsiveStyle({
+  prop: 'position'
+})
+
 export const zIndex = style({
   prop: 'zIndex'
 })

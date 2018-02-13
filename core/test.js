@@ -42,6 +42,7 @@ import {
   backgroundSize,
   backgroundPosition,
 
+  position,
   zIndex,
   top,
   right,
@@ -1092,6 +1093,11 @@ test('backgroundSize returns backgroundSize', t => {
 test('backgroundPosition returns backgroundPosition', t => {
   const a = backgroundPosition({ backgroundPosition: 'center' })
   t.is(a.backgroundPosition, 'center')
+})
+
+test('position returns position', t => {
+  const a = position({ position: 'absolute' })
+  t.is(a.position, 'absolute')
 })
 
 test('zIndex returns zIndex', t => {

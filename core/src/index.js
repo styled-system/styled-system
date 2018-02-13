@@ -45,6 +45,7 @@ export {
   backgroundSize,
   backgroundPosition,
   // position
+  position,
   zIndex,
   top,
   right,
@@ -75,5 +76,7 @@ export const propTypes = {}
 Object.keys(styles).forEach(key => {
   propTypes[key] = styles[key].propTypes
 })
+
+styles.propTypes = propTypes
 
 export default styles

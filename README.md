@@ -370,38 +370,24 @@ All core props accept arrays as values for mobile-first responsive styles.
 
 ## API
 
-- [**Core**](#core)
+- [Core](#core)
   - [space](#space-responsive) (margins & paddings)
   - [width](#width-responsive)
   - [fontSize](#fontsize-responsive)
   - [color](#color-responsive) (and background-color)
-- [**Extras**](#extras)
-  - [textAlign](#textalign-responsive)
-  - [lineHeight](#lineheight)
-  - [fontWeight](#fontweight)
-  - [letterSpacing](#letterspacing)
-  - [alignItems](#alignitems-responsive)
-  - [justifyContent](#justifycontent-responsive)
-  - [flexWrap](#flexwrap-responsive)
-  - [flexDirection](#flexdirection-responsive)
-  - [flex](#flex-responsive)
-  - [alignSelf](#alignself-responsive)
-  - [borderRadius](#borderradius)
-  - [borderColor](#bordercolor)
-  - [borders](#borders)
-  - [boxShadow](#boxshadow)
-  - [maxWidth](#maxwidth)
-- [**Pseudo-classes**](#pseudo-classes)
-  - [hover](#hover)
-  - [focus](#focus)
-  - [active](#active)
-  - [disabled](#disabled)
-- [**Table of Style Props**](#table-of-style-props)
-- [**Utilities**](#utilities)
+- [Typography](#typography)
+- [Layout](#layout)
+- [Flexbox](#flexbox)
+- [Borders](#borders)
+- [Position](#position)
+- [Misc](#misc)
+- [Pseudo-classes](#pseudo-classes)
+- [Table of Style Props](#table-of-style-props)
+- [Utilities](#utilities)
   - [theme](#theme)
   - [propTypes](#proptypes)
   - [removeProps](#removeprops)
-- [**Low-level**](#low-level-style-functions)
+- [Low-level](#low-level-style-functions)
   - [style](#style)
   - [responsiveStyle](#responsivestyle)
   - [pseudoStyle](#pseudostyle)
@@ -543,188 +529,143 @@ Array values are converted into [responsive values](#responsive-styles).
 
 ---
 
-## Extras
-
-These functions are for adding other theme-based style props to a component.
-For practical reasons, some props do not accept arrays for responsive styles.
-
-### textAlign (responsive)
-
-```js
-import { textAlign } from 'styled-system'
-```
+## Typography
 
 ```jsx
+// fontFamily
+<Text fontFamily='mono' />
+
+// textAlign (responsive)
 <Text textAlign='center' />
-```
+<Text textAlign={[ 'center', 'left' ]} />
 
-### lineHeight
+// lineHeight
+<Text lineHeight='1.25' />
 
-```js
-import { lineHeight } from 'styled-system'
-```
-
-```jsx
-<Text lineHeight={1} />
-// props.theme.lineHeights[1]
-```
-
-### fontWeight
-
-```js
-import { fontWeight } from 'styled-system'
-```
-
-```jsx
+// fontWeight
 <Text fontWeight='bold' />
-// props.theme.fontWeights.bold
+
+// letterSpacing
+<Text letterSpacing='0.1em' />
 ```
 
-### letterSpacing
+## Layout
 
-```js
-import { letterSpacing } from 'styled-system'
-```
 ```jsx
-<Text letterSpacing={1} />
-// props.theme.letterSpacings[1]
+// display (responsive)
+<Box display='inline-block' />
+<Box display={[ 'block', 'inline-block' ]} />
+
+// maxWidth (responsive)
+<Box maxWidth={1024} />
+<Box maxWidth={[ 768, null, null, 1024 ]} />
+
+// minWidth (responsive)
+<Box minWidth={128} />
+<Box minWidth={[ 96, 128 ]} />
+
+// height (responsive)
+<Box height={64} />
+<Box height={[ 48, 64 ]} />
+
+// maxHeight (responsive)
+<Box maxHeight={512} />
+<Box maxHeight={[ 384, 512 ]} />
+
+// minHeight (responsive)
+<Box minHeight={512} />
+<Box minHeight={[ 384, 512 ]} />
+
+// size (responsive, width & height)
+<Box size={32} />
+<Box size={[ 32, 48 ]} />
+
+// ratio (height: 0 & paddingBottom)
+<Box ratio={3/4} />
 ```
 
-### alignItems (responsive)
+## Flexbox
 
-```js
-import { alignItems } from 'styled-system'
-```
 ```jsx
+// alignItems (responsive)
 <Flex alignItems='center' />
-```
 
-### justifyContent (responsive)
+// alignContent (responsive)
+<Flex alignContent='center' />
 
-```js
-import { justifyContent } from 'styled-system'
-```
-```jsx
+// justifyContent (responsive)
 <Flex justifyContent='center' />
-```
 
-### flexWrap (responsive)
-
-```js
-import { flexWrap } from 'styled-system'
-```
-```jsx
+// flexWrap (responsive)
 <Flex flexWrap='wrap' />
-```
 
-### flexDirection (responsive)
-
-```js
-import { flexDirection } from 'styled-system'
-```
-```jsx
+// flexDirection (responsive)
 <Flex flexDirection='column' />
+
+// flex (responsive)
+<Box flex='1 1 auto' />
+
+// alignSelf (responsive)
+<Box alignSelf='center' />
 ```
 
-### flex (responsive)
+## Borders
 
-```js
-import { flex } from 'styled-system'
+The `borders` utiilty combines `border`, `borderTop`, `borderRight`, `borderBottom` and `borderLeft`, all of which are responsive
+
+```jsx
+<Box border='1px solid' />
+<Box borderTop='1px solid' />
+<Box borderRight='1px solid' />
+<Box borderBottom='1px solid' />
+<Box borderLeft='1px solid' />
 ```
 ```jsx
-<Box flex='none' />
-```
-
-### alignSelf (responsive)
-
-```js
-import { alignSelf } from 'styled-system'
-```
-```jsx
-<Box alignSelf='baseline' />
-```
-
-### borderRadius
-
-```js
-import { borderRadius } from 'styled-system'
-```
-```jsx
-<Box borderRadius={1} />
-// props.theme.radii[1]
-```
-
-### borderColor
-
-```js
-import { borderColor } from 'styled-system'
-```
-```jsx
+// borderColor
 <Box borderColor='blue' />
-// props.theme.colors.blue
+
+// borderRadius
+<Box borderRadius={4} />
 ```
 
-### borders
-
-Sets shorthand border-width and border-style values.
-Intended to be used in conjunction with `borderColor`
-
-```js
-import { borders } from 'styled-system'
-```
+## Position
 
 ```jsx
-<Box border={1} borderColor='blue' />
-// props.theme.borders[1]
+// position (responsive)
+<Box position='absolute' />
+
+// zIndex
+<Absolute zIndex={2} />
+
+// top, right, bottom, left (responsive)
+<Fixed
+  top='0'
+  right='0'
+  bottom='0'
+  left='0'
+/>
 ```
 
-```js
-<Box borderTop={1} />
-
-// Or in multiple directions
-<Box borderTop={1} borderBottom={1} />
-```
-
-Number values greater than 0 that don't reference values in `theme.borders` will be coverted to shorthand syntax without a color specified.
-
-### boxShadow
-
-```js
-import { boxShadow } from 'styled-system'
-```
+## Misc
 
 ```jsx
+// boxShadow
 <Box boxShadow={1} />
-// props.theme.shadows[1]
-```
-```jsx
-<Box boxShadow='large' />
-// props.theme.shadows.large
-```
-```jsx
-// raw value
-<Box boxShadow='1px 1px 0 black' />
+
+// backgroundImage, backgroundSize, backgroundPosition
+<Box
+  backgroundImage='kitten.png'
+  backgroundSize='cover'
+  backgroundPosition='center'
+/>
 ```
 
 ## Pseudo-classes
 
 Pseudo-class utility props accept style objects that can pick up certain values, such as color, from a theme.
 
-### maxWidth
-
-```js
-import { maxWidth } from 'styled-system'
-```
-```jsx
-<Box maxWidth={1} />
-// props.theme.maxWidths
-```
-
 ### hover
 
-```js
-import { hover } from 'styled-system'
-```
 ```jsx
 <Box
   hover={{
@@ -732,37 +673,24 @@ import { hover } from 'styled-system'
     color: 'blue'
   }}
 />
-// props.theme.colors.blue
 ```
 
 ### focus
 
-```js
-import { focus } from 'styled-system'
-```
 ```jsx
 <Box focus={{ color: 'blue' }} />
-// props.theme.colors.blue
 ```
 
 ### active
 
-```js
-import { active } from 'styled-system'
-```
 ```jsx
 <Box active={{ color: 'navy' }} />
-// props.theme.colors.navy
 ```
 
 ### disabled
 
-```js
-import { disabled } from 'styled-system'
-```
 ```jsx
 <Box disabledStyle={{ color: 'gray' }} />
-// props.theme.colors.gray
 ```
 
 ---
@@ -826,11 +754,19 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 
 Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 --------------|------------|-----------------|--------------|-----------
+`position` | `position` | `position` | none | yes
 `zIndex` | `zIndex` | `z-index` | none | no
 `top` | `top` | `top` | none | yes
 `right` | `right` | `right` | none | yes
 `bottom` | `bottom` | `bottom` | none | yes
 `left` | `left` | `left` | none | yes
+
+Function Name | Prop       | CSS Property    | Theme Field  | Responsive
+--------------|------------|-----------------|--------------|-----------
+`hover` | `hover` | style object | -- | no
+`focus` | `focus` | style object | -- | no
+`active` | `active` | style object | -- | no
+`disabled` | `disabledStyle` | style object | -- | no
 
 ---
 
