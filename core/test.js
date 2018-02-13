@@ -1232,3 +1232,8 @@ test('deprecated borderWidth utility returns border styles', t => {
   const a = borderWidth({ borderWidth: 1 })
   t.is(a.border, '1px solid')
 })
+
+test('flexWrap includes a shim for legacy boolean value api', t => {
+  const a = flexWrap({ wrap: true })
+  t.is(a.flexWrap, 'wrap')
+})
