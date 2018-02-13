@@ -42,7 +42,9 @@ npm i styled-system
 - [How it Works](#how-it-works)
 - [Responsive Styles](#responsive-styles)
 - [API](#api)
+- [system-components](#system-components)
 - [Default Theme](#default-theme)
+- [Troubleshooting](#troubleshooting)
 - [Related](#related)
 
 ## Usage
@@ -386,8 +388,7 @@ All core props accept arrays as values for mobile-first responsive styles.
 - [Utilities](#utilities)
   - [theme](#theme)
   - [propTypes](#proptypes)
-  - [removeProps](#removeprops)
-- [Low-level](#low-level-style-functions)
+- [Customize](#customize)
   - [style](#style)
   - [responsiveStyle](#responsivestyle)
   - [pseudoStyle](#pseudostyle)
@@ -813,7 +814,7 @@ Box.propTypes = {
 
 ---
 
-## Low-level Style Functions
+## Customize
 
 To create custom utilities for other CSS properties,
 use the following low-level utility functions.
@@ -910,6 +911,8 @@ FancyCheckbox.defaultProps = {
 // <FancyCheckbox checkedStyle={{ backgroundColor: 'blue' }} />
 ```
 
+---
+
 ## system-components
 
 For an even simpler authoring experience when using styled-system with styled-components, see [system-components](https://github.com/jxnblk/system-components), which is a lightweight wrapper around the two libraries.
@@ -974,16 +977,19 @@ See https://github.com/jxnblk/grid-styled/issues/51#issuecomment-336116426
 - [system-components](https://github.com/jxnblk/system-components)
 - [grid-styled](https://github.com/jxnblk/grid-styled)
 - [Rebass](http://jxnblk.com/rebass)
+- [Compositor Lab](https://compositor.io/lab)
 - [styled-components][sc]
 - [glamorous][glamorous]
 - [emotion][emotion]
 - [fela][fela]
+- [nano-style][nano-style]
 - [cxs][cxs]
 
 [sc]: https://github.com/styled-components/styled-components
 [glamorous]: https://github.com/paypal/glamorous
 [emotion]: https://github.com/emotion-js/emotion
 [fela]: https://github.com/rofrischmann/fela
+[nano-style]: https://github.com/jxnblk/nano-style
 [cxs]: https://github.com/jxnblk/cxs
 
 
