@@ -136,10 +136,12 @@ export const justifyContent = responsiveStyle({
   alias: 'justify'
 })
 
-// consider shim for wrap={true}
+// for backwards compatibility
+const flexWrapShim = n => n === true ? 'wrap' : n
 export const flexWrap = responsiveStyle({
   prop: 'flexWrap',
-  alias: 'wrap'
+  alias: 'wrap',
+  getter: flexWrapShim
 })
 
 export const flexDirection = responsiveStyle({
