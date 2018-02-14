@@ -1,5 +1,6 @@
 import * as styles from './styles'
 
+export * as styles from './styles'
 export {
   width,
   fontSize,
@@ -57,7 +58,6 @@ export {
   active,
   disabled,
   // deprecated
-  theme,
   borderWidth,
 } from './styles'
 
@@ -65,7 +65,8 @@ export {
   style,
   pseudoStyle,
   responsiveStyle,
-  themeGet
+  themeGet,
+  themeGet as theme
 } from './util'
 
 export { default as space } from './space'

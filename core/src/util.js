@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import defaultTheme, { breakpoints } from './constants'
 
 const propTypes = {
-  responsivePropType: PropTypes.oneOfType([
+  responsive: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,
     PropTypes.array
@@ -127,23 +127,29 @@ export const responsiveStyle = ({
   return fn
 }
 
-export const pseudoStyle = (pseudoclass, prop) => (keys = {}) => props => {
-  const style = props[prop || pseudoclass]
-  const numberToPx = keys.numberToPx || {}
-  for (let key in style) {
-    const toPx = numberToPx[key]
+export const pseudoStyle = (pseudoclass, prop) => (keys = {}) => {
+  const fn = props => {
+    const style = props[prop || pseudoclass]
+    const numberToPx = keys.numberToPx || {}
+    for (let key in style) {
+      const toPx = numberToPx[key]
 
-    if (!keys[key] && !toPx) continue
-    const themeKey = [ keys[key], style[key] ].join('.')
-    const th = fallbackTheme(props)
-    style[key] = get(th, themeKey, style[key])
+      if (!keys[key] && !toPx) continue
+      const themeKey = [ keys[key], style[key] ].join('.')
+      const th = fallbackTheme(props)
+      style[key] = get(th, themeKey, style[key])
 
-    if (toPx) style[key] = px(style[key])
+      if (toPx) style[key] = px(style[key])
+    }
+
+    return {
+      ['&:' + pseudoclass]: style
+    }
   }
-
-  return {
-    ['&:' + pseudoclass]: style
+  fn.propTypes = {
+    [prop]: PropTypes.object
   }
+  return fn
 }
 
 // todo: consider alternative names

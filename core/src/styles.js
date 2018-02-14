@@ -35,6 +35,10 @@ export const color = props => ({
   ...textColor(props),
   ...bgColor(props)
 })
+color.propTypes = {
+  ...textColor.propTypes,
+  ...bgColor.propTypes,
+}
 
 // typography
 export const fontFamily = style({
@@ -116,6 +120,10 @@ export const size = props => ({
   ...sizeWidth(props),
   ...sizeHeight(props)
 })
+size.propTypes = {
+  ...sizeWidth.propTypes,
+  ...sizeHeight.propTypes,
+}
 
 export const ratioPadding = style({
   prop: 'ratio',
@@ -127,6 +135,9 @@ export const ratio = props => ({
   height: 0,
   ...ratioPadding(props)
 })
+ratio.propTypes = {
+  ...ratioPadding.propTypes
+}
 
 // flexbox
 export const alignItems = responsiveStyle({
@@ -205,6 +216,13 @@ export const borders = props => ({
   ...borderBottom(props),
   ...borderLeft(props)
 })
+borders.propTypes = {
+  ...border.propTypes,
+  ...borderTop.propTypes,
+  ...borderRight.propTypes,
+  ...borderBottom.propTypes,
+  ...borderLeft.propTypes,
+}
 
 export const borderColor = style({
   prop: 'borderColor',
@@ -305,16 +323,14 @@ export const disabled = pseudoStyle('disabled', 'disabledStyle')({
 // these will be removed in v3
 const __DEV__ = (process.env.NODE_ENV !== 'production' && typeof console !== 'undefined')
 
-export { themeGet as theme } from './util'
-
-export const borderWidth = props => {
-  if (__DEV__) {
-    console.warn('borderWidth is deprecated. Please use the `borders` utility instead')
+export const borderWidth = style({
+  prop: 'borderWidth',
+  cssProperty: 'border',
+  key: 'borderWidths',
+  getter: v => {
+    if (__DEV__) {
+      console.warn('borderWidth is deprecated. Please use the `borders` utility instead')
+    }
+    return getBorder(v)
   }
-  return style({
-    prop: 'borderWidth',
-    cssProperty: 'border',
-    key: 'borderWidths',
-    getter: getBorder
-  })(props)
-}
+})

@@ -3,6 +3,7 @@ import React from 'react'
 import { create as render } from 'react-test-renderer'
 import * as system from './src'
 import {
+  styles,
   space,
   width,
   fontSize,
@@ -1249,4 +1250,16 @@ test('deprecated borderWidth utility returns border styles', t => {
 test('flexWrap includes a shim for legacy boolean value api', t => {
   const a = flexWrap({ wrap: true })
   t.is(a.flexWrap, 'wrap')
+})
+
+
+Object.keys(styles).forEach(key => {
+  test(`${key}.propTypes is an object`, t => {
+    const fn = system[key]
+    if (typeof fn !== 'function') return t.pass()
+    t.is(typeof fn.propTypes, 'object')
+    Object.keys(fn.propTypes).forEach(prop => {
+      t.is(typeof fn.propTypes[prop], 'function')
+    })
+  })
 })
