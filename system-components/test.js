@@ -137,3 +137,14 @@ test('works with the styled-component `css` helper', t => {
   const css = getCSS()
   t.regex(css, /color:yellow/)
 })
+
+test('defaultProps are passed to extended components', t => {
+  const Box = system({
+    p: 2,
+    bg: 'tomato'
+  }, 'space', 'color')
+  const ExtendedBox = system({ is: Box })
+  const json = render(<ExtendedBox />).toJSON()
+  const css = getCSS()
+  t.regex(css, /background-color:tomato/)
+})
