@@ -1,4 +1,6 @@
 module.exports = [
+  'clean-element',
+  'clean-tag',
   'core',
-  'clean-element'
+  'system-components',
 ]
