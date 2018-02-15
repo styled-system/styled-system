@@ -42,6 +42,7 @@
     "remark": "^9.0.0",
     "remark-react": "^4.0.1",
     "remark-slug": "^5.0.0",
+    "sinon": "^4.3.0",
     "styled-components": "^3.1.6"
   },
   "ava": {

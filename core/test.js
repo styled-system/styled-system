@@ -1,6 +1,7 @@
 import test from 'ava'
 import React from 'react'
 import { create as render } from 'react-test-renderer'
+import sinon from 'sinon'
 import * as system from './src'
 import {
   styles,
@@ -8,16 +9,19 @@ import {
   width,
   fontSize,
   color,
+
   style,
   responsiveStyle,
   pseudoStyle,
   propTypes,
   util,
+
   textAlign,
   fontFamily,
   lineHeight,
   fontWeight,
   letterSpacing,
+
   display,
   maxWidth,
   minWidth,
@@ -26,6 +30,7 @@ import {
   minHeight,
   size,
   ratio,
+
   alignItems,
   alignContent,
   justifyContent,
@@ -33,6 +38,8 @@ import {
   flexDirection,
   flex,
   alignSelf,
+  order,
+
   borderRadius,
   borderColor,
   borders,
@@ -959,6 +966,11 @@ test('alignSelf returns a style', t => {
   t.deepEqual(a, { alignSelf: 'center' })
 })
 
+test('order returns a style', t => {
+  const a = order({ order: 2 })
+  t.deepEqual(a, { order: 2 })
+})
+
 test('borderRadius returns borderRadius', t => {
   const a = borderRadius({ borderRadius: '4px' })
   t.deepEqual(a, { borderRadius: '4px' })
@@ -1245,6 +1257,13 @@ test('disabled uses theme values', t => {
 test('deprecated borderWidth utility returns border styles', t => {
   const a = borderWidth({ borderWidth: 1 })
   t.is(a.border, '1px solid')
+})
+
+test('deprecated borderWidth warns', t => {
+  sinon.spy(console, 'warn')
+  const a = borderWidth({ borderWidth: 2 })
+  t.true(console.warn.calledOnce)
+  console.warn.restore()
 })
 
 test('flexWrap includes a shim for legacy boolean value api', t => {

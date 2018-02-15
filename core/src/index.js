@@ -30,6 +30,7 @@ export {
   flexDirection,
   flex,
   alignSelf,
+  order,
   // borders
   border,
   borderTop,

@@ -741,6 +741,7 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 `flex` | `flex` | `flex` (shorthand) | none | yes
 `alignContent`  | `alignContent` | `align-content` | none | yes
 `alignSelf` | `alignSelf` | `align-self` | none | yes
+`order` | `order` | `order` | none | yes
 
 Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 --------------|------------|-----------------|--------------|-----------

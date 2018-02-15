@@ -176,6 +176,10 @@ export const alignSelf = responsiveStyle({
   prop: 'alignSelf'
 })
 
+export const order = responsiveStyle({
+  prop: 'order'
+})
+
 // borders
 export const getBorder = n => util.num(n) && n > 0 ? n + 'px solid' : n
 
@@ -321,7 +325,7 @@ export const disabled = pseudoStyle('disabled', 'disabledStyle')({
 
 // for backwards-compatibility
 // these will be removed in v3
-const __DEV__ = (process.env.NODE_ENV !== 'production' && typeof console !== 'undefined')
+const __DEV__ = (process.env.NODE_ENV !== 'production') // && typeof console !== 'undefined')
 
 export const borderWidth = style({
   prop: 'borderWidth',
