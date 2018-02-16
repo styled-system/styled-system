@@ -44,7 +44,7 @@ Tag.defaultProps = {
 Tag.styledComponentId = 'lol'
 
 tags.forEach(tag => {
-  Tag[tag] = props => React.createElement(Tag, { is: tag })
+  Tag[tag] = props => React.createElement(Tag, { is: tag, ...props })
   Tag[tag].displayName = 'Clean.' + tag
 })
 
