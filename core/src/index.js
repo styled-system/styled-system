@@ -2,6 +2,7 @@ import * as styles from './styles'
 
 export * as styles from './styles'
 export {
+  space,
   width,
   fontSize,
   textColor,
@@ -70,7 +71,6 @@ export {
   themeGet as theme
 } from './util'
 
-export { default as space } from './space'
 export * as util from './util'
 
 export const propTypes = {}

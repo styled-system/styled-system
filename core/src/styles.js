@@ -6,6 +6,8 @@ import {
 } from './util'
 
 // core
+export { default as space } from './space'
+
 const getWidth = n => !util.num(n) || n > 1 ? util.px(n) : (n * 100) + '%'
 export const width = responsiveStyle({
   prop: 'width',
