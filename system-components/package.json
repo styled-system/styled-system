@@ -1,6 +1,6 @@
 {
   "name": "system-components",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Create consistent design-system-driven React UI components",
   "main": "dist/index",
   "scripts": {
@@ -22,7 +22,7 @@
   "license": "MIT",
   "dependencies": {
     "styled-components": ">=3.0.0",
-    "styled-system": ">=1.0.0 || >=2.0.0"
+    "styled-system": ">=2.0.1"
   },
   "devDependencies": {
     "ava": "^0.25.0",

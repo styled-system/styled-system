@@ -57,7 +57,7 @@ test('adds propTypes', t => {
 
 test('adds styled-system functions based on default props', t => {
   const Box = system({
-    p: 2,
+    p: 3,
     bg: 'tomato'
   })
   const json = render(<Box />).toJSON()

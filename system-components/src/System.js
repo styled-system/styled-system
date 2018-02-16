@@ -1,8 +1,5 @@
 import React from 'react'
-import {
-  styles,
-  propTypes as systemPropTypes
-} from 'styled-system'
+import { styles } from 'styled-system'
 
 const funcNames = Object.keys(styles)
 const unique = arr => [...new Set(arr)]
