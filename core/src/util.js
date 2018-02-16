@@ -147,7 +147,7 @@ export const pseudoStyle = ({
       style[key] = getValue(
         get(th, themeKey, style[key]),
         getters[key],
-        numberToPx
+        toPx
       )
     }
 
