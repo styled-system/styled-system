@@ -28,3 +28,16 @@ test('exports html tags', t => {
   t.is(h1.type, 'h1')
   t.is(header.type, 'header')
 })
+
+test('exported html tags only omit blacklisted props', t => {
+  const json = render(React.createElement(tag.h1, {
+    id: 'hello',
+    m: 2,
+    px: 3,
+    color: 'blue'
+  })).toJSON()
+  t.is(json.props.m, undefined)
+  t.is(json.props.px, undefined)
+  t.is(json.props.blue, undefined)
+  t.is(json.props.id, 'hello')
+})
