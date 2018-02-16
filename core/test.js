@@ -731,14 +731,14 @@ test('responsiveStyle returns a theme number value in px', t => {
 })
 
 test('psuedoStyle returns a function', t => {
-  const hover = pseudoStyle('hover')
-  const hoverStyle = pseudoStyle('hover')()
+  const hover = pseudoStyle({ prop: 'hover' })
   t.is(typeof hover, 'function')
-  t.is(typeof hoverStyle, 'function')
 })
 
 test('pseudoStyle returns a style object', t => {
-  const hoverStyle = pseudoStyle('hover')({})
+  const hoverStyle = pseudoStyle({
+    prop: 'hover'
+  })
   const a = hoverStyle({
     hover: {
       color: 'tomato'
@@ -752,8 +752,11 @@ test('pseudoStyle returns a style object', t => {
 })
 
 test('pseudoStyle uses theme values', t => {
-  const hoverStyle = pseudoStyle('hover')({
-    color: 'colors'
+  const hoverStyle = pseudoStyle({
+    prop: 'hover',
+    keys: {
+      color: 'colors'
+    }
   })
   const a = hoverStyle({
     theme,
@@ -769,13 +772,53 @@ test('pseudoStyle uses theme values', t => {
 })
 
 test('pseudoStyle returns number pixel values', t => {
-  const hoverStyle = pseudoStyle('hover')({
+  const hoverStyle = pseudoStyle({
+    prop: 'hover',
     numberToPx: {
       borderRadius: true
     }
   })
   const a = hoverStyle({
     hover: {
+      borderRadius: 4
+    }
+  })
+  t.deepEqual(a, {
+    '&:hover': {
+      borderRadius: '4px'
+    }
+  })
+})
+
+test('pseudoStyle accepts a getters argument', t => {
+  const hoverStyle = pseudoStyle({
+    prop: 'hover',
+    getters: {
+      borderRadius: n => n ? (n * 2) + 'px' : n
+    }
+  })
+  const a = hoverStyle({
+    hover: {
+      borderRadius: 4
+    }
+  })
+  t.deepEqual(a, {
+    '&:hover': {
+      borderRadius: '8px'
+    }
+  })
+})
+
+test('pseudoStyle accepts an alias argument', t => {
+  const hoverStyle = pseudoStyle({
+    prop: 'hover',
+    alias: 'h',
+    numberToPx: {
+      borderRadius: true
+    }
+  })
+  const a = hoverStyle({
+    h: {
       borderRadius: 4
     }
   })

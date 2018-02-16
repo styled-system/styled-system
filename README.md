@@ -895,10 +895,14 @@ Create a pseudo-class style utility that accepts a style object prop value.
 import styled from 'styled-components'
 import { pseudoStyle } from 'styled-system'
 
-const checkedStyle = pseudoStyle('checked', 'checkedStyle')({
-  // keys for theme-based values
-  color: 'colors',
-  backgroundColor: 'colors',
+const checkedStyle = pseudoStyle({
+  prop: 'checkedStyle',
+  pseudoclass: 'checked',
+  keys: {
+    // keys for theme-based values
+    color: 'colors',
+    backgroundColor: 'colors',
+  }
 })
 
 const FancyCheckbox = styled.input`

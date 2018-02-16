@@ -127,19 +127,28 @@ export const responsiveStyle = ({
   return fn
 }
 
-export const pseudoStyle = (pseudoclass, prop) => (keys = {}) => {
+// export const pseudoStyle = (pseudoclass, prop) => (keys = {}) => {
+export const pseudoStyle = ({
+  prop,
+  alias,
+  pseudoclass,
+  keys = {},
+  getters = {},
+  numberToPx = {}
+}) => {
   const fn = props => {
-    const style = props[prop || pseudoclass]
-    const numberToPx = keys.numberToPx || {}
+    const style = props[prop] || props[alias]
+    pseudoclass = pseudoclass || prop
+    const th = fallbackTheme(props)
     for (let key in style) {
       const toPx = numberToPx[key]
-
-      if (!keys[key] && !toPx) continue
+      if (!keys[key] && !getters[key] && !toPx) continue
       const themeKey = [ keys[key], style[key] ].join('.')
-      const th = fallbackTheme(props)
-      style[key] = get(th, themeKey, style[key])
-
-      if (toPx) style[key] = px(style[key])
+      style[key] = getValue(
+        get(th, themeKey, style[key]),
+        getters[key],
+        numberToPx
+      )
     }
 
     return {

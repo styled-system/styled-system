@@ -295,32 +295,46 @@ export const left = responsiveStyle({
 })
 
 // pseudos
-export const hover = pseudoStyle('hover')({
-  color: 'colors',
-  backgroundColor: 'colors',
-  borderColor: 'colors',
-  boxShadow: 'shadows'
+export const hover = pseudoStyle({
+  prop: 'hover',
+  pseudoclass: 'hover',
+  keys: {
+    color: 'colors',
+    backgroundColor: 'colors',
+    borderColor: 'colors',
+    boxShadow: 'shadows'
+  }
 })
 
-export const focus = pseudoStyle('focus')({
-  color: 'colors',
-  backgroundColor: 'colors',
-  borderColor: 'colors',
-  boxShadow: 'shadows'
+export const focus = pseudoStyle({
+  prop: 'focus',
+  keys: {
+    color: 'colors',
+    backgroundColor: 'colors',
+    borderColor: 'colors',
+    boxShadow: 'shadows'
+  }
 })
 
-export const active = pseudoStyle('active')({
-  color: 'colors',
-  backgroundColor: 'colors',
-  borderColor: 'colors',
-  boxShadow: 'shadows'
+export const active = pseudoStyle({
+  prop: 'active',
+  keys: {
+    color: 'colors',
+    backgroundColor: 'colors',
+    borderColor: 'colors',
+    boxShadow: 'shadows'
+  }
 })
 
-export const disabled = pseudoStyle('disabled', 'disabledStyle')({
-  color: 'colors',
-  backgroundColor: 'colors',
-  borderColor: 'colors',
-  boxShadow: 'shadows'
+export const disabled = pseudoStyle({
+  prop: 'disabledStyle',
+  pseudoclass: 'disabled',
+  keys: {
+    color: 'colors',
+    backgroundColor: 'colors',
+    borderColor: 'colors',
+    boxShadow: 'shadows'
+  }
 })
 
 // for backwards-compatibility
