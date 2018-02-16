@@ -1,14 +1,17 @@
 import React from 'react'
-import system from 'styled-system'
+import {
+  styles,
+  propTypes as systemPropTypes
+} from 'styled-system'
 
-const funcNames = Object.keys(system)
+const funcNames = Object.keys(styles)
 const unique = arr => [...new Set(arr)]
 const isPOJO = n => typeof n === 'object' && n !== null && !Array.isArray(n)
 
-const dict = Object.keys(system.propTypes)
+const dict = Object.keys(styles)
   .map(key => ({
     key,
-    propNames: Object.keys(system.propTypes[key])
+    propNames: Object.keys(styles[key].propTypes || {})
   }))
   .reduce((acc, b) => {
     const vals = b.propNames.reduce((a, name) => ({
@@ -23,12 +26,13 @@ const getPropKeys = defaultProps => Object.keys(defaultProps || {})
   .filter(key => !!key)
 
 const getFuncs = keys => keys
-  .map(f => system[f] || f)
+  .map(f => styles[f] || f)
   .reduce((a, f) => Array.isArray(f) ? [ ...a, ...f ] : [ ...a, f ], [])
 
 const getPropTypes = keys => keys
   .filter(key => typeof key === 'string')
-  .map(key => system.propTypes[key] || {})
+  .filter(key => typeof styles[key] === 'function')
+  .map(key => styles[key].propTypes || {})
   .reduce((a, propType) => ({ ...a, ...propType }), {})
 
 export const omit = (obj, keys) => {
