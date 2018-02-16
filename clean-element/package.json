@@ -1,0 +1,36 @@
+{
+  "name": "clean-element",
+  "version": "1.1.4",
+  "description": "React HOC for removing styled-system props from underlying DOM elements",
+  "main": "dist/index.js",
+  "repository": "jxnblk/styled-system",
+  "scripts": {
+    "prepare": "babel src -d dist",
+    "test": "ava"
+  },
+  "keywords": [
+    "react",
+    "css-in-js",
+    "styled-components",
+    "glamorous",
+    "styled-system"
+  ],
+  "author": "Brent Jackson",
+  "license": "MIT",
+  "devDependencies": {
+    "@compositor/x0": "^3.1.1",
+    "ava": "^0.25.0",
+    "babel-cli": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "styled-components": "^3.1.6"
+  },
+  "ava": {
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
+  },
+  "peerDependencies": {
+    "react": "^0.14.x || ^15.x || ^16.x"
+  }
+}

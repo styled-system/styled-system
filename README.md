@@ -42,7 +42,9 @@ npm i styled-system
 - [How it Works](#how-it-works)
 - [Responsive Styles](#responsive-styles)
 - [API](#api)
+- [system-components](#system-components)
 - [Default Theme](#default-theme)
+- [Troubleshooting](#troubleshooting)
 - [Related](#related)
 
 ## Usage
@@ -228,8 +230,8 @@ const radii = [
   0, 2, 4, 8
 ]
 
-const borderWidths = [
-  0, 1, 2
+const borders = [
+  0, '1px solid', '2px solid'
 ]
 
 const shadows = [
@@ -246,7 +248,7 @@ const theme = {
   fontWeights,
   letterSpacings,
   radii,
-  borderWidths,
+  borders,
   shadows,
 }
 
@@ -370,39 +372,23 @@ All core props accept arrays as values for mobile-first responsive styles.
 
 ## API
 
-- [**Core**](#core)
+- [Core](#core)
   - [space](#space-responsive) (margins & paddings)
   - [width](#width-responsive)
   - [fontSize](#fontsize-responsive)
   - [color](#color-responsive) (and background-color)
-- [**Extras**](#extras)
-  - [textAlign](#textalign-responsive)
-  - [lineHeight](#lineheight)
-  - [fontWeight](#fontweight)
-  - [letterSpacing](#letterspacing)
-  - [alignItems](#alignitems-responsive)
-  - [justifyContent](#justifycontent-responsive)
-  - [flexWrap](#flexwrap-responsive)
-  - [flexDirection](#flexdirection-responsive)
-  - [flex](#flex-responsive)
-  - [alignSelf](#alignself-responsive)
-  - [borderRadius](#borderradius)
-  - [borderColor](#bordercolor)
-  - [borderWidth](#borderwidth)
-  - [boxShadow](#boxshadow)
-  - [maxWidth](#maxwidth)
-- [**Pseudo-classes**](#pseudo-classes)
-  - [hover](#hover)
-  - [focus](#focus)
-  - [active](#active)
-  - [disabled](#disabled)
-- [**Table of Style Props**](#table-of-style-props)
-- [**Utilities**](#utilities)
+- [Typography](#typography)
+- [Layout](#layout)
+- [Flexbox](#flexbox)
+- [Borders](#borders)
+- [Position](#position)
+- [Misc](#misc)
+- [Pseudo-classes](#pseudo-classes)
+- [Table of Style Props](#table-of-style-props)
+- [Utilities](#utilities)
   - [theme](#theme)
   - [propTypes](#proptypes)
-  - [cleanElement](#cleanelement)
-  - [removeProps](#removeprops)
-- [**Low-level**](#low-level-style-functions)
+- [Customize](#customize)
   - [style](#style)
   - [responsiveStyle](#responsivestyle)
   - [pseudoStyle](#pseudostyle)
@@ -544,184 +530,143 @@ Array values are converted into [responsive values](#responsive-styles).
 
 ---
 
-## Extras
-
-These functions are for adding other theme-based style props to a component.
-For practical reasons, some props do not accept arrays for responsive styles.
-
-### textAlign (responsive)
-
-```js
-import { textAlign } from 'styled-system'
-```
+## Typography
 
 ```jsx
-<Text align='center' />
-```
+// fontFamily
+<Text fontFamily='mono' />
 
-### lineHeight
+// textAlign (responsive)
+<Text textAlign='center' />
+<Text textAlign={[ 'center', 'left' ]} />
 
-```js
-import { lineHeight } from 'styled-system'
-```
+// lineHeight
+<Text lineHeight='1.25' />
 
-```jsx
-<Text lineHeight={1} />
-// props.theme.lineHeights[1]
-```
-
-### fontWeight
-
-```js
-import { fontWeight } from 'styled-system'
-```
-
-```jsx
+// fontWeight
 <Text fontWeight='bold' />
-// props.theme.fontWeights.bold
+
+// letterSpacing
+<Text letterSpacing='0.1em' />
 ```
 
-### letterSpacing
-
-```js
-import { letterSpacing } from 'styled-system'
-```
+## Layout
 
 ```jsx
-<Text letterSpacing={1} />
-// props.theme.letterSpacings[1]
+// display (responsive)
+<Box display='inline-block' />
+<Box display={[ 'block', 'inline-block' ]} />
+
+// maxWidth (responsive)
+<Box maxWidth={1024} />
+<Box maxWidth={[ 768, null, null, 1024 ]} />
+
+// minWidth (responsive)
+<Box minWidth={128} />
+<Box minWidth={[ 96, 128 ]} />
+
+// height (responsive)
+<Box height={64} />
+<Box height={[ 48, 64 ]} />
+
+// maxHeight (responsive)
+<Box maxHeight={512} />
+<Box maxHeight={[ 384, 512 ]} />
+
+// minHeight (responsive)
+<Box minHeight={512} />
+<Box minHeight={[ 384, 512 ]} />
+
+// size (responsive, width & height)
+<Box size={32} />
+<Box size={[ 32, 48 ]} />
+
+// ratio (height: 0 & paddingBottom)
+<Box ratio={3/4} />
 ```
 
-### alignItems (responsive)
+## Flexbox
 
-```js
-import { alignItems } from 'styled-system'
-```
 ```jsx
-<Flex align='center' />
-```
+// alignItems (responsive)
+<Flex alignItems='center' />
 
-### justifyContent (responsive)
+// alignContent (responsive)
+<Flex alignContent='center' />
 
-```js
-import { justifyContent } from 'styled-system'
-```
-```jsx
-<Flex justify='center' />
-```
+// justifyContent (responsive)
+<Flex justifyContent='center' />
 
-### flexWrap (responsive)
+// flexWrap (responsive)
+<Flex flexWrap='wrap' />
 
-```js
-import { flexWrap } from 'styled-system'
-```
-```jsx
-<Flex wrap />
-```
-
-### flexDirection (responsive)
-
-```js
-import { flexDirection } from 'styled-system'
-```
-```jsx
+// flexDirection (responsive)
 <Flex flexDirection='column' />
+
+// flex (responsive)
+<Box flex='1 1 auto' />
+
+// alignSelf (responsive)
+<Box alignSelf='center' />
 ```
 
-### flex (responsive)
+## Borders
 
-```js
-import { flex } from 'styled-system'
+The `borders` utiilty combines `border`, `borderTop`, `borderRight`, `borderBottom` and `borderLeft`, all of which are responsive
+
+```jsx
+<Box border='1px solid' />
+<Box borderTop='1px solid' />
+<Box borderRight='1px solid' />
+<Box borderBottom='1px solid' />
+<Box borderLeft='1px solid' />
 ```
 ```jsx
-<Box flex='none' />
-```
-
-### alignSelf (responsive)
-
-```js
-import { alignSelf } from 'styled-system'
-```
-```jsx
-<Box alignSelf='baseline' />
-```
-
-### borderRadius
-
-```js
-import { borderRadius } from 'styled-system'
-```
-```jsx
-<Box borderRadius={1} />
-// props.theme.radii[1]
-```
-
-### borderColor
-
-```js
-import { borderColor } from 'styled-system'
-```
-```jsx
+// borderColor
 <Box borderColor='blue' />
-// props.theme.colors.blue
+
+// borderRadius
+<Box borderRadius={4} />
 ```
 
-### borderWidth
-
-```js
-import { borderWidth } from 'styled-system'
-```
-```jsx
-<Box borderWidth={1} />
-// props.theme.borderWidths
-```
-
-```js
-// Only apply border in one direction
-<Box borderWidth={1} borderBottom />
-
-// Or in multiple directions
-<Box borderWidth={1} borderTop borderBottom />
-```
-
-### boxShadow
-
-```js
-import { boxShadow } from 'styled-system'
-```
+## Position
 
 ```jsx
+// position (responsive)
+<Box position='absolute' />
+
+// zIndex
+<Absolute zIndex={2} />
+
+// top, right, bottom, left (responsive)
+<Fixed
+  top='0'
+  right='0'
+  bottom='0'
+  left='0'
+/>
+```
+
+## Misc
+
+```jsx
+// boxShadow
 <Box boxShadow={1} />
-// props.theme.shadows[1]
-```
-```jsx
-<Box boxShadow='large' />
-// props.theme.shadows.large
-```
-```jsx
-// raw value
-<Box boxShadow='1px 1px 0 black' />
+
+// backgroundImage, backgroundSize, backgroundPosition
+<Box
+  backgroundImage='kitten.png'
+  backgroundSize='cover'
+  backgroundPosition='center'
+/>
 ```
 
 ## Pseudo-classes
 
 Pseudo-class utility props accept style objects that can pick up certain values, such as color, from a theme.
 
-### maxWidth
-
-```js
-import { maxWidth } from 'styled-system'
-```
-```jsx
-<Box maxWidth={1} />
-// props.theme.maxWidths
-```
-
 ### hover
 
-```js
-import { hover } from 'styled-system'
-```
 ```jsx
 <Box
   hover={{
@@ -729,37 +674,24 @@ import { hover } from 'styled-system'
     color: 'blue'
   }}
 />
-// props.theme.colors.blue
 ```
 
 ### focus
 
-```js
-import { focus } from 'styled-system'
-```
 ```jsx
 <Box focus={{ color: 'blue' }} />
-// props.theme.colors.blue
 ```
 
 ### active
 
-```js
-import { active } from 'styled-system'
-```
 ```jsx
 <Box active={{ color: 'navy' }} />
-// props.theme.colors.navy
 ```
 
 ### disabled
 
-```js
-import { disabled } from 'styled-system'
-```
 ```jsx
 <Box disabledStyle={{ color: 'gray' }} />
-// props.theme.colors.gray
 ```
 
 ---
@@ -778,25 +710,65 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 `space`       | `pr`       | `padding-right` | `space`      | yes
 `space`       | `pb`       | `padding-bottom` | `space`     | yes
 `space`       | `pl`       | `padding-left`  | `space`      | yes
-`width`       | `width` `w` | `width`        | none         | yes
-`fontSize`    | `fontSize` `f`|`font-size`   |`fontSizes`   | yes
+`width`       | `width`    | `width`         | none         | yes
+`fontSize`    | `fontSize` |`font-size`      |`fontSizes`   | yes
 `color`       | `color`    | `color`         | `colors`     | yes
 `color`       | `bg`       | `background-color`| `colors`   | yes
-`textAlign`   | `align`    | `text-align`   | none         | yes
+
+Function Name | Prop       | CSS Property    | Theme Field  | Responsive
+--------------|------------|-----------------|--------------|-----------
+`textAlign`   | `textAlign`    | `text-align`   | none         | yes
 `lineHeight`  | `lineHeight` | `line-height` | `lineHeights` | no
 `fontWeight`  | `fontWeight` | `font-weight` | `fontWeights` | no
 `letterSpacing` | `letterSpacing` | `letter-spacing` | `letterSpacings` | no
-`alignItems`  | `align`    | `align-items`   | none         | yes
-`justifyContent` | `justify` | `justify-content` | none     | yes
-`flexWrap` | `wrap` (boolean) | `flex-wrap` | none | yes
+
+Function Name | Prop       | CSS Property    | Theme Field  | Responsive
+--------------|------------|-----------------|--------------|-----------
+`maxWidth` | `maxWidth` | `max-width` | `maxWidths` | yes
+`minWidth` | `minWidth` | `min-width` | `minWidths` | yes
+`height` | `height` | `height` | `heights` | yes
+`maxHeight` | `maxHeight` | `max-height` | `maxHeights` | yes
+`minHeight` | `minHeight` | `min-height` | `minHeights` | yes
+`size` | `size` | `width` `height` | none | yes
+`ratio` | `ratio` | `height` `padding-bottom` | none | no
+
+Function Name | Prop       | CSS Property    | Theme Field  | Responsive
+--------------|------------|-----------------|--------------|-----------
+`alignItems`  | `alignItems` | `align-items` | none | yes
+`justifyContent` | `justifyContent` | `justify-content` | none | yes
+`flexWrap` | `flexWrap` | `flex-wrap` | none | yes
 `flexDirection` | `flexDirection` | `flex-direction` | none | yes
 `flex` | `flex` | `flex` (shorthand) | none | yes
+`alignContent`  | `alignContent` | `align-content` | none | yes
 `alignSelf` | `alignSelf` | `align-self` | none | yes
+`order` | `order` | `order` | none | yes
+
+Function Name | Prop       | CSS Property    | Theme Field  | Responsive
+--------------|------------|-----------------|--------------|-----------
 `borderRadius` | `borderRadius` | `border-radius` | `radii` | no
 `borderColor` | `borderColor` | `border-color` | `colors` | no
-`borderWidth` | `borderWidth` | `border-width` | `borderWidths` | no
+`borders` | `border` | `border` | `borders` | yes
+`borders` | `borderTop` | `border-top` | `borders` | yes
+`borders` | `borderRight` | `border-right` | `borders` | yes
+`borders` | `borderBottom` | `border-bottom` | `borders` | yes
+`borders` | `borderLeft` | `border-left` | `borders` | yes
 `boxShadow` | `boxShadow` | `box-shadow` | `shadows` | no
-`maxWidth` | `maxWidth` | `max-width` | `maxWidths` | no
+
+Function Name | Prop       | CSS Property    | Theme Field  | Responsive
+--------------|------------|-----------------|--------------|-----------
+`position` | `position` | `position` | none | yes
+`zIndex` | `zIndex` | `z-index` | none | no
+`top` | `top` | `top` | none | yes
+`right` | `right` | `right` | none | yes
+`bottom` | `bottom` | `bottom` | none | yes
+`left` | `left` | `left` | none | yes
+
+Function Name | Prop       | CSS Property    | Theme Field  | Responsive
+--------------|------------|-----------------|--------------|-----------
+`hover` | `hover` | style object | -- | no
+`focus` | `focus` | style object | -- | no
+`active` | `active` | style object | -- | no
+`disabled` | `disabledStyle` | style object | -- | no
 
 ---
 
@@ -830,72 +802,20 @@ Each value in `propTypes` is an object which should be assigned (or spread) to t
 
 ```jsx
 import styled from 'styled-components'
-import { width, propTypes } from 'styled-system'
+import { width } from 'styled-system'
 
 const Box = styled.div`
   ${width}
 `
 
 Box.propTypes = {
-  ...propTypes.width
+  ...width.propTypes
 }
 ```
-
-### cleanElement
-
-Styled-components and other libraries attempt to remove invalid HTML attributes from props using a whitelist,
-but do not remove `width`, `fontSize`, `color`, or other valid HTML attributes when used as props.
-
-To ensure that style props are not passed on to the underlying DOM element,
-even in cases where a prop is a valid HTML attribute, like `width` or `align`, use the `cleanElement` higher order component to create a base component
-that remove props defined in `propTypes`.
-
-```jsx
-import styled from 'styled-components'
-import { textAlign, propTypes, cleanElement } from 'styled-system'
-
-const CleanDiv = cleanElement('div')
-
-// props that are defined as propTypes are removed
-CleanDiv.propTypes = {
-  ...propTypes.textAlign
-}
-
-const Box = styled(CleanDiv)`
-  ${textAlign}
-`
-
-// <Box align='center' />
-// `align` prop is picked up by styled-components,
-// but not passed on to the HTML element
-```
-
-**Manually omitting props**
-
-As an alternative to using the `cleanElement` function, removing style props from styled-components can be done manually, with a more React-like approach.
-
-```js
-import React from 'react'
-import styled from 'styled-components'
-import { width, color } from' styled-system'
-
-const Box = styled(({
-  width,
-  color,
-  bg,
-  ...props
-}) => <div {...props} />)`
-  ${width}
-  ${color}
-`
-```
-
-See this discussion for more information:
-https://github.com/styled-components/styled-components/issues/439
 
 ---
 
-## Low-level Style Functions
+## Customize
 
 To create custom utilities for other CSS properties,
 use the following low-level utility functions.
@@ -911,12 +831,16 @@ import { style } from 'styled-system'
 const textShadow = style({
   // React prop name
   prop: 'shadow',
-  // The corresponding CSS property
+  // The corresponding CSS property (defaults to prop argument)
   cssProperty: 'textShadow',
-  // set a key to find values from `props.theme`
-  key: 'shadows'
+  // key for theme values
+  key: 'shadows',
   // convert number values to pixels
-  numberToPx: false
+  numberToPx: false,
+  // accessor function for transforming the value
+  getter: n => n,
+  // shorthand alias React prop name
+  alias: 'sh'
 })
 
 const ShadowText = styled(Text)`
@@ -940,12 +864,18 @@ import styled from 'styled-components'
 import { responsiveStyle } from 'styled-system'
 
 const borderRadius = responsiveStyle({
+  // React prop name
   prop: 'borderRadius',
+  // corresponding CSS property (defaults to prop argument)
   cssProperty: 'borderRadius',
+  // key for theme values
+  key: 'radii',
   // convert number values to pixels
   numberToPx: true,
-  // set a key for values in theme
-  key: 'radii'
+  // accessor function for transforming the value
+  getter: n => n,
+  // shorthand alias React prop name
+  alias: 'radius'
 })
 
 const RoundedBox = styled.div`
@@ -965,10 +895,14 @@ Create a pseudo-class style utility that accepts a style object prop value.
 import styled from 'styled-components'
 import { pseudoStyle } from 'styled-system'
 
-const checkedStyle = pseudoStyle('checked', 'checkedStyle')({
-  // keys for theme-based values
-  color: 'colors',
-  backgroundColor: 'colors',
+const checkedStyle = pseudoStyle({
+  prop: 'checkedStyle',
+  pseudoclass: 'checked',
+  keys: {
+    // keys for theme-based values
+    color: 'colors',
+    backgroundColor: 'colors',
+  }
 })
 
 const FancyCheckbox = styled.input`
@@ -981,6 +915,8 @@ FancyCheckbox.defaultProps = {
 
 // <FancyCheckbox checkedStyle={{ backgroundColor: 'blue' }} />
 ```
+
+---
 
 ## system-components
 
@@ -1009,16 +945,11 @@ const breakpoints = [ '40em', '52em', '64em' ]
 // @media screen and (min-width: 52em)
 // @media screen and (min-width: 64em)
 
-// Other units work as well, but em units are recommended
-// const breakpoints = [ '300px', '600px', '1200px' ]
-
-// Typographic Scale
-// numbers are converted to px values
+// Typographic Scale (numbers are converted to px values)
 const fontSizes = [ 12, 14, 16, 20, 24, 32, 48, 64, 72 ]
 
-// Spacing Scale
-// used for margin and padding
-const space = [ 0, 8, 16, 32, 64 ]
+// Spacing Scale (used for margin and padding)
+const space = [ 0, 4, 8, 16, 32, 64, 128, 256, 512 ]
 ```
 
 ---
@@ -1027,7 +958,9 @@ const space = [ 0, 8, 16, 32, 64 ]
 
 #### Unknown attribute warnings in React 16
 
-See [`cleanElement`](#cleanelement)
+##### cleanElement
+
+See [`cleanElement`](clean-element)
 
 #### Issues with prop-types
 
@@ -1049,16 +982,19 @@ See https://github.com/jxnblk/grid-styled/issues/51#issuecomment-336116426
 - [system-components](https://github.com/jxnblk/system-components)
 - [grid-styled](https://github.com/jxnblk/grid-styled)
 - [Rebass](http://jxnblk.com/rebass)
+- [Compositor Lab](https://compositor.io/lab)
 - [styled-components][sc]
 - [glamorous][glamorous]
 - [emotion][emotion]
 - [fela][fela]
+- [nano-style][nano-style]
 - [cxs][cxs]
 
 [sc]: https://github.com/styled-components/styled-components
 [glamorous]: https://github.com/paypal/glamorous
 [emotion]: https://github.com/emotion-js/emotion
 [fela]: https://github.com/rofrischmann/fela
+[nano-style]: https://github.com/jxnblk/nano-style
 [cxs]: https://github.com/jxnblk/cxs
 
 
