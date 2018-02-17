@@ -22,6 +22,7 @@ export class Tag extends React.Component {
       innerRef,
       is,
       blacklist,
+      theme,
       ...props
     } = this.props
     const attr = omit(props, blacklist)
