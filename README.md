@@ -386,7 +386,7 @@ All core props accept arrays as values for mobile-first responsive styles.
 - [Pseudo-classes](#pseudo-classes)
 - [Table of Style Props](#table-of-style-props)
 - [Utilities](#utilities)
-  - [theme](#theme)
+  - [themeGet](#themeget)
   - [propTypes](#proptypes)
 - [Customize](#customize)
   - [style](#style)
@@ -774,24 +774,26 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 
 ## Utilities
 
-### theme
+### themeGet
 
-The theme function is an existential getter function
+<div id='theme' />
+
+The themeGet function is an existential getter function
 that can be used in any style declaration to get a value
 from your theme, with support for fallback values.
 This helps prevent errors from throwing when a theme value is missing,
 which can be helpful when unit testing styled-components.
 
 ```js
-theme(objectPath, fallbackValue)
+themeGet(objectPath, fallbackValue)
 ```
 
 ```js
 import styled from 'styled-components'
-import { theme } from 'styled-system'
+import { themeGet } from 'styled-system'
 
 const Box = styled.div`
-  border-radius: ${theme('radii.small', '4px')};
+  border-radius: ${themeGet('radii.small', '4px')};
 `
 ```
 
