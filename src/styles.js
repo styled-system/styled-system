@@ -184,7 +184,7 @@ export const order = responsiveStyle({
 })
 
 // borders
-export const getBorder = n => util.num(n) && n > 0 ? n + 'px solid' : n
+const getBorder = n => util.num(n) && n > 0 ? n + 'px solid' : n
 
 export const border = responsiveStyle({
   prop: 'border',
