@@ -64,6 +64,7 @@ import {
   disabled,
 
   textStyle,
+  colorStyle,
   buttonStyle,
 
   borderWidth
@@ -1382,6 +1383,19 @@ test('textStyle returns a value from theme', t => {
   }
   const a = textStyle({ textStyle: 'caps', theme })
   t.deepEqual(a, theme.textStyles.caps)
+})
+
+test('colorStyle returns a value from theme', t => {
+  const theme = {
+    colorStyles: {
+      primary: {
+        color: 'white',
+        backgroundColor: 'tomato',
+      }
+    }
+  }
+  const a = colorStyle({ primary: true, theme })
+  t.deepEqual(a, theme.colorStyles.primary)
 })
 
 test('buttonStyle returns a value from theme', t => {

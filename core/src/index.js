@@ -61,6 +61,7 @@ export {
   disabled,
   // complex
   textStyle,
+  colorStyle,
   buttonStyle,
   // deprecated
   borderWidth,
