@@ -1,5 +1,11 @@
 language: node_js
 node_js:
   - 8
+install:
+  - npm i
+  - npm run pkg:prepare
+script:
+  - npm t
+  - npm run pkg:test
 after_success:
   - npm run cover
