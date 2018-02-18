@@ -384,6 +384,7 @@ All core props accept arrays as values for mobile-first responsive styles.
 - [Position](#position)
 - [Misc](#misc)
 - [Pseudo-classes](#pseudo-classes)
+- [Complex styles](#complex-styles)
 - [Table of Style Props](#table-of-style-props)
 - [Utilities](#utilities)
   - [themeGet](#themeget)
@@ -392,6 +393,7 @@ All core props accept arrays as values for mobile-first responsive styles.
   - [style](#style)
   - [responsiveStyle](#responsivestyle)
   - [pseudoStyle](#pseudostyle)
+  - [complexStyle](#complexstyle)
 
 ## Core
 
@@ -694,6 +696,61 @@ Pseudo-class utility props accept style objects that can pick up certain values,
 <Box disabledStyle={{ color: 'gray' }} />
 ```
 
+## Complex Styles
+
+The complex style utilities allow you to define reusable style objects in your theme for things like text styles and color combinations.
+
+```js
+// example theme
+const theme = {
+  textStyles: {
+    caps: {
+      textTransform: 'uppercase',
+      letterSpacing: '0.2em'
+    }
+  },
+  colorStyles: {
+    warning: {
+      color: 'black',
+      backgroundColor: 'orange'
+    },
+    error: {
+      color: 'white',
+      backgroundColor: 'red'
+    },
+  },
+  buttons: {
+    primary: {
+      color: 'white',
+      backgroundColor: 'blue',
+      '&:hover': {
+        backgroundColor: 'black',
+      }
+    }
+  }
+}
+```
+
+```jsx
+// textStyle
+<Text textStyle='caps' />
+
+// colorStyle
+<Box colors='warning' />
+
+// buttonStyle
+<Button buttonStyle='primary' />
+```
+
+Styles can be applied with the utility's prop or by using boolean shorthand props for the key used in the theme.
+Be sure to use key values that will be unique for a particular component, and avoid using HTML attributes as keys.
+
+```jsx
+<Text caps />
+<Box warning />
+<Button primary />
+```
+
 ---
 
 ## Table of Style Props
@@ -769,6 +826,12 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 `focus` | `focus` | style object | -- | no
 `active` | `active` | style object | -- | no
 `disabled` | `disabledStyle` | style object | -- | no
+
+Function Name | Prop       | CSS Property    | Theme Field  | Responsive
+--------------|------------|-----------------|--------------|-----------
+`textStyle` | `textStyle` | any | `textStyles` | no
+`colorStyle` | `colors` | any | `colorStyles` | no
+`buttonStyle` | `buttonStyle` | any | `buttons` | no
 
 ---
 
@@ -916,6 +979,28 @@ FancyCheckbox.defaultProps = {
 }
 
 // <FancyCheckbox checkedStyle={{ backgroundColor: 'blue' }} />
+```
+
+### complexStyle
+
+Create a complex style utility that maps props to style objects in a theme.
+
+```js
+import styled from 'styled-components'
+import { complexStyle } from 'styled-system'
+
+const cardStyles = complexStyle({
+  prop: 'cardStyle',
+  key: 'cards'
+})
+
+const Card = styled.div`
+  ${cardStyle}
+`
+Card.defaultProps = {
+  cardStyle: 'normal'
+}
+// <Card cardStyle='large' />
 ```
 
 ---

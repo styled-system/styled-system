@@ -13,6 +13,7 @@ import {
   style,
   responsiveStyle,
   pseudoStyle,
+  complexStyle,
   propTypes,
   util,
 
@@ -61,6 +62,10 @@ import {
   focus,
   active,
   disabled,
+
+  textStyle,
+  colorStyle,
+  buttonStyle,
 
   borderWidth
 } from './src'
@@ -829,6 +834,75 @@ test('pseudoStyle accepts an alias argument', t => {
   })
 })
 
+// complexStyle
+test('complexStyle returns a style object from theme', t => {
+  const theme = {
+    textStyles: {
+      caps: {
+        fontSize: '12px',
+        textTransform: 'uppercase',
+        letterSpacing: '0.2em'
+      }
+    }
+  }
+  const textStyle = complexStyle({
+    prop: 'textStyle',
+    key: 'textStyles'
+  })
+  const a = textStyle({ textStyle: 'caps', theme })
+  t.deepEqual(a, theme.textStyles.caps)
+})
+
+test('complexStyle accepts an alias', t => {
+  const theme = {
+    textStyles: {
+      caps: {
+        fontSize: '12px',
+        textTransform: 'uppercase',
+        letterSpacing: '0.2em'
+      }
+    }
+  }
+  const textStyle = complexStyle({
+    prop: 'textStyle',
+    key: 'textStyles',
+    alias: 'tx'
+  })
+  const a = textStyle({ tx: 'caps', theme })
+  t.deepEqual(a, theme.textStyles.caps)
+})
+
+test('complexStyle accepts boolean aliases', t => {
+  const theme = {
+    buttons: {
+      primary: {
+        color: 'white',
+        backgroundColor: 'blue'
+      },
+      secondary: {
+        color: 'blue',
+        backgroundColor: 'transparent',
+        boxShadow: 'inset 0 0 0 1px blue'
+      },
+      large: {
+        padding: '32px'
+      }
+    }
+  }
+  const buttonStyle = complexStyle({
+    prop: 'buttonStyle',
+    key: 'buttons',
+    props: [
+      'primary',
+      'secondary',
+      'large'
+    ]
+  })
+  const a = buttonStyle({ primary: true, large: true, theme })
+  const expected = Object.assign({}, theme.buttons.primary, theme.buttons.large)
+  t.deepEqual(a, expected)
+})
+
 // theme
 test('breakpoints can be configured with a theme', t => {
   const a = space({theme, m: [1, 2, 3, 4]})
@@ -1295,6 +1369,49 @@ test('disabled uses theme values', t => {
       backgroundColor: theme.colors.green,
     }
   })
+})
+
+test('textStyle returns a value from theme', t => {
+  const theme = {
+    textStyles: {
+      caps: {
+        fontSize: '12px',
+        textTransform: 'uppercase',
+        letterSpacing: '0.2em'
+      }
+    }
+  }
+  const a = textStyle({ textStyle: 'caps', theme })
+  t.deepEqual(a, theme.textStyles.caps)
+})
+
+test('colorStyle returns a value from theme', t => {
+  const theme = {
+    colorStyles: {
+      primary: {
+        color: 'white',
+        backgroundColor: 'tomato',
+      }
+    }
+  }
+  const a = colorStyle({ primary: true, theme })
+  t.deepEqual(a, theme.colorStyles.primary)
+})
+
+test('buttonStyle returns a value from theme', t => {
+  const theme = {
+    buttons: {
+      primary: {
+        color: 'white',
+        backgroundColor: 'tomato',
+        '&:hover': {
+          backgroundColor: 'black'
+        }
+      }
+    }
+  }
+  const a = buttonStyle({ primary: true, theme })
+  t.deepEqual(a, theme.buttons.primary)
 })
 
 test('deprecated borderWidth utility returns border styles', t => {

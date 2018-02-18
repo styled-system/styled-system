@@ -127,7 +127,6 @@ export const responsiveStyle = ({
   return fn
 }
 
-// export const pseudoStyle = (pseudoclass, prop) => (keys = {}) => {
 export const pseudoStyle = ({
   prop,
   alias,
@@ -163,3 +162,51 @@ export const pseudoStyle = ({
 
 // todo: consider alternative names
 export const themeGet = (keys, fallback) => props => get(props.theme, keys, fallback)
+
+const getBooleans = props => {
+  const bools = []
+  for (let key in props) {
+    if (props[key] !== true) continue
+    bools.push(key)
+  }
+  return bools
+}
+
+export const complexStyle = ({
+  prop,
+  key,
+  alias
+}) => {
+  const fn = props => {
+    let style = get(props,
+      [ 'theme', key,
+        get(props, prop, props[alias])
+      ].join('.'),
+      {}
+    )
+    const bools = getBooleans(props)
+    bools.forEach(name => {
+      style = {
+        ...style,
+        ...get(props, [ 'theme', key, name ].join('.'), {})
+      }
+    })
+    return style
+  }
+
+  fn.propTypes = {
+    [prop]: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.string
+    ])
+  }
+
+  if (alias) {
+    fn.propTypes[alias] = PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.string
+    ])
+  }
+
+  return fn
+}
