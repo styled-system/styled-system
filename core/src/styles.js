@@ -2,7 +2,8 @@ import * as util from './util'
 import {
   style,
   pseudoStyle,
-  responsiveStyle
+  responsiveStyle,
+  complexStyle
 } from './util'
 
 // core
@@ -337,6 +338,21 @@ export const disabled = pseudoStyle({
     borderColor: 'colors',
     boxShadow: 'shadows'
   }
+})
+
+export const textStyle = complexStyle({
+  prop: 'textStyle',
+  key: 'textStyles'
+})
+
+export const colorStyle = complexStyle({
+  prop: 'colors',
+  key: 'colorStyles',
+})
+
+export const buttonStyle = complexStyle({
+  prop: 'buttonStyle',
+  key: 'buttons'
 })
 
 // for backwards-compatibility

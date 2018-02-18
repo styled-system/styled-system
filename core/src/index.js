@@ -59,6 +59,9 @@ export {
   focus,
   active,
   disabled,
+  // complex
+  textStyle,
+  buttonStyle,
   // deprecated
   borderWidth,
 } from './styles'
@@ -67,6 +70,7 @@ export {
   style,
   pseudoStyle,
   responsiveStyle,
+  complexStyle,
   themeGet,
   themeGet as theme
 } from './util'
