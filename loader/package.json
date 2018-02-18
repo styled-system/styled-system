@@ -11,7 +11,8 @@
   "author": "Brent Jackson",
   "license": "MIT",
   "dependencies": {
-    "loader-utils": "^1.1.0"
+    "loader-utils": "^1.1.0",
+    "system-components": ">=2.0.1"
   },
   "devDependencies": {
     "@compositor/x0": "^3.2.0",
@@ -24,7 +25,6 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-test-renderer": "^16.2.0",
-    "system-components": "^2.0.1",
     "webpack": "^3.11.0"
   }
 }
