@@ -1,5 +1,8 @@
 language: node_js
 node_js:
   - 8
+script:
+  - npm run pkg:prepare
 after_success:
+  - npm run pkg:test
   - npm run cover
