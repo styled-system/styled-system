@@ -829,9 +829,9 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 
 Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 --------------|------------|-----------------|--------------|-----------
-`textStyle` | `textStyle` | any | `textStyles` | no
-`colorStyle` | `colors` | any | `colorStyles` | no
-`buttonStyle` | `buttonStyle` | any | `buttons` | no
+`textStyle` | `textStyle` | style object | `textStyles` | no
+`colorStyle` | `colors` | style object | `colorStyles` | no
+`buttonStyle` | `buttonStyle` | style object | `buttons` | no
 
 ---
 
