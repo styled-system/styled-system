@@ -1,5 +1,7 @@
 const { getOptions } = require('loader-utils')
 
+const stringify = str => `'${str}'`
+
 const createModule = ({
   name,
   type,
@@ -11,8 +13,8 @@ export const ${name} = sys(
   ${JSON.stringify(
     Object.assign({}, props, type ? { is: type } : null),
     null, 2)},
-  ${css ? `'${css}',` : ''}
-  ${styles.join(',\n')}
+  ${css ? `${stringify(css)},` : ''}
+  ${styles.map(stringify).join(',\n')}
 )
 ${name}.displayName = '${name}'
 `)

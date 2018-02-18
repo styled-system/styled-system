@@ -1,6 +1,15 @@
 {
   "components": [
     {
+      "name": "Box",
+      "styles": [
+        "space",
+        "width",
+        "color",
+        "flex"
+      ]
+    },
+    {
       "name": "Heading",
       "type": "h2",
       "props": {
