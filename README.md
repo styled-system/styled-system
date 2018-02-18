@@ -1021,6 +1021,12 @@ const Box = system({
 
 ---
 
+## system-loader
+
+The [system-loader](loader) package is a webpack loader for creating styled-system components from JSON.
+
+---
+
 ### Default Theme
 
 If no theme is provided, styled-system uses smart defaults for breakpoints, the typographic scale, and the spacing scale.
