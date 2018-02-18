@@ -1051,9 +1051,9 @@ const space = [ 0, 4, 8, 16, 32, 64, 128, 256, 512 ]
 
 #### Unknown attribute warnings in React 16
 
-##### cleanElement
+<div id='cleanelement' />
 
-See [`cleanElement`](clean-element)
+To remove styled-system style props from the underlying DOM element, use either the [clean-tag](clean-tag) or [clean-element](clean-element) components when creating your styled-components.
 
 #### Issues with prop-types
 
