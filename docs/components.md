@@ -88,5 +88,9 @@ while making it simpler to use values from a theme and apply styles responsively
 
 These style functions can be written on a one-off basis, but styled-system is meant to help reduce boilerplate, ensure a consistent styling API, and speed the development of React-based design systems.
 
+---
+
+[Color](color.md)
+
 [glamorous]: https://github.com/paypal/glamorous
 [emotion]: https://github.com/emotion-js/emotion

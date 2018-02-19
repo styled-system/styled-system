@@ -145,3 +145,6 @@ const theme = {
 export default theme
 ```
 
+---
+
+[Components](components.md)

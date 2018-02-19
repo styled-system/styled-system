@@ -48,3 +48,6 @@ Margin and padding props follow a shorthand syntax for specifying direction.
 <Box m={[ 1, 2 ]} />
 ```
 
+---
+
+[Width](width.md)

@@ -12,6 +12,10 @@ Styled system uses these conventions to provide responsive theme-based style pro
 
 The docs use styled-components for examples, but usage should be similar for any other CSS-in-JS library.
 
+---
+
+[Theme](theme.md)
+
 [sc]: https://github.com/styled-components/styled-components
 [glamorous]: https://github.com/paypal/glamorous
 [emotion]: https://github.com/emotion-js/emotion

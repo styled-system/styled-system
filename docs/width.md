@@ -27,3 +27,6 @@ The width utility parses a component's `width` prop and converts it into a CSS w
 <Box width={[ 1, 1/2 ]} />
 ```
 
+---
+
+[Props](props.md)

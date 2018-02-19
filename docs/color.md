@@ -23,3 +23,6 @@ Array values are converted into [responsive values](#responsive-styles).
 <Box color='#f00' />
 ```
 
+---
+
+[Font Size](font-size.md)
