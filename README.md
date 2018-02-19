@@ -781,6 +781,7 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 
 Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 --------------|------------|-----------------|--------------|-----------
+`display` | `display` | `display` | none | yes
 `maxWidth` | `maxWidth` | `max-width` | `maxWidths` | yes
 `minWidth` | `minWidth` | `min-width` | `minWidths` | yes
 `height` | `height` | `height` | `heights` | yes
