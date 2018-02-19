@@ -13,8 +13,8 @@
   "license": "MIT",
   "dependencies": {
     "html-tags": "^2.0.0",
-    "react": "^16.2.0",
-    "styled-system": "^1.1.7"
+    "react": ">=16.0.0",
+    "styled-system": ">=1.1 || >=2.0"
   },
   "devDependencies": {
     "ava": "^0.25.0",
