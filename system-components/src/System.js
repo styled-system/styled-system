@@ -1,5 +1,6 @@
 import React from 'react'
 import { styles } from 'styled-system'
+import tag from 'clean-tag'
 
 const funcNames = Object.keys(styles)
 const unique = arr => [...new Set(arr)]
@@ -32,40 +33,6 @@ const getPropTypes = keys => keys
   .map(key => styles[key].propTypes || {})
   .reduce((a, propType) => ({ ...a, ...propType }), {})
 
-export const omit = (obj, keys) => {
-  const next = {}
-  for (let key in obj) {
-    if (keys.indexOf(key) > -1) continue
-    next[key] = obj[key]
-  }
-  return next
-}
-
-export class Tag extends React.Component {
-  render () {
-    const {
-      innerRef,
-      is,
-      blacklist,
-      ...props
-    } = this.props
-    const attr = omit(props, blacklist)
-
-    return React.createElement(is, {
-      ref: innerRef,
-      ...attr
-    })
-  }
-}
-
-Tag.defaultProps = {
-  is: 'div',
-  blacklist: []
-}
-
-// Trick styled-components into passing innerRef
-Tag.styledComponentId = 'lol'
-
 class System {
   constructor (opts) {
     const {
@@ -82,10 +49,14 @@ class System {
       const funcs = getFuncs(combined)
       const propTypes = getPropTypes(combined)
 
-      const div = props => React.createElement(Tag, props)
-      div.defaultProps = {
-        blacklist: Object.keys(propTypes)
+      const blacklist = Object.keys(propTypes)
+      if (defaultProps && Array.isArray(defaultProps.blacklist)) {
+        blacklist.push(...defaultProps.blacklist)
+        delete defaultProps.blacklist
       }
+
+      const div = props => React.createElement(tag, props)
+      div.defaultProps = { blacklist }
 
       const Component = createComponent(div)(...funcs)
 
