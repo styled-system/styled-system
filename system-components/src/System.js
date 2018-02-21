@@ -1,5 +1,6 @@
 import React from 'react'
 import { styles } from 'styled-system'
+import tag from 'clean-tag'
 
 const funcNames = Object.keys(styles)
 const unique = arr => [...new Set(arr)]
@@ -41,31 +42,6 @@ export const omit = (obj, keys) => {
   return next
 }
 
-export class Tag extends React.Component {
-  render () {
-    const {
-      innerRef,
-      is,
-      blacklist,
-      ...props
-    } = this.props
-    const attr = omit(props, blacklist)
-
-    return React.createElement(is, {
-      ref: innerRef,
-      ...attr
-    })
-  }
-}
-
-Tag.defaultProps = {
-  is: 'div',
-  blacklist: []
-}
-
-// Trick styled-components into passing innerRef
-Tag.styledComponentId = 'lol'
-
 class System {
   constructor (opts) {
     const {
@@ -82,7 +58,7 @@ class System {
       const funcs = getFuncs(combined)
       const propTypes = getPropTypes(combined)
 
-      const div = props => React.createElement(Tag, props)
+      const div = props => React.createElement(tag, props)
       div.defaultProps = {
         blacklist: Object.keys(propTypes)
       }
