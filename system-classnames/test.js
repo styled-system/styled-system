@@ -1,4 +1,6 @@
 import test from 'ava'
+import React from 'react'
+import { create as render } from 'react-test-renderer'
 import createMapper from './src'
 
 test('returns a props map function', t => {
@@ -64,4 +66,17 @@ test('ignores null values', t => {
   })
   const props = map({ p: null, m: [ 1, null, 2 ] })
   t.is(props.className, 'smm1 lgm2')
+})
+
+test('works with React props', t => {
+  const map = createMapper({
+    props: [ 'm' ],
+    getter: ({ prop, value }) => [
+      prop, value
+    ].join('')
+  })
+  const Box = props => <div {...map(props)} />
+  const json = render(<Box m={2} />).toJSON()
+  t.is(json.props.className, 'm2')
+  t.is(json.props.m, undefined)
 })
