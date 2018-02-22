@@ -46,13 +46,15 @@ const createMapper = ({
       })
     }
 
-    if (props.className) {
-      props.className = [ props.className, ...classNames ].join(' ')
+    const next = clean(props)
+
+    if (next.className) {
+      next.className = [ next.className, ...classNames ].join(' ')
     } else {
-      props.className = classNames.join(' ')
+      next.className = classNames.join(' ')
     }
 
-    return clean(props)
+    return next
   }
 
   return fn
