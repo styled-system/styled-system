@@ -33,15 +33,6 @@ const getPropTypes = keys => keys
   .map(key => styles[key].propTypes || {})
   .reduce((a, propType) => ({ ...a, ...propType }), {})
 
-export const omit = (obj, keys) => {
-  const next = {}
-  for (let key in obj) {
-    if (keys.indexOf(key) > -1) continue
-    next[key] = obj[key]
-  }
-  return next
-}
-
 class System {
   constructor (opts) {
     const {
