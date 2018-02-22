@@ -1024,7 +1024,7 @@ const Box = system({
 
 ## system-loader
 
-The [system-loader](loader) package is a webpack loader for creating styled-system components from JSON.
+The [system-loader](system-loader) package is a webpack loader for creating styled-system components from JSON.
 
 ---
 
