@@ -8,7 +8,7 @@ npm i system-classnames
 ```
 
 ```jsx
-// example for use with primer.css and React
+// example for use with Primer and React
 import createMapper from 'system-classnames'
 
 const map = createMapper({
@@ -60,7 +60,7 @@ import map from 'system-classnames/primer'
 
 - [Basscss](http://basscss.com)
 - [Tachyons](http://tachyons.io)
-- [Primer.css](https://primer.github.io)
+- [Primer](https://primer.github.io)
 - [Solid](https://solid.buzzfeed.com)
 - [Styled System](https://github.com/jxnblk/styled-system)
 
