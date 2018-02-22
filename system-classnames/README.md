@@ -39,7 +39,7 @@ const Box = props =>
 
 ## Library-specific modules
 
-Mapper modules for Basscss, Tachyons, and Basscss are available to use out-of-the box.
+Mapper modules for Basscss, Tachyons, and Primer are available to use out-of-the box.
 
 ```jsx
 import map from 'system-classnames/basscss'
