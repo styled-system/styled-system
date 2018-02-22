@@ -4,10 +4,12 @@ coverage.lcov
 .travis.yml
 test.js
 bench
-clean-element
-clean-tag
 docs
-loader
 scripts
 src
+
+clean-element
+clean-tag
 system-components
+system-classnames
+system-loader
