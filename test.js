@@ -79,8 +79,9 @@ const theme = {
     blue: '#07c',
     green: '#1c0',
     gray: ['#ccc', '#555']
-  }
-}
+  },
+  baseSize:16}
+
 
 test('exports space, width, and fontSize', t => {
   t.is(typeof space, 'function')
@@ -1429,6 +1430,23 @@ test('deprecated borderWidth warns', t => {
 test('flexWrap includes a shim for legacy boolean value api', t => {
   const a = flexWrap({ wrap: true })
   t.is(a.flexWrap, 'wrap')
+})
+
+const paddingGetter=(n,p)=>!util.num(n) || n > 1 ? n/ (util.themeGet('baseSize',10)(p)) +'rem' :n
+const padding = style({
+  prop: 'p',
+  cssProperty: 'padding',
+  key:'paddings',
+  getter: paddingGetter
+})
+
+test('Getter fallback and theme props', t => {
+  const a = padding({p: 24})
+  const b=padding({theme,p: 24})
+  t.deepEqual(a, {padding: '2.4rem'})
+  t.deepEqual(b, {padding: '1.5rem'})
+  t.notDeepEqual(b, {padding: '1.5111rem'})
+
 })
 
 
