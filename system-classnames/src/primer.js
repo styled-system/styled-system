@@ -5,7 +5,7 @@ export default createMapper({
   props: [
     'm', 'mt', 'mr', 'mb', 'ml', 'mx', 'my',
     'p', 'pt', 'pr', 'pb', 'pl', 'px', 'py',
-    'text', 'bg'
+    'text', 'bg', 'border', 'rounded', 'h', 'f'
   ],
   getter: ({ breakpoint, prop, value }) => breakpoint
     ? [ prop, breakpoint, value ].join('-')
