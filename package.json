@@ -24,8 +24,6 @@
   "license": "MIT",
   "devDependencies": {
     "@compositor/x0": "^3.1.1",
-    "benchmark": "^2.1.4",
-    "is-ci": "^1.1.0",
     "ava": "^0.25.0",
     "babel-cli": "^6.24.1",
     "babel-plugin-transform-runtime": "^6.23.0",
@@ -33,12 +31,15 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.24.1",
+    "benchmark": "^2.1.4",
     "bundlesize": "^0.16.0",
     "codecov": "^2.2.0",
+    "is-ci": "^1.1.0",
     "nyc": "^11.0.3",
     "react": "^16.2.0",
     "react-test-renderer": "^16.2.0",
     "remark": "^9.0.0",
+    "rimraf": "^2.6.2",
     "sinon": "^4.3.0"
   },
   "ava": {
