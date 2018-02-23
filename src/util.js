@@ -24,7 +24,10 @@ export const get = (obj, path, fallback) => path.split('.')
 
 export const mq = n => `@media screen and (min-width: ${px(n)})`
 
-export const fallbackTheme = props => get(props, 'theme', defaultTheme)
+export const fallbackTheme = props => ({
+  ...defaultTheme,
+  ...get(props, 'theme')
+})
 
 export const breaks = props => [
   null,

@@ -416,9 +416,9 @@ test('width accepts shortcut prop', t => {
 
 // fontSize
 test('fontSize returns scale values', t => {
-  const a = fontSize({fontSize: 0})
-  const b = fontSize({fontSize: 1})
-  const c = fontSize({fontSize: 2})
+  const a = fontSize({ fontSize: 0, theme: {} })
+  const b = fontSize({ fontSize: 1, theme: {} })
+  const c = fontSize({ fontSize: 2 })
   t.deepEqual(a, {'fontSize': '12px'})
   t.deepEqual(b, {'fontSize': '14px'})
   t.deepEqual(c, {'fontSize': '16px'})
