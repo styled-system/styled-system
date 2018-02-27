@@ -30,6 +30,7 @@ export {
   flexWrap,
   flexDirection,
   flex,
+  justifySelf,
   alignSelf,
   order,
   // borders

@@ -38,6 +38,7 @@ import {
   flexWrap,
   flexDirection,
   flex,
+  justifySelf,
   alignSelf,
   order,
 
@@ -1076,6 +1077,11 @@ test('flexDirection returns a style', t => {
 test('flex returns a style', t => {
   const a = flex({ flex: 'none' })
   t.deepEqual(a, { flex: 'none' })
+})
+
+test('justifySelf returns a style', t => {
+  const a = justifySelf({ justifySelf: 'center' })
+  t.deepEqual(a, { justifySelf: 'center' })
 })
 
 test('alignSelf returns a style', t => {
