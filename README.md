@@ -602,6 +602,9 @@ Array values are converted into [responsive values](#responsive-styles).
 // flexWrap (responsive)
 <Flex flexWrap='wrap' />
 
+// flexBasis (responsive)
+<Flex flexBasis='auto' />
+
 // flexDirection (responsive)
 <Flex flexDirection='column' />
 
