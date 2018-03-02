@@ -11,7 +11,7 @@ To ensure that style props are not passed on to the underlying DOM element, even
 ```jsx
 import styled from 'styled-components'
 import { textAlign, propTypes } from 'styled-system'
-import CleanElement from 'clean-element'
+import cleanElement from 'clean-element'
 
 const CleanDiv = cleanElement('div')
 
