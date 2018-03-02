@@ -808,7 +808,7 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 `alignSelf` | `alignSelf` | `align-self` | none | yes
 `order` | `order` | `order` | none | yes
 `flexWrap` | `flexWrap` | `flex-wrap` | none | yes
-`flexBasis` | `flexBasis` | `flex-basis` | none | yes
+`flexBasis` | `flexBasis` | `flex-basis` | width | yes
 
 Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 --------------|------------|-----------------|--------------|-----------
