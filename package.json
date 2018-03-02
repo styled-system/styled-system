@@ -51,7 +51,8 @@
     "ignore": [
       "test.js",
       "docs",
-      "bench"
+      "bench",
+      "examples"
     ]
   },
   "bundlesize": [
