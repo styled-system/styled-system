@@ -608,6 +608,9 @@ Array values are converted into [responsive values](#responsive-styles).
 // flex (responsive)
 <Box flex='1 1 auto' />
 
+// justifySelf (responsive)
+<Box justifySelf='center' />
+
 // alignSelf (responsive)
 <Box alignSelf='center' />
 ```
@@ -798,6 +801,7 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 `flexDirection` | `flexDirection` | `flex-direction` | none | yes
 `flex` | `flex` | `flex` (shorthand) | none | yes
 `alignContent`  | `alignContent` | `align-content` | none | yes
+`justifySelf` | `justifySelf` | `justify-self` | none | yes
 `alignSelf` | `alignSelf` | `align-self` | none | yes
 `order` | `order` | `order` | none | yes
 

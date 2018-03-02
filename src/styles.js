@@ -175,6 +175,10 @@ export const flex = responsiveStyle({
   prop: 'flex'
 })
 
+export const justifySelf = responsiveStyle({
+  prop: 'justifySelf'
+})
+
 export const alignSelf = responsiveStyle({
   prop: 'alignSelf'
 })
