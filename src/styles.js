@@ -167,6 +167,12 @@ export const flexWrap = responsiveStyle({
   getter: flexWrapShim
 })
 
+export const flexBasis = responsiveStyle({
+  prop: 'flexBasis',
+  getter: getWidth
+})
+
+
 export const flexDirection = responsiveStyle({
   prop: 'flexDirection'
 })
