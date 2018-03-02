@@ -801,7 +801,7 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 `flexDirection` | `flexDirection` | `flex-direction` | none | yes
 `flex` | `flex` | `flex` (shorthand) | none | yes
 `alignContent`  | `alignContent` | `align-content` | none | yes
-`justifySelf` | `justifySelf` | `align-self` | none | yes
+`justifySelf` | `justifySelf` | `justify-self` | none | yes
 `alignSelf` | `alignSelf` | `align-self` | none | yes
 `order` | `order` | `order` | none | yes
 
