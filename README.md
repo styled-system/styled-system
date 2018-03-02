@@ -804,6 +804,8 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 `justifySelf` | `justifySelf` | `justify-self` | none | yes
 `alignSelf` | `alignSelf` | `align-self` | none | yes
 `order` | `order` | `order` | none | yes
+`flexWrap` | `flexWrap` | `flex-wrap` | none | yes
+`flexBasis` | `flexBasis` | `flex-basis` | none | yes
 
 Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 --------------|------------|-----------------|--------------|-----------
