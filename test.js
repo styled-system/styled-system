@@ -1178,11 +1178,6 @@ test('gridRow returns a style', t => {
   t.deepEqual(a, { gridRow: 'span 2' })
 })
 
-/*
-gridColumn,
-gridRow,
-*/
-
 test('borderRadius returns borderRadius', t => {
   const a = borderRadius({ borderRadius: '4px' })
   t.deepEqual(a, { borderRadius: '4px' })
