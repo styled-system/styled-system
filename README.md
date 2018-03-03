@@ -380,6 +380,7 @@ All core props accept arrays as values for mobile-first responsive styles.
 - [Typography](#typography)
 - [Layout](#layout)
 - [Flexbox](#flexbox)
+- [Grid](#grid)
 - [Borders](#borders)
 - [Position](#position)
 - [Misc](#misc)
@@ -809,6 +810,19 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 `order` | `order` | `order` | none | yes
 `flexWrap` | `flexWrap` | `flex-wrap` | none | yes
 `flexBasis` | `flexBasis` | `flex-basis` | none | yes
+
+Function Name | Prop       | CSS Property    | Theme Field  | Responsive
+--------------|------------|-----------------|--------------|-----------
+`gridGap`  | `gridGap` | `grid-gap` | `space` | yes
+`gridRowGap` | `gridRowGap` | `grid-row-gap` | `space` | yes
+`gridColumnGap` | `gridColumnGap` | `grid-column-gap` | `space` | yes
+`gridColumn` | `gridColumn` | `grid-column` | none | yes
+`gridRow` | `gridRow` | `grid-row` | none | yes
+`gridAutoFlow` | `gridAutoFlow` | `grid-auto-flow` | none | no
+`gridAutoRows` | `gridAutoRows` | `grid-auto-rows` | none | no
+`gridAutoColumns` | `gridAutoColumns` | `grid-auto-columns` | none | no
+`gridTemplateRows` | `gridTemplateRows` | `grid-template-rows` | none | yes
+`gridTemplateColumns` | `gridTemplateColumns` | `grid-template-columns` | none | yes
 
 Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 --------------|------------|-----------------|--------------|-----------

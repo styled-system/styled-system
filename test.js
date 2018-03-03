@@ -1143,17 +1143,44 @@ test('gridColumnGap returns a scalar style', t => {
   t.deepEqual(a, { gridColumnGap: '8px' })
 })
 
+test('gridAutoFlow returns a style', t => {
+  const a = gridAutoFlow({ gridAutoFlow: 'row dense' })
+  t.deepEqual(a, { gridAutoFlow: 'row dense' })
+})
+
+test('gridAutoRows returns a style', t => {
+  const a = gridAutoRows({ gridAutoRows: 'auto' })
+  t.deepEqual(a, { gridAutoRows: 'auto' })
+})
+
+test('gridAutoColumns returns a style', t => {
+  const a = gridAutoColumns({ gridAutoColumns: 'auto' })
+  t.deepEqual(a, { gridAutoColumns: 'auto' })
+})
+
+test('gridTemplateColumns returns a style', t => {
+  const a = gridTemplateColumns({ gridTemplateColumns: '1fr 1fr' })
+  t.deepEqual(a, { gridTemplateColumns: '1fr 1fr' })
+})
+
+test('gridTemplateRows returns a style', t => {
+  const a = gridTemplateRows({ gridTemplateRows: '1fr 1fr' })
+  t.deepEqual(a, { gridTemplateRows: '1fr 1fr' })
+})
+
+test('gridColumn returns a style', t => {
+  const a = gridColumn({ gridColumn: 'span 2' })
+  t.deepEqual(a, { gridColumn: 'span 2' })
+})
+
+test('gridRow returns a style', t => {
+  const a = gridRow({ gridRow: 'span 2' })
+  t.deepEqual(a, { gridRow: 'span 2' })
+})
+
 /*
-gridGap,
-gridColumnGap,
-gridRowGap,
 gridColumn,
 gridRow,
-gridAutoFlow,
-gridAutoColumns,
-gridAutoRows,
-gridTemplateColumns,
-gridTemplateRows,
 */
 
 test('borderRadius returns borderRadius', t => {
