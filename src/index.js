@@ -34,6 +34,17 @@ export {
   justifySelf,
   alignSelf,
   order,
+  // grid
+  gridGap,
+  gridColumnGap,
+  gridRowGap,
+  gridColumn,
+  gridRow,
+  gridAutoFlow,
+  gridAutoColumns,
+  gridAutoRows,
+  gridTemplateColumns,
+  gridTemplateRows,
   // borders
   border,
   borderTop,

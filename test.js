@@ -42,6 +42,17 @@ import {
   alignSelf,
   order,
 
+  gridGap,
+  gridColumnGap,
+  gridRowGap,
+  gridColumn,
+  gridRow,
+  gridAutoFlow,
+  gridAutoColumns,
+  gridAutoRows,
+  gridTemplateColumns,
+  gridTemplateRows,
+
   borderRadius,
   borderColor,
   borders,
@@ -1073,7 +1084,6 @@ test('flexDirection returns a style', t => {
   t.deepEqual(a, { flexDirection: 'column' })
 })
 
-
 test('flex returns a style', t => {
   const a = flex({ flex: 'none' })
   t.deepEqual(a, { flex: 'none' })
@@ -1093,6 +1103,58 @@ test('order returns a style', t => {
   const a = order({ order: 2 })
   t.deepEqual(a, { order: 2 })
 })
+
+test('gridGap returns a scalar style', t => {
+  const a = gridGap({
+    theme: {
+      space: [
+        0, 2, 4, 8
+      ]
+    },
+    gridGap: 3
+  })
+
+  t.deepEqual(a, { gridGap: '8px' })
+})
+
+test('gridRowGap returns a scalar style', t => {
+  const a = gridRowGap({
+    theme: {
+      space: [
+        0, 2, 4, 8
+      ]
+    },
+    gridRowGap: 3
+  })
+
+  t.deepEqual(a, { gridRowGap: '8px' })
+})
+
+test('gridColumnGap returns a scalar style', t => {
+  const a = gridColumnGap({
+    theme: {
+      space: [
+        0, 2, 4, 8
+      ]
+    },
+    gridColumnGap: 3
+  })
+
+  t.deepEqual(a, { gridColumnGap: '8px' })
+})
+
+/*
+gridGap,
+gridColumnGap,
+gridRowGap,
+gridColumn,
+gridRow,
+gridAutoFlow,
+gridAutoColumns,
+gridAutoRows,
+gridTemplateColumns,
+gridTemplateRows,
+*/
 
 test('borderRadius returns borderRadius', t => {
   const a = borderRadius({ borderRadius: '4px' })
