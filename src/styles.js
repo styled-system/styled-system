@@ -193,6 +193,53 @@ export const order = responsiveStyle({
   prop: 'order'
 })
 
+// grid
+export const gridGap = responsiveStyle({
+  prop: 'gridGap',
+  numberToPx: true,
+  key: 'space'
+})
+
+export const gridColumnGap = responsiveStyle({
+  prop: 'gridColumnGap',
+  numberToPx: true,
+  key: 'space'
+})
+
+export const gridRowGap = responsiveStyle({
+  prop: 'gridRowGap',
+  numberToPx: true,
+  key: 'space'
+})
+
+export const gridColumn = responsiveStyle({
+  prop: 'gridColumn'
+})
+
+export const gridRow = responsiveStyle({
+  prop: 'gridRow'
+})
+
+export const gridAutoFlow = style({
+  prop: 'gridAutoFlow'
+})
+
+export const gridAutoColumns = style({
+  prop: 'gridAutoColumns'
+})
+
+export const gridAutoRows = style({
+  prop: 'gridAutoRows'
+})
+
+export const gridTemplateColumns = responsiveStyle({
+  prop: 'gridTemplateColumns'
+})
+
+export const gridTemplateRows = responsiveStyle({
+  prop: 'gridTemplateRows'
+})
+
 // borders
 const getBorder = n => util.num(n) && n > 0 ? n + 'px solid' : n
 

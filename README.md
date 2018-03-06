@@ -380,6 +380,7 @@ All core props accept arrays as values for mobile-first responsive styles.
 - [Typography](#typography)
 - [Layout](#layout)
 - [Flexbox](#flexbox)
+- [Grid](#grid)
 - [Borders](#borders)
 - [Position](#position)
 - [Misc](#misc)
@@ -618,6 +619,40 @@ Array values are converted into [responsive values](#responsive-styles).
 <Box alignSelf='center' />
 ```
 
+## Grid
+
+```jsx
+// gridGap (responsive)
+<Grid gridGap={3} />
+
+// gridColumnGap (responsive)
+<Grid gridColumnGap={3} />
+
+// gridRowGap (responsive)
+<Grid gridRowGap={3} />
+
+// gridColumn (responsive)
+<Box gridColumn='span 2' />
+
+// gridRow (responsive)
+<Box gridRow='span 2' />
+
+// gridAutoFlow
+<Grid gridAutoFlow='row dense' />
+
+// gridAutoColumns
+<Grid gridAutoColumns='min-content' />
+
+// gridAutoRows
+<Grid gridAutoRows='50px' />
+
+// gridTemplateColumns (responsive)
+<Grid gridTemplateColumns='1fr 1fr' />
+
+// gridTemplateRows (responsive)
+<Grid gridTemplateRows='1fr 1fr' />
+```
+
 ## Borders
 
 The `borders` utiilty combines `border`, `borderTop`, `borderRight`, `borderBottom` and `borderLeft`, all of which are responsive
@@ -809,6 +844,19 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 `order` | `order` | `order` | none | yes
 `flexWrap` | `flexWrap` | `flex-wrap` | none | yes
 `flexBasis` | `flexBasis` | `flex-basis` | none | yes
+
+Function Name | Prop       | CSS Property    | Theme Field  | Responsive
+--------------|------------|-----------------|--------------|-----------
+`gridGap`  | `gridGap` | `grid-gap` | `space` | yes
+`gridRowGap` | `gridRowGap` | `grid-row-gap` | `space` | yes
+`gridColumnGap` | `gridColumnGap` | `grid-column-gap` | `space` | yes
+`gridColumn` | `gridColumn` | `grid-column` | none | yes
+`gridRow` | `gridRow` | `grid-row` | none | yes
+`gridAutoFlow` | `gridAutoFlow` | `grid-auto-flow` | none | no
+`gridAutoRows` | `gridAutoRows` | `grid-auto-rows` | none | no
+`gridAutoColumns` | `gridAutoColumns` | `grid-auto-columns` | none | no
+`gridTemplateRows` | `gridTemplateRows` | `grid-template-rows` | none | yes
+`gridTemplateColumns` | `gridTemplateColumns` | `grid-template-columns` | none | yes
 
 Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 --------------|------------|-----------------|--------------|-----------
