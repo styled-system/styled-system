@@ -380,7 +380,6 @@ All core props accept arrays as values for mobile-first responsive styles.
 - [Typography](#typography)
 - [Layout](#layout)
 - [Flexbox](#flexbox)
-- [Grid](#grid)
 - [Borders](#borders)
 - [Position](#position)
 - [Misc](#misc)
@@ -617,40 +616,6 @@ Array values are converted into [responsive values](#responsive-styles).
 
 // alignSelf (responsive)
 <Box alignSelf='center' />
-```
-
-## Grid
-
-```jsx
-// gridGap (responsive)
-<Grid gridGap={3} />
-
-// gridColumnGap (responsive)
-<Grid gridColumnGap={3} />
-
-// gridRowGap (responsive)
-<Grid gridRowGap={3} />
-
-// gridColumn (responsive)
-<Box gridColumn='span 2' />
-
-// gridRow (responsive)
-<Box gridRow='span 2' />
-
-// gridAutoFlow
-<Grid gridAutoFlow='row dense' />
-
-// gridAutoColumns
-<Grid gridAutoColumns='min-content' />
-
-// gridAutoRows
-<Grid gridAutoRows='50px' />
-
-// gridTemplateColumns (responsive)
-<Grid gridTemplateColumns='1fr 1fr' />
-
-// gridTemplateRows (responsive)
-<Grid gridTemplateRows='1fr 1fr' />
 ```
 
 ## Borders
