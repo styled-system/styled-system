@@ -45362,7 +45362,7 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.propTypes = exports.util = exports.theme = exports.themeGet = exports.complexStyle = exports.responsiveStyle = exports.pseudoStyle = exports.style = exports.borderWidth = exports.buttonStyle = exports.colorStyle = exports.textStyle = exports.disabled = exports.active = exports.focus = exports.hover = exports.left = exports.bottom = exports.right = exports.top = exports.zIndex = exports.position = exports.backgroundPosition = exports.backgroundSize = exports.backgroundImage = exports.background = exports.boxShadow = exports.borderRadius = exports.borderColor = exports.borders = exports.borderLeft = exports.borderBottom = exports.borderRight = exports.borderTop = exports.border = exports.order = exports.alignSelf = exports.flex = exports.flexDirection = exports.flexWrap = exports.justifyContent = exports.alignContent = exports.alignItems = exports.ratio = exports.size = exports.minHeight = exports.maxHeight = exports.height = exports.minWidth = exports.maxWidth = exports.display = exports.letterSpacing = exports.fontWeight = exports.lineHeight = exports.textAlign = exports.fontFamily = exports.color = exports.bgColor = exports.textColor = exports.fontSize = exports.width = exports.space = exports.styles = undefined;
+exports.propTypes = exports.util = exports.theme = exports.themeGet = exports.complexStyle = exports.responsiveStyle = exports.pseudoStyle = exports.style = exports.borderWidth = exports.buttonStyle = exports.colorStyle = exports.textStyle = exports.disabled = exports.active = exports.focus = exports.hover = exports.left = exports.bottom = exports.right = exports.top = exports.zIndex = exports.position = exports.backgroundPosition = exports.backgroundRepeat = exports.backgroundSize = exports.backgroundImage = exports.background = exports.boxShadow = exports.borderRadius = exports.borderColor = exports.borders = exports.borderLeft = exports.borderBottom = exports.borderRight = exports.borderTop = exports.border = exports.order = exports.alignSelf = exports.flex = exports.flexDirection = exports.flexWrap = exports.justifyContent = exports.alignContent = exports.alignItems = exports.ratio = exports.size = exports.minHeight = exports.maxHeight = exports.height = exports.minWidth = exports.maxWidth = exports.display = exports.letterSpacing = exports.fontWeight = exports.lineHeight = exports.textAlign = exports.fontFamily = exports.color = exports.bgColor = exports.textColor = exports.fontSize = exports.width = exports.space = exports.styles = undefined;
 
 var _keys = __webpack_require__(69);
 
@@ -45608,6 +45608,12 @@ Object.defineProperty(exports, 'backgroundPosition', {
   enumerable: true,
   get: function get() {
     return _styles2.backgroundPosition;
+  }
+});
+Object.defineProperty(exports, 'backgroundRepeat', {
+  enumerable: true,
+  get: function get() {
+    return _styles2.backgroundRepeat;
   }
 });
 Object.defineProperty(exports, 'position', {
@@ -45857,7 +45863,7 @@ module.exports = function (it) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.borderWidth = exports.buttonStyle = exports.colorStyle = exports.textStyle = exports.disabled = exports.active = exports.focus = exports.hover = exports.left = exports.bottom = exports.right = exports.top = exports.zIndex = exports.position = exports.backgroundPosition = exports.backgroundSize = exports.backgroundImage = exports.background = exports.boxShadow = exports.borderRadius = exports.borderColor = exports.borders = exports.borderLeft = exports.borderBottom = exports.borderRight = exports.borderTop = exports.border = exports.order = exports.alignSelf = exports.flex = exports.flexDirection = exports.flexWrap = exports.justifyContent = exports.alignContent = exports.alignItems = exports.ratio = exports.ratioPadding = exports.size = exports.sizeHeight = exports.sizeWidth = exports.minHeight = exports.maxHeight = exports.height = exports.minWidth = exports.maxWidth = exports.display = exports.letterSpacing = exports.fontWeight = exports.lineHeight = exports.textAlign = exports.fontFamily = exports.color = exports.bgColor = exports.textColor = exports.fontSize = exports.width = exports.space = undefined;
+exports.borderWidth = exports.buttonStyle = exports.colorStyle = exports.textStyle = exports.disabled = exports.active = exports.focus = exports.hover = exports.left = exports.bottom = exports.right = exports.top = exports.zIndex = exports.position = exports.backgroundPosition = exports.backgroundRepeat = exports.backgroundSize = exports.backgroundImage = exports.background = exports.boxShadow = exports.borderRadius = exports.borderColor = exports.borders = exports.borderLeft = exports.borderBottom = exports.borderRight = exports.borderTop = exports.border = exports.order = exports.alignSelf = exports.flex = exports.flexDirection = exports.flexWrap = exports.justifyContent = exports.alignContent = exports.alignItems = exports.ratio = exports.ratioPadding = exports.size = exports.sizeHeight = exports.sizeWidth = exports.minHeight = exports.maxHeight = exports.height = exports.minWidth = exports.maxWidth = exports.display = exports.letterSpacing = exports.fontWeight = exports.lineHeight = exports.textAlign = exports.fontFamily = exports.color = exports.bgColor = exports.textColor = exports.fontSize = exports.width = exports.space = undefined;
 
 var _extends2 = __webpack_require__(130);
 
@@ -46128,6 +46134,11 @@ var backgroundSize = exports.backgroundSize = (0, _util.style)({
 var backgroundPosition = exports.backgroundPosition = (0, _util.style)({
   prop: 'backgroundPosition',
   alias: 'bgPosition'
+});
+
+var backgroundRepeat = exports.backgroundRepeat = (0, _util.style)({
+  prop: 'backgroundRepeat',
+  alias: 'bgRepeat'
 });
 
 // position
