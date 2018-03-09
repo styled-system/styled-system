@@ -10,6 +10,7 @@ src
 
 clean-element
 clean-tag
+examples
 system-components
 system-classnames
 system-loader
