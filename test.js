@@ -62,6 +62,7 @@ import {
   backgroundImage,
   backgroundSize,
   backgroundPosition,
+  backgroundRepeat,
 
   position,
   zIndex,
@@ -1313,6 +1314,11 @@ test('backgroundSize returns backgroundSize', t => {
 test('backgroundPosition returns backgroundPosition', t => {
   const a = backgroundPosition({ backgroundPosition: 'center' })
   t.is(a.backgroundPosition, 'center')
+})
+
+test('backgroundRepeat returns backgroundRepeat', t => {
+  const a = backgroundRepeat({ backgroundRepeat: 'repeat' })
+  t.is(a.backgroundRepeat, 'repeat')
 })
 
 test('position returns position', t => {

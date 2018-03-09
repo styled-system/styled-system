@@ -666,6 +666,7 @@ The `borders` utiilty combines `border`, `borderTop`, `borderRight`, `borderBott
   backgroundImage='kitten.png'
   backgroundSize='cover'
   backgroundPosition='center'
+  backgroundRepeat='repeat-x'
 />
 ```
 

@@ -325,6 +325,11 @@ export const backgroundPosition = style({
   alias: 'bgPosition',
 })
 
+export const backgroundRepeat = style({
+  prop: 'backgroundRepeat',
+  alias: 'bgRepeat',
+})
+
 // position
 export const position = responsiveStyle({
   prop: 'position'

@@ -60,6 +60,7 @@ export {
   backgroundImage,
   backgroundSize,
   backgroundPosition,
+  backgroundRepeat,
   // position
   position,
   zIndex,
