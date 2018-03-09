@@ -661,7 +661,7 @@ The `borders` utiilty combines `border`, `borderTop`, `borderRight`, `borderBott
 // boxShadow
 <Box boxShadow={1} />
 
-// backgroundImage, backgroundSize, backgroundPosition
+// backgroundImage, backgroundSize, backgroundPosition, backgroundRepeat
 <Box
   backgroundImage='kitten.png'
   backgroundSize='cover'
