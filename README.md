@@ -620,7 +620,7 @@ Array values are converted into [responsive values](#responsive-styles).
 
 ## Borders
 
-The `borders` utiilty combines `border`, `borderTop`, `borderRight`, `borderBottom` and `borderLeft`, all of which are responsive
+The `borders` utility combines `border`, `borderTop`, `borderRight`, `borderBottom` and `borderLeft`, all of which are responsive
 
 ```jsx
 <Box border='1px solid' />
