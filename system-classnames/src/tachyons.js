@@ -8,6 +8,7 @@ export default createMapper({
     'pa', 'pt', 'pr', 'pb', 'pl', 'ph', 'pv',
     'w',
     'f', 'lh',
+    'v',
     'bg',
   ],
   getter: ({ breakpoint, prop, value }) => breakpoint
