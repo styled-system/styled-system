@@ -3,13 +3,13 @@ import {
   style,
   pseudoStyle,
   responsiveStyle,
-  complexStyle
+  complexStyle,
+  getWidth
 } from './util'
 
 // core
 export { default as space } from './space'
 
-const getWidth = n => !util.num(n) || n > 1 ? util.px(n) : (n * 100) + '%'
 export const width = responsiveStyle({
   prop: 'width',
   alias: 'w',
