@@ -1,6 +1,6 @@
 {
   "name": "system-classnames",
-  "version": "1.0.0-2",
+  "version": "1.0.0-3",
   "description": "Styled system props for utility-based functional CSS libraries",
   "main": "dist/index.js",
   "scripts": {
