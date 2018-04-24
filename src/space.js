@@ -46,7 +46,7 @@ const mx = scale => n => {
 
   const value = scale[Math.abs(n)] || Math.abs(n)
   if (!num(value)) {
-    return value
+    return neg(n) ? `-${value}` : value;
   }
 
   return px(value * (neg(n) ? -1 : 1));

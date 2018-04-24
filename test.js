@@ -376,8 +376,13 @@ test('space can be configured with a theme', t => {
 })
 
 test('space can accept string values', t => {
-  const a = space({ theme: { space: ['1em', '2em'] }, m: -1 })
+  const a = space({ theme: { space: ['1em', '2em'] }, m: 1 })
   t.deepEqual(a, {margin: '2em'})
+})
+
+test('space can accept string values with negative', t => {
+  const a = space({ theme: { space: ['1em', '2em'] }, m: -1 })
+  t.deepEqual(a, {margin: '-2em'})
 })
 
 // width
