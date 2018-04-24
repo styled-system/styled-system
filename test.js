@@ -1060,6 +1060,11 @@ test('ratio returns height and paddingBottom', t => {
   t.is(a.paddingBottom, '50%')
 })
 
+test('ratio returns null when undefined', t => {
+  const a = ratio({})
+  t.is(a, null)
+})
+
 test('alignItems returns a style', t => {
   const a = alignItems({ alignItems: 'center' })
   t.deepEqual(a, { alignItems: 'center' })

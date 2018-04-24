@@ -134,10 +134,10 @@ export const ratioPadding = style({
   getter: n => (n * 100) + '%'
 })
 
-export const ratio = props => ({
+export const ratio = props => props.ratio ? ({
   height: 0,
   ...ratioPadding(props)
-})
+}) : null
 ratio.propTypes = {
   ...ratioPadding.propTypes
 }
