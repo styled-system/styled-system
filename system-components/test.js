@@ -95,6 +95,14 @@ test('removes styled-system props from underlying DOM element', t => {
   t.is(typeof json.props.className, 'string')
 })
 
+test('removes blacklist props from underlying DOM element', t => {
+  const Box = system({
+    blacklist: ['customProp']
+  })
+  const json = render(<Box />).toJSON()
+  t.is(json.props.customProp, undefined)
+})
+
 test('accepts an `is` prop to change the underlying DOM element', t => {
   const Box = system({
     p: 2

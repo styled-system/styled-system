@@ -49,10 +49,14 @@ class System {
       const funcs = getFuncs(combined)
       const propTypes = getPropTypes(combined)
 
-      const div = props => React.createElement(tag, props)
-      div.defaultProps = {
-        blacklist: Object.keys(propTypes)
+      const blacklist = Object.keys(propTypes)
+      if (defaultProps && Array.isArray(defaultProps.blacklist)) {
+        blacklist.push(...defaultProps.blacklist)
+        delete defaultProps.blacklist
       }
+
+      const div = props => React.createElement(tag, props)
+      div.defaultProps = { blacklist }
 
       const Component = createComponent(div)(...funcs)
 
