@@ -781,6 +781,7 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 
 Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 --------------|------------|-----------------|--------------|-----------
+`fontFamily` | `fontFamily` | `font-family` | `fonts` | no
 `textAlign`   | `textAlign`    | `text-align`   | none         | yes
 `lineHeight`  | `lineHeight` | `line-height` | `lineHeights` | no
 `fontWeight`  | `fontWeight` | `font-weight` | `fontWeights` | no
