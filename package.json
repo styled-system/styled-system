@@ -28,7 +28,6 @@
     "is-ci": "^1.1.0",
     "ava": "^0.25.0",
     "babel-cli": "^6.24.1",
-    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.5.2",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
