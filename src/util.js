@@ -50,9 +50,9 @@ export const merge = (a, b) => Object.assign({}, a, b, Object.keys(b).reduce((ob
   }),
   {}))
 
-export const getValue = (val, getter, toPx) =>
+export const getValue = (val, getter, toPx,props) =>
   typeof getter === 'function'
-    ? getter(val)
+    ? getter(val,props)
     : toPx ? px(val) : val
 
 export const style = ({
@@ -71,7 +71,7 @@ export const style = ({
     const value = getValue(
       get(th, [ key, n ].join('.'), n),
       getter,
-      numberToPx
+      numberToPx,props
     )
 
     return { [cssProperty]: value }

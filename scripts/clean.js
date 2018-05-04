@@ -5,7 +5,7 @@ const x = promisify(exec)
 
 const packages = require('./packages')
 
-const cmd = pkg => `cd ${pkg} && rm -rf node_modules && rm -rf dist`
+const cmd = pkg => `cd ${pkg} && rimraf node_modules && rimraf dist`
 
 const runTest = async pkg => {
   try {
