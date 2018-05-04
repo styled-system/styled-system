@@ -1080,6 +1080,15 @@ const space = [ 0, 4, 8, 16, 32, 64, 128, 256, 512 ]
 
 To remove styled-system style props from the underlying DOM element, use either the [clean-tag](clean-tag) or [clean-element](clean-element) components when creating your styled-components.
 
+If you want to extend clean-tag blacklist by custom props, just extend the original `blacklist` list adding the new props:
+
+```jsx
+Button.defaultProps.blacklist = [   
+  ...Object.keys(Button.propTypes),   
+  'buttonSize'   
+]
+```
+
 #### Issues with prop-types
 
 If you encounter issues while using this library alongside the `prop-types` npm package,
