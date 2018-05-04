@@ -827,7 +827,7 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 
 Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 --------------|------------|-----------------|--------------|-----------
-`borderRadius` | `borderRadius` | `border-radius` | `radii` | no
+`borderRadius` | `borderRadius` | `border-radius` | `radii` | yes
 `borderColor` | `borderColor` | `border-color` | `colors` | no
 `borders` | `border` | `border` | `borders` | yes
 `borders` | `borderTop` | `border-top` | `borders` | yes
