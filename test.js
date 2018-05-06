@@ -957,6 +957,19 @@ test('lineHeight returns line-height', t => {
   t.deepEqual(a, { lineHeight: 1.23 })
 })
 
+test('lineHeight returns a scalar style', t => {
+  const a = lineHeight({
+    theme: {
+      lineHeights: [
+        1, 2, 3
+      ]
+    },
+    lineHeight: 1
+  })
+
+  t.deepEqual(a, { lineHeight: 2 })
+})
+
 test('lineHeight returns responsive line-height', t => {
   const a = lineHeight({
     theme: {
