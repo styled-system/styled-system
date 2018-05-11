@@ -260,6 +260,68 @@ declare namespace StyledSystem {
   export function alignSelf(...args: any[]): any;
 
   /**
+   * CSS Grid
+   */
+  export interface GridGapProps {
+    gridGap?: ResponsiveSpaceValue;
+  }
+  export function gridGap(...args: any[]): any;
+
+  export interface GridRowGapProps {
+    gridRowGap?: ResponsiveSpaceValue;
+  }
+  export function gridRowGap(...args: any[]): any;
+
+  export interface GridColumnGapProps {
+    gridColumnGap?: ResponsiveSpaceValue;
+  }
+  export function gridColumnGap(...args: any[]): any;
+
+  export interface GridRowProps {
+    gridRow?: number | string;
+  }
+  export function gridRow(...args: any[]): any;
+
+  export interface GridColumnProps {
+    gridColumn?: number | string;
+  }
+  export function gridColumn(...args: any[]): any;
+
+  export type GridAutoFlowValue =
+    "row"
+    | "column"
+    | "dense"
+    | "row dense"
+    | "column dense"
+    | "inherit"
+    | "initial"
+    | "unset";
+  export interface GridAutoFlowProps {
+    gridAutoFlow?: GridAutoFlowValue;
+  }
+  export function gridAutoFlow(...args: any[]): any;
+
+  export interface GridAutoRowsProps {
+    gridAutoRows?: string;
+  }
+  export function gridAutoRows(...args: any[]): any;
+
+  export interface GridAutoColumnsProps {
+    gridAutoColumns?: string;
+  }
+  export function gridAutoColumns(...args: any[]): any;
+
+  export interface GridTemplateRowsProps {
+    gridTemplateRows?: string;
+  }
+  export function gridTemplateRows(...args: any[]): any;
+
+  export interface GridTemplateColumnsProps {
+    gridTemplateColumns?: string;
+  }
+  export function gridTemplateColumns(...args: any[]): any;
+
+  /**
    * Borders
    */
   export interface BorderRadiusProps {
