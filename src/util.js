@@ -21,7 +21,7 @@ export const arr = n => Array.isArray(n) ? n : [ n ]
 
 export const getWidth = n => !num(n) || n > 1 ? px(n) : (n * 100) + '%'
 export const get = (obj, path, fallback) => path.split('.')
-  .reduce((a, b) => (a && a[b]) ? a[b] : null, obj) || fallback
+  .reduce((a, b) => (typeof a === 'object' && a && a[b]) ? a[b] : null, obj) || fallback
 
 export const mq = n => `@media screen and (min-width: ${px(n)})`
 
