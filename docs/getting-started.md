@@ -1,8 +1,10 @@
 
 ## Getting Started
 
-Styled-system is a collection of style functions that expose props
-to your React components for controlling style based on global theme constants.
+Styled-system is a collection of utility functions that add style props
+to your React components,
+which allows for controlling styles based on global theme constants.
+
 To use styled-system, you'll most likely want to use a CSS-in-JS library.
 These examples use [styled-components][styled-components],
 but styled-system works with other libraries
@@ -12,7 +14,7 @@ like [emotion][emotion] and [glamorous][glamorous] as well.
 npm i styled-system styled-components
 ```
 
-## Components
+## Create a Component
 
 Create a new component that uses style functions from styled-system.
 To start with, add the `color` function to the component's styles argument.
@@ -37,7 +39,7 @@ Now, this component will have two style props available: `color` to set foregrou
 ```
 
 So far, this component can be styled with any valid CSS color.
-To create a more consistent UI, create a theme module which will include a color palette.
+To create a more consistent UI, create a theme module with a `colors` object.
 
 ```js
 // theme.js
@@ -207,7 +209,11 @@ or read more in the [Responsive Styles Docs](responsive-styles.md).
 
 ---
 
-- [API documentation](api.md)
+### More Documentation
+
+- [Responsive Styles](responsive-styles.md)
+- [How it Works](how-it-works.md)
+- [API](api.md)
 - [Table of Style Functions](table.md)
 
 
