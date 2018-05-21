@@ -1032,7 +1032,7 @@ Card.defaultProps = {
 
 ## system-components
 
-For an even simpler authoring experience when using styled-system with styled-components, see [system-components](https://github.com/jxnblk/system-components), which is a lightweight wrapper around the two libraries.
+For an even simpler authoring experience when using styled-system with styled-components, see [system-components](https://github.com/jxnblk/styled-system/tree/master/system-components), which is a lightweight wrapper around the two libraries.
 
 ```js
 import system from 'system-components'
