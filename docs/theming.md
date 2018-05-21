@@ -1,6 +1,8 @@
 
 # Theming
 
+*Taken from the previous readme*
+
 It's recommended to add objects and array scales to your theme to ensure consistent, constraint-based values are used throughout your app.
 All theme values are optional, so use your own discretion when creating a theme.
 See the [Default Theme](#default-theme) section for a reference to the default fallback values.

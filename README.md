@@ -1,6 +1,6 @@
 # styled-system
 
-Design system utilities for [styled-components][sc] and other css-in-js libraries
+Design system utilities for component libraries – for use with [styled-components][sc] and other css-in-js libraries
 
 [![Build Status][build-badge]][build]
 [![Coverage][coverage-badge]][coverage]
@@ -66,8 +66,8 @@ const Box = styled.div`
 `
 ```
 
-Each style function exposes its own set of props that style
-elements based on values defined in a theme.
+Each style function exposes its own set of component props
+that handle styles based on values defined in a theme.
 
 ```jsx
 // width: 50%
@@ -95,7 +95,7 @@ elements based on values defined in a theme.
 ## Responsive Style Props
 
 Set responsive width, margin, padding, font-size, and other properties with a shorthand array syntax.
-[Read more](#responsive-styles)
+[Read more](docs/responsive-styles)
 
 ```jsx
 // responsive width
@@ -113,12 +113,18 @@ Set responsive width, margin, padding, font-size, and other properties with a sh
 
 To learn more, see the [Getting Started](docs/getting-started.md) guide or read the docs.
 
+<!-- link shims for previous readme -->
+<a name='getting-started'></a>
+<a name='how-it-works'></a>
+<a name='responsive-styles'></a>
+<a name='api'></a>
+<a name='system-components'></a>
+<a name='default-theme'></a>
+<a name='troubleshooting'></a>
+<a name='cleanelement'></a>
+
 ## Docs
 
-<!-- link shims for previous readme -->
-<a name='api'></a>
-<a name='cleanelement'></a>
-<a name='troubleshooting'></a>
 
 - [Getting Started](docs/getting-started.md)
 - [Responsive Styles](docs/responsive-styles.md)
@@ -147,6 +153,8 @@ To learn more, see the [Getting Started](docs/getting-started.md) guide or read 
     - [complexStyle](docs/api.md#complexstyle)
   - [Default Theme](docs/api.md#default-theme)
 - [Table of Style Functions](docs/table.md)
+- [Custom Props](docs/custom-props.md)
+- [Troubleshooting](docs/troubleshooting.md)
 
 ## Optional Packages
 
