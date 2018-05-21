@@ -26,11 +26,18 @@ npm i styled-system
 - Works with most css-in-js libraries, including [styled-components][sc], [glamorous][glamorous], [emotion][emotion], [fela][fela], and [cxs][cxs]
 - Used in [Rebass](http://jxnblk.com/rebass), [Grid Styled](http://jxnblk.com/grid-styled/), and the [Priceline Design System](https://github.com/pricelinelabs/design-system)
 
-> "The future of css-in-js is going to look something like styled-system with its responsive values."<br/>
-> – [Kye Hohenberger](https://mobile.twitter.com/tkh44/status/905474043729416192)
+> "This is honestly my favourite way to build UI components right now ![party parrot][party-parrot]"
+> – [Varun Vachhar][varun-post]
 
+[party-parrot]: https://github.com/jmhobbs/cultofthepartyparrot.com/raw/master/parrots/parrot.gif
+
+<!--
 > "Fantastic set of tools that offer the ease and API of tachyons/functional CSS but, are way more customisable."
 > – [Varun Vachhar](https://mobile.twitter.com/winkerVSbecks/status/955619873463431168)
+-->
+
+> "The future of css-in-js is going to look something like styled-system with its responsive values."<br/>
+> – [Kye Hohenberger](https://mobile.twitter.com/tkh44/status/905474043729416192)
 
 > "Coming from @tachyons_css, the styled-system utilities from @jxnblk is the missing link I’ve been looking for."<br/>
 > – [Nathan Young](https://mobile.twitter.com/nathanyoung/status/891353221880360960)
@@ -1072,37 +1079,15 @@ const space = [ 0, 4, 8, 16, 32, 64, 128, 256, 512 ]
 
 ---
 
-### Troubleshooting
-
-#### Unknown attribute warnings in React 16
-
-<div id='cleanelement' />
-
-To remove styled-system style props from the underlying DOM element, use either the [clean-tag](clean-tag) or [clean-element](clean-element) components when creating your styled-components.
-
-If you want to extend clean-tag blacklist by custom props, just extend the original `blacklist` list adding the new props:
-
-```jsx
-Button.defaultProps.blacklist = [   
-  ...Object.keys(Button.propTypes),   
-  'buttonSize'   
-]
-```
-
-#### Issues with prop-types
-
-If you encounter issues while using this library alongside the `prop-types` npm package,
-webpack's [`resolve.modules`](https://webpack.js.org/configuration/resolve/#resolve-modules)
-option might be misconfigured using a relative (instead of absolute) path.
-This changes the way CommonJS modules work in a way that will likely cause other issues,
-and it's recommended that you only use absolute paths with the `resolve.modules` option.
-
-If you're using `resolve.modules` to avoid import syntax with lots of directory changes,
-you might want to consider using a flatter or better organized folder structure in your app.
-
-See https://github.com/jxnblk/grid-styled/issues/51#issuecomment-336116426
+<!-- todo: test these link shims -->
+<a id='cleanelement' href='clean-element'></a>
+<a id='troubleshooting' href='docs/troubleshooting.md'></a>
 
 ---
+
+## Further Reading
+
+- [Component Based Design System With Styled-System][varun-post]
 
 ## Related
 
@@ -1123,6 +1108,12 @@ See https://github.com/jxnblk/grid-styled/issues/51#issuecomment-336116426
 [fela]: https://github.com/rofrischmann/fela
 [nano-style]: https://github.com/jxnblk/nano-style
 [cxs]: https://github.com/jxnblk/cxs
+[varun-post]: https://varun.ca/styled-system/
 
+<!-- new links -->
+[cole-tweet]: https://mobile.twitter.com/colebemis/status/996565848138526721
+[mrmrs-elements]: https://github.com/mrmrs/elements
+[broccs-react-starter]: https://github.com/broccolini/react-website-starter
+[dalgleish]: https://mobile.twitter.com/markdalgleish/status/913191186944241665
 
 [MIT License](LICENSE.md)
