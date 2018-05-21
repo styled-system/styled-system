@@ -42,6 +42,9 @@ npm i styled-system
 > "Coming from @tachyons_css, the styled-system utilities from @jxnblk is the missing link I’ve been looking for."<br/>
 > – [Nathan Young](https://mobile.twitter.com/nathanyoung/status/891353221880360960)
 
+> "If you make websites/apps with React check out Styled System if you haven't already. You will be amazed at how much faster you can build."
+> – [David Yeiser][david-tweet]
+
 ### Table of Contents
 
 - [Usage](#usage)
@@ -190,6 +193,7 @@ To learn more, see the [Getting Started](docs/getting-started.md) guide or read 
 [nano-style]: https://github.com/jxnblk/nano-style
 [cxs]: https://github.com/jxnblk/cxs
 [varun-post]: https://varun.ca/styled-system/
+[david-tweet]: https://mobile.twitter.com/davidyeiser/status/965920740582285312
 
 <!-- new links -->
 [cole-tweet]: https://mobile.twitter.com/colebemis/status/996565848138526721
