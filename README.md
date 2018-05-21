@@ -1,6 +1,6 @@
 # styled-system
 
-Design system utilities for component libraries – for use with [styled-components][sc] and other css-in-js libraries
+Design system utilities for [styled-components][sc] and other css-in-js libraries
 
 [![Build Status][build-badge]][build]
 [![Coverage][coverage-badge]][coverage]
