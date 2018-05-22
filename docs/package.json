@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "@comp/md-loader": "^1.0.0-9",
-    "@compositor/x0": "^5.0.0-9",
+    "@compositor/x0": "^5.0.0-11",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
