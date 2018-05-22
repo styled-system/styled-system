@@ -64,31 +64,31 @@ const colors = [
 
 const animations = {
   a: keyframes([], {
-    '0%':  { color: colors[0] },
-    '16%': { color: colors[1] },
-    '32%': { color: colors[2] },
-    '48%': { color: colors[3] },
-    '64%': { color: colors[4] },
-    '80%': { color: colors[5] },
-    '96%': { color: colors[0] },
+    '0%':  { fill: colors[0] },
+    '16%': { fill: colors[1] },
+    '32%': { fill: colors[2] },
+    '48%': { fill: colors[3] },
+    '64%': { fill: colors[4] },
+    '80%': { fill: colors[5] },
+    '96%': { fill: colors[0] },
   }),
   b: keyframes([], {
-    '0%':  { color: colors[2] },
-    '16%': { color: colors[3] },
-    '32%': { color: colors[4] },
-    '48%': { color: colors[5] },
-    '64%': { color: colors[0] },
-    '80%': { color: colors[1] },
-    '96%': { color: colors[2] },
+    '0%':  { fill: colors[2] },
+    '16%': { fill: colors[3] },
+    '32%': { fill: colors[4] },
+    '48%': { fill: colors[5] },
+    '64%': { fill: colors[0] },
+    '80%': { fill: colors[1] },
+    '96%': { fill: colors[2] },
   }),
   c: keyframes([], {
-    '0%':  { color: colors[4] },
-    '16%': { color: colors[5] },
-    '32%': { color: colors[0] },
-    '48%': { color: colors[1] },
-    '64%': { color: colors[2] },
-    '80%': { color: colors[3] },
-    '96%': { color: colors[4] },
+    '0%':  { fill: colors[4] },
+    '16%': { fill: colors[5] },
+    '32%': { fill: colors[0] },
+    '48%': { fill: colors[1] },
+    '64%': { fill: colors[2] },
+    '80%': { fill: colors[3] },
+    '96%': { fill: colors[4] },
   })
 }
 
@@ -98,13 +98,13 @@ const Path = {
       {...props}
       d={A}
       style={{
-        color: '#f00',
-        opacity: 0.75,
-        mixBlendMode: 'multiply'
+        // fill: '#f00',
+        // opacity: 0.75,
+        // mixBlendMode: 'multiply'
       }}
     />
   )([], sx, {
-    // color: '#f00',
+    // fill: '#f00',
     animationName: animations.a
   }),
   B: styled(props =>
@@ -112,13 +112,13 @@ const Path = {
       {...props}
       d={B}
       style={{
-        color: '#0f0',
-        opacity: 0.75,
-        mixBlendMode: 'multiply'
+        // fill: '#0f0',
+        // opacity: 0.75,
+        // mixBlendMode: 'multiply'
       }}
     />
   )([], sx, {
-    color: '#0f0',
+    fill: '#0f0',
     animationDelay: '.5s',
     animationName: animations.b
   }),
@@ -127,13 +127,13 @@ const Path = {
       {...props}
       d={C}
       style={{
-        color: '#00f',
-        opacity: 0.75,
-        mixBlendMode: 'multiply'
+        // fill: '#00f',
+        // opacity: 0.75,
+        // mixBlendMode: 'multiply'
       }}
     />
   )([], sx, {
-    color: '#00f',
+    fill: '#00f',
     animationDelay: '1s',
     animationName: animations.c
   }),
@@ -148,7 +148,6 @@ export default ({
     viewBox='-12 -12 24 24'
     width={size}
     height={size}
-    fill='currentcolor'
     style={{
       WebkitMixBlendMode: blend,
       mixBlendMode: blend,
