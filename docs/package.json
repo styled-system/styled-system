@@ -1,0 +1,22 @@
+{
+  "name": "styled-system-docs",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "start": "x0 src",
+    "logo": "repng src/components/Logo.js -f logo.png -w 512 -h 512 -p '{\"size\":512}'",
+    "build": "x0 build src"
+  },
+  "devDependencies": {
+    "@comp/md-loader": "^1.0.0-9",
+    "@compositor/x0": "^5.0.0-4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "rebass": "^2.0.0-2",
+    "repng": "^3.0.0",
+    "styled-components": "^3.2.6",
+    "styled-system": "^2.2.5",
+    "title-case": "^2.1.1"
+  }
+}
