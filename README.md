@@ -1,5 +1,5 @@
 
-<img src='docs/logo.png' />
+<img src='docs/logo.png' width='128' height='128' />
 
 # styled-system
 
