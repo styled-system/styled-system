@@ -1,13 +1,13 @@
 const path = require('path')
 
 const req = require.context('..', false, /\.md$/)
-
 const docs = req.keys().map(key => {
   const name = path.basename(key, path.extname(key))
   return {
     key,
     name,
     path: '/' + name,
+    // Component: req(key).default || req(key)
     require: () => req(key).default
   }
 })

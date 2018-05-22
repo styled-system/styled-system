@@ -24,12 +24,11 @@ export default class extends React.Component {
     const { params } = this.props.match
 
     if (!params.name) {
-      return (
-        <pre>Page not found</pre>
-      )
+      return <pre>not found</pre>
     }
 
     const route = routes.find(route => route.name === params.name)
+    if (!route) return <pre>not found</pre>
     const Component = route.require()
 
     return (
@@ -37,7 +36,7 @@ export default class extends React.Component {
         <Flex
           style={{ minHeight: '100vh' }}
           flexDirection={[ 'column', 'row' ]}>
-          <Box width={1}>
+          <Box width={1} style={{ minWidth: 0 }}>
             <Container maxWidth={768} py={4}>
               <Flex mb={4}>
                 <Link is={RouterLink} to='/'>Home</Link>
@@ -55,6 +54,7 @@ export default class extends React.Component {
             color='white'
             bg='black'
             width={[ 1, 256 ]}
+            flex='none'
             order={[ null, -1 ]}>
             <Nav routes={routes} />
           </Box>

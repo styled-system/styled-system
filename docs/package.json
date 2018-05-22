@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "x0 src",
-    "logo": "repng src/components/Logo.js -f logo.png -w 512 -h 512 -p '{\"size\":512}'",
+    "logo": "repng src/components/Logo.js -d dist -f logo.png -w 512 -h 512 -p '{\"size\":512}'",
     "build": "x0 build src"
   },
   "devDependencies": {
