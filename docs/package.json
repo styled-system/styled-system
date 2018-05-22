@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "@comp/md-loader": "^1.0.0-9",
-    "@compositor/x0": "^5.0.0-4",
+    "@compositor/x0": "^5.0.0-5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
@@ -18,5 +18,8 @@
     "styled-components": "^3.2.6",
     "styled-system": "^2.2.5",
     "title-case": "^2.1.1"
+  },
+  "x0": {
+    "basename": "/styled-system/"
   }
 }
