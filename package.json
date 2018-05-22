@@ -9,7 +9,6 @@
     "cover": "nyc report --reporter=html --reporter=lcov > coverage.lcov && codecov",
     "test": "nyc ava",
     "bench": "node bench",
-    "docs": "x0 dev app/App.js",
     "pkg:clean": "node scripts/clean",
     "pkg:test": "node scripts/test",
     "pkg:prepare": "node scripts/run install"
@@ -23,7 +22,6 @@
   "author": "Brent Jackson",
   "license": "MIT",
   "devDependencies": {
-    "@compositor/x0": "^3.1.1",
     "benchmark": "^2.1.4",
     "is-ci": "^1.1.0",
     "ava": "^0.25.0",
@@ -37,7 +35,6 @@
     "nyc": "^11.0.3",
     "react": "^16.2.0",
     "react-test-renderer": "^16.2.0",
-    "remark": "^9.0.0",
     "sinon": "^4.3.0"
   },
   "ava": {
