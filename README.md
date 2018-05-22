@@ -1,3 +1,6 @@
+
+<img src='docs/logo.png' />
+
 # styled-system
 
 Design system utilities for [styled-components][sc] and other css-in-js libraries
