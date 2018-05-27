@@ -113,6 +113,19 @@ const Bold = Text.extend`
 `
 ```
 
+## Usage with other css-in-js libraries
+
+By default, `system-components` use `styled-components` to when using default `system` export.
+
+You can create your own `system` interface that will only use your css-in-js library.
+
+```js
+import { createSystem } from 'system-components'
+import styled from 'react-emotion'
+
+// creates a system function, that use `styled` from your library
+const system = createSystem(styled)
+```
 
 ---
 
