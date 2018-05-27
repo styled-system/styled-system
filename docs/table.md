@@ -74,6 +74,16 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 `gridTemplateRows` | `gridTemplateRows` | `grid-template-rows` | none | yes
 `gridTemplateColumns` | `gridTemplateColumns` | `grid-template-columns` | none | yes
 
+## Background
+
+Function Name | Prop       | CSS Property    | Theme Field  | Responsive
+--------------|------------|-----------------|--------------|-----------
+`background`  | `background` | `background`  | none | no
+`backgroundImage` | `backgroundImage` `bgImage` | `background-image` | none | no
+`backgroundSize` | `backgroundSize` `bgSize` | `background-size` | none | no
+`backgroundPosition` | `backgroundPosition` `bgPosition` | `background-position` | none | no
+`backgroundRepeat` | `backgroundRepeat` `bgRepeat` | `background-repeat` | none | no
+
 ## Misc
 
 Function Name | Prop       | CSS Property    | Theme Field  | Responsive
