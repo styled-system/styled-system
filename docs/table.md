@@ -1,6 +1,8 @@
 
 # Table of Style Functions
 
+## Core
+
 Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 --------------|------------|-----------------|--------------|-----------
 `space`       | `m`        | `margin`        | `space`      | yes
@@ -18,6 +20,8 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 `color`       | `color`    | `color`         | `colors`     | yes
 `color`       | `bg`       | `background-color`| `colors`   | yes
 
+## Typography
+
 Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 --------------|------------|-----------------|--------------|-----------
 `fontFamily` | `fontFamily` | `font-family` | `fonts` | no
@@ -25,6 +29,8 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 `lineHeight`  | `lineHeight` | `line-height` | `lineHeights` | no
 `fontWeight`  | `fontWeight` | `font-weight` | `fontWeights` | no
 `letterSpacing` | `letterSpacing` | `letter-spacing` | `letterSpacings` | no
+
+## Layout
 
 Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 --------------|------------|-----------------|--------------|-----------
@@ -36,6 +42,8 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 `minHeight` | `minHeight` | `min-height` | `minHeights` | yes
 `size` | `size` | `width` `height` | none | yes
 `ratio` | `ratio` | `height` `padding-bottom` | none | no
+
+## Flexbox
 
 Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 --------------|------------|-----------------|--------------|-----------
@@ -51,6 +59,8 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 `flexWrap` | `flexWrap` | `flex-wrap` | none | yes
 `flexBasis` | `flexBasis` | `flex-basis` | none | yes
 
+## Grid Layout
+
 Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 --------------|------------|-----------------|--------------|-----------
 `gridGap`  | `gridGap` | `grid-gap` | `space` | yes
@@ -64,6 +74,8 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 `gridTemplateRows` | `gridTemplateRows` | `grid-template-rows` | none | yes
 `gridTemplateColumns` | `gridTemplateColumns` | `grid-template-columns` | none | yes
 
+## Misc
+
 Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 --------------|------------|-----------------|--------------|-----------
 `borderRadius` | `borderRadius` | `border-radius` | `radii` | no
@@ -75,6 +87,8 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 `borders` | `borderLeft` | `border-left` | `borders` | yes
 `boxShadow` | `boxShadow` | `box-shadow` | `shadows` | no
 
+## Position
+
 Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 --------------|------------|-----------------|--------------|-----------
 `position` | `position` | `position` | none | yes
@@ -84,12 +98,16 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 `bottom` | `bottom` | `bottom` | none | yes
 `left` | `left` | `left` | none | yes
 
+## Pseudo-classes
+
 Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 --------------|------------|-----------------|--------------|-----------
 `hover` | `hover` | style object | -- | no
 `focus` | `focus` | style object | -- | no
 `active` | `active` | style object | -- | no
 `disabled` | `disabledStyle` | style object | -- | no
+
+## Complex Styles
 
 Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 --------------|------------|-----------------|--------------|-----------
