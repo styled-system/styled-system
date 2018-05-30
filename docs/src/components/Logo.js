@@ -141,7 +141,8 @@ const Path = {
 
 export default ({
   size = 256,
-  blend = 'multiply'
+  blend = 'multiply',
+  styles // for scrs svg output
 }) => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
@@ -153,6 +154,7 @@ export default ({
       mixBlendMode: blend,
     }}
   >
+    {styles}
     <Path.A />
     <Path.B />
     <Path.C />
