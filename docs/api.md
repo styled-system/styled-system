@@ -6,6 +6,7 @@
   - [width](#width-responsive)
   - [fontSize](#fontsize-responsive)
   - [color](#color-responsive) (and background-color)
+  - [opacity](#opacity)
 - [Typography](#typography)
 - [Layout](#layout)
 - [Flexbox](#flexbox)
@@ -157,6 +158,24 @@ Array values are converted into [responsive values][responsive-styles].
 
 // raw CSS color value
 <Box color='#f00' />
+```
+
+### opacity (responsive)
+
+
+```js
+import { opacity } from 'styled-system'
+```
+
+The opacity utility parses a component's `opacity` prop and converts it into a CSS declaration.
+
+```jsx
+// examples
+
+<Box opacity={0.5} />
+
+// with responsive values
+<Box opacity={[0.3, 0.7]} />
 ```
 
 ---

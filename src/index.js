@@ -8,6 +8,7 @@ export {
   textColor,
   bgColor,
   color,
+  opacity,
   // typography
   fontFamily,
   textAlign,
