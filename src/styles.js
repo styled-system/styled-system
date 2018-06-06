@@ -4,7 +4,8 @@ import {
   pseudoStyle,
   responsiveStyle,
   complexStyle,
-  getWidth
+  getWidth,
+  merge
 } from './util'
 
 // core
