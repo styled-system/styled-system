@@ -120,7 +120,7 @@ export const sizeHeight = responsiveStyle({
 })
 
 export const size = props => 
-  merge(sizeHeight2(props), sizeWidth2(props))
+  merge(sizeHeight(props), sizeWidth(props))
 
 size.propTypes = {
   ...sizeWidth.propTypes,
