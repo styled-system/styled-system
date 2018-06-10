@@ -57,6 +57,7 @@ class System {
 
       const div = props => React.createElement(tag, props)
       div.defaultProps = { blacklist }
+      div.styledComponentId = 'lol' // Trick styled-components into passing innerRef
 
       const Component = createComponent(div)(...funcs)
 
