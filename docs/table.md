@@ -26,7 +26,7 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 --------------|------------|-----------------|--------------|-----------
 `fontFamily` | `fontFamily` | `font-family` | `fonts` | no
 `textAlign`   | `textAlign`    | `text-align`   | none         | yes
-`lineHeight`  | `lineHeight` | `line-height` | `lineHeights` | no
+`lineHeight`  | `lineHeight` | `line-height` | `lineHeights` | yes
 `fontWeight`  | `fontWeight` | `font-weight` | `fontWeights` | no
 `letterSpacing` | `letterSpacing` | `letter-spacing` | `letterSpacings` | no
 
