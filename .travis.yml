@@ -9,3 +9,15 @@ script:
   - npm run pkg:test
 after_success:
   - npm run cover
+before_deploy:
+  - cd docs
+  - npm install
+  - npm run build
+  - cp logo.png dist
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GH_TOKEN
+  local_dir: docs/dist
+  on:
+    branch: master

@@ -1,0 +1,51 @@
+{
+  "name": "styled-system-docs",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "start": "x0 src",
+    "logo": "repng src/components/Logo.js -d dist -f logo.png -w 512 -h 512 -p '{\"size\":512}'",
+    "logo-svg": "scrs src/components/Logo.js --svg > logo.svg",
+    "build": "x0 build src"
+  },
+  "devDependencies": {
+    "@comp/md-loader": "^1.0.0-9",
+    "@compositor/x0": "^5.0.0-11",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "rebass": "^2.0.0-2",
+    "repng": "^3.0.0",
+    "scrs": "^1.1.0",
+    "styled-components": "^3.2.6",
+    "styled-system": "^2.2.5",
+    "title-case": "^2.1.1"
+  },
+  "x0": {
+    "title": "styled-system",
+    "description": "Design system utilities for styled-components and other CSS-in-JS libraries",
+    "meta": [
+      {
+        "name": "twitter:card",
+        "content": "summary"
+      },
+      {
+        "name": "twitter:site",
+        "content": "@jxnblk"
+      },
+      {
+        "name": "twitter:image",
+        "content": "https://jxnblk.com/styled-system/logo.png"
+      },
+      {
+        "name": "twitter:title",
+        "content": "styled-system"
+      },
+      {
+        "name": "twitter:description",
+        "content": "Design system utilities for styled-components and other css-in-js libraries"
+      }
+    ],
+    "basename": "/styled-system"
+  }
+}

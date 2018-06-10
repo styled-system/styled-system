@@ -1,6 +1,6 @@
 {
   "name": "styled-system",
-  "version": "2.2.4",
+  "version": "2.2.6",
   "description": "Design system utilities for styled-components, glamorous, and other css-in-js libraries",
   "main": "dist/index.js",
   "scripts": {
@@ -9,7 +9,6 @@
     "cover": "nyc report --reporter=html --reporter=lcov > coverage.lcov && codecov",
     "test": "nyc ava",
     "bench": "node bench",
-    "docs": "x0 dev app/App.js",
     "pkg:clean": "node scripts/clean",
     "pkg:test": "node scripts/test",
     "pkg:prepare": "node scripts/run install"
@@ -23,12 +22,10 @@
   "author": "Brent Jackson",
   "license": "MIT",
   "devDependencies": {
-    "@compositor/x0": "^3.1.1",
     "benchmark": "^2.1.4",
     "is-ci": "^1.1.0",
     "ava": "^0.25.0",
     "babel-cli": "^6.24.1",
-    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.5.2",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
@@ -38,7 +35,6 @@
     "nyc": "^11.0.3",
     "react": "^16.2.0",
     "react-test-renderer": "^16.2.0",
-    "remark": "^9.0.0",
     "sinon": "^4.3.0"
   },
   "ava": {
