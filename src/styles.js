@@ -4,7 +4,8 @@ import {
   pseudoStyle,
   responsiveStyle,
   complexStyle,
-  getWidth
+  getWidth,
+  merge
 } from './util'
 
 // core
@@ -119,10 +120,9 @@ export const sizeHeight = responsiveStyle({
   numberToPx: true
 })
 
-export const size = props => ({
-  ...sizeWidth(props),
-  ...sizeHeight(props)
-})
+export const size = props => 
+  merge(sizeHeight(props), sizeWidth(props))
+
 size.propTypes = {
   ...sizeWidth.propTypes,
   ...sizeHeight.propTypes,
