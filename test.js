@@ -970,6 +970,24 @@ test('lineHeight returns a scalar style', t => {
   t.deepEqual(a, { lineHeight: 2 })
 })
 
+test('lineHeight returns responsive line-height', t => {
+  const a = lineHeight({
+    theme: {
+      lineHeights: [
+        1, 2, 3
+      ]
+    },
+    lineHeight: [1, 2]
+  })
+
+  t.deepEqual(a, { 
+    lineHeight: 2, 
+    '@media screen and (min-width: 40em)': {
+      lineHeight: 3,
+    } 
+  })
+})
+
 // fontWeight
 test('fontWeight returns fontWeight', t => {
   const a = fontWeight({ fontWeight: 'bold' })

@@ -57,7 +57,7 @@ export const textAlign = responsiveStyle({
   alias: 'align'
 })
 
-export const lineHeight = style({
+export const lineHeight = responsiveStyle({
   prop: 'lineHeight',
   key: 'lineHeights'
 })
