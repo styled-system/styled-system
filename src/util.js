@@ -42,13 +42,14 @@ export const media = bp => (d, i) => is(d)
   ? bp[i] ? ({ [bp[i]]: d }) : d
   : null
 
-export const merge = (a, b) => Object.assign({}, a, b, Object.keys(b).reduce((obj, key) =>
-  Object.assign(obj, {
-    [key]: a[key] !== null && typeof a[key] === 'object'
-    ? merge(a[key], b[key])
-    : b[key]
-  }),
-  {}))
+export const merge = (a, b) => Object.assign({}, a, b, Object
+  .keys(b || {}).reduce((obj, key) =>
+    Object.assign(obj, {
+      [key]: a[key] !== null && typeof a[key] === 'object'
+      ? merge(a[key], b[key])
+      : b[key]
+    }),
+    {}))
 
 export const getValue = (val, getter, toPx) =>
   typeof getter === 'function'
