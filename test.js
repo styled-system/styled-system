@@ -245,6 +245,12 @@ test('util.merge merges objects', t => {
   })
 })
 
+test('util.merge doesn’t throw with null values', t => {
+  t.notThrows(() => {
+    util.merge(null, null)
+  })
+})
+
 // space
 test('space returns margin declarations', t => {
   const dec = space({m: 1})
@@ -980,11 +986,11 @@ test('lineHeight returns responsive line-height', t => {
     lineHeight: [1, 2]
   })
 
-  t.deepEqual(a, { 
-    lineHeight: 2, 
+  t.deepEqual(a, {
+    lineHeight: 2,
     '@media screen and (min-width: 40em)': {
       lineHeight: 3,
-    } 
+    }
   })
 })
 
