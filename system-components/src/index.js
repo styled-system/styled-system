@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 import System from './System'
 
-const create = new System({
-  createComponent: type => (...args) => styled(type)([], ...args)
+export const createSystem = (styledFn) => new System({
+  createComponent: type => (...args) => styledFn(type)([], ...args)
 })
+
+const create = createSystem(styled)
 
 export default create
