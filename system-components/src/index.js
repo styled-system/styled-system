@@ -6,3 +6,4 @@ const create = new System({
 })
 
 export default create
+export { default as System } from './System'
