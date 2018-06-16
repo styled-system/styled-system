@@ -104,6 +104,16 @@ This is useful for one-off changes to ensure semantic markup.
 </Heading>
 ```
 
+### CSS prop
+
+To add one-off custom CSS to any system-component, use the `css` prop.
+
+```js
+<Heading css='opacity:0.75;'>
+  Hello
+</Heading>
+```
+
 ### Extending components
 
 System components are styled-components, so any of the
