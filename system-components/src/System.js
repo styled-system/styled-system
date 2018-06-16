@@ -33,6 +33,8 @@ const getPropTypes = keys => keys
   .map(key => styles[key].propTypes || {})
   .reduce((a, propType) => ({ ...a, ...propType }), {})
 
+const css = props => props.css
+
 class System {
   constructor (opts) {
     const {
@@ -54,12 +56,13 @@ class System {
         blacklist.push(...defaultProps.blacklist)
         delete defaultProps.blacklist
       }
+      blacklist.push('css')
 
       const div = props => React.createElement(tag, props)
       div.defaultProps = { blacklist }
       div.styledComponentId = 'lol' // Trick styled-components into passing innerRef
 
-      const Component = createComponent(div)(...funcs)
+      const Component = createComponent(div)(css, ...funcs)
 
       Component.defaultProps = defaultProps
       Component.propTypes = propTypes

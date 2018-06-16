@@ -163,3 +163,10 @@ test('emotion returns a React component', t => {
   const box = render(<Box />).getInstance()
   t.true(isCompositeComponent(box))
 })
+
+test('accepts a css prop for custom styling', t => {
+  const Box = system({})
+  const json = render(<Box css='color:tomato;' />).toJSON()
+  const css = getCSS()
+  t.regex(css, /color:tomato/)
+})
