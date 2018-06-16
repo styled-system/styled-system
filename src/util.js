@@ -56,6 +56,8 @@ export const getValue = (val, getter, toPx) =>
     ? getter(val)
     : toPx ? px(val) : val
 
+export const cloneFunc = fn => (...args) => fn(...args)
+
 export const style = ({
   prop,         // react prop
   cssProperty,  // css property
@@ -78,10 +80,15 @@ export const style = ({
     return { [cssProperty]: value }
   }
   fn.propTypes = {
-    [prop]: propTypes.numberOrString
+    [prop]: cloneFunc(propTypes.numberOrString),
   }
   if (alias) {
     fn.propTypes[alias] = propTypes.numberOrString
+  }
+  fn.propTypes[prop].meta = {
+    prop,
+    themeKey: key,
+    styleType: 'default'
   }
   return fn
 }
@@ -123,10 +130,17 @@ export const responsiveStyle = ({
 
   // add propTypes object to returned function
   fn.propTypes = {
-    [prop]: propTypes.responsive
+    [prop]: cloneFunc(propTypes.responsive)
   }
   if (alias) {
     fn.propTypes[alias] = propTypes.responsive
+  }
+
+  fn.propTypes[prop].meta = {
+    prop,
+    themeKey: key,
+    responsive: true,
+    styleType: 'responsive'
   }
 
   return fn
@@ -160,7 +174,13 @@ export const pseudoStyle = ({
     }
   }
   fn.propTypes = {
-    [prop]: PropTypes.object
+    [prop]: cloneFunc(PropTypes.object)
+  }
+
+  fn.propTypes[prop].meta = {
+    prop,
+    pseudo: true,
+    styleType: 'pseudo'
   }
   return fn
 }
@@ -211,6 +231,13 @@ export const complexStyle = ({
       PropTypes.number,
       PropTypes.string
     ])
+  }
+
+  fn.propTypes[prop].meta = {
+    prop,
+    themeKey: key,
+    complex: true,
+    styleType: 'complex'
   }
 
   return fn

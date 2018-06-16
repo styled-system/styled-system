@@ -4,4 +4,5 @@ module.exports = [
   'system-components',
   'system-classnames',
   'system-loader',
+  'system-docs',
 ]
