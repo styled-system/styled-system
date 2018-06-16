@@ -32,12 +32,12 @@ test('returns metadata for multiple propTypes', t => {
       prop: 'textStyle',
       themeKey: 'textStyles',
       complex: true,
-      description: undefined
+      styleType: 'complex',
     },
     fontFamily: {
       prop: 'fontFamily',
       themeKey: 'fonts',
-      description: undefined
+      styleType: 'default',
     }
   })
 })
@@ -82,7 +82,7 @@ test('returns a full metadata object', t => {
     prop: 'color',
     themeKey: 'colors',
     responsive: true,
-    description: undefined
+    styleType: 'responsive',
   })
 })
 

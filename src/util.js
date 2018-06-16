@@ -88,6 +88,7 @@ export const style = ({
   fn.propTypes[prop].meta = {
     prop,
     themeKey: key,
+    styleType: 'default'
   }
   return fn
 }
@@ -138,7 +139,8 @@ export const responsiveStyle = ({
   fn.propTypes[prop].meta = {
     prop,
     themeKey: key,
-    responsive: true
+    responsive: true,
+    styleType: 'responsive'
   }
 
   return fn
@@ -177,7 +179,8 @@ export const pseudoStyle = ({
 
   fn.propTypes[prop].meta = {
     prop,
-    pseudo: true
+    pseudo: true,
+    styleType: 'pseudo'
   }
   return fn
 }
@@ -233,7 +236,8 @@ export const complexStyle = ({
   fn.propTypes[prop].meta = {
     prop,
     themeKey: key,
-    complex: true
+    complex: true,
+    styleType: 'complex'
   }
 
   return fn

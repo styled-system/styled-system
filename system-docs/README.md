@@ -23,9 +23,7 @@ Returns a `metadata` object with the following:
 - `propTypes`: an object of metadata for each propType with the following:
   - `prop`: name of the prop
   - `themeKey`: key used for value lookups in the `theme` object
-  - `responsive`: boolean only present for responsive styles
-  - `complex`: boolean only present for complex styles
-  - `pseudo`: boolean only present for pseudo styles
+  - `styleType`: (string) one of `default`, `responsive`, `complex`, or `pseudo`
 
 The object also includes all static properties of the component,
 including `defaultProp` and any other properties added manually, such as `displayName`.
