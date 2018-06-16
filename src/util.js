@@ -56,6 +56,8 @@ export const getValue = (val, getter, toPx) =>
     ? getter(val)
     : toPx ? px(val) : val
 
+export const cloneFunc = fn => (...args) => fn(...args)
+
 export const style = ({
   prop,         // react prop
   cssProperty,  // css property
@@ -79,7 +81,7 @@ export const style = ({
     return { [cssProperty]: value }
   }
   fn.propTypes = {
-    [prop]: propTypes.numberOrString,
+    [prop]: cloneFunc(propTypes.numberOrString),
   }
   if (alias) {
     fn.propTypes[alias] = propTypes.numberOrString
@@ -130,7 +132,7 @@ export const responsiveStyle = ({
 
   // add propTypes object to returned function
   fn.propTypes = {
-    [prop]: propTypes.responsive
+    [prop]: cloneFunc(propTypes.responsive)
   }
   if (alias) {
     fn.propTypes[alias] = propTypes.responsive
@@ -175,7 +177,7 @@ export const pseudoStyle = ({
     }
   }
   fn.propTypes = {
-    [prop]: PropTypes.object
+    [prop]: cloneFunc(PropTypes.object)
   }
 
   fn.propTypes[prop].meta = {

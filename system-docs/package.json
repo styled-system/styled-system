@@ -1,0 +1,16 @@
+{
+  "name": "system-docs",
+  "version": "1.0.0-0",
+  "description": "Parse metadata information from styled-system components",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc ava"
+  },
+  "keywords": [],
+  "author": "Brent Jackson",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "nyc": "^12.0.2"
+  }
+}
