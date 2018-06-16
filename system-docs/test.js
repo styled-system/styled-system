@@ -73,12 +73,12 @@ test('returns a full metadata object', t => {
   t.is(typeof meta, 'object')
   t.is(meta.tagName, 'div')
   t.deepEqual(meta.extensions, [])
-  t.truthy(typeof meta.propTypes.bg)
-  t.truthy(typeof meta.propTypes.width)
-  t.truthy(typeof meta.propTypes.m)
-  t.truthy(typeof meta.propTypes.mx)
-  t.truthy(typeof meta.propTypes.p)
-  t.deepEqual(meta.propsTypes.color, {
+  t.truthy(meta.propTypes.bg)
+  t.truthy(meta.propTypes.width)
+  t.truthy(meta.propTypes.m)
+  t.truthy(meta.propTypes.mx)
+  t.truthy(meta.propTypes.p)
+  t.deepEqual(meta.propTypes.color, {
     prop: 'color',
     themeKey: 'colors',
     responsive: true,
