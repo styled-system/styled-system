@@ -5,7 +5,6 @@
   "main": "dist/index",
   "scripts": {
     "prepublishOnly": "babel src -d dist",
-    "start": "x0 dev docs/App.js -o",
     "cover": "nyc report --reporter=html --reporter=lcov",
     "test": "nyc ava"
   },
