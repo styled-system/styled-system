@@ -8,6 +8,7 @@ import React from 'react'
 import { create as render } from 'react-test-renderer'
 import { isDOMComponent, isCompositeComponent } from 'react-dom/test-utils'
 import system from './src'
+import emotion from './src/emotion'
 
 // 😎
 const { StyleSheet } = __DO_NOT_USE_OR_YOU_WILL_BE_HAUNTED_BY_SPOOKY_GHOSTS
@@ -155,4 +156,10 @@ test('defaultProps are passed to extended components', t => {
   const json = render(<ExtendedBox />).toJSON()
   const css = getCSS()
   t.regex(css, /background-color:tomato/)
+})
+
+test('emotion returns a React component', t => {
+  const Box = emotion()
+  const box = render(<Box />).getInstance()
+  t.true(isCompositeComponent(box))
 })

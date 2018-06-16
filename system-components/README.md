@@ -3,7 +3,8 @@
 
 Create consistent design-system-driven React UI components
 
-Built with [styled-system][sys] & [styled-components][sc]
+Built with [styled-system][sys],
+with support for [styled-components][sc] & [emotion][emotion]
 
 [![Build Status][build-badge]][build]
 
@@ -18,6 +19,12 @@ const Box = system({
   p: 2,
   bg: 'blue'
 })
+```
+
+Or, to use with [emotion][emotion]:
+
+```js
+import system from 'system-components/emotion'
 ```
 
 ## Usage
@@ -113,6 +120,20 @@ const Bold = Text.extend`
 `
 ```
 
+## Using with other CSS-in-JS libraries
+
+The base `System` class can be used to create a system-components function for any CSS-in-JS library.
+
+```js
+import { System } from 'system-components'
+import cxs from 'cxs/component'
+
+const system = new System({
+  createComponent: type => (...args) => cxs(type)(...args)
+})
+
+export default system
+```
 
 ---
 
@@ -120,3 +141,4 @@ const Bold = Text.extend`
 
 [sys]: https://github.com/jxnblk/styled-system
 [sc]: https://github.com/styled-components/styled-components
+[emotion]: https://github.com/emotion-js/emotion
