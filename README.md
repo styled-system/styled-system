@@ -15,8 +15,8 @@ Design system utilities for [styled-components][sc] and other css-in-js librarie
 [coverage-badge]: https://img.shields.io/codecov/c/github/jxnblk/styled-system.svg?style=flat-square
 [coverage]: https://codecov.io/github/jxnblk/styled-system
 
-[downloads-badge]: https://img.shields.io/npm/dw/styled-system.svg
-[version-badge]: https://img.shields.io/npm/v/styled-system.svg
+[downloads-badge]: https://img.shields.io/npm/dw/styled-system.svg?style=flat-square
+[version-badge]: https://img.shields.io/npm/v/styled-system.svg?style=flat-square
 [npm]: https://npmjs.com/package/styled-system
 
 ```sh
