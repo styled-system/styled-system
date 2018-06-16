@@ -5,6 +5,8 @@
 
 Parses metadata from [system-components][components] for documentation.
 
+**Requires components built with system-components >2.2.0**
+
 ```sh
 npm i -D system-docs
 ```
