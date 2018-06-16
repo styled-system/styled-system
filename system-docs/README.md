@@ -31,14 +31,3 @@ The object also includes all static properties of the component,
 including `defaultProp` and any other properties added manually, such as `displayName`.
 
 [components]: ../system-components
-<!--
-- displayName?
-- tagName
-- extensions
-- defaultProps
-- propTypes
-  - description
-  - href
-  - responsive?
-  - themeField
--->

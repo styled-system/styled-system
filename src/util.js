@@ -64,8 +64,7 @@ export const style = ({
   alias,        // shorthand alias for react prop
   key,          // key for theme object
   getter,       // accessor function for converting values
-  numberToPx,
-  description,
+  numberToPx
 }) => {
   const fn = props => {
     cssProperty = cssProperty || prop
@@ -89,7 +88,6 @@ export const style = ({
   fn.propTypes[prop].meta = {
     prop,
     themeKey: key,
-    description
   }
   return fn
 }
@@ -100,8 +98,7 @@ export const responsiveStyle = ({
   alias,
   key,
   getter,
-  numberToPx,
-  description,
+  numberToPx
 }) => {
   const fn = props => {
     cssProperty = cssProperty || prop
@@ -141,8 +138,7 @@ export const responsiveStyle = ({
   fn.propTypes[prop].meta = {
     prop,
     themeKey: key,
-    responsive: true,
-    description,
+    responsive: true
   }
 
   return fn
@@ -154,8 +150,7 @@ export const pseudoStyle = ({
   pseudoclass,
   keys = {},
   getters = {},
-  numberToPx = {},
-  description,
+  numberToPx = {}
 }) => {
   const fn = props => {
     const style = props[prop] || props[alias]
@@ -182,8 +177,7 @@ export const pseudoStyle = ({
 
   fn.propTypes[prop].meta = {
     prop,
-    pseudo: true,
-    description,
+    pseudo: true
   }
   return fn
 }
@@ -203,8 +197,7 @@ const getBooleans = props => {
 export const complexStyle = ({
   prop,
   key,
-  alias,
-  description,
+  alias
 }) => {
   const fn = props => {
     let style = get(props,
@@ -240,8 +233,7 @@ export const complexStyle = ({
   fn.propTypes[prop].meta = {
     prop,
     themeKey: key,
-    complex: true,
-    description,
+    complex: true
   }
 
   return fn

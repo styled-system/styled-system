@@ -88,5 +88,5 @@ test('returns a full metadata object', t => {
 
 test('returns an empty object for invalid components', t => {
   const meta = parse({ notAComponent: 'derp' })
-  t.isDeepEqual(meta, {})
+  t.deepEqual(meta, {})
 })
