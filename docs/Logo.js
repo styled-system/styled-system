@@ -139,7 +139,7 @@ const Path = {
   }),
 }
 
-export default ({
+const Logo = ({
   size = 256,
   blend = 'multiply',
   styles // for scrs svg output
@@ -160,3 +160,9 @@ export default ({
     <Path.C />
   </svg>
 )
+
+Logo.defaultProps = {
+  fullWidth: true
+}
+
+export default Logo
