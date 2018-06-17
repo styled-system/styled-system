@@ -1,3 +1,6 @@
+---
+ignore: true
+---
 
 (previously from the main readme)
 

@@ -1,3 +1,6 @@
+---
+ignore: true
+---
 
 # Creating Components
 

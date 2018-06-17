@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - 8
+  - 10
 install:
   - npm i
   - npm run pkg:prepare
@@ -10,14 +10,13 @@ script:
 after_success:
   - npm run cover
 before_deploy:
-  - cd docs
   - npm install
-  - npm run build
-  - cp logo.png dist
+  - npm run docs
+  - cp docs/logo.png site
 deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GH_TOKEN
-  local_dir: docs/dist
+  local_dir: site
   on:
     branch: master
