@@ -12,18 +12,19 @@ import { Link } from 'react-router-dom'
 import Logo from './Logo'
 
 const stops = [
-  80,
-  85,
-  90,
-  95,
-].map(s => s + 'vw')
+  // 90, 80, 70, 60
+  30,
+  25,
+  20,
+  15
+].map(s => `calc(100% - ${s}%)`)
 const colors = [
   1/16,
   1/8,
   1/4,
   3/8,
 ].map(n => `rgba(255, 0, 255, ${n})`)
-const gradient = `linear-gradient(135deg,
+const gradient = `linear-gradient(150deg,
   transparent ${stops[0]},
   ${colors.map((color, i) => `${color} ${stops[i]}, ${color} ${stops[i + 1] || ''}`).join(', ')}
 )`

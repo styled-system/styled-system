@@ -12,9 +12,11 @@ export default class extends React.Component {
       'getting-started',
       'responsive-styles',
       'how-it-works',
-      'api',
+      'API',
       'table',
       'custom-props',
+      'troubleshooting',
+      'Logo',
     ]
   }
 
