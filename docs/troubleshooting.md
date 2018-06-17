@@ -3,7 +3,7 @@
 
 ## Unknown attribute warnings in React 16
 
-To remove styled-system style props from the underlying DOM element, use either the [clean-tag](../clean-tag) or [clean-element](../clean-element) components when creating your styled-components.
+To remove styled-system style props from the underlying DOM element, use either the [clean-tag][clean-tag] or [clean-element][clean-element] components when creating your styled-components.
 
 If you want to extend clean-tag blacklist by custom props, just extend the original `blacklist` list adding the new props:
 
@@ -27,3 +27,5 @@ you might want to consider using a flatter or better organized folder structure 
 
 See https://github.com/jxnblk/grid-styled/issues/51#issuecomment-336116426
 
+[clean-tag]: https://github.com/jxnblk/styled-system/tree/master/clean-tag
+[clean-element]: https://github.com/jxnblk/styled-system/tree/master/clean-element

@@ -1,5 +1,5 @@
 
-## API
+# API
 
 - [Core](#core)
   - [space](#space-responsive) (margins & paddings)

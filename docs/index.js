@@ -7,19 +7,43 @@ import {
   Button,
   ButtonOutline,
 } from 'rebass'
+import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import Logo from './Logo'
 
+const stops = [
+  80,
+  85,
+  90,
+  95,
+].map(s => s + 'vw')
+const colors = [
+  1/16,
+  1/8,
+  1/4,
+  3/8,
+].map(n => `rgba(255, 0, 255, ${n})`)
+const gradient = `linear-gradient(135deg,
+  transparent ${stops[0]},
+  ${colors.map((color, i) => `${color} ${stops[i]}, ${color} ${stops[i + 1] || ''}`).join(', ')}
+)`
+
+const Hero = styled(Box)([], {
+  minHeight: '100vh',
+  backgroundSize: '100vw 100vh',
+  backgroundImage: gradient
+})
 
 export default class extends React.Component {
   static defaultProps = {
+    // fullWidth: true,
     layout: './_home-layout.js'
   }
 
   render () {
     return (
       <React.Fragment>
-        <Box py={[ 5, 6, 7 ]} color='white' bg='black'>
+        <Hero py={[ 5, 6, 7 ]} color='white' bg='black'>
           <Flex alignItems='center' justifyContent='center'>
             <Flex
               flexWrap='wrap'
@@ -44,8 +68,8 @@ export default class extends React.Component {
                   px={3}
                   py={3}
                   mr={3}
-                  color='black'
-                  bg='white'>
+                  color='white'
+                  bg='magenta'>
                   Documentation
                 </Button>
                 <Button
@@ -53,13 +77,15 @@ export default class extends React.Component {
                   href='https://github.com/jxnblk/styled-system'
                   px={3}
                   py={3}
-                  color='white'>
+                  color='white'
+                  bg='rgba(255, 0, 255, 0.5)'
+                >
                   GitHub
                 </Button>
               </Box>
             </Flex>
           </Flex>
-        </Box>
+        </Hero>
       </React.Fragment>
     )
   }

@@ -5,6 +5,7 @@ import theme from './_theme'
 
 export default class extends React.Component {
   static defaultProps = {
+    theme,
     title: 'Styled System',
     navOrder: [
       'Home',
@@ -20,12 +21,12 @@ export default class extends React.Component {
   render () {
     const { children } = this.props
     return (
-      <Provider theme={theme}>
+      <React.Fragment>
         <Head>
           <title>Styled System</title>
         </Head>
         {children}
-      </Provider>
+      </React.Fragment>
     )
   }
 }
