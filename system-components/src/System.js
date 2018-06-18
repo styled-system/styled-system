@@ -64,9 +64,9 @@ class System {
 
       const Component = createComponent(div)(css, ...funcs)
 
-      const isProps = util.get(defaultProps, 'is.defaultProps', {})
+      const baseProps = util.get(defaultProps, 'is.defaultProps', {})
       Component.defaultProps = {
-        ...isProps,
+        ...baseProps,
         ...defaultProps
       }
       Component.propTypes = propTypes
