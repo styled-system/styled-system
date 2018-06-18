@@ -170,3 +170,12 @@ test('accepts a css prop for custom styling', t => {
   const css = getCSS()
   t.regex(css, /color:tomato/)
 })
+
+test('merges defaultProps from `is` prop component', t => {
+  const Base = system({ p: 3 })
+  const Ext = system({ is: Base })
+  const json = render(<Ext />).toJSON()
+  const css = getCSS()
+  t.is(Ext.defaultProps.p, 3)
+  t.regex(css, /padding:16px/)
+})

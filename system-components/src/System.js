@@ -1,5 +1,5 @@
 import React from 'react'
-import { styles } from 'styled-system'
+import { styles, util } from 'styled-system'
 import tag from 'clean-tag'
 
 const funcNames = Object.keys(styles)
@@ -64,7 +64,11 @@ class System {
 
       const Component = createComponent(div)(css, ...funcs)
 
-      Component.defaultProps = defaultProps
+      const baseProps = util.get(defaultProps, 'is.defaultProps', {})
+      Component.defaultProps = {
+        ...baseProps,
+        ...defaultProps
+      }
       Component.propTypes = propTypes
 
       return Component
