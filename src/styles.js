@@ -142,6 +142,10 @@ ratio.propTypes = {
   ...ratioPadding.propTypes
 }
 
+export const verticalAlign = style({
+  prop: 'verticalAlign'
+})
+
 // flexbox
 export const alignItems = responsiveStyle({
   prop: 'alignItems',
