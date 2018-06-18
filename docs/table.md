@@ -19,7 +19,6 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 `fontSize`    | `fontSize` |`font-size`      |`fontSizes`   | yes
 `color`       | `color`    | `color`         | `colors`     | yes
 `color`       | `bg`       | `background-color`| `colors`   | yes
-`opacity`     | `opacity` `o` | `opacity`    | `opacity`    | yes
 
 ## Typography
 
@@ -97,6 +96,7 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 `borders` | `borderBottom` | `border-bottom` | `borders` | yes
 `borders` | `borderLeft` | `border-left` | `borders` | yes
 `boxShadow` | `boxShadow` | `box-shadow` | `shadows` | no
+`opacity`   | `opacity` `o` | `opacity`  | `opacity` | yes
 
 ## Position
 

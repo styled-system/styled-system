@@ -8,7 +8,6 @@ export {
   textColor,
   bgColor,
   color,
-  opacity,
   // typography
   fontFamily,
   textAlign,
@@ -62,6 +61,7 @@ export {
   backgroundSize,
   backgroundPosition,
   backgroundRepeat,
+  opacity,
   // position
   position,
   zIndex,

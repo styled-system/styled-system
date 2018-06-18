@@ -44,8 +44,7 @@ color.propTypes = {
 }
 
 export const opacity = responsiveStyle({
-  prop: 'opacity',
-  alias: 'o',
+  prop: 'opacity'
 })
 
 // typography
