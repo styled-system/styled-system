@@ -36,6 +36,7 @@
     "bundlesize": "^0.17.0",
     "codecov": "^3.0.2",
     "is-ci": "^1.1.0",
+    "lodash.sortby": "^4.7.0",
     "nyc": "^12.0.2",
     "react": "^16.4.0",
     "react-test-renderer": "^16.4.0",
@@ -73,6 +74,15 @@
     "prop-types": "^15.6.0"
   },
   "x0": {
-    "basename": "/styled-system"
+    "title": "Styled System",
+    "basename": "/styled-system",
+    "meta": [
+      { "name": "twitter:card", "content": "summary" },
+      { "name": "twitter:site", "content": "@jxnblk" },
+      { "name": "twitter:image", "content": "https://jxnblk.com/styled-system/logo.png" },
+      { "name": "twitter:title", "content": "Styled System" },
+      { "name": "twitter:description", "content": "Design system utilities for styled-components, glamorous, and other css-in-js libraries" },
+      { "name": "description", "content": "Design system utilities for styled-components, glamorous, and other css-in-js libraries" }
+    ]
   }
 }

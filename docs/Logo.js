@@ -162,7 +162,7 @@ const Logo = ({
 )
 
 Logo.defaultProps = {
-  fullWidth: true
+  ignore: true
 }
 
 export default Logo

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Provider, theme as rebassTheme } from 'rebass'
 import { SidebarLayout } from '@compositor/x0/components'
+import sortBy from 'lodash.sortby'
 import { description } from '../package.json'
 import Logo from './Logo'
 
@@ -19,24 +20,20 @@ const navOrder = [
   'api',
   'table',
   'custom-props',
-  'troubleshooting',
-  'Logo',
+  'troubleshooting'
 ]
 
 const createNav = routes => [
-  ...[...routes]
+  ...sortBy([...routes]
     .map(route => {
       if (route.name !== 'index') return route
       return {
         ...route,
         name: 'Home'
       }
-    })
-    .sort((a, b) => {
-      const ai = navOrder.indexOf(a.name)
-      const bi = navOrder.indexOf(b.name)
-      if (ai < 0) return 1
-      return ai - bi
+    }), a => {
+      const index = navOrder.indexOf(a.name)
+      return index < 0 ? Infinity : index
     }),
   {
     key: 'github',
@@ -59,6 +56,7 @@ export default class extends React.Component {
     const { route, routes, children } = this.props
     const { layout } = (route && route.props) || {}
     const nav = createNav(routes)
+    console.log(nav)
 
     return (
       <Provider theme={theme}>
@@ -74,21 +72,5 @@ export default class extends React.Component {
 
     if (layout === false) return children
     return <SidebarLayout {...this.props} />
-
-    /*
-    return (
-      <React.Fragment>
-        <Head>
-          <title>Styled System</title>
-          <meta name='twitter:card' content='summary' />
-          <meta name='twitter:site' content='@jxnblk' />
-          <meta name='twitter:image' content='https://jxnblk.com/styled-system/logo.png' />
-          <meta name='twitter:title' content='Styled System' />
-          <meta name='twitter:description' content={description} />
-        </Head>
-        {children}
-      </React.Fragment>
-    )
-    */
   }
 }
