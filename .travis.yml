@@ -1,6 +1,22 @@
 language: node_js
 node_js:
-  - 7
-  - 8
+  - 10
+install:
+  - npm i
+  - npm run pkg:prepare
+script:
+  - npm t
+  - npm run pkg:test
 after_success:
   - npm run cover
+before_deploy:
+  - npm install
+  - npm run docs
+  - cp docs/logo.png site
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GH_TOKEN
+  local_dir: site
+  on:
+    branch: master

@@ -1,18 +1,22 @@
-const breakpoints = [
-  40,
-  52,
-  64
+export const breakpoints = [
+  '40em',
+  '52em',
+  '64em'
 ]
 
-const scale = [
+export const space = [
   0,
+  4,
   8,
   16,
   32,
-  64
+  64,
+  128,
+  256,
+  512
 ]
 
-const fontSizes = [
+export const fontSizes = [
   12,
   14,
   16,
@@ -24,8 +28,8 @@ const fontSizes = [
   72
 ]
 
-module.exports = {
+export default {
   breakpoints,
-  scale,
-  fontSizes,
+  space,
+  fontSizes
 }

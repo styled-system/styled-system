@@ -1,26 +1,80 @@
+
+<img src='docs/logo.svg' width='128' height='128' />
+
 # styled-system
 
-Design system utilities for styled-components, glamorous, and other css-in-js libraries
+Design system utilities for [styled-components][sc] and other css-in-js libraries
 
 [![Build Status][build-badge]][build]
 [![Coverage][coverage-badge]][coverage]
+[![Downloads][downloads-badge]][npm]
+[![Version][version-badge]][npm]
 
 [build-badge]: https://img.shields.io/travis/jxnblk/styled-system/master.svg?style=flat-square
 [build]: https://travis-ci.org/jxnblk/styled-system
 [coverage-badge]: https://img.shields.io/codecov/c/github/jxnblk/styled-system.svg?style=flat-square
 [coverage]: https://codecov.io/github/jxnblk/styled-system
 
+[downloads-badge]: https://img.shields.io/npm/dw/styled-system.svg?style=flat-square
+[version-badge]: https://img.shields.io/npm/v/styled-system.svg?style=flat-square
+[npm]: https://npmjs.com/package/styled-system
+
 ```sh
 npm i styled-system
 ```
 
+## Features
+
+- Add style props that hook into your own theme
+- Responsive prop values for quickly setting responsive font-size, margin, padding, width, and more
+- Influenced by constraint-based design system principles
+- Typographic scale
+- Spacing scale for margin and padding
+- Default 8px grid
+- Works with any color palette
+- Works with most css-in-js libraries, including [styled-components][sc], [glamorous][glamorous], [emotion][emotion], [fela][fela], and [cxs][cxs]
+- Used in [Rebass](http://jxnblk.com/rebass), [Grid Styled](http://jxnblk.com/grid-styled/), and the [Priceline Design System](https://github.com/pricelinelabs/design-system)
+
+> "This is honestly my favourite way to build UI components right now ![party parrot][party-parrot]"
+>
+> – [Varun Vachhar][varun-post]
+
+[party-parrot]: https://github.com/jmhobbs/cultofthepartyparrot.com/raw/master/parrots/parrot.gif
+
+<!--
+> "Fantastic set of tools that offer the ease and API of tachyons/functional CSS but, are way more customisable."
+>
+> – [Varun Vachhar](https://mobile.twitter.com/winkerVSbecks/status/955619873463431168)
+-->
+
+> "The future of css-in-js is going to look something like styled-system with its responsive values."<br/>
+>
+> – [Kye Hohenberger](https://mobile.twitter.com/tkh44/status/905474043729416192)
+
+> "Coming from @tachyons_css, the styled-system utilities from @jxnblk is the missing link I’ve been looking for."<br/>
+>
+> – [Nathan Young](https://mobile.twitter.com/nathanyoung/status/891353221880360960)
+
+> "If you make websites/apps with React check out Styled System if you haven't already. You will be amazed at how much faster you can build."
+>
+> – [David Yeiser][david-tweet]
+
+### Table of Contents
+
+- [Usage](#usage)
+- [Getting Started](#getting-started)
+- [Docs](#docs)
+- [Optional Packages](#optional-packages)
+- [Related](#related)
+
 ## Usage
 
 ```jsx
-// With styled-components
+// Example uses styled-components, but styled-system works with most other css-in-js libraries as well
 import styled from 'styled-components'
 import { space, width, fontSize, color } from 'styled-system'
 
+// Add styled-system functions to your component
 const Box = styled.div`
   ${space}
   ${width}
@@ -29,34 +83,38 @@ const Box = styled.div`
 `
 ```
 
-```jsx
-// Or with glamorous
-import glamorous from 'glamorous'
-import { space, width, fontSize, color } from 'styled-system'
-
-const Box = glamorous.div(space, width, fontSize, color)
-```
+Each style function exposes its own set of component props
+that handle styles based on values defined in a theme.
 
 ```jsx
 // width: 50%
 <Box width={1/2} />
 
-// font-size: 20px
+// font-size: 20px (theme.fontSizes[4])
 <Box fontSize={4} />
 
-// margin: 16px
+// margin: 16px (theme.space[2])
 <Box m={2} />
 
-// padding: 32px
+// padding: 32px (theme.space[3])
 <Box p={3} />
 
 // color
 <Box color='tomato' />
+
+// color: #333 (theme.colors.gray[0])
 <Box color='grays.0' />
 
 // background color
 <Box bg='tomato' />
+```
 
+## Responsive Style Props
+
+Set responsive width, margin, padding, font-size, and other properties with a shorthand array syntax.
+[Read more](docs/responsive-styles)
+
+```jsx
 // responsive width
 <Box width={[ 1, 1/2, 1/4 ]} />
 
@@ -70,226 +128,92 @@ const Box = glamorous.div(space, width, fontSize, color)
 <Box p={[ 1, 2, 3 ]} />
 ```
 
-## width
+To learn more, see the [Getting Started](docs/getting-started.md) guide or read the docs.
 
-```js
-import { width } from 'styled-system'
-```
+<!-- link shims for previous readme -->
+<a name='getting-started'></a>
+<a name='how-it-works'></a>
+<a name='responsive-styles'></a>
+<a name='api'></a>
+<a name='system-components'></a>
+<a name='default-theme'></a>
+<a name='troubleshooting'></a>
+<a name='cleanelement'></a>
 
-The width utility parses a component's `width` prop and converts it into a CSS width declaration.
-
-Numbers from 0-1 are converted to percentage widths.
-Numbers greater than 1 are converted to pixel values.
-String values are passed as raw CSS values.
-And arrays are converted to [responsive width styles](#responsive-styles).
-
-## fontSize
-
-```js
-import { fontSize } from 'styled-system'
-```
-
-The fontSize utility parses a component's `fontSize` prop and converts it into a CSS font-size declaration.
-Numbers from 0-8 are converted to values on the [font size scale](#font-size-scale).
-Numbers greater than 8 are converted to raw pixel values.
-String values are passed as raw CSS values.
-And array values are converted into [responsive values](#responsive-styles).
-
-## space
-
-```js
-import { space } from 'styled-system'
-```
-
-The space utility converts shorthand margin and padding props to margin and padding CSS declarations.
-Numbers from 0-4 are converted to values on the [spacing scale](#spacing-scale).
-Negative values can be used for negative margins.
-Numbers greater than 4 are converted to raw pixel values.
-String values are converted passed as raw CSS values.
-And array values are converted into [responsive values](#responsive-styles).
-
-Margin and padding props follow a shorthand syntax for specifying direction.
-
-- `m`:  margin
-- `mt`: margin-top
-- `mr`: margin-right
-- `mb`: margin-bottom
-- `ml`: margin-left
-- `mx`: margin-left and margin-right
-- `my`: margin-top and margin-bottom
-- `p`:  padding
-- `pt`: padding-top
-- `pr`: padding-right
-- `pb`: padding-bottom
-- `pl`: padding-left
-- `px`: padding-left and padding-right
-- `py`: padding-top and padding-bottom
-
-## color
-
-```js
-import { color } from 'styled-system'
-```
-
-The color utility parses a component's `color` and `bg` props and converts them into CSS declarations.
-By default the raw value of the prop is returned.
-Color palettes can be configured with the [ThemeProvider](#configuration) to use keys as prop values, with support for dot notation.
-Array values are converted into [responsive values](#responsive-styles).
+## Docs
 
 
-## Responsive Styles
+- [Getting Started](docs/getting-started.md)
+- [Responsive Styles](docs/responsive-styles.md)
+- [How it Works](docs/how-it-works.md)
+- [API](docs/api.md)
+  - [Core](docs/api.md#core)
+    - [space](docs/api.md#space-responsive) (margins & paddings)
+    - [width](docs/api.md#width-responsive)
+    - [fontSize](docs/api.md#fontsize-responsive)
+    - [color](docs/api.md#color-responsive) (and background-color)
+  - [Typography](docs/api.md#typography)
+  - [Layout](docs/api.md#layout)
+  - [Flexbox](docs/api.md#flexbox)
+  - [Borders](docs/api.md#borders)
+  - [Position](docs/api.md#position)
+  - [Misc](docs/api.md#misc)
+  - [Pseudo-classes](docs/api.md#pseudo-classes)
+  - [Complex styles](docs/api.md#complex-styles)
+  - [Utilities](docs/api.md#utilities)
+    - [themeGet](docs/api.md#themeget)
+    - [propTypes](docs/api.md#proptypes)
+  - [Customize](docs/api.md#customize)
+    - [style](docs/api.md#style)
+    - [responsiveStyle](docs/api.md#responsivestyle)
+    - [pseudoStyle](docs/api.md#pseudostyle)
+    - [complexStyle](docs/api.md#complexstyle)
+  - [Default Theme](docs/api.md#default-theme)
+- [Table of Style Functions](docs/table.md)
+- [Custom Props](docs/custom-props.md)
+- [Troubleshooting](docs/troubleshooting.md)
 
-All props accept arrays as values for mobile-first responsive styles.
+## Optional Packages
 
-```jsx
-// 100% below the smallest breakpoint,
-// 50% from the next breakpoint and up,
-// and 25% from the next breakpoint and up
-<Box w={[ 1, 1/2, 1/4 ]} />
+- [clean-tag](clean-tag)
+- [system-components](system-components)
+- [system-loader](system-loader)
+- [system-classnames](system-classnames)
+- [clean-element](clean-element)
 
-// responsive font size
-<Box fontSize={[ 1, 2, 3, 4 ]} />
+---
 
-// responsive margin
-<Box m={[ 1, 2, 3, 4 ]} />
+## Further Reading
 
-// responsive padding
-<Box p={[ 1, 2, 3, 4 ]} />
-```
+- [Component Based Design System With Styled-System][varun-post]
 
-## responsiveStyle
-
-The `responsiveStyle` utility can be used to handle array-based responsive style props for other CSS properties.
-
-```js
-import styled from 'styled-components'
-import { responsiveStyle } from 'styled-system'
-
-// Usage
-// responsiveStyle(cssProperty[, propName][, booleanValue])
-
-const Flex = styled.div`
-  display: flex;
-  ${responsiveStyle('flex-direction', 'direction')}
-`
-
-const App = props => (
-  <Flex direction={[ 'column', 'row' ]}>
-    <div>Responsive</div>
-    <div>Direction</div>
-  </Flex>
-)
-```
-
-## Remove Props
-
-Styled-components attempts to remove invalid HTML attributes from props,
-but does not remove `width`, `fontSize`, or `color`.
-When using styled-system with other CSS-in-JS libraries,
-it can also be helpful to remove style props.
-To ensure style props are not passed to the element, a `removeProps`
-utility can be used.
-
-```jsx
-import React from 'react'
-import styled from 'styled-components'
-import {
-  width,
-  fontSize,
-  space,
-  removeProps
-} from 'styled-system'
-
-const BaseComponent = props => {
-  const next = removeProps(props)
-  return <div {...next} />
-}
-
-const Component = styled(BaseComponent)([],
-  width,
-  fontSize,
-  space
-)
-```
-
-## Breakpoints
-
-styled-system uses a mobile-first responsive approach,
-where any value set works from that breakpoint and wider.
-The default set of breakpoints aims to cover a wide range of devices from mobile to desktop.
-Breakpoints can be customized using styled-components' [ThemeProvider](#configuration).
-
-```js
-[ 40, 52, 64 ]
-// @media screen and (min-width: 40em)
-// @media screen and (min-width: 52em)
-// @media screen and (min-width: 64em)
-```
-
-## Font Size Scale
-
-Using a typographic scale helps create visual rhythm and reduces the
-number of decisions needed when designing UI.
-Styled system uses a modular scale that covers most of a UI's needs,
-but it can be customized with styled-components' [ThemeProvider](#configuration).
-
-```js
-[ 12, 14, 16, 20, 24, 32, 48, 64, 72 ]
-```
-
-## Spacing Scale
-
-Using a scale for spacing helps ensure elements line up, even when nested inside one another.
-styled-system uses a spacing scale based on an 8px, powers-of-two grid for margin and padding
-by default and can be customized with styled-components' [ThemeProvider](#configuration).
-
-```js
-[ 0, 8, 16, 32, 64 ]
-```
-
-## Configuration
-
-styled-system can be configured with styled-components'
-[ThemeProvider](https://www.styled-components.com/docs/advanced#theming)
-
-```jsx
-import { ThemeProvider } from 'styled-components'
-// or import { ThemeProvider } from 'glamorous'
-import MyComponent from './MyComponent'
-
-const theme = {
-  breakpoints: [
-    32, 48, 64
-  ],
-  space: [
-    0, 6, 12, 18, 24
-  ],
-  fontSizes: [
-    12, 16, 18, 24, 36, 72
-  ],
-  colors: {
-    black: '#111',
-    blue: '#07c',
-  }
-}
-
-const App = props => (
-  <ThemeProvider theme={theme}>
-    <MyComponent
-      fontSize={4}
-      my={[ 2, 3 ]}
-      color='blue'
-    />
-  </ThemeProvider>
-)
-```
 
 ## Related
 
+- [system-components](https://github.com/jxnblk/system-components)
 - [grid-styled](https://github.com/jxnblk/grid-styled)
 - [Rebass](http://jxnblk.com/rebass)
-- [styled-components](https://github.com/styled-components/styled-components)
-- [glamorous](https://github.com/paypal/glamorous)
+- [Compositor Lab](https://compositor.io/lab)
+- [styled-components][sc]
+- [glamorous][glamorous]
+- [emotion][emotion]
+- [fela][fela]
+- [nano-style][nano-style]
+- [cxs][cxs]
 
-MIT License
+[sc]: https://github.com/styled-components/styled-components
+[glamorous]: https://github.com/paypal/glamorous
+[emotion]: https://github.com/emotion-js/emotion
+[fela]: https://github.com/rofrischmann/fela
+[nano-style]: https://github.com/jxnblk/nano-style
+[cxs]: https://github.com/jxnblk/cxs
+[varun-post]: https://varun.ca/styled-system/
+[david-tweet]: https://mobile.twitter.com/davidyeiser/status/965920740582285312
 
+<!-- new links -->
+[cole-tweet]: https://mobile.twitter.com/colebemis/status/996565848138526721
+[mrmrs-elements]: https://github.com/mrmrs/elements
+[broccs-react-starter]: https://github.com/broccolini/react-website-starter
+[dalgleish]: https://mobile.twitter.com/markdalgleish/status/913191186944241665
+
+[MIT License](LICENSE.md)

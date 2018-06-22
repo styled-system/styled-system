@@ -1,0 +1,40 @@
+{
+  "components": [
+    {
+      "name": "Box",
+      "styles": [
+        "space",
+        "width",
+        "color",
+        "flex"
+      ]
+    },
+    {
+      "name": "Heading",
+      "type": "h2",
+      "props": {
+        "m": 0,
+        "fontSize": 32,
+        "color": "tomato"
+      },
+      "styles": []
+    },
+    {
+      "name": "Button",
+      "type": "button",
+      "props": {
+        "fontFamily": "inherit",
+        "fontSize": "inherit",
+        "m": 0,
+        "px": 3,
+        "py": 2,
+        "color": "white",
+        "bg": "#07c",
+        "borderRadius": 4,
+        "border": 0
+      },
+      "css": "appearance:none;",
+      "styles": []
+    }
+  ]
+}

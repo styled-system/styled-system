@@ -1,0 +1,14 @@
+{
+  "name": "clean",
+  "private": true,
+  "scripts": {
+    "start": "x0 dev App.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@compositor/x0": "^3.2.1",
+    "clean-tag": "^1.0.3",
+    "styled-components": "^3.1.6",
+    "styled-system": "^2.1.0"
+  }
+}

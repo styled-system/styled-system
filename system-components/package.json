@@ -1,0 +1,48 @@
+{
+  "name": "system-components",
+  "version": "2.2.1",
+  "description": "Create consistent design-system-driven React UI components",
+  "main": "dist/index",
+  "scripts": {
+    "prepublishOnly": "babel src -d dist",
+    "cover": "nyc report --reporter=html --reporter=lcov",
+    "test": "nyc ava"
+  },
+  "keywords": [
+    "react",
+    "components",
+    "styled-system",
+    "styled-components",
+    "emotion",
+    "design-system",
+    "theme",
+    "css-in-js"
+  ],
+  "author": "Brent Jackson",
+  "license": "MIT",
+  "dependencies": {
+    "clean-tag": "^1.0.4",
+    "styled-system": "^2.3.1"
+  },
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "emotion": "^9.2.3",
+    "nyc": "^12.0.2",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-emotion": "^9.2.3",
+    "react-test-renderer": "^16.4.1",
+    "styled-components": "^3.3.2"
+  },
+  "ava": {
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
+  }
+}

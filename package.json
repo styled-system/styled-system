@@ -1,16 +1,21 @@
 {
   "name": "styled-system",
-  "version": "1.0.0-11",
+  "version": "2.3.1",
   "description": "Design system utilities for styled-components, glamorous, and other css-in-js libraries",
   "main": "dist/index.js",
   "scripts": {
-    "prepublish": "babel src -d dist",
-    "start": "webpack-dev-server",
-    "build": "NODE_ENV=production webpack -p",
-    "bench": "node bench",
+    "prepare": "babel src -d dist",
+    "start": "ok docs",
+    "docs": "ok build docs -d site",
+    "logo": "repng docs/Logo.js -d docs -f logo.png -w 512 -h 512 -p '{\"size\":512}'",
+    "logo-svg": "scrs docs/Logo.js --svg > docs/logo.svg",
     "size": "bundlesize",
     "cover": "nyc report --reporter=html --reporter=lcov > coverage.lcov && codecov",
-    "test": "nyc ava"
+    "test": "nyc ava",
+    "bench": "node bench",
+    "pkg:clean": "node scripts/clean",
+    "pkg:test": "node scripts/test",
+    "pkg:prepare": "node scripts/run install"
   },
   "keywords": [
     "react",
@@ -21,38 +26,53 @@
   "author": "Brent Jackson",
   "license": "MIT",
   "devDependencies": {
-    "ava": "^0.19.1",
+    "ava": "^0.25.0",
     "babel-cli": "^6.24.1",
-    "babel-core": "^6.25.0",
-    "babel-loader": "^7.0.0",
-    "babel-preset-env": "^1.5.2",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.24.1",
     "benchmark": "^2.1.4",
-    "bundlesize": "^0.13.2",
-    "codecov": "^2.2.0",
-    "funcup": "^1.0.0-0",
-    "grid-styled": "^2.0.0-2",
-    "microtime": "^2.1.6",
-    "nyc": "^11.0.3",
-    "palx": "^1.0.2",
-    "react": "^15.6.0",
-    "react-dom": "^15.6.0",
-    "react-live": "^1.6.1",
-    "react-test-renderer": "^15.5.4",
-    "react-x-ray": "^1.0.0-2",
-    "styled-components": "^2.1.0",
-    "webpack": "^2.6.1",
-    "webpack-dev-server": "^2.4.5"
+    "bundlesize": "^0.17.0",
+    "codecov": "^3.0.2",
+    "is-ci": "^1.1.0",
+    "nyc": "^12.0.2",
+    "ok-docs": "^1.0.0-11",
+    "react": "^16.4.0",
+    "react-test-renderer": "^16.4.0",
+    "rebass": "^2.0.0-7",
+    "repng": "^3.0.0",
+    "scrs": "^1.1.0",
+    "sinon": "^4.3.0",
+    "styled-components": "^3.3.2"
+  },
+  "ava": {
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
   },
   "nyc": {
     "ignore": [
       "test.js",
       "docs",
-      "bench"
+      "bench",
+      "examples"
     ]
   },
   "bundlesize": [
-    { "path": "dist/*.js" }
-  ]
+    {
+      "path": "dist/*.js"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jxnblk/styled-system.git"
+  },
+  "dependencies": {
+    "prop-types": "^15.6.0"
+  },
+  "ok": {
+    "basename": "/styled-system"
+  }
 }
