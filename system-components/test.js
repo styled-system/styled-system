@@ -164,6 +164,14 @@ test('emotion returns a React component', t => {
   t.true(isCompositeComponent(box))
 })
 
+test('emotion innerRef', t => {
+  const Box = emotion()
+  let ref = 'fooo'
+  const box = render(<Box innerRef={(node) => { ref = node }} />).getInstance()
+  t.true(isCompositeComponent(box))
+  t.not(ref, 'fooo')
+})
+
 test('accepts a css prop for custom styling', t => {
   const Box = system({})
   const json = render(<Box css='color:tomato;' />).toJSON()
