@@ -5,8 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "prepare": "babel src -d dist",
-    "start": "ok docs",
-    "docs": "ok build docs -d site",
+    "start": "x0 docs",
+    "docs": "x0 build docs -d site",
     "logo": "repng docs/Logo.js -d docs -f logo.png -w 512 -h 512 -p '{\"size\":512}'",
     "logo-svg": "scrs docs/Logo.js --svg > docs/logo.svg",
     "size": "bundlesize",
@@ -36,8 +36,8 @@
     "bundlesize": "^0.17.0",
     "codecov": "^3.0.2",
     "is-ci": "^1.1.0",
+    "lodash.sortby": "^4.7.0",
     "nyc": "^12.0.2",
-    "ok-docs": "^1.0.0-11",
     "react": "^16.4.0",
     "react-test-renderer": "^16.4.0",
     "rebass": "^2.0.0-7",
@@ -70,9 +70,19 @@
     "url": "git+https://github.com/jxnblk/styled-system.git"
   },
   "dependencies": {
+    "@compositor/x0": "^5.1.0-6",
     "prop-types": "^15.6.0"
   },
-  "ok": {
-    "basename": "/styled-system"
+  "x0": {
+    "title": "Styled System",
+    "basename": "/styled-system",
+    "meta": [
+      { "name": "twitter:card", "content": "summary" },
+      { "name": "twitter:site", "content": "@jxnblk" },
+      { "name": "twitter:image", "content": "https://jxnblk.com/styled-system/logo.png" },
+      { "name": "twitter:title", "content": "Styled System" },
+      { "name": "twitter:description", "content": "Design system utilities for styled-components, glamorous, and other css-in-js libraries" },
+      { "name": "description", "content": "Design system utilities for styled-components, glamorous, and other css-in-js libraries" }
+    ]
   }
 }

@@ -30,22 +30,24 @@ const gradient = `linear-gradient(150deg,
 )`
 
 const Hero = styled(Box)([], {
-  minHeight: '100vh',
   backgroundSize: '100vw 100vh',
   backgroundImage: gradient
 })
 
 export default class extends React.Component {
   static defaultProps = {
-    // fullWidth: true,
-    layout: './_home-layout.js'
+    layout: false
   }
 
   render () {
     return (
       <React.Fragment>
-        <Hero py={[ 5, 6, 7 ]} color='white' bg='black'>
-          <Flex alignItems='center' justifyContent='center'>
+        <Hero color='white' bg='black'>
+          <Flex
+            style={{ minHeight: '100vh' }}
+            py={[ 5, 6, 7 ]}
+            alignItems='center'
+            justifyContent='center'>
             <Flex
               flexWrap='wrap'
               alignItems='center'>
