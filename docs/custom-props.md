@@ -1,7 +1,7 @@
 
 # Custom Style Props
 
-To extend styled-system for other CSS properties that aren't included in the library, use the [custom utilities](api#customize) to create your own style functions.
+To extend styled-system for other CSS properties that aren't included in the library, use the [custom utilities](api.md#customize) to create your own style functions.
 
 All styled-system functions rely on these low-level utilities.
 
