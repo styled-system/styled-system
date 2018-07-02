@@ -112,7 +112,7 @@ that handle styles based on values defined in a theme.
 ## Responsive Style Props
 
 Set responsive width, margin, padding, font-size, and other properties with a shorthand array syntax.
-[Read more](docs/responsive-styles)
+[Read more](docs/responsive-styles.md)
 
 ```jsx
 // responsive width
