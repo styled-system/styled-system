@@ -1,6 +1,5 @@
 import * as styles from './styles'
 
-export * as styles from './styles'
 export {
   space,
   width,
