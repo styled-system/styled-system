@@ -1,6 +1,6 @@
 {
   "name": "system-components",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "Create consistent design-system-driven React UI components",
   "main": "dist/index",
   "scripts": {
