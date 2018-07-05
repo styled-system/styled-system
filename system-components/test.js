@@ -208,3 +208,14 @@ test('extends a non-system component and does not accept an is prop', t => {
   t.is(json.type, 'div')
   t.regex(css, /color:tomato/)
 })
+
+test('passes innerRef to underlying element', t => {
+  const Base = system({ p: 3 })
+  let foo = 'hello'
+  const instance = render(
+    <Base innerRef={ref => foo = ref} />
+  ).getInstance()
+  t.true(isCompositeComponent(instance))
+  t.not(foo, undefined)
+  t.not(foo, 'hello')
+})
