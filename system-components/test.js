@@ -216,6 +216,5 @@ test('passes innerRef to underlying element', t => {
     <Base innerRef={ref => foo = ref} />
   ).getInstance()
   t.true(isCompositeComponent(instance))
-  t.not(foo, undefined)
   t.not(foo, 'hello')
 })
