@@ -187,3 +187,34 @@ test('merges defaultProps from `is` prop component', t => {
   t.is(Ext.defaultProps.p, 3)
   t.regex(css, /padding:16px/)
 })
+
+test('extends components with the is prop and passes is prop to clean-tag', t => {
+  const Base = system({ p: 3 })
+  const Ext = system({ is: Base }, 'color')
+  const json = render(<Ext is='footer' p={3} bg='tomato' />).toJSON()
+  const css = getCSS()
+  t.is(json.type, 'footer')
+  t.regex(css, /background-color:tomato/)
+  t.regex(css, /padding:16px/)
+})
+
+test('extends a non-system component and does not accept an is prop', t => {
+  const Base = props => <div className='Base' {...props} />
+  const Ext = system({ is: Base }, 'color')
+  const json = render(
+    <Ext is='footer' color='tomato' />
+  ).toJSON()
+  const css = getCSS()
+  t.is(json.type, 'div')
+  t.regex(css, /color:tomato/)
+})
+
+test('passes innerRef to underlying element', t => {
+  const Base = system({ p: 3 })
+  let foo = 'hello'
+  const instance = render(
+    <Base innerRef={ref => foo = ref} />
+  ).getInstance()
+  t.true(isCompositeComponent(instance))
+  t.not(foo, 'hello')
+})
