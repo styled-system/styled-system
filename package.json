@@ -70,19 +70,37 @@
     "url": "git+https://github.com/jxnblk/styled-system.git"
   },
   "dependencies": {
-    "@compositor/x0": "^5.1.0-6",
+    "@compositor/x0": "^6.0.0-4",
     "prop-types": "^15.6.0"
   },
   "x0": {
     "title": "Styled System",
     "basename": "/styled-system",
     "meta": [
-      { "name": "twitter:card", "content": "summary" },
-      { "name": "twitter:site", "content": "@jxnblk" },
-      { "name": "twitter:image", "content": "https://jxnblk.com/styled-system/logo.png" },
-      { "name": "twitter:title", "content": "Styled System" },
-      { "name": "twitter:description", "content": "Design system utilities for styled-components, glamorous, and other css-in-js libraries" },
-      { "name": "description", "content": "Design system utilities for styled-components, glamorous, and other css-in-js libraries" }
+      {
+        "name": "twitter:card",
+        "content": "summary"
+      },
+      {
+        "name": "twitter:site",
+        "content": "@jxnblk"
+      },
+      {
+        "name": "twitter:image",
+        "content": "https://jxnblk.com/styled-system/logo.png"
+      },
+      {
+        "name": "twitter:title",
+        "content": "Styled System"
+      },
+      {
+        "name": "twitter:description",
+        "content": "Design system utilities for styled-components, glamorous, and other css-in-js libraries"
+      },
+      {
+        "name": "description",
+        "content": "Design system utilities for styled-components, glamorous, and other css-in-js libraries"
+      }
     ]
   }
 }
