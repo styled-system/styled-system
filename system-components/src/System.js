@@ -58,7 +58,10 @@ class System {
       }
       blacklist.push('css')
 
-      const div = props => React.createElement(tag, props)
+      const Base = defaultProps && typeof defaultProps.is === 'function'
+        ? defaultProps.is
+        : tag
+      const div = props => React.createElement(Base, props)
       div.defaultProps = { blacklist }
       div.styledComponentId = 'lol' // Trick styled-components into passing innerRef
 
