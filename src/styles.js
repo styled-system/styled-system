@@ -1,63 +1,58 @@
-import * as util from './util'
 import {
   style,
-  pseudoStyle,
-  responsiveStyle,
-  complexStyle,
-  getWidth,
-  merge
+  num,
+  px,
+  compose
 } from './util'
+
+// - [x] remove alias
+// - [ ] remove numberToPx
+
+const getWidth = n => !num(n) || n > 1 ? px(n) : (n * 100) + '%'
 
 // core
 export { default as space } from './space'
 
-export const width = responsiveStyle({
+
+export const width = style({
   prop: 'width',
-  alias: 'w',
   getter: getWidth
 })
 
-export const fontSize = responsiveStyle({
+export const fontSize = style({
   prop: 'fontSize',
-  alias: 'f',
   key: 'fontSizes',
+  getter: px,
   numberToPx: true
 })
 
-export const textColor = responsiveStyle({
+export const textColor = style({
   prop: 'color',
   key: 'colors',
 })
 
-export const bgColor = responsiveStyle({
+export const bgColor = style({
   prop: 'bg',
   cssProperty: 'backgroundColor',
   key: 'colors'
 })
 
-export const color = props => ({
-  ...textColor(props),
-  ...bgColor(props)
-})
-color.propTypes = {
-  ...textColor.propTypes,
-  ...bgColor.propTypes,
-}
+export const color = compose(
+  textColor,
+  bgColor
+)
 
 // typography
 export const fontFamily = style({
   prop: 'fontFamily',
-  alias: 'font',
   key: 'fonts'
 })
 
-export const textAlign = responsiveStyle({
-  prop: 'textAlign',
-  // for backwards compatibility - will cause bugs when used with alignItems
-  alias: 'align'
+export const textAlign = style({
+  prop: 'textAlign'
 })
 
-export const lineHeight = responsiveStyle({
+export const lineHeight = style({
   prop: 'lineHeight',
   key: 'lineHeights'
 })
@@ -70,63 +65,68 @@ export const fontWeight = style({
 export const letterSpacing = style({
   prop: 'letterSpacing',
   key: 'letterSpacings',
+  getter: px,
   numberToPx: true
 })
 
 // layout
-export const display = responsiveStyle({
+export const display = style({
   prop: 'display'
 })
 
-export const maxWidth = responsiveStyle({
+export const maxWidth = style({
   prop: 'maxWidth',
   key: 'maxWidths',
-  numberToPx: true
+  numberToPx: true,
+  getter: px
 })
 
-export const minWidth = responsiveStyle({
+export const minWidth = style({
   prop: 'minWidth',
   key: 'minWidths',
-  numberToPx: true
+  numberToPx: true,
+  getter: px
 })
 
-export const height = responsiveStyle({
+export const height = style({
   prop: 'height',
   key: 'heights',
-  numberToPx: true
+  numberToPx: true,
+  getter: px
 })
 
-export const maxHeight = responsiveStyle({
+export const maxHeight = style({
   prop: 'maxHeight',
   key: 'maxHeights',
-  numberToPx: true
+  numberToPx: true,
+  getter: px
 })
 
-export const minHeight = responsiveStyle({
+export const minHeight = style({
   prop: 'minHeight',
   key: 'minHeights',
-  numberToPx: true
+  numberToPx: true,
+  getter: px
 })
 
-export const sizeWidth = responsiveStyle({
+export const sizeWidth = style({
   prop: 'size',
   cssProperty: 'width',
-  numberToPx: true
+  numberToPx: true,
+  getter: px
 })
 
-export const sizeHeight = responsiveStyle({
+export const sizeHeight = style({
   prop: 'size',
   cssProperty: 'height',
-  numberToPx: true
+  numberToPx: true,
+  getter: px
 })
 
-export const size = props => 
-  merge(sizeHeight(props), sizeWidth(props))
-
-size.propTypes = {
-  ...sizeWidth.propTypes,
-  ...sizeHeight.propTypes,
-}
+export const size = compose(
+  sizeHeight,
+  sizeWidth
+)
 
 export const ratioPadding = style({
   prop: 'ratio',
@@ -143,80 +143,78 @@ ratio.propTypes = {
 }
 
 // flexbox
-export const alignItems = responsiveStyle({
-  prop: 'alignItems',
-  // for backwards compatibility - will cause bugs when used with textAlign
-  alias: 'align'
+export const alignItems = style({
+  prop: 'alignItems'
 })
 
-export const alignContent = responsiveStyle({
+export const alignContent = style({
   prop: 'alignContent'
 })
 
-export const justifyContent = responsiveStyle({
-  prop: 'justifyContent',
-  // for backwards compatibility
-  alias: 'justify'
+export const justifyContent = style({
+  prop: 'justifyContent'
 })
 
 // for backwards compatibility
 const flexWrapShim = n => n === true ? 'wrap' : n
-export const flexWrap = responsiveStyle({
+export const flexWrap = style({
   prop: 'flexWrap',
-  alias: 'wrap',
   getter: flexWrapShim
 })
 
-export const flexBasis = responsiveStyle({
+export const flexBasis = style({
   prop: 'flexBasis',
   getter: getWidth
 })
 
 
-export const flexDirection = responsiveStyle({
+export const flexDirection = style({
   prop: 'flexDirection'
 })
 
-export const flex = responsiveStyle({
+export const flex = style({
   prop: 'flex'
 })
 
-export const justifySelf = responsiveStyle({
+export const justifySelf = style({
   prop: 'justifySelf'
 })
 
-export const alignSelf = responsiveStyle({
+export const alignSelf = style({
   prop: 'alignSelf'
 })
 
-export const order = responsiveStyle({
+export const order = style({
   prop: 'order'
 })
 
 // grid
-export const gridGap = responsiveStyle({
+export const gridGap = style({
   prop: 'gridGap',
   numberToPx: true,
+  getter: px,
   key: 'space'
 })
 
-export const gridColumnGap = responsiveStyle({
+export const gridColumnGap = style({
   prop: 'gridColumnGap',
   numberToPx: true,
+  getter: px,
   key: 'space'
 })
 
-export const gridRowGap = responsiveStyle({
+export const gridRowGap = style({
   prop: 'gridRowGap',
   numberToPx: true,
+  getter: px,
   key: 'space'
 })
 
-export const gridColumn = responsiveStyle({
+export const gridColumn = style({
   prop: 'gridColumn'
 })
 
-export const gridRow = responsiveStyle({
+export const gridRow = style({
   prop: 'gridRow'
 })
 
@@ -232,42 +230,42 @@ export const gridAutoRows = style({
   prop: 'gridAutoRows'
 })
 
-export const gridTemplateColumns = responsiveStyle({
+export const gridTemplateColumns = style({
   prop: 'gridTemplateColumns'
 })
 
-export const gridTemplateRows = responsiveStyle({
+export const gridTemplateRows = style({
   prop: 'gridTemplateRows'
 })
 
 // borders
-const getBorder = n => util.num(n) && n > 0 ? n + 'px solid' : n
+const getBorder = n => num(n) && n > 0 ? n + 'px solid' : n
 
-export const border = responsiveStyle({
+export const border = style({
   prop: 'border',
   key: 'borders',
   getter: getBorder
 })
 
-export const borderTop = responsiveStyle({
+export const borderTop = style({
   prop: 'borderTop',
   key: 'borders',
   getter: getBorder
 })
 
-export const borderRight = responsiveStyle({
+export const borderRight = style({
   prop: 'borderRight',
   key: 'borders',
   getter: getBorder
 })
 
-export const borderBottom = responsiveStyle({
+export const borderBottom = style({
   prop: 'borderBottom',
   key: 'borders',
   getter: getBorder
 })
 
-export const borderLeft = responsiveStyle({
+export const borderLeft = style({
   prop: 'borderLeft',
   key: 'borders',
   getter: getBorder
@@ -296,7 +294,8 @@ export const borderColor = style({
 export const borderRadius = style({
   prop: 'borderRadius',
   key: 'radii',
-  numberToPx: true
+  numberToPx: true,
+  getter: px,
 })
 
 export const boxShadow = style({
@@ -311,27 +310,23 @@ export const background = style({
 
 export const backgroundImage = style({
   prop: 'backgroundImage',
-  alias: 'bgImage',
   getter: n => `url(${n})`
 })
 
 export const backgroundSize = style({
-  prop: 'backgroundSize',
-  alias: 'bgSize',
+  prop: 'backgroundSize'
 })
 
 export const backgroundPosition = style({
-  prop: 'backgroundPosition',
-  alias: 'bgPosition',
+  prop: 'backgroundPosition'
 })
 
 export const backgroundRepeat = style({
-  prop: 'backgroundRepeat',
-  alias: 'bgRepeat',
+  prop: 'backgroundRepeat'
 })
 
 // position
-export const position = responsiveStyle({
+export const position = style({
   prop: 'position'
 })
 
@@ -339,69 +334,32 @@ export const zIndex = style({
   prop: 'zIndex'
 })
 
-export const top = responsiveStyle({
+export const top = style({
   prop: 'top',
-  numberToPx: true
+  numberToPx: true,
+  getter: px
 })
 
-export const right = responsiveStyle({
+export const right = style({
   prop: 'right',
-  numberToPx: true
+  numberToPx: true,
+  getter: px
 })
 
-export const bottom = responsiveStyle({
+export const bottom = style({
   prop: 'bottom',
-  numberToPx: true
+  numberToPx: true,
+  getter: px
 })
 
-export const left = responsiveStyle({
+export const left = style({
   prop: 'left',
-  numberToPx: true
+  numberToPx: true,
+  getter: px
 })
 
-// pseudos
-export const hover = pseudoStyle({
-  prop: 'hover',
-  pseudoclass: 'hover',
-  keys: {
-    color: 'colors',
-    backgroundColor: 'colors',
-    borderColor: 'colors',
-    boxShadow: 'shadows'
-  }
-})
 
-export const focus = pseudoStyle({
-  prop: 'focus',
-  keys: {
-    color: 'colors',
-    backgroundColor: 'colors',
-    borderColor: 'colors',
-    boxShadow: 'shadows'
-  }
-})
-
-export const active = pseudoStyle({
-  prop: 'active',
-  keys: {
-    color: 'colors',
-    backgroundColor: 'colors',
-    borderColor: 'colors',
-    boxShadow: 'shadows'
-  }
-})
-
-export const disabled = pseudoStyle({
-  prop: 'disabledStyle',
-  pseudoclass: 'disabled',
-  keys: {
-    color: 'colors',
-    backgroundColor: 'colors',
-    borderColor: 'colors',
-    boxShadow: 'shadows'
-  }
-})
-
+/* todo: handle with variant
 export const textStyle = complexStyle({
   prop: 'textStyle',
   key: 'textStyles'
@@ -416,19 +374,4 @@ export const buttonStyle = complexStyle({
   prop: 'buttonStyle',
   key: 'buttons'
 })
-
-// for backwards-compatibility
-// these will be removed in v3
-const __DEV__ = (process.env.NODE_ENV !== 'production')
-
-export const borderWidth = style({
-  prop: 'borderWidth',
-  cssProperty: 'border',
-  key: 'borderWidths',
-  getter: v => {
-    if (__DEV__) {
-      console.warn('borderWidth is deprecated. Please use the `borders` utility instead')
-    }
-    return getBorder(v)
-  }
-})
+*/

@@ -129,15 +129,6 @@ test('util.px adds px unit to numbers', t => {
   t.is(b, '2em')
 })
 
-test('util.neg checks for negative number', t => {
-  const a = util.neg(0)
-  const b = util.neg(1)
-  const c = util.neg(-1)
-  t.false(a)
-  t.false(b)
-  t.true(c)
-})
-
 test('util.num checks for a number', t => {
   const a = util.num(1)
   const b = util.num(0)
@@ -149,14 +140,7 @@ test('util.num checks for a number', t => {
   t.false(d)
 })
 
-test('util.arr converts values to arrays', t => {
-  const a = util.arr(1)
-  const b = util.arr([1])
-  t.true(Array.isArray(a))
-  t.true(Array.isArray(b))
-})
-
-test('util.breaks returns a media queries array', t => {
+test.skip('util.breaks returns a media queries array', t => {
   const a = util.breaks({
     theme: {
       breakpoints: [24],
@@ -165,7 +149,7 @@ test('util.breaks returns a media queries array', t => {
   t.deepEqual(a, [null, '@media screen and (min-width: 24px)'])
 })
 
-test('util.breaks accepts string breakpoints', t => {
+test.skip('util.breaks accepts string breakpoints', t => {
   const a = util.breaks({
     theme: {
       breakpoints: [ '60em' ],
@@ -174,20 +158,13 @@ test('util.breaks accepts string breakpoints', t => {
   t.deepEqual(a, [null, '@media screen and (min-width: 60em)'])
 })
 
-test('util.media returns media query wrapped rules', t => {
+test.skip('util.media returns media query wrapped rules', t => {
   const a = util.media([])('hello')
   const b = util.media([ 'hi' ])('hello', 0)
   const c = util.media([ 'hi' ])(null, 0)
   t.is(a, 'hello')
   t.deepEqual(b, { hi: 'hello' })
   t.is(c, null)
-})
-
-test('util.dec returns declaration strings', t => {
-  const a = util.dec('foo')('bar')
-  const b = util.dec(['foo', 'baz'])('bar')
-  t.deepEqual(a, {foo: 'bar'})
-  t.deepEqual(b, {foo: 'bar', baz: 'bar'})
 })
 
 test('util.merge reduces objects', t => {
@@ -250,6 +227,8 @@ test('util.merge doesn’t throw with null values', t => {
     util.merge(null, null)
   })
 })
+
+test.todo('util.compose')
 
 // space
 test('space returns margin declarations', t => {
@@ -433,11 +412,6 @@ test('width returns null ', t => {
   t.is(a, null)
 })
 
-test('width accepts shortcut prop', t => {
-  const a = width({w: 1 / 2})
-  t.deepEqual(a, {width: '50%'})
-})
-
 // fontSize
 test('fontSize returns scale values', t => {
   const a = fontSize({ fontSize: 0, theme: {} })
@@ -466,11 +440,6 @@ test('fontSize returns responsive values', t => {
       fontSize: '16px',
     },
   })
-})
-
-test('fontSize accepts shortcut prop', t => {
-  const a = fontSize({f: 2})
-  t.deepEqual(a, {'fontSize': '16px'})
 })
 
 test('fontSize can be configured with a theme', t => {
@@ -589,7 +558,7 @@ test('style function returns scale values', t => {
 test('style function returns pixels for number values', t => {
   const sx = style({
     prop: 'borderRadius',
-    numberToPx: true
+    getter: util.px
   })
   const a = sx({
     borderRadius: 4,
@@ -684,7 +653,7 @@ test('responsiveStyle returns pixel values for numbers', t => {
   const radius = responsiveStyle({
     cssProperty: 'borderRadius',
     prop: 'radius',
-    numberToPx: true
+    getter: util.px
   })
   const a = radius({ radius: 4 })
   t.deepEqual(a, {
@@ -696,7 +665,7 @@ test('responsiveStyle returns pixel values for number arrays', t => {
   const radius = responsiveStyle({
     cssProperty: 'borderRadius',
     prop: 'radius',
-    numberToPx: true
+    getter: util.px
   })
   const a = radius({ radius: [ 4, 5, 6 ] })
   t.deepEqual(a, {
@@ -745,7 +714,7 @@ test('responsiveStyle returns a theme number value in px', t => {
   const sx = responsiveStyle({
     prop: 'borderRadius',
     key: 'radii',
-    numberToPx: true
+    getter: util.px
   })
   const a = sx({
     theme,
@@ -757,174 +726,6 @@ test('responsiveStyle returns a theme number value in px', t => {
       borderRadius: theme.radii[1] + 'px'
     }
   })
-})
-
-test('psuedoStyle returns a function', t => {
-  const hover = pseudoStyle({ prop: 'hover' })
-  t.is(typeof hover, 'function')
-})
-
-test('pseudoStyle returns a style object', t => {
-  const hoverStyle = pseudoStyle({
-    prop: 'hover'
-  })
-  const a = hoverStyle({
-    hover: {
-      color: 'tomato'
-    }
-  })
-  t.deepEqual(a, {
-    '&:hover': {
-      color: 'tomato'
-    }
-  })
-})
-
-test('pseudoStyle uses theme values', t => {
-  const hoverStyle = pseudoStyle({
-    prop: 'hover',
-    keys: {
-      color: 'colors'
-    }
-  })
-  const a = hoverStyle({
-    theme,
-    hover: {
-      color: 'blue'
-    }
-  })
-  t.deepEqual(a, {
-    '&:hover': {
-      color: theme.colors.blue
-    }
-  })
-})
-
-test('pseudoStyle returns number pixel values', t => {
-  const hoverStyle = pseudoStyle({
-    prop: 'hover',
-    numberToPx: {
-      borderRadius: true
-    }
-  })
-  const a = hoverStyle({
-    hover: {
-      borderRadius: 4
-    }
-  })
-  t.deepEqual(a, {
-    '&:hover': {
-      borderRadius: '4px'
-    }
-  })
-})
-
-test('pseudoStyle accepts a getters argument', t => {
-  const hoverStyle = pseudoStyle({
-    prop: 'hover',
-    getters: {
-      borderRadius: n => n ? (n * 2) + 'px' : n
-    }
-  })
-  const a = hoverStyle({
-    hover: {
-      borderRadius: 4
-    }
-  })
-  t.deepEqual(a, {
-    '&:hover': {
-      borderRadius: '8px'
-    }
-  })
-})
-
-test('pseudoStyle accepts an alias argument', t => {
-  const hoverStyle = pseudoStyle({
-    prop: 'hover',
-    alias: 'h',
-    numberToPx: {
-      borderRadius: true
-    }
-  })
-  const a = hoverStyle({
-    h: {
-      borderRadius: 4
-    }
-  })
-  t.deepEqual(a, {
-    '&:hover': {
-      borderRadius: '4px'
-    }
-  })
-})
-
-// complexStyle
-test('complexStyle returns a style object from theme', t => {
-  const theme = {
-    textStyles: {
-      caps: {
-        fontSize: '12px',
-        textTransform: 'uppercase',
-        letterSpacing: '0.2em'
-      }
-    }
-  }
-  const textStyle = complexStyle({
-    prop: 'textStyle',
-    key: 'textStyles'
-  })
-  const a = textStyle({ textStyle: 'caps', theme })
-  t.deepEqual(a, theme.textStyles.caps)
-})
-
-test('complexStyle accepts an alias', t => {
-  const theme = {
-    textStyles: {
-      caps: {
-        fontSize: '12px',
-        textTransform: 'uppercase',
-        letterSpacing: '0.2em'
-      }
-    }
-  }
-  const textStyle = complexStyle({
-    prop: 'textStyle',
-    key: 'textStyles',
-    alias: 'tx'
-  })
-  const a = textStyle({ tx: 'caps', theme })
-  t.deepEqual(a, theme.textStyles.caps)
-})
-
-test('complexStyle accepts boolean aliases', t => {
-  const theme = {
-    buttons: {
-      primary: {
-        color: 'white',
-        backgroundColor: 'blue'
-      },
-      secondary: {
-        color: 'blue',
-        backgroundColor: 'transparent',
-        boxShadow: 'inset 0 0 0 1px blue'
-      },
-      large: {
-        padding: '32px'
-      }
-    }
-  }
-  const buttonStyle = complexStyle({
-    prop: 'buttonStyle',
-    key: 'buttons',
-    props: [
-      'primary',
-      'secondary',
-      'large'
-    ]
-  })
-  const a = buttonStyle({ primary: true, large: true, theme })
-  const expected = Object.assign({}, theme.buttons.primary, theme.buttons.large)
-  t.deepEqual(a, expected)
 })
 
 // theme
@@ -953,7 +754,7 @@ test('textAlign returns responsive text-align', t => {
 })
 
 test('fontFamily returns font-family', t => {
-  const a = fontFamily({ font: 'system-ui' })
+  const a = fontFamily({ fontFamily: 'system-ui' })
   t.is(a.fontFamily, 'system-ui')
 })
 
@@ -1385,123 +1186,7 @@ test('left returns left', t => {
   t.is(a.left, '2px')
 })
 
-test('hover returns a style object', t => {
-  const a = hover({
-    hover: {
-      color: 'tomato'
-    }
-  })
-  t.deepEqual(a, {
-    '&:hover': {
-      color: 'tomato'
-    }
-  })
-})
-
-test('hover uses theme values', t => {
-  const a = hover({
-    theme,
-    hover: {
-      color: 'blue',
-      backgroundColor: 'green'
-    }
-  })
-  t.deepEqual(a, {
-    '&:hover': {
-      color: theme.colors.blue,
-      backgroundColor: theme.colors.green,
-    }
-  })
-})
-
-test('focus returns a style object', t => {
-  const a = focus({
-    focus: {
-      color: 'tomato'
-    }
-  })
-  t.deepEqual(a, {
-    '&:focus': {
-      color: 'tomato'
-    }
-  })
-})
-
-test('focus uses theme values', t => {
-  const a = focus({
-    theme,
-    focus: {
-      color: 'blue',
-      backgroundColor: 'green'
-    }
-  })
-  t.deepEqual(a, {
-    '&:focus': {
-      color: theme.colors.blue,
-      backgroundColor: theme.colors.green,
-    }
-  })
-})
-
-test('active returns a style object', t => {
-  const a = active({
-    active: {
-      color: 'tomato'
-    }
-  })
-  t.deepEqual(a, {
-    '&:active': {
-      color: 'tomato'
-    }
-  })
-})
-
-test('active uses theme values', t => {
-  const a = active({
-    theme,
-    active: {
-      color: 'blue',
-      backgroundColor: 'green'
-    }
-  })
-  t.deepEqual(a, {
-    '&:active': {
-      color: theme.colors.blue,
-      backgroundColor: theme.colors.green,
-    }
-  })
-})
-
-test('disabled returns a style object', t => {
-  const a = disabled({
-    disabledStyle: {
-      color: 'tomato'
-    }
-  })
-  t.deepEqual(a, {
-    '&:disabled': {
-      color: 'tomato'
-    }
-  })
-})
-
-test('disabled uses theme values', t => {
-  const a = disabled({
-    theme,
-    disabledStyle: {
-      color: 'blue',
-      backgroundColor: 'green'
-    }
-  })
-  t.deepEqual(a, {
-    '&:disabled': {
-      color: theme.colors.blue,
-      backgroundColor: theme.colors.green,
-    }
-  })
-})
-
-test('textStyle returns a value from theme', t => {
+test.skip('textStyle returns a value from theme', t => {
   const theme = {
     textStyles: {
       caps: {
@@ -1515,7 +1200,7 @@ test('textStyle returns a value from theme', t => {
   t.deepEqual(a, theme.textStyles.caps)
 })
 
-test('colorStyle returns a value from theme', t => {
+test.skip('colorStyle returns a value from theme', t => {
   const theme = {
     colorStyles: {
       primary: {
@@ -1528,7 +1213,7 @@ test('colorStyle returns a value from theme', t => {
   t.deepEqual(a, theme.colorStyles.primary)
 })
 
-test('buttonStyle returns a value from theme', t => {
+test.skip('buttonStyle returns a value from theme', t => {
   const theme = {
     buttons: {
       primary: {
@@ -1543,24 +1228,6 @@ test('buttonStyle returns a value from theme', t => {
   const a = buttonStyle({ primary: true, theme })
   t.deepEqual(a, theme.buttons.primary)
 })
-
-test('deprecated borderWidth utility returns border styles', t => {
-  const a = borderWidth({ borderWidth: 1 })
-  t.is(a.border, '1px solid')
-})
-
-test('deprecated borderWidth warns', t => {
-  sinon.spy(console, 'warn')
-  const a = borderWidth({ borderWidth: 2 })
-  t.true(console.warn.calledOnce)
-  console.warn.restore()
-})
-
-test('flexWrap includes a shim for legacy boolean value api', t => {
-  const a = flexWrap({ wrap: true })
-  t.is(a.flexWrap, 'wrap')
-})
-
 
 Object.keys(styles).forEach(key => {
   test(`${key}.propTypes is an object`, t => {

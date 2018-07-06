@@ -1,63 +1,17 @@
-import PropTypes from 'prop-types'
 import {
+  propTypes,
+  defaultBreakpoints,
+  createMediaQuery,
   get,
-  arr,
+  is,
   px,
-  neg,
   num,
-  breaks,
-  dec,
-  media,
-  merge
+  merge,
 } from './util'
-import theme from './constants'
+
+const isNegative = n => n < 0
 
 const REG = /^[mp][trblxy]?$/
-
-export const space = props => {
-  const keys = Object.keys(props)
-    .filter(key => REG.test(key))
-    .sort()
-  const bp = breaks(props)
-  const sc = get(props, 'theme.space', theme.space)
-
-  return keys.map(key => {
-    const val = props[key]
-    const p = getProperties(key)
-
-    if (!Array.isArray(val)) {
-      return p.reduce((a, b) => Object.assign(a, {
-        [b]: mx(sc)(val)
-      }), {})
-    }
-
-    return arr(val)
-      .map(mx(sc))
-      .map(dec(p))
-      .map(media(bp))
-      .reduce(merge, {})
-  }).reduce(merge, {})
-}
-
-const mx = scale => n => {
-  if (!num(n)) {
-    return n
-  }
-
-  const value = scale[Math.abs(n)] || Math.abs(n)
-  if (!num(value)) {
-    return neg(n) ? `-${value}` : value;
-  }
-
-  return px(value * (neg(n) ? -1 : 1));
-}
-
-const getProperties = key => {
-  const [ a, b ] = key.split('')
-  const prop = properties[a]
-  const dirs = directions[b] || [ '' ]
-  return dirs.map(dir => prop + dir)
-}
 
 const properties = {
   m: 'margin',
@@ -65,46 +19,98 @@ const properties = {
 }
 
 const directions = {
-  t: [ 'Top' ],
-  r: [ 'Right' ],
-  b: [ 'Bottom' ],
-  l: [ 'Left' ],
+  t: 'Top',
+  r: 'Right',
+  b: 'Bottom',
+  l: 'Left',
   x: [ 'Left', 'Right' ],
   y: [ 'Top', 'Bottom' ],
 }
 
-const responsive = PropTypes.oneOfType([
-  PropTypes.number,
-  PropTypes.string,
-  PropTypes.array
-])
-
-space.propTypes = {
-  m: responsive,
-  mt: responsive,
-  mr: responsive,
-  mb: responsive,
-  ml: responsive,
-  mx: responsive,
-  my: responsive,
-  p: responsive,
-  pt: responsive,
-  pr: responsive,
-  pb: responsive,
-  pl: responsive,
-  px: responsive,
-  py: responsive
+const getProperties = key => {
+  const [ a, b ] = key.split('')
+  const property = properties[a]
+  const direction = directions[b] || ''
+  return Array.isArray(direction)
+    ? direction.map(dir => property + dir)
+    : [ property + direction ]
 }
 
-const meta = prop => ({
-  prop,
-  responsive: true,
-  styleType: 'responsive',
-  themeKey: 'space'
-})
-Object.keys(space.propTypes)
-  .forEach(prop => {
-    space.propTypes[prop].meta = meta(prop)
-  })
+const getValue = scale => n => {
+  if (!num(n)) {
+    return n
+  }
+  const abs = Math.abs(n)
+  const neg = isNegative(n)
+  const value = scale[abs] || abs
+  if (!num(value)) {
+    return neg ? '-' + value : value
+  }
+  return px(value * (neg ? -1 : 1))
+}
+
+const defaultScale = [
+  0, 4, 8, 16, 32, 64, 128, 256, 512
+]
+
+const space = props => {
+  const keys = Object.keys(props)
+    .filter(key => REG.test(key))
+    .sort()
+  const scale = get(props.theme, 'space') || defaultScale
+  const getStyle = getValue(scale)
+
+  return keys
+    .map(key => {
+      const value = props[key]
+      const properties = getProperties(key)
+
+      const style = n => is(n) ? properties.reduce((a, prop) => ({
+        ...a,
+        [prop]: getStyle(n)
+      }), {}) : null
+
+      if (!Array.isArray(value)) {
+        return style(value)
+      }
+
+      const breakpoints = [
+        null,
+        ...(get(props.theme, 'breakpoints') || defaultBreakpoints)
+          .map(createMediaQuery)
+      ]
+
+      let styles = {}
+
+      for (let i = 0; i < value.length; i++) {
+        const media = breakpoints[i]
+        if (!media) {
+          styles = style(value[i])
+          continue
+        }
+        styles[media] = style(value[i])
+      }
+
+      return styles
+    })
+    .reduce(merge)
+}
+
+space.propTypes = {
+  m:  propTypes.responsive,
+  mt: propTypes.responsive,
+  mr: propTypes.responsive,
+  mb: propTypes.responsive,
+  ml: propTypes.responsive,
+  mx: propTypes.responsive,
+  my: propTypes.responsive,
+  p:  propTypes.responsive,
+  pt: propTypes.responsive,
+  pr: propTypes.responsive,
+  pb: propTypes.responsive,
+  pl: propTypes.responsive,
+  px: propTypes.responsive,
+  py: propTypes.responsive
+}
 
 export default space

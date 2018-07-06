@@ -1,15 +1,6 @@
-export * as util from './util'
-export * as styles from './styles'
-export {
-  style,
-  get,
-  merge,
-  compose,
-  // aliases
-  style as responsiveStyle,
-  get as themeGet,
-} from './util'
+import * as styles from './styles'
 
+export * as styles from './styles'
 export {
   space,
   width,
@@ -77,8 +68,36 @@ export {
   right,
   bottom,
   left,
+  // psuedoclasses
+  hover,
+  focus,
+  active,
+  disabled,
   // complex
-  // textStyle,
-  // colorStyle,
-  // buttonStyle,
+  textStyle,
+  colorStyle,
+  buttonStyle,
+  // deprecated
+  borderWidth,
 } from './styles'
+
+export {
+  style,
+  pseudoStyle,
+  responsiveStyle,
+  complexStyle,
+  themeGet,
+  themeGet as theme
+} from './util'
+
+export * as util from './util'
+
+export const propTypes = {}
+
+Object.keys(styles).forEach(key => {
+  propTypes[key] = styles[key].propTypes
+})
+
+styles.propTypes = propTypes
+
+export default styles

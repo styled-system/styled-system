@@ -71,7 +71,7 @@
     "url": "git+https://github.com/jxnblk/styled-system.git"
   },
   "dependencies": {
-    "prop-types": "^15.6.0"
+    "prop-types": "^15.6.2"
   },
   "x0": {
     "title": "Styled System",
