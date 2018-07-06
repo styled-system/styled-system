@@ -38,6 +38,7 @@ export const merge = (a, b) => Object.assign({}, a, b, Object
 export const compose = (...funcs) => {
   const fn = props => funcs
     .map(fn => fn(props))
+    .filter(Boolean)
     .reduce(merge)
 
   fn.propTypes = funcs
@@ -91,6 +92,8 @@ export const style = ({
         styles = style(val[i])
         continue
       }
+      const rule = style(val[i])
+      if (!rule) continue
       styles[media] = style(val[i])
     }
 

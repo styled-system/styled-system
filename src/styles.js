@@ -22,8 +22,7 @@ export const width = style({
 export const fontSize = style({
   prop: 'fontSize',
   key: 'fontSizes',
-  getter: px,
-  numberToPx: true
+  getter: px
 })
 
 export const textColor = style({

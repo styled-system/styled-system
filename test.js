@@ -83,6 +83,9 @@ import {
   borderWidth
 } from './src'
 
+// - [ ] rename responsiveStyle tests
+// - [ ] DRY up responsiveStyle tests
+
 const theme = {
   breakpoints: [32, 48, 64].map(n => n + 'em'),
   space: [0, 6, 12, 18, 24],
@@ -101,8 +104,8 @@ test('exports space, width, and fontSize', t => {
   t.is(typeof fontSize, 'function')
 })
 
-test('system.theme gets theme values', t => {
-  const a = system.theme('colors.gray.0')({ theme })
+test('system.get gets theme values', t => {
+  const a = system.get('colors.gray.0')({ theme })
   t.is(a, theme.colors.gray[0])
 })
 
@@ -443,12 +446,12 @@ test('fontSize returns responsive values', t => {
 })
 
 test('fontSize can be configured with a theme', t => {
-  const a = fontSize({theme, f: 0})
-  const b = fontSize({theme, f: 1})
-  const c = fontSize({theme, f: 2})
-  const d = fontSize({theme, f: 3})
-  const e = fontSize({theme, f: 4})
-  const f = fontSize({theme, f: 5})
+  const a = fontSize({theme, fontSize: 0})
+  const b = fontSize({theme, fontSize: 1})
+  const c = fontSize({theme, fontSize: 2})
+  const d = fontSize({theme, fontSize: 3})
+  const e = fontSize({theme, fontSize: 4})
+  const f = fontSize({theme, fontSize: 5})
   t.deepEqual(a, {'fontSize': '12px'})
   t.deepEqual(b, {'fontSize': '16px'})
   t.deepEqual(c, {'fontSize': '18px'})
@@ -626,9 +629,7 @@ test('responsiveStyle allows array values', t => {
   const a = direction({ direction: [ 'column', null, 'row' ] })
   t.deepEqual(a, {
     'flex-direction': 'column',
-    '@media screen and (min-width: 40em)': {
-      'flex-direction': null
-    },
+    // '@media screen and (min-width: 40em)': { 'flex-direction': null },
     '@media screen and (min-width: 52em)': {
       'flex-direction': 'row',
     }
