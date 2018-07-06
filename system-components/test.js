@@ -1,22 +1,11 @@
+import 'jest-styled-components'
 import styled, { css as scCSS, isStyledComponent } from 'styled-components'
-import {
-  __DO_NOT_USE_OR_YOU_WILL_BE_HAUNTED_BY_SPOOKY_GHOSTS
-} from 'styled-components'
 import { propTypes } from 'styled-system'
 import React from 'react'
 import { create as render } from 'react-test-renderer'
 import { isDOMComponent, isCompositeComponent } from 'react-dom/test-utils'
 import system from './src'
-// import emotion from './src/emotion'
-
-// 😎
-const { StyleSheet } = __DO_NOT_USE_OR_YOU_WILL_BE_HAUNTED_BY_SPOOKY_GHOSTS
-
-const getCSS = () => StyleSheet.instance.toReactElements()
-  .map(el => el.props.dangerouslySetInnerHTML.__html)
-  .join('')
-
-afterEach(() => { StyleSheet.reset() })
+import emotion from './src/emotion'
 
 describe('system-components', () => {
   test('returns a React component', () => {
@@ -29,7 +18,7 @@ describe('system-components', () => {
     const Box = system()
     expect(typeof Box).toBe('function')
     expect(typeof Box.styledComponentId).toBe('string')
-    // t.true(isStyledComponent(Box)) // not yet published
+    expect(isStyledComponent(Box)).toBe(true)
   })
 
   test('Adds defaultProps', () => {
@@ -60,9 +49,8 @@ describe('system-components', () => {
       bg: 'tomato'
     })
     const json = render(<Box />).toJSON()
-    const css = getCSS()
-    expect(css).toMatch(/padding:16px/)
-    expect(css).toMatch(/background-color:tomato/)
+    expect(json).toHaveStyleRule('padding', '16px')
+    expect(json).toHaveStyleRule('background-color', 'tomato')
   })
 
   test('accepts system key arguments', () => {
@@ -81,8 +69,7 @@ describe('system-components', () => {
     const big = props => props.big ? { padding: '64px' } : null
     const Box = system(big)
     const json = render(<Box big />).toJSON()
-    const css = getCSS()
-    expect(css).toMatch(/padding:64px/)
+    expect(json).toHaveStyleRule('padding', '64px')
   })
 
   test('removes styled-system props from underlying DOM element', () => {
@@ -113,8 +100,7 @@ describe('system-components', () => {
   test('accepts a style function argument', () => {
     const Box = system(props => `color:${props.color};`)
     const json = render(<Box color='magenta' />).toJSON()
-    const css = getCSS()
-    expect(css).toMatch(/color:magenta/)
+    expect(json).toHaveStyleRule('color', 'magenta')
   })
 
   test('accepts theme as a default prop', () => {
@@ -125,15 +111,13 @@ describe('system-components', () => {
     }
     const Box = system({ color: 'blue', theme })
     const json = render(<Box />).toJSON()
-    const css = getCSS()
-    expect(css).toMatch(/color:#0af/)
+    expect(json).toHaveStyleRule('color', '#0af')
   })
 
   test('passes css string arguments', () => {
     const Box = system('color:cyan;')
     const json = render(<Box />).toJSON()
-    const css = getCSS()
-    expect(css).toMatch(/color:cyan;/)
+    expect(json).toHaveStyleRule('color', 'cyan')
   })
 
   test('works with the styled-component `css` helper', () => {
@@ -141,8 +125,7 @@ describe('system-components', () => {
       color: ${props => props.color};
     `)
     const json = render(<Box color='yellow' />).toJSON()
-    const css = getCSS()
-    expect(css).toMatch(/color:yellow/)
+    expect(json).toHaveStyleRule('color', 'yellow')
   })
 
   test('defaultProps are passed to extended components', () => {
@@ -152,50 +135,44 @@ describe('system-components', () => {
     }, 'space', 'color')
     const ExtendedBox = system({ is: Box })
     const json = render(<ExtendedBox />).toJSON()
-    const css = getCSS()
-    expect(css).toMatch(/background-color:tomato/)
+    expect(json).toHaveStyleRule('background-color', 'tomato')
   })
 
-  /*
   test('emotion returns a React component', () => {
     const Box = emotion()
     const box = render(<Box />).getInstance()
-    t.true(isCompositeComponent(box))
+    expect(isCompositeComponent(box)).toBe(true)
   })
 
   test('emotion innerRef', () => {
     const Box = emotion()
     let ref = 'fooo'
     const box = render(<Box innerRef={(node) => { ref = node }} />).getInstance()
-    t.true(isCompositeComponent(box))
-    t.not(ref, 'fooo')
+    expect(isCompositeComponent(box)).toBe(true)
+    expect(ref).not.toBe('fooo')
   })
-  */
 
   test('accepts a css prop for custom styling', () => {
     const Box = system({})
     const json = render(<Box css='color:tomato;' />).toJSON()
-    const css = getCSS()
-    expect(css).toMatch(/color:tomato/)
+    expect(json).toHaveStyleRule('color', 'tomato')
   })
 
   test('merges defaultProps from `is` prop component', () => {
     const Base = system({ p: 3 })
     const Ext = system({ is: Base })
     const json = render(<Ext />).toJSON()
-    const css = getCSS()
+    expect(json).toHaveStyleRule('padding', '16px')
     expect(Ext.defaultProps.p).toBe(3)
-    expect(css).toMatch(/padding:16px/)
   })
 
   test('extends components with the is prop and passes is prop to clean-tag', () => {
     const Base = system({ p: 3 })
     const Ext = system({ is: Base }, 'color')
     const json = render(<Ext is='footer' p={3} bg='tomato' />).toJSON()
-    const css = getCSS()
     expect(json.type).toBe('footer')
-    expect(css).toMatch(/background-color:tomato/)
-    expect(css).toMatch(/padding:16px/)
+    expect(json).toHaveStyleRule('background-color', 'tomato')
+    expect(json).toHaveStyleRule('padding', '16px')
   })
 
   test('extends a non-system component and does not accept an is prop', () => {
@@ -204,9 +181,8 @@ describe('system-components', () => {
     const json = render(
       <Ext is='footer' color='tomato' />
     ).toJSON()
-    const css = getCSS()
     expect(json.type).toBe('div')
-    expect(css).toMatch(/color:tomato/)
+    expect(json).toHaveStyleRule('color', 'tomato')
   })
 
   test('passes innerRef to underlying element', () => {
