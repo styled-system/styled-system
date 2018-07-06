@@ -45,6 +45,9 @@
     ],
     "testMatch": [
       "**/test.js"
+    ],
+    "coverageReporters": [
+      "html"
     ]
   }
 }
