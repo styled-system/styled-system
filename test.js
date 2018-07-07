@@ -11,10 +11,7 @@ import {
   color,
 
   style,
-  responsiveStyle,
-  pseudoStyle,
-  complexStyle,
-  propTypes,
+  variant,
   util,
 
   textAlign,
@@ -83,7 +80,7 @@ import {
   borderWidth
 } from './src'
 
-// - [ ] rename responsiveStyle tests
+// - [x] rename responsiveStyle tests
 // - [ ] DRY up responsiveStyle tests
 
 const theme = {
@@ -104,9 +101,14 @@ test('exports space, width, and fontSize', t => {
   t.is(typeof fontSize, 'function')
 })
 
-test('system.get gets theme values', t => {
-  const a = system.get('colors.gray.0')({ theme })
+test('util.get gets theme values', t => {
+  const a = util.get('colors.gray.0')({ theme })
   t.is(a, theme.colors.gray[0])
+})
+
+test('get returns a fallback', t => {
+  const a = util.get('colors.blue', 'tomato')({ theme: {} })
+  t.is(a, 'tomato')
 })
 
 // util
@@ -141,33 +143,6 @@ test('util.num checks for a number', t => {
   t.true(b)
   t.false(c)
   t.false(d)
-})
-
-test.skip('util.breaks returns a media queries array', t => {
-  const a = util.breaks({
-    theme: {
-      breakpoints: [24],
-    },
-  })
-  t.deepEqual(a, [null, '@media screen and (min-width: 24px)'])
-})
-
-test.skip('util.breaks accepts string breakpoints', t => {
-  const a = util.breaks({
-    theme: {
-      breakpoints: [ '60em' ],
-    },
-  })
-  t.deepEqual(a, [null, '@media screen and (min-width: 60em)'])
-})
-
-test.skip('util.media returns media query wrapped rules', t => {
-  const a = util.media([])('hello')
-  const b = util.media([ 'hi' ])('hello', 0)
-  const c = util.media([ 'hi' ])(null, 0)
-  t.is(a, 'hello')
-  t.deepEqual(b, { hi: 'hello' })
-  t.is(c, null)
 })
 
 test('util.merge reduces objects', t => {
@@ -371,6 +346,21 @@ test('space can accept string values', t => {
 test('space can accept string values with negative', t => {
   const a = space({ theme: { space: ['1em', '2em'] }, m: -1 })
   t.deepEqual(a, {margin: '-2em'})
+})
+
+test('space handles null values in arrays', t => {
+  const a = space({
+    m: [ 0, null, 2 ],
+    theme: {
+      space: [ 0, 4, 8, 16 ]
+    }
+  })
+  t.deepEqual(a, {
+    margin: '0px',
+    '@media screen and (min-width: 52em)': {
+      margin: '8px'
+    }
+  })
 })
 
 // width
@@ -593,25 +583,8 @@ test('style function accepts a getter option', t => {
 })
 
 // responsiveStyle
-test('responsiveStyle returns a function', t => {
-  const sx = responsiveStyle({ prop: 'order' })
-  t.is(typeof sx, 'function')
-})
-
-test('responsiveStyle‘s returned function returns a style object', t => {
-  const order = responsiveStyle({ prop: 'order' })
-  const a = order({ order: 1 })
-  t.deepEqual(a, { order: 1 })
-})
-
-test('responsiveStyle‘s returned function returns null', t => {
-  const order = responsiveStyle({ prop: 'order' })
-  const a = order({ })
-  t.is(a, null)
-})
-
-test('responsiveStyle allows property aliases', t => {
-  const direction = responsiveStyle({
+test('style allows property aliases', t => {
+  const direction = style({
     cssProperty: 'flex-direction',
     prop: 'direction'
   })
@@ -621,8 +594,8 @@ test('responsiveStyle allows property aliases', t => {
   })
 })
 
-test('responsiveStyle allows array values', t => {
-  const direction = responsiveStyle({
+test('style allows array values', t => {
+  const direction = style({
     cssProperty: 'flex-direction',
     prop: 'direction'
   })
@@ -636,34 +609,8 @@ test('responsiveStyle allows array values', t => {
   })
 })
 
-test('responsiveStyle accepts an object argument', t => {
-  const direction = responsiveStyle({
-    cssProperty: 'flexDirection',
-    prop: 'direction'
-  })
-  const a = direction({ direction: [ 'column', 'row' ] })
-  t.deepEqual(a, {
-    'flexDirection': 'column',
-    '@media screen and (min-width: 40em)': {
-      'flexDirection': 'row'
-    }
-  })
-})
-
-test('responsiveStyle returns pixel values for numbers', t => {
-  const radius = responsiveStyle({
-    cssProperty: 'borderRadius',
-    prop: 'radius',
-    getter: util.px
-  })
-  const a = radius({ radius: 4 })
-  t.deepEqual(a, {
-    borderRadius: '4px'
-  })
-})
-
-test('responsiveStyle returns pixel values for number arrays', t => {
-  const radius = responsiveStyle({
+test('style returns pixel values for number arrays', t => {
+  const radius = style({
     cssProperty: 'borderRadius',
     prop: 'radius',
     getter: util.px
@@ -680,19 +627,8 @@ test('responsiveStyle returns pixel values for number arrays', t => {
   })
 })
 
-test('responsiveStyle returns unitless numbers', t => {
-  const radius = responsiveStyle({
-    cssProperty: 'borderRadius',
-    prop: 'radius'
-  })
-  const a = radius({ radius: 4 })
-  t.deepEqual(a, {
-    borderRadius: 4
-  })
-})
-
-test('responsiveStyle returns a theme value', t => {
-  const sx = responsiveStyle({
+test('style returns a theme value', t => {
+  const sx = style({
     prop: 'borderColor',
     key: 'colors',
   })
@@ -711,8 +647,8 @@ test('responsiveStyle returns a theme value', t => {
   })
 })
 
-test('responsiveStyle returns a theme number value in px', t => {
-  const sx = responsiveStyle({
+test('style returns a theme number value in px', t => {
+  const sx = style({
     prop: 'borderRadius',
     key: 'radii',
     getter: util.px
@@ -1231,6 +1167,24 @@ test('buttonStyle returns a value from theme', t => {
   }
   const a = buttonStyle({ variant: 'primary', theme })
   t.deepEqual(a, theme.buttons.primary)
+})
+
+test('variant returns a value from theme', t => {
+  const theme = {
+    buttons: {
+      primary: {
+        backgroundColor: 'tomato'
+      }
+    }
+  }
+  const a = variant({ key: 'buttons' })({ theme, variant: 'primary' })
+  t.deepEqual(a, theme.buttons.primary)
+})
+
+test('variant returns null', t => {
+  const theme = {}
+  const a = variant({ key: 'buttons' })({ theme, variant: 'primary' })
+  t.is(a, null)
 })
 
 Object.keys(styles).forEach(key => {

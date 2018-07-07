@@ -8,7 +8,7 @@ script:
   - npm t
   - npm run pkg:test
 after_success:
-  - npm run cover
+  - npm run codecov
 before_deploy:
   - npm install
   - npm run docs

@@ -88,7 +88,9 @@ const space = props => {
           styles = style(value[i])
           continue
         }
-        styles[media] = style(value[i])
+        const rule = style(value[i])
+        if (!rule) continue
+        styles[media] = rule
       }
 
       return styles

@@ -49,12 +49,6 @@ export const compose = (...funcs) => {
 
 export const createMediaQuery = n => `@media screen and (min-width: ${n})`
 
-export const createMediaRule = breakpoints => (obj, i) => is(obj)
-  ? breakpoints[i]
-    ? { [breakpoints[i]]: obj }
-    : obj
-  : null
-
 export const style = ({
   prop,
   cssProperty,

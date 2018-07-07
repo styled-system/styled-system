@@ -6,14 +6,10 @@ import {
 } from './util'
 import variant from './variant'
 
-// - [x] remove alias
-// - [x] remove numberToPx
-
 const getWidth = n => !num(n) || n > 1 ? px(n) : (n * 100) + '%'
 
 // core
 export { default as space } from './space'
-
 
 export const width = style({
   prop: 'width',
@@ -158,11 +154,8 @@ export const justifyContent = style({
   prop: 'justifyContent'
 })
 
-// for backwards compatibility
-const flexWrapShim = n => n === true ? 'wrap' : n
 export const flexWrap = style({
-  prop: 'flexWrap',
-  getter: flexWrapShim
+  prop: 'flexWrap'
 })
 
 export const flexBasis = style({
