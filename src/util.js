@@ -95,7 +95,7 @@ export const style = ({
       }
       const rule = style(val[i])
       if (!rule) continue
-      styles[media] = style(val[i])
+      styles[media] = rule
     }
 
     return styles

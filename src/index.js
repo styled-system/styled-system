@@ -82,3 +82,6 @@ export {
   // colorStyle,
   // buttonStyle,
 } from './styles'
+
+// new
+export { default as variant } from './variant'
