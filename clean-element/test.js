@@ -2,13 +2,13 @@ import test from 'ava'
 import React from 'react'
 import styled from 'styled-components'
 import { renderToString } from 'react-dom/server'
-import { textAlign, propTypes } from '../src'
+import { textAlign } from '../src'
 import cleanElement from './src'
 
 test('it removes props with prop types', t => {
   const Clean = cleanElement('div')
   Clean.propTypes = {
-    ...propTypes.textAlign
+    ...textAlign.propTypes
   }
   const Box = styled(Clean)`
     ${textAlign}
