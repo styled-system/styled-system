@@ -1,12 +1,13 @@
 const Benchmark = require('benchmark')
+// v3
 const {
   space,
   width,
   fontSize,
   color,
-  style,
-  responsiveStyle
-} = require('../core/dist')
+  style
+} = require('../dist')
+// v2
 
 const suite = new Benchmark.Suite()
 

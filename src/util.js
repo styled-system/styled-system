@@ -60,13 +60,14 @@ export const style = ({
   cssProperty,
   key,
   getter = noop,
+  scale: defaultScale = {}
 }) => {
   const css = cssProperty || prop
   const fn = props => {
     const val = props[prop]
     if (!is(val)) return null
 
-    const scale = get(props.theme, key) || {}
+    const scale = get(props.theme, key) || defaultScale
     const style = n => is(n) ? ({
       [css]: getter(
         get(scale, n) || n

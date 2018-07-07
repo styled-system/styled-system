@@ -22,7 +22,18 @@ export const width = style({
 export const fontSize = style({
   prop: 'fontSize',
   key: 'fontSizes',
-  getter: px
+  getter: px,
+  scale: [
+    12,
+    14,
+    16,
+    20,
+    24,
+    32,
+    48,
+    64,
+    72
+  ]
 })
 
 export const textColor = style({
