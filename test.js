@@ -1187,7 +1187,8 @@ test('left returns left', t => {
   t.is(a.left, '2px')
 })
 
-test.skip('textStyle returns a value from theme', t => {
+// breaking
+test('textStyle returns a value from theme', t => {
   const theme = {
     textStyles: {
       caps: {
@@ -1201,7 +1202,8 @@ test.skip('textStyle returns a value from theme', t => {
   t.deepEqual(a, theme.textStyles.caps)
 })
 
-test.skip('colorStyle returns a value from theme', t => {
+// breaking
+test('colorStyle returns a value from theme', t => {
   const theme = {
     colorStyles: {
       primary: {
@@ -1210,11 +1212,12 @@ test.skip('colorStyle returns a value from theme', t => {
       }
     }
   }
-  const a = colorStyle({ primary: true, theme })
+  const a = colorStyle({ colors: 'primary', theme })
   t.deepEqual(a, theme.colorStyles.primary)
 })
 
-test.skip('buttonStyle returns a value from theme', t => {
+// breaking change
+test('buttonStyle returns a value from theme', t => {
   const theme = {
     buttons: {
       primary: {
@@ -1226,7 +1229,7 @@ test.skip('buttonStyle returns a value from theme', t => {
       }
     }
   }
-  const a = buttonStyle({ primary: true, theme })
+  const a = buttonStyle({ variant: 'primary', theme })
   t.deepEqual(a, theme.buttons.primary)
 })
 

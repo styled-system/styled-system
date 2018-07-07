@@ -4,9 +4,10 @@ import {
   px,
   compose
 } from './util'
+import variant from './variant'
 
 // - [x] remove alias
-// - [ ] remove numberToPx
+// - [x] remove numberToPx
 
 const getWidth = n => !num(n) || n > 1 ? px(n) : (n * 100) + '%'
 
@@ -75,8 +76,7 @@ export const fontWeight = style({
 export const letterSpacing = style({
   prop: 'letterSpacing',
   key: 'letterSpacings',
-  getter: px,
-  numberToPx: true
+  getter: px
 })
 
 // layout
@@ -87,49 +87,42 @@ export const display = style({
 export const maxWidth = style({
   prop: 'maxWidth',
   key: 'maxWidths',
-  numberToPx: true,
   getter: px
 })
 
 export const minWidth = style({
   prop: 'minWidth',
   key: 'minWidths',
-  numberToPx: true,
   getter: px
 })
 
 export const height = style({
   prop: 'height',
   key: 'heights',
-  numberToPx: true,
   getter: px
 })
 
 export const maxHeight = style({
   prop: 'maxHeight',
   key: 'maxHeights',
-  numberToPx: true,
   getter: px
 })
 
 export const minHeight = style({
   prop: 'minHeight',
   key: 'minHeights',
-  numberToPx: true,
   getter: px
 })
 
 export const sizeWidth = style({
   prop: 'size',
   cssProperty: 'width',
-  numberToPx: true,
   getter: px
 })
 
 export const sizeHeight = style({
   prop: 'size',
   cssProperty: 'height',
-  numberToPx: true,
   getter: px
 })
 
@@ -201,21 +194,18 @@ export const order = style({
 // grid
 export const gridGap = style({
   prop: 'gridGap',
-  numberToPx: true,
   getter: px,
   key: 'space'
 })
 
 export const gridColumnGap = style({
   prop: 'gridColumnGap',
-  numberToPx: true,
   getter: px,
   key: 'space'
 })
 
 export const gridRowGap = style({
   prop: 'gridRowGap',
-  numberToPx: true,
   getter: px,
   key: 'space'
 })
@@ -304,7 +294,6 @@ export const borderColor = style({
 export const borderRadius = style({
   prop: 'borderRadius',
   key: 'radii',
-  numberToPx: true,
   getter: px,
 })
 
@@ -346,42 +335,35 @@ export const zIndex = style({
 
 export const top = style({
   prop: 'top',
-  numberToPx: true,
   getter: px
 })
 
 export const right = style({
   prop: 'right',
-  numberToPx: true,
   getter: px
 })
 
 export const bottom = style({
   prop: 'bottom',
-  numberToPx: true,
   getter: px
 })
 
 export const left = style({
   prop: 'left',
-  numberToPx: true,
   getter: px
 })
 
 
-/* todo: handle with variant
-export const textStyle = complexStyle({
+export const textStyle = variant({
   prop: 'textStyle',
   key: 'textStyles'
 })
 
-export const colorStyle = complexStyle({
+export const colorStyle = variant({
   prop: 'colors',
   key: 'colorStyles',
 })
 
-export const buttonStyle = complexStyle({
-  prop: 'buttonStyle',
+export const buttonStyle = variant({
   key: 'buttons'
 })
-*/

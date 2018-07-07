@@ -5,9 +5,6 @@ export {
   get,
   merge,
   compose,
-  // aliases
-  style as responsiveStyle,
-  get as themeGet,
 } from './util'
 
 export {
@@ -77,11 +74,18 @@ export {
   right,
   bottom,
   left,
-  // complex
-  // textStyle,
-  // colorStyle,
-  // buttonStyle,
+  // variants
+  textStyle,
+  colorStyle,
+  buttonStyle,
 } from './styles'
 
 // new
 export { default as variant } from './variant'
+
+// aliases for v2 api
+export {
+  style as responsiveStyle,
+  get as themeGet,
+} from './util'
+export { default as complexStyle } from './variant'
