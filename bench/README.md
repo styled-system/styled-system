@@ -90,3 +90,52 @@ space array x 117,945 ops/sec ±2.52% (78 runs sampled)
 fontSize array x 152,304 ops/sec ±1.93% (75 runs sampled)
 color array x 153,113 ops/sec ±2.14% (79 runs sampled)
 ```
+
+## with env loose option
+
+```
+space x 445,660 ops/sec ±2.82% (82 runs sampled)
+width x 608,948 ops/sec ±7.06% (67 runs sampled)
+fontSize x 1,027,177 ops/sec ±3.87% (69 runs sampled)
+color x 537,615 ops/sec ±1.25% (82 runs sampled)
+style x 897,581 ops/sec ±1.78% (84 runs sampled)
+width array x 129,856 ops/sec ±3.07% (81 runs sampled)
+space array x 120,580 ops/sec ±2.82% (78 runs sampled)
+fontSize array x 132,357 ops/sec ±4.53% (72 runs sampled)
+color array x 142,745 ops/sec ±4.47% (72 runs sampled)
+v2 space x 144,528 ops/sec ±4.97% (73 runs sampled)
+v2 width x 202,668 ops/sec ±4.54% (67 runs sampled)
+v2 fontSize x 266,587 ops/sec ±2.18% (74 runs sampled)
+v2 color x 235,471 ops/sec ±4.66% (79 runs sampled)
+v2 style x 426,250 ops/sec ±4.50% (74 runs sampled)
+v2 responsiveStyle x 277,842 ops/sec ±1.41% (83 runs sampled)
+v2 width array x 46,095 ops/sec ±3.36% (78 runs sampled)
+v2 space array x 56,238 ops/sec ±1.11% (85 runs sampled)
+v2 fontSize array x 52,713 ops/sec ±1.23% (80 runs sampled)
+v2 color array x 52,851 ops/sec ±1.25% (82 runs sampled)
+```
+
+function | v2 | v3
+---|---|---
+
+```
+space x 356,970 ops/sec ±4.98% (72 runs sampled)
+width x 643,964 ops/sec ±3.19% (78 runs sampled)
+fontSize x 948,055 ops/sec ±4.73% (72 runs sampled)
+color x 482,049 ops/sec ±5.29% (74 runs sampled)
+style x 822,602 ops/sec ±3.02% (73 runs sampled)
+width array x 121,582 ops/sec ±3.88% (74 runs sampled)
+space array x 135,592 ops/sec ±1.83% (84 runs sampled)
+fontSize array x 164,261 ops/sec ±1.28% (78 runs sampled)
+color array x 168,691 ops/sec ±2.31% (82 runs sampled)
+v2 space x 194,508 ops/sec ±1.28% (84 runs sampled)
+v2 width x 254,710 ops/sec ±2.18% (79 runs sampled)
+v2 fontSize x 275,557 ops/sec ±2.46% (78 runs sampled)
+v2 color x 238,119 ops/sec ±3.70% (75 runs sampled)
+v2 style x 499,292 ops/sec ±1.94% (76 runs sampled)
+v2 responsiveStyle x 221,308 ops/sec ±10.40% (69 runs sampled)
+v2 width array x 36,284 ops/sec ±5.21% (68 runs sampled)
+v2 space array x 54,648 ops/sec ±3.48% (79 runs sampled)
+v2 fontSize array x 51,501 ops/sec ±1.34% (82 runs sampled)
+v2 color array x 54,111 ops/sec ±1.39% (83 runs sampled)
+```
