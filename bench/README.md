@@ -90,28 +90,3 @@ space array x 117,945 ops/sec ±2.52% (78 runs sampled)
 fontSize array x 152,304 ops/sec ±1.93% (75 runs sampled)
 color array x 153,113 ops/sec ±2.14% (79 runs sampled)
 ```
-
-
-Why are these results so different?
-
-```
-width x 192,903 ops/sec ±1.84% (81 runs sampled)
-fontSize x 194,581 ops/sec ±9.73% (73 runs sampled)
-space x 156,525 ops/sec ±9.69% (68 runs sampled)
-color x 155,332 ops/sec ±4.17% (69 runs sampled)
-style x 191,389 ops/sec ±3.19% (72 runs sampled)
-width array x 12,962 ops/sec ±13.87% (50 runs sampled)
-fontSize array x 14,422 ops/sec ±18.07% (47 runs sampled)
-space array x 29,086 ops/sec ±29.42% (61 runs sampled)
-color array x 11,670 ops/sec ±30.98% (39 runs sampled)
-
-v2 width x 131,669 ops/sec ±11.32% (62 runs sampled)
-v2 fontSize x 254,220 ops/sec ±1.78% (78 runs sampled)
-v2 space x 169,869 ops/sec ±2.31% (76 runs sampled)
-v2 color x 233,793 ops/sec ±2.02% (77 runs sampled)
-v2 style:
-v2 width array x 43,539 ops/sec ±1.99% (77 runs sampled)
-v2 fontSize array x 47,333 ops/sec ±1.89% (79 runs sampled)
-v2 space array x 51,077 ops/sec ±1.57% (79 runs sampled)
-v2 color array x 49,520 ops/sec ±1.53% (80 runs sampled)
-```

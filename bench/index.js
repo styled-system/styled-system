@@ -44,6 +44,7 @@ const v2tests = [
   { name: 'v2 fontSize', func: () => v2.fontSize({ fontSize: 2 }) },
   { name: 'v2 color', func: () => v2.color({ color: 'tomato' }) },
   { name: 'v2 style', func: () => v2Style({ prop: 'color' })({ color: 'tomato' }) },
+  { name: 'v2 responsiveStyle', func: () => v2responsiveStyle({ prop: 'color' })({ color: 'tomato' }) },
   { name: 'v2 width array', func: () => v2.width({ width: [ 1, 1/2, 1/3, 1/4, 1/5 ] }) },
   { name: 'v2 space array', func: () => v2.space({ m: [ 0, 1, 2, 3, 4 ] }) },
   { name: 'v2 fontSize array', func: () => v2.fontSize({ fontSize: [ 1, 2, 3, 4, 5 ] }) },
