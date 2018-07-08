@@ -41,7 +41,7 @@ export const space = props => {
 
 const mx = scale => n => {
   if (!num(n)) {
-    return n
+    return scale[n] || n
   }
 
   const value = scale[Math.abs(n)] || Math.abs(n)
