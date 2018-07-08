@@ -42,6 +42,7 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 `minHeight` | `minHeight` | `min-height` | `minHeights` | yes
 `size` | `size` | `width` `height` | none | yes
 `ratio` | `ratio` | `height` `padding-bottom` | none | no
+`verticalAlign` | `verticalAlign` | `vertical-align` | none | no
 
 ## Flexbox
 
