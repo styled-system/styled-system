@@ -364,7 +364,7 @@ This helps prevent errors from throwing when a theme value is missing,
 which can be helpful when unit testing styled-components.
 
 ```js
-get(objectPath, fallbackValue)
+get(objectPath, fallbackValue)(props)
 ```
 
 ```js

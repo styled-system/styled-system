@@ -22,9 +22,7 @@ export const px = n => num(n) ? n + 'px' : n
 export const idx = (obj, ...paths) => paths.join('.').split('.')
   .reduce((a, b) => (a && a[b]) ? a[b] : null, obj)
 
-export const get = (obj, paths, fallback) => typeof obj === 'string'
-  ? props => get(props.theme, obj) || paths
-  : idx(obj, paths) || fallback
+export const get = (paths, fallback) => props => idx(props.theme, paths) || fallback
 
 export const merge = (a, b) => Object.assign({}, a, b, Object
   .keys(b || {}).reduce((obj, key) =>
@@ -61,10 +59,10 @@ export const style = ({
     const val = props[prop]
     if (!is(val)) return null
 
-    const scale = get(props.theme, key) || defaultScale
+    const scale = idx(props.theme, key) || defaultScale
     const style = n => is(n) ? ({
       [css]: getter(
-        get(scale, n) || n
+        idx(scale, n) || n
       )
     }) : null
 
@@ -75,7 +73,7 @@ export const style = ({
     // how to hoist this up??
     const breakpoints = [
       null,
-      ...(get(props.theme, 'breakpoints') || defaultBreakpoints)
+      ...(idx(props.theme, 'breakpoints') || defaultBreakpoints)
         .map(createMediaQuery)
     ]
 

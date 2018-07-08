@@ -2,7 +2,7 @@ import {
   propTypes,
   defaultBreakpoints,
   createMediaQuery,
-  get,
+  idx,
   is,
   px,
   num,
@@ -57,7 +57,7 @@ const space = props => {
   const keys = Object.keys(props)
     .filter(key => REG.test(key))
     .sort()
-  const scale = get(props.theme, 'space') || defaultScale
+  const scale = idx(props.theme, 'space') || defaultScale
   const getStyle = getValue(scale)
 
   return keys
@@ -76,7 +76,7 @@ const space = props => {
 
       const breakpoints = [
         null,
-        ...(get(props.theme, 'breakpoints') || defaultBreakpoints)
+        ...(idx(props.theme, 'breakpoints') || defaultBreakpoints)
           .map(createMediaQuery)
       ]
 
