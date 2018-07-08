@@ -9,6 +9,7 @@ import {
   width,
   fontSize,
   color,
+  opacity,
 
   style,
   responsiveStyle,
@@ -542,6 +543,22 @@ test('color keys support dot notation', t => {
     color: 'gray.2'
   })
   t.is(a.color, '#999')
+})
+
+// opacity
+test('opacity', t => {
+  const a = opacity({ opacity: 0.5 })
+  t.deepEqual(a, { opacity: 0.5 })
+})
+
+test('opacity responsive', t => {
+  const a = opacity({ opacity: [0.3, 0.7] })
+  t.deepEqual(a, {
+    opacity: 0.3,
+    '@media screen and (min-width: 40em)': {
+      opacity: 0.7,
+    }
+  })
 })
 
 // style

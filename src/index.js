@@ -61,6 +61,7 @@ export {
   backgroundSize,
   backgroundPosition,
   backgroundRepeat,
+  opacity,
   // position
   position,
   zIndex,

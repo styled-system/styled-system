@@ -44,6 +44,10 @@ color.propTypes = {
   ...bgColor.propTypes,
 }
 
+export const opacity = responsiveStyle({
+  prop: 'opacity'
+})
+
 // typography
 export const fontFamily = style({
   prop: 'fontFamily',

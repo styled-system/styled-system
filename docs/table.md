@@ -95,6 +95,7 @@ Function Name | Prop       | CSS Property    | Theme Field  | Responsive
 `borders` | `borderBottom` | `border-bottom` | `borders` | yes
 `borders` | `borderLeft` | `border-left` | `borders` | yes
 `boxShadow` | `boxShadow` | `box-shadow` | `shadows` | no
+`opacity`   | `opacity` `o` | `opacity`  | `opacity` | yes
 
 ## Position
 
