@@ -1,4 +1,3 @@
-// next version of complexStyle
 import { propTypes, idx } from './util'
 
 export default ({

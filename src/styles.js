@@ -8,7 +8,6 @@ import variant from './variant'
 
 const getWidth = n => !num(n) || n > 1 ? px(n) : (n * 100) + '%'
 
-// core
 export { default as space } from './space'
 
 export const width = style({
