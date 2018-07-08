@@ -3,124 +3,116 @@
 
 ## Core
 
-Function Name | Prop       | CSS Property    | Theme Field  | Responsive
---------------|------------|-----------------|--------------|-----------
-`space`       | `m`        | `margin`        | `space`      | yes
-`space`       | `mt`       | `margin-top`    | `space`      | yes
-`space`       | `mr`       | `margin-right`  | `space`      | yes
-`space`       | `mb`       | `margin-bottom` | `space`      | yes
-`space`       | `ml`       | `margin-left`   | `space`      | yes
-`space`       | `p`        | `padding`       | `space`      | yes
-`space`       | `pt`       | `padding-top`   | `space`      | yes
-`space`       | `pr`       | `padding-right` | `space`      | yes
-`space`       | `pb`       | `padding-bottom` | `space`     | yes
-`space`       | `pl`       | `padding-left`  | `space`      | yes
-`width`       | `width`    | `width`         | none         | yes
-`fontSize`    | `fontSize` |`font-size`      |`fontSizes`   | yes
-`color`       | `color`    | `color`         | `colors`     | yes
-`color`       | `bg`       | `background-color`| `colors`   | yes
+Function Name | Prop       | CSS Property    | Theme Field
+--------------|------------|-----------------|--------------
+`space`       | `m`        | `margin`        | `space`
+`space`       | `mt`       | `margin-top`    | `space`
+`space`       | `mr`       | `margin-right`  | `space`
+`space`       | `mb`       | `margin-bottom` | `space`
+`space`       | `ml`       | `margin-left`   | `space`
+`space`       | `p`        | `padding`       | `space`
+`space`       | `pt`       | `padding-top`   | `space`
+`space`       | `pr`       | `padding-right` | `space`
+`space`       | `pb`       | `padding-bottom` | `space`
+`space`       | `pl`       | `padding-left`  | `space`
+`width`       | `width`    | `width`         | none
+`fontSize`    | `fontSize` |`font-size`      |`fontSizes`
+`color`       | `color`    | `color`         | `colors`
+`color`       | `bg`       | `background-color`| `colors`
 
 ## Typography
 
-Function Name | Prop       | CSS Property    | Theme Field  | Responsive
---------------|------------|-----------------|--------------|-----------
-`fontFamily` | `fontFamily` | `font-family` | `fonts` | no
-`textAlign`   | `textAlign`    | `text-align`   | none         | yes
-`lineHeight`  | `lineHeight` | `line-height` | `lineHeights` | yes
-`fontWeight`  | `fontWeight` | `font-weight` | `fontWeights` | no
-`letterSpacing` | `letterSpacing` | `letter-spacing` | `letterSpacings` | no
+Function Name | Prop       | CSS Property    | Theme Field
+--------------|------------|-----------------|--------------
+`fontFamily` | `fontFamily` | `font-family` | `fonts`
+`textAlign`   | `textAlign`    | `text-align`   | none
+`lineHeight`  | `lineHeight` | `line-height` | `lineHeights`
+`fontWeight`  | `fontWeight` | `font-weight` | `fontWeights`
+`letterSpacing` | `letterSpacing` | `letter-spacing` | `letterSpacings`
 
 ## Layout
 
-Function Name | Prop       | CSS Property    | Theme Field  | Responsive
---------------|------------|-----------------|--------------|-----------
-`display` | `display` | `display` | none | yes
-`maxWidth` | `maxWidth` | `max-width` | `maxWidths` | yes
-`minWidth` | `minWidth` | `min-width` | `minWidths` | yes
-`height` | `height` | `height` | `heights` | yes
-`maxHeight` | `maxHeight` | `max-height` | `maxHeights` | yes
-`minHeight` | `minHeight` | `min-height` | `minHeights` | yes
-`size` | `size` | `width` `height` | none | yes
-`ratio` | `ratio` | `height` `padding-bottom` | none | no
+Function Name | Prop       | CSS Property    | Theme Field
+--------------|------------|-----------------|--------------
+`display` | `display` | `display` | none
+`maxWidth` | `maxWidth` | `max-width` | `maxWidths`
+`minWidth` | `minWidth` | `min-width` | `minWidths`
+`height` | `height` | `height` | `heights`
+`maxHeight` | `maxHeight` | `max-height` | `maxHeights`
+`minHeight` | `minHeight` | `min-height` | `minHeights`
+`size` | `size` | `width` `height` | none
+`ratio` | `ratio` | `height` `padding-bottom` | none
 
 ## Flexbox
 
-Function Name | Prop       | CSS Property    | Theme Field  | Responsive
---------------|------------|-----------------|--------------|-----------
-`alignItems`  | `alignItems` | `align-items` | none | yes
-`justifyContent` | `justifyContent` | `justify-content` | none | yes
-`flexWrap` | `flexWrap` | `flex-wrap` | none | yes
-`flexDirection` | `flexDirection` | `flex-direction` | none | yes
-`flex` | `flex` | `flex` (shorthand) | none | yes
-`alignContent`  | `alignContent` | `align-content` | none | yes
-`justifySelf` | `justifySelf` | `justify-self` | none | yes
-`alignSelf` | `alignSelf` | `align-self` | none | yes
-`order` | `order` | `order` | none | yes
-`flexBasis` | `flexBasis` | `flex-basis` | none | yes
+Function Name | Prop       | CSS Property    | Theme Field
+--------------|------------|-----------------|--------------
+`alignItems`  | `alignItems` | `align-items` | none
+`justifyContent` | `justifyContent` | `justify-content` | none
+`flexWrap` | `flexWrap` | `flex-wrap` | none
+`flexDirection` | `flexDirection` | `flex-direction` | none
+`flex` | `flex` | `flex` (shorthand) | none
+`alignContent`  | `alignContent` | `align-content` | none
+`justifySelf` | `justifySelf` | `justify-self` | none
+`alignSelf` | `alignSelf` | `align-self` | none
+`order` | `order` | `order` | none
+`flexBasis` | `flexBasis` | `flex-basis` | none
 
 ## Grid Layout
 
-Function Name | Prop       | CSS Property    | Theme Field  | Responsive
---------------|------------|-----------------|--------------|-----------
-`gridGap`  | `gridGap` | `grid-gap` | `space` | yes
-`gridRowGap` | `gridRowGap` | `grid-row-gap` | `space` | yes
-`gridColumnGap` | `gridColumnGap` | `grid-column-gap` | `space` | yes
-`gridColumn` | `gridColumn` | `grid-column` | none | yes
-`gridRow` | `gridRow` | `grid-row` | none | yes
-`gridAutoFlow` | `gridAutoFlow` | `grid-auto-flow` | none | no
-`gridAutoRows` | `gridAutoRows` | `grid-auto-rows` | none | no
-`gridAutoColumns` | `gridAutoColumns` | `grid-auto-columns` | none | no
-`gridTemplateRows` | `gridTemplateRows` | `grid-template-rows` | none | yes
-`gridTemplateColumns` | `gridTemplateColumns` | `grid-template-columns` | none | yes
+Function Name | Prop       | CSS Property    | Theme Field
+--------------|------------|-----------------|--------------
+`gridGap`  | `gridGap` | `grid-gap` | `space`
+`gridRowGap` | `gridRowGap` | `grid-row-gap` | `space`
+`gridColumnGap` | `gridColumnGap` | `grid-column-gap` | `space`
+`gridColumn` | `gridColumn` | `grid-column` | none
+`gridRow` | `gridRow` | `grid-row` | none
+`gridAutoFlow` | `gridAutoFlow` | `grid-auto-flow` | none
+`gridAutoRows` | `gridAutoRows` | `grid-auto-rows` | none
+`gridAutoColumns` | `gridAutoColumns` | `grid-auto-columns` | none
+`gridTemplateRows` | `gridTemplateRows` | `grid-template-rows` | none
+`gridTemplateColumns` | `gridTemplateColumns` | `grid-template-columns` | none
 
 ## Background
 
-Function Name | Prop       | CSS Property    | Theme Field  | Responsive
---------------|------------|-----------------|--------------|-----------
-`background`  | `background` | `background`  | none | no
-`backgroundImage` | `backgroundImage` `bgImage` | `background-image` | none | no
-`backgroundSize` | `backgroundSize` `bgSize` | `background-size` | none | no
-`backgroundPosition` | `backgroundPosition` `bgPosition` | `background-position` | none | no
-`backgroundRepeat` | `backgroundRepeat` `bgRepeat` | `background-repeat` | none | no
+Function Name | Prop       | CSS Property    | Theme Field
+--------------|------------|-----------------|--------------
+`background`  | `background` | `background`  | none
+`backgroundImage` | `backgroundImage` `bgImage` | `background-image` | none
+`backgroundSize` | `backgroundSize` `bgSize` | `background-size` | none
+`backgroundPosition` | `backgroundPosition` `bgPosition` | `background-position` | none
+`backgroundRepeat` | `backgroundRepeat` `bgRepeat` | `background-repeat` | none
 
 ## Misc
 
-Function Name | Prop       | CSS Property    | Theme Field  | Responsive
---------------|------------|-----------------|--------------|-----------
-`borderRadius` | `borderRadius` | `border-radius` | `radii` | no
-`borderColor` | `borderColor` | `border-color` | `colors` | no
-`borders` | `border` | `border` | `borders` | yes
-`borders` | `borderTop` | `border-top` | `borders` | yes
-`borders` | `borderRight` | `border-right` | `borders` | yes
-`borders` | `borderBottom` | `border-bottom` | `borders` | yes
-`borders` | `borderLeft` | `border-left` | `borders` | yes
-`boxShadow` | `boxShadow` | `box-shadow` | `shadows` | no
+Function Name | Prop       | CSS Property    | Theme Field
+--------------|------------|-----------------|--------------
+`borderRadius` | `borderRadius` | `border-radius` | `radii`
+`borderColor` | `borderColor` | `border-color` | `colors`
+`borders` | `border` | `border` | `borders`
+`borders` | `borderTop` | `border-top` | `borders`
+`borders` | `borderRight` | `border-right` | `borders`
+`borders` | `borderBottom` | `border-bottom` | `borders`
+`borders` | `borderLeft` | `border-left` | `borders`
+`boxShadow` | `boxShadow` | `box-shadow` | `shadows`
 
 ## Position
 
-Function Name | Prop       | CSS Property    | Theme Field  | Responsive
---------------|------------|-----------------|--------------|-----------
-`position` | `position` | `position` | none | yes
-`zIndex` | `zIndex` | `z-index` | none | no
-`top` | `top` | `top` | none | yes
-`right` | `right` | `right` | none | yes
-`bottom` | `bottom` | `bottom` | none | yes
-`left` | `left` | `left` | none | yes
+Function Name | Prop       | CSS Property    | Theme Field
+--------------|------------|-----------------|--------------
+`position` | `position` | `position` | none
+`zIndex` | `zIndex` | `z-index` | none
+`top` | `top` | `top` | none
+`right` | `right` | `right` | none
+`bottom` | `bottom` | `bottom` | none
+`left` | `left` | `left` | none
 
-## Pseudo-classes
 
-Function Name | Prop       | CSS Property    | Theme Field  | Responsive
---------------|------------|-----------------|--------------|-----------
-`hover` | `hover` | style object | -- | no
-`focus` | `focus` | style object | -- | no
-`active` | `active` | style object | -- | no
-`disabled` | `disabledStyle` | style object | -- | no
+## Variant Styles
 
-## Complex Styles
-
-Function Name | Prop       | CSS Property    | Theme Field  | Responsive
---------------|------------|-----------------|--------------|-----------
-`textStyle` | `textStyle` | style object | `textStyles` | no
-`colorStyle` | `colors` | style object | `colorStyles` | no
-`buttonStyle` | `buttonStyle` | style object | `buttons` | no
+Function Name | Prop       | CSS Property    | Theme Field
+--------------|------------|-----------------|--------------
+`textStyle` | `textStyle` | style object | `textStyles`
+`colorStyle` | `colors` | style object | `colorStyles`
+`buttonStyle` | `variant` | style object | `buttons`
 

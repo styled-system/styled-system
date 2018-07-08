@@ -6,9 +6,9 @@ to your React components,
 which allows for controlling styles based on global theme constants.
 
 To use styled-system, you'll most likely want to use a CSS-in-JS library.
-These examples use [styled-components][styled-components],
+These examples use [styled-components][],
 but styled-system works with other libraries
-like [emotion][emotion] and [glamorous][glamorous] as well.
+like [emotion][] and [glamorous][] as well.
 
 ```sh
 npm i styled-system styled-components
@@ -56,7 +56,7 @@ export default {
 ## Theming
 
 Most CSS-in-JS libraries use a ThemeProvider to handle theming in React.
-Import the styled-components [ThemeProvider][ThemeProvider] in the root of your application and pass the theme to the `theme` prop.
+Import the styled-components [ThemeProvider][] in the root of your application and pass the theme to the `theme` prop.
 
 ```jsx
 import React from 'react'
@@ -181,7 +181,7 @@ The `width` prop accepts number, string, or array values, where:
 
 ## Responsive Styles
 
-Many styled-system functions accept arrays as values to set styles responsively using a mobile-first approach.
+All styled-system functions accept arrays as values to set styles responsively using a mobile-first approach.
 
 ```jsx
 <Box
@@ -204,8 +204,7 @@ Many styled-system functions accept arrays as values to set styles responsively 
 <Text fontSize={[ 3, 4, 5 ]} />
 ```
 
-To see which functions support responsive array values, see the [Table of Style Functions](table.md)
-or read more in the [Responsive Styles Docs](responsive-styles.md).
+Read more in the [Responsive Styles Docs](responsive-styles.md).
 
 ---
 

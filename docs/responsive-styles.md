@@ -7,7 +7,7 @@ Instead of manually managing media queries and adding nested style objects throu
 styled-system offers a convenient shorthand syntax for adding responsive styles with a mobile-first approach.
 While this syntax can seem odd at first, it can become a powerful way to manage responsive typography and layouts.
 
-All core props accept arrays as values for mobile-first responsive styles.
+All style utilities add props that accept arrays as values for mobile-first responsive styles.
 
 ```jsx
 <Box
