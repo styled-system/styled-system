@@ -9,7 +9,6 @@ import {
   width,
   fontSize,
   color,
-  opacity,
 
   style,
   variant,
@@ -507,22 +506,6 @@ test('color keys support dot notation', t => {
     color: 'gray.2'
   })
   t.is(a.color, '#999')
-})
-
-// opacity
-test('opacity', t => {
-  const a = opacity({ opacity: 0.5 })
-  t.deepEqual(a, { opacity: 0.5 })
-})
-
-test('opacity responsive', t => {
-  const a = opacity({ opacity: [0.3, 0.7] })
-  t.deepEqual(a, {
-    opacity: 0.3,
-    '@media screen and (min-width: 40em)': {
-      opacity: 0.7,
-    }
-  })
 })
 
 // style
@@ -1094,7 +1077,7 @@ test('boxShadow returns theme value', t => {
   t.deepEqual(a, { boxShadow: '0 0 8px rgba(0, 0, 0, .125)' })
 })
 
-test('opacity returns box-shadow styles', t => {
+test('opacity returns opacity styles', t => {
   const a = opacity({ opacity: 0.5 })
   t.deepEqual(a, { opacity: 0.5 })
 })

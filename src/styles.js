@@ -48,10 +48,6 @@ export const color = compose(
   bgColor
 )
 
-export const opacity = responsiveStyle({
-  prop: 'opacity'
-})
-
 // typography
 export const fontFamily = style({
   prop: 'fontFamily',
