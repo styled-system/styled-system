@@ -140,6 +140,10 @@ ratio.propTypes = {
   ...ratioPadding.propTypes
 }
 
+export const verticalAlign = style({
+  prop: 'verticalAlign'
+})
+
 // flexbox
 export const alignItems = style({
   prop: 'alignItems'
@@ -292,6 +296,10 @@ export const borderRadius = style({
 export const boxShadow = style({
   prop: 'boxShadow',
   key: 'shadows'
+})
+
+export const opacity = style({
+  prop: 'opacity'
 })
 
 // backgrounds

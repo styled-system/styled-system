@@ -29,6 +29,7 @@ export {
   minHeight,
   size,
   ratio,
+  verticalAlign,
   // flexbox
   alignItems,
   alignContent,
@@ -62,6 +63,7 @@ export {
   borderRadius,
   // misc
   boxShadow,
+  opacity,
   background,
   backgroundImage,
   backgroundSize,

@@ -28,6 +28,7 @@ import {
   minHeight,
   size,
   ratio,
+  verticalAlign,
 
   alignItems,
   alignContent,
@@ -54,6 +55,7 @@ import {
   borderColor,
   borders,
   boxShadow,
+  opacity,
 
   background,
   backgroundImage,
@@ -832,6 +834,13 @@ test('ratio returns null when undefined', t => {
   t.is(a, null)
 })
 
+test('verticalAlign returns verticalAlign', t => {
+  const a = verticalAlign({ verticalAlign: 'middle' })
+  t.deepEqual(a, {
+    verticalAlign: 'middle'
+  })
+})
+
 test('alignItems returns a style', t => {
   const a = alignItems({ alignItems: 'center' })
   t.deepEqual(a, { alignItems: 'center' })
@@ -1066,6 +1075,11 @@ test('boxShadow returns theme value', t => {
     boxShadow: 1
   })
   t.deepEqual(a, { boxShadow: '0 0 8px rgba(0, 0, 0, .125)' })
+})
+
+test('opacity returns box-shadow styles', t => {
+  const a = opacity({ opacity: 0.5 })
+  t.deepEqual(a, { opacity: 0.5 })
 })
 
 test('background returns background', t => {
