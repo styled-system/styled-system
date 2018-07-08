@@ -115,4 +115,14 @@ space.propTypes = {
   py: propTypes.responsive
 }
 
+const meta = prop => ({
+  prop,
+  themeKey: 'space',
+  styleType: 'responsive'
+})
+
+Object.keys(space.propTypes).forEach(prop => {
+  space.propTypes[prop].meta = meta(prop)
+})
+
 export default space

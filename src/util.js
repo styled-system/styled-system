@@ -95,5 +95,11 @@ export const style = ({
 
   fn.propTypes = { [prop]: propTypes.responsive }
 
+  fn.propTypes[prop].meta = {
+    prop,
+    themeKey: key,
+    styleType: 'responsive'
+  }
+
   return fn
 }
