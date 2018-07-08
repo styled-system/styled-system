@@ -148,27 +148,22 @@ To learn more, see the [Getting Started](docs/getting-started.md) guide or read 
 - [How it Works](docs/how-it-works.md)
 - [API](docs/api.md)
   - [Core](docs/api.md#core)
-    - [space](docs/api.md#space-responsive) (margins & paddings)
-    - [width](docs/api.md#width-responsive)
-    - [fontSize](docs/api.md#fontsize-responsive)
-    - [color](docs/api.md#color-responsive) (and background-color)
+    - [space](docs/api.md#space) (margins & paddings)
+    - [width](docs/api.md#width)
+    - [fontSize](docs/api.md#fontsize)
+    - [color](docs/api.md#color) (and background-color)
   - [Typography](docs/api.md#typography)
   - [Layout](docs/api.md#layout)
   - [Flexbox](docs/api.md#flexbox)
   - [Borders](docs/api.md#borders)
   - [Position](docs/api.md#position)
   - [Misc](docs/api.md#misc)
-  - [Pseudo-classes](docs/api.md#pseudo-classes)
-  - [Complex styles](docs/api.md#complex-styles)
+  - [Variants](docs/api.md#variant)
   - [Utilities](docs/api.md#utilities)
-    - [themeGet](docs/api.md#themeget)
-    - [propTypes](docs/api.md#proptypes)
+    - [get](docs/api.md#get)
   - [Customize](docs/api.md#customize)
     - [style](docs/api.md#style)
-    - [responsiveStyle](docs/api.md#responsivestyle)
-    - [pseudoStyle](docs/api.md#pseudostyle)
-    - [complexStyle](docs/api.md#complexstyle)
-  - [Default Theme](docs/api.md#default-theme)
+    - [variant](docs/api.md#variant)
 - [Table of Style Functions](docs/table.md)
 - [Custom Props](docs/custom-props.md)
 - [Troubleshooting](docs/troubleshooting.md)
@@ -195,11 +190,11 @@ To learn more, see the [Getting Started](docs/getting-started.md) guide or read 
 - [Rebass](http://jxnblk.com/rebass)
 - [Compositor Lab](https://compositor.io/lab)
 - [styled-components][sc]
-- [glamorous][glamorous]
-- [emotion][emotion]
-- [fela][fela]
-- [nano-style][nano-style]
-- [cxs][cxs]
+- [glamorous][]
+- [emotion][]
+- [fela][]
+- [nano-style][]
+- [cxs][]
 
 [sc]: https://github.com/styled-components/styled-components
 [glamorous]: https://github.com/paypal/glamorous
