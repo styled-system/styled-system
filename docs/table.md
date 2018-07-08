@@ -42,6 +42,7 @@ Function Name | Prop       | CSS Property    | Theme Field
 `minHeight` | `minHeight` | `min-height` | `minHeights`
 `size` | `size` | `width` `height` | none
 `ratio` | `ratio` | `height` `padding-bottom` | none
+`verticalAlign` | `verticalAlign` | `vertical-align` | none
 
 ## Flexbox
 
@@ -95,6 +96,7 @@ Function Name | Prop       | CSS Property    | Theme Field
 `borders` | `borderBottom` | `border-bottom` | `borders`
 `borders` | `borderLeft` | `border-left` | `borders`
 `boxShadow` | `boxShadow` | `box-shadow` | `shadows`
+`opacity`   | `opacity` `o` | `opacity`  | `opacity`
 
 ## Position
 

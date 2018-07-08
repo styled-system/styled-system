@@ -300,6 +300,9 @@ The `borders` utility combines `border`, `borderTop`, `borderRight`, `borderBott
   backgroundPosition='center'
   backgroundRepeat='repeat-x'
 />
+
+// opacity
+<Box opacity={0.5} />
 ```
 
 ## Variants
