@@ -51,17 +51,19 @@ export const style = ({
   prop,
   cssProperty,
   key,
-  getter = noop,
+  getter,
+  transformValue,
   scale: defaultScale = {}
 }) => {
   const css = cssProperty || prop
+  const transform  = transformValue || getter || noop
   const fn = props => {
     const val = props[prop]
     if (!is(val)) return null
 
     const scale = idx(props.theme, key) || defaultScale
     const style = n => is(n) ? ({
-      [css]: getter(
+      [css]: transform(
         idx(scale, n) || n
       )
     }) : null

@@ -554,7 +554,7 @@ test('style function returns scale values', t => {
 test('style function returns pixels for number values', t => {
   const sx = style({
     prop: 'borderRadius',
-    getter: util.px
+    transformValue: util.px
   })
   const a = sx({
     borderRadius: 4,
@@ -574,10 +574,10 @@ test('style function returns unitless number values', t => {
   t.is(a.borderRadius, 4)
 })
 
-test('style function accepts a getter option', t => {
+test('style function accepts a transformValue option', t => {
   const sx = style({
     prop: 'width',
-    getter: n => !util.num(n) || n > 1 ? util.px(n) : (n * 100) + '%'
+    transformValue: n => !util.num(n) || n > 1 ? util.px(n) : (n * 100) + '%'
   })
   const a = sx({ width: 1/2 })
   const b = sx({ width: 24 })
@@ -616,7 +616,7 @@ test('style returns pixel values for number arrays', t => {
   const radius = style({
     cssProperty: 'borderRadius',
     prop: 'radius',
-    getter: util.px
+    transformValue: util.px
   })
   const a = radius({ radius: [ 4, 5, 6 ] })
   t.deepEqual(a, {
@@ -654,7 +654,7 @@ test('style returns a theme number value in px', t => {
   const sx = style({
     prop: 'borderRadius',
     key: 'radii',
-    getter: util.px
+    transformValue: util.px
   })
   const a = sx({
     theme,

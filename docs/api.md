@@ -419,7 +419,7 @@ const fontSize = style({
   // key for theme values
   key: 'fontSizes',
   // accessor function for transforming the value
-  getter: n => n + 'px',
+  transformValue: n => n + 'px',
   // add a fallback scale object or array, if theme is not present
   scale: [ 0, 4, 8, 16, 32 ]
 })

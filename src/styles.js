@@ -12,13 +12,13 @@ export { default as space } from './space'
 
 export const width = style({
   prop: 'width',
-  getter: getWidth
+  transformValue: getWidth
 })
 
 export const fontSize = style({
   prop: 'fontSize',
   key: 'fontSizes',
-  getter: px,
+  transformValue: px,
   scale: [
     12,
     14,
@@ -71,7 +71,7 @@ export const fontWeight = style({
 export const letterSpacing = style({
   prop: 'letterSpacing',
   key: 'letterSpacings',
-  getter: px
+  transformValue: px
 })
 
 // layout
@@ -82,43 +82,43 @@ export const display = style({
 export const maxWidth = style({
   prop: 'maxWidth',
   key: 'maxWidths',
-  getter: px
+  transformValue: px
 })
 
 export const minWidth = style({
   prop: 'minWidth',
   key: 'minWidths',
-  getter: px
+  transformValue: px
 })
 
 export const height = style({
   prop: 'height',
   key: 'heights',
-  getter: px
+  transformValue: px
 })
 
 export const maxHeight = style({
   prop: 'maxHeight',
   key: 'maxHeights',
-  getter: px
+  transformValue: px
 })
 
 export const minHeight = style({
   prop: 'minHeight',
   key: 'minHeights',
-  getter: px
+  transformValue: px
 })
 
 export const sizeWidth = style({
   prop: 'size',
   cssProperty: 'width',
-  getter: px
+  transformValue: px
 })
 
 export const sizeHeight = style({
   prop: 'size',
   cssProperty: 'height',
-  getter: px
+  transformValue: px
 })
 
 export const size = compose(
@@ -129,7 +129,7 @@ export const size = compose(
 export const ratioPadding = style({
   prop: 'ratio',
   cssProperty: 'paddingBottom',
-  getter: n => (n * 100) + '%'
+  transformValue: n => (n * 100) + '%'
 })
 
 export const ratio = props => props.ratio ? ({
@@ -163,7 +163,7 @@ export const flexWrap = style({
 
 export const flexBasis = style({
   prop: 'flexBasis',
-  getter: getWidth
+  transformValue: getWidth
 })
 
 
@@ -190,19 +190,19 @@ export const order = style({
 // grid
 export const gridGap = style({
   prop: 'gridGap',
-  getter: px,
+  transformValue: px,
   key: 'space'
 })
 
 export const gridColumnGap = style({
   prop: 'gridColumnGap',
-  getter: px,
+  transformValue: px,
   key: 'space'
 })
 
 export const gridRowGap = style({
   prop: 'gridRowGap',
-  getter: px,
+  transformValue: px,
   key: 'space'
 })
 
@@ -240,31 +240,31 @@ const getBorder = n => num(n) && n > 0 ? n + 'px solid' : n
 export const border = style({
   prop: 'border',
   key: 'borders',
-  getter: getBorder
+  transformValue: getBorder
 })
 
 export const borderTop = style({
   prop: 'borderTop',
   key: 'borders',
-  getter: getBorder
+  transformValue: getBorder
 })
 
 export const borderRight = style({
   prop: 'borderRight',
   key: 'borders',
-  getter: getBorder
+  transformValue: getBorder
 })
 
 export const borderBottom = style({
   prop: 'borderBottom',
   key: 'borders',
-  getter: getBorder
+  transformValue: getBorder
 })
 
 export const borderLeft = style({
   prop: 'borderLeft',
   key: 'borders',
-  getter: getBorder
+  transformValue: getBorder
 })
 
 export const borders = props => ({
@@ -290,7 +290,7 @@ export const borderColor = style({
 export const borderRadius = style({
   prop: 'borderRadius',
   key: 'radii',
-  getter: px,
+  transformValue: px,
 })
 
 export const boxShadow = style({
@@ -309,7 +309,7 @@ export const background = style({
 
 export const backgroundImage = style({
   prop: 'backgroundImage',
-  getter: n => `url(${n})`
+  transformValue: n => `url(${n})`
 })
 
 export const backgroundSize = style({
@@ -335,22 +335,22 @@ export const zIndex = style({
 
 export const top = style({
   prop: 'top',
-  getter: px
+  transformValue: px
 })
 
 export const right = style({
   prop: 'right',
-  getter: px
+  transformValue: px
 })
 
 export const bottom = style({
   prop: 'bottom',
-  getter: px
+  transformValue: px
 })
 
 export const left = style({
   prop: 'left',
-  getter: px
+  transformValue: px
 })
 
 
