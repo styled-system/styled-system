@@ -20,6 +20,7 @@ const navOrder = [
   'api',
   'table',
   'custom-props',
+  'system-components',
   'troubleshooting'
 ]
 
