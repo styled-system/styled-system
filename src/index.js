@@ -69,7 +69,7 @@ export {
   right,
   bottom,
   left,
-  // psuedoclasses
+  // pseudoclasses
   hover,
   focus,
   active,
