@@ -22,7 +22,7 @@ export const px = n => num(n) ? n + 'px' : n
 export const idx = (obj, ...paths) => paths.join('.').split('.')
   .reduce((a, b) => (a && a[b]) ? a[b] : null, obj)
 
-export const get = (paths, fallback) => props => idx(props.theme, paths) || fallback
+export const themeGet = (paths, fallback) => props => idx(props.theme, paths) || fallback
 
 export const merge = (a, b) => Object.assign({}, a, b, Object
   .keys(b || {}).reduce((obj, key) =>

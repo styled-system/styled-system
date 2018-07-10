@@ -18,7 +18,7 @@ name: API
 - [Pseudo-classes](#pseudo-classes)
 - [Complex styles](#complex-styles)
 - [Utilities](#utilities)
-  - [get](#get)
+  - [themeGet](#themeget)
   - [propTypes](#proptypes)
 - [Customize](#customize)
   - [style](#style)
@@ -355,27 +355,26 @@ const theme = {
 
 ## Utilities
 
-### get
+### themeGet
 
 <div id='theme' />
-<div id='themeget' />
 
-The `get` function is an existential getter function
+The `themeGet` function is an existential getter function
 that can be used in any style declaration to get a value
 from your theme, with support for fallback values.
 This helps prevent errors from throwing when a theme value is missing,
 which can be helpful when unit testing styled-components.
 
 ```js
-get(objectPath, fallbackValue)(props)
+themeGet(objectPath, fallbackValue)(props)
 ```
 
 ```js
 import styled from 'styled-components'
-import { get } from 'styled-system'
+import { themeGet } from 'styled-system'
 
 const Box = styled.div`
-  border-radius: ${get('radii.small', '4px')};
+  border-radius: ${themeGet('radii.small', '4px')};
 `
 ```
 

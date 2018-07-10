@@ -2,7 +2,7 @@ export * as util from './util'
 export * as styles from './styles'
 export {
   style,
-  get,
+  themeGet,
   merge,
   compose,
 } from './util'
@@ -86,8 +86,5 @@ export {
 export { default as variant } from './variant'
 
 // aliases for v2 api
-export {
-  style as responsiveStyle,
-  get as themeGet,
-} from './util'
+export { style as responsiveStyle } from './util'
 export { default as complexStyle } from './variant'

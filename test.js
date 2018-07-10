@@ -12,6 +12,7 @@ import {
 
   style,
   variant,
+  themeGet,
   util,
 
   textAlign,
@@ -103,13 +104,13 @@ test('exports space, width, and fontSize', t => {
   t.is(typeof fontSize, 'function')
 })
 
-test('util.get gets theme values', t => {
-  const a = util.get('colors.gray.0')({ theme })
+test('themeGet gets theme values', t => {
+  const a = themeGet('colors.gray.0')({ theme })
   t.is(a, theme.colors.gray[0])
 })
 
-test('get returns a fallback', t => {
-  const a = util.get('colors.blue', 'tomato')({ theme: {} })
+test('themeGet returns a fallback', t => {
+  const a = themeGet('colors.blue', 'tomato')({ theme: {} })
   t.is(a, 'tomato')
 })
 
