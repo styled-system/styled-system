@@ -1,37 +1,29 @@
 
 # system-components
 
-Create consistent design-system-driven React UI components
+system-components is an optional, alternative way to use styled-system.
+It replaces the `styled` function from styled-components and emotion,
+with an API that makes defining components that use styled-system even simpler.
 
-Built with [styled-system][sys],
-with support for [styled-components][sc] & [emotion][emotion]
+system-components includes built-in helpers for:
 
-[![Build Status][build-badge]][build]
+- Defining default props
+- Referencing styled-system functions without imports
+- Removing style props from the HTML output
 
-[build-badge]: https://img.shields.io/travis/jxnblk/system-components/master.svg?style=flat-square
-[build]: https://travis-ci.org/jxnblk/system-components
+## Getting Started
+
+To use system-components, install the package:
+
+```sh
+npm i system-components
+```
+
+Create a component that defines some default props for styled-system:
 
 ```js
 import system from 'system-components'
 
-// creates a Box with default props tied to your theme
-const Box = system({
-  p: 2,
-  bg: 'blue'
-})
-```
-
-Or, to use with [emotion][emotion]:
-
-```js
-import system from 'system-components/emotion'
-```
-
-## Usage
-
-To create a styled-component with default props that hook into [styled-system][sys] props, pass a plain object as the first argument to the `system` function.
-
-```js
 const Card = system({
   px: 2,
   py: 3,
@@ -39,17 +31,23 @@ const Card = system({
   borderColor: 'lightGray',
   borderRadius: 2
 })
+
+export default Card
 ```
 
-The system function will automatically apply [styled-system][sys] functions
-to the underlying styled-component based on the keys of the `defaultProps` object.
-System components also add prop type definitions and remove style props from the underlying HTML element.
+The example above will create a styled component that includes style props and default props for padding, border, and border-radius.
 
-See the [styled-system docs][sys] for a complete list of the available style functions.
+### Emotion
 
-### Add style props without defaultProps
+If you're using emotion in your application, change the import statement to:
 
-System components can also be created with [styled-system][sys] props without defining `defaultProps`.
+```js
+import system from 'system-components/emotion'
+```
+
+## Including style props without defaults
+
+To add style props without default values, pass the styled-system function name as arguments:
 
 ```js
 const Box = system(
@@ -70,7 +68,7 @@ This allows for style props to be passed to the component instance:
 />
 ```
 
-### Using custom functions
+## Using custom functions
 
 Custom style functions can be passed as an argument.
 
@@ -82,7 +80,7 @@ const Box = system(
 )
 ```
 
-### Changing the underlying HTML element
+## Changing the underlying HTML element
 
 System components default to using a `<div>` as the HTML element.
 To change the HTML element use the `is` prop.
@@ -104,7 +102,7 @@ This is useful for one-off changes to ensure semantic markup.
 </Heading>
 ```
 
-### Extending components
+## Extending components
 
 To extend another component, set it as the default `is` prop in your component definition, or pass it as a prop to the component instance.
 
@@ -119,7 +117,7 @@ const Bold = system({
 })
 ```
 
-### CSS prop
+## CSS prop
 
 To add one-off custom CSS to any system-component, use the `css` prop.
 
@@ -144,11 +142,3 @@ const system = new System({
 
 export default system
 ```
-
----
-
-[MIT License](License.md)
-
-[sys]: https://github.com/jxnblk/styled-system
-[sc]: https://github.com/styled-components/styled-components
-[emotion]: https://github.com/emotion-js/emotion
