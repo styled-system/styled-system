@@ -23,6 +23,7 @@ export {
   minHeight,
   size,
   ratio,
+  verticalAlign,
   // flexbox
   alignItems,
   alignContent,
