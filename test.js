@@ -11,9 +11,10 @@ import {
   color,
 
   style,
-  variant,
   themeGet,
   util,
+  variant,
+  css,
 
   textAlign,
   fontFamily,
@@ -79,8 +80,6 @@ import {
   textStyle,
   colorStyle,
   buttonStyle,
-
-  borderWidth
 } from './src'
 
 // - [x] rename responsiveStyle tests
@@ -209,7 +208,14 @@ test('util.merge doesn’t throw with null values', t => {
   })
 })
 
-test.todo('util.compose')
+test('util.compose combines style functions', t => {
+  const combo = util.compose(display, width)
+  const a = combo({ display: 'inline-block', width: 1/2 })
+  t.deepEqual(a, {
+    display: 'inline-block',
+    width: '50%'
+  })
+})
 
 // space
 test('space returns margin declarations', t => {
@@ -1200,6 +1206,21 @@ test('variant returns null', t => {
   const theme = {}
   const a = variant({ key: 'buttons' })({ theme, variant: 'primary' })
   t.is(a, null)
+})
+
+test('css returns a style object', t => {
+  const a = css({ backgroundColor: 'tomato' })
+  t.deepEqual(a, { backgroundColor: 'tomato' })
+})
+
+test('css returns prop-based styles', t => {
+  const a = css({ bg: 'tomato' })
+  t.deepEqual(a, { backgroundColor: 'tomato' })
+})
+
+test('css returns theme-based styles', t => {
+  const a = css({ theme, bg: 'blue' })
+  t.deepEqual(a, { backgroundColor: theme.colors.blue })
 })
 
 Object.keys(styles).forEach(key => {
