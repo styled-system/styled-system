@@ -15,17 +15,15 @@ name: API
 - [Borders](#borders)
 - [Position](#position)
 - [Misc](#misc)
-- [Pseudo-classes](#pseudo-classes)
-- [Complex styles](#complex-styles)
+- [Variant styles](#variants)
 - [Utilities](#utilities)
   - [themeGet](#themeget)
   - [propTypes](#proptypes)
+  - [css](#css)
 - [Customize](#customize)
   - [style](#style)
-  - [responsiveStyle](#responsivestyle)
-  - [pseudoStyle](#pseudostyle)
-  - [complexStyle](#complexstyle)
-- [Default Theme](#default-theme)
+  - [variant](#variant)
+- [Defaults](#defaults)
 
 ## Core
 
@@ -396,6 +394,30 @@ Box.propTypes = {
 }
 ```
 
+### css
+
+The `css` utility can be used to create style objects based on style objects mixed with styled-system props.
+
+```js
+import { css } from 'styled-system'
+import theme from './theme'
+
+css({
+  theme,
+  color: 'blue',
+  textDecoration: 'none',
+  '&:hover': {
+    textDecoration: 'underline',
+  }
+})
+// returns a style object with `theme.colors.blue` value
+// and text-decoration styles
+```
+
+This can be used in combination with the [variant](#variant) utility
+or directly in component definitions.
+This utility **will not** add any props to a component.
+
 ---
 
 ## Customize
@@ -459,7 +481,9 @@ Card.defaultProps = {
 
 ---
 
-## Default Breakpoints
+## Defaults
+
+### Breakpoints
 
 If no theme is provided, styled-system uses smart defaults for breakpoints.
 
@@ -469,6 +493,20 @@ const breakpoints = [ '40em', '52em', '64em' ]
 // @media screen and (min-width: 40em)
 // @media screen and (min-width: 52em)
 // @media screen and (min-width: 64em)
+```
+
+### Font Sizes
+
+```
+// default fontSizes
+const fontSizes = [ 12, 14, 16, 20, 24, 32, 48, 64, 72 ]
+```
+
+### Space
+
+```
+// default space for margin and padding
+const space = [ 0, 4, 8, 16, 32, 64, 128, 256, 512 ]
 ```
 
 [responsive-styles]: responsive-styles.md
