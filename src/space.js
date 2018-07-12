@@ -95,7 +95,7 @@ const space = props => {
 
       return styles
     })
-    .reduce(merge)
+    .reduce(merge, {})
 }
 
 space.propTypes = {

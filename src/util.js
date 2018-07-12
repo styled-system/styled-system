@@ -37,11 +37,11 @@ export const compose = (...funcs) => {
   const fn = props => funcs
     .map(fn => fn(props))
     .filter(Boolean)
-    .reduce(merge)
+    .reduce(merge, {})
 
   fn.propTypes = funcs
     .map(fn => fn.propTypes)
-    .reduce(merge)
+    .reduce(merge, {})
   return fn
 }
 
