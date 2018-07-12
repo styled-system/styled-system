@@ -1089,7 +1089,7 @@ test('background returns background', t => {
 })
 
 test('backgroundImage returns backgroundImage', t => {
-  const a = backgroundImage({ backgroundImage: 'kitten.png' })
+  const a = backgroundImage({ backgroundImage: 'url(kitten.png)' })
   t.is(a.backgroundImage, 'url(kitten.png)')
 })
 

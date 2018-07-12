@@ -308,8 +308,7 @@ export const background = style({
 })
 
 export const backgroundImage = style({
-  prop: 'backgroundImage',
-  transformValue: n => `url(${n})`
+  prop: 'backgroundImage'
 })
 
 export const backgroundSize = style({
