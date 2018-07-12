@@ -12,12 +12,12 @@
 
 - `variant`
 - `compose`
+- `css`
 
 ### Changed
 
 - `style` utility is now responsive by default
 - All built-in style functions now support responsive array values
-- `themeGet` is now `get`
 - `backgroundImage` no longer wraps values with `url()`
 
 ### Removed
