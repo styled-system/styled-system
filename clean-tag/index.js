@@ -1,9 +1,10 @@
 import React from 'react'
-import { propTypes } from 'styled-system'
+import { styles } from 'styled-system'
 import tags from 'html-tags'
 
-const allPropTypes = Object.keys(propTypes)
-  .reduce((a, key) => Object.assign(a, propTypes[key]), {})
+const allPropTypes = Object.keys(styles)
+  .filter(key => typeof styles[key] === 'function')
+  .reduce((a, key) => Object.assign(a, styles[key].propTypes), {})
 
 const blacklist = Object.keys(allPropTypes)
 
