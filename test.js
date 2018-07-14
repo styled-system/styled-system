@@ -82,9 +82,6 @@ import {
   buttonStyle,
 } from './src'
 
-// - [x] rename responsiveStyle tests
-// - [ ] DRY up responsiveStyle tests
-
 const theme = {
   breakpoints: [32, 48, 64].map(n => n + 'em'),
   space: [0, 6, 12, 18, 24],
@@ -1144,7 +1141,6 @@ test('left returns left', t => {
   t.is(a.left, '2px')
 })
 
-// breaking
 test('textStyle returns a value from theme', t => {
   const theme = {
     textStyles: {
@@ -1159,7 +1155,6 @@ test('textStyle returns a value from theme', t => {
   t.deepEqual(a, theme.textStyles.caps)
 })
 
-// breaking
 test('colorStyle returns a value from theme', t => {
   const theme = {
     colorStyles: {
@@ -1173,7 +1168,6 @@ test('colorStyle returns a value from theme', t => {
   t.deepEqual(a, theme.colorStyles.primary)
 })
 
-// breaking change
 test('buttonStyle returns a value from theme', t => {
   const theme = {
     buttons: {
