@@ -67,4 +67,49 @@
 
 ## 2.0.0
 
+### Added
+
+- More utilities for CSS properties
+- `fontFamily`
+- `display`
+- `minWidth`
+- `height`
+- `maxHeight`
+- `minHeight`
+- `size` (width & height)
+- `alignContent`
+- `order`
+- `borders` utility that normalizes the API with other styled-system utilities
+- `backgroundImage`
+- `backgroundSize`
+- `backgroundPosition`
+- `zIndex`
+- `top`
+- `right`
+- `bottom`
+- `left`
+
+### Changed
+
+- Uses verbose naming convention for `textAlign`, `alignItems`, `justifyContent`, `flexWrap`, and other CSS properties
+- `style`, `responsiveStyle`, and `pseudoStyle` utilities now accept `getter` and `getters` arguments for converting values
+- Rewritten with ES module syntax
+- DRYer code base for utilities like `fontSize`, `width`, and `color`
+- The repo has been reorganized as a monorepo
+- The `flexWrap` utility now expects a string value for its prop (previously a boolean)
+- The `borderTop`, `borderRight`, `borderBottom`, and `borderLeft` props no longer accept boolean props, but follow the same convention as other utilities
+- The default spacing scale has changed to `[ 0, 4, 8, 16, 32, 64, 128, 256, 512 ]` (this only affects usage without a custom `theme.space` provided
+- Number values for breakpoints are now converted to px instead of ems to better match the rest of the library
+- The `theme` utility has been renamed to `themeGet` (alternative names under consideration)
+- The `pseudoStyle` arguments API has changed to more closely align with `style` and `responsiveStyle`
+
+### Removed
+
+- The `cleanElement` utility is now a separate package, removing the `react` dependency from the core library
+- The `borderWidth` utility has been replaced with the `borders` utility
+- The `theme` utility has been renamed to `themeGet` (alternative names under consideration)
+- `removeProps` utility
+- `idx` utility
+- Legacy `responsiveStyle` arguments API
+
 
