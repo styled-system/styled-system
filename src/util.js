@@ -19,10 +19,10 @@ export const is = n => n !== undefined && n !== null
 export const num = n => typeof n === 'number' && !isNaN(n)
 export const px = n => num(n) ? n + 'px' : n
 
-export const idx = (obj, ...paths) => paths.join('.').split('.')
+export const get = (obj, ...paths) => paths.join('.').split('.')
   .reduce((a, b) => (a && a[b]) ? a[b] : null, obj)
 
-export const themeGet = (paths, fallback) => props => idx(props.theme, paths) || fallback
+export const themeGet = (paths, fallback) => props => get(props.theme, paths) || fallback
 
 export const merge = (a, b) => Object.assign({}, a, b, Object
   .keys(b || {}).reduce((obj, key) =>
@@ -61,10 +61,10 @@ export const style = ({
     const val = props[prop]
     if (!is(val)) return null
 
-    const scale = idx(props.theme, key) || defaultScale
+    const scale = get(props.theme, key) || defaultScale
     const style = n => is(n) ? ({
       [css]: transform(
-        idx(scale, n) || n
+        get(scale, n) || n
       )
     }) : null
 
@@ -75,7 +75,7 @@ export const style = ({
     // how to hoist this up??
     const breakpoints = [
       null,
-      ...(idx(props.theme, 'breakpoints') || defaultBreakpoints)
+      ...(get(props.theme, 'breakpoints') || defaultBreakpoints)
         .map(createMediaQuery)
     ]
 

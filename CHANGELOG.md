@@ -19,6 +19,9 @@
 - `style` utility is now responsive by default
 - All built-in style functions now support responsive array values
 - `backgroundImage` no longer wraps values with `url()`
+- `buttonStyle` prop has been renamed to `variant`
+- The `style` utility `getter` argument has beend renamed to `transformValue`
+- `util.get` no longer supports a fallback argument
 
 ### Removed
 
@@ -27,6 +30,13 @@
 - `complexStyle` use `variant` instead
 - `complexStyle` (`variant`) boolean props are no longer supported
 - `pseudoStyle`
-- `util.break`
+- `numberToPx` option (pass `util.px` to the `transformValue` argument instead)
 - `util.media`
-- `numberToPx` option (pass `util.px` to the `getter` argument instead)
+- `util.neg`
+- `util.arr`
+- `util.getWidth`
+- `util.mq`
+- `util.fallbackTheme`
+- `util.breaks`
+- `util.dec`
+- `util.getValue`
