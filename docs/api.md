@@ -5,31 +5,29 @@ name: API
 # API
 
 - [Core](#core)
-  - [space](#space-responsive) (margins & paddings)
-  - [width](#width-responsive)
-  - [fontSize](#fontsize-responsive)
-  - [color](#color-responsive) (and background-color)
+  - [space](#space) (margins & paddings)
+  - [width](#width)
+  - [fontSize](#fontsize)
+  - [color](#color) (and background-color)
 - [Typography](#typography)
 - [Layout](#layout)
 - [Flexbox](#flexbox)
 - [Borders](#borders)
 - [Position](#position)
 - [Misc](#misc)
-- [Pseudo-classes](#pseudo-classes)
-- [Complex styles](#complex-styles)
+- [Variant styles](#variants)
 - [Utilities](#utilities)
   - [themeGet](#themeget)
   - [propTypes](#proptypes)
+  - [css](#css)
 - [Customize](#customize)
   - [style](#style)
-  - [responsiveStyle](#responsivestyle)
-  - [pseudoStyle](#pseudostyle)
-  - [complexStyle](#complexstyle)
-- [Default Theme](#default-theme)
+  - [variant](#variant)
+- [Defaults](#defaults)
 
 ## Core
 
-### space (responsive)
+### space
 
 ```js
 import { space } from 'styled-system'
@@ -79,7 +77,7 @@ Margin and padding props follow a shorthand syntax for specifying direction.
 <Box m={[ 1, 2 ]} />
 ```
 
-### width (responsive)
+### width
 
 ```js
 import { width } from 'styled-system'
@@ -108,7 +106,7 @@ The width utility parses a component's `width` prop and converts it into a CSS w
 <Box width={[ 1, 1/2 ]} />
 ```
 
-### fontSize (responsive)
+### fontSize
 
 ```js
 import { fontSize } from 'styled-system'
@@ -137,7 +135,7 @@ The fontSize utility parses a component's `fontSize` prop and converts it into a
 <Text fontSize={[ 10, 12 ]} />
 ```
 
-### color (responsive)
+### color
 
 ```js
 import { color } from 'styled-system'
@@ -170,7 +168,7 @@ Array values are converted into [responsive values][responsive-styles].
 // fontFamily
 <Text fontFamily='mono' />
 
-// textAlign (responsive)
+// textAlign
 <Text textAlign='center' />
 <Text textAlign={[ 'center', 'left' ]} />
 
@@ -187,31 +185,31 @@ Array values are converted into [responsive values][responsive-styles].
 ## Layout
 
 ```jsx
-// display (responsive)
+// display
 <Box display='inline-block' />
 <Box display={[ 'block', 'inline-block' ]} />
 
-// maxWidth (responsive)
+// maxWidth
 <Box maxWidth={1024} />
 <Box maxWidth={[ 768, null, null, 1024 ]} />
 
-// minWidth (responsive)
+// minWidth
 <Box minWidth={128} />
 <Box minWidth={[ 96, 128 ]} />
 
-// height (responsive)
+// height
 <Box height={64} />
 <Box height={[ 48, 64 ]} />
 
-// maxHeight (responsive)
+// maxHeight
 <Box maxHeight={512} />
 <Box maxHeight={[ 384, 512 ]} />
 
-// minHeight (responsive)
+// minHeight
 <Box minHeight={512} />
 <Box minHeight={[ 384, 512 ]} />
 
-// size (responsive, width & height)
+// size (width & height)
 <Box size={32} />
 <Box size={[ 32, 48 ]} />
 
@@ -222,37 +220,37 @@ Array values are converted into [responsive values][responsive-styles].
 ## Flexbox
 
 ```jsx
-// alignItems (responsive)
+// alignItems
 <Flex alignItems='center' />
 
-// alignContent (responsive)
+// alignContent
 <Flex alignContent='center' />
 
-// justifyContent (responsive)
+// justifyContent
 <Flex justifyContent='center' />
 
-// flexWrap (responsive)
+// flexWrap
 <Flex flexWrap='wrap' />
 
-// flexBasis (responsive)
+// flexBasis
 <Flex flexBasis='auto' />
 
-// flexDirection (responsive)
+// flexDirection
 <Flex flexDirection='column' />
 
-// flex (responsive)
+// flex
 <Box flex='1 1 auto' />
 
-// justifySelf (responsive)
+// justifySelf
 <Box justifySelf='center' />
 
-// alignSelf (responsive)
+// alignSelf
 <Box alignSelf='center' />
 ```
 
 ## Borders
 
-The `borders` utility combines `border`, `borderTop`, `borderRight`, `borderBottom` and `borderLeft`, all of which are responsive
+The `borders` utility combines `border`, `borderTop`, `borderRight`, `borderBottom` and `borderLeft`.
 
 ```jsx
 <Box border='1px solid' />
@@ -272,13 +270,13 @@ The `borders` utility combines `border`, `borderTop`, `borderRight`, `borderBott
 ## Position
 
 ```jsx
-// position (responsive)
+// position
 <Box position='absolute' />
 
 // zIndex
 <Absolute zIndex={2} />
 
-// top, right, bottom, left (responsive)
+// top, right, bottom, left
 <Fixed
   top='0'
   right='0'
@@ -305,42 +303,9 @@ The `borders` utility combines `border`, `borderTop`, `borderRight`, `borderBott
 <Box opacity={0.5} />
 ```
 
-## Pseudo-classes
+## Variants
 
-Pseudo-class utility props accept style objects that can pick up certain values, such as color, from a theme.
-
-### hover
-
-```jsx
-<Box
-  hover={{
-    textDecoration: 'underline',
-    color: 'blue'
-  }}
-/>
-```
-
-### focus
-
-```jsx
-<Box focus={{ color: 'blue' }} />
-```
-
-### active
-
-```jsx
-<Box active={{ color: 'navy' }} />
-```
-
-### disabled
-
-```jsx
-<Box disabledStyle={{ color: 'gray' }} />
-```
-
-## Complex Styles
-
-The complex style utilities allow you to define reusable style objects in your theme for things like text styles and color combinations.
+The variant style utilities allow you to define reusable style objects in your theme for things like text styles and color combinations.
 
 ```js
 // example theme
@@ -381,16 +346,7 @@ const theme = {
 <Box colors='warning' />
 
 // buttonStyle
-<Button buttonStyle='primary' />
-```
-
-Styles can be applied with the utility's prop or by using boolean shorthand props for the key used in the theme.
-Be sure to use key values that will be unique for a particular component, and avoid using HTML attributes as keys.
-
-```jsx
-<Text caps />
-<Box warning />
-<Button primary />
+<Button variant='primary' />
 ```
 
 ---
@@ -401,14 +357,14 @@ Be sure to use key values that will be unique for a particular component, and av
 
 <div id='theme' />
 
-The themeGet function is an existential getter function
+The `themeGet` function is an existential getter function
 that can be used in any style declaration to get a value
 from your theme, with support for fallback values.
 This helps prevent errors from throwing when a theme value is missing,
 which can be helpful when unit testing styled-components.
 
 ```js
-themeGet(objectPath, fallbackValue)
+themeGet(objectPath, fallbackValue)(props)
 ```
 
 ```js
@@ -438,6 +394,30 @@ Box.propTypes = {
 }
 ```
 
+### css
+
+The `css` utility can be used to create style objects based on style objects mixed with styled-system props.
+
+```js
+import { css } from 'styled-system'
+import theme from './theme'
+
+css({
+  theme,
+  color: 'blue',
+  textDecoration: 'none',
+  '&:hover': {
+    textDecoration: 'underline',
+  }
+})
+// returns a style object with `theme.colors.blue` value
+// and text-decoration styles
+```
+
+This can be used in combination with the [variant](#variant) utility
+or directly in component definitions.
+This utility **will not** add any props to a component.
+
 ---
 
 ## Customize
@@ -447,110 +427,46 @@ use the following low-level utility functions.
 
 ### style
 
-Create a non-responsive style utility.
+Create a style utility.
 
 ```js
 import styled from 'styled-components'
 import { style } from 'styled-system'
 
-const textShadow = style({
+const fontSize = style({
   // React prop name
-  prop: 'shadow',
+  prop: 'fontSize',
   // The corresponding CSS property (defaults to prop argument)
-  cssProperty: 'textShadow',
+  cssProperty: 'fontSize',
   // key for theme values
-  key: 'shadows',
-  // convert number values to pixels
-  numberToPx: false,
+  key: 'fontSizes',
   // accessor function for transforming the value
-  getter: n => n,
-  // shorthand alias React prop name
-  alias: 'sh'
+  transformValue: n => n + 'px',
+  // add a fallback scale object or array, if theme is not present
+  scale: [ 0, 4, 8, 16, 32 ]
 })
 
-const ShadowText = styled(Text)`
-  ${textShadow}
+const Text = styled.div`
+  ${fontSize}
 `
 
 // with a `theme.shadows` array
 const App = props => (
-  <ShadowText shadow={0}>
-    Shady
-  </ShadowText>
+  <Text fontSize={3}>
+    Hello
+  </Text>
 )
 ```
 
-### responsiveStyle
+### variant
 
-Create a responsive style utility that accepts array-based responsive prop values.
-
-```js
-import styled from 'styled-components'
-import { responsiveStyle } from 'styled-system'
-
-const borderRadius = responsiveStyle({
-  // React prop name
-  prop: 'borderRadius',
-  // corresponding CSS property (defaults to prop argument)
-  cssProperty: 'borderRadius',
-  // key for theme values
-  key: 'radii',
-  // convert number values to pixels
-  numberToPx: true,
-  // accessor function for transforming the value
-  getter: n => n,
-  // shorthand alias React prop name
-  alias: 'radius'
-})
-
-const RoundedBox = styled.div`
-  ${borderRadius}
-`
-
-const App = props => (
-  <RoundedBox borderRadius={[ 0, 2 ]} />
-)
-```
-
-### pseudoStyle
-
-Create a pseudo-class style utility that accepts a style object prop value.
+Create a style utility that maps props to style objects in a theme.
 
 ```js
 import styled from 'styled-components'
-import { pseudoStyle } from 'styled-system'
+import { variant } from 'styled-system'
 
-const checkedStyle = pseudoStyle({
-  prop: 'checkedStyle',
-  pseudoclass: 'checked',
-  keys: {
-    // keys for theme-based values
-    color: 'colors',
-    backgroundColor: 'colors',
-  }
-})
-
-const FancyCheckbox = styled.input`
-  /* ...base styles */
-  ${checkedStyle}
-`
-FancyCheckbox.defaultProps = {
-  type: 'checkbox'
-}
-
-// <FancyCheckbox checkedStyle={{ backgroundColor: 'blue' }} />
-```
-
-### complexStyle
-
-Create a complex style utility that maps props to style objects in a theme.
-
-```js
-import styled from 'styled-components'
-import { complexStyle } from 'styled-system'
-
-const cardStyles = complexStyle({
-  prop: 'cardStyle',
+const cardStyle = variant({
   key: 'cards'
 })
 
@@ -558,28 +474,38 @@ const Card = styled.div`
   ${cardStyle}
 `
 Card.defaultProps = {
-  cardStyle: 'normal'
+  variant: 'normal'
 }
-// <Card cardStyle='large' />
+// <Card variant='large' />
 ```
 
 ---
 
-## Default Theme
+## Defaults
 
-If no theme is provided, styled-system uses smart defaults for breakpoints, the typographic scale, and the spacing scale.
+### Breakpoints
+
+If no theme is provided, styled-system uses smart defaults for breakpoints.
 
 ```js
-// Breakpoints
+// Default Breakpoints
 const breakpoints = [ '40em', '52em', '64em' ]
 // @media screen and (min-width: 40em)
 // @media screen and (min-width: 52em)
 // @media screen and (min-width: 64em)
+```
 
-// Typographic Scale (numbers are converted to px values)
+### Font Sizes
+
+```
+// default fontSizes
 const fontSizes = [ 12, 14, 16, 20, 24, 32, 48, 64, 72 ]
+```
 
-// Spacing Scale (used for margin and padding)
+### Space
+
+```
+// default space for margin and padding
 const space = [ 0, 4, 8, 16, 32, 64, 128, 256, 512 ]
 ```
 

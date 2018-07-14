@@ -1,6 +1,12 @@
-import * as styles from './styles'
-
+export * as util from './util'
 export * as styles from './styles'
+export {
+  style,
+  themeGet,
+  merge,
+  compose,
+} from './util'
+
 export {
   space,
   width,
@@ -57,12 +63,12 @@ export {
   borderRadius,
   // misc
   boxShadow,
+  opacity,
   background,
   backgroundImage,
   backgroundSize,
   backgroundPosition,
   backgroundRepeat,
-  opacity,
   // position
   position,
   zIndex,
@@ -70,36 +76,16 @@ export {
   right,
   bottom,
   left,
-  // pseudoclasses
-  hover,
-  focus,
-  active,
-  disabled,
-  // complex
+  // variants
   textStyle,
   colorStyle,
   buttonStyle,
-  // deprecated
-  borderWidth,
 } from './styles'
 
-export {
-  style,
-  pseudoStyle,
-  responsiveStyle,
-  complexStyle,
-  themeGet,
-  themeGet as theme
-} from './util'
+// new
+export { default as variant } from './variant'
+export { default as css } from './css'
 
-export * as util from './util'
-
-export const propTypes = {}
-
-Object.keys(styles).forEach(key => {
-  propTypes[key] = styles[key].propTypes
-})
-
-styles.propTypes = propTypes
-
-export default styles
+// aliases for v2 api
+export { style as responsiveStyle } from './util'
+export { default as complexStyle } from './variant'

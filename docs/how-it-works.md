@@ -40,7 +40,7 @@ const Box = styled.div`
 ```
 
 By using style objects instead of embedded CSS strings, styled-system is compatible with other libraries,
-such as [glamorous][glamorous] and [emotion][emotion].
+such as [glamorous][] and [emotion][].
 
 The core utilities in styled-system are built on this pattern and consist of functions that take `props` as an argument
 and return style objects,
