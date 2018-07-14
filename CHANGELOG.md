@@ -1,7 +1,7 @@
 
 # Changelog
 
-## v3.0.0-0
+## v3.0.0
 
 - Performance rewrite
 - Simplified API
@@ -46,3 +46,25 @@
 - `util.breaks`
 - `util.dec`
 - `util.getValue`
+
+## 2.3.0
+
+### Added
+
+- Metadata for supporting system-docs package
+
+## 2.2.0
+
+### Added
+
+- CSS Grid utilities
+
+## 2.1.0
+
+### Changed
+
+- Reorganized code base
+
+## 2.0.0
+
+

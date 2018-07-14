@@ -1,5 +1,6 @@
 import {
   propTypes,
+  cloneFunc,
   defaultBreakpoints,
   createMediaQuery,
   get,
@@ -99,20 +100,20 @@ const space = props => {
 }
 
 space.propTypes = {
-  m:  propTypes.responsive,
-  mt: propTypes.responsive,
-  mr: propTypes.responsive,
-  mb: propTypes.responsive,
-  ml: propTypes.responsive,
-  mx: propTypes.responsive,
-  my: propTypes.responsive,
-  p:  propTypes.responsive,
-  pt: propTypes.responsive,
-  pr: propTypes.responsive,
-  pb: propTypes.responsive,
-  pl: propTypes.responsive,
-  px: propTypes.responsive,
-  py: propTypes.responsive
+  m:  cloneFunc(propTypes.responsive),
+  mt: cloneFunc(propTypes.responsive),
+  mr: cloneFunc(propTypes.responsive),
+  mb: cloneFunc(propTypes.responsive),
+  ml: cloneFunc(propTypes.responsive),
+  mx: cloneFunc(propTypes.responsive),
+  my: cloneFunc(propTypes.responsive),
+  p:  cloneFunc(propTypes.responsive),
+  pt: cloneFunc(propTypes.responsive),
+  pr: cloneFunc(propTypes.responsive),
+  pb: cloneFunc(propTypes.responsive),
+  pl: cloneFunc(propTypes.responsive),
+  px: cloneFunc(propTypes.responsive),
+  py: cloneFunc(propTypes.responsive)
 }
 
 const meta = prop => ({

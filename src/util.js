@@ -24,6 +24,8 @@ export const get = (obj, ...paths) => paths.join('.').split('.')
 
 export const themeGet = (paths, fallback) => props => get(props.theme, paths) || fallback
 
+export const cloneFunc = fn => (...args) => fn(...args)
+
 export const merge = (a, b) => Object.assign({}, a, b, Object
   .keys(b || {}).reduce((obj, key) =>
     Object.assign(obj, {
@@ -95,7 +97,7 @@ export const style = ({
     return styles
   }
 
-  fn.propTypes = { [prop]: propTypes.responsive }
+  fn.propTypes = { [prop]: cloneFunc(propTypes.responsive) }
 
   fn.propTypes[prop].meta = {
     prop,
