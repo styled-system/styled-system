@@ -4,5 +4,3 @@ package-lock.json
 .nyc_output
 coverage*
 site
-
-_dist
