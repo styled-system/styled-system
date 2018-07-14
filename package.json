@@ -6,7 +6,6 @@
   "sideEffects": false,
   "scripts": {
     "prepare": "babel src -d dist",
-    "prepare-v2": "babel ref -d _dist",
     "start": "x0 docs",
     "docs": "x0 build docs -d site",
     "logo": "repng docs/Logo.js -d docs -f logo.png -w 512 -h 512 -p '{\"size\":512}'",
