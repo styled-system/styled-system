@@ -204,18 +204,6 @@ All styled-system functions accept arrays as values to set styles responsively u
 <Text fontSize={[ 3, 4, 5 ]} />
 ```
 
-Read more in the [Responsive Styles Docs](responsive-styles.md).
-
----
-
-### More Documentation
-
-- [Responsive Styles](responsive-styles.md)
-- [How it Works](how-it-works.md)
-- [API](api.md)
-- [Table of Style Functions](table.md)
-
-
 [styled-components]: https://github.com/styled-components/styled-components
 [emotion]: https://github.com/emotion-js/emotion
 [glamorous]: https://github.com/paypal/glamorous
