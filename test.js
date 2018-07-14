@@ -588,7 +588,6 @@ test('style function accepts a transformValue option', t => {
   t.is(b.width, '24px')
 })
 
-// responsiveStyle
 test('style allows property aliases', t => {
   const direction = style({
     cssProperty: 'flex-direction',
@@ -608,7 +607,6 @@ test('style allows array values', t => {
   const a = direction({ direction: [ 'column', null, 'row' ] })
   t.deepEqual(a, {
     'flex-direction': 'column',
-    // '@media screen and (min-width: 40em)': { 'flex-direction': null },
     '@media screen and (min-width: 52em)': {
       'flex-direction': 'row',
     }

@@ -30,6 +30,8 @@
 - `complexStyle` use `variant` instead
 - `complexStyle` (`variant`) boolean props are no longer supported
 - `pseudoStyle`
+- `fontSize` and `width` no longer support shorthand props
+- `alias` option
 - `numberToPx` option (pass `util.px` to the `transformValue` argument instead)
 - `util.media`
 - `util.neg`
