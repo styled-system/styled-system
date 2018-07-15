@@ -14,7 +14,7 @@ import {
   themeGet,
   util,
   variant,
-  css,
+  mixed,
 
   textAlign,
   fontFamily,
@@ -1200,18 +1200,18 @@ test('variant returns null', t => {
   t.is(a, null)
 })
 
-test('css returns a style object', t => {
-  const a = css({ backgroundColor: 'tomato' })
+test('mixed returns a style object', t => {
+  const a = mixed({ backgroundColor: 'tomato' })
   t.deepEqual(a, { backgroundColor: 'tomato' })
 })
 
-test('css returns prop-based styles', t => {
-  const a = css({ bg: 'tomato' })
+test('mixed returns prop-based styles', t => {
+  const a = mixed({ bg: 'tomato' })
   t.deepEqual(a, { backgroundColor: 'tomato' })
 })
 
-test('css returns theme-based styles', t => {
-  const a = css({ theme, bg: 'blue' })
+test('mixed returns theme-based styles', t => {
+  const a = mixed({ theme, bg: 'blue' })
   t.deepEqual(a, { backgroundColor: theme.colors.blue })
 })
 
