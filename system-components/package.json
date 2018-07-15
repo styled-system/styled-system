@@ -1,6 +1,6 @@
 {
   "name": "system-components",
-  "version": "2.2.3",
+  "version": "3.0.0-0",
   "description": "Create consistent design-system-driven React UI components",
   "main": "dist/index",
   "scripts": {
@@ -21,8 +21,8 @@
   "author": "Brent Jackson",
   "license": "MIT",
   "dependencies": {
-    "clean-tag": "^1.0.4",
-    "styled-system": "^2.3.1"
+    "clean-tag": "^1.1.0",
+    "styled-system": "^3.0.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

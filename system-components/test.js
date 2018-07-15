@@ -1,6 +1,6 @@
 import 'jest-styled-components'
 import styled, { css as scCSS, isStyledComponent } from 'styled-components'
-import { propTypes } from 'styled-system'
+import { space, color } from 'styled-system'
 import React from 'react'
 import { create as render } from 'react-test-renderer'
 import { isDOMComponent, isCompositeComponent } from 'react-dom/test-utils'
@@ -38,8 +38,8 @@ describe('system-components', () => {
       bg: 'tomato'
     })
     expect(Box.propTypes).toEqual({
-      ...propTypes.space,
-      ...propTypes.color,
+      ...space.propTypes,
+      ...color.propTypes,
     })
   })
 
