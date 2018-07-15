@@ -11,7 +11,7 @@ const Box = system({
 }, 'space', 'color', 'fontSize')
 
 const Flex = system({
-  is: Box
+  is: Box,
 }, { display: 'flex' },
   'alignItems',
   'justifyContent',
@@ -20,26 +20,16 @@ const Flex = system({
 export default class extends React.Component {
   render () {
     return (
-      <Box p={4} bg='cyan'>
+      <Box
+        p={4} bg='cyan' className='Box'>
         system-components
         <Flex
-          ref={ref => {
-            console.log('Flex ref', ref)
-          }}
-          innerRef={ref => {
-            console.log('Flex innerRef', ref)
-          }}
+          hello='hi'
+          is='header'
           p={4}
           bg='magenta'
-          is='footer'
           alignItems='center'>
           <Box
-            ref={ref => {
-              console.log('Box ref', ref)
-            }}
-            innerRef={ref => {
-              console.log('Box innerRef', ref)
-            }}
             is='h2'
             p={4}
             bg='black'
@@ -52,3 +42,5 @@ export default class extends React.Component {
     )
   }
 }
+// ref={ref => { console.log('ref', ref) }}
+// innerRef={ref => { console.log('innerRef', ref) }}

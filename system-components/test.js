@@ -26,10 +26,8 @@ describe('system-components', () => {
       p: 2,
       bg: 'tomato'
     })
-    expect(Box.defaultProps).toEqual({
-      p: 2,
-      bg: 'tomato'
-    })
+    expect(Box.defaultProps.p).toBe(2)
+    expect(Box.defaultProps.bg).toBe('tomato')
   })
 
   test('adds propTypes', () => {

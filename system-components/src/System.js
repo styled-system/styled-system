@@ -75,7 +75,6 @@ class System {
         ...Object.keys(propTypes),
         ...(defaultProps ? defaultProps.blacklist || [] : [])
       ]
-      tag.defaultProps = { blacklist }
 
       const Base = defaultProps && typeof defaultProps.is === 'function' ? defaultProps.is : tag
 
@@ -84,6 +83,10 @@ class System {
       const baseProps = util.get(defaultProps, 'is.defaultProps') || {}
       Component.defaultProps = {
         ...baseProps,
+        blacklist: [
+          ...blacklist,
+          ...(baseProps.blacklist || [])
+        ],
         ...defaultProps
       }
       Component.propTypes = propTypes
