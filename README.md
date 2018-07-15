@@ -59,6 +59,9 @@ npm i styled-system
 >
 > – [David Yeiser][david-tweet]
 
+[dalgleish]: https://mobile.twitter.com/markdalgleish/status/913191186944241665
+[mrmrs]: https://mobile.twitter.com/mrmrs_/status/913189805055401984
+
 ### Table of Contents
 
 - [Usage](#usage)
