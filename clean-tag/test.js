@@ -41,3 +41,28 @@ test('exported html tags only omit blacklisted props', t => {
   t.is(json.props.blue, undefined)
   t.is(json.props.id, 'hello')
 })
+
+test('accepts an is prop to change the underlying element', t => {
+  const json = render(React.createElement(tag, {
+    is: 'header'
+  })).toJSON()
+  t.is(json.type, 'header')
+})
+
+test('accepts a custom blacklist', t => {
+  const json = render(React.createElement(tag, {
+    hello: 'hi',
+    blacklist: [ 'hello' ]
+  })).toJSON()
+  t.is(json.props.hello, undefined)
+})
+
+test('forwards ref', t => {
+  let ref = 'hi'
+  const json = render(
+    React.createElement(tag, {
+      ref: r => ref = r
+    })
+  ).toJSON()
+  t.not(ref, 'hi')
+})
