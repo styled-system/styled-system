@@ -6,7 +6,7 @@ const allPropTypes = Object.keys(styles)
   .filter(key => typeof styles[key] === 'function')
   .reduce((a, key) => Object.assign(a, styles[key].propTypes), {})
 
-const blacklist = Object.keys(allPropTypes)
+const blacklist = [ ...Object.keys(allPropTypes), 'theme' ]
 
 export const omit = (obj, keys) => {
   const next = {}
@@ -17,33 +17,20 @@ export const omit = (obj, keys) => {
   return next
 }
 
-export class Tag extends React.Component {
-  render () {
-    const {
-      innerRef,
-      is,
-      blacklist,
-      theme,
-      ...props
-    } = this.props
-    const attr = omit(props, blacklist)
-
-    return React.createElement(is, {
-      ref: innerRef,
-      ...attr
-    })
-  }
-}
+export const Tag = React.forwardRef(({
+  is: Tag = 'div',
+  blacklist = [],
+  ...props
+}, ref) => React.createElement(Tag, {
+  ref,
+  ...omit(props, blacklist)
+}))
 
 Tag.displayName = 'Clean.div'
 
 Tag.defaultProps = {
-  is: 'div',
   blacklist
 }
-
-// Trick styled-components into passing innerRef
-Tag.styledComponentId = 'lol'
 
 tags.forEach(tag => {
   Tag[tag] = props => React.createElement(Tag, { is: tag, ...props })
