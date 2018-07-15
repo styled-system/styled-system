@@ -169,6 +169,7 @@ describe('system-components', () => {
   test('extends components with the is prop and passes is prop to clean-tag', () => {
     const Base = system({ p: 3 })
     const Ext = system({ is: Base }, 'color')
+    const base = render(<Base />).toJSON()
     const json = render(<Ext is='footer' p={3} bg='tomato' />).toJSON()
     expect(json.type).toBe('footer')
     expect(json).toHaveStyleRule('background-color', 'tomato')
