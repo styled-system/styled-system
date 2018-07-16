@@ -62,6 +62,10 @@ npm i styled-system
 [dalgleish]: https://mobile.twitter.com/markdalgleish/status/913191186944241665
 [mrmrs]: https://mobile.twitter.com/mrmrs_/status/913189805055401984
 
+## Try It Out
+
+- [CodeSandbox](https://codesandbox.io/s/github/jxnblk/styled-system/tree/master/examples/basic)
+
 ### Table of Contents
 
 - [Usage](#usage)
