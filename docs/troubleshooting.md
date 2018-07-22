@@ -14,6 +14,15 @@ Button.defaultProps.blacklist = [
 ]
 ```
 
+### With system-components, pass a blacklist array to system()
+
+```jsx
+const Button = system({
+  is: 'button',
+  blacklist: ['buttonSize']
+})
+```
+
 ## Issues with prop-types
 
 If you encounter issues while using this library alongside the `prop-types` npm package,
