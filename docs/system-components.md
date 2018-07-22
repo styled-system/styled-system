@@ -127,6 +127,16 @@ To add one-off custom CSS to any system-component, use the `css` prop.
 </Heading>
 ```
 
+## DOM Element Blacklist
+
+To remove style props from the underlying DOM element, pass in a blacklist array with the prop names:
+
+```jsx
+const Button = system({
+  is: 'button',
+  blacklist: ['buttonSize']
+})
+```
 
 ## Using with other CSS-in-JS libraries
 
