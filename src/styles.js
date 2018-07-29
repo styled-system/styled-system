@@ -153,6 +153,10 @@ export const alignContent = style({
   prop: 'alignContent'
 })
 
+export const justifyItems = style({
+  prop: 'justifyItems'
+})
+
 export const justifyContent = style({
   prop: 'justifyContent'
 })
@@ -234,6 +238,14 @@ export const gridTemplateRows = style({
   prop: 'gridTemplateRows'
 })
 
+export const gridTemplateAreas = style({
+  prop: 'gridTemplateAreas'
+})
+
+export const gridArea = style({
+  prop: 'gridArea'
+})
+
 // borders
 const getBorder = n => num(n) && n > 0 ? n + 'px solid' : n
 
@@ -293,6 +305,10 @@ export const boxShadow = style({
 
 export const opacity = style({
   prop: 'opacity'
+})
+
+export const overflow = style({
+  prop: 'overflow'
 })
 
 // backgrounds

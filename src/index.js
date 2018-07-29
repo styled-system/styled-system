@@ -33,6 +33,7 @@ export {
   // flexbox
   alignItems,
   alignContent,
+  justifyItems,
   justifyContent,
   flexWrap,
   flexDirection,
@@ -52,6 +53,8 @@ export {
   gridAutoRows,
   gridTemplateColumns,
   gridTemplateRows,
+  gridTemplateAreas,
+  gridArea,
   // borders
   border,
   borderTop,
@@ -64,6 +67,7 @@ export {
   // misc
   boxShadow,
   opacity,
+  overflow,
   background,
   backgroundImage,
   backgroundSize,
