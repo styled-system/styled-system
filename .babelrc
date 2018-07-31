@@ -1,7 +1,12 @@
 {
   presets: [
-    [ 'env', { loose: true } ],
+    [ 'env', { loose: true, modules: false } ],
     'stage-0',
     'react'
-  ]
+  ],
+  env: {
+    test: {
+      plugins: ['transform-es2015-modules-commonjs']
+    }
+  }
 }
