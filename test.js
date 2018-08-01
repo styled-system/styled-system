@@ -613,6 +613,25 @@ test('style allows array values', t => {
   })
 })
 
+test('style allows object values', t => {
+  const direction = style({
+    cssProperty: 'flex-direction',
+    prop: 'direction'
+  })
+  const a = direction({
+    direction: {
+      '': 'column',
+      medium: 'row',
+    }
+  });
+  t.deepEqual(a, {
+    'flex-direction': 'column',
+    '@media screen and (min-width: 52em)': {
+      'flex-direction': 'row',
+    }
+  })
+})
+
 test('style returns pixel values for number arrays', t => {
   const radius = style({
     cssProperty: 'borderRadius',

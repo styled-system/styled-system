@@ -15,6 +15,11 @@ export const propTypes = {
 }
 
 export const defaultBreakpoints = [ 40, 52, 64, ].map(n => n + 'em')
+const defaultBreakpointsKeys = ['small', 'medium', 'large']
+export const defaultBreakpointsObject = defaultBreakpoints.reduce((acc, val, index) => {
+  acc[defaultBreakpointsKeys[index]] = val
+  return acc
+}, {})
 export const is = n => n !== undefined && n !== null
 export const num = n => typeof n === 'number' && !isNaN(n)
 export const px = n => num(n) ? n + 'px' : n
@@ -70,26 +75,50 @@ export const style = ({
       )
     }) : null
 
-    if (!Array.isArray(val)) {
+    const isArrayValue = Array.isArray(val)
+    const isObjectValue = !isArrayValue && val === Object(val)
+
+    if (!isArrayValue && !isObjectValue) {
       return style(val)
     }
 
+    const breakpointRawValues = get(props.theme, 'breakpoints') || (
+      isObjectValue ?
+        defaultBreakpointsObject :
+        defaultBreakpoints
+    )
+    let breakpointKeys
+
+    if (isObjectValue) {
+      breakpointKeys = ['', ...Object.keys(breakpointRawValues)]
+    }
     // how to hoist this up??
-    const breakpoints = [
-      null,
-      ...(get(props.theme, 'breakpoints') || defaultBreakpoints)
-        .map(createMediaQuery)
-    ]
+    const breakpoints = isObjectValue ?
+      breakpointKeys.reduce((acc, key) => {
+        const value = breakpointRawValues[key]
+        if (!value) {
+          return acc
+        }
+        acc[key] = createMediaQuery(breakpointRawValues[key])
+        return acc
+      }, {}) :
+      [
+        null,
+        ...breakpointRawValues.map(createMediaQuery)
+      ]
 
     let styles = {}
-
-    for (let i = 0; i < val.length; i++) {
-      const media = breakpoints[i]
+    let finalVal = isObjectValue ?
+      breakpointKeys.reduce((acc, key) => acc.push(val[key]) && acc, []) :
+      val
+    
+    for (let i = 0; i < finalVal.length; i++) {
+      const media = breakpoints[isObjectValue ? breakpointKeys[i] : i]
       if (!media) {
-        styles = style(val[i])
+        styles = style(finalVal[i])
         continue
       }
-      const rule = style(val[i])
+      const rule = style(finalVal[i])
       if (!rule) continue
       styles[media] = rule
     }
