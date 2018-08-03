@@ -87,6 +87,15 @@ describe('system-components', () => {
     expect(json.props.customProp).toBe(undefined)
   })
 
+  test('blacklist options merge builtin settings', () => {
+    const Box = system({
+      blacklist: ['customProp']
+    }, 'space')
+    const json = render(<Box m='10' customProp='hi' />).toJSON()
+    expect(json.props.customProp).toBe(undefined)
+    expect(json.props.m).toBe(undefined)
+  })
+
   test('accepts an `is` prop to change the underlying DOM element', () => {
     const Box = system({
       p: 2
