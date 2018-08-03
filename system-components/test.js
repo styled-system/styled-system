@@ -193,6 +193,18 @@ describe('system-components', () => {
     expect(json).toHaveStyleRule('color', 'tomato')
   })
 
+  test('extends a non-system component and apply blacklist', () => {
+    const Base = (props) => <div {...props} />
+    const Ext = system({
+      // is: Base, FIXME: this won't pass test
+      blacklist: ['customProp']
+    }, 'color')
+    const json = render(<Ext is={Base} customProp='hi' bg='tomato' />).toJSON()
+    expect(json).toHaveStyleRule('background-color', 'tomato')
+    expect(json.props.customProp).toBe(undefined)
+    expect(json.props.bg).toBe(undefined)
+  })
+
   test('passes innerRef to underlying element', () => {
     const Base = system({ p: 3 })
     let foo = 'hello'
