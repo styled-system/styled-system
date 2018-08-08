@@ -267,20 +267,13 @@ export const borderLeft = style({
   transformValue: getBorder
 })
 
-export const borders = props => ({
-  ...border(props),
-  ...borderTop(props),
-  ...borderRight(props),
-  ...borderBottom(props),
-  ...borderLeft(props)
-})
-borders.propTypes = {
-  ...border.propTypes,
-  ...borderTop.propTypes,
-  ...borderRight.propTypes,
-  ...borderBottom.propTypes,
-  ...borderLeft.propTypes,
-}
+export const borders = compose(
+  border,
+  borderTop,
+  borderRight,
+  borderBottom,
+  borderLeft
+)
 
 export const borderColor = style({
   prop: 'borderColor',
