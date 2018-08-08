@@ -369,6 +369,18 @@ test('space handles null values in arrays', t => {
   })
 })
 
+test('space can handle alias values', t => {
+  const a = space({
+    m: 'large',
+    theme: {
+      space: {
+        large: 12
+      }
+    }
+  })
+  t.deepEqual(a, {margin: '12px'})
+})
+
 // width
 test('width returns percentage widths', t => {
   const a = width({width: 1 / 2})
