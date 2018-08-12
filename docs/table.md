@@ -54,6 +54,7 @@ Function Name | Prop       | CSS Property    | Theme Field
 `flexDirection` | `flexDirection` | `flex-direction` | none
 `flex` | `flex` | `flex` (shorthand) | none
 `alignContent`  | `alignContent` | `align-content` | none
+`justifyItems`  | `justifyItems` | `justify-items` | none
 `justifySelf` | `justifySelf` | `justify-self` | none
 `alignSelf` | `alignSelf` | `align-self` | none
 `order` | `order` | `order` | none
@@ -68,6 +69,7 @@ Function Name | Prop       | CSS Property    | Theme Field
 `gridColumnGap` | `gridColumnGap` | `grid-column-gap` | `space`
 `gridColumn` | `gridColumn` | `grid-column` | none
 `gridRow` | `gridRow` | `grid-row` | none
+`gridArea` | `gridArea` | `grid-area` | none
 `gridAutoFlow` | `gridAutoFlow` | `grid-auto-flow` | none
 `gridAutoRows` | `gridAutoRows` | `grid-auto-rows` | none
 `gridAutoColumns` | `gridAutoColumns` | `grid-auto-columns` | none
@@ -97,6 +99,7 @@ Function Name | Prop       | CSS Property    | Theme Field
 `borders` | `borderLeft` | `border-left` | `borders`
 `boxShadow` | `boxShadow` | `box-shadow` | `shadows`
 `opacity`   | `opacity` `o` | `opacity`  | `opacity`
+`overflow` | `overflow` | `overflow` | none
 
 ## Position
 
