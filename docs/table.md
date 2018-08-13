@@ -75,6 +75,7 @@ Function Name | Prop       | CSS Property    | Theme Field
 `gridAutoColumns` | `gridAutoColumns` | `grid-auto-columns` | none
 `gridTemplateRows` | `gridTemplateRows` | `grid-template-rows` | none
 `gridTemplateColumns` | `gridTemplateColumns` | `grid-template-columns` | none
+`gridTemplateAreas` | `gridTemplateAreas` | `grid-template-areas` | none
 
 ## Background
 
