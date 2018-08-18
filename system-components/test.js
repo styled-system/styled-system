@@ -5,7 +5,6 @@ import React from 'react'
 import { create as render } from 'react-test-renderer'
 import { isDOMComponent, isCompositeComponent } from 'react-dom/test-utils'
 import system from './src'
-import emotion from './src/emotion'
 
 describe('system-components', () => {
   test('returns a React component', () => {
@@ -134,20 +133,6 @@ describe('system-components', () => {
     const ExtendedBox = system({ is: Box })
     const json = render(<ExtendedBox />).toJSON()
     expect(json).toHaveStyleRule('background-color', 'tomato')
-  })
-
-  test('emotion returns a React component', () => {
-    const Box = emotion()
-    const box = render(<Box />).getInstance()
-    expect(isCompositeComponent(box)).toBe(true)
-  })
-
-  test('emotion innerRef', () => {
-    const Box = emotion()
-    let ref = 'fooo'
-    const box = render(<Box innerRef={(node) => { ref = node }} />).getInstance()
-    expect(isCompositeComponent(box)).toBe(true)
-    expect(ref).not.toBe('fooo')
   })
 
   test('accepts a css prop for custom styling', () => {
