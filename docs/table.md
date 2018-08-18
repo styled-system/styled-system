@@ -28,6 +28,7 @@ Function Name | Prop       | CSS Property    | Theme Field
 `textAlign`   | `textAlign`    | `text-align`   | none
 `lineHeight`  | `lineHeight` | `line-height` | `lineHeights`
 `fontWeight`  | `fontWeight` | `font-weight` | `fontWeights`
+`fontStyle`  | `fontStyle` | `font-style` | none
 `letterSpacing` | `letterSpacing` | `letter-spacing` | `letterSpacings`
 
 ## Layout

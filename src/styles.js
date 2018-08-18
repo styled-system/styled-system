@@ -68,6 +68,10 @@ export const fontWeight = style({
   key: 'fontWeights'
 })
 
+export const fontStyle = style({
+  prop: 'fontStyle'
+})
+
 export const letterSpacing = style({
   prop: 'letterSpacing',
   key: 'letterSpacings',
