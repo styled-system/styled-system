@@ -1,5 +1,5 @@
 import React from 'react'
-import { styles } from 'styled-system'
+import { styles, util } from 'styled-system'
 import styled from 'styled-components'
 
 const css = props => props.css
@@ -56,7 +56,10 @@ const system = (props = {}, ...keysOrStyles) => {
 
   const Component = styled(tag)([], ...funcs, css)
 
+  const baseProps = util.get(props, 'extend.defaultProps') || {}
+
   Component.defaultProps = {
+    ...baseProps,
     ...props
   }
 

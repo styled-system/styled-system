@@ -11,7 +11,7 @@ const Box = system({
 }, 'space', 'color', 'fontSize')
 
 const Flex = system({
-  is: Box,
+  extend: Box,
 }, { display: 'flex' },
   'alignItems',
   'justifyContent',
