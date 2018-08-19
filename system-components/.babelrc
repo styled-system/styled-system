@@ -1,7 +1,24 @@
 {
-  "presets": [
-    "env",
-    "stage-0",
-    "react"
-  ]
+  presets: [
+    'env',
+    'stage-0',
+    'react'
+  ],
+  env: {
+    emotion: {
+      plugins: [
+        [
+          'transform-rename-import',
+          {
+            replacements: [
+              {
+                original: '^styled-components$',
+                replacement: 'react-emotion'
+              }
+            ]
+          }
+        ]
+      ]
+    }
+  }
 }

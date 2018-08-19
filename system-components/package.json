@@ -1,10 +1,11 @@
 {
   "name": "system-components",
-  "version": "3.0.0",
+  "version": "4.0.0-0",
   "description": "Create consistent design-system-driven React UI components",
   "main": "dist/index",
   "scripts": {
-    "prepublishOnly": "babel src -d dist",
+    "prepare": "babel src -d dist && npm run emotion",
+    "emotion": "NODE_ENV=emotion babel src -d dist/emotion",
     "cover": "jest --coverage",
     "start": "ok docs -o",
     "test": "jest"
@@ -19,6 +20,7 @@
     "theme",
     "css-in-js"
   ],
+  "repository": "github:jxnblk/styled-system",
   "author": "Brent Jackson",
   "license": "MIT",
   "dependencies": {
@@ -26,13 +28,14 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-plugin-transform-rename-import": "^2.3.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.26.0",
     "emotion": "^9.2.3",
     "jest": "^23.3.0",
-    "jest-styled-components": "^5.0.1",
+    "jest-styled-components": "^6.0.1",
     "ok-cli": "^2.0.8",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
@@ -41,9 +44,6 @@
     "styled-components": "^3.3.2"
   },
   "jest": {
-    "roots": [
-      "<rootDir>"
-    ],
     "testMatch": [
       "**/test.js"
     ],
