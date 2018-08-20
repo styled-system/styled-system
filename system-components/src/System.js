@@ -76,7 +76,11 @@ class System {
         ...(defaultProps ? defaultProps.blacklist || [] : [])
       ]
 
-      const Base = defaultProps && typeof defaultProps.is === 'function' ? defaultProps.is : tag
+      let Base = tag
+      if (defaultProps && typeof defaultProps.is === 'function') {
+        Base = defaultProps.is
+        delete defaultProps.is
+      }
 
       const Component = createComponent(Base)(css, ...funcs)
 
