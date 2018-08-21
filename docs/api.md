@@ -19,7 +19,7 @@ name: API
 - [Utilities](#utilities)
   - [themeGet](#themeget)
   - [propTypes](#proptypes)
-  - [css](#css)
+  - [mixed](#mixed)
 - [Customize](#customize)
   - [style](#style)
   - [variant](#variant)
@@ -394,15 +394,15 @@ Box.propTypes = {
 }
 ```
 
-### css
+### mixed
 
-The `css` utility can be used to create style objects based on style objects mixed with styled-system props.
+The `mixed` utility can be used to create style objects based on style objects mixed with styled-system props.
 
 ```js
-import { css } from 'styled-system'
+import { mixed } from 'styled-system'
 import theme from './theme'
 
-css({
+mixed({
   theme,
   color: 'blue',
   textDecoration: 'none',

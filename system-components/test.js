@@ -1,6 +1,6 @@
 import 'jest-styled-components'
 import styled, { css as scCSS, isStyledComponent } from 'styled-components'
-import { propTypes } from 'styled-system'
+import { space, color } from 'styled-system'
 import React from 'react'
 import { create as render } from 'react-test-renderer'
 import { isDOMComponent, isCompositeComponent } from 'react-dom/test-utils'
@@ -26,10 +26,8 @@ describe('system-components', () => {
       p: 2,
       bg: 'tomato'
     })
-    expect(Box.defaultProps).toEqual({
-      p: 2,
-      bg: 'tomato'
-    })
+    expect(Box.defaultProps.p).toBe(2)
+    expect(Box.defaultProps.bg).toBe('tomato')
   })
 
   test('adds propTypes', () => {
@@ -38,8 +36,8 @@ describe('system-components', () => {
       bg: 'tomato'
     })
     expect(Box.propTypes).toEqual({
-      ...propTypes.space,
-      ...propTypes.color,
+      ...space.propTypes,
+      ...color.propTypes,
     })
   })
 
@@ -169,6 +167,7 @@ describe('system-components', () => {
   test('extends components with the is prop and passes is prop to clean-tag', () => {
     const Base = system({ p: 3 })
     const Ext = system({ is: Base }, 'color')
+    const base = render(<Base />).toJSON()
     const json = render(<Ext is='footer' p={3} bg='tomato' />).toJSON()
     expect(json.type).toBe('footer')
     expect(json).toHaveStyleRule('background-color', 'tomato')

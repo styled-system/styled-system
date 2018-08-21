@@ -4,7 +4,7 @@ import System from './System'
 const create = new System({
   createComponent: type => (...args) =>
     styled(type, {
-      shouldForwardProp: name => name !== 'ref' && name !== 'theme'
+      shouldForwardProp: name => name !== 'theme'
     })(...args)
 })
 

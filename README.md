@@ -62,6 +62,13 @@ npm i styled-system
 [dalgleish]: https://mobile.twitter.com/markdalgleish/status/913191186944241665
 [mrmrs]: https://mobile.twitter.com/mrmrs_/status/913189805055401984
 
+## Try It Out
+
+Try the [examples](examples) on CodeSandbox
+
+- [Basic](https://codesandbox.io/s/github/jxnblk/styled-system/tree/master/examples/basic)
+- [Emotion](https://codesandbox.io/s/github/jxnblk/styled-system/tree/master/examples/emotion)
+
 ### Table of Contents
 
 - [Usage](#usage)
@@ -188,7 +195,7 @@ To learn more, see the [Getting Started](docs/getting-started.md) guide or read 
 
 ## Related
 
-- [system-components](https://github.com/jxnblk/system-components)
+- [system-components](https://github.com/jxnblk/styled-system/tree/master/system-components)
 - [grid-styled](https://github.com/jxnblk/grid-styled)
 - [Rebass](http://jxnblk.com/rebass)
 - [Compositor Lab](https://compositor.io/lab)

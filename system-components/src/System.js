@@ -1,6 +1,5 @@
 import React from 'react'
 import { styles, util } from 'styled-system'
-import tag from 'clean-tag'
 
 const funcNames = Object.keys(styles)
 const unique = arr => [...new Set(arr)]
@@ -35,6 +34,26 @@ const getPropTypes = keys => keys
 
 const css = props => props.css
 
+const omit = (obj, blacklist) => {
+  const next = {}
+  for (let key in obj) {
+    if (blacklist.indexOf(key) > -1) continue
+    next[key] = obj[key]
+  }
+  return next
+}
+
+const tag = React.forwardRef(({
+  is: Tag = 'div',
+  blacklist = [],
+  ...props
+}, ref) =>
+  <Tag
+    ref={ref}
+    {...omit(props, blacklist)}
+  />
+)
+
 class System {
   constructor (opts) {
     const {
@@ -51,28 +70,27 @@ class System {
       const funcs = getFuncs(combined)
       const propTypes = getPropTypes(combined)
 
-      const blacklist = Object.keys(propTypes)
-      if (defaultProps && Array.isArray(defaultProps.blacklist)) {
-        blacklist.push(...defaultProps.blacklist)
-        delete defaultProps.blacklist
-      }
-      blacklist.push('css')
+      const blacklist = [
+        'css',
+        ...Object.keys(propTypes),
+        ...(defaultProps ? defaultProps.blacklist || [] : [])
+      ]
 
-      const Base = defaultProps && typeof defaultProps.is === 'function'
-        ? defaultProps.is
-        : tag
-      const div = props => React.createElement(Base, props)
-      div.defaultProps = { blacklist }
-      div.styledComponentId = 'lol' // Trick styled-components into passing innerRef
+      const Base = defaultProps && typeof defaultProps.is === 'function' ? defaultProps.is : tag
 
-      const Component = createComponent(div)(css, ...funcs)
+      const Component = createComponent(Base)(css, ...funcs)
 
-      const baseProps = util.get(defaultProps, 'is.defaultProps', {})
+      const baseProps = util.get(defaultProps, 'is.defaultProps') || {}
       Component.defaultProps = {
         ...baseProps,
+        blacklist: [
+          ...blacklist,
+          ...(baseProps.blacklist || [])
+        ],
         ...defaultProps
       }
       Component.propTypes = propTypes
+      Component.systemComponent = true
 
       return Component
     }

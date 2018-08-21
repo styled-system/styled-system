@@ -14,7 +14,7 @@ import {
   themeGet,
   util,
   variant,
-  css,
+  mixed,
 
   textAlign,
   fontFamily,
@@ -1060,6 +1060,20 @@ test('borders combines multiple border styles', t => {
   t.is(a.borderBottom, '2px solid')
 })
 
+test('borders combines multiple responsive styles', t => {
+  const a = borders({
+    borderTop: [ '1px solid', '2px solid' ],
+    borderBottom: [ 'none', '2px solid' ],
+  })
+  t.deepEqual(a, {
+    borderTop: '1px solid',
+    borderBottom: 'none',
+    '@media screen and (min-width: 40em)': {
+      borderTop: '2px solid',
+      borderBottom: '2px solid',
+    }
+  })
+})
 
 test('boxShadow returns box-shadow styles', t => {
   const a = boxShadow({ boxShadow: '0 0 8px rgba(0, 0, 0, .125)' })
@@ -1200,18 +1214,18 @@ test('variant returns null', t => {
   t.is(a, null)
 })
 
-test('css returns a style object', t => {
-  const a = css({ backgroundColor: 'tomato' })
+test('mixed returns a style object', t => {
+  const a = mixed({ backgroundColor: 'tomato' })
   t.deepEqual(a, { backgroundColor: 'tomato' })
 })
 
-test('css returns prop-based styles', t => {
-  const a = css({ bg: 'tomato' })
+test('mixed returns prop-based styles', t => {
+  const a = mixed({ bg: 'tomato' })
   t.deepEqual(a, { backgroundColor: 'tomato' })
 })
 
-test('css returns theme-based styles', t => {
-  const a = css({ theme, bg: 'blue' })
+test('mixed returns theme-based styles', t => {
+  const a = mixed({ theme, bg: 'blue' })
   t.deepEqual(a, { backgroundColor: theme.colors.blue })
 })
 
