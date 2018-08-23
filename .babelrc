@@ -4,7 +4,11 @@
     'stage-0',
     'react'
   ],
-  plugins: [
-    'babel-plugin-external-helpers'
-  ]
+  env: {
+    test: {
+      presets: [
+        [ 'env', { loose: true } ]
+      ]
+    }
+  }
 }
