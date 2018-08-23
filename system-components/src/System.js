@@ -2,7 +2,10 @@ import React from 'react'
 import { styles, util } from 'styled-system'
 
 const funcNames = Object.keys(styles)
-const unique = arr => [...new Set(arr)]
+const unique = arr => {
+  const seen = {};
+  return arr.concat().filter(item => seen.hasOwnProperty(item) ? false : (seen[item] = true));
+}
 const isPOJO = n => typeof n === 'object' && n !== null && !Array.isArray(n)
 
 const dict = Object.keys(styles)
