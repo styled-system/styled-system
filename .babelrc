@@ -1,7 +1,10 @@
 {
   presets: [
-    [ 'env', { loose: true } ],
+    [ 'env', { loose: true, modules: false } ],
     'stage-0',
     'react'
+  ],
+  plugins: [
+    'babel-plugin-external-helpers'
   ]
 }
