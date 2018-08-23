@@ -9,6 +9,7 @@ docs
 scripts
 src
 site
+rollup.config.js
 
 clean-element
 clean-tag

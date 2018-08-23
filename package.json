@@ -51,7 +51,6 @@
     "rollup": "^0.64.1",
     "rollup-plugin-babel": "^3.0.7",
     "rollup-plugin-commonjs": "^9.1.5",
-    "rollup-plugin-node-resolve": "^3.3.0",
     "scrs": "^1.1.0",
     "sinon": "^4.3.0",
     "styled-components": "^3.3.2"
