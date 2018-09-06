@@ -86,11 +86,11 @@ class System {
       const baseProps = util.get(defaultProps, 'is.defaultProps') || {}
       Component.defaultProps = {
         ...baseProps,
+        ...defaultProps,
         blacklist: [
           ...blacklist,
           ...(baseProps.blacklist || [])
         ],
-        ...defaultProps
       }
       Component.propTypes = propTypes
       Component.systemComponent = true

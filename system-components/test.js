@@ -87,6 +87,15 @@ describe('system-components', () => {
     expect(json.props.customProp).toBe(undefined)
   })
 
+  test('blacklist options merge builtin settings', () => {
+    const Box = system({
+      blacklist: ['customProp']
+    }, 'space')
+    const json = render(<Box m='10' customProp='hi' />).toJSON()
+    expect(json.props.customProp).toBe(undefined)
+    expect(json.props.m).toBe(undefined)
+  })
+
   test('accepts an `is` prop to change the underlying DOM element', () => {
     const Box = system({
       p: 2
@@ -182,6 +191,18 @@ describe('system-components', () => {
     ).toJSON()
     expect(json.type).toBe('div')
     expect(json).toHaveStyleRule('color', 'tomato')
+  })
+
+  test('extends a non-system component and apply blacklist', () => {
+    const Base = (props) => <div {...props} />
+    const Ext = system({
+      // is: Base, FIXME: this won't pass test
+      blacklist: ['customProp']
+    }, 'color')
+    const json = render(<Ext is={Base} customProp='hi' bg='tomato' />).toJSON()
+    expect(json).toHaveStyleRule('background-color', 'tomato')
+    expect(json.props.customProp).toBe(undefined)
+    expect(json.props.bg).toBe(undefined)
   })
 
   test('passes innerRef to underlying element', () => {
