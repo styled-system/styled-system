@@ -14,10 +14,11 @@ export const propTypes = {
   ]),
 }
 
+export const isReactNative = () => typeof navigator != 'undefined' && navigator.product == 'ReactNative'
 export const defaultBreakpoints = [ 40, 52, 64, ].map(n => n + 'em')
 export const is = n => n !== undefined && n !== null
 export const num = n => typeof n === 'number' && !isNaN(n)
-export const px = n => num(n) ? n + 'px' : n
+export const px = n => (isReactNative() ? n : num(n) ? n + 'px' : n)
 
 export const get = (obj, ...paths) => paths.join('.').split('.')
   .reduce((a, b) => (a && a[b]) ? a[b] : null, obj)
