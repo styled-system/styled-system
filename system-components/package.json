@@ -44,6 +44,7 @@
     "roots": [
       "<rootDir>"
     ],
+    "testURL": "http://localhost",
     "testMatch": [
       "**/test.js"
     ],

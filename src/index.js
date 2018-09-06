@@ -1,11 +1,6 @@
-export * as util from './util'
-export * as styles from './styles'
-export {
-  style,
-  themeGet,
-  merge,
-  compose,
-} from './util'
+export * as util from "./util"
+export * as styles from "./styles"
+export { style, themeGet, merge, compose } from "./util"
 
 export {
   space,
@@ -19,6 +14,7 @@ export {
   textAlign,
   lineHeight,
   fontWeight,
+  fontStyle,
   letterSpacing,
   // layout
   display,
@@ -33,6 +29,7 @@ export {
   // flexbox
   alignItems,
   alignContent,
+  justifyItems,
   justifyContent,
   flexWrap,
   flexDirection,
@@ -52,6 +49,8 @@ export {
   gridAutoRows,
   gridTemplateColumns,
   gridTemplateRows,
+  gridTemplateAreas,
+  gridArea,
   // borders
   border,
   borderTop,
@@ -64,6 +63,7 @@ export {
   // misc
   boxShadow,
   opacity,
+  overflow,
   background,
   backgroundImage,
   backgroundSize,
@@ -80,12 +80,12 @@ export {
   textStyle,
   colorStyle,
   buttonStyle,
-} from './styles'
+} from "./styles"
 
 // new
-export { default as variant } from './variant'
-export { default as mixed } from './mixed'
+export { default as variant } from "./variant"
+export { default as mixed } from "./mixed"
 
 // aliases for v2 api
-export { style as responsiveStyle } from './util'
-export { default as complexStyle } from './variant'
+export { style as responsiveStyle } from "./util"
+export { default as complexStyle } from "./variant"
