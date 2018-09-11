@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v3.1.0 2018-09-11
+
+- Upgrade to Babel 7
+
 ## v3.0.0
 
 - Performance rewrite
