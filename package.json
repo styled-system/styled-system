@@ -2,10 +2,13 @@
   "name": "styled-system",
   "version": "3.0.3",
   "description": "Design system utilities for styled-components, glamorous, and other css-in-js libraries",
-  "main": "dist/index.js",
+  "main": "dist/index",
   "sideEffects": false,
   "scripts": {
-    "prepare": "babel src -d dist",
+    "prepare": "npm run clean && npm run build:cjs && npm run build:esm",
+    "clean": "rm -rf dist && mkdir dist",
+    "build:cjs": "NODE_ENV=cjs babel src/index.js -o dist/index.js",
+    "build:esm": "NODE_ENV=esm babel src/index.js -o dist/index.mjs",
     "start": "x0 docs",
     "docs": "x0 build docs -d site",
     "logo": "repng docs/Logo.js -d docs -f logo.png -w 512 -h 512 -p '{\"size\":512}'",
@@ -28,13 +31,13 @@
   "author": "Brent Jackson",
   "license": "MIT",
   "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.1",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0",
     "@compositor/x0": "^6.0.2",
-    "ava": "^0.25.0",
-    "babel-cli": "^6.24.1",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "babel-register": "^6.24.1",
+    "ava": "^1.0.0-beta.8",
     "benchmark": "^2.1.4",
     "bundlesize": "^0.17.0",
     "codecov": "^3.0.3",
@@ -51,13 +54,13 @@
   },
   "ava": {
     "require": [
-      "babel-register"
-    ],
-    "babel": "inherit"
+      "@babel/register"
+    ]
   },
   "nyc": {
-    "ignore": [
-      "test.js",
+    "exclude": [
+      "test/**/*",
+      "**/babel.config.js",
       "docs",
       "bench",
       "examples"
@@ -65,7 +68,7 @@
   },
   "bundlesize": [
     {
-      "path": "dist/*.js"
+      "path": "dist/*"
     }
   ],
   "repository": {
