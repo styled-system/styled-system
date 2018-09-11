@@ -1,8 +1,5 @@
 import test from 'ava'
-import React from 'react'
-import { create as render } from 'react-test-renderer'
-import sinon from 'sinon'
-import * as system from './src'
+import * as system from '../src'
 import {
   styles,
   space,
@@ -80,7 +77,7 @@ import {
   textStyle,
   colorStyle,
   buttonStyle,
-} from './src'
+} from '../src'
 
 const theme = {
   breakpoints: [32, 48, 64].map(n => n + 'em'),
@@ -985,12 +982,7 @@ test('borderColor returns borderColor', t => {
   t.deepEqual(a, { borderColor: 'blue' })
 })
 
-test('borderColor returns borderColor', t => {
-  const a = borderColor({ borderColor: 'blue' })
-  t.deepEqual(a, { borderColor: 'blue' })
-})
-
-test('borderColor returns borderColor', t => {
+test('borderColor returns nested borderColor', t => {
   const a = borderColor({ theme, borderColor: 'gray.0' })
   t.deepEqual(a, { borderColor: theme.colors.gray[0] })
 })
