@@ -2,7 +2,7 @@ import test from 'ava'
 import React from 'react'
 import styled from 'styled-components'
 import { renderToString } from 'react-dom/server'
-import { textAlign } from '../src'
+import { textAlign } from 'styled-system'
 import cleanElement from './src'
 
 test('it removes props with prop types', t => {
