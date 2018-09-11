@@ -2,8 +2,6 @@
 coverage
 coverage.lcov
 .travis.yml
-.babelrc
-test.js
 bench
 docs
 scripts
@@ -17,3 +15,5 @@ system-components
 system-classnames
 system-loader
 system-docs
+babel.config.js
+test
