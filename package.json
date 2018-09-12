@@ -9,8 +9,8 @@
     "clean": "rm -rf dist && mkdir dist",
     "build:cjs": "NODE_ENV=cjs babel src/index.js -o dist/index.js",
     "build:esm": "NODE_ENV=esm babel src/index.js -o dist/index.mjs",
-    "start": "x0 docs",
-    "docs": "x0 build docs -d site",
+    "start": "mdx-go docs",
+    "docs": "mdx-go build docs -d site",
     "logo": "repng docs/Logo.js -d docs -f logo.png -w 512 -h 512 -p '{\"size\":512}'",
     "logo-svg": "scrs docs/Logo.js --svg > docs/logo.svg",
     "size": "bundlesize",
@@ -36,21 +36,21 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
-    "@compositor/x0": "^6.0.2",
     "ava": "^1.0.0-beta.8",
     "benchmark": "^2.1.4",
     "bundlesize": "^0.17.0",
     "codecov": "^3.0.3",
     "is-ci": "^1.1.0",
     "lodash.sortby": "^4.7.0",
+    "mdx-go": "^1.1.6",
     "nyc": "^12.0.2",
     "react": "^16.4.0",
     "react-test-renderer": "^16.4.0",
-    "rebass": "^2.0.0-7",
+    "rebass": "3.0.0-3",
     "repng": "^3.0.0",
     "scrs": "^1.1.0",
     "sinon": "^4.3.0",
-    "styled-components": "^3.3.2"
+    "styled-components": "^4.0.0-beta.3"
   },
   "ava": {
     "require": [
@@ -78,34 +78,7 @@
   "dependencies": {
     "prop-types": "^15.6.2"
   },
-  "x0": {
-    "title": "Styled System",
-    "basename": "/styled-system",
-    "meta": [
-      {
-        "name": "twitter:card",
-        "content": "summary"
-      },
-      {
-        "name": "twitter:site",
-        "content": "@jxnblk"
-      },
-      {
-        "name": "twitter:image",
-        "content": "https://jxnblk.com/styled-system/logo.png"
-      },
-      {
-        "name": "twitter:title",
-        "content": "Styled System"
-      },
-      {
-        "name": "twitter:description",
-        "content": "Design system utilities for styled-components, glamorous, and other css-in-js libraries"
-      },
-      {
-        "name": "description",
-        "content": "Design system utilities for styled-components, glamorous, and other css-in-js libraries"
-      }
-    ]
+  "mdx-go": {
+    "basename": "/styled-system"
   }
 }

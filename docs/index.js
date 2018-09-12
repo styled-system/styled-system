@@ -5,11 +5,14 @@ import {
   Text,
   Heading,
   Button,
-  ButtonOutline,
 } from 'rebass'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import Logo from './Logo'
+
+export { Root } from './components'
+
+export const name = 'Home'
 
 const stops = [
   // 90, 80, 70, 60
@@ -35,10 +38,6 @@ const Hero = styled(Box)([], {
 })
 
 export default class extends React.Component {
-  static defaultProps = {
-    layout: false
-  }
-
   render () {
     return (
       <React.Fragment>
@@ -54,7 +53,7 @@ export default class extends React.Component {
               <Logo blend='screen' />
               <Box px={3} py={4}>
                 <Heading
-                  is='h1'
+                  as='h1'
                   mb={2}
                   fontSize={[ 4, 5, 6, 7 ]}>
                   Styled System
@@ -66,7 +65,7 @@ export default class extends React.Component {
                   Design system utilities for CSS-in-JS
                 </Text>
                 <Button
-                  is={Link}
+                  as={Link}
                   to='/getting-started'
                   px={3}
                   py={3}
@@ -76,7 +75,7 @@ export default class extends React.Component {
                   Documentation
                 </Button>
                 <Button
-                  is='a'
+                  as='a'
                   href='https://github.com/jxnblk/styled-system'
                   px={3}
                   py={3}

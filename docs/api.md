@@ -1,6 +1,4 @@
----
-name: API
----
+export const name = 'API'
 
 # API
 

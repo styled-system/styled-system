@@ -1,4 +1,6 @@
 
+export const name = 'Troubleshooting'
+
 # Troubleshooting
 
 ## Unknown attribute warnings in React 16
