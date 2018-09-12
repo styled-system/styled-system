@@ -1,4 +1,6 @@
 
+export const name = 'Getting Started'
+
 # Getting Started
 
 Styled-system is a collection of utility functions that add style props
