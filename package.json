@@ -34,7 +34,6 @@
   "devDependencies": {
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.1",
-    "@babel/plugin-transform-runtime": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
@@ -78,7 +77,6 @@
     "url": "git+https://github.com/jxnblk/styled-system.git"
   },
   "dependencies": {
-    "@babel/runtime": "^7.0.0",
     "prop-types": "^15.6.2"
   },
   "mdx-go": {
