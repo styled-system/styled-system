@@ -624,6 +624,7 @@ export const buttonStyle = variant({
 })
 
 export const styles = {
+  space,
   width,
   fontSize,
   textColor,
