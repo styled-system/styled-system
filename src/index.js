@@ -624,6 +624,7 @@ export const buttonStyle = variant({
 })
 
 export const styles = {
+  space,
   width,
   fontSize,
   textColor,
@@ -686,6 +687,7 @@ export const styles = {
   backgroundImage,
   backgroundPosition,
   backgroundRepeat,
+  backgroundSize,
   position,
   zIndex,
   top,

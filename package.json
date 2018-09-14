@@ -1,12 +1,14 @@
 {
   "name": "styled-system",
-  "version": "3.1.1",
+  "version": "3.1.2-5",
   "description": "Design system utilities for styled-components, glamorous, and other css-in-js libraries",
-  "main": "dist/index.js",
+  "main": "dist/index",
   "sideEffects": false,
   "scripts": {
-    "prepare": "npm run clean && babel src -d dist",
-    "clean": "rm -rf dist",
+    "prepare": "npm run clean && npm run build:cjs && npm run build:esm",
+    "clean": "rm -rf dist && mkdir dist",
+    "build:cjs": "NODE_ENV=cjs babel src/index.js -o dist/index.js",
+    "build:esm": "NODE_ENV=esm babel src/index.js -o dist/index.mjs",
     "start": "mdx-go docs",
     "docs": "mdx-go build docs -d site",
     "logo": "repng docs/Logo.js -d docs -f logo.png -w 512 -h 512 -p '{\"size\":512}'",
