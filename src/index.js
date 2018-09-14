@@ -687,6 +687,7 @@ export const styles = {
   backgroundImage,
   backgroundPosition,
   backgroundRepeat,
+  backgroundSize,
   position,
   zIndex,
   top,
