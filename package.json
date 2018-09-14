@@ -28,13 +28,16 @@
   ],
   "author": "Brent Jackson",
   "license": "MIT",
+  "dependencies": {
+    "prop-types": "^15.6.2"
+  },
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.1",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/preset-react": "^7.0.0",
-    "@babel/register": "^7.0.0",
     "ava": "^1.0.0-beta.8",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "benchmark": "^2.1.4",
     "bundlesize": "^0.17.0",
     "codecov": "^3.0.3",
@@ -52,7 +55,7 @@
   },
   "ava": {
     "require": [
-      "@babel/register"
+      "babel-register"
     ]
   },
   "nyc": {
@@ -72,9 +75,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jxnblk/styled-system.git"
-  },
-  "dependencies": {
-    "prop-types": "^15.6.2"
   },
   "mdx-go": {
     "basename": "/styled-system"
