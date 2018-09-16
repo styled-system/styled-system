@@ -1,17 +1,17 @@
 import React from 'react'
-import { Head } from 'mdx-go'
+// import { Head } from 'mdx-go'
 import {
+  Head,
   Layout,
   NavLinks,
   NavLink,
   Pagination,
-  ScrollTop,
   StyleProvider,
-} from 'mdx-go/styled-components'
+} from 'mdx-go/components'
 import { Box } from 'rebass'
 import sortBy from 'lodash.sortby'
 import { description } from '../package.json'
-import Logo from './Logo'
+import Logo from './LogoAlt'
 
 const nav = [
   'Home',
@@ -72,7 +72,6 @@ export const Root = props => {
           </Layout>
         )}
       </StyleProvider>
-      <ScrollTop />
       <Scripts />
     </React.Fragment>
   )

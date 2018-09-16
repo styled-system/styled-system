@@ -8,7 +8,7 @@ import {
 } from 'rebass'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import Logo from './Logo'
+import Logo from './LogoAlt'
 
 export { Root } from './components'
 

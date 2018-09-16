@@ -43,15 +43,15 @@
     "codecov": "^3.0.3",
     "is-ci": "^1.1.0",
     "lodash.sortby": "^4.7.0",
-    "mdx-go": "^1.1.6",
+    "mdx-go": "^2.0.0-10",
     "nyc": "^12.0.2",
     "react": "^16.4.0",
     "react-test-renderer": "^16.4.0",
-    "rebass": "^3.0.0-4",
+    "rebass": "^3.0.0-8",
     "repng": "^3.0.0",
     "scrs": "^1.1.0",
     "sinon": "^4.3.0",
-    "styled-components": "^4.0.0-beta.3"
+    "styled-components": "^4.0.0-beta.5"
   },
   "ava": {
     "require": [
