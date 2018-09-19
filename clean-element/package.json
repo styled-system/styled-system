@@ -1,6 +1,6 @@
 {
   "name": "clean-element",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React HOC for removing styled-system props from underlying DOM elements",
   "main": "dist/index.js",
   "repository": "jxnblk/styled-system",
