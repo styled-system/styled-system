@@ -18,11 +18,10 @@
   "author": "Brent Jackson",
   "license": "MIT",
   "devDependencies": {
-    "@compositor/x0": "^3.1.1",
     "ava": "^0.25.0",
     "babel-cli": "^6.24.1",
-    "styled-components": "^3.4.6",
-    "styled-system": "^3.1.0"
+    "styled-components": "^3.4.9",
+    "styled-system": "^3.1.4"
   },
   "ava": {
     "require": [
