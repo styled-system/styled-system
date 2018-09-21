@@ -48,7 +48,7 @@ export const compose = (...funcs) => {
   return fn
 }
 
-export const createMediaQuery = n => `@media screen and (min-width: ${n})`
+export const createMediaQuery = n => `@media screen and (min-width: ${px(n)})`
 
 export const style = ({
   prop,
