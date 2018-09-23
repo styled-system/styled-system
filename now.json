@@ -1,0 +1,8 @@
+{
+  "name": "Styled System",
+  "alias": [
+    "styled-system.now.sh"
+  ],
+  "public": true,
+  "type": "static"
+}

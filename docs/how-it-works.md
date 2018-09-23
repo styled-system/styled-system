@@ -1,6 +1,4 @@
 
-export const name = 'How it Works'
-
 # How it Works
 
 Most CSS-in-JS libraries accept functions as arguments to create dynamic styles based on props.

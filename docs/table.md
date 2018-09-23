@@ -1,6 +1,4 @@
 
-export const name = 'Table'
-
 # Table of Style Functions
 
 ## Core

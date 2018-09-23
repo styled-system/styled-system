@@ -1,0 +1,103 @@
+import {
+  Head,
+  StyleProvider,
+} from 'mdx-go'
+import { Flex, Box } from 'rebass'
+import Logo from './LogoAlt'
+import Demo from './Demo'
+import GettingStarted from './getting-started.md'
+import Testimonials from './testimonials.md'
+
+export const Root = props =>
+  <StyleProvider>
+    <Box
+      mt={4}
+      mb={6}
+      px={3}
+      mx='auto'
+      css={{
+        maxWidth: '960px',
+      }}>
+      {props.children}
+    </Box>
+  </StyleProvider>
+
+<Head>
+  <title>Styled System</title>
+  <meta name='twitter:card' content='summary' />
+  <meta name='twitter:site' content='@jxnblk' />
+  <meta name='twitter:image' content='https://jxnblk.com/styled-system/logo.png' />
+  <meta name='twitter:title' content='Styled System' />
+  <meta name='twitter:description' content='Design system utilities for styled-components, glamorous, and other CSS-in-JS libraries' />
+  <meta name='description' content='Design system utilities for styled-components, glamorous, and other CSS-in-JS libraries' />
+</Head>
+
+<Flex justifyContent='center'>
+  <Logo />
+</Flex>
+
+# Styled System
+
+Responsive, theme-based style props for building design systems with React
+
+[![gh][]][github] [![stars][]][github] [![Build Status][ci]][travis] [![Downloads][]][npm] [![Version][]][npm] ![size][] ![MIT License][license]
+
+- Add style props that hook into your own theme
+- Quickly set responsive font-size, margin, padding, width, and more with props
+- Influenced by constraint-based design system principles
+- Typographic scale
+- Spacing scale for margin and padding
+- Works with any color palette
+- Works with most CSS-in-JS libraries, including styled-components and emotion
+- Used in Rebass, Rebass Grid, and the Priceline Design System
+
+<Box my={5} />
+<Demo />
+<GettingStarted />
+
+## Docs
+
+Read more about how to use Styled System to build flexible design systems in the docs:
+
+- [Docs][]
+- [Responsive Styles][]
+- [How it Works][]
+- [API][]
+- [Reference Table][table]
+- [Custom Props][]
+
+---
+
+MIT License
+| [GitHub][]
+| [npm][]
+| [Made by Jxnblk][jxnblk]
+
+[ci]: https://flat.badgen.net/travis/jxnblk/styled-system
+[version]: https://flat.badgen.net/npm/v/styled-system
+[downloads]: https://flat.badgen.net/npm/dw/styled-system
+[license]: https://flat.badgen.net/badge/license/MIT/blue
+[stars]: https://flat.badgen.net/github/stars/jxnblk/styled-system
+[gh]: https://flat.badgen.net/badge//GitHub/black?icon=github
+[size]: https://flat.badgen.net/bundlephobia/minzip/styled-system
+
+[npm]: https://npmjs.com/package/styled-system
+[travis]: https://travis-ci.org/jxnblk/styled-system
+[github]: https://github.com/jxnblk/styled-system
+[jxnblk]: https://jxnblk.com
+[docs]: https://github.com/jxnblk/styled-system/tree/master/docs
+[responsive styles]: https://github.com/jxnblk/styled-system/blob/master/docs/responsive-styles.md
+[how it works]: https://github.com/jxnblk/styled-system/blob/master/docs/how-it-works.md
+[api]: https://github.com/jxnblk/styled-system/blob/master/docs/api.md
+[table]: https://github.com/jxnblk/styled-system/blob/master/docs/table.md
+[custom props]: https://github.com/jxnblk/styled-system/blob/master/docs/custom-props.md
+
+<script
+  dangerouslySetInnerHTML={{
+    __html: `(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-4603832-6', 'auto'); ga('send', 'pageview');`
+  }}
+/>

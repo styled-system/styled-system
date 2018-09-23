@@ -1,4 +1,3 @@
-export const name = 'API'
 
 # API
 

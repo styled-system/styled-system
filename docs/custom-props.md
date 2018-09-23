@@ -1,6 +1,4 @@
 
-export const name = 'Custom Props'
-
 # Custom Style Props
 
 To extend styled-system for other CSS properties that aren't included in the library, use the [custom utilities](api#customize) to create your own style functions.
