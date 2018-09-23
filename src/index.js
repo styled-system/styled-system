@@ -87,7 +87,7 @@ export const style = ({
     for (let i = 0; i < val.length; i++) {
       const media = breakpoints[i]
       if (!media) {
-        styles = style(val[i])
+        styles = style(val[i]) || {}
         continue
       }
       const rule = style(val[i])
@@ -212,7 +212,7 @@ export const space = props => {
       for (let i = 0; i < value.length; i++) {
         const media = breakpoints[i]
         if (!media) {
-          styles = style(value[i])
+          styles = style(value[i]) || {}
           continue
         }
         const rule = style(value[i])

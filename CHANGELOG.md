@@ -1,6 +1,22 @@
 
 # Changelog
 
+## v3.1.4 2018-09-19
+
+- Fix for passing falsy value as first item in array values
+
+## v3.1.3 2018-09-14
+
+- Add `module` field to package.json
+
+## v3.1.2 2018-09-14
+
+- Fix missing `styles` object keys
+
+## v3.1.1 2018-09-14
+
+- Patch to debug broken release
+
 ## v3.1.0 2018-09-11
 
 - Upgrade to Babel 7

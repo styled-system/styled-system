@@ -1145,6 +1145,15 @@ test('left returns left', t => {
   t.is(a.left, '2px')
 })
 
+test('responsive props can have falsey values', t => {
+  const dec = space({m: [null, 1]})
+  t.deepEqual(dec, {
+    '@media screen and (min-width: 40em)': {
+      margin: '4px'
+    }
+  })
+})
+
 test('textStyle returns a value from theme', t => {
   const theme = {
     textStyles: {
