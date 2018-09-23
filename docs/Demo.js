@@ -39,6 +39,7 @@ export default () =>
         fontFamily: 'Menlo, monospace',
         fontSize: 14,
         padding: 16,
+        overflowX: 'auto',
         color: '#33e',
         backgroundColor: '#f6f6ff',
         outline: 'none',
