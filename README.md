@@ -36,7 +36,7 @@ npm i styled-system
 - Typographic scale
 - Spacing scale for margin and padding
 - Works with any color palette
-- Works with most css-in-js libraries, including [styled-components][sc] & [emotion][emotion]
+- Works with most css-in-js libraries, including [styled-components][] & [emotion][emotion]
 - Used in [Rebass](https://rebassjs.org), [Rebass Grid](https://grid.rebassjs.org/), and the [Priceline Design System](https://github.com/pricelinelabs/design-system)
 
 > "This is honestly my favourite way to build UI components right now ![party parrot][party-parrot]"
@@ -78,7 +78,6 @@ Try the [examples](examples) on CodeSandbox
 - [Usage](#usage)
 - [Getting Started](#getting-started)
 - [Docs](#docs)
-- [Optional Packages](#optional-packages)
 - [Related](#related)
 
 ## Usage
@@ -182,13 +181,6 @@ To learn more, see the [Getting Started](docs/getting-started.md) guide or read 
 - [Custom Props](docs/custom-props.md)
 - [Troubleshooting](docs/troubleshooting.md)
 
-## Optional Packages
-
-- [clean-tag](clean-tag)
-- [system-components](system-components)
-- [system-loader](system-loader)
-- [system-classnames](system-classnames)
-- [clean-element](clean-element)
 
 ---
 
@@ -199,23 +191,13 @@ To learn more, see the [Getting Started](docs/getting-started.md) guide or read 
 
 ## Related
 
-- [system-components](https://github.com/jxnblk/styled-system/tree/master/system-components)
-- [grid-styled](https://github.com/jxnblk/grid-styled)
-- [Rebass](http://jxnblk.com/rebass)
-- [Compositor Lab](https://compositor.io/lab)
-- [styled-components][sc]
-- [glamorous][]
+- [Rebass](https://rebassjs.org)
+- [Rebass Grid](https://grid.rebassjs.org)
+- [styled-components][]
 - [emotion][]
-- [fela][]
-- [nano-style][]
-- [cxs][]
 
-[sc]: https://github.com/styled-components/styled-components
-[glamorous]: https://github.com/paypal/glamorous
+[styled-components]: https://github.com/styled-components/styled-components
 [emotion]: https://github.com/emotion-js/emotion
-[fela]: https://github.com/rofrischmann/fela
-[nano-style]: https://github.com/jxnblk/nano-style
-[cxs]: https://github.com/jxnblk/cxs
 [varun-post]: https://varun.ca/styled-system/
 [david-tweet]: https://mobile.twitter.com/davidyeiser/status/965920740582285312
 
