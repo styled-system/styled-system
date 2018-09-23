@@ -1,9 +1,9 @@
 
 <img src='docs/logo.svg' width='128' height='128' />
 
-# styled-system
+# Styled System
 
-Design system utilities for [styled-components][sc] and other css-in-js libraries
+Responsive, theme-based style props for building design systems with React
 
 [![Build Status][build-badge]][build]
 [![Coverage][coverage-badge]][coverage]

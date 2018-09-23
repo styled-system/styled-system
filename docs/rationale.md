@@ -1,6 +1,3 @@
----
-ignore: true
----
 
 From [spectrum](https://spectrum.chat/thread/b9afb6f3-a675-4f97-bc78-66411292fab1)
 
