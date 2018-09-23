@@ -26,14 +26,13 @@ npm i styled-system
 ## Features
 
 - Add style props that hook into your own theme
-- Responsive prop values for quickly setting responsive font-size, margin, padding, width, and more
+- Quickly set responsive font-size, margin, padding, width, and more with props
 - Influenced by constraint-based design system principles
 - Typographic scale
 - Spacing scale for margin and padding
-- Default 8px grid
 - Works with any color palette
-- Works with most css-in-js libraries, including [styled-components][sc], [glamorous][glamorous], [emotion][emotion], [fela][fela], and [cxs][cxs]
-- Used in [Rebass](http://jxnblk.com/rebass), [Grid Styled](http://jxnblk.com/grid-styled/), and the [Priceline Design System](https://github.com/pricelinelabs/design-system)
+- Works with most css-in-js libraries, including [styled-components][sc] & [emotion][emotion]
+- Used in [Rebass](https://rebassjs.org), [Rebass Grid](https://grid.rebassjs.org/), and the [Priceline Design System](https://github.com/pricelinelabs/design-system)
 
 > "This is honestly my favourite way to build UI components right now ![party parrot][party-parrot]"
 >
