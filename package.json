@@ -49,7 +49,6 @@
     "scrs": "^1.1.0",
     "styled-components": "^4.0.0-beta.8"
   },
-  "optionalDependencies": {},
   "ava": {
     "require": [
       "@babel/register"
