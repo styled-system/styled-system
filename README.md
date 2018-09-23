@@ -5,19 +5,24 @@
 
 Responsive, theme-based style props for building design systems with React
 
-[![Build Status][build-badge]][build]
-[![Coverage][coverage-badge]][coverage]
-[![Downloads][downloads-badge]][npm]
-[![Version][version-badge]][npm]
+[![stars][]][github]
+[![Build Status][ci]][travis]
+[![Downloads][]][npm]
+[![Version][]][npm]
+![size][]
+![MIT License][license]
 
-[build-badge]: https://img.shields.io/travis/jxnblk/styled-system/master.svg?style=flat-square
-[build]: https://travis-ci.org/jxnblk/styled-system
-[coverage-badge]: https://img.shields.io/codecov/c/github/jxnblk/styled-system.svg?style=flat-square
-[coverage]: https://codecov.io/github/jxnblk/styled-system
+[ci]: https://flat.badgen.net/travis/jxnblk/styled-system
+[version]: https://flat.badgen.net/npm/v/styled-system
+[downloads]: https://flat.badgen.net/npm/dw/styled-system
+[license]: https://flat.badgen.net/badge/license/MIT/blue
+[stars]: https://flat.badgen.net/github/stars/jxnblk/styled-system
+[size]: https://flat.badgen.net/bundlephobia/minzip/styled-system
 
-[downloads-badge]: https://img.shields.io/npm/dw/styled-system.svg?style=flat-square
-[version-badge]: https://img.shields.io/npm/v/styled-system.svg?style=flat-square
 [npm]: https://npmjs.com/package/styled-system
+[travis]: https://travis-ci.org/jxnblk/styled-system
+[github]: https://github.com/jxnblk/styled-system
+
 
 ```sh
 npm i styled-system
