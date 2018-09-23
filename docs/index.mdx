@@ -32,8 +32,11 @@ export const Root = props =>
   <meta name='description' content='Design system utilities for styled-components, glamorous, and other CSS-in-JS libraries' />
 </Head>
 
-<Flex justifyContent='center'>
-  <Logo />
+<Flex
+  justifyContent={[ 'flex-start', null, 'flex-end' ]}>
+  <Box ml={[-3]}>
+    <Logo size={192} />
+  </Box>
 </Flex>
 
 # Styled System
