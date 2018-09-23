@@ -1,0 +1,10 @@
+<?xml version="1.0" standalone="yes"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-12 -12 24 24" width="256" height="256" style="-webkit-mix-blend-mode:multiply;mix-blend-mode:multiply"><style data-styled="kiVotJ cwhXJa TjZBn" data-styled-version="4.0.0-beta.8">/* <![CDATA[ */ 
+/* sc-component-id: sc-bdVaJa */
+.sc-bdVaJa {} .kiVotJ{opacity:0.75;-webkit-mix-blend-mode:multiply;-webkit-animation-duration:8s;animation-duration:8s;-webkit-animation-timing-fuction:ease-in-out;animation-timing-fuction:ease-in-out;-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite;-webkit-animation-name:[object Object];animation-name:[object Object];}
+/* sc-component-id: sc-bwzfXH */
+.sc-bwzfXH {} .cwhXJa{opacity:0.75;-webkit-mix-blend-mode:multiply;-webkit-animation-duration:8s;animation-duration:8s;-webkit-animation-timing-fuction:ease-in-out;animation-timing-fuction:ease-in-out;-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite;fill:#0f0;-webkit-animation-delay:.5s;animation-delay:.5s;-webkit-animation-name:[object Object];animation-name:[object Object];}
+/* sc-component-id: sc-htpNat */
+.sc-htpNat {} .TjZBn{opacity:0.75;-webkit-mix-blend-mode:multiply;-webkit-animation-duration:8s;animation-duration:8s;-webkit-animation-timing-fuction:ease-in-out;animation-timing-fuction:ease-in-out;-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite;fill:#00f;-webkit-animation-delay:1s;animation-delay:1s;-webkit-animation-name:[object Object];animation-name:[object Object];} /* ]]> */</style><path class="sc-bdVaJa kiVotJ" d="M -9.526 -5.5 L 0 -11 L 9.526 -5.5 L 9.526 5.5 z"></path><path class="sc-bwzfXH cwhXJa" d="M 9.526 -5.5 L 9.526 5.5 L 0 11 L -9.526 5.5 z"></path><path class="sc-htpNat TjZBn" d="M 0 11 L -9.526 5.5 L -9.526 -5.5 L 0 -11 z"></path></svg>
