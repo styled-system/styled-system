@@ -75,8 +75,5 @@
   },
   "dependencies": {
     "prop-types": "^15.6.2"
-  },
-  "mdx-go": {
-    "basename": "/styled-system"
   }
 }
