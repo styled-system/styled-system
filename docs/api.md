@@ -16,7 +16,6 @@
 - [Utilities](#utilities)
   - [themeGet](#themeget)
   - [propTypes](#proptypes)
-  - [mixed](#mixed)
 - [Customize](#customize)
   - [style](#style)
   - [variant](#variant)
@@ -390,30 +389,6 @@ Box.propTypes = {
   ...width.propTypes
 }
 ```
-
-### mixed
-
-The `mixed` utility can be used to create style objects based on style objects mixed with styled-system props.
-
-```js
-import { mixed } from 'styled-system'
-import theme from './theme'
-
-mixed({
-  theme,
-  color: 'blue',
-  textDecoration: 'none',
-  '&:hover': {
-    textDecoration: 'underline',
-  }
-})
-// returns a style object with `theme.colors.blue` value
-// and text-decoration styles
-```
-
-This can be used in combination with the [variant](#variant) utility
-or directly in component definitions.
-This utility **will not** add any props to a component.
 
 ---
 
