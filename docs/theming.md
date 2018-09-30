@@ -1,6 +1,3 @@
----
-ignore: true
----
 
 # Theming
 
