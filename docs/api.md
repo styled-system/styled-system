@@ -32,7 +32,7 @@ import { space } from 'styled-system'
 
 The space utility converts shorthand margin and padding props to margin and padding CSS declarations.
 
-- Numbers from 0-4 (or the length of `theme.space`) are converted to values on the [spacing scale](#spacing-scale).
+- Numbers from 0-4 (or the length of `theme.space`) are converted to values on the [spacing scale](#defaults).
 - Negative values can be used for negative margins.
 - Numbers greater than the length of the `theme.space` array are converted to raw pixel values.
 - String values are passed as raw CSS values.
@@ -140,7 +140,7 @@ import { color } from 'styled-system'
 
 The color utility parses a component's `color` and `bg` props and converts them into CSS declarations.
 By default the raw value of the prop is returned.
-Color palettes can be configured with the [ThemeProvider][configuration] to use keys as prop values, with support for dot notation.
+Color palettes can be configured with the [ThemeProvider][theming] to use keys as prop values, with support for dot notation.
 Array values are converted into [responsive values][responsive-styles].
 
 ```jsx
@@ -507,4 +507,4 @@ const space = [ 0, 4, 8, 16, 32, 64, 128, 256, 512 ]
 ```
 
 [responsive-styles]: responsive-styles.md
-[configuration]: configuration.md
+[theming]: getting-started.md#theming

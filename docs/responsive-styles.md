@@ -1,6 +1,4 @@
 
-export const name = 'Responsive Styles'
-
 # Responsive Styles
 
 Often when working on responsive layouts, it's useful to adjust styles across a singular dimension –
