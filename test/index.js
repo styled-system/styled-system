@@ -91,6 +91,10 @@ const theme = {
   }
 }
 
+// aliases
+theme.space.big = 64
+theme.fontSizes.big = 128
+
 test('exports space, width, and fontSize', t => {
   t.is(typeof space, 'function')
   t.is(typeof width, 'function')
@@ -106,6 +110,7 @@ test('themeGet returns a fallback', t => {
   const a = themeGet('colors.blue', 'tomato')({ theme: {} })
   t.is(a, 'tomato')
 })
+
 
 // util
 test('util.is checks for non null values', t => {
@@ -211,6 +216,11 @@ test('util.compose combines style functions', t => {
   })
 })
 
+test('util.get returns nested values', t => {
+  const value = util.get({ colors: { blue: '#07c' } }, 'colors.blue')
+  t.is(value, '#07c')
+})
+
 // space
 test('space returns margin declarations', t => {
   const dec = space({m: 1})
@@ -222,6 +232,14 @@ test('space returns non-scalar margins', t => {
   const b = space({m: 'auto'})
   t.deepEqual(a, {margin: '24px'})
   t.deepEqual(b, {margin: 'auto'})
+})
+
+test('space returns keyed values', t => {
+  const a = space({
+    theme,
+    m: 'big'
+  })
+  t.is(a.margin, theme.space.big + 'px')
 })
 
 test('space returns negative margins', t => {
@@ -416,6 +434,14 @@ test('fontSize returns scale values', t => {
   t.deepEqual(a, {'fontSize': '12px'})
   t.deepEqual(b, {'fontSize': '14px'})
   t.deepEqual(c, {'fontSize': '16px'})
+})
+
+test('fontSize returns keyed values', t => {
+  const a = fontSize({
+    theme,
+    fontSize: 'big'
+  })
+  t.is(a.fontSize, theme.fontSizes.big + 'px')
 })
 
 test('fontSize returns pixel values', t => {
