@@ -111,6 +111,10 @@ test('themeGet returns a fallback', t => {
   t.is(a, 'tomato')
 })
 
+test('themeGet returns declared 0 rather than undefined', t => {
+  const a = themeGet('space.0')({ theme })
+  t.is(a, 0)
+})
 
 // util
 test('util.is checks for non null values', t => {
@@ -382,6 +386,18 @@ test('space handles null values in arrays', t => {
       margin: '8px'
     }
   })
+})
+
+test('space can handle alias values', t => {
+  const a = space({
+    m: 'large',
+    theme: {
+      space: {
+        large: 12
+      }
+    }
+  })
+  t.deepEqual(a, {margin: '12px'})
 })
 
 // width

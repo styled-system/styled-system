@@ -9,6 +9,7 @@
 - [Typography](#typography)
 - [Layout](#layout)
 - [Flexbox](#flexbox)
+- [Grid Layout](#grid-layout)
 - [Borders](#borders)
 - [Position](#position)
 - [Misc](#misc)
@@ -242,6 +243,49 @@ Array values are converted into [responsive values][responsive-styles].
 
 // alignSelf
 <Box alignSelf='center' />
+```
+
+## Grid Layout
+
+```jsx
+// gridGap
+<Box gridGap={10} />
+<Box gridGap={[ 1, 2 ]} />
+
+// gridColumnGap
+<Box gridColumnGap={10} />
+<Box gridColumnGap={[ 1, 2 ]} />
+
+// gridRowGap
+<Box gridRowGap={10} />
+<Box gridRowGap={[ 1, 2 ]} />
+
+// gridColumn
+<Box gridColumn={1} />
+
+// gridRow
+<Box gridRow={1} />
+
+// gridAutoFlow
+<Box gridAutoFlow='row' />
+
+// gridAutoColumns
+<Box gridAutoColumns='auto' />
+
+// gridAutoRows
+<Box gridAutoRows='auto' />
+
+// gridTemplateColumns
+<Box gridTemplateColumns='1fr 2fr' />
+
+// gridTemplateRows
+<Box gridTemplateRows='auto' />
+
+// gridTemplateAreas
+<Box gridTemplateAreas='a b' />
+
+// gridArea
+<Box gridArea='a' />
 ```
 
 ## Borders

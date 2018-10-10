@@ -1,6 +1,30 @@
 
 # Changelog
 
+## v3.1.10 2018-10-10
+
+- Convert numbers to pixels with keyed space values
+
+## v3.1.9 2018-10-10
+
+- Allow `getTheme` to return falsy values
+
+## v3.1.8 2018-10-10
+
+- Use Babel runtime
+
+## v3.1.7 2018-10-10
+
+- Fix for `breakpoints` numbers not being converted to pixels
+
+## v3.1.6 2018-09-23
+
+- Fix `.npmignore`
+
+## v3.1.5 2018-09-23
+
+- Update docs
+
 ## v3.1.4 2018-09-19
 
 - Fix for passing falsy value as first item in array values
