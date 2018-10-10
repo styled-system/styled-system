@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v3.1.9 2018-10-10
+
+- Allow `getTheme` to return falsy values
+
 ## v3.1.8 2018-10-10
 
 - Use Babel runtime
