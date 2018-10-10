@@ -50,6 +50,11 @@ export const compose = (...funcs) => {
 
 export const createMediaQuery = n => `@media screen and (min-width: ${px(n)})`
 
+const createMediaQueryWithUnit = breakpointsUnit => {
+  const unit = breakpointsUnit || '';
+  return n => `@media screen and (min-width: ${n}${unit})`;
+}
+
 export const style = ({
   prop,
   cssProperty,
@@ -74,12 +79,13 @@ export const style = ({
     if (!Array.isArray(val)) {
       return style(val)
     }
+    const breakpointsUnit = get(props.theme, 'breakpointsUnit');
 
     // how to hoist this up??
     const breakpoints = [
       null,
       ...(get(props.theme, 'breakpoints') || defaultBreakpoints)
-        .map(createMediaQuery)
+        .map(createMediaQueryWithUnit(breakpointsUnit))
     ]
 
     let styles = {}
@@ -201,10 +207,12 @@ export const space = props => {
         return style(value)
       }
 
+      const breakpointsUnit = get(props.theme, 'breakpointsUnit');
+
       const breakpoints = [
         null,
         ...(get(props.theme, 'breakpoints') || defaultBreakpoints)
-          .map(createMediaQuery)
+          .map(createMediaQueryWithUnit(breakpointsUnit))
       ]
 
       let styles = {}
