@@ -168,7 +168,7 @@ const getProperties = key => {
 
 const getValue = scale => n => {
   if (!num(n)) {
-    return scale[n] || n
+    return px(scale[n] || n)
   }
   const abs = Math.abs(n)
   const neg = isNegative(n)
