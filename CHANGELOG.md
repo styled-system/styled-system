@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v3.1.10 2018-10-10
+
+- Convert numbers to pixels with keyed space values
+
 ## v3.1.9 2018-10-10
 
 - Allow `getTheme` to return falsy values
