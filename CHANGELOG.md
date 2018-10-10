@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v3.1.8 2018-10-10
+
+- Use Babel runtime
+
 ## v3.1.7 2018-10-10
 
 - Fix for `breakpoints` numbers not being converted to pixels
