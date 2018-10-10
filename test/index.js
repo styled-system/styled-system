@@ -107,6 +107,11 @@ test('themeGet returns a fallback', t => {
   t.is(a, 'tomato')
 })
 
+test('themeGet returns declared 0 rather than undefined', t => {
+  const a = themeGet('space.0')({ theme })
+  t.is(a, 0)
+})
+
 // util
 test('util.is checks for non null values', t => {
   const a = util.is(null)
