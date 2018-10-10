@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import styled, {
   ThemeProvider,
   injectGlobal
@@ -21,7 +22,6 @@ const theme = {
     12, 14, 16, 24, 32, 48, 64, 96, 128
   ],
   space: [
-    // margin and padding
     0, 4, 8, 16, 32, 64, 128, 256
   ],
   colors: {
@@ -29,6 +29,12 @@ const theme = {
     red: '#e10',
   }
 }
+
+// aliases
+// currently a bug - numbers should be converted to px
+theme.space.big = theme.space[5] + 'px'
+theme.space['2.5'] = '12px'
+theme.fontSizes.big = 96
 
 const Root = styled.div`
   font-family: system-ui, sans-serif;
@@ -71,19 +77,18 @@ Heading.defaultProps = {
   m: 0
 }
 
-export default class App extends React.Component {
+class App extends React.Component {
   render() {
     return (
       <ThemeProvider theme={theme}>
         <Root>
           <Box
-            px={[ 3, 4 ]}
-            py={[ 5, 6 ]}
+            px='big'
+            py={[ '2.5', 'big' ]}
             color='white'
             bg='blue'
           >
-            <Heading
-              fontSize={[ 4, 5, 6 ]}>
+            <Heading fontSize='big'>
               styled-system
             </Heading>
             <Text
@@ -96,3 +101,5 @@ export default class App extends React.Component {
     )
   }
 }
+
+ReactDOM.render(<App />, document.getElementById('root'))

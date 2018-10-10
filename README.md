@@ -72,6 +72,7 @@ Try the [examples](examples) on CodeSandbox
 
 - [Basic](https://codesandbox.io/s/github/jxnblk/styled-system/tree/master/examples/basic)
 - [Emotion](https://codesandbox.io/s/github/jxnblk/styled-system/tree/master/examples/emotion)
+- [Theme Aliases](https://codesandbox.io/s/github/jxnblk/styled-system/tree/master/examples/theme-aliases)
 
 ### Table of Contents
 
