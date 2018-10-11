@@ -21,12 +21,9 @@ export const num = n => typeof n === 'number' && !isNaN(n)
 export const px = n => num(n) ? n + 'px' : n
 
 export const get = (obj, ...paths) => paths.join('.').split('.')
-  .reduce((a, b) => (a && (b in a)) ? a[b] : null, obj)
+  .reduce((a, b) => (a && a[b]) ? a[b] : null, obj)
 
-export const themeGet = (paths, fallback) => props => {
-    const getVal = get(props.theme, paths)
-    return is(getVal) ? getVal : fallback
-}
+export const themeGet = (paths, fallback) => props => get(props.theme, paths) || fallback
 
 export const cloneFunc = fn => (...args) => fn(...args)
 
