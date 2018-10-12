@@ -442,19 +442,22 @@ export const order = style({
 export const gridGap = style({
   prop: 'gridGap',
   transformValue: px,
-  key: 'space'
+  key: 'space',
+  scale: defaultScale
 })
 
 export const gridColumnGap = style({
   prop: 'gridColumnGap',
   transformValue: px,
-  key: 'space'
+  key: 'space',
+  scale: defaultScale
 })
 
 export const gridRowGap = style({
   prop: 'gridRowGap',
   transformValue: px,
-  key: 'space'
+  key: 'space',
+  scale: defaultScale
 })
 
 export const gridColumn = style({

@@ -940,6 +940,15 @@ test('gridGap returns a scalar style', t => {
   t.deepEqual(a, { gridGap: '8px' })
 })
 
+test('gridGap uses the default scale', t => {
+  const a = gridGap({
+    theme: {},
+    gridGap: 2
+  })
+
+  t.deepEqual(a, { gridGap: '8px' })
+})
+
 test('gridRowGap returns a scalar style', t => {
   const a = gridRowGap({
     theme: {
@@ -953,6 +962,16 @@ test('gridRowGap returns a scalar style', t => {
   t.deepEqual(a, { gridRowGap: '8px' })
 })
 
+test('gridRowGap uses the default scale', t => {
+  const a = gridRowGap({
+    theme: {},
+    gridRowGap: 2
+  })
+
+  t.deepEqual(a, { gridRowGap: '8px' })
+})
+
+
 test('gridColumnGap returns a scalar style', t => {
   const a = gridColumnGap({
     theme: {
@@ -961,6 +980,15 @@ test('gridColumnGap returns a scalar style', t => {
       ]
     },
     gridColumnGap: 3
+  })
+
+  t.deepEqual(a, { gridColumnGap: '8px' })
+})
+
+test('gridColumnGap uses the default scale', t => {
+  const a = gridColumnGap({
+    theme: {},
+    gridColumnGap: 2
   })
 
   t.deepEqual(a, { gridColumnGap: '8px' })
