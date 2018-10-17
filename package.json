@@ -48,7 +48,7 @@
     "react-test-renderer": "^16.4.0",
     "rebass": "^3.0.0-8",
     "scrs": "^1.1.0",
-    "styled-components": "^4.0.0-beta.9-macro2"
+    "styled-components": "^4.0.0"
   },
   "ava": {
     "require": [
