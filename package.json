@@ -18,10 +18,7 @@
     "cover": "nyc report --reporter=html --reporter=lcov > coverage.lcov",
     "codecov": "nyc report --reporter=html --reporter=lcov > coverage.lcov && npx codecov",
     "test": "nyc ava",
-    "bench": "node bench",
-    "pkg:clean": "node scripts/clean",
-    "pkg:test": "node scripts/test",
-    "pkg:prepare": "node scripts/run install"
+    "bench": "node bench"
   },
   "keywords": [
     "react",

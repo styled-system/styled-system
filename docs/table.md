@@ -83,10 +83,10 @@ Function Name | Prop       | CSS Property    | Theme Field
 Function Name | Prop       | CSS Property    | Theme Field
 --------------|------------|-----------------|--------------
 `background`  | `background` | `background`  | none
-`backgroundImage` | `backgroundImage` `bgImage` | `background-image` | none
-`backgroundSize` | `backgroundSize` `bgSize` | `background-size` | none
-`backgroundPosition` | `backgroundPosition` `bgPosition` | `background-position` | none
-`backgroundRepeat` | `backgroundRepeat` `bgRepeat` | `background-repeat` | none
+`backgroundImage` | `backgroundImage` | `background-image` | none
+`backgroundSize` | `backgroundSize` | `background-size` | none
+`backgroundPosition` | `backgroundPosition` | `background-position` | none
+`backgroundRepeat` | `backgroundRepeat` | `background-repeat` | none
 
 ## Misc
 
