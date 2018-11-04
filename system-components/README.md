@@ -1,4 +1,6 @@
 
+**DEPRECATED: This package has been renamed and moved to [@rebass/components](https://github.com/rebassjs/components)**
+
 # system-components
 
 Create consistent design-system-driven React UI components
