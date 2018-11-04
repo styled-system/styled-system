@@ -27,7 +27,8 @@ const getExtensions = (Comp, ext = []) => {
 }
 
 module.exports = Comp => {
-  if (!Comp || typeof Comp !== 'function') return {}
+  if (!Comp) return {}
+  if (typeof Comp !== 'function' && typeof Comp.render !== 'function') return {}
 
   const metadata = Object.assign({}, Comp)
   metadata.propTypes = getPropTypes(Comp.propTypes)

@@ -8,8 +8,8 @@
   "scripts": {
     "prepare": "npm run clean && npm run build:cjs && npm run build:esm",
     "clean": "rm -rf dist && mkdir dist",
-    "build:cjs": "NODE_ENV=cjs babel src -o dist/index.cjs.js",
-    "build:esm": "NODE_ENV=esm babel src -o dist/index.esm.js",
+    "build:cjs": "cross-env NODE_ENV=cjs babel src -o dist/index.cjs.js",
+    "build:esm": "cross-env NODE_ENV=esm babel src -o dist/index.esm.js",
     "start": "mdx-go docs",
     "docs": "mdx-go build docs -d site",
     "logo": "npx repng docs/Logo.js -d docs -f logo.png -w 512 -h 512 -p '{\"size\":512}'",
@@ -40,6 +40,7 @@
     "@babel/register": "^7.0.0",
     "ava": "^1.0.0-beta.8",
     "benchmark": "^2.1.4",
+    "cross-env": "^5.2.0",
     "is-ci": "^1.1.0",
     "mdx-go": "^2.0.0-29",
     "nyc": "^12.0.2",
@@ -48,7 +49,7 @@
     "react-test-renderer": "^16.4.0",
     "rebass": "^3.0.0-8",
     "scrs": "^1.1.0",
-    "styled-components": "^4.0.0-beta.9-macro2"
+    "styled-components": "^4.0.0"
   },
   "ava": {
     "require": [
