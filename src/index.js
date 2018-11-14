@@ -19,6 +19,8 @@ export const defaultBreakpoints = [ 40, 52, 64, ].map(n => n + 'em')
 export const is = n => n !== undefined && n !== null
 export const num = n => typeof n === 'number' && !isNaN(n)
 export const px = n => num(n) ? n + 'px' : n
+export const isArray = n => Array.isArray(n)
+export const isObject = n => (typeof n === 'object' && n !== null)
 
 export const get = (obj, ...paths) => paths.join('.').split('.')
   .reduce((a, b) => (a && a[b]) ? a[b] : null, obj)
@@ -50,6 +52,39 @@ export const compose = (...funcs) => {
 
 export const createMediaQuery = n => `@media screen and (min-width: ${px(n)})`
 
+const getStyles = (props, style, val) => {
+  if (!isObject(val)) {
+    return style(val)
+  }
+
+  // how to hoist this up??
+  const breakpoints = get(props.theme, 'breakpoints') || defaultBreakpoints
+  
+  if (isArray(val)) {
+    const styles = style(val[0]) || {}
+    for (let i = 1; i < val.length; i++) {
+      const rule = style(val[i])
+      if (rule) {
+        const media = createMediaQuery(breakpoints[i - 1])
+        styles[media] = rule
+      }
+    }
+    return styles
+  }
+
+  if (!isObject(breakpoints)) return null
+
+  const styles = style(val.def) || {}
+  for (let breakpoint in val) {
+    if (breakpoints[breakpoint]) {
+      const rule = style(val[breakpoint])
+      const media = createMediaQuery(breakpoints[breakpoint])
+      styles[media] = rule
+    }
+  }
+  return styles
+}
+
 export const style = ({
   prop,
   cssProperty,
@@ -71,31 +106,7 @@ export const style = ({
       )
     }) : null
 
-    if (!Array.isArray(val)) {
-      return style(val)
-    }
-
-    // how to hoist this up??
-    const breakpoints = [
-      null,
-      ...(get(props.theme, 'breakpoints') || defaultBreakpoints)
-        .map(createMediaQuery)
-    ]
-
-    let styles = {}
-
-    for (let i = 0; i < val.length; i++) {
-      const media = breakpoints[i]
-      if (!media) {
-        styles = style(val[i]) || {}
-        continue
-      }
-      const rule = style(val[i])
-      if (!rule) continue
-      styles[media] = rule
-    }
-
-    return styles
+    return getStyles(props, style, val)
   }
 
   fn.propTypes = { [prop]: cloneFunc(propTypes.responsive) }
@@ -189,7 +200,7 @@ export const space = props => {
 
   return keys
     .map(key => {
-      const value = props[key]
+      const val = props[key]
       const properties = getProperties(key)
 
       const style = n => is(n) ? properties.reduce((a, prop) => ({
@@ -197,30 +208,7 @@ export const space = props => {
         [prop]: getStyle(n)
       }), {}) : null
 
-      if (!Array.isArray(value)) {
-        return style(value)
-      }
-
-      const breakpoints = [
-        null,
-        ...(get(props.theme, 'breakpoints') || defaultBreakpoints)
-          .map(createMediaQuery)
-      ]
-
-      let styles = {}
-
-      for (let i = 0; i < value.length; i++) {
-        const media = breakpoints[i]
-        if (!media) {
-          styles = style(value[i]) || {}
-          continue
-        }
-        const rule = style(value[i])
-        if (!rule) continue
-        styles[media] = rule
-      }
-
-      return styles
+      return getStyles(props, style, val)
     })
     .reduce(merge, {})
 }
