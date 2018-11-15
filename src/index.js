@@ -72,7 +72,7 @@ const getStyles = (props, style, val) => {
     return styles
   }
 
-  if (!isObject(breakpoints)) return null
+  if (isArray(breakpoints)) return null
 
   const styles = style(val.def) || {}
   for (let breakpoint in val) {
