@@ -19,7 +19,7 @@ export const defaultBreakpoints = [ 40, 52, 64, ].map(n => n + 'em')
 export const is = n => n !== undefined && n !== null
 export const num = n => typeof n === 'number' && !isNaN(n)
 export const px = n => num(n) ? n + 'px' : n
-export const isArray = n => Array.isArray(n)
+export const { isArray } = Array
 export const isObject = n => (typeof n === 'object' && n !== null)
 
 export const get = (obj, ...paths) => paths.join('.').split('.')
