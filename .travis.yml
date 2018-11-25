@@ -10,12 +10,6 @@ node_js:
         echo "Stopping build process: /docs or /examples changes only."
         exit
       }
-install:
-  - npm i
-  - npm run pkg:prepare
-script:
-  - npm t
-  - npm run pkg:test
 after_success:
   - npm run codecov
 before_deploy:
