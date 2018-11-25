@@ -72,16 +72,18 @@ const getStyles = (props, style, val) => {
     return styles
   }
 
-  if (isArray(breakpoints)) return null
-
-  const styles = style(val.def) || {}
+  let styles = {}
   for (let breakpoint in val) {
-    if (breakpoints[breakpoint]) {
+    const minWidth = breakpoints[breakpoint]
+    if (!minWidth) {
+      styles = { ...styles, ...style(val[breakpoint]) }
+    } else {
       const rule = style(val[breakpoint])
-      const media = createMediaQuery(breakpoints[breakpoint])
+      const media = createMediaQuery(minWidth)
       styles[media] = rule
     }
   }
+
   return styles
 }
 
