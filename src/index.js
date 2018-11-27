@@ -72,11 +72,11 @@ const getStyles = ({ props, style, value }) => {
     return styles
   }
 
-  let styles = {}
+  const styles = {}
   for (let breakpoint in value) {
     const minWidth = breakpoints[breakpoint]
     if (!minWidth) {
-      styles = Object.assign(styles, style(value[breakpoint]))
+      Object.assign(styles, style(value[breakpoint]))
     } else {
       const rule = style(value[breakpoint])
       const media = createMediaQuery(minWidth)
