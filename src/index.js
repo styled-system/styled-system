@@ -52,18 +52,18 @@ export const compose = (...funcs) => {
 
 export const createMediaQuery = n => `@media screen and (min-width: ${px(n)})`
 
-const getStyles = (props, style, val) => {
-  if (!isObject(val)) {
-    return style(val)
+const getStyles = ({ props, style, value }) => {
+  if (!isObject(value)) {
+    return style(value)
   }
 
   // how to hoist this up??
   const breakpoints = get(props.theme, 'breakpoints') || defaultBreakpoints
   
-  if (isArray(val)) {
-    const styles = style(val[0]) || {}
-    for (let i = 1; i < val.length; i++) {
-      const rule = style(val[i])
+  if (isArray(value)) {
+    const styles = style(value[0]) || {}
+    for (let i = 1; i < value.length; i++) {
+      const rule = style(value[i])
       if (rule) {
         const media = createMediaQuery(breakpoints[i - 1])
         styles[media] = rule
@@ -73,12 +73,12 @@ const getStyles = (props, style, val) => {
   }
 
   let styles = {}
-  for (let breakpoint in val) {
+  for (let breakpoint in value) {
     const minWidth = breakpoints[breakpoint]
     if (!minWidth) {
-      styles = { ...styles, ...style(val[breakpoint]) }
+      styles = Object.assign({}, styles, style(value[breakpoint]))
     } else {
-      const rule = style(val[breakpoint])
+      const rule = style(value[breakpoint])
       const media = createMediaQuery(minWidth)
       styles[media] = rule
     }
@@ -98,8 +98,8 @@ export const style = ({
   const css = cssProperty || prop
   const transform  = transformValue || getter || noop
   const fn = props => {
-    const val = props[prop]
-    if (!is(val)) return null
+    const value = props[prop]
+    if (!is(value)) return null
 
     const scale = get(props.theme, key) || defaultScale
     const style = n => is(n) ? ({
@@ -108,7 +108,7 @@ export const style = ({
       )
     }) : null
 
-    return getStyles(props, style, val)
+    return getStyles({ props, style, value })
   }
 
   fn.propTypes = { [prop]: cloneFunc(propTypes.responsive) }
@@ -202,7 +202,7 @@ export const space = props => {
 
   return keys
     .map(key => {
-      const val = props[key]
+      const value = props[key]
       const properties = getProperties(key)
 
       const style = n => is(n) ? properties.reduce((a, prop) => ({
@@ -210,7 +210,7 @@ export const space = props => {
         [prop]: getStyle(n)
       }), {}) : null
 
-      return getStyles(props, style, val)
+      return getStyles({ props, style, value })
     })
     .reduce(merge, {})
 }
