@@ -10,11 +10,15 @@ Function Name | Prop       | CSS Property    | Theme Field
 `space`       | `mr`       | `margin-right`  | `space`
 `space`       | `mb`       | `margin-bottom` | `space`
 `space`       | `ml`       | `margin-left`   | `space`
+`space`       | `mx`       | `margin-left` and `margin-right`   | `space`
+`space`       | `my`       | `margin-top` and `margin-bottom`   | `space`
 `space`       | `p`        | `padding`       | `space`
 `space`       | `pt`       | `padding-top`   | `space`
 `space`       | `pr`       | `padding-right` | `space`
 `space`       | `pb`       | `padding-bottom` | `space`
 `space`       | `pl`       | `padding-left`  | `space`
+`space`       | `px`       | `padding-left` and `padding-right`   | `space`
+`space`       | `py`       | `padding-top` and `padding-bottom`   | `space`
 `width`       | `width`    | `width`         | none
 `fontSize`    | `fontSize` |`font-size`      |`fontSizes`
 `color`       | `color`    | `color`         | `colors`
