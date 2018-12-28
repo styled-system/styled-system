@@ -77,6 +77,8 @@ import {
   textStyle,
   colorStyle,
   buttonStyle,
+
+  renderStyledSystemProp
 } from '../src'
 
 const theme = {
@@ -1281,4 +1283,8 @@ Object.keys(styles).forEach(key => {
       t.is(typeof fn.propTypes[prop], 'function')
     })
   })
+})
+
+test('renderStyledSystemProp converts styled system specific props into generic style props', t => {
+  // Need to do something better here
 })
