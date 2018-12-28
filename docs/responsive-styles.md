@@ -28,3 +28,13 @@ All style utilities add props that accept arrays as values for mobile-first resp
 <Box p={[ 1, 2, 3, 4 ]} />
 ```
 
+To inject responsive props into a styled component, use the `renderStyledSystemProp` helper:
+```jsx
+import styled from 'styled-components';
+import { renderStyledSystemProp } from 'styled-system';
+
+const ResponsiveStyledComponent = styled.div`
+  ${renderStyledSystemProp({ p : ['0px', '8px', '16px']})}
+`
+
+```
