@@ -78,7 +78,7 @@ import {
   colorStyle,
   buttonStyle,
 
-  renderStyledSystemProp
+  renderStyledSystemProps
 } from '../src'
 
 const theme = {
@@ -1285,6 +1285,6 @@ Object.keys(styles).forEach(key => {
   })
 })
 
-test('renderStyledSystemProp converts styled system specific props into generic style props', t => {
+test('renderStyledSystemProps converts styled system specific props into generic style props', t => {
   // Need to do something better here
 })

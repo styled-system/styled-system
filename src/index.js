@@ -723,7 +723,7 @@ export const mixed = props => funcs
   .map(fn => fn(props))
   .reduce(merge, omit(props, blacklist))
 
-export const renderStyledSystemProp = styledSystemPropObject => props => {
+export const renderStyledSystemProps = styledSystemPropObject => props => {
   return Object.entries(styledSystemPropObject)
     .reduce((styleObject, [propKey, propValue]) => {
       if (styles[propKey]) {
