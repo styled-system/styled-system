@@ -1285,6 +1285,69 @@ Object.keys(styles).forEach(key => {
   })
 })
 
+test('renderStyledSystemProps returns an empty object if nothing is passed in', t => {
+  t.deepEqual(renderStyledSystemProps(  )(  ), {});
+  t.deepEqual(renderStyledSystemProps({})(  ), {});
+  t.deepEqual(renderStyledSystemProps(  )({}), {});
+  t.deepEqual(renderStyledSystemProps({})({}), {});
+});
+
 test('renderStyledSystemProps converts styled system specific props into generic style props', t => {
-  // Need to do something better here
+  // Test a standard style, "fontSize"
+
+  // It renders with only a styled system object passed in
+  t.deepEqual(
+    renderStyledSystemProps({ fontSize: '14px' })(),
+    { fontSize: '14px' }
+  );
+
+  // It renders with only a responsive styled system object passed in
+  t.deepEqual(
+    renderStyledSystemProps({ fontSize: ['14px', '18px', '22px'] })(),
+    {
+      fontSize: '14px',
+      '@media screen and (min-width: 40em)': { fontSize: '18px' },
+      '@media screen and (min-width: 52em)': { fontSize: '22px' }
+    }
+  );
+
+  // It renders with a responsive styled system object overwritten by a nonresponsive prop
+  t.deepEqual(
+    renderStyledSystemProps({ fontSize: ['14px', '18px', '22px'] })({ fontSize: '25px' }),
+    {
+      fontSize: '25px'
+    }
+  );
+
+  // It renders with a responsive styled system object overwritten by a responsive prop
+  t.deepEqual(
+    renderStyledSystemProps({ fontSize: ['14px', '18px', '22px'] })({ fontSize: ['20px', '24px', '28px'] }),
+    {
+      fontSize: '20px',
+      '@media screen and (min-width: 40em)': { fontSize: '24px' },
+      '@media screen and (min-width: 52em)': { fontSize: '28px' }
+    }
+  );
+
+  // It renders with a nonresponsive styled system object overwritten by a responsive prop
+  t.deepEqual(
+    renderStyledSystemProps({ fontSize: '14px' })({ fontSize: ['20px', '24px', '28px'] }),
+    {
+      fontSize: '20px',
+      '@media screen and (min-width: 40em)': { fontSize: '24px' },
+      '@media screen and (min-width: 52em)': { fontSize: '28px' }
+    }
+  );
+
+  // It renders the bg prop correctly
+  const bgProps = renderStyledSystemProps({ bg: 'red' })();
+  t.deepEqual(bgProps, { backgroundColor: 'red' });
+
+  // It renders the bg prop correctly with a theme
+  const bgThemeProps = renderStyledSystemProps({ bg: 'blue' })({ theme });
+  t.deepEqual(bgThemeProps, { backgroundColor: '#07c' });
+  
+  // It renders a "space" prop correctly
+  const pyProps = renderStyledSystemProps({ py: '10px' })();
+  t.deepEqual(pyProps, { paddingTop: '10px', paddingBottom: '10px' });
 })
