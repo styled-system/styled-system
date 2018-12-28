@@ -722,3 +722,18 @@ const blacklist = funcs.reduce((a, fn) => [
 export const mixed = props => funcs
   .map(fn => fn(props))
   .reduce(merge, omit(props, blacklist))
+
+export const renderStyledSystemProp = styledSystemPropObject => props => {
+  return Object.entries(styledSystemPropObject)
+    .reduce((styleObject, [propKey, propValue]) => {
+      if (styles[propKey]) {
+        return merge(styleObject, styles[propKey]({ [propKey]: propValue, ...props }));
+      } else if (color.propTypes.includes(propKey)) {
+        return merge(styleObject, styles.color({ [propKey]: propValue, ...props }));
+      } else if (space.propTypes.includes(propKey)) {
+        return merge(styleObject, styles.space({ [propKey]: propValue, ...props }));
+      }
+      return styleObject;
+    }, {});
+  };
+  
