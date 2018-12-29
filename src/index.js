@@ -736,4 +736,3 @@ export const renderStyledSystemProps = (styledSystemPropObject = {}) => (props =
       return styleObject;
     }, {});
   };
-  

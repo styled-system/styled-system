@@ -1292,6 +1292,10 @@ test('renderStyledSystemProps returns an empty object if nothing is passed in', 
   t.deepEqual(renderStyledSystemProps({})({}), {});
 });
 
+test('renderStyledSystemProps returns an empty object if there is no match to a style prop', t => {
+  t.deepEqual(renderStyledSystemProps({ foo: 'bar' })(), {});
+});
+
 test('renderStyledSystemProps converts styled system specific props into generic style props', t => {
   // Test a standard style, "fontSize"
 
