@@ -388,6 +388,21 @@ test('space handles null values in arrays', t => {
   })
 })
 
+test('space handles undefined values in arrays', t => {
+  const a = space({
+    m: [ 0,, 2 ],
+    theme: {
+      space: [ 0, 4, 8, 16 ]
+    }
+  })
+  t.deepEqual(a, {
+    margin: '0px',
+    '@media screen and (min-width: 52em)': {
+      margin: '8px'
+    }
+  })
+})
+
 test('space can handle alias values', t => {
   const a = space({
     m: 'large',
@@ -644,6 +659,20 @@ test('style allows array values', t => {
     prop: 'direction'
   })
   const a = direction({ direction: [ 'column', null, 'row' ] })
+  t.deepEqual(a, {
+    'flex-direction': 'column',
+    '@media screen and (min-width: 52em)': {
+      'flex-direction': 'row',
+    }
+  })
+})
+
+test('style allows array values with undefined', t => {
+  const direction = style({
+    cssProperty: 'flex-direction',
+    prop: 'direction'
+  })
+  const a = direction({ direction: [ 'column',, 'row' ] })
   t.deepEqual(a, {
     'flex-direction': 'column',
     '@media screen and (min-width: 52em)': {
@@ -1189,6 +1218,15 @@ test('left returns left', t => {
 
 test('responsive props can have falsey values', t => {
   const dec = space({m: [null, 1]})
+  t.deepEqual(dec, {
+    '@media screen and (min-width: 40em)': {
+      margin: '4px'
+    }
+  })
+})
+
+test('responsive props can have undefined values', t => {
+  const dec = space({m: [, 1]})
   t.deepEqual(dec, {
     '@media screen and (min-width: 40em)': {
       margin: '4px'
