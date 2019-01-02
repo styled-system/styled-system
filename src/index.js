@@ -4,10 +4,7 @@ import PropTypes from 'prop-types'
 const noop = n => n
 
 export const propTypes = {
-  numberOrString: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
+  numberOrString: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   responsive: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,
@@ -15,40 +12,88 @@ export const propTypes = {
   ]),
 }
 
-export const defaultBreakpoints = [ 40, 52, 64, ].map(n => n + 'em')
+export const defaultBreakpoints = [40, 52, 64].map(n => n + 'em')
 export const is = n => n !== undefined && n !== null
 export const num = n => typeof n === 'number' && !isNaN(n)
-export const px = n => num(n) ? n + 'px' : n
+export const px = n => (num(n) ? n + 'px' : n)
+export const { isArray } = Array
+export const isObject = n => typeof n === 'object' && n !== null
 
-export const get = (obj, ...paths) => paths.join('.').split('.')
-  .reduce((a, b) => (a && a[b]) ? a[b] : null, obj)
+export const get = (obj, ...paths) =>
+  paths
+    .join('.')
+    .split('.')
+    .reduce((a, b) => (a && a[b] ? a[b] : null), obj)
 
-export const themeGet = (paths, fallback) => props => get(props.theme, paths) || fallback
+export const themeGet = (paths, fallback) => props =>
+  get(props.theme, paths) || fallback
 
 export const cloneFunc = fn => (...args) => fn(...args)
 
-export const merge = (a, b) => Object.assign({}, a, b, Object
-  .keys(b || {}).reduce((obj, key) =>
-    Object.assign(obj, {
-      [key]: a[key] !== null && typeof a[key] === 'object'
-      ? merge(a[key], b[key])
-      : b[key]
-    }),
-    {}))
+export const merge = (a, b) =>
+  Object.assign(
+    {},
+    a,
+    b,
+    Object.keys(b || {}).reduce(
+      (obj, key) =>
+        Object.assign(obj, {
+          [key]:
+            a[key] !== null && typeof a[key] === 'object'
+              ? merge(a[key], b[key])
+              : b[key],
+        }),
+      {}
+    )
+  )
 
 export const compose = (...funcs) => {
-  const fn = props => funcs
-    .map(fn => fn(props))
-    .filter(Boolean)
-    .reduce(merge, {})
+  const fn = props =>
+    funcs
+      .map(fn => fn(props))
+      .filter(Boolean)
+      .reduce(merge, {})
 
-  fn.propTypes = funcs
-    .map(fn => fn.propTypes)
-    .reduce(merge, {})
+  fn.propTypes = funcs.map(fn => fn.propTypes).reduce(merge, {})
   return fn
 }
 
 export const createMediaQuery = n => `@media screen and (min-width: ${px(n)})`
+
+const getStyles = ({ props, style, value }) => {
+  if (!isObject(value)) {
+    return style(value)
+  }
+
+  // how to hoist this up??
+  const breakpoints = get(props.theme, 'breakpoints') || defaultBreakpoints
+
+  if (isArray(value)) {
+    const styles = style(value[0]) || {}
+    for (let i = 1; i < value.length; i++) {
+      const rule = style(value[i])
+      if (rule) {
+        const media = createMediaQuery(breakpoints[i - 1])
+        styles[media] = rule
+      }
+    }
+    return styles
+  }
+
+  const styles = {}
+  for (let breakpoint in value) {
+    const minWidth = breakpoints[breakpoint]
+    if (!minWidth) {
+      Object.assign(styles, style(value[breakpoint]))
+    } else {
+      const rule = style(value[breakpoint])
+      const media = createMediaQuery(minWidth)
+      styles[media] = rule
+    }
+  }
+
+  return styles
+}
 
 export const style = ({
   prop,
@@ -56,46 +101,23 @@ export const style = ({
   key,
   getter,
   transformValue,
-  scale: defaultScale = {}
+  scale: defaultScale = {},
 }) => {
   const css = cssProperty || prop
-  const transform  = transformValue || getter || noop
+  const transform = transformValue || getter || noop
   const fn = props => {
-    const val = props[prop]
-    if (!is(val)) return null
+    const value = props[prop]
+    if (!is(value)) return null
 
     const scale = get(props.theme, key) || defaultScale
-    const style = n => is(n) ? ({
-      [css]: transform(
-        get(scale, n) || n
-      )
-    }) : null
+    const style = n =>
+      is(n)
+        ? {
+            [css]: transform(get(scale, n) || n),
+          }
+        : null
 
-    if (!Array.isArray(val)) {
-      return style(val)
-    }
-
-    // how to hoist this up??
-    const breakpoints = [
-      null,
-      ...(get(props.theme, 'breakpoints') || defaultBreakpoints)
-        .map(createMediaQuery)
-    ]
-
-    let styles = {}
-
-    for (let i = 0; i < val.length; i++) {
-      const media = breakpoints[i]
-      if (!media) {
-        styles = style(val[i]) || {}
-        continue
-      }
-      const rule = style(val[i])
-      if (!rule) continue
-      styles[media] = rule
-    }
-
-    return styles
+    return getStyles({ props, style, value })
   }
 
   fn.propTypes = { [prop]: cloneFunc(propTypes.responsive) }
@@ -103,22 +125,19 @@ export const style = ({
   fn.propTypes[prop].meta = {
     prop,
     themeKey: key,
-    styleType: 'responsive'
+    styleType: 'responsive',
   }
 
   return fn
 }
 
-export const getWidth = n => !num(n) || n > 1 ? px(n) : (n * 100) + '%'
+export const getWidth = n => (!num(n) || n > 1 ? px(n) : n * 100 + '%')
 
 // variant
-export const variant = ({
-  key,
-  prop = 'variant'
-}) => {
-  const fn = (props) => get(props.theme, key, props[prop]) || null
+export const variant = ({ key, prop = 'variant' }) => {
+  const fn = props => get(props.theme, key, props[prop]) || null
   fn.propTypes = {
-    [prop]: propTypes.numberOrString
+    [prop]: propTypes.numberOrString,
   }
   return fn
 }
@@ -143,29 +162,29 @@ const isNegative = n => n < 0
 const REG = /^[mp][trblxy]?$/
 const properties = {
   m: 'margin',
-  p: 'padding'
+  p: 'padding',
 }
 const directions = {
   t: 'Top',
   r: 'Right',
   b: 'Bottom',
   l: 'Left',
-  x: [ 'Left', 'Right' ],
-  y: [ 'Top', 'Bottom' ],
+  x: ['Left', 'Right'],
+  y: ['Top', 'Bottom'],
 }
 
 const getProperties = key => {
-  const [ a, b ] = key.split('')
+  const [a, b] = key.split('')
   const property = properties[a]
   const direction = directions[b] || ''
   return Array.isArray(direction)
     ? direction.map(dir => property + dir)
-    : [ property + direction ]
+    : [property + direction]
 }
 
 const getValue = scale => n => {
   if (!num(n)) {
-    return px(scale[n] || n)
+    return px(get(scale, n) || n)
   }
   const abs = Math.abs(n)
   const neg = isNegative(n)
@@ -176,9 +195,7 @@ const getValue = scale => n => {
   return px(value * (neg ? -1 : 1))
 }
 
-const defaultScale = [
-  0, 4, 8, 16, 32, 64, 128, 256, 512
-]
+const defaultScale = [0, 4, 8, 16, 32, 64, 128, 256, 512]
 
 export const space = props => {
   const keys = Object.keys(props)
@@ -192,60 +209,43 @@ export const space = props => {
       const value = props[key]
       const properties = getProperties(key)
 
-      const style = n => is(n) ? properties.reduce((a, prop) => ({
-        ...a,
-        [prop]: getStyle(n)
-      }), {}) : null
+      const style = n =>
+        is(n)
+          ? properties.reduce(
+              (a, prop) => ({
+                ...a,
+                [prop]: getStyle(n),
+              }),
+              {}
+            )
+          : null
 
-      if (!Array.isArray(value)) {
-        return style(value)
-      }
-
-      const breakpoints = [
-        null,
-        ...(get(props.theme, 'breakpoints') || defaultBreakpoints)
-          .map(createMediaQuery)
-      ]
-
-      let styles = {}
-
-      for (let i = 0; i < value.length; i++) {
-        const media = breakpoints[i]
-        if (!media) {
-          styles = style(value[i]) || {}
-          continue
-        }
-        const rule = style(value[i])
-        if (!rule) continue
-        styles[media] = rule
-      }
-
-      return styles
+      return getStyles({ props, style, value })
     })
     .reduce(merge, {})
 }
 
 space.propTypes = {
-  m:  cloneFunc(propTypes.responsive),
+  m: cloneFunc(propTypes.responsive),
   mt: cloneFunc(propTypes.responsive),
   mr: cloneFunc(propTypes.responsive),
   mb: cloneFunc(propTypes.responsive),
   ml: cloneFunc(propTypes.responsive),
   mx: cloneFunc(propTypes.responsive),
   my: cloneFunc(propTypes.responsive),
-  p:  cloneFunc(propTypes.responsive),
+  p: cloneFunc(propTypes.responsive),
   pt: cloneFunc(propTypes.responsive),
   pr: cloneFunc(propTypes.responsive),
   pb: cloneFunc(propTypes.responsive),
   pl: cloneFunc(propTypes.responsive),
   px: cloneFunc(propTypes.responsive),
-  py: cloneFunc(propTypes.responsive)
+  py: cloneFunc(propTypes.responsive),
 }
 
 const meta = prop => ({
   prop,
   themeKey: 'space',
-  styleType: 'responsive'
+  styleType: 'responsive',
 })
 
 Object.keys(space.propTypes).forEach(prop => {
@@ -255,24 +255,14 @@ Object.keys(space.propTypes).forEach(prop => {
 // styles
 export const width = style({
   prop: 'width',
-  transformValue: getWidth
+  transformValue: getWidth,
 })
 
 export const fontSize = style({
   prop: 'fontSize',
   key: 'fontSizes',
   transformValue: px,
-  scale: [
-    12,
-    14,
-    16,
-    20,
-    24,
-    32,
-    48,
-    64,
-    72
-  ]
+  scale: [12, 14, 16, 20, 24, 32, 48, 64, 72],
 })
 
 export const textColor = style({
@@ -283,7 +273,7 @@ export const textColor = style({
 export const bgColor = style({
   prop: 'bg',
   cssProperty: 'backgroundColor',
-  key: 'colors'
+  key: 'colors',
 })
 
 export const color = compose(
@@ -294,78 +284,78 @@ export const color = compose(
 // typography
 export const fontFamily = style({
   prop: 'fontFamily',
-  key: 'fonts'
+  key: 'fonts',
 })
 
 export const textAlign = style({
-  prop: 'textAlign'
+  prop: 'textAlign',
 })
 
 export const lineHeight = style({
   prop: 'lineHeight',
-  key: 'lineHeights'
+  key: 'lineHeights',
 })
 
 export const fontWeight = style({
   prop: 'fontWeight',
-  key: 'fontWeights'
+  key: 'fontWeights',
 })
 
 export const fontStyle = style({
-  prop: 'fontStyle'
+  prop: 'fontStyle',
 })
 
 export const letterSpacing = style({
   prop: 'letterSpacing',
   key: 'letterSpacings',
-  transformValue: px
+  transformValue: px,
 })
 
 // layout
 export const display = style({
-  prop: 'display'
+  prop: 'display',
 })
 
 export const maxWidth = style({
   prop: 'maxWidth',
   key: 'maxWidths',
-  transformValue: px
+  transformValue: px,
 })
 
 export const minWidth = style({
   prop: 'minWidth',
   key: 'minWidths',
-  transformValue: px
+  transformValue: px,
 })
 
 export const height = style({
   prop: 'height',
   key: 'heights',
-  transformValue: px
+  transformValue: px,
 })
 
 export const maxHeight = style({
   prop: 'maxHeight',
   key: 'maxHeights',
-  transformValue: px
+  transformValue: px,
 })
 
 export const minHeight = style({
   prop: 'minHeight',
   key: 'minHeights',
-  transformValue: px
+  transformValue: px,
 })
 
 export const sizeWidth = style({
   prop: 'size',
   cssProperty: 'width',
-  transformValue: px
+  transformValue: px,
 })
 
 export const sizeHeight = style({
   prop: 'size',
   cssProperty: 'height',
-  transformValue: px
+  transformValue: px,
 })
 
 export const size = compose(
@@ -376,154 +366,156 @@ export const size = compose(
 export const ratioPadding = style({
   prop: 'ratio',
   cssProperty: 'paddingBottom',
-  transformValue: n => (n * 100) + '%'
+  transformValue: n => n * 100 + '%',
 })
 
-export const ratio = props => props.ratio ? ({
-  height: 0,
-  ...ratioPadding(props)
-}) : null
+export const ratio = props =>
+  props.ratio
+    ? {
+        height: 0,
+        ...ratioPadding(props),
+      }
+    : null
 ratio.propTypes = {
-  ...ratioPadding.propTypes
+  ...ratioPadding.propTypes,
 }
 
 export const verticalAlign = style({
-  prop: 'verticalAlign'
+  prop: 'verticalAlign',
 })
 
 // flexbox
 export const alignItems = style({
-  prop: 'alignItems'
+  prop: 'alignItems',
 })
 
 export const alignContent = style({
-  prop: 'alignContent'
+  prop: 'alignContent',
 })
 
 export const justifyItems = style({
-  prop: 'justifyItems'
+  prop: 'justifyItems',
 })
 
 export const justifyContent = style({
-  prop: 'justifyContent'
+  prop: 'justifyContent',
 })
 
 export const flexWrap = style({
-  prop: 'flexWrap'
+  prop: 'flexWrap',
 })
 
 export const flexBasis = style({
   prop: 'flexBasis',
-  transformValue: getWidth
+  transformValue: getWidth,
 })
 
-
 export const flexDirection = style({
-  prop: 'flexDirection'
+  prop: 'flexDirection',
 })
 
 export const flex = style({
-  prop: 'flex'
+  prop: 'flex',
 })
 
 export const justifySelf = style({
-  prop: 'justifySelf'
+  prop: 'justifySelf',
 })
 
 export const alignSelf = style({
-  prop: 'alignSelf'
+  prop: 'alignSelf',
 })
 
 export const order = style({
-  prop: 'order'
+  prop: 'order',
 })
 
 // grid
 export const gridGap = style({
   prop: 'gridGap',
   transformValue: px,
-  key: 'space'
+  key: 'space',
 })
 
 export const gridColumnGap = style({
   prop: 'gridColumnGap',
   transformValue: px,
-  key: 'space'
+  key: 'space',
 })
 
 export const gridRowGap = style({
   prop: 'gridRowGap',
   transformValue: px,
-  key: 'space'
+  key: 'space',
 })
 
 export const gridColumn = style({
-  prop: 'gridColumn'
+  prop: 'gridColumn',
 })
 
 export const gridRow = style({
-  prop: 'gridRow'
+  prop: 'gridRow',
 })
 
 export const gridAutoFlow = style({
-  prop: 'gridAutoFlow'
+  prop: 'gridAutoFlow',
 })
 
 export const gridAutoColumns = style({
-  prop: 'gridAutoColumns'
+  prop: 'gridAutoColumns',
 })
 
 export const gridAutoRows = style({
-  prop: 'gridAutoRows'
+  prop: 'gridAutoRows',
 })
 
 export const gridTemplateColumns = style({
-  prop: 'gridTemplateColumns'
+  prop: 'gridTemplateColumns',
 })
 
 export const gridTemplateRows = style({
-  prop: 'gridTemplateRows'
+  prop: 'gridTemplateRows',
 })
 
 export const gridTemplateAreas = style({
-  prop: 'gridTemplateAreas'
+  prop: 'gridTemplateAreas',
 })
 
 export const gridArea = style({
-  prop: 'gridArea'
+  prop: 'gridArea',
 })
 
 // borders
-const getBorder = n => num(n) && n > 0 ? n + 'px solid' : n
+const getBorder = n => (num(n) && n > 0 ? n + 'px solid' : n)
 
 export const border = style({
   prop: 'border',
   key: 'borders',
-  transformValue: getBorder
+  transformValue: getBorder,
 })
 
 export const borderTop = style({
   prop: 'borderTop',
   key: 'borders',
-  transformValue: getBorder
+  transformValue: getBorder,
 })
 
 export const borderRight = style({
   prop: 'borderRight',
   key: 'borders',
-  transformValue: getBorder
+  transformValue: getBorder,
 })
 
 export const borderBottom = style({
   prop: 'borderBottom',
   key: 'borders',
-  transformValue: getBorder
+  transformValue: getBorder,
 })
 
 export const borderLeft = style({
   prop: 'borderLeft',
   key: 'borders',
-  transformValue: getBorder
+  transformValue: getBorder,
 })
 
 export const borders = compose(
@@ -536,7 +528,7 @@ export const borders = compose(
 
 export const borderColor = style({
   prop: 'borderColor',
-  key: 'colors'
+  key: 'colors',
 })
 
 export const borderRadius = style({
@@ -547,71 +539,70 @@ export const borderRadius = style({
 
 export const boxShadow = style({
   prop: 'boxShadow',
-  key: 'shadows'
+  key: 'shadows',
 })
 
 export const opacity = style({
-  prop: 'opacity'
+  prop: 'opacity',
 })
 
 export const overflow = style({
-  prop: 'overflow'
+  prop: 'overflow',
 })
 
 // backgrounds
 export const background = style({
-  prop: 'background'
+  prop: 'background',
 })
 
 export const backgroundImage = style({
-  prop: 'backgroundImage'
+  prop: 'backgroundImage',
 })
 
 export const backgroundSize = style({
-  prop: 'backgroundSize'
+  prop: 'backgroundSize',
 })
 
 export const backgroundPosition = style({
-  prop: 'backgroundPosition'
+  prop: 'backgroundPosition',
 })
 
 export const backgroundRepeat = style({
-  prop: 'backgroundRepeat'
+  prop: 'backgroundRepeat',
 })
 
 // position
 export const position = style({
-  prop: 'position'
+  prop: 'position',
 })
 
 export const zIndex = style({
-  prop: 'zIndex'
+  prop: 'zIndex',
 })
 
 export const top = style({
   prop: 'top',
-  transformValue: px
+  transformValue: px,
 })
 
 export const right = style({
   prop: 'right',
-  transformValue: px
+  transformValue: px,
 })
 
 export const bottom = style({
   prop: 'bottom',
-  transformValue: px
+  transformValue: px,
 })
 
 export const left = style({
   prop: 'left',
-  transformValue: px
+  transformValue: px,
 })
-
 
 export const textStyle = variant({
   prop: 'textStyle',
-  key: 'textStyles'
+  key: 'textStyles',
 })
 
 export const colorStyle = variant({
@@ -620,7 +611,7 @@ export const colorStyle = variant({
 })
 
 export const buttonStyle = variant({
-  key: 'buttons'
+  key: 'buttons',
 })
 
 export const styles = {
@@ -713,15 +704,13 @@ const funcs = Object.keys(styles)
   .map(key => styles[key])
   .filter(fn => typeof fn === 'function')
 
-const blacklist = funcs.reduce((a, fn) => [
-  ...a,
-  ...Object.keys(fn.propTypes || {})
-], [ 'theme' ])
+const blacklist = funcs.reduce(
+  (a, fn) => [...a, ...Object.keys(fn.propTypes || {})],
+  ['theme']
+)
 
-
-export const mixed = props => funcs
-  .map(fn => fn(props))
-  .reduce(merge, omit(props, blacklist))
+export const mixed = props =>
+  funcs.map(fn => fn(props)).reduce(merge, omit(props, blacklist))
 
 export const renderStyledSystemProps = (styledSystemPropObject = {}) => (props = {}) => {
   return Object.entries(styledSystemPropObject)

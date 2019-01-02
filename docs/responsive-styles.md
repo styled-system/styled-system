@@ -36,5 +36,36 @@ import { renderStyledSystemProps } from 'styled-system';
 const ResponsiveStyledComponent = styled.div`
   ${renderStyledSystemProps({ p : ['0px', '8px', '16px']})}
 `
-
 ```
+
+## Using objects
+
+Alternatively you can define your breakpoints as an `object` e.g.
+
+```jsx
+// theme.js
+export default {
+  breakpoints: {
+    sm: 0,    // zero represents the default (for mobile-first approach)
+    md: '48em',
+    lg: '80em'
+  }
+}
+```
+
+And then pass an `object` to configure how the component should respond at these breakpoints:
+
+```jsx
+<Box
+  width={{
+    sm: 1,    // 100% by default (no media query)
+    md: 1/2,  // 50% at 'md' (48em and up)
+    lg: 1/4   // 25% at 'lg' (80em and up)
+  }}
+/>
+```
+
+Note: it isn't necessary to set a value for each breakpoint. The following would only apply 50% width at the `md` breakpoint:
+
+```jsx
+<Box width={{ md: 1/2 }} />
