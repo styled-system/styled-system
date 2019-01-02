@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v3.2.0 2019-01-02
+
+- Allow object syntax for responsive values #341
+
 ## v3.1.12 2019-01-02
 
 - Allow nested objects for `theme.space` #352
