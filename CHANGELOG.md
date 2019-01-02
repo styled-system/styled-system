@@ -1,6 +1,14 @@
 
 # Changelog
 
+## v3.1.12 2019-01-02
+
+- Allow nested objects for `theme.space` #352
+
+## v3.1.11 2018-10-11
+
+- Bugfix: remove usage of `in` operator in get utility
+
 ## v3.1.10 2018-10-10
 
 - Convert numbers to pixels with keyed space values
