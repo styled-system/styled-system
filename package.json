@@ -7,7 +7,7 @@
   "sideEffects": false,
   "scripts": {
     "prepare": "npm run clean && npm run build:cjs && npm run build:esm",
-    "prettier": "prettier \"{src,test}/**/*.js\"",
+    "prettier": "prettier \"{src,test}/**/*.js\" --write",
     "clean": "rm -rf dist && mkdir dist",
     "build:cjs": "cross-env NODE_ENV=cjs babel src -o dist/index.cjs.js",
     "build:esm": "cross-env NODE_ENV=esm babel src -o dist/index.esm.js",

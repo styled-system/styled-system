@@ -344,8 +344,8 @@ test('space returns responsive paddings', t => {
 
 test('space can accept a breakpoint map (object)', t => {
   const a = space({
-    theme: {breakpoints: {xs: 0, sm: '40em', md: '50em', lg: '60em'}},
-    p: {xs: 1, md: 2}
+    theme: { breakpoints: { xs: 0, sm: '40em', md: '50em', lg: '60em' } },
+    p: { xs: 1, md: 2 },
   })
 
   t.deepEqual(a, {
@@ -406,16 +406,16 @@ test('space handles null values in arrays', t => {
 
 test('space handles undefined values in arrays', t => {
   const a = space({
-    m: [ 0,, 2 ],
+    m: [0, , 2],
     theme: {
-      space: [ 0, 4, 8, 16 ]
-    }
+      space: [0, 4, 8, 16],
+    },
   })
   t.deepEqual(a, {
     margin: '0px',
     '@media screen and (min-width: 52em)': {
-      margin: '8px'
-    }
+      margin: '8px',
+    },
   })
 })
 
@@ -456,14 +456,14 @@ test('width returns responsive values', t => {
 })
 
 test('width returns responsive values for object', t => {
-  const a = width({width: {0: 1, 2: 1/2}})
+  const a = width({ width: { 0: 1, 2: 1 / 2 } })
 
   t.deepEqual(a, {
     '@media screen and (min-width: 40em)': {
-      width: '100%'
+      width: '100%',
     },
     '@media screen and (min-width: 64em)': {
-      width: '50%'
+      width: '50%',
     },
   })
 })
@@ -695,25 +695,27 @@ test('style allows array values', t => {
 test('style allows array values with undefined', t => {
   const direction = style({
     cssProperty: 'flex-direction',
-    prop: 'direction'
+    prop: 'direction',
   })
-  const a = direction({ direction: [ 'column',, 'row' ] })
+  const a = direction({ direction: ['column', , 'row'] })
   t.deepEqual(a, {
     'flex-direction': 'column',
     '@media screen and (min-width: 52em)': {
       'flex-direction': 'row',
-    }
+    },
   })
 })
 
 test('style allows a breakpoint map', t => {
   const direction = style({
     cssProperty: 'flex-direction',
-    prop: 'direction'
+    prop: 'direction',
   })
   const a = direction({
-    theme: { breakpoints: { default: null, sm: '40em', md: '50em', lg: '60em' } },
-    direction: { default: 'column', sm: 'row', lg: 'column' }
+    theme: {
+      breakpoints: { default: null, sm: '40em', md: '50em', lg: '60em' },
+    },
+    direction: { default: 'column', sm: 'row', lg: 'column' },
   })
   t.deepEqual(a, {
     'flex-direction': 'column',
@@ -722,23 +724,23 @@ test('style allows a breakpoint map', t => {
     },
     '@media screen and (min-width: 60em)': {
       'flex-direction': 'column',
-    }
+    },
   })
 })
 
 test('style allows a breakpoint map without a default', t => {
   const direction = style({
     cssProperty: 'flex-direction',
-    prop: 'direction'
+    prop: 'direction',
   })
   const a = direction({
     theme: { breakpoints: { sm: '40em', md: '50em' } },
-    direction: { md: 'column' }
+    direction: { md: 'column' },
   })
   t.deepEqual(a, {
     '@media screen and (min-width: 50em)': {
       'flex-direction': 'column',
-    }
+    },
   })
 })
 
@@ -1265,11 +1267,11 @@ test('responsive props can have falsey values', t => {
 })
 
 test('responsive props can have undefined values', t => {
-  const dec = space({m: [, 1]})
+  const dec = space({ m: [, 1] })
   t.deepEqual(dec, {
     '@media screen and (min-width: 40em)': {
-      margin: '4px'
-    }
+      margin: '4px',
+    },
   })
 })
 
