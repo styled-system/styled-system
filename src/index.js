@@ -66,9 +66,17 @@ const getStyles = ({ props, style, value }) => {
   }
 
   // how to hoist this up??
-  const breakpoints = get(props.theme, 'breakpoints') || defaultBreakpoints
+  let breakpoints = get(props.theme, 'breakpoints') || defaultBreakpoints
 
   if (isArray(value)) {
+    if (!isArray(breakpoints)) {
+      breakpoints = Object.keys(breakpoints).reduce((accum, key, i) => {
+        if (breakpoints[key]) {
+          accum.push(breakpoints[key])
+        }
+        return accum
+      }, [])
+    }
     const styles = style(value[0]) || {}
     for (let i = 1; i < value.length; i++) {
       const rule = style(value[i])

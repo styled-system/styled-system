@@ -356,6 +356,20 @@ test('space can accept a breakpoint map (object)', t => {
   })
 })
 
+test('space can accept a breakpoint array, with fallback to breakpoint map (object)', t => {
+  const a = space({
+    theme: { breakpoints: { xs: 0, sm: '40em', md: '50em', lg: '60em' } },
+    p: [1, null, 2],
+  })
+
+  t.deepEqual(a, {
+    padding: '4px',
+    '@media screen and (min-width: 50em)': {
+      padding: '8px',
+    },
+  })
+})
+
 test('space returns responsive directional paddings', t => {
   const a = space({ pt: [0, 1], pb: [2, 3] })
   t.deepEqual(a, {
@@ -736,6 +750,22 @@ test('style allows a breakpoint map without a default', t => {
   const a = direction({
     theme: { breakpoints: { sm: '40em', md: '50em' } },
     direction: { md: 'column' },
+  })
+  t.deepEqual(a, {
+    '@media screen and (min-width: 50em)': {
+      'flex-direction': 'column',
+    },
+  })
+})
+
+test('style allows a breakpoint array falling back to breakpoint object', t => {
+  const direction = style({
+    cssProperty: 'flex-direction',
+    prop: 'direction',
+  })
+  const a = direction({
+    theme: { breakpoints: { xs: 0, sm: '40em', md: '50em' } },
+    direction: [null, null, 'column'],
   })
   t.deepEqual(a, {
     '@media screen and (min-width: 50em)': {
