@@ -9,6 +9,7 @@ export const propTypes = {
     PropTypes.number,
     PropTypes.string,
     PropTypes.array,
+    PropTypes.object,
   ]),
 }
 
