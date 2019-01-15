@@ -65,7 +65,7 @@ npm i styled-system
 
 > "If you like Tachyons you will love styled-system. If you don't like Tachyons, you will love styled-system."
 >
-> - [Adam Morse][mrmrs]
+> – [Adam Morse][mrmrs]
 
 [dalgleish]: https://mobile.twitter.com/markdalgleish/status/913191186944241665
 [mrmrs]: https://mobile.twitter.com/mrmrs_/status/913189805055401984
