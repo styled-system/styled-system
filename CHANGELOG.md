@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v3.2.1 2019-01-02
+
+- Adds prop types for objects #366
+
 ## v3.2.0 2019-01-02
 
 - Allow object syntax for responsive values #341
