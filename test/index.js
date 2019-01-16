@@ -1,15 +1,22 @@
 import test from 'ava'
-import * as system from '../src'
 import {
-  space,
   style,
   themeGet,
-  util,
+  is,
+  px,
+  num,
+  get,
+  compose,
+
+  // util,
 } from '../src'
-import {
-  width,
-  display
-} from '../src/styles'
+// import {
+//   width,
+//   display
+// } from '../src/styles'
+
+const width = style({ prop: 'width' })
+const display = style({ prop: 'display' })
 
 const theme = {
   breakpoints: [32, 48, 64].map(n => n + 'em'),
@@ -27,9 +34,11 @@ const theme = {
 theme.space.big = 64
 theme.fontSizes.big = 128
 
+/*
 test('exports space', t => {
   t.is(typeof space, 'function')
 })
+*/
 
 test('themeGet gets theme values', t => {
   const a = themeGet('colors.gray.0')({ theme })
@@ -47,13 +56,13 @@ test.skip('themeGet returns declared 0 rather than undefined', t => {
 })
 
 // util
-test('util.is checks for non null values', t => {
-  const a = util.is(null)
-  const b = util.is()
-  const c = util.is(0)
-  const d = util.is('')
-  const e = util.is(false)
-  const f = util.is([])
+test('`is` checks for non null values', t => {
+  const a = is(null)
+  const b = is()
+  const c = is(0)
+  const d = is('')
+  const e = is(false)
+  const f = is([])
   t.false(a)
   t.false(b)
   t.true(c)
@@ -62,25 +71,25 @@ test('util.is checks for non null values', t => {
   t.true(f)
 })
 
-test('util.px adds px unit to numbers', t => {
-  const a = util.px(1)
-  const b = util.px('2em')
+test('`px` adds px unit to numbers', t => {
+  const a = px(1)
+  const b = px('2em')
   t.is(a, '1px')
   t.is(b, '2em')
 })
 
-test('util.num checks for a number', t => {
-  const a = util.num(1)
-  const b = util.num(0)
-  const c = util.num('1')
-  const d = util.num(null)
+test('`num` checks for a number', t => {
+  const a = num(1)
+  const b = num(0)
+  const c = num('1')
+  const d = num(null)
   t.true(a)
   t.true(b)
   t.false(c)
   t.false(d)
 })
 
-test('util.merge reduces objects', t => {
+test.skip('util.merge reduces objects', t => {
   const a = [
     {
       a: 'hello',
@@ -103,7 +112,7 @@ test('util.merge reduces objects', t => {
   })
 })
 
-test('util.merge merges objects', t => {
+test.skip('util.merge merges objects', t => {
   const a = util.merge(
     {
       a: 'hello',
@@ -138,238 +147,29 @@ test('util.merge merges objects', t => {
   })
 })
 
-test('util.merge doesn’t throw with null values', t => {
+test.skip('util.merge doesn’t throw with null values', t => {
   t.notThrows(() => {
     util.merge(null, null)
   })
 })
 
-test('util.compose combines style functions', t => {
-  const combo = util.compose(
+test('`compose` combines style functions', t => {
+  const combo = compose(
     display,
     width
   )
-  const a = combo({ display: 'inline-block', width: 1 / 2 })
-  t.deepEqual(a, {
-    display: 'inline-block',
-    width: '50%',
-  })
-})
-
-test('util.get returns nested values', t => {
-  const value = util.get({ colors: { blue: '#07c' } }, 'colors.blue')
-  t.is(value, '#07c')
-})
-
-// space
-test('space returns margin declarations', t => {
-  const dec = space({ m: 1 })
-  t.deepEqual(dec, { margin: '4px' })
-})
-
-test('space returns non-scalar margins', t => {
-  const a = space({ m: 24 })
-  const b = space({ m: 'auto' })
-  t.deepEqual(a, { margin: '24px' })
-  t.deepEqual(b, { margin: 'auto' })
-})
-
-test('space returns keyed values', t => {
-  const a = space({
-    theme: {
-      space: {
-        nested: {
-          big: theme.space.big,
-        },
-      },
-    },
-    m: 'nested.big',
-  })
-  t.is(a.margin, theme.space.big + 'px')
-})
-
-test('space returns negative margins', t => {
-  const a = space({ m: -1 })
-  const b = space({ m: -24 })
-  t.deepEqual(a, { margin: '-4px' })
-  t.deepEqual(b, { margin: '-24px' })
-})
-
-test('space returns directional margins', t => {
-  const top = space({ mt: 1 })
-  const r = space({ mr: 2 })
-  const b = space({ mb: 3 })
-  const l = space({ ml: 4 })
-  const x = space({ mx: 1 })
-  const y = space({ my: 2 })
-  t.deepEqual(top, { marginTop: '4px' })
-  t.deepEqual(r, { marginRight: '8px' })
-  t.deepEqual(b, { marginBottom: '16px' })
-  t.deepEqual(l, { marginLeft: '32px' })
-  t.deepEqual(x, { marginLeft: '4px', marginRight: '4px' })
-  t.deepEqual(y, { marginTop: '8px', marginBottom: '8px' })
-})
-
-test('space returns responsive margins', t => {
-  const a = space({ m: [0, 1] })
-  t.deepEqual(a, {
-    margin: '0px',
-    '@media screen and (min-width: 40em)': {
-      margin: '4px',
-    },
-  })
-})
-
-test('space returns responsive directional margins', t => {
-  const a = space({ mt: [0, 1], mb: [2, 3] })
-  t.deepEqual(a, {
-    marginBottom: '8px',
-    marginTop: '0px',
-    '@media screen and (min-width: 40em)': {
-      marginBottom: '16px',
-      marginTop: '4px',
-    },
-  })
-})
-
-test('space sorts responsive directional margins', t => {
-  const a = space({
-    mb: 2,
-    m: [0, 1],
-  })
-  const keys = Object.keys(a)
-  t.deepEqual(keys, [
-    'margin',
-    '@media screen and (min-width: 40em)',
-    'marginBottom',
+  const a = combo({ display: 'inline-block', width: '50%' })
+  t.deepEqual(a, [
+    { display: 'inline-block' },
+    { width: '50%' },
   ])
 })
 
-test('space returns padding declarations', t => {
-  const dec = space({ p: 1 })
-  t.deepEqual(dec, { padding: '4px' })
+test('`get` returns nested values', t => {
+  const value = get({ colors: { blue: '#07c' } }, 'colors.blue')
+  t.is(value, '#07c')
 })
 
-test('space returns non-scalar paddings', t => {
-  const a = space({ p: 24 })
-  const b = space({ p: 'auto' })
-  t.deepEqual(a, { padding: '24px' })
-  t.deepEqual(b, { padding: 'auto' })
-})
-
-test('space returns directional paddings', t => {
-  const top = space({ pt: 1 })
-  const r = space({ pr: 2 })
-  const b = space({ pb: 3 })
-  const l = space({ pl: 4 })
-  const x = space({ px: 1 })
-  const y = space({ py: 2 })
-  t.deepEqual(top, { paddingTop: '4px' })
-  t.deepEqual(r, { paddingRight: '8px' })
-  t.deepEqual(b, { paddingBottom: '16px' })
-  t.deepEqual(l, { paddingLeft: '32px' })
-  t.deepEqual(x, { paddingLeft: '4px', paddingRight: '4px' })
-  t.deepEqual(y, { paddingTop: '8px', paddingBottom: '8px' })
-})
-
-test('space returns responsive paddings', t => {
-  const a = space({ p: [0, 1] })
-  t.deepEqual(a, {
-    padding: '0px',
-    '@media screen and (min-width: 40em)': {
-      padding: '4px',
-    },
-  })
-})
-
-test('space can accept a breakpoint map (object)', t => {
-  const a = space({
-    theme: { breakpoints: { xs: 0, sm: '40em', md: '50em', lg: '60em' } },
-    p: { xs: 1, md: 2 },
-  })
-
-  t.deepEqual(a, {
-    padding: '4px',
-    '@media screen and (min-width: 50em)': {
-      padding: '8px',
-    },
-  })
-})
-
-test('space returns responsive directional paddings', t => {
-  const a = space({ pt: [0, 1], pb: [2, 3] })
-  t.deepEqual(a, {
-    paddingBottom: '8px',
-    paddingTop: '0px',
-    '@media screen and (min-width: 40em)': {
-      paddingBottom: '16px',
-      paddingTop: '4px',
-    },
-  })
-})
-
-test('space can be configured with a theme', t => {
-  const a = space({ theme, m: 1 })
-  const b = space({ theme, m: 2 })
-  const c = space({ theme, m: 3 })
-  const d = space({ theme, m: 4 })
-  t.deepEqual(a, { margin: '6px' })
-  t.deepEqual(b, { margin: '12px' })
-  t.deepEqual(c, { margin: '18px' })
-  t.deepEqual(d, { margin: '24px' })
-})
-
-test('space can accept string values', t => {
-  const a = space({ theme: { space: ['1em', '2em'] }, m: 1 })
-  t.deepEqual(a, { margin: '2em' })
-})
-
-test('space can accept string values with negative', t => {
-  const a = space({ theme: { space: ['1em', '2em'] }, m: -1 })
-  t.deepEqual(a, { margin: '-2em' })
-})
-
-test('space handles null values in arrays', t => {
-  const a = space({
-    m: [0, null, 2],
-    theme: {
-      space: [0, 4, 8, 16],
-    },
-  })
-  t.deepEqual(a, {
-    margin: '0px',
-    '@media screen and (min-width: 52em)': {
-      margin: '8px',
-    },
-  })
-})
-
-test('space handles undefined values in arrays', t => {
-  const a = space({
-    m: [0, , 2],
-    theme: {
-      space: [0, 4, 8, 16],
-    },
-  })
-  t.deepEqual(a, {
-    margin: '0px',
-    '@media screen and (min-width: 52em)': {
-      margin: '8px',
-    },
-  })
-})
-
-test('space can handle alias values', t => {
-  const a = space({
-    m: 'large',
-    theme: {
-      space: {
-        large: 12,
-      },
-    },
-  })
-  t.deepEqual(a, { margin: '12px' })
-})
 
 // style
 test('style returns a function', t => {
@@ -416,7 +216,7 @@ test('style function returns scale values', t => {
 test('style function returns pixels for number values', t => {
   const sx = style({
     prop: 'borderRadius',
-    transformValue: util.px,
+    transformValue: px,
   })
   const a = sx({
     borderRadius: 4,
@@ -439,7 +239,7 @@ test('style function returns unitless number values', t => {
 test('style function accepts a transformValue option', t => {
   const sx = style({
     prop: 'width',
-    transformValue: n => (!util.num(n) || n > 1 ? util.px(n) : n * 100 + '%'),
+    transformValue: n => (!num(n) || n > 1 ? px(n) : n * 100 + '%'),
   })
   const a = sx({ width: 1 / 2 })
   const b = sx({ width: 24 })
@@ -458,18 +258,34 @@ test('style allows property aliases', t => {
   })
 })
 
+test('style accepts props aliases', t => {
+  const margin = style({
+    prop: 'margin',
+    alias: 'm',
+    transformValue: px,
+  })
+  const a = margin({ m: 32 })
+  t.deepEqual(a, {
+    margin: '32px'
+  })
+})
+
 test('style allows array values', t => {
   const direction = style({
     cssProperty: 'flex-direction',
     prop: 'direction',
   })
   const a = direction({ direction: ['column', null, 'row'] })
-  t.deepEqual(a, {
+  t.deepEqual(a, [
+    {
     'flex-direction': 'column',
+    },
+    {
     '@media screen and (min-width: 52em)': {
       'flex-direction': 'row',
     },
-  })
+    }
+  ])
 })
 
 test('style allows array values with undefined', t => {
@@ -478,12 +294,16 @@ test('style allows array values with undefined', t => {
     prop: 'direction',
   })
   const a = direction({ direction: ['column', , 'row'] })
-  t.deepEqual(a, {
+  t.deepEqual(a, [
+    {
     'flex-direction': 'column',
-    '@media screen and (min-width: 52em)': {
-      'flex-direction': 'row',
     },
-  })
+    {
+      '@media screen and (min-width: 52em)': {
+        'flex-direction': 'row',
+      },
+    }
+  ])
 })
 
 test('style allows a breakpoint map', t => {
@@ -497,15 +317,19 @@ test('style allows a breakpoint map', t => {
     },
     direction: { default: 'column', sm: 'row', lg: 'column' },
   })
-  t.deepEqual(a, {
-    'flex-direction': 'column',
-    '@media screen and (min-width: 40em)': {
-      'flex-direction': 'row',
+  t.deepEqual(a, [
+    { 'flex-direction': 'column', },
+    {
+      '@media screen and (min-width: 40em)': {
+        'flex-direction': 'row',
+      }
     },
-    '@media screen and (min-width: 60em)': {
-      'flex-direction': 'column',
-    },
-  })
+    {
+      '@media screen and (min-width: 60em)': {
+        'flex-direction': 'column',
+      },
+    }
+  ])
 })
 
 test('style allows a breakpoint map without a default', t => {
@@ -517,29 +341,34 @@ test('style allows a breakpoint map without a default', t => {
     theme: { breakpoints: { sm: '40em', md: '50em' } },
     direction: { md: 'column' },
   })
-  t.deepEqual(a, {
+  t.deepEqual(a, [ {
     '@media screen and (min-width: 50em)': {
       'flex-direction': 'column',
     },
-  })
+  }
+  ])
 })
 
 test('style returns pixel values for number arrays', t => {
   const radius = style({
     cssProperty: 'borderRadius',
     prop: 'radius',
-    transformValue: util.px,
+    transformValue: px,
   })
   const a = radius({ radius: [4, 5, 6] })
-  t.deepEqual(a, {
-    borderRadius: '4px',
+  t.deepEqual(a, [
+    { borderRadius: '4px', },
+    {
     '@media screen and (min-width: 40em)': {
       borderRadius: '5px',
     },
+    },
+    {
     '@media screen and (min-width: 52em)': {
       borderRadius: '6px',
     },
-  })
+    }
+  ])
 })
 
 test('style returns a theme value', t => {
@@ -551,34 +380,38 @@ test('style returns a theme value', t => {
     theme,
     borderColor: ['blue', 'green'],
   })
-  t.deepEqual(a, {
-    borderColor: theme.colors.blue,
-    '@media screen and (min-width: 32em)': {
-      borderColor: theme.colors.green,
-    },
-  })
+  t.deepEqual(a, [
+    { borderColor: theme.colors.blue, },
+    {
+      '@media screen and (min-width: 32em)': {
+        borderColor: theme.colors.green,
+      },
+    }
+  ])
 })
 
 test('style returns a theme number value in px', t => {
   const sx = style({
     prop: 'borderRadius',
     key: 'radii',
-    transformValue: util.px,
+    transformValue: px,
   })
   const a = sx({
     theme,
     borderRadius: [0, 1],
   })
-  t.deepEqual(a, {
-    borderRadius: theme.radii[0] + 'px',
-    '@media screen and (min-width: 32em)': {
-      borderRadius: theme.radii[1] + 'px',
-    },
-  })
+  t.deepEqual(a, [
+    { borderRadius: theme.radii[0] + 'px' },
+    {
+      '@media screen and (min-width: 32em)': {
+        borderRadius: theme.radii[1] + 'px',
+      }
+    }
+  ])
 })
 
 // theme
-test('breakpoints can be configured with a theme', t => {
+test.skip('breakpoints can be configured with a theme', t => {
   const a = space({ theme, m: [1, 2, 3, 4] })
   const [, b, c, d] = Object.keys(a)
   t.is(b, '@media screen and (min-width: 32em)')
@@ -663,7 +496,7 @@ Object.keys(styles).forEach(key => {
 })
 */
 
-test('responsive props can have falsey values', t => {
+test.skip('responsive props can have falsey values', t => {
   const dec = space({ m: [null, 1] })
   t.deepEqual(dec, {
     '@media screen and (min-width: 40em)': {
@@ -672,7 +505,7 @@ test('responsive props can have falsey values', t => {
   })
 })
 
-test('responsive props can have undefined values', t => {
+test.skip('responsive props can have undefined values', t => {
   const dec = space({ m: [, 1] })
   t.deepEqual(dec, {
     '@media screen and (min-width: 40em)': {

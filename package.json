@@ -18,7 +18,8 @@
     "size": "npx bundlesize",
     "cover": "nyc report --reporter=html --reporter=lcov > coverage.lcov",
     "codecov": "nyc report --reporter=html --reporter=lcov > coverage.lcov && npx codecov",
-    "test": "nyc ava",
+    "__test": "nyc ava",
+    "test": "nyc ava test/index.js",
     "bench": "node bench"
   },
   "keywords": [
