@@ -1,3 +1,19 @@
+//
+// prototype for v4
+//
+//  - returns arrays of style objects instead of merging (this should work with css-in-js libs)
+//
+// todo
+//  - [ ] simplify array vs object check
+//  - [ ] use compose function to create `color` function
+//  - [ ] use compose function to create `space` function
+//  - [ ] add default core style functions
+//    - [ ] width
+//    - [ ] fontSize
+//    - [ ] color
+//    - [ ] space
+//  - [ ] require theme.mediaQuery instead of theme.breakpoints ??
+
 import PropTypes from 'prop-types'
 
 export const defaultBreakpoints = [40, 52, 64].map(n => n + 'em')
@@ -91,12 +107,18 @@ export const style = ({
 
 // extras
 export const compose = (...funcs) => {
-  const fn = props =>
+  const func = props =>
     funcs
       .map(fn => fn(props))
       .filter(Boolean)
-  // .reduce(merge, {})
 
+  func.propTypes = {}
+  funcs.forEach(fn => {
+    func.propTypes = {
+      ...func.propTypes,
+      ...fn.propTypes,
+    }
+  })
   // fn.propTypes = funcs.map(fn => fn.propTypes).reduce(merge, {})
-  return fn
+  return func
 }
