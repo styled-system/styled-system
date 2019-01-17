@@ -5,6 +5,7 @@
 //
 // todo
 //  - [ ] simplify array vs object check
+//  - [ ] pass `scale` as second argument to `transformValue`
 //  - [ ] use compose function to create `color` function
 //  - [ ] use compose function to create `space` function
 //  - [ ] add default core style functions
@@ -13,6 +14,7 @@
 //    - [ ] color
 //    - [ ] space
 //  - [ ] require theme.mediaQuery instead of theme.breakpoints ??
+//  - [ ] support prop={{ sm: null, md: 2 }} etc
 
 import PropTypes from 'prop-types'
 
@@ -50,6 +52,12 @@ export const createMediaQuery = n => `@media screen and (min-width: ${px(n)})`
 
 // todo
 // - [ ] ability to transform negative scalar values
+
+const createStyles = () => {
+  const styles = []
+  return styles
+}
+
 export const style = ({
   prop,
   cssProperty,
