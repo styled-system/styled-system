@@ -56,6 +56,10 @@ import map from 'system-classnames/tachyons'
 import map from 'system-classnames/primer'
 ```
 
+```jsx
+import map from 'system-classnames/bootstrap'
+```
+
 ### Related
 
 - [Basscss](http://basscss.com)
