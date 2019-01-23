@@ -128,7 +128,7 @@ that handle styles based on values defined in a theme.
 <Box color='tomato' />
 
 // color: #333 (theme.colors.gray[0])
-<Box color='grays.0' />
+<Box color='gray.0' />
 
 // background color
 <Box bg='tomato' />
@@ -183,7 +183,7 @@ To learn more, see the [Getting Started](docs/getting-started.md) guide or read 
   - [Borders](docs/api.md#borders)
   - [Position](docs/api.md#position)
   - [Misc](docs/api.md#misc)
-  - [Variants](docs/api.md#variant)
+  - [Variants](docs/api.md#variants)
   - [Utilities](docs/api.md#utilities)
     - [get](docs/api.md#get)
   - [Customize](docs/api.md#customize)
