@@ -10,6 +10,7 @@
 - Removes `meta` field from `propTypes` - this was used by system-docs. An alternative/optional object export for documentation will be added
 - Removes the `merge` utility
 - Removes `mixed` utility
+- The theme scale is passed as the second argument to the `transformValue` option in `style`
 
 To do:
 
