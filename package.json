@@ -19,7 +19,7 @@
     "cover": "nyc report --reporter=html --reporter=lcov > coverage.lcov",
     "codecov": "nyc report --reporter=html --reporter=lcov > coverage.lcov && npx codecov",
     "__test": "nyc ava",
-    "test": "nyc ava test/index.js",
+    "test": "nyc ava test/space.js",
     "bench": "node bench"
   },
   "keywords": [

@@ -5,7 +5,7 @@
 //
 // todo
 //  - [ ] simplify array vs object check
-//  - [ ] pass `scale` as second argument to `transformValue`
+//  - [x] pass `scale` as second argument to `transformValue`
 //  - [ ] use compose function to create `color` function
 //  - [ ] use compose function to create `space` function
 //  - [ ] add default core style functions
@@ -15,6 +15,7 @@
 //    - [ ] space
 //  - [ ] require theme.mediaQuery instead of theme.breakpoints ??
 //  - [ ] support prop={{ sm: null, md: 2 }} etc
+//  - [ ] multiple aliases?
 
 import PropTypes from 'prop-types'
 
@@ -62,16 +63,20 @@ export const style = ({
   prop,
   cssProperty,
   alias,
+  aliases = [],
   key,
   transformValue = noop
 }) => {
   const property = cssProperty || prop
   const func = props => {
-    const value = props[prop] || props[alias]
+    // const value = props[prop] || props[alias]
+    // does this return keys as values?
+    const value = get(props, prop, alias, null)
+    console.log(value)
     if (!is(value)) return null
     const scale = get(props.theme, key) || {}
     const createStyle = n => is(n) ? ({
-      [property]: transformValue(get(scale, n))
+      [property]: transformValue(get(scale, n), scale)
     }) : null
 
     if (!isObject(value)) return createStyle(value)
@@ -115,10 +120,13 @@ export const style = ({
 
 // extras
 export const compose = (...funcs) => {
-  const func = props =>
-    funcs
+  const func = props => {
+    const n = funcs
       .map(fn => fn(props))
       .filter(Boolean)
+    console.log('composed', n)
+    return n
+  }
 
   func.propTypes = {}
   funcs.forEach(fn => {
