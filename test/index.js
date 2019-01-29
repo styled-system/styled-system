@@ -7,6 +7,7 @@ import {
   num,
   px,
   compose,
+  cloneFunction
 } from '../src'
 
 const width = style({
@@ -65,6 +66,11 @@ test('returns null', t => {
   t.is(style, null)
 })
 
+test('returns 0', t => {
+  const style = width({ width: 0 })
+  t.deepEqual(style, { width: 0 })
+})
+
 test('returns an array of responsive style objects', t => {
   const style = width({
     width: ['100%', '50%']
@@ -98,13 +104,89 @@ test('parses object values', t => {
   ])
 })
 
-test.todo('get returns a value')
-test.todo('get returns the last argument if no value is found')
-test.todo('get returns 0')
-test.todo('themeGet returns values from the theme')
-test.todo('themeGet does not throw when value doesnt exist')
-test.todo('compose combines style functions')
-test.todo('num returns true for numbers')
-test.todo('num returns false for non-numbers')
-test.todo('is returns true for truthy values')
-test.todo('is returns false for falsey values')
+test('get returns a value', t => {
+  const a = get({ blue: '#0cf' }, 'blue')
+  t.is(a, '#0cf')
+})
+
+test('get returns the last argument if no value is found', t => {
+  const a = get({
+    blue: '#0cf',
+  }, 'green', '#0f0')
+  t.is(a, '#0f0')
+})
+
+test('get returns 0', t => {
+  const a = get({}, 0)
+  const b = get({ space: [ 0, 4 ] }, 0)
+  t.is(a, 0)
+  t.is(b, 0)
+})
+
+test('get returns deeply nested values', t => {
+  const a = get({
+    hi: {
+      hello: {
+        beep: 'boop'
+      }
+    }
+  }, 'hi.hello.beep')
+  t.is(a, 'boop')
+})
+
+// not sure how this should behave
+test.skip('get treats 0 as truthy', t => {
+  const a = get({}, 0, null)
+  t.is(a, 0)
+})
+
+test('themeGet returns values from the theme', t => {
+  const a = themeGet('colors.blue')({ theme })
+  t.is(a, '#07c')
+})
+
+test('themeGet does not throw when value doesnt exist', t => {
+  const a = themeGet('colors.blue.5')({ theme })
+  t.is(a, null)
+})
+
+test('compose combines style functions', t => {
+  const colors = compose(color, backgroundColor)
+  const styles = colors({
+    color: 'tomato',
+    bg: 'black'
+  })
+  t.is(typeof colors, 'function')
+  t.deepEqual(styles, [
+    { color: 'tomato' },
+    { backgroundColor: 'black' },
+  ])
+})
+
+test('num returns true for numbers', t => {
+  const isNumber = num(0)
+  t.true(isNumber)
+})
+
+test('num returns false for non-numbers', t => {
+  const isNumber = num(null)
+  t.false(isNumber)
+})
+
+test('is returns true for truthy values', t => {
+  const isValue = is(0)
+  t.true(isValue)
+})
+
+test('is returns false for falsey values', t => {
+  const a = is(null)
+  const b = is(undefined)
+  t.false(a)
+  t.false(b)
+})
+
+test('cloneFunction creates a new function', t => {
+  const func = () => {}
+  const b = cloneFunction(func)
+  t.false(func === b)
+})

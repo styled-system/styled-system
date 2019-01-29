@@ -31,14 +31,20 @@ export const propType = PropTypes.oneOfType([
 
 export const cloneFunction = fn => (...args) => fn(...args)
 
-export const get = (obj, ...paths) => paths
-  .reduce((a, path) => (
-    a || (path + '')
-      .split('.')
-      .reduce((a, b) => (a && a[b]) ? a[b] : null, obj)
-  ), null) || paths[paths.length - 1]
+// get(object, keys, fallback)
+export const get = (obj, ...paths) => {
+  const value = paths.reduce((a, path) => {
+    if (is(a)) return a
+    const keys = typeof path === 'string' ? path.split('.') : [path]
+    return keys.reduce((a, key) => (a && is(a[key]))
+        ? a[key]
+        : null,
+      obj)
+  }, null)
+  return is(value) ? value : paths[paths.length - 1]
+}
 
-export const themeGet = (paths, fallback) => props => get(props.theme, paths, fallback)
+export const themeGet = (path, fallback = null) => props => get(props.theme, path, fallback)
 
 export const is = n => n !== undefined && n !== null
 
@@ -48,19 +54,9 @@ export const noop = n => n
 
 export const num = n => typeof n === 'number' && !isNaN(n)
 
-export const px = n => (num(n) ? n + 'px' : n)
+export const px = n => (num(n) && n !== 0 ? n + 'px' : n)
 
 export const createMediaQuery = n => `@media screen and (min-width: ${px(n)})`
-
-// todo
-// - [ ] ability to transform negative scalar values
-
-/*
-const createStyles = () => {
-  const styles = []
-  return styles
-}
-*/
 
 export const style = ({
   prop,
@@ -69,14 +65,12 @@ export const style = ({
   // TODO
   // maybe use a mapProps function instead
   // OR a getProp function
-  // aliases = [],
   key,
   transformValue = noop
 }) => {
   const property = cssProperty || prop
   const func = props => {
-    // const value = props[prop] || props[alias]
-    // does this return keys as values?
+    // TODO write some tests for this
     const value = get(props, prop, alias, null)
     if (!is(value)) return null
     const scale = get(props.theme, key, {})
@@ -130,6 +124,7 @@ export const compose = (...funcs) => {
     const n = funcs
       .map(fn => fn(props))
       .filter(Boolean)
+    // TODO flatten??
     return n
   }
 
