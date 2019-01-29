@@ -1,5 +1,8 @@
 {
+  "version": 2,
   "name": "Styled System",
+  "builds": [
+  ],
   "alias": [
     "styled-system.now.sh"
   ],

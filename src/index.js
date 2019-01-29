@@ -4,7 +4,7 @@
 //  - returns arrays of style objects instead of merging (this should work with css-in-js libs)
 //
 // todo
-//  - [ ] simplify array vs object check
+//  - [x] simplify array vs object check
 //  - [x] pass `scale` as second argument to `transformValue`
 //  - [ ] use compose function to create `color` function
 //  - [ ] use compose function to create `space` function
@@ -13,6 +13,7 @@
 //    - [ ] fontSize
 //    - [ ] color
 //    - [ ] space
+//  - [ ] add kitchen sink module
 //  - [ ] require theme.mediaQuery instead of theme.breakpoints ??
 //  - [ ] support prop={{ sm: null, md: 2 }} etc
 //  - [ ] multiple aliases?
@@ -54,16 +55,21 @@ export const createMediaQuery = n => `@media screen and (min-width: ${px(n)})`
 // todo
 // - [ ] ability to transform negative scalar values
 
+/*
 const createStyles = () => {
   const styles = []
   return styles
 }
+*/
 
 export const style = ({
   prop,
   cssProperty,
   alias,
-  aliases = [],
+  // TODO
+  // maybe use a mapProps function instead
+  // OR a getProp function
+  // aliases = [],
   key,
   transformValue = noop
 }) => {
@@ -72,9 +78,8 @@ export const style = ({
     // const value = props[prop] || props[alias]
     // does this return keys as values?
     const value = get(props, prop, alias, null)
-    console.log(value)
     if (!is(value)) return null
-    const scale = get(props.theme, key) || {}
+    const scale = get(props.theme, key, {})
     const createStyle = n => is(n) ? ({
       [property]: transformValue(get(scale, n), scale)
     }) : null
@@ -99,11 +104,12 @@ export const style = ({
         const media = createMediaQuery(breakpoint)
         const rule = createStyle(value[key])
         if (!breakpoint) {
-          styles.push(rule)
+          styles.unshift(rule)
         } else {
           styles.push({ [media]: rule })
         }
       }
+      styles.sort()
     }
 
     return styles
@@ -124,7 +130,6 @@ export const compose = (...funcs) => {
     const n = funcs
       .map(fn => fn(props))
       .filter(Boolean)
-    console.log('composed', n)
     return n
   }
 
@@ -138,3 +143,5 @@ export const compose = (...funcs) => {
   // fn.propTypes = funcs.map(fn => fn.propTypes).reduce(merge, {})
   return func
 }
+
+export const mapProps = mapper => func => props => func(mapper(props))
