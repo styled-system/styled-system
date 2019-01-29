@@ -46,7 +46,6 @@ test('returns responsive values', t => {
       0, 8, 16
     ]
   })
-  // TODO check if this needs to be flattened?
   t.deepEqual(styles, [
     [
       { margin: 0 },
@@ -56,4 +55,36 @@ test('returns responsive values', t => {
   ])
 })
 
-test.todo('returns aliased values')
+test('returns aliased values', t => {
+  const styles = space({
+    px: 8
+  })
+  t.deepEqual(styles, [
+    { paddingLeft: '8px' },
+    { paddingRight: '8px' },
+  ])
+})
+
+test('returns string values from theme', t => {
+  const styles = space({
+    theme: {
+      space: [ 0, '1em' ]
+    },
+    padding: 1
+  })
+  t.deepEqual(styles, [
+    { padding: '1em' }
+  ])
+})
+
+test('returns negative string values from theme', t => {
+  const styles = space({
+    theme: {
+      space: [ 0, '1em' ]
+    },
+    margin: -1
+  })
+  t.deepEqual(styles, [
+    { margin: '-1em' }
+  ])
+})

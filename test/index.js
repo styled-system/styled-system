@@ -186,7 +186,8 @@ test('is returns false for falsey values', t => {
 })
 
 test('cloneFunction creates a new function', t => {
-  const func = () => {}
+  const func = () => 'hi'
   const b = cloneFunction(func)
   t.false(func === b)
+  t.is(b(), 'hi')
 })
