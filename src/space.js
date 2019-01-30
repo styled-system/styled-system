@@ -10,13 +10,11 @@ import {
 const scale = [ 0, 4, 8, 16, 32, 64, 128, 256, 512 ]
 
 const transformValue = (n, scale) => {
-  // get(scale, n) happens in style
   if (!num(n)) return n
   const isNegative = n < 0
   const absolute = Math.abs(n)
   const value = get(scale, absolute)
   if (!num(value)) {
-    // this cant be reached?
     return isNegative ? '-' + value : value
   }
   return px(value * (isNegative ? -1 : 1))

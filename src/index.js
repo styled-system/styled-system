@@ -1,22 +1,22 @@
+//  v4 prototype
 //
-// prototype for v4
+//  - Returns arrays of styles for responsive and composed styles. This should work the same as before when combined with CSS-in-JS libraries like styled-components and emotion
+//  - Refactors `space` function to use core `style` function
+//  - Adds long-hand props for margin and padding. Shorthand aliases still work.
+//  - The get utility works differently, returning the last argument as a fallback.
+//  - **UNDER CONSIDERATION** Requires a `theme.mediaQueries` field with full media query strings instead of the `theme.breakpoints` array.
+//  - Removes the `styles` export
+//  - Removes `meta` field from `propTypes` - this was used by system-docs. An alternative/optional object export for documentation will be added
+//  - Removes the `merge` utility
+//  - Removes `mixed` utility
+//  - The theme scale is passed as the second argument to the `transformValue` option in `style`
 //
-//  - returns arrays of style objects instead of merging (this should work with css-in-js libs)
-//
-// todo
-//  - [x] simplify array vs object check
-//  - [x] pass `scale` as second argument to `transformValue`
-//  - [x] use compose function to create `space` function
-//  - [x] support prop={{ sm: null, md: 2 }} etc
-//  - [ ] use compose function to create `color` function
-//  - [ ] add default core style functions
-//    - [ ] width
-//    - [ ] fontSize
-//    - [ ] color
-//    - [ ] space
-//  - [ ] add kitchen sink module
-//  - [ ] require theme.mediaQuery instead of theme.breakpoints ??
-//  - [ ] ~~multiple aliases?~~
+//  - [ ] move space to index.js
+//  - [ ] width
+//  - [ ] color
+//  - [ ] fontSize
+//  - [ ] variant
+//  - [ ] other style functions
 
 import PropTypes from 'prop-types'
 
@@ -31,7 +31,6 @@ export const propType = PropTypes.oneOfType([
 
 export const cloneFunction = fn => (...args) => fn(...args)
 
-// get(object, keys, fallback)
 export const get = (obj, ...paths) => {
   const value = paths.reduce((a, path) => {
     if (is(a)) return a
@@ -75,7 +74,6 @@ export const style = ({
     if (!is(value)) return null
     const scale = get(props.theme, key, defaultScale)
     const createStyle = n => is(n) ? ({
-      // [property]: transformValue(get(scale, n), scale)
       [property]: transformValue(n, scale)
     }) : null
 
@@ -119,13 +117,11 @@ export const style = ({
   return func
 }
 
-// extras
 export const compose = (...funcs) => {
   const func = props => {
     const n = funcs
       .map(fn => fn(props))
       .filter(Boolean)
-    // TODO flatten??
     return n
   }
 
@@ -136,7 +132,7 @@ export const compose = (...funcs) => {
       ...fn.propTypes,
     }
   })
-  // fn.propTypes = funcs.map(fn => fn.propTypes).reduce(merge, {})
+
   return func
 }
 
