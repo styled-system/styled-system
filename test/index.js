@@ -7,6 +7,7 @@ import {
   num,
   px,
   compose,
+  variant,
   cloneFunction
 } from '../src'
 
@@ -190,4 +191,23 @@ test('cloneFunction creates a new function', t => {
   const b = cloneFunction(func)
   t.false(func === b)
   t.is(b(), 'hi')
+})
+
+test('variant returns style objects from theme', t => {
+  const buttons = variant({ key: 'buttons' })
+  const a = buttons({
+    theme: {
+      buttons: {
+        primary: {
+          padding: '32px',
+          backgroundColor: 'tomato'
+        }
+      }
+    },
+    variant: 'primary',
+  })
+  t.deepEqual(a, {
+    padding: '32px',
+    backgroundColor: 'tomato',
+  })
 })

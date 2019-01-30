@@ -1,5 +1,5 @@
 import test from 'ava'
-import space from '../src/space'
+import { space } from '../src'
 
 test('returns an array of style objects', t => {
   const styles = space({
