@@ -134,12 +134,6 @@ test('get returns deeply nested values', t => {
   t.is(a, 'boop')
 })
 
-// not sure how this should behave
-test.skip('get treats 0 as truthy', t => {
-  const a = get({}, 0, null)
-  t.is(a, 0)
-})
-
 test('themeGet returns values from the theme', t => {
   const a = themeGet('colors.blue')({ theme })
   t.is(a, '#07c')
@@ -149,6 +143,12 @@ test('themeGet does not throw when value doesnt exist', t => {
   const a = themeGet('colors.blue.5')({ theme })
   t.is(a, null)
 })
+
+test('themeGet accepts a fallback', t => {
+  const a = themeGet('colors.lightblue', '#0cf')({ theme })
+  t.is(a, '#0cf')
+})
+
 
 test('compose combines style functions', t => {
   const colors = compose(color, backgroundColor)

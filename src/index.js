@@ -6,8 +6,9 @@
 // todo
 //  - [x] simplify array vs object check
 //  - [x] pass `scale` as second argument to `transformValue`
+//  - [x] use compose function to create `space` function
+//  - [x] support prop={{ sm: null, md: 2 }} etc
 //  - [ ] use compose function to create `color` function
-//  - [ ] use compose function to create `space` function
 //  - [ ] add default core style functions
 //    - [ ] width
 //    - [ ] fontSize
@@ -15,8 +16,7 @@
 //    - [ ] space
 //  - [ ] add kitchen sink module
 //  - [ ] require theme.mediaQuery instead of theme.breakpoints ??
-//  - [ ] support prop={{ sm: null, md: 2 }} etc
-//  - [ ] multiple aliases?
+//  - [ ] ~~multiple aliases?~~
 
 import PropTypes from 'prop-types'
 
@@ -58,24 +58,25 @@ export const px = n => (num(n) && n !== 0 ? n + 'px' : n)
 
 export const createMediaQuery = n => `@media screen and (min-width: ${px(n)})`
 
+const getValue = (n, scale) => get(scale, n)
+
 export const style = ({
   prop,
   cssProperty,
   alias,
-  // TODO
-  // maybe use a mapProps function instead
-  // OR a getProp function
   key,
-  transformValue = noop
+  transformValue = getValue,
+  scale: defaultScale = {}
 }) => {
   const property = cssProperty || prop
   const func = props => {
     // TODO write some tests for this
     const value = get(props, prop, alias, null)
     if (!is(value)) return null
-    const scale = get(props.theme, key, {})
+    const scale = get(props.theme, key, defaultScale)
     const createStyle = n => is(n) ? ({
-      [property]: transformValue(get(scale, n), scale)
+      // [property]: transformValue(get(scale, n), scale)
+      [property]: transformValue(n, scale)
     }) : null
 
     if (!isObject(value)) return createStyle(value)

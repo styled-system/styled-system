@@ -18,9 +18,9 @@ test('returns 0 values', t => {
 })
 
 test('returns negative pixel values', t => {
-  const styles = space({ m: -16 })
+  const styles = space({ m: -2 })
   t.deepEqual(styles, [
-    { margin: '-16px' }
+    { margin: '-8px' }
   ])
 })
 
@@ -40,10 +40,20 @@ test('returns negative theme values', t => {
   ])
 })
 
+// currently not working
+test('returns positive theme values', t => {
+  const styles = space({ theme: {
+    space: [ 0, '1em', '2em' ]
+  }, m: 2 })
+  t.deepEqual(styles, [
+    { margin: '2em' }
+  ])
+})
+
 test('returns responsive values', t => {
   const styles = space({
     m: [
-      0, 8, 16
+      0, 2, 3
     ]
   })
   t.deepEqual(styles, [
@@ -57,7 +67,7 @@ test('returns responsive values', t => {
 
 test('returns aliased values', t => {
   const styles = space({
-    px: 8
+    px: 2
   })
   t.deepEqual(styles, [
     { paddingLeft: '8px' },
@@ -88,3 +98,36 @@ test('returns negative string values from theme', t => {
     { margin: '-1em' }
   ])
 })
+
+test('px prop overrides pl prop', t => {
+  const styles = space({
+    pl: 1,
+    px: 2,
+  })
+  t.deepEqual(styles, [
+    { paddingLeft: '8px' },
+    { paddingRight: '8px' },
+  ])
+})
+
+test('py prop overrides pb prop', t => {
+  const styles = space({
+    pb: 1,
+    py: 2,
+  })
+  t.deepEqual(styles, [
+    { paddingTop: '8px' },
+    { paddingBottom: '8px' },
+  ])
+})
+
+test('margin overrides m prop', t => {
+  const styles = space({
+    m: 1,
+    margin: 2
+  })
+  t.deepEqual(styles, [
+    { margin: '8px' }
+  ])
+})
+
