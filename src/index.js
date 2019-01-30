@@ -12,6 +12,8 @@
 //  - The theme scale is passed as the second argument to the `transformValue` option in `style`
 //  - Removes `ratio` function
 //  - TODO: changes to border functions
+//
+//  - [ ] fontSize scale
 
 import PropTypes from 'prop-types'
 
@@ -294,7 +296,8 @@ export const getPx = (n, scale) => px(get(scale, n))
 export const fontSize = style({
   prop: 'fontSize',
   key: 'fontSizes',
-  transformValue: getPx
+  transformValue: getPx,
+  scale: [12, 14, 16, 20, 24, 32, 48, 64, 72],
 })
 
 export const fontFamily = style({
