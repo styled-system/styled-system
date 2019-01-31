@@ -1,5 +1,78 @@
 import test from 'ava'
-import { space } from '../src'
+import {
+  space,
+  color,
+  width,
+  fontSize,
+  size,
+} from '../src'
+
+const theme = {
+  colors: {
+    blue: '#07c',
+    black: '#111',
+  }
+}
+
+test('returns color values from theme', t => {
+  const a = color({ theme, color: 'blue', bg: 'black' })
+  t.deepEqual(a, [
+    { color: '#07c' },
+    { backgroundColor: '#111' },
+  ])
+})
+
+test('returns raw color values', t => {
+  const a = color({
+    theme,
+    color: 'inherit',
+    bg: 'tomato'
+  })
+  t.deepEqual(a, [
+    { color: 'inherit' },
+    { backgroundColor: 'tomato' },
+  ])
+})
+
+test('backgroundColor prop overrides bg prop', t => {
+  const a = color({
+    backgroundColor: 'tomato',
+    bg: 'blue',
+  })
+  t.deepEqual(a, [
+    { backgroundColor: 'tomato' }
+  ])
+})
+
+test('returns a pixel font-size', t => {
+  const a = fontSize({ fontSize: 48 })
+  t.deepEqual(a, { fontSize: '48px' })
+})
+
+test('uses a default font-size scale', t => {
+  const a = fontSize({ fontSize: 2 })
+  t.deepEqual(a, { fontSize: '16px' })
+})
+
+test('returns a string font-size', t => {
+  const a = fontSize({ fontSize: '2em' })
+  t.deepEqual(a, { fontSize: '2em' })
+})
+
+test('returns a percentage based width', t => {
+  const a = width({ width: 1/2 })
+  t.deepEqual(a, { width: '50%' })
+})
+
+test('returns a pixel based width', t => {
+  const a = width({ width: 256 })
+  t.deepEqual(a, { width: '256px' })
+})
+
+test('returns a string width', t => {
+  const a = width({ width: 'auto' })
+  t.deepEqual(a, { width: 'auto' })
+})
 
 test('returns an array of style objects', t => {
   const styles = space({
@@ -131,3 +204,12 @@ test('margin overrides m prop', t => {
   ])
 })
 
+test('size returns width and height', t => {
+  const styles = size({
+    size: 4
+  })
+  t.deepEqual(styles, [
+    { width: '4px' },
+    { height: '4px' },
+  ])
+})

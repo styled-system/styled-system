@@ -134,7 +134,7 @@ export const compose = (...funcs) => {
 export const mapProps = mapper => func => props => func(mapper(props))
 
 export const variant = ({ key, prop = 'variant' }) => {
-  const fn = props => get(props.theme, [ key, props[prop] ].join('.'), null) || null
+  const fn = props => get(props.theme, [ key, props[prop] ].join('.'), null)
   fn.propTypes = {
     [prop]: PropTypes.oneOfType([
       PropTypes.number,
