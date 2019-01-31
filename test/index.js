@@ -211,3 +211,22 @@ test('variant returns style objects from theme', t => {
     backgroundColor: 'tomato',
   })
 })
+
+test('variant prop can be customized', t => {
+  const buttons = variant({ key: 'buttons', prop: 'type' })
+  const a = buttons({
+    theme: {
+      buttons: {
+        primary: {
+          padding: '32px',
+          backgroundColor: 'tomato'
+        }
+      }
+    },
+    type: 'primary',
+  })
+  t.deepEqual(a, {
+    padding: '32px',
+    backgroundColor: 'tomato',
+  })
+})
