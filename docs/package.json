@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "name": "styled-system-docs",
+  "scripts": {
+    "start": "gatsby develop",
+    "build": "gatsby build"
+  },
+  "dependencies": {
+    "@mdx-js/mdx": "^0.16.8",
+    "babel-plugin-styled-components": "^1.10.0",
+    "gatsby": "^2.0.107",
+    "gatsby-mdx": "^0.3.5",
+    "gatsby-plugin-google-analytics": "^2.0.12",
+    "gatsby-plugin-layout": "^1.0.12",
+    "gatsby-plugin-react-helmet": "^3.0.5",
+    "gatsby-plugin-styled-components": "^3.0.4",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-helmet": "^5.2.0",
+    "styled-components": "^4.1.3"
+  }
+}
