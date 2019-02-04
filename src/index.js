@@ -468,7 +468,7 @@ export const borderRadius = style({
 
 export const borders = compose(
   border,
-  // borderStyle ??
+  borderStyle,
   borderWidth,
   borderColor,
   borderTop,
