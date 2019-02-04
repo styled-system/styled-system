@@ -8,7 +8,7 @@ import {
   px,
   compose,
   variant,
-  cloneFunction
+  cloneFunction,
 } from '../src'
 
 const width = style({
@@ -30,7 +30,7 @@ const theme = {
   colors: {
     blue: '#07c',
     black: '#111',
-  }
+  },
 }
 
 test('returns a style function', t => {
@@ -41,21 +41,21 @@ test('returns a style function', t => {
 test('function returns a style object', t => {
   const style = width({ width: '50%' })
   t.deepEqual(style, {
-    width: '50%'
+    width: '50%',
   })
 })
 
 test('returns values from theme', t => {
   const style = color({ theme, color: 'blue' })
   t.deepEqual(style, {
-    color: '#07c'
+    color: '#07c',
   })
 })
 
 test('handles aliased props', t => {
   const style = backgroundColor({
     theme,
-    bg: 'blue'
+    bg: 'blue',
   })
   t.deepEqual(style, {
     backgroundColor: '#07c',
@@ -74,21 +74,21 @@ test('returns 0', t => {
 
 test('returns an array of responsive style objects', t => {
   const style = width({
-    width: ['100%', '50%']
+    width: ['100%', '50%'],
   })
   t.deepEqual(style, [
     { width: '100%' },
-    { '@media screen and (min-width: 40em)': { width: '50%' } }
+    { '@media screen and (min-width: 40em)': { width: '50%' } },
   ])
 })
 
 test('skips undefined responsive values', t => {
   const style = width({
-    width: ['100%',, '50%']
+    width: ['100%', , '50%'],
   })
   t.deepEqual(style, [
     { width: '100%' },
-    { '@media screen and (min-width: 52em)': { width: '50%' } }
+    { '@media screen and (min-width: 52em)': { width: '50%' } },
   ])
 })
 
@@ -97,11 +97,11 @@ test('parses object values', t => {
     width: {
       _: '100%',
       2: '50%',
-    }
+    },
   })
   t.deepEqual(style, [
     { width: '100%' },
-    { '@media screen and (min-width: 64em)': { width: '50%' } }
+    { '@media screen and (min-width: 64em)': { width: '50%' } },
   ])
 })
 
@@ -111,27 +111,34 @@ test('get returns a value', t => {
 })
 
 test('get returns the last argument if no value is found', t => {
-  const a = get({
-    blue: '#0cf',
-  }, 'green', '#0f0')
+  const a = get(
+    {
+      blue: '#0cf',
+    },
+    'green',
+    '#0f0'
+  )
   t.is(a, '#0f0')
 })
 
 test('get returns 0', t => {
   const a = get({}, 0)
-  const b = get({ space: [ 0, 4 ] }, 0)
+  const b = get({ space: [0, 4] }, 0)
   t.is(a, 0)
   t.is(b, 0)
 })
 
 test('get returns deeply nested values', t => {
-  const a = get({
-    hi: {
-      hello: {
-        beep: 'boop'
-      }
-    }
-  }, 'hi.hello.beep')
+  const a = get(
+    {
+      hi: {
+        hello: {
+          beep: 'boop',
+        },
+      },
+    },
+    'hi.hello.beep'
+  )
   t.is(a, 'boop')
 })
 
@@ -150,18 +157,17 @@ test('themeGet accepts a fallback', t => {
   t.is(a, '#0cf')
 })
 
-
 test('compose combines style functions', t => {
-  const colors = compose(color, backgroundColor)
+  const colors = compose(
+    color,
+    backgroundColor
+  )
   const styles = colors({
     color: 'tomato',
-    bg: 'black'
+    bg: 'black',
   })
   t.is(typeof colors, 'function')
-  t.deepEqual(styles, [
-    { color: 'tomato' },
-    { backgroundColor: 'black' },
-  ])
+  t.deepEqual(styles, [{ color: 'tomato' }, { backgroundColor: 'black' }])
 })
 
 test('num returns true for numbers', t => {
@@ -200,9 +206,9 @@ test('variant returns style objects from theme', t => {
       buttons: {
         primary: {
           padding: '32px',
-          backgroundColor: 'tomato'
-        }
-      }
+          backgroundColor: 'tomato',
+        },
+      },
     },
     variant: 'primary',
   })
@@ -219,9 +225,9 @@ test('variant prop can be customized', t => {
       buttons: {
         primary: {
           padding: '32px',
-          backgroundColor: 'tomato'
-        }
-      }
+          backgroundColor: 'tomato',
+        },
+      },
     },
     type: 'primary',
   })
