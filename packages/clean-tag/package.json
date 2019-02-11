@@ -1,6 +1,6 @@
 {
   "name": "clean-tag",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "",
   "main": "dist.js",
   "scripts": {
@@ -13,8 +13,8 @@
   "license": "MIT",
   "dependencies": {
     "html-tags": "^2.0.0",
-    "react": ">=16.0.0",
-    "styled-system": ">=2.0.0 || >=3.0.0"
+    "react": "^16.8.1",
+    "styled-system": "^3.2.1"
   },
   "devDependencies": {
     "ava": "^0.25.0",
@@ -23,7 +23,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.26.0",
     "nyc": "^11.4.1",
-    "react-test-renderer": "^16.2.0"
+    "react-test-renderer": "^16.8.1"
   },
   "ava": {
     "require": [

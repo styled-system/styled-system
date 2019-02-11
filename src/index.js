@@ -389,18 +389,21 @@ export const gridGap = style({
   prop: 'gridGap',
   key: 'space',
   transformValue: getPx,
+  scale: spaceScale,
 })
 
 export const gridColumnGap = style({
   prop: 'gridColumnGap',
   key: 'space',
   transformValue: getPx,
+  scale: spaceScale,
 })
 
 export const gridRowGap = style({
   prop: 'gridRowGap',
   key: 'space',
   transformValue: getPx,
+  scale: spaceScale,
 })
 
 export const gridColumn = style({ prop: 'gridColumn' })
