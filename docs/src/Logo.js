@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
+import { colors } from './theme'
 
 const radius = 11
 const rad = a => Math.PI * a / 180
@@ -72,7 +73,7 @@ const style = css`
   animation-iteration-count: infinite;
 `
 
-const colors = [
+const __colors = [
   '#f00',
   '#ff0',
   '#0f0',
@@ -84,50 +85,50 @@ const colors = [
 // keyframes are broken in sc v4
 const animations = `
   @keyframes path-a {
-    0%  { fill: ${colors[0]} }
-    16% { fill: ${colors[1]} }
-    32% { fill: ${colors[2]} }
-    48% { fill: ${colors[3]} }
-    64% { fill: ${colors[4]} }
-    80% { fill: ${colors[5]} }
-    96% { fill: ${colors[0]} }
+    0%  { fill: ${__colors[0]} }
+    16% { fill: ${__colors[1]} }
+    32% { fill: ${__colors[2]} }
+    48% { fill: ${__colors[3]} }
+    64% { fill: ${__colors[4]} }
+    80% { fill: ${__colors[5]} }
+    96% { fill: ${__colors[0]} }
   }
   @keyframes path-b {
-    0%  { fill: ${colors[2]} }
-    16% { fill: ${colors[3]} }
-    32% { fill: ${colors[4]} }
-    48% { fill: ${colors[5]} }
-    64% { fill: ${colors[0]} }
-    80% { fill: ${colors[1]} }
-    96% { fill: ${colors[2]} }
+    0%  { fill: ${__colors[2]} }
+    16% { fill: ${__colors[3]} }
+    32% { fill: ${__colors[4]} }
+    48% { fill: ${__colors[5]} }
+    64% { fill: ${__colors[0]} }
+    80% { fill: ${__colors[1]} }
+    96% { fill: ${__colors[2]} }
   }
   @keyframes path-c {
-    0%  { fill: ${colors[4]} }
-    16% { fill: ${colors[5]} }
-    32% { fill: ${colors[0]} }
-    48% { fill: ${colors[1]} }
-    64% { fill: ${colors[2]} }
-    80% { fill: ${colors[3]} }
-    96% { fill: ${colors[4]} }
+    0%  { fill: ${__colors[4]} }
+    16% { fill: ${__colors[5]} }
+    32% { fill: ${__colors[0]} }
+    48% { fill: ${__colors[1]} }
+    64% { fill: ${__colors[2]} }
+    80% { fill: ${__colors[3]} }
+    96% { fill: ${__colors[4]} }
   }
 `
 
 const PathA = styled('path')`
   ${style}
-  fill: ${colors[0]};
+  fill: ${__colors[0]};
   animation-name: path-a;
 `
 
 const PathB = styled('path')`
   ${style}
-  fill: ${colors[2]};
+  fill: ${__colors[2]};
   animation-delay: .5s;
   animation-name: path-b;
 `
 
 const PathC = styled('path')`
   ${style}
-  fill: ${colors[4]};
+  fill: ${__colors[4]};
   animation-delay: 1s;
   animation-name: path-c;
 `
@@ -160,7 +161,7 @@ const _Logo = ({
 )
 
 const Logo = ({
-  size = 256,
+  size = 128,
 }) =>
   <svg
     xmlns='http://www.w3.org/2000/svg'
@@ -170,8 +171,8 @@ const Logo = ({
     style={{
       display: 'block',
     }}>
-    <path d={D} fill='black' />
-    <path d={E} fill='#cbd' />
+    <path d={D} fill={colors.orange} />
+    <path d={E} fill={colors.lavender} />
   </svg>
 
 Logo.defaultProps = {

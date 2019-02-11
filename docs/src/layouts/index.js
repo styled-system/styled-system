@@ -1,5 +1,6 @@
 import React from 'react'
-import styled, { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
+import theme from '../theme'
 
 const Style = createGlobalStyle`
   * { box-sizing: border-box; }
@@ -11,7 +12,9 @@ const Style = createGlobalStyle`
 `
 
 export default props =>
-  <>
-    <Style />
-    {props.children}
-  </>
+  <ThemeProvider theme={theme}>
+    <>
+      <Style />
+      {props.children}
+    </>
+  </ThemeProvider>
