@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { keyframes } from 'styled-components'
+import styled, { css } from 'styled-components'
 
 const radius = 11
 const rad = a => Math.PI * a / 180
@@ -45,13 +45,13 @@ const C = [
   'z'
 ].join(' ')
 
-const sx = {
-  opacity: 0.75,
-  WebkitMixBlendMode: 'multiply',
-  animationDuration: '8s',
-  animationTimingFuction: 'ease-in-out',
-  animationIterationCount: 'infinite',
-}
+const style = css`
+  opacity: 0.75;
+  mix-blend-mode: multiply;
+  animation-duration: 8s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+`
 
 const colors = [
   '#f00',
@@ -62,82 +62,56 @@ const colors = [
   '#f0f'
 ]
 
-const animations = {
-  a: keyframes([], {
-    '0%':  { fill: colors[0] },
-    '16%': { fill: colors[1] },
-    '32%': { fill: colors[2] },
-    '48%': { fill: colors[3] },
-    '64%': { fill: colors[4] },
-    '80%': { fill: colors[5] },
-    '96%': { fill: colors[0] },
-  }),
-  b: keyframes([], {
-    '0%':  { fill: colors[2] },
-    '16%': { fill: colors[3] },
-    '32%': { fill: colors[4] },
-    '48%': { fill: colors[5] },
-    '64%': { fill: colors[0] },
-    '80%': { fill: colors[1] },
-    '96%': { fill: colors[2] },
-  }),
-  c: keyframes([], {
-    '0%':  { fill: colors[4] },
-    '16%': { fill: colors[5] },
-    '32%': { fill: colors[0] },
-    '48%': { fill: colors[1] },
-    '64%': { fill: colors[2] },
-    '80%': { fill: colors[3] },
-    '96%': { fill: colors[4] },
-  })
-}
+// keyframes are broken in sc v4
+const animations = `
+  @keyframes path-a {
+    0%  { fill: ${colors[0]} }
+    16% { fill: ${colors[1]} }
+    32% { fill: ${colors[2]} }
+    48% { fill: ${colors[3]} }
+    64% { fill: ${colors[4]} }
+    80% { fill: ${colors[5]} }
+    96% { fill: ${colors[0]} }
+  }
+  @keyframes path-b {
+    0%  { fill: ${colors[2]} }
+    16% { fill: ${colors[3]} }
+    32% { fill: ${colors[4]} }
+    48% { fill: ${colors[5]} }
+    64% { fill: ${colors[0]} }
+    80% { fill: ${colors[1]} }
+    96% { fill: ${colors[2]} }
+  }
+  @keyframes path-c {
+    0%  { fill: ${colors[4]} }
+    16% { fill: ${colors[5]} }
+    32% { fill: ${colors[0]} }
+    48% { fill: ${colors[1]} }
+    64% { fill: ${colors[2]} }
+    80% { fill: ${colors[3]} }
+    96% { fill: ${colors[4]} }
+  }
+`
 
-const Path = {
-  A: styled(props =>
-    <path
-      {...props}
-      d={A}
-      style={{
-        // fill: '#f00',
-        // opacity: 0.75,
-        // mixBlendMode: 'multiply'
-      }}
-    />
-  )([], sx, {
-    // fill: '#f00',
-    animationName: animations.a
-  }),
-  B: styled(props =>
-    <path
-      {...props}
-      d={B}
-      style={{
-        // fill: '#0f0',
-        // opacity: 0.75,
-        // mixBlendMode: 'multiply'
-      }}
-    />
-  )([], sx, {
-    fill: '#0f0',
-    animationDelay: '.5s',
-    animationName: animations.b
-  }),
-  C: styled(props =>
-    <path
-      {...props}
-      d={C}
-      style={{
-        // fill: '#00f',
-        // opacity: 0.75,
-        // mixBlendMode: 'multiply'
-      }}
-    />
-  )([], sx, {
-    fill: '#00f',
-    animationDelay: '1s',
-    animationName: animations.c
-  }),
-}
+const PathA = styled('path')`
+  ${style}
+  fill: ${colors[0]};
+  animation-name: path-a;
+`
+
+const PathB = styled('path')`
+  ${style}
+  fill: ${colors[2]};
+  animation-delay: .5s;
+  animation-name: path-b;
+`
+
+const PathC = styled('path')`
+  ${style}
+  fill: ${colors[4]};
+  animation-delay: 1s;
+  animation-name: path-c;
+`
 
 const Logo = ({
   size = 256,
@@ -155,9 +129,14 @@ const Logo = ({
     }}
   >
     {styles}
-    <Path.A />
-    <Path.B />
-    <Path.C />
+    <style
+      dangerouslySetInnerHTML={{
+        __html: animations
+      }}
+    />
+    <PathA d={A} />
+    <PathB d={B} />
+    <PathC d={C} />
   </svg>
 )
 

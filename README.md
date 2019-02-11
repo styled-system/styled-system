@@ -63,8 +63,16 @@ npm i styled-system
 >
 > – [David Yeiser][david-tweet]
 
+> "If you like Tachyons you will love styled-system. If you don't like Tachyons, you will love styled-system."
+>
+> – [Adam Morse][mrmrs]
+
 [dalgleish]: https://mobile.twitter.com/markdalgleish/status/913191186944241665
 [mrmrs]: https://mobile.twitter.com/mrmrs_/status/913189805055401984
+
+<!--
+
+todo: react-scripts is borked
 
 ## Try It Out
 
@@ -73,6 +81,9 @@ Try the [examples](examples) on CodeSandbox
 - [Basic](https://codesandbox.io/s/github/jxnblk/styled-system/tree/master/examples/basic)
 - [Emotion](https://codesandbox.io/s/github/jxnblk/styled-system/tree/master/examples/emotion)
 - [Theme Aliases](https://codesandbox.io/s/github/jxnblk/styled-system/tree/master/examples/theme-aliases)
+
+-->
+
 
 ### Table of Contents
 
@@ -117,7 +128,7 @@ that handle styles based on values defined in a theme.
 <Box color='tomato' />
 
 // color: #333 (theme.colors.gray[0])
-<Box color='grays.0' />
+<Box color='gray.0' />
 
 // background color
 <Box bg='tomato' />
@@ -172,7 +183,7 @@ To learn more, see the [Getting Started](docs/getting-started.md) guide or read 
   - [Borders](docs/api.md#borders)
   - [Position](docs/api.md#position)
   - [Misc](docs/api.md#misc)
-  - [Variants](docs/api.md#variant)
+  - [Variants](docs/api.md#variants)
   - [Utilities](docs/api.md#utilities)
     - [get](docs/api.md#get)
   - [Customize](docs/api.md#customize)
@@ -180,7 +191,6 @@ To learn more, see the [Getting Started](docs/getting-started.md) guide or read 
     - [variant](docs/api.md#variant)
 - [Table of Style Functions](docs/table.md)
 - [Custom Props](docs/custom-props.md)
-- [Troubleshooting](docs/troubleshooting.md)
 
 
 ---
@@ -188,6 +198,8 @@ To learn more, see the [Getting Started](docs/getting-started.md) guide or read 
 ## Further Reading
 
 - [Component Based Design System With Styled-System][varun-post]
+- [Build Better Component Libraries with Styled System][alan-b-smith-post]
+- [Defining Component APIs in React](http://jxnblk.com/writing/posts/defining-component-apis-in-react/)
 
 
 ## Related
@@ -200,6 +212,7 @@ To learn more, see the [Getting Started](docs/getting-started.md) guide or read 
 [styled-components]: https://github.com/styled-components/styled-components
 [emotion]: https://github.com/emotion-js/emotion
 [varun-post]: https://varun.ca/styled-system/
+[alan-b-smith-post]: https://medium.com/styled-components/build-better-component-libraries-with-styled-system-4951653d54ee
 [david-tweet]: https://mobile.twitter.com/davidyeiser/status/965920740582285312
 
 <!-- new links -->

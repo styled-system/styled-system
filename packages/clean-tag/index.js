@@ -33,7 +33,7 @@ Tag.defaultProps = {
 }
 
 tags.forEach(tag => {
-  Tag[tag] = props => React.createElement(Tag, { is: tag, ...props })
+  Tag[tag] = React.forwardRef((props, ref) => React.createElement(Tag, { ref, is: tag, ...props }))
   Tag[tag].displayName = 'Clean.' + tag
 })
 

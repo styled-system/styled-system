@@ -162,7 +162,7 @@ All spacing props accept numbers, strings, or arrays as values, where:
 
 - Numbers between 0 and the last index of the `space` array are values from the `space` array defined in theme
 - Numbers greater than the length of the `space` array are converted to pixels
-- String values can be used for any valid CSS value (e.g. `'auto'` or `'2em'`
+- String values can be used for any valid CSS value (e.g. `'auto'` or `'2em'`)
 - Margin props accept negative values to set negative margin
 - Arrays can be used for [responsive styles](#responsive-styles)
 
@@ -204,6 +204,22 @@ All styled-system functions accept arrays as values to set styles responsively u
 <Text fontSize={[ 3, 4, 5 ]} />
 ```
 
+Alternatively if you define your theme breakpoints as an `object` you can use the following syntax:
+
+```jsx
+<Box
+  width={{
+    sm: 1,
+    md: 1/2,
+    lg: 1/4
+  }}
+>
+</Box>
+```
+
+Read the [Responsive Styles][] docs for more information.
+
 [styled-components]: https://github.com/styled-components/styled-components
 [emotion]: https://github.com/emotion-js/emotion
 [glamorous]: https://github.com/paypal/glamorous
+[Responsive Styles]: https://github.com/jxnblk/styled-system/blob/master/docs/responsive-styles.md

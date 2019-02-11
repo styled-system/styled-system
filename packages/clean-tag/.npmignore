@@ -1,0 +1,3 @@
+test.js*
+.nyc_output
+.babelrc
