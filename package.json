@@ -17,7 +17,8 @@
     "cover": "nyc report --reporter=html --reporter=lcov > coverage.lcov",
     "codecov": "nyc report --reporter=html --reporter=lcov > coverage.lcov && npx codecov",
     "test": "nyc ava",
-    "start": "mdx-go demo",
+    "start": "mdx-go docs",
+    "now-build": "mdx-go build docs -d public",
     "bench": "node bench"
   },
   "keywords": [
@@ -40,13 +41,16 @@
     "ava": "^1.2.0",
     "benchmark": "^2.1.4",
     "cross-env": "^5.2.0",
+    "husky": "^1.3.1",
     "is-ci": "^1.1.0",
+    "lint-staged": "^8.1.3",
     "mdx-go": "^2.0.0-32",
     "nyc": "^12.0.2",
     "prettier": "^1.16.1",
     "react": "^16.7.0",
     "react-live": "^1.12.0",
     "react-test-renderer": "^16.7.0",
+    "rebass": "^3.0.1",
     "scrs": "^1.1.0",
     "styled-components": "^4.1.3"
   },
@@ -76,5 +80,16 @@
   "dependencies": {
     "@babel/runtime": "^7.3.1",
     "prop-types": "^15.6.2"
+  },
+  "husky": {
+    "hooks": {
+      "precommit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,md}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }

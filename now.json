@@ -2,10 +2,16 @@
   "version": 2,
   "name": "Styled System",
   "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/static-build",
+      "config": {
+        "distDir": "public"
+      }
+    }
   ],
   "alias": [
     "styled-system.now.sh"
   ],
-  "public": true,
-  "type": "static"
+  "public": true
 }

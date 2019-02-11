@@ -4,16 +4,13 @@
 //  - Refactors `space` function to use core `style` function
 //  - Adds long-hand props for margin and padding. Shorthand aliases still work.
 //  - The get utility works differently, returning the last argument as a fallback.
-//  - **UNDER CONSIDERATION** Requires a `theme.mediaQueries` field with full media query strings instead of the `theme.breakpoints` array.
 //  - Removes the `styles` export
 //  - Removes `meta` field from `propTypes` - this was used by system-docs. An alternative/optional object export for documentation will be added
 //  - Removes the `merge` utility
 //  - Removes `mixed` utility
 //  - The theme scale is passed as the second argument to the `transformValue` option in `style`
 //  - Removes `ratio` function
-//  - TODO: changes to border functions
-//
-//  - [ ] fontSize scale
+//  - Changes to border functions
 
 import PropTypes from 'prop-types'
 
@@ -32,15 +29,13 @@ export const get = (obj, ...paths) => {
   const value = paths.reduce((a, path) => {
     if (is(a)) return a
     const keys = typeof path === 'string' ? path.split('.') : [path]
-    return keys.reduce((a, key) => (a && is(a[key]))
-        ? a[key]
-        : null,
-      obj)
+    return keys.reduce((a, key) => (a && is(a[key]) ? a[key] : null), obj)
   }, null)
   return is(value) ? value : paths[paths.length - 1]
 }
 
-export const themeGet = (path, fallback = null) => props => get(props.theme, path, fallback)
+export const themeGet = (path, fallback = null) => props =>
+  get(props.theme, path, fallback)
 
 export const is = n => n !== undefined && n !== null
 
@@ -60,7 +55,7 @@ export const style = ({
   alias,
   key,
   transformValue = getValue,
-  scale: defaultScale = {}
+  scale: defaultScale = {},
 }) => {
   const property = cssProperty || prop
   const func = props => {
@@ -68,9 +63,12 @@ export const style = ({
     const value = get(props, prop, alias, null)
     if (!is(value)) return null
     const scale = get(props.theme, key, defaultScale)
-    const createStyle = n => is(n) ? ({
-      [property]: transformValue(n, scale)
-    }) : null
+    const createStyle = n =>
+      is(n)
+        ? {
+            [property]: transformValue(n, scale),
+          }
+        : null
 
     if (!isObject(value)) return createStyle(value)
 
@@ -79,7 +77,7 @@ export const style = ({
     const styles = []
     if (Array.isArray(value)) {
       styles.push(createStyle(value[0]))
-      for (let i = 1; i < value.length; i++) {
+      for (let i = 1; i < value.slice(0, breakpoints.length + 1).length; i++) {
         const rule = createStyle(value[i])
         if (rule) {
           const media = createMediaQuery(breakpoints[i - 1])
@@ -104,7 +102,7 @@ export const style = ({
   }
 
   func.propTypes = {
-    [prop]: cloneFunction(propType)
+    [prop]: cloneFunction(propType),
   }
 
   if (alias) func.propTypes[alias] = cloneFunction(propType)
@@ -114,9 +112,7 @@ export const style = ({
 
 export const compose = (...funcs) => {
   const func = props => {
-    const n = funcs
-      .map(fn => fn(props))
-      .filter(Boolean)
+    const n = funcs.map(fn => fn(props)).filter(Boolean)
     return n
   }
 
@@ -134,19 +130,16 @@ export const compose = (...funcs) => {
 export const mapProps = mapper => func => props => func(mapper(props))
 
 export const variant = ({ key, prop = 'variant' }) => {
-  const fn = props => get(props.theme, [ key, props[prop] ].join('.'), null)
+  const fn = props => get(props.theme, [key, props[prop]].join('.'), null)
   fn.propTypes = {
-    [prop]: PropTypes.oneOfType([
-      PropTypes.number,
-      PropTypes.string,
-    ])
+    [prop]: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   }
   return fn
 }
 
 // space
 
-const spaceScale = [ 0, 4, 8, 16, 32, 64, 128, 256, 512 ]
+const spaceScale = [0, 4, 8, 16, 32, 64, 128, 256, 512]
 
 const getSpace = (n, scale) => {
   if (!num(n)) return n
@@ -249,18 +242,20 @@ export const space = mapProps(props => ({
   pb: props.py,
   pl: props.px,
   pr: props.px,
-}))(compose(
-  margin,
-  marginTop,
-  marginBottom,
-  marginLeft,
-  marginRight,
-  padding,
-  paddingTop,
-  paddingBottom,
-  paddingLeft,
-  paddingRight,
-))
+}))(
+  compose(
+    margin,
+    marginTop,
+    marginBottom,
+    marginLeft,
+    marginRight,
+    padding,
+    paddingTop,
+    paddingBottom,
+    paddingLeft,
+    paddingRight
+  )
+)
 
 // color
 export const textColor = style({
@@ -280,13 +275,12 @@ export const color = compose(
 )
 
 // width
-export const getWidth = (n, scale) => !num(n) || n > 1
-  ? px(n) : n * 100 + '%'
+export const getWidth = (n, scale) => (!num(n) || n > 1 ? px(n) : n * 100 + '%')
 
 export const width = style({
   prop: 'width',
   key: 'widths',
-  transformValue: getWidth
+  transformValue: getWidth,
 })
 
 // typography
@@ -326,12 +320,12 @@ export const fontStyle = style({
 export const letterSpacing = style({
   prop: 'letterSpacing',
   key: 'letterSpacings',
-  transformValue: getPx
+  transformValue: getPx,
 })
 
 // layout
 export const display = style({
-  prop: 'display'
+  prop: 'display',
 })
 
 export const maxWidth = style({
@@ -368,7 +362,12 @@ export const size = mapProps(props => ({
   ...props,
   width: props.size,
   height: props.size,
-}))(compose(width, height))
+}))(
+  compose(
+    width,
+    height
+  )
+)
 
 export const verticalAlign = style({ prop: 'verticalAlign' })
 
@@ -378,7 +377,7 @@ export const alignContent = style({ prop: 'alignContent' })
 export const justifyItems = style({ prop: 'justifyItems' })
 export const justifyContent = style({ prop: 'justifyContent' })
 export const flexWrap = style({ prop: 'flexWrap' })
-export const flexBasis = style({ prop: 'flexBasis', transformValue: getWidth, })
+export const flexBasis = style({ prop: 'flexBasis', transformValue: getWidth })
 export const flexDirection = style({ prop: 'flexDirection' })
 export const flex = style({ prop: 'flex' })
 export const justifySelf = style({ prop: 'justifySelf' })
@@ -390,18 +389,21 @@ export const gridGap = style({
   prop: 'gridGap',
   key: 'space',
   transformValue: getPx,
+  scale: spaceScale,
 })
 
 export const gridColumnGap = style({
   prop: 'gridColumnGap',
   key: 'space',
   transformValue: getPx,
+  scale: spaceScale,
 })
 
 export const gridRowGap = style({
   prop: 'gridRowGap',
   key: 'space',
   transformValue: getPx,
+  scale: spaceScale,
 })
 
 export const gridColumn = style({ prop: 'gridColumn' })
@@ -426,6 +428,11 @@ export const borderWidth = style({
   prop: 'borderWidth',
   key: 'borderWidths',
   transformValue: getPx,
+})
+
+export const borderStyle = style({
+  prop: 'borderStyle',
+  key: 'borderStyles',
 })
 
 export const borderColor = style({
@@ -461,7 +468,7 @@ export const borderRadius = style({
 
 export const borders = compose(
   border,
-  // borderStyle ??
+  borderStyle,
   borderWidth,
   borderColor,
   borderTop,
