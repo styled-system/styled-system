@@ -45,6 +45,25 @@ const C = [
   'z'
 ].join(' ')
 
+const D = [
+  'M', a.x, a.y,
+  'L', b.x, b.y,
+  'L', 0, 0,
+  'L', d.x, d.y,
+  'L', e.x, e.y,
+  'L', f.x, f.y,
+  'z'
+].join(' ')
+
+const E = [
+  'M', b.x, b.y,
+  'L', c.x, c.y,
+  'L', d.x, d.y,
+  'L', 0, 0,
+  'L', b.x, b.y,
+  'z'
+].join(' ')
+
 const style = css`
   opacity: 0.75;
   mix-blend-mode: multiply;
@@ -113,7 +132,7 @@ const PathC = styled('path')`
   animation-name: path-c;
 `
 
-const Logo = ({
+const _Logo = ({
   size = 256,
   blend = 'multiply',
   styles // for scrs svg output
@@ -139,6 +158,21 @@ const Logo = ({
     <PathC d={C} />
   </svg>
 )
+
+const Logo = ({
+  size = 256,
+}) =>
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    viewBox='-12 -12 24 24'
+    width={size}
+    height={size}
+    style={{
+      display: 'block',
+    }}>
+    <path d={D} fill='black' />
+    <path d={E} fill='#cbd' />
+  </svg>
 
 Logo.defaultProps = {
   ignore: true
