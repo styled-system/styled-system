@@ -82,6 +82,18 @@ test('returns an array of responsive style objects', t => {
   ])
 })
 
+test('returns an array of responsive style objects for all breakpoints', t => {
+  const style = width({
+    width: ['100%', '75%', '50%', '33%', '25%'],
+  })
+  t.deepEqual(style, [
+    { width: '100%' },
+    { '@media screen and (min-width: 40em)': { width: '75%' } },
+    { '@media screen and (min-width: 52em)': { width: '50%' } },
+    { '@media screen and (min-width: 64em)': { width: '33%' } },
+  ])
+})
+
 test('skips undefined responsive values', t => {
   const style = width({
     width: ['100%', , '50%'],
@@ -235,4 +247,15 @@ test('variant prop can be customized', t => {
     padding: '32px',
     backgroundColor: 'tomato',
   })
+})
+
+test('array values longer than breakpoints does not reset returned style object', t => {
+  const a = width({
+    width: [
+      '100%',,,,,'50%', '25%',
+    ]
+  })
+  t.deepEqual(a, [
+    { width: '100%' },
+  ])
 })

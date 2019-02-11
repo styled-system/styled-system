@@ -77,7 +77,7 @@ export const style = ({
     const styles = []
     if (Array.isArray(value)) {
       styles.push(createStyle(value[0]))
-      for (let i = 1; i < value.length; i++) {
+      for (let i = 1; i < value.slice(0, breakpoints.length + 1).length; i++) {
         const rule = createStyle(value[i])
         if (rule) {
           const media = createMediaQuery(breakpoints[i - 1])
