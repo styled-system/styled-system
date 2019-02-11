@@ -17,7 +17,8 @@
     "cover": "nyc report --reporter=html --reporter=lcov > coverage.lcov",
     "codecov": "nyc report --reporter=html --reporter=lcov > coverage.lcov && npx codecov",
     "test": "nyc ava",
-    "start": "mdx-go demo",
+    "start": "mdx-go docs",
+    "now-build": "mdx-go build docs -d public",
     "bench": "node bench"
   },
   "keywords": [
@@ -49,6 +50,7 @@
     "react": "^16.7.0",
     "react-live": "^1.12.0",
     "react-test-renderer": "^16.7.0",
+    "rebass": "^3.0.1",
     "scrs": "^1.1.0",
     "styled-components": "^4.1.3"
   },
