@@ -11,6 +11,15 @@ module.exports = {
     ],
     quotes: [
     ],
+    features: [
+      'Add style props that pick up values from a global theme',
+      'Quickly set responsive font-size, margin, padding, width, and more with props',
+      'Inspired by constraint-based design system principles',
+      'Use a type scale for consistent typography',
+      'Use a spacing scale for margin, padding, and layout consistency',
+      'Works with any color palette',
+      'Works with most CSS-in-JS libraries, including styled-components and emotion',
+    ],
   },
   plugins: [
     'gatsby-plugin-react-helmet',
