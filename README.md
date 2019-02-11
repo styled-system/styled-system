@@ -191,7 +191,6 @@ To learn more, see the [Getting Started](docs/getting-started.md) guide or read 
     - [variant](docs/api.md#variant)
 - [Table of Style Functions](docs/table.md)
 - [Custom Props](docs/custom-props.md)
-- [Troubleshooting](docs/troubleshooting.md)
 
 
 ---
