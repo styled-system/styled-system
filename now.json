@@ -3,7 +3,7 @@
   "name": "Styled System",
   "builds": [
     {
-      "src": "docs/*",
+      "src": "docs/package.json",
       "use": "@now/static-build",
       "config": {
         "distDir": "public"
