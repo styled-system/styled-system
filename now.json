@@ -2,7 +2,6 @@
   "version": 2,
   "name": "Styled System",
   "builds": [
-    { "src": "package.json", "use": "@now/static-build" },
     {
       "src": "docs/package.json",
       "use": "@now/static-build",

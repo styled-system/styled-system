@@ -6,7 +6,7 @@ import {
   LiveEditor,
   LiveError
 } from 'react-live'
-import { space, fontSize, width, color } from '../../src'
+import { space, fontSize, width, color } from 'styled-system'
 import { colors } from './theme'
 
 const code = `const Box = styled.div(space, fontSize, width, color)

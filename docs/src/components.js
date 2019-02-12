@@ -14,7 +14,7 @@ import {
   alignItems,
   justifyContent,
   flexWrap,
-} from '../../src'
+} from 'styled-system'
 
 export const Box = styled.div(
   space,
