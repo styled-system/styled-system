@@ -92,7 +92,6 @@ test('returns negative theme values', t => {
   t.deepEqual(styles, [{ margin: '-8px' }])
 })
 
-// currently not working
 test('returns positive theme values', t => {
   const styles = space({
     theme: {
@@ -141,6 +140,16 @@ test('returns negative string values from theme', t => {
     margin: -1,
   })
   t.deepEqual(styles, [{ margin: '-1em' }])
+})
+
+test('pl prop sets paddingLeft', t => {
+  const styles = space({ pl: 2 })
+  t.deepEqual(styles, [{ paddingLeft: '8px' }])
+})
+
+test('pl prop sets paddingLeft 0', t => {
+  const styles = space({ pl: 0 })
+  t.deepEqual(styles, [{ paddingLeft: 0 }])
 })
 
 test('px prop overrides pl prop', t => {
