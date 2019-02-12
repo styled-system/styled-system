@@ -13,4 +13,10 @@ export default props =>
     <Link href='https://jxnblk.com'>
       Made by Jxnblk
     </Link>
+    <Link href='https://github.com/jxnblk/styled-system'>
+      GitHub
+    </Link>
+    <Link href='https://npmjs.com/package/styled-system'>
+      npm
+    </Link>
   </Container>

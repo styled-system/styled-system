@@ -53,6 +53,7 @@ Text.defaultProps = {
 export const Pre = styled.pre({
   fontFamily: 'Menlo, monospace',
   fontSize: '14px',
+  overflowX: 'auto',
 }, space, color)
 
 Pre.defaultProps = {
@@ -60,6 +61,15 @@ Pre.defaultProps = {
   my: 3,
   color: 'navy',
   backgroundColor: 'lightgray',
+}
+
+export const Code = styled.code({
+  fontFamily: 'Menlo, monospace',
+  fontSize: '14px',
+}, color)
+
+Code.defaultProps = {
+  color: 'purple',
 }
 
 const StyledLink = styled.a({
@@ -86,5 +96,5 @@ export default {
   pre: props => props.children,
   code: Pre,
   ul: UL,
-  // inlineCode: Code,
+  inlineCode: Code,
 }

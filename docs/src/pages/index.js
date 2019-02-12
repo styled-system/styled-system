@@ -37,18 +37,18 @@ export default ({
         <Logo />
         <Logo />
       </Flex>
-      <Flex>
+      <Flex mb={5}>
         <Logo />
         <Logo />
         <Logo />
         <Logo />
       </Flex>
       <Text as='h1'
-        fontSize={[6, 7, 8]}
+        fontSize={[6]}
         lineHeight='1.125'>
         {meta.title}
       </Text>
-      <Text fontSize={[3, 4]} fontWeight='bold'>
+      <Text fontSize={[3, 4, 5]} fontWeight='bold'>
         {meta.description}
       </Text>
       <Badges />
