@@ -6,7 +6,7 @@
       "src": "docs/package.json",
       "use": "@now/static-build",
       "config": {
-        "distDir": "docs/public"
+        "distDir": "public"
       }
     }
   ],
