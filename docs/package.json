@@ -23,6 +23,6 @@
     "react-helmet": "^5.2.0",
     "react-live": "^1.12.0",
     "styled-components": "^4.1.3",
-    "styled-system": "./.."
+    "styled-system": "^4.0.0-0"
   }
 }
