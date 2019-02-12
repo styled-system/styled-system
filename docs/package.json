@@ -4,8 +4,8 @@
   "scripts": {
     "start": "gatsby develop",
     "build": "gatsby build",
-    "__now-build": "npm run build",
-    "now-build": "mkdir -p public && echo '<!DOCTYPE html><h1>hello</h1>' > public/index.html"
+    "now-build": "npm run build",
+    "_now-build": "mkdir -p public && echo '<!DOCTYPE html><h1>hello</h1>' > public/index.html"
   },
   "dependencies": {
     "@mdx-js/mdx": "^0.16.8",
