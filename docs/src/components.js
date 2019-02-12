@@ -3,6 +3,7 @@ import {
   space,
   color,
   width,
+  maxWidth,
   fontSize,
   fontWeight,
   lineHeight,
@@ -27,6 +28,16 @@ export const Flex = styled(Box)({
   flexWrap
 )
 
+export const Container = styled(Box)(
+  maxWidth
+)
+
+Container.defaultProps = {
+  maxWidth: 896,
+  mx: 'auto',
+  px: 4,
+}
+
 export const Text = styled(Box)(
   fontSize,
   fontWeight
@@ -34,4 +45,22 @@ export const Text = styled(Box)(
 
 Text.defaultProps = {
   m: 0,
+}
+
+export const Pre = styled.pre({
+  fontFamily: 'Menlo, monospace',
+  fontSize: '14px',
+}, space, color)
+
+Pre.defaultProps = {
+  p: 3,
+  my: 3,
+  color: 'navy',
+  backgroundColor: 'lightgray',
+}
+
+export default {
+  pre: props => props.children,
+  code: Pre,
+  // inlineCode: Code,
 }

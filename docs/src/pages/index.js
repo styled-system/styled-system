@@ -1,7 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { Box, Flex, Container, Text } from '../components'
 import Logo from '../Logo'
-import { Box, Flex, Text } from '../components'
+import Demo from '../Demo'
+import GettingStarted from './getting-started.md'
 
 export const query = graphql`
   query Index {
@@ -47,4 +49,8 @@ export default ({
         {meta.description}
       </Text>
     </Box>
+    <Container py={5}>
+      <Demo />
+      <GettingStarted />
+    </Container>
   </div>

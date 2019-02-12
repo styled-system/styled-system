@@ -1,6 +1,8 @@
 import React from 'react'
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
+import { MDXProvider } from '@mdx-js/tag'
 import theme from '../theme'
+import components from '../components'
 
 const Style = createGlobalStyle`
   * { box-sizing: border-box; }
@@ -13,8 +15,10 @@ const Style = createGlobalStyle`
 
 export default props =>
   <ThemeProvider theme={theme}>
-    <>
-      <Style />
-      {props.children}
-    </>
+    <MDXProvider components={components}>
+      <>
+        <Style />
+        {props.children}
+      </>
+    </MDXProvider>
   </ThemeProvider>

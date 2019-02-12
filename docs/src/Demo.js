@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import { space, fontSize, width, color } from '../src'
 import {
   LiveProvider,
   LivePreview,
   LiveEditor,
   LiveError
 } from 'react-live'
+import { space, fontSize, width, color } from '../../src'
+import { colors } from './theme'
 
 const code = `const Box = styled.div(space, fontSize, width, color)
 
@@ -15,8 +16,8 @@ render(
     mb={3}
     p={[ 3, 4 ]}
     fontSize={[ 4, 5, 6 ]}
-    color='white'
-    bg='magenta'>
+    color='orange'
+    bg='lavender'>
     Style Props
   </Box>
 )`
@@ -40,8 +41,8 @@ export default () =>
         fontSize: 14,
         padding: 16,
         overflowX: 'auto',
-        color: '#33e',
-        backgroundColor: '#f6f6ff',
+        color: colors.navy,
+        backgroundColor: colors.lightgray,
         outline: 'none',
       }}
     />
