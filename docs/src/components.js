@@ -91,10 +91,21 @@ UL.defaultProps = {
   pl: 0,
 }
 
+export const Blockquote = styled.blockquote({
+}, space, fontSize, fontWeight, lineHeight, color)
+
+Blockquote.defaultProps = {
+  m: 0,
+  fontSize: 4,
+  lineHeight: 1.25,
+  fontWeight: 'bold',
+}
+
 export default {
   a: Link,
   pre: props => props.children,
   code: Pre,
   ul: UL,
   inlineCode: Code,
+  blockquote: Blockquote,
 }
