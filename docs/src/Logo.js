@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { colors } from './theme'
 
-const radius = 11
+const radius = 12
 const rad = a => Math.PI * a / 180
 const round = n => Math.round(n * 1000) / 1000
 const rx = (r, a) => round(r * Math.cos(rad(a)))
@@ -65,101 +65,6 @@ const E = [
   'z'
 ].join(' ')
 
-const style = css`
-  opacity: 0.75;
-  mix-blend-mode: multiply;
-  animation-duration: 8s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-`
-
-const __colors = [
-  '#f00',
-  '#ff0',
-  '#0f0',
-  '#0ff',
-  '#00f',
-  '#f0f'
-]
-
-// keyframes are broken in sc v4
-const animations = `
-  @keyframes path-a {
-    0%  { fill: ${__colors[0]} }
-    16% { fill: ${__colors[1]} }
-    32% { fill: ${__colors[2]} }
-    48% { fill: ${__colors[3]} }
-    64% { fill: ${__colors[4]} }
-    80% { fill: ${__colors[5]} }
-    96% { fill: ${__colors[0]} }
-  }
-  @keyframes path-b {
-    0%  { fill: ${__colors[2]} }
-    16% { fill: ${__colors[3]} }
-    32% { fill: ${__colors[4]} }
-    48% { fill: ${__colors[5]} }
-    64% { fill: ${__colors[0]} }
-    80% { fill: ${__colors[1]} }
-    96% { fill: ${__colors[2]} }
-  }
-  @keyframes path-c {
-    0%  { fill: ${__colors[4]} }
-    16% { fill: ${__colors[5]} }
-    32% { fill: ${__colors[0]} }
-    48% { fill: ${__colors[1]} }
-    64% { fill: ${__colors[2]} }
-    80% { fill: ${__colors[3]} }
-    96% { fill: ${__colors[4]} }
-  }
-`
-
-const PathA = styled('path')`
-  ${style}
-  fill: ${__colors[0]};
-  animation-name: path-a;
-`
-
-const PathB = styled('path')`
-  ${style}
-  fill: ${__colors[2]};
-  animation-delay: .5s;
-  animation-name: path-b;
-`
-
-const PathC = styled('path')`
-  ${style}
-  fill: ${__colors[4]};
-  animation-delay: 1s;
-  animation-name: path-c;
-`
-
-const _Logo = ({
-  size = 256,
-  blend = 'multiply',
-  styles // for scrs svg output
-}) => (
-  <svg
-    xmlns='http://www.w3.org/2000/svg'
-    viewBox='-12 -12 24 24'
-    width={size}
-    height={size}
-    style={{
-      WebkitMixBlendMode: blend,
-      mixBlendMode: blend,
-    }}
-  >
-    {styles}
-    <style
-      dangerouslySetInnerHTML={{
-        __html: animations
-      }}
-    />
-    <PathA d={A} />
-    <PathB d={B} />
-    <PathC d={C} />
-  </svg>
-)
-
 const Logo = ({
   size = 128,
 }) =>
@@ -172,7 +77,7 @@ const Logo = ({
       display: 'block',
     }}>
     <path d={D} fill={colors.orange} />
-    <path d={E} fill={colors.lavender} />
+    <path d={E} fill={colors.cyan} />
   </svg>
 
 Logo.defaultProps = {

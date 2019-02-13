@@ -37,7 +37,8 @@ export default ({
     <Box as='header'
       px={4}
       py={[ 5, 6 ]}
-      bg='cyan'>
+      color='black'
+      bg='lavender'>
       <Flex>
         <Logo />
         <Logo />
