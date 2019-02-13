@@ -3,11 +3,11 @@ import { graphql } from 'gatsby'
 import { Box, Flex, Container, Text, Blockquote, Link, UL } from '../components'
 import Logo from '../Logo'
 import Badges from '../badges.md'
-import Demo from '../Demo'
 import CodeSandbox from '../CodeSandbox'
 import GettingStarted from '../../getting-started.md'
 import Docs from '../../README.md'
 import Footer from '../Footer'
+// import Pattern from '../Pattern'
 
 export const query = graphql`
   query Index {
@@ -88,7 +88,6 @@ export default ({
         ))}
       </Box>
       <CodeSandbox />
-      {false && <Demo />}
       <GettingStarted />
       <Docs />
     </Container>

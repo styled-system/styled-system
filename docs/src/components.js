@@ -73,7 +73,7 @@ Code.defaultProps = {
 }
 
 const StyledLink = styled.a({
-}, color)
+}, space, color)
 
 StyledLink.defaultProps = {
   color: 'navy'
