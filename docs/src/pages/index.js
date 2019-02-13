@@ -1,9 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Box, Flex, Container, Text } from '../components'
+import { Box, Flex, Container, Text, Blockquote, Link, UL } from '../components'
 import Logo from '../Logo'
 import Badges from '../badges.md'
 import Demo from '../Demo'
+import CodeSandbox from '../CodeSandbox'
 import GettingStarted from '../../getting-started.md'
 import Docs from '../../README.md'
 import Footer from '../Footer'
@@ -14,6 +15,12 @@ export const query = graphql`
       siteMetadata {
         title
         description
+        features
+        quotes {
+          text
+          source
+          href
+        }
       }
     }
   }
@@ -54,7 +61,34 @@ export default ({
       <Badges />
     </Box>
     <Container py={5}>
-      <Demo />
+      <Box py={4}>
+        <UL>
+          {meta.features.map(feature => (
+            <li key={feature}>
+              <Text
+                fontSize={3}
+                my={3}
+                fontWeight='bold'>
+                {feature}
+              </Text>
+            </li>
+          ))}
+        </UL>
+      </Box>
+      <Box py={4}>
+        {meta.quotes.map(quote => (
+          <Box key={quote.text} my={3}>
+            <Blockquote>
+              “{quote.text}”
+            </Blockquote>
+            <Link href={quote.href}>
+              – {quote.source}
+            </Link>
+          </Box>
+        ))}
+      </Box>
+      <CodeSandbox />
+      {false && <Demo />}
       <GettingStarted />
       <Docs />
     </Container>

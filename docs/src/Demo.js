@@ -18,7 +18,7 @@ render(
     fontSize={[ 4, 5, 6 ]}
     color='orange'
     bg='lavender'>
-    Style Props
+    Edit me
   </Box>
 )`
 
