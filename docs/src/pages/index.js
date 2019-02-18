@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Box, Flex, Container, Text, Blockquote, Link, UL, Pre } from '../components'
+import { Box, Flex, Container, Text, Blockquote, Link, UL, Columns, Pre } from '../components'
 import Logo from '../Logo'
 import Badges from '../badges.md'
 import CodeSandbox from '../CodeSandbox'
@@ -35,19 +35,22 @@ export default ({
   }
 }) =>
   <div>
-    <Box as='header'
+    <Box
+      as='header'
       py={[ 5, 6 ]}
-      color='black'
-      bg='lavender'>
+      color='white'
+      bg='black'
+      css={{
+        minHeight: '100vh',
+      }}>
       <Container>
         <Text as='h1'
           fontSize={[5]}
-          mb={4}
           lineHeight='1.125'>
           {meta.title}
         </Text>
         <Hex />
-        <Text fontSize={[3, 4, 5]} fontWeight='bold' mt={4}>
+        <Text fontSize={[3, 4, 5]} fontWeight='bold'>
           {meta.description}
         </Text>
         <Pre
@@ -61,22 +64,22 @@ export default ({
     <Container py={5}>
       <Badges />
       <Box py={4}>
-        <UL>
+        <Columns>
           {meta.features.map(feature => (
             <li key={feature}>
               <Text
                 fontSize={3}
-                my={3}
+                mb={15}
                 fontWeight='bold'>
                 {feature}
               </Text>
             </li>
           ))}
-        </UL>
+        </Columns>
       </Box>
-      <Box py={4}>
+      <Columns py={4}>
         {meta.quotes.map(quote => (
-          <Box key={quote.text} my={3}>
+          <Box as='li' key={quote.text} mb={4}>
             <Blockquote>
               “{quote.text}”
             </Blockquote>
@@ -85,9 +88,11 @@ export default ({
             </Link>
           </Box>
         ))}
-      </Box>
+      </Columns>
       <CodeSandbox />
-      <GettingStarted />
+      <Box py={4}>
+        <GettingStarted />
+      </Box>
       <Docs />
     </Container>
     <Footer />

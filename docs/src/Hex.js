@@ -39,8 +39,8 @@ const pattern = (
 )
 
 export default ({
-  width = 840,
-  height = 320,
+  width = 1024,
+  height = 512,
 }) =>
   <svg
     viewBox='0 0 126 48'

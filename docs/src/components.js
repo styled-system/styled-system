@@ -36,7 +36,7 @@ export const Container = styled(Box)(
 )
 
 Container.defaultProps = {
-  maxWidth: 896,
+  maxWidth: 1024,
   mx: 'auto',
   px: 4,
 }
@@ -84,12 +84,21 @@ export const Link = ({ href, ...props }) => isAbsoluteURL(href)
   : <StyledLink {...props} as={GatsbyLink} to={href} />
 
 export const UL = styled.ul({
-  // paddingLeft: 0,
+  margin: 0
 }, space)
 
 UL.defaultProps = {
   pl: 0,
 }
+export const Columns = styled(UL)({
+  columnWidth: '320px',
+  columnGap: '32px',
+  listStyle: 'none',
+  '& li': {
+    breakInside: 'avoid',
+  }
+})
+
 
 export const Blockquote = styled.blockquote({
 }, space, fontSize, fontWeight, lineHeight, color)
@@ -97,7 +106,7 @@ export const Blockquote = styled.blockquote({
 Blockquote.defaultProps = {
   m: 0,
   fontSize: 4,
-  lineHeight: 1.25,
+  // lineHeight: 1.25,
   fontWeight: 'bold',
 }
 
