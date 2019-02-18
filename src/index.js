@@ -5,12 +5,13 @@
 //  - Adds long-hand props for margin and padding. Shorthand aliases still work.
 //  - The get utility works differently, returning the last argument as a fallback.
 //  - Removes the `styles` export
-//  - Removes `meta` field from `propTypes` - this was used by system-docs. An alternative/optional object export for documentation will be added
 //  - Removes the `merge` utility
 //  - Removes `mixed` utility
 //  - The theme scale is passed as the second argument to the `transformValue` option in `style`
 //  - Removes `ratio` function
 //  - Changes to border functions
+//  - ~~Removes `meta` field from `propTypes` - this was used by system-docs. An alternative/optional object export for documentation will be added~~
+//  - Removes `styleType` from prop types `meta` fields
 
 import PropTypes from 'prop-types'
 
@@ -104,8 +105,18 @@ export const style = ({
   func.propTypes = {
     [prop]: cloneFunction(propType),
   }
+  func.propTypes[prop].meta = {
+    prop,
+    themeKey: key
+  }
 
-  if (alias) func.propTypes[alias] = cloneFunction(propType)
+  if (alias) {
+    func.propTypes[alias] = cloneFunction(propType)
+    func.propTypes[alias].meta = {
+      prop: alias,
+      themeKey: key
+    }
+  }
 
   return func
 }
