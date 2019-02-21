@@ -430,7 +430,6 @@ import { themeGet } from 'styled-system'
 const Box = styled('div')(props => ({
   borderRadius: themeGet('radii.small', '4px')(props),
 }))
-`
 ```
 
 ### propTypes
