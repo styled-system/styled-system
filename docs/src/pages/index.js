@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Box, Flex, Container, Text, Blockquote, Link, UL, Columns, Pre } from '../components'
+import { Box, Container, Text, Blockquote, Link, Columns, Pre } from '../components'
 import Logo from '../Logo'
 import Badges from '../badges.md'
 import CodeSandbox from '../CodeSandbox'
