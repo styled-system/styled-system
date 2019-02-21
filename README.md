@@ -186,6 +186,7 @@ To learn more, see the [Getting Started](docs/getting-started.md) guide or read 
   - [Variants](docs/api.md#variants)
   - [Utilities](docs/api.md#utilities)
     - [themeGet](docs/api.md#themeget)
+    - [propTypes](docs/api.md#proptypes)
   - [Customize](docs/api.md#customize)
     - [style](docs/api.md#style)
     - [variant](docs/api.md#variant)
