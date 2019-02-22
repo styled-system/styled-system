@@ -6,8 +6,8 @@ module.exports = {
     install: 'npm i styled-system',
     github: 'https://github.com/jxnblk/styled-system',
     navigation: [
-    //   { text: 'Home', href: '/' },
-    //   { text: 'Getting Started', href: '/getting-started' },
+      { text: 'Styled System', href: '/' },
+      // { text: 'Getting Started', href: '/getting-started' },
     ],
     quotes: [
       {
