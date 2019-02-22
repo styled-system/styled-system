@@ -8,12 +8,11 @@
   "dependencies": {
     "@mdx-js/mdx": "^0.17.5",
     "@mdx-js/tag": "^0.17.5",
-    "@rebass/gatsby-theme-docs": "^1.0.0-2",
+    "@rebass/gatsby-theme-docs": "^1.0.0-4",
     "babel-plugin-styled-components": "^1.10.0",
     "gatsby": "^2.1.14",
     "gatsby-mdx": "^0.4.0",
     "gatsby-plugin-google-analytics": "^2.0.14",
-    "gatsby-plugin-layout": "^1.0.12",
     "gatsby-plugin-react-helmet": "^3.0.6",
     "gatsby-plugin-styled-components": "^3.0.6",
     "is-absolute-url": "^2.1.0",

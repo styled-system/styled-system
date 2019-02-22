@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link as GLink } from 'gatsby'
 import { Box, Container, Text, Blockquote, Link, Columns, Pre } from '../components'
 import Logo from '../Logo'
 import Badges from '../badges.md'
@@ -59,6 +59,7 @@ export default ({
           backgroundColor='transparent'>
           npm i styled-system
         </Pre>
+        <GLink to='/getting-started'>Docs</GLink>
       </Container>
     </Box>
     <Container py={5}>

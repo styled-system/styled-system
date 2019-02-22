@@ -5,10 +5,7 @@ module.exports = {
     author: '@jxnblk',
     install: 'npm i styled-system',
     github: 'https://github.com/jxnblk/styled-system',
-    navigation: [
-      { text: 'Styled System', href: '/' },
-      // { text: 'Getting Started', href: '/getting-started' },
-    ],
+    navigation: [],
     quotes: [
       {
         text: 'This is honestly my favourite way to build UI components right now',
@@ -51,7 +48,15 @@ text: 'If you like Tachyons you will love styled-system. If you don’t like Tac
     {
       resolve: '@rebass/gatsby-theme-docs',
       options: {
-        navigation: []
+        navigation: [
+          { href: '/', text: 'Styled System' },
+          { href: '/getting-started', text: 'Getting Started' },
+          { href: '/responsive-styles', text: 'Responsive Styles' },
+          { href: '/how-it-works', text: 'How it Works' },
+          { href: '/api', text: 'API' },
+          { href: '/table', text: 'Reference Table' },
+          { href: '/custom-props', text: 'Custom Props' },
+        ]
       }
     }
   ],
