@@ -1,6 +1,16 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
+import { createGlobalStyle } from 'styled-components'
+
+const Style = createGlobalStyle`
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    line-height: 1.5;
+  }
+`
 
 const query = graphql`
   query {
@@ -31,6 +41,7 @@ const Root = props => {
         <meta name='twitter:description' content={description} />
         <meta name='twitter:image' content='https://jxnblk.com/styled-system/logo.png' />
       </Helmet>
+      <Style />
       {props.children}
     </>
   )

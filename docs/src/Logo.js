@@ -1,6 +1,14 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { colors } from './theme'
+
+const colors = {
+  lavender: '#cbd',
+  orange: '#f60',
+  cyan: '#8ee',
+  navy: '#22a',
+  purple: '#92e',
+  lightgray: '#f0f6f6',
+}
 
 const radius = 12
 const rad = a => Math.PI * a / 180
@@ -68,20 +76,20 @@ const E = [
 const Logo = ({
   size = 128,
 }) =>
-  <svg
-    xmlns='http://www.w3.org/2000/svg'
-    viewBox='-12 -12 24 24'
-    width={size}
-    height={size}
-    style={{
-      display: 'block',
-    }}>
+<svg
+  xmlns='http://www.w3.org/2000/svg'
+  viewBox='-12 -12 24 24'
+  width={size}
+  height={size}
+  style={{
+    display: 'block',
+  }}>
     <path d={D} fill={colors.orange} />
     <path d={E} fill={colors.cyan} />
   </svg>
 
-Logo.defaultProps = {
-  ignore: true
-}
+  Logo.defaultProps = {
+    ignore: true
+  }
 
 export default Logo
