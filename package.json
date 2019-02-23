@@ -1,6 +1,6 @@
 {
   "name": "styled-system",
-  "version": "3.2.1",
+  "version": "4.0.0-0",
   "description": "Responsive, theme-based style props for building design systems with React",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -11,14 +11,14 @@
     "clean": "rm -rf dist && mkdir dist",
     "build:cjs": "cross-env NODE_ENV=cjs babel src -o dist/index.cjs.js",
     "build:esm": "cross-env NODE_ENV=esm babel src -o dist/index.esm.js",
-    "start": "mdx-go docs",
-    "docs": "mdx-go build docs -d site",
     "logo": "npx repng docs/Logo.js -d docs -f logo.png -w 512 -h 512 -p '{\"size\":512}'",
     "logo-svg": "scrs docs/Logo.js --svg > docs/logo.svg",
     "size": "npx bundlesize",
     "cover": "nyc report --reporter=html --reporter=lcov > coverage.lcov",
     "codecov": "nyc report --reporter=html --reporter=lcov > coverage.lcov && npx codecov",
     "test": "nyc ava",
+    "start": "mdx-go docs",
+    "now-build": "mdx-go build docs -d public",
     "bench": "node bench"
   },
   "keywords": [
@@ -30,25 +30,29 @@
   "author": "Brent Jackson",
   "license": "MIT",
   "devDependencies": {
-    "@babel/cli": "^7.1.2",
-    "@babel/core": "^7.1.2",
-    "@babel/plugin-transform-runtime": "^7.1.0",
-    "@babel/preset-env": "^7.0.0",
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
+    "@emotion/core": "^10.0.6",
+    "@emotion/styled": "^10.0.6",
     "ava": "^1.2.0",
     "benchmark": "^2.1.4",
     "cross-env": "^5.2.0",
+    "husky": "^1.3.1",
     "is-ci": "^1.1.0",
-    "mdx-go": "^2.0.0-29",
+    "lint-staged": "^8.1.3",
+    "mdx-go": "^2.0.0-32",
     "nyc": "^12.0.2",
-    "prettier": "^1.15.3",
-    "react": "^16.4.0",
-    "react-live": "^1.11.0",
-    "react-test-renderer": "^16.4.0",
-    "rebass": "^3.0.0-8",
+    "prettier": "^1.16.1",
+    "react": "^16.7.0",
+    "react-live": "^1.12.0",
+    "react-test-renderer": "^16.7.0",
+    "rebass": "^3.0.1",
     "scrs": "^1.1.0",
-    "styled-components": "^4.0.0"
+    "styled-components": "^4.1.3"
   },
   "ava": {
     "require": [
@@ -74,7 +78,18 @@
     "url": "git+https://github.com/jxnblk/styled-system.git"
   },
   "dependencies": {
-    "@babel/runtime": "^7.1.2",
+    "@babel/runtime": "^7.3.1",
     "prop-types": "^15.6.2"
+  },
+  "husky": {
+    "hooks": {
+      "precommit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,md}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
