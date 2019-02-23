@@ -45,7 +45,6 @@ export const style = ({
 }) => {
   const property = cssProperty || prop
   const func = props => {
-    // TODO write some tests for this
     const value = get(props, prop, alias, null)
     if (!is(value)) return null
     const scale = get(props.theme, key, defaultScale)
