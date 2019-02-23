@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import styled, {
   ThemeProvider,
-  injectGlobal
+  createGlobalStyle
 } from 'styled-components'
 import {
   space,
@@ -13,9 +13,10 @@ import {
   lineHeight,
 } from 'styled-system'
 
-injectGlobal`
-  body{margin:0;}
-`
+const Style = createGlobalStyle(`
+  * { box-sizing: border-box; }
+  body{ margin:0; }
+`)
 
 const theme = {
   fontSizes: [
@@ -77,6 +78,7 @@ class App extends React.Component {
     return (
       <ThemeProvider theme={theme}>
         <Root>
+          <Style />
           <Box
             px={[ 3, 4 ]}
             py={[ 5, 6 ]}
