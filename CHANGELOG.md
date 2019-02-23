@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## v4.0.0 2019-02-23
+
 - Rewritten core for less code duplication
 - No longer merges returned style object, but returns arrays instead, which should work with common CSS-in-JS libraries
 - `space` function has been rewritten with the core `style` and `compose` utilities
