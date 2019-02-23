@@ -407,6 +407,10 @@ which can be helpful when unit testing styled-components.
 themeGet(objectPath, fallbackValue)(props)
 ```
 
+`themeGet` returns a function that accepts props as an argument
+(`themeGet(objectPath)(props)`), which when used in a tagged template
+literal should look like this:
+
 ```js
 import styled from 'styled-components'
 import { themeGet } from 'styled-system'
@@ -414,6 +418,18 @@ import { themeGet } from 'styled-system'
 const Box = styled.div`
   border-radius: ${themeGet('radii.small', '4px')};
 `
+```
+
+When used with object literal syntax, `themeGet` needs to be in a
+function call and have `props` passed to it:
+
+```js
+import styled from 'styled-components'
+import { themeGet } from 'styled-system'
+
+const Box = styled('div')(props => ({
+  borderRadius: themeGet('radii.small', '4px')(props),
+}))
 ```
 
 ### propTypes

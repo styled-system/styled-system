@@ -1,17 +1,3 @@
-//  v4 prototype
-//
-//  - Returns arrays of styles for responsive and composed styles. This should work the same as before when combined with CSS-in-JS libraries like styled-components and emotion
-//  - Refactors `space` function to use core `style` function
-//  - Adds long-hand props for margin and padding. Shorthand aliases still work.
-//  - The get utility works differently, returning the last argument as a fallback.
-//  - Removes the `styles` export
-//  - Removes `meta` field from `propTypes` - this was used by system-docs. An alternative/optional object export for documentation will be added
-//  - Removes the `merge` utility
-//  - Removes `mixed` utility
-//  - The theme scale is passed as the second argument to the `transformValue` option in `style`
-//  - Removes `ratio` function
-//  - Changes to border functions
-
 import PropTypes from 'prop-types'
 
 export const defaultBreakpoints = [40, 52, 64].map(n => n + 'em')
@@ -59,7 +45,6 @@ export const style = ({
 }) => {
   const property = cssProperty || prop
   const func = props => {
-    // TODO write some tests for this
     const value = get(props, prop, alias, null)
     if (!is(value)) return null
     const scale = get(props.theme, key, defaultScale)
@@ -104,8 +89,18 @@ export const style = ({
   func.propTypes = {
     [prop]: cloneFunction(propType),
   }
+  func.propTypes[prop].meta = {
+    prop,
+    themeKey: key
+  }
 
-  if (alias) func.propTypes[alias] = cloneFunction(propType)
+  if (alias) {
+    func.propTypes[alias] = cloneFunction(propType)
+    func.propTypes[alias].meta = {
+      prop: alias,
+      themeKey: key
+    }
+  }
 
   return func
 }
@@ -138,7 +133,6 @@ export const variant = ({ key, prop = 'variant' }) => {
 }
 
 // space
-
 const spaceScale = [0, 4, 8, 16, 32, 64, 128, 256, 512]
 
 const getSpace = (n, scale) => {
@@ -417,8 +411,6 @@ export const gridTemplateAreas = style({ prop: 'gridTemplateAreas' })
 export const gridArea = style({ prop: 'gridArea' })
 
 // borders
-
-// export const getBorder = (n, scale) =>
 export const border = style({
   prop: 'border',
   key: 'borders',
