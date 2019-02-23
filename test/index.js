@@ -62,6 +62,17 @@ test('handles aliased props', t => {
   })
 })
 
+test('long form prop trumps aliased props', t => {
+  const style = backgroundColor({
+    theme,
+    backgroundColor: 'black',
+    bg: 'blue',
+  })
+  t.deepEqual(style, {
+    backgroundColor: '#111',
+  })
+})
+
 test('returns null', t => {
   const style = color({})
   t.is(style, null)

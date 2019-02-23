@@ -3,13 +3,12 @@
 ## Unreleased
 
 - Rewritten core for less code duplication
-- No longer merges returned style object, but returns arrays instead, which appear to work with common CSS-in-JS libraries
+- No longer merges returned style object, but returns arrays instead, which should work with common CSS-in-JS libraries
 - `space` function has been rewritten with the core `style` and `compose` utilities
 - Adds long-form props for margin and padding (e.g. `marginTop`). Shorthand aliases still work as before.
-- Reintroduced the `alias` argument to `style` utility
+- Reintroduces the `alias` argument to `style` utility
 - Removes the `styles` object export
 - Removes the `util` object export
-- Removes `meta` field from propTypes, which was used in system-docs
 - Removes `merge` utility
 - Removes the `mixed` utility since it did not behave as expected
 - The theme "scale" is now passed as the second argument to the `transformValue` option in `style` utility
@@ -18,6 +17,8 @@
   - The shorthand border props no longer transform numbers to pixel widths with a `solid` `border-style`
   - Adds `borderWidth`, `borderStyle`, `borderColor`, and `borderRadius` props
   - All border props are also available as individual imports
+- Removes `styleType` from prop types `meta` fields
+- Changes to the `get` utility: now returns the last argument as a fallback
 
 ## v3.2.1 2019-01-02
 

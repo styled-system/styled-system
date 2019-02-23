@@ -168,6 +168,22 @@ test('py prop overrides pb prop', t => {
   t.deepEqual(styles, [{ paddingTop: '8px' }, { paddingBottom: '8px' }])
 })
 
+test('mx prop overrides mr prop', t => {
+  const styles = space({
+    mr: 1,
+    mx: 2,
+  })
+  t.deepEqual(styles, [{ marginLeft: '8px' }, { marginRight: '8px' }])
+})
+
+test('my prop overrides mt prop', t => {
+  const styles = space({
+    mt: 1,
+    my: 2,
+  })
+  t.deepEqual(styles, [{ marginTop: '8px' }, { marginBottom: '8px' }])
+})
+
 test('margin overrides m prop', t => {
   const styles = space({
     m: 1,
