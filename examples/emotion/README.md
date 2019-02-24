@@ -1,4 +1,4 @@
-# Styled System Basic Demo
+# Styled System Emotion Demo
 
 ```sh
 npm i && npm start

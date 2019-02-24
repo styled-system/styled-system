@@ -70,16 +70,15 @@ npm i styled-system
 [dalgleish]: https://mobile.twitter.com/markdalgleish/status/913191186944241665
 [mrmrs]: https://mobile.twitter.com/mrmrs_/status/913189805055401984
 
-<!--
-
-todo: react-scripts is borked
 
 ## Try It Out
 
 Try the [examples](examples) on CodeSandbox
 
-- [Basic](https://codesandbox.io/s/github/jxnblk/styled-system/tree/master/examples/basic)
+- [Basic Example](https://codesandbox.io/s/github/jxnblk/styled-system/tree/master/examples/basic)
+
 - [Emotion](https://codesandbox.io/s/github/jxnblk/styled-system/tree/master/examples/emotion)
+<!--
 - [Theme Aliases](https://codesandbox.io/s/github/jxnblk/styled-system/tree/master/examples/theme-aliases)
 
 -->
@@ -167,32 +166,12 @@ To learn more, see the [Getting Started](docs/getting-started.md) guide or read 
 
 ## Docs
 
-
-- [Getting Started](docs/getting-started.md)
-- [Responsive Styles](docs/responsive-styles.md)
-- [How it Works](docs/how-it-works.md)
-- [API](docs/api.md)
-  - [Core](docs/api.md#core)
-    - [space](docs/api.md#space) (margins & paddings)
-    - [width](docs/api.md#width)
-    - [fontSize](docs/api.md#fontsize)
-    - [color](docs/api.md#color) (and background-color)
-  - [Typography](docs/api.md#typography)
-  - [Layout](docs/api.md#layout)
-  - [Flexbox](docs/api.md#flexbox)
-  - [Borders](docs/api.md#borders)
-  - [Position](docs/api.md#position)
-  - [Misc](docs/api.md#misc)
-  - [Variants](docs/api.md#variants)
-  - [Utilities](docs/api.md#utilities)
-    - [themeGet](docs/api.md#themeget)
-    - [propTypes](docs/api.md#proptypes)
-  - [Customize](docs/api.md#customize)
-    - [style](docs/api.md#style)
-    - [variant](docs/api.md#variant)
-- [Table of Style Functions](docs/table.md)
-- [Custom Props](docs/custom-props.md)
-
+- [Getting Started](https://styled-system.com/getting-started)
+- [Responsive Styles](https://styled-system.com/responsive-styles)
+- [How it Works](https://styled-system.com/how-it-works)
+- [API](https://styled-system.com/api)
+- [Table of Style Functions](https://styled-system.com/table)
+- [Custom Props](https://styled-system.com/custom-props)
 
 ---
 
@@ -200,7 +179,7 @@ To learn more, see the [Getting Started](docs/getting-started.md) guide or read 
 
 - [Component Based Design System With Styled-System][varun-post]
 - [Build Better Component Libraries with Styled System][alan-b-smith-post]
-- [Defining Component APIs in React](http://jxnblk.com/writing/posts/defining-component-apis-in-react/)
+- [Defining Component APIs in React](http://jxnblk.com/blog/defining-component-apis-in-react/)
 
 
 ## Related
