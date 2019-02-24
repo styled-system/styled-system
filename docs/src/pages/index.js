@@ -1,13 +1,11 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Box, Flex, Container, Text, Blockquote, Link, UL, Columns, Pre } from '../components'
+import { Box, Flex, Container, Text, Blockquote, Link, Columns, Pre } from '../components'
 import Logo from '../Logo'
 import Badges from '../badges.md'
 import CodeSandbox from '../CodeSandbox'
 import GettingStarted from '../../getting-started.md'
-import Docs from '../../README.md'
 import Footer from '../Footer'
-// import Pattern from '../Pattern'
 import Hex from '../Hex'
 
 export const query = graphql`
@@ -16,6 +14,8 @@ export const query = graphql`
       siteMetadata {
         title
         description
+        github
+        install
         features
         quotes {
           text
@@ -37,13 +37,25 @@ export default ({
   <div>
     <Box
       as='header'
-      py={[ 5, 6 ]}
       color='white'
       bg='black'
       css={{
         minHeight: '100vh',
       }}>
-      <Container>
+      <Flex px={3} py={3}>
+        <Box mx='auto' />
+        <Link href='/getting-started'
+          color='inherit'>
+          Docs
+        </Link>
+        <Link
+          href={meta.github}
+          ml={3}
+          color='inherit'>
+          GitHub
+        </Link>
+      </Flex>
+      <Container pt={[4, 5]} pb={[5, 6]}>
         <Text as='h1'
           fontSize={[5]}
           lineHeight='1.125'>
@@ -93,7 +105,32 @@ export default ({
       <Box py={4}>
         <GettingStarted />
       </Box>
-      <Docs />
+      <Box py={4}>
+        <Text
+          as='h2'
+          fontSize={6}
+          mb={3}
+        >
+          Docs
+        </Text>
+        <ul>
+          <li>
+            <Link href='/responsive-styles'>Responsive Styles</Link>
+          </li>
+          <li>
+            <Link href='/how-it-works'>How it Works</Link>
+          </li>
+          <li>
+            <Link href='/api'>API</Link>
+          </li>
+          <li>
+            <Link href='/table'>Reference Table</Link>
+          </li>
+          <li>
+            <Link href='/custom-props'>Custom Props</Link>
+          </li>
+        </ul>
+      </Box>
     </Container>
     <Footer />
   </div>

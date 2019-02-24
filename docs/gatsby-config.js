@@ -5,10 +5,7 @@ module.exports = {
     author: '@jxnblk',
     install: 'npm i styled-system',
     github: 'https://github.com/jxnblk/styled-system',
-    navigation: [
-      { text: 'Home', href: '/' },
-      { text: 'Getting Started', href: '/getting-started' },
-    ],
+    navigation: [],
     quotes: [
       {
         text: 'This is honestly my favourite way to build UI components right now',
@@ -47,23 +44,28 @@ text: 'If you like Tachyons you will love styled-system. If you don’t like Tac
       'Works with most CSS-in-JS libraries, including styled-components and emotion',
     ],
   },
+  __experimentalThemes: [
+    {
+      resolve: '@rebass/gatsby-theme-docs',
+      options: {
+        navigation: [
+          { href: '/', text: 'Styled System' },
+          { href: '/getting-started', text: 'Getting Started' },
+          { href: '/responsive-styles', text: 'Responsive Styles' },
+          { href: '/how-it-works', text: 'How it Works' },
+          { href: '/api', text: 'API' },
+          { href: '/table', text: 'Reference Table' },
+          { href: '/custom-props', text: 'Custom Props' },
+        ]
+      }
+    }
+  ],
   plugins: [
-    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: 'UA-4603832-13'
       }
     },
-    'gatsby-plugin-styled-components',
-    'gatsby-plugin-layout',
-    { resolve: 'gatsby-mdx',
-      options: {
-        extensions: [ '.mdx', '.md' ],
-        // defaultLayouts: {
-        //   default: require.resolve('./src/layouts/sidebar.js')
-        // }
-      }
-    }
   ],
 }

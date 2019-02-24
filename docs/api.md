@@ -541,5 +541,5 @@ const fontSizes = [ 12, 14, 16, 20, 24, 32, 48, 64, 72 ]
 const space = [ 0, 4, 8, 16, 32, 64, 128, 256, 512 ]
 ```
 
-[responsive-styles]: responsive-styles.md
-[theming]: getting-started.md#theming
+[responsive-styles]: /responsive-styles
+[theming]: /getting-started#theming
