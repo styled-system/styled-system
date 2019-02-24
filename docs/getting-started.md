@@ -2,13 +2,10 @@
 # Getting Started
 
 Styled-system is a collection of utility functions that add style props
-to your React components,
-which allows for controlling styles based on global theme constants.
+to your React components
+and allows you to control styles based on global theme constants or *tokens*.
 
-To use styled-system, you'll most likely want to use a CSS-in-JS library.
-These examples use [styled-components][],
-but styled-system works with other libraries
-like [emotion][] and [glamorous][] as well.
+To use styled-system, install a CSS-in-JS library such as [styled-components][] or [emotion][].
 
 ```sh
 npm i styled-system styled-components
@@ -55,7 +52,7 @@ export default {
 
 ## Theming
 
-Most CSS-in-JS libraries use a ThemeProvider to handle theming in React.
+Most CSS-in-JS libraries include a ThemeProvider to provide values through React context.
 Import the styled-components [ThemeProvider][] in the root of your application and pass the theme to the `theme` prop.
 
 ```jsx
@@ -74,7 +71,7 @@ export default App
 
 [ThemeProvider]: https://www.styled-components.com/docs/advanced#theming
 
-With the ThemeProvider, the Box component now has access to the colors defined in the theme object.
+With the ThemeProvider added, the Box component now has access to the colors defined in the theme object.
 
 ```jsx
 <Box color='black' bg='blue'>
@@ -85,7 +82,7 @@ With the ThemeProvider, the Box component now has access to the colors defined i
 Styled-system will attempt to find a value based on keys in the theme and fallback to the raw value if it's not defined in the theme.
 
 ```jsx
-// uses the CSS color keyword `tomato` since it's not defined in the theme
+// this example uses the CSS color keyword `tomato` since it's not defined in the theme
 <Box bg='tomato' />
 ```
 
@@ -148,6 +145,7 @@ The margin and padding props use a shorthand syntax, similar to
 
 To set a consistent white-space scale, add a `space` array to your theme.
 Use numbers to set pixel values, or use strings for other CSS units such as `rem`.
+It's recommended to set `0` as the first value in the array.
 
 ```js
 // theme.js
@@ -165,6 +163,7 @@ All spacing props accept numbers, strings, or arrays as values, where:
 - String values can be used for any valid CSS value (e.g. `'auto'` or `'2em'`)
 - Margin props accept negative values to set negative margin
 - Arrays can be used for [responsive styles](#responsive-styles)
+- Note: numeric strings without a CSS unit will be used as indices for the array (e.g. `space['0']`)
 
 
 ## Width
@@ -204,7 +203,27 @@ All styled-system functions accept arrays as values to set styles responsively u
 <Text fontSize={[ 3, 4, 5 ]} />
 ```
 
-Alternatively if you define your theme breakpoints as an `object` you can use the following syntax:
+Alternatively, if you define your theme breakpoints as an `object` or include aliases for breakpoints you can use the following syntax:
+
+```js
+// theme.js
+const breakpoints = [
+  '40em',
+  '52em',
+  '64em',
+  '80em',
+]
+
+// aliases
+breakpoints.sm = breakpoints[0]
+breakpoints.md = breakpoints[1]
+breakpoints.lg = breakpoints[2]
+breakpoints.xl = breakpoints[3]
+
+export default {
+  breakpoints,
+}
+```
 
 ```jsx
 <Box
@@ -219,7 +238,14 @@ Alternatively if you define your theme breakpoints as an `object` you can use th
 
 Read the [Responsive Styles][] docs for more information.
 
+## Other Props
+
+Styled System includes pre-built functions for many other commonly used CSS properties.
+For a complete list, see the [Reference Table] of style functions.
+
+
 [styled-components]: https://github.com/styled-components/styled-components
 [emotion]: https://github.com/emotion-js/emotion
 [glamorous]: https://github.com/paypal/glamorous
-[Responsive Styles]: https://github.com/jxnblk/styled-system/blob/master/docs/responsive-styles.md
+[responsive styles]: https://github.com/jxnblk/styled-system/blob/master/docs/responsive-styles.md
+[reference table]: https://github.com/jxnblk/styled-system/blob/master/docs/table.md
