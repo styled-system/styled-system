@@ -74,6 +74,8 @@ Margin and padding props follow a shorthand syntax for specifying direction.
 <Box m={[ 1, 2 ]} />
 ```
 
+As of v4.0.0, verbose margin and padding props (e.g. `margin`, `marginTop`) can also be used instead of the shorthand props.
+
 ### width
 
 ```js
@@ -155,11 +157,28 @@ Array values are converted into [responsive values][responsive-styles].
 
 // raw CSS color value
 <Box color='#f00' />
+
+// background colors
+<Box bg='blue' />
+
+// verbose prop
+<Box backgroundColor='blue' />
 ```
 
 ---
 
 ## Typography
+
+```js
+// style functions
+import {
+  fontFamily,
+  textAlign,
+  lineHeight,
+  fontWeight,
+  letterSpacing
+} from 'styled-system'
+```
 
 ```jsx
 // fontFamily
@@ -180,6 +199,19 @@ Array values are converted into [responsive values][responsive-styles].
 ```
 
 ## Layout
+
+```js
+// style functions
+import {
+  display,
+  maxWidth,
+  minWidth,
+  height,
+  maxHeight,
+  minHeight,
+  size,
+} from 'styled-system'
+```
 
 ```jsx
 // display
@@ -209,12 +241,25 @@ Array values are converted into [responsive values][responsive-styles].
 // size (width & height)
 <Box size={32} />
 <Box size={[ 32, 48 ]} />
-
-// ratio (height: 0 & paddingBottom)
-<Box ratio={3/4} />
 ```
 
 ## Flexbox
+
+```js
+// style functions
+import {
+  alignItems,
+  alignContent,
+  justifyContent,
+  flexWrap,
+  flexBasis,
+  flexDirection,
+  flex,
+  justifySelf,
+  alignSelf,
+  order
+} from 'styled-system'
+```
 
 ```jsx
 // alignItems
@@ -243,9 +288,30 @@ Array values are converted into [responsive values][responsive-styles].
 
 // alignSelf
 <Box alignSelf='center' />
+
+// order
+<Box order='2' />
 ```
 
 ## Grid Layout
+
+```js
+// style functions
+import {
+  gridGap,
+  gridColumnGap,
+  gridRowGap,
+  gridColumn,
+  gridRow,
+  gridAutoFlow,
+  gridAutoColumns
+  gridAutoRows
+  gridTemplateColumns,
+  gridTemplateRows,
+  gridTemplateAreas,
+  gridArea
+} from 'styled-system'
+```
 
 ```jsx
 // gridGap
@@ -290,7 +356,27 @@ Array values are converted into [responsive values][responsive-styles].
 
 ## Borders
 
-The `borders` utility combines `border`, `borderTop`, `borderRight`, `borderBottom` and `borderLeft`.
+The `borders` utility combines `border`, `borderTop`, `borderRight`, `borderBottom`, `borderLeft`, `borderWidth`, `borderStyle`, `borderColor`, and `borderRadius` props.
+
+```js
+// style functions
+import {
+  border,
+  borderTop,
+  borderRight,
+  borderBottom,
+  borderLeft,
+  borderWidth,
+  borderStyle,
+  borderColor,
+  borderRadius
+} from 'styled-system'
+```
+
+```js
+// composed style function with all border props
+import { borders } from 'styled-system'
+```
 
 ```jsx
 <Box border='1px solid' />
@@ -298,8 +384,13 @@ The `borders` utility combines `border`, `borderTop`, `borderRight`, `borderBott
 <Box borderRight='1px solid' />
 <Box borderBottom='1px solid' />
 <Box borderLeft='1px solid' />
-```
-```jsx
+
+// borderWidth
+<Box borderWidth='4px' />
+
+// borderStyle
+<Box borderStyle='dotted' />
+
 // borderColor
 <Box borderColor='blue' />
 
@@ -308,6 +399,18 @@ The `borders` utility combines `border`, `borderTop`, `borderRight`, `borderBott
 ```
 
 ## Position
+
+```js
+// style functions
+import {
+  position,
+  zIndex,
+  top,
+  right,
+  bottom,
+  left
+} from 'styled-system'
+```
 
 ```jsx
 // position
@@ -327,6 +430,20 @@ The `borders` utility combines `border`, `borderTop`, `borderRight`, `borderBott
 
 ## Misc
 
+```js
+// style functions
+import {
+  boxShadow,
+  background,
+  backgroundImage,
+  backgroundSize,
+  backgroundPosition,
+  backgroundRepeat,
+  opacity,
+  overflow,
+} from 'styled-system'
+```
+
 ```jsx
 // boxShadow
 <Box boxShadow={1} />
@@ -341,11 +458,16 @@ The `borders` utility combines `border`, `borderTop`, `borderRight`, `borderBott
 
 // opacity
 <Box opacity={0.5} />
+
+// overflow
+<Box overflow='auto' />
 ```
 
 ## Variants
 
 The variant style utilities allow you to define reusable style objects in your theme for things like text styles and color combinations.
+
+**NOTE:** the objects defined in the theme are *CSS style* objects, not component *props*. Styled system props **will not** work here to avoid conflating CSS style objects with component props.
 
 ```js
 // example theme
@@ -376,6 +498,15 @@ const theme = {
     }
   }
 }
+```
+
+```js
+// style functions
+import {
+  textStyle,
+  colorStyle,
+  buttonStyle
+} from 'styled-system'
 ```
 
 ```jsx
@@ -466,16 +597,18 @@ import styled from 'styled-components'
 import { style } from 'styled-system'
 
 const fontSize = style({
-  // React prop name
+  // React prop name and CSS property
   prop: 'fontSize',
-  // The corresponding CSS property (defaults to prop argument)
+  // CSS property (if different from prop argument)
   cssProperty: 'fontSize',
   // key for theme values
   key: 'fontSizes',
   // accessor function for transforming the value
   transformValue: n => n + 'px',
   // add a fallback scale object or array, if theme is not present
-  scale: [ 0, 4, 8, 16, 32 ]
+  scale: [ 0, 4, 8, 16, 32 ],
+  // Optional prop alias
+  alias: 'fs',
 })
 
 const Text = styled.div`
