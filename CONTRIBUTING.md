@@ -1,36 +1,55 @@
 # Contribution Guidelines
 
-We follow the Contributor Covenant. You can read it, and where to report abuse in our [Code of Conduct](./CODE_OF_CONDUCT.md).
+Styled System has a [Code of Conduct][].
+Please review and help enforce this code of conduct to help us foster an open and inclusive project.
+
+[code of conduct]: ./CODE_OF_CONDUCT.MD
 
 ## How to Contribute
 
-If you'd like to fix a bug, add a feature, or just generally tinker with
-`styled-system`, please start by forking the repository, and creating a new
-branch. Then install dependencies by running `npm install` (we use `npm`, you're
-free to use `yarn`, just take care to not commit `yarn.lock`).
+Feel free to contribute by opening and commenting on issues, helping answer questions, updating docs, or opening a pull request.
+For quick bug fixes or PRs that address an open issue, feel free to open a PR.
+If you'd like to suggest a new feature or change to the API, please open an issue for discussion first.
 
-You can start the documentation development server by executing `npm start`. By
-default it'll run on port `8080`, but you can override this using the `--port`
-flag (`npm start -- --port 3000` for example). See
-[`mdx-go`](https://github.com/jxnblk/mdx-go)'s documentation to learn more about
-its CLI options. It's set up to watch for file changes by default.
+## Pull Requests
 
-That's it! You're now ready to start working on your feature. Until we have more
-documentation in place with regards to architecture & testing, please peruse
-`src/index.js`, the tests in `test/index.js`, or one of the `packages`. If
-you're unsure, please open a [Draft Pull
-Request](https://github.blog/2019-02-14-introducing-draft-pull-requests/),
-explain us to the best of your abilities what it is we can help you with, and
-we'll try to guide you in the right direction.
+To submit a pull request, follow these steps
 
-## Library Goals
+1. Fork and clone this repo
+2. Create a branch for your changes
+3. Install dependencies with `npm install`
+4. Ensure tests are passing by running `npm test`
+5. If you're fixing a bug, it's recommended to write a failing test before writing any code
+6. Make changes locally and commit them
+7. Try to make sure tests still pass and that there's 100% coverage
+8. Push your branch to origin
+9. Open a pull request in this repository with a clear title and description and link to any relevant issues
+10. Wait for a maintainer to review your PR
 
-WIP
+
+## Documentation Site
+
+The documentation site is a separate package in the `docs/` folder.
+To view the documentation site locally, run the following:
+
+```sh
+cd docs
+npm install
+npm start
+```
 
 ## Architecture
 
-WIP
+Styled system is intentionally decoupled from React and the CSS-in-JS libraries it works with.
+It's a very small library of utility functions that accept `props` as an argument and return CSS style objects.
 
-## What to Test
+To avoid additional build tools, the entire source code is in a single `src/index.js` file,
+with the core part of the library at the top and built-in style functions below.
+This allows users of this library to take advantage of features like tree-shaking in webpack.
 
-WIP
+### Subpackages
+
+The `packages/` folder contains other npm packages and experiments related to the core library.
+Many of these have been made redundant by upstream changes in libraries like `styled-components` and `emotion`,
+but can be forked or used as a reference point for people using Styled System.
+
