@@ -4,7 +4,7 @@ module.exports = {
     description: 'Style props for rapid UI development',
     author: '@jxnblk',
     install: 'npm i styled-system',
-    github: 'https://github.com/jxnblk/styled-system',
+    github: 'https://github.com/styled-system/styled-system',
     navigation: [],
     quotes: [
       {
