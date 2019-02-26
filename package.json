@@ -11,13 +11,13 @@
     "clean": "rm -rf dist && mkdir dist",
     "build:cjs": "cross-env NODE_ENV=cjs babel src -o dist/index.cjs.js",
     "build:esm": "cross-env NODE_ENV=esm babel src -o dist/index.esm.js",
-    "logo": "npx repng docs/Logo.js -d docs -f logo.png -w 512 -h 512 -p '{\"size\":512}'",
-    "logo-svg": "scrs docs/Logo.js --svg > docs/logo.svg",
+    "logo-svg": "scrs docs/src/Logo.js --svg > docs/static/logo.svg",
     "size": "npx bundlesize",
     "cover": "nyc report --reporter=html --reporter=lcov > coverage.lcov",
     "codecov": "nyc report --reporter=html --reporter=lcov > coverage.lcov && npx codecov",
     "test": "nyc ava",
-    "bench": "node bench"
+    "bench": "node bench",
+    "todo_fix__logo": "npx repng docs/src/Logo.js -d docs -f logo.png -w 512 -h 512 -p '{\"size\":512}'"
   },
   "keywords": [
     "react",

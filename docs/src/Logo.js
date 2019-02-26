@@ -1,11 +1,8 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
 import {
   hex,
   inner
 } from './Hex'
-
-console.log(hex, inner)
 
 const Logo = ({
   size = 128,
@@ -15,10 +12,11 @@ const Logo = ({
   viewBox='-16 -16 32 32'
   width={size}
   height={size}
-  fill='none'
   style={{
     display: 'block',
     overflow: 'visible',
+    color: 'black',
+    fill: 'none',
     stroke: 'currentColor'
   }}>
     <g>

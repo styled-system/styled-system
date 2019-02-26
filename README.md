@@ -1,5 +1,5 @@
 
-<img src='https://jxnblk.com/styled-system/logo.svg' width='128' height='128' />
+<img src='https://styled-system.com/logo.svg' width='128' height='128' />
 
 # Styled System
 
