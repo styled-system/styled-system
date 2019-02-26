@@ -115,6 +115,9 @@ export default ({
         </Text>
         <ul>
           <li>
+            <Link href='/getting-started'>Getting Started</Link>
+          </li>
+          <li>
             <Link href='/responsive-styles'>Responsive Styles</Link>
           </li>
           <li>
