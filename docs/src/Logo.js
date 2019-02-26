@@ -1,15 +1,39 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
+import {
+  hex,
+  inner
+} from './Hex'
 
-const colors = {
-  lavender: '#cbd',
-  orange: '#f60',
-  cyan: '#8ee',
-  navy: '#22a',
-  purple: '#92e',
-  lightgray: '#f0f6f6',
-}
+console.log(hex, inner)
 
+const Logo = ({
+  size = 128,
+}) =>
+<svg
+  xmlns='http://www.w3.org/2000/svg'
+  viewBox='-16 -16 32 32'
+  width={size}
+  height={size}
+  fill='none'
+  style={{
+    display: 'block',
+    overflow: 'visible',
+    stroke: 'currentColor'
+  }}>
+    <g>
+      <path d={hex} />
+      <path d={inner} strokeWidth='0.25'/>
+    </g>
+  </svg>
+
+  Logo.defaultProps = {
+    ignore: true
+  }
+
+export default Logo
+
+/*
 const radius = 12
 const rad = a => Math.PI * a / 180
 const round = n => Math.round(n * 1000) / 1000
@@ -72,24 +96,5 @@ const E = [
   'L', b.x, b.y,
   'z'
 ].join(' ')
+*/
 
-const Logo = ({
-  size = 128,
-}) =>
-<svg
-  xmlns='http://www.w3.org/2000/svg'
-  viewBox='-12 -12 24 24'
-  width={size}
-  height={size}
-  style={{
-    display: 'block',
-  }}>
-    <path d={D} fill={colors.orange} />
-    <path d={E} fill={colors.cyan} />
-  </svg>
-
-  Logo.defaultProps = {
-    ignore: true
-  }
-
-export default Logo
