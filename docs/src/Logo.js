@@ -32,6 +32,7 @@ const Logo = ({
 export default Logo
 
 /*
+// generate a hexagon
 const radius = 12
 const rad = a => Math.PI * a / 180
 const round = n => Math.round(n * 1000) / 1000
@@ -51,48 +52,5 @@ const getPoints = length => Array.from({ length })
 const points = getPoints(6)
 
 const [ a, b, c, d, e, f ] = points
-
-const A = [
-  'M', f.x, f.y,
-  'L', a.x, a.y,
-  'L', b.x, b.y,
-  'L', c.x, c.y,
-  'z'
-].join(' ')
-
-const B = [
-  'M', b.x, b.y,
-  'L', c.x, c.y,
-  'L', d.x, d.y,
-  'L', e.x, e.y,
-  'z'
-].join(' ')
-
-const C = [
-  'M', d.x, d.y,
-  'L', e.x, e.y,
-  'L', f.x, f.y,
-  'L', a.x, a.y,
-  'z'
-].join(' ')
-
-const D = [
-  'M', a.x, a.y,
-  'L', b.x, b.y,
-  'L', 0, 0,
-  'L', d.x, d.y,
-  'L', e.x, e.y,
-  'L', f.x, f.y,
-  'z'
-].join(' ')
-
-const E = [
-  'M', b.x, b.y,
-  'L', c.x, c.y,
-  'L', d.x, d.y,
-  'L', 0, 0,
-  'L', b.x, b.y,
-  'z'
-].join(' ')
 */
 
