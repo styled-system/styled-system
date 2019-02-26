@@ -9,7 +9,7 @@ const Logo = ({
 }) =>
 <svg
   xmlns='http://www.w3.org/2000/svg'
-  viewBox='-16 -16 32 32'
+  viewBox='-18 -18 36 36'
   width={size}
   height={size}
   style={{
