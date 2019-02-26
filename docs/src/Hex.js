@@ -1,6 +1,6 @@
 import React from 'react'
 
-const hex = `
+export const hex = `
   M0 -16
   L-14 -8
   L -14 8
@@ -8,8 +8,9 @@ const hex = `
   L 14 8
   L 14 -8
   L 0 -16
+  z
 `
-const inner = `
+export const inner = `
 M0 -16
 L 0 0
 M-14 8

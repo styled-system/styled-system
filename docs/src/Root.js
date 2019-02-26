@@ -39,7 +39,7 @@ const Root = props => {
         <meta name='twitter:site' content='@jxnblk' />
         <meta name='twitter:title' content={title} />
         <meta name='twitter:description' content={description} />
-        <meta name='twitter:image' content='https://jxnblk.com/styled-system/logo.png' />
+        <meta name='twitter:image' content='https://styled-system.com/logo.png' />
       </Helmet>
       <Style />
       {props.children}
