@@ -3,36 +3,36 @@
 
 ## Core
 
-Function Name | Prop       | CSS Property    | Theme Field
---------------|------------|-----------------|--------------
-`space`       | `m`        | `margin`        | `space`
-`space`       | `mt`       | `margin-top`    | `space`
-`space`       | `mr`       | `margin-right`  | `space`
-`space`       | `mb`       | `margin-bottom` | `space`
-`space`       | `ml`       | `margin-left`   | `space`
-`space`       | `mx`       | `margin-left` and `margin-right`   | `space`
-`space`       | `my`       | `margin-top` and `margin-bottom`   | `space`
-`space`       | `p`        | `padding`       | `space`
-`space`       | `pt`       | `padding-top`   | `space`
-`space`       | `pr`       | `padding-right` | `space`
-`space`       | `pb`       | `padding-bottom` | `space`
-`space`       | `pl`       | `padding-left`  | `space`
-`space`       | `px`       | `padding-left` and `padding-right`   | `space`
-`space`       | `py`       | `padding-top` and `padding-bottom`   | `space`
-`width`       | `width`    | `width`         | none
-`fontSize`    | `fontSize` |`font-size`      |`fontSizes`
-`color`       | `color`    | `color`         | `colors`
-`color`       | `bg`       | `background-color`| `colors`
+Function Name | Prop                  | CSS Property    | Theme Field
+--------------|-----------------------|-----------------|--------------
+`space`       | `m`, `margin`         | `margin`        | `space`
+`space`       | `mt`, `marginTop`     | `margin-top`    | `space`
+`space`       | `mr`, `marginRight`   | `margin-right`  | `space`
+`space`       | `mb`, `marginBottom`  | `margin-bottom` | `space`
+`space`       | `ml`, `marginLeft`    | `margin-left`   | `space`
+`space`       | `mx`                  | `margin-left` and `margin-right`   | `space`
+`space`       | `my`                  | `margin-top` and `margin-bottom`   | `space`
+`space`       | `p`, `padding`        | `padding`       | `space`
+`space`       | `pt`, `paddingTop`    | `padding-top`   | `space`
+`space`       | `pr`, `paddingRight`  | `padding-right` | `space`
+`space`       | `pb`, `paddingBottom` | `padding-bottom` | `space`
+`space`       | `pl`, `paddingLeft`   | `padding-left`  | `space`
+`space`       | `px`                  | `padding-left` and `padding-right`   | `space`
+`space`       | `py`                  | `padding-top` and `padding-bottom`   | `space`
+`width`       | `width`               | `width`         | none
+`fontSize`    | `fontSize`            |`font-size`      |`fontSizes`
+`color`       | `color`               | `color`         | `colors`
+`color`       | `bg`, `backgroundColor` | `background-color`| `colors`
 
 ## Typography
 
-Function Name | Prop       | CSS Property    | Theme Field
---------------|------------|-----------------|--------------
-`fontFamily` | `fontFamily` | `font-family` | `fonts`
-`textAlign`   | `textAlign`    | `text-align`   | none
-`lineHeight`  | `lineHeight` | `line-height` | `lineHeights`
-`fontWeight`  | `fontWeight` | `font-weight` | `fontWeights`
-`fontStyle`  | `fontStyle` | `font-style` | none
+Function Name   | Prop          | CSS Property    | Theme Field
+----------------|---------------|-----------------|--------------
+`fontFamily`    | `fontFamily`  | `font-family`   | `fonts`
+`textAlign`     | `textAlign`   | `text-align`    | none
+`lineHeight`    | `lineHeight`  | `line-height`   | `lineHeights`
+`fontWeight`    | `fontWeight`  | `font-weight`   | `fontWeights`
+`fontStyle`     | `fontStyle`   | `font-style`    | none
 `letterSpacing` | `letterSpacing` | `letter-spacing` | `letterSpacings`
 
 ## Layout
@@ -46,7 +46,6 @@ Function Name | Prop       | CSS Property    | Theme Field
 `maxHeight` | `maxHeight` | `max-height` | `maxHeights`
 `minHeight` | `minHeight` | `min-height` | `minHeights`
 `size` | `size` | `width` `height` | none
-`ratio` | `ratio` | `height` `padding-bottom` | none
 `verticalAlign` | `verticalAlign` | `vertical-align` | none
 
 ## Flexbox
@@ -94,18 +93,34 @@ Function Name | Prop       | CSS Property    | Theme Field
 
 ## Misc
 
-Function Name | Prop       | CSS Property    | Theme Field
---------------|------------|-----------------|--------------
-`borderRadius` | `borderRadius` | `border-radius` | `radii`
+Function Name | Prop            | CSS Property    | Theme Field
+--------------|-----------------|-----------------|--------------
+`border`      | `border`        | `border`        | `borders`
+`borderTop`   | `borderTop`     | `border-top`    | `borders`
+`borderRight` | `borderRight`   | `border-right`  | `borders`
+`borderBottom`| `borderBottom`  | `border-bottom` | `borders`
+`borderLeft`  | `borderLeft`    | `border-left`   | `borders`
+`borderWidth` | `borderWidth` | `border-width` | `borderWidths`
+`borderStyle` | `borderStyle` | `border-style` | `borderStyles`
 `borderColor` | `borderColor` | `border-color` | `colors`
-`borders` | `border` | `border` | `borders`
-`borders` | `borderTop` | `border-top` | `borders`
-`borders` | `borderRight` | `border-right` | `borders`
-`borders` | `borderBottom` | `border-bottom` | `borders`
-`borders` | `borderLeft` | `border-left` | `borders`
+`borderRadius`| `borderRadius` | `border-radius` | `radii`
 `boxShadow` | `boxShadow` | `box-shadow` | `shadows`
-`opacity`   | `opacity` `o` | `opacity`  | `opacity`
+`opacity`   | `opacity` | `opacity`  | `opacity`
 `overflow` | `overflow` | `overflow` | none
+
+The `borders` function composes multiple border props together.
+
+Function Name | Prop | CSS Property | Theme Field
+---|---|---|---
+`borders` | `border` | `border` | `borders`
+`borders` | `borderTop` | `border-top`        | `borders`
+`borders` | `borderRight` | `border-right`    | `borders`
+`borders` | `borderBottom` | `border-bottom`  | `borders`
+`borders` | `borderLeft` | `border-left`      | `borders`
+`borders` | `borderWidth` | `border-width`    | `borderWidths`
+`borders` | `borderStyle` | `border-style`    | `borderStyles`
+`borders` | `borderColor` | `border-color`    | `colors`
+`borders` | `borderRadius` | `border-radius`  | `radii`
 
 ## Position
 

@@ -46,7 +46,7 @@ The core utilities in styled-system are built on this pattern and consist of fun
 and return style objects,
 while making it simpler to use values from a theme and apply styles responsively across breakpoints.
 
-These style functions can be written on a one-off basis, but styled-system is meant to help reduce boilerplate, ensure a consistent styling API, and speed the development of React-based design systems.
+These style functions can be written on a one-off basis, but styled-system is meant to help **reduce boilerplate**, ensure a **consistent styling API**, and speed the development of React-based design systems.
 
 [glamorous]: https://github.com/paypal/glamorous
 [emotion]: https://github.com/emotion-js/emotion

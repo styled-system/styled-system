@@ -1,7 +1,7 @@
 
 # Responsive Styles
 
-Often when working on responsive layouts, it's useful to adjust styles across a singular dimension –
+Often when working on responsive layouts, it's useful to adjust styles along a singular dimension –
 such as font-size, margin, padding, and width.
 Instead of manually managing media queries and adding nested style objects throughout a code base,
 styled-system offers a convenient shorthand syntax for adding responsive styles with a mobile-first approach.
