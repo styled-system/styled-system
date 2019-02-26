@@ -4,6 +4,7 @@
 # Styled System
 
 Responsive, theme-based style props for building design systems with React
+https://styled-system.com
 
 [![stars][]][github]
 [![Build Status][ci]][travis]
