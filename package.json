@@ -62,7 +62,8 @@
       "**/babel.config.js",
       "docs",
       "bench",
-      "examples"
+      "examples",
+      "packages/**/*"
     ]
   },
   "bundlesize": [

@@ -495,5 +495,5 @@ export const left = style({ prop: 'left', transformValue: getPx })
 
 // variants
 export const buttonStyle = variant({ key: 'buttons' })
-export const textStyle = variant({ key: 'textStyles' })
-export const colorStyle = variant({ key: 'colorStyles' })
+export const textStyle = variant({ key: 'textStyles', prop: 'textStyle' })
+export const colorStyle = variant({ key: 'colorStyles', prop: 'colors' })
