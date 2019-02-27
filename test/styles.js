@@ -1,5 +1,5 @@
 import test from 'ava'
-import { space, color, width, fontSize, size, gridGap, gridRowGap, gridColumnGap } from '../src'
+import { space, color, width, fontSize, size, gridGap, gridRowGap, gridColumnGap, buttonStyle, textStyle, colorStyle } from '../src'
 
 const theme = {
   colors: {
@@ -258,4 +258,40 @@ test('gridColumnGap uses the default scale', t => {
   })
 
   t.deepEqual(a, { gridColumnGap: '8px' })
+})
+
+test('textStyle prop returns theme.textStyles object', t => {
+  const a = textStyle({
+    theme: {
+      textStyles: {
+        heading: {
+          fontWeight: 'bold',
+          lineHeight: 1.25,
+        }
+      }
+    },
+    textStyle: 'heading'
+  })
+  t.deepEqual(a, {
+    fontWeight: 'bold',
+    lineHeight: 1.25,
+  })
+})
+
+test('colors prop returns theme.colorStyles object', t => {
+  const a = colorStyle({
+    theme: {
+      colorStyles: {
+        dark: {
+          color: '#fff',
+          backgroundColor: '#000'
+        }
+      }
+    },
+    colors: 'dark'
+  })
+  t.deepEqual(a, {
+    color: '#fff',
+    backgroundColor: '#000'
+  })
 })
