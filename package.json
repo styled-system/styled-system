@@ -12,6 +12,7 @@
     "build:cjs": "cross-env NODE_ENV=cjs babel src -o dist/index.cjs.js",
     "build:esm": "cross-env NODE_ENV=esm babel src -o dist/index.esm.js",
     "logo-svg": "scrs docs/src/Logo.js --svg > docs/static/logo.svg",
+    "logo-white": "scrs docs/src/LogoWhite.js --svg > docs/static/logo-white.svg",
     "size": "npx bundlesize",
     "cover": "nyc report --reporter=html --reporter=lcov > coverage.lcov",
     "codecov": "nyc report --reporter=html --reporter=lcov > coverage.lcov && npx codecov",
