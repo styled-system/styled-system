@@ -134,6 +134,37 @@ that handle styles based on values defined in a theme.
 <Box bg='tomato' />
 ```
 
+### Use with Object Styles
+
+*Styled Components*
+
+```jsx
+import styled from 'styled-components';
+import { color } from 'styled-system';
+
+const Text = styled.span(props => (
+  {
+    color: color(props),
+    fontSize: '16px',
+  }
+));
+```
+
+*Emotion*
+
+```jsx
+import styled from '@emotion/styled';
+import { color } from 'styled-system';
+
+const Text = styled.span(
+  {
+    fontSize: '16px'
+  },
+  color
+);
+```
+
+
 ## Responsive Style Props
 
 Set responsive width, margin, padding, font-size, and other properties with a shorthand array syntax.
