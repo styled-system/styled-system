@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## v4.0.1 2019-02-27
+
+- Fix for props in `textStyles` and `colorStyles`
+
 ## v4.0.0 2019-02-23
 
 - Rewritten core for less code duplication
