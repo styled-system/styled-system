@@ -304,8 +304,8 @@ import {
   gridColumn,
   gridRow,
   gridAutoFlow,
-  gridAutoColumns
-  gridAutoRows
+  gridAutoColumns,
+  gridAutoRows,
   gridTemplateColumns,
   gridTemplateRows,
   gridTemplateAreas,
