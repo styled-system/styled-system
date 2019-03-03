@@ -13,7 +13,6 @@
   "license": "MIT",
   "dependencies": {
     "html-tags": "^2.0.0",
-    "react": "^16.8.1",
     "styled-system": "^3.2.1"
   },
   "devDependencies": {
@@ -30,5 +29,8 @@
       "babel-register"
     ],
     "babel": "inherit"
+  },
+  "peerDependencies": {
+    "react": "^0.14.x || ^15.x || ^16.x"
   }
 }
