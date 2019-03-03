@@ -31,7 +31,7 @@ test('exports html tags', t => {
   t.is(header.type, 'header')
 })
 
-test('exported html tags only omit blacklisted props', t => {
+test('exported html tags only omits props', t => {
   const json = render(React.createElement(tag.h1, {
     id: 'hello',
     m: 2,
@@ -51,10 +51,10 @@ test('accepts an is prop to change the underlying element', t => {
   t.is(json.type, 'header')
 })
 
-test('accepts a custom blacklist', t => {
+test('accepts custom omitProps', t => {
   const json = render(React.createElement(tag, {
     hello: 'hi',
-    blacklist: [ 'hello' ]
+    omitProps: [ 'hello' ]
   })).toJSON()
   t.is(json.props.hello, undefined)
 })
