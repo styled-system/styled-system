@@ -1,5 +1,5 @@
 
-# @styled-system/typography
+# Styled System Typography
 
 Add typographic styles to child elements using styled-system theme primitives – intended for MDX or markdown content
 

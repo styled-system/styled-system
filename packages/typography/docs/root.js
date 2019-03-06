@@ -9,6 +9,8 @@ import transform from '../src/transform-typography-theme'
 import Modern from '../src/modern'
 import Future from '../src/future'
 import Baskerville from '../src/baskerville'
+import RRoboto from '../src/roboto'
+import PPoppins from '../src/poppins'
 
 const configs = {
   lincoln: transform(lincoln),
@@ -47,6 +49,32 @@ export const GoogleFont = props => {
   return false
 }
 
+const Roboto = props =>
+  <>
+    <GoogleFont
+      theme={{
+        googleFonts: [
+          { name: 'Roboto', styles: [400,700] },
+          { name: 'Roboto Mono', styles: [400,700] },
+        ]
+      }}
+    />
+    <RRoboto {...props} />
+  </>
+
+const Poppins = props =>
+  <>
+    <GoogleFont
+      theme={{
+        googleFonts: [
+          { name: 'Poppins', styles: [400, 700, 900] },
+          { name: 'Roboto Mono', styles: [400] },
+        ]
+      }}
+    />
+    <PPoppins {...props} />
+  </>
+
 const Lincoln = props =>
   <>
     <GoogleFont theme={lincoln} />
@@ -59,6 +87,9 @@ const themes = {
   Modern,
   Future,
   Baskerville,
+  Roboto,
+  Poppins,
+
   // typography.js themes
   Lincoln,
 }
@@ -107,7 +138,7 @@ const system = {
 }
 
 export default props => {
-  const [ theme, setTheme ] = useState('Baskerville')
+  const [ theme, setTheme ] = useState('Poppins')
   const [ space, setSpace ] = useState(0)
   const [ typeScale, setTypeScale ] = useState(0)
 
