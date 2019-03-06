@@ -25,6 +25,7 @@
   - All border props are also available as individual imports
 - Removes `styleType` from prop types `meta` fields
 - Changes to the `get` utility: now returns the last argument as a fallback
+- Rename `bgColor` to `backgroundColor`
 
 ## v3.2.1 2019-01-02
 
