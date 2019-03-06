@@ -55,7 +55,7 @@ const Roboto = props =>
       theme={{
         googleFonts: [
           { name: 'Roboto', styles: [400,700] },
-          { name: 'Roboto Mono', styles: [400,700] },
+          { name: 'Roboto Mono', styles: [400] },
         ]
       }}
     />
