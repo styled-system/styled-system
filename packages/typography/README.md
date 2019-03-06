@@ -1,7 +1,7 @@
 
 # @styled-system/typography
 
-Add typographic styles to child elements using styled-system and themes - perfect for MDX or markdown content
+Add typographic styles to child elements using styled-system theme primitives – intended for MDX or markdown content
 
 **EXPERIMENTAL/WIP**
 
@@ -168,6 +168,10 @@ For all other styles, use the `css` prop. This can be helpful for targeting othe
 />
 ```
 
+### Related
+
+The [typography-system][] module attempts to solve a similar problem with a different implementation. It takes a Typography.js theme and converts it into a theme object that works with Styled System. The component in this package starts with primitive values from a Styled System theme, and creates typographic styles based on those primitives.
+
 ### Prior Art
 
 This component is inspired by many other similar projects, especially [Typography.js][]
@@ -177,5 +181,6 @@ This component is inspired by many other similar projects, especially [Typograph
 [responsive props]: https://styled-system.com/responsive-styles
 [emotion]: https://emotion.sh
 [typography.js]: https://kyleamathews.github.io/typography.js/
+[typography-system]: https://github.com/jxnblk/typography-system
 
 MIT License
