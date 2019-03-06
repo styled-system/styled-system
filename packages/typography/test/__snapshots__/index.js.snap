@@ -20,11 +20,6 @@ exports[`renders with element props 1`] = `
 .emotion-0 h1 {
   font-size: 3px;
   font-weight: 900;
-}
-
-.emotion-0 h1 {
-  font-size: 3px;
-  font-weight: 900;
   font-size: 20px;
   font-weight: 900;
 }
@@ -36,9 +31,6 @@ exports[`renders with element props 1`] = `
 
 exports[`renders with props 1`] = `
 .emotion-0 {
-  font-family: fantasy;
-  line-height: 2;
-  color: tomato;
   font-family: fantasy;
   line-height: 2;
   color: tomato;

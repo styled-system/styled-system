@@ -3,6 +3,8 @@
 
 Add typographic styles to child elements using styled-system and themes - perfect for MDX or markdown content
 
+**EXPERIMENTAL/WIP**
+
 ```sh
 npm i @styled-system/typography
 ```

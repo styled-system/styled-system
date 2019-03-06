@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { Global } from '@emotion/core'
 import {
   compose,
   fontFamily,
@@ -14,7 +15,7 @@ import pick from 'lodash.pick'
 import flatten from 'lodash.flattendeep'
 import merge from 'lodash.merge'
 
-const tagNames = [
+export const tagNames = [
   'h1',
   'h2',
   'h3',
@@ -92,7 +93,10 @@ const Root = styled.div(
 )
 
 // may not need the wrapper
-export const Typography = props =>
-  <Root {...props} />
+export const Typography = ({ html, ...props }) =>
+  <>
+    {html && <Global styles={{ html }} />}
+    <Root {...props} />
+  </>
 
 export default Typography
