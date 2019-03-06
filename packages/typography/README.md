@@ -101,7 +101,11 @@ export default props =>
 This package includes a handful of pre-configured typography themes.
 Import a component from one of the following paths to use a default theme:
 
+- `import Modern from '@styled-system/typography/modern'`
 - `import Future from '@styled-system/typography/future'`
+- `import Roboto from '@styled-system/typography/roboto'`
+- `import Baskerville from '@styled-system/typography/baskerville'`
+- `import Poppins from '@styled-system/typography/poppins'`
 
 ## Props
 

@@ -59,7 +59,11 @@ const Roboto = props =>
         ]
       }}
     />
-    <RRoboto {...props} />
+    <RRoboto
+      {...props}
+      maxWidth={1024}
+      mx='auto'
+    />
   </>
 
 const Poppins = props =>
@@ -138,7 +142,7 @@ const system = {
 }
 
 export default props => {
-  const [ theme, setTheme ] = useState('Poppins')
+  const [ theme, setTheme ] = useState('Roboto')
   const [ space, setSpace ] = useState(0)
   const [ typeScale, setTypeScale ] = useState(0)
 
