@@ -168,9 +168,14 @@ For all other styles, use the `css` prop. This can be helpful for targeting othe
 />
 ```
 
+### Prior Art
+
+This component is inspired by many other similar projects, especially [Typography.js][]
+
 [styled system]: https://styled-system.com
 [styled-system]: https://styled-system.com
 [responsive props]: https://styled-system.com/responsive-styles
 [emotion]: https://emotion.sh
+[typography.js]: https://kyleamathews.github.io/typography.js/
 
 MIT License
