@@ -1,5 +1,17 @@
 import test from 'ava'
-import { space, color, width, fontSize, size, gridGap, gridRowGap, gridColumnGap, buttonStyle, textStyle, colorStyle } from '../src'
+import {
+  space,
+  color,
+  width,
+  fontSize,
+  size,
+  gridGap,
+  gridRowGap,
+  gridColumnGap,
+  buttonStyle,
+  textStyle,
+  colorStyle,
+} from '../src'
 
 const theme = {
   colors: {
@@ -142,6 +154,17 @@ test('returns negative string values from theme', t => {
   t.deepEqual(styles, [{ margin: '-1em' }])
 })
 
+test('returns values from theme object', t => {
+  const styles = space({
+    theme: {
+      space: { sm: 1 },
+    },
+    margin: 'sm',
+  })
+
+  t.deepEqual(styles, [{ margin: '1px' }])
+})
+
 test('pl prop sets paddingLeft', t => {
   const styles = space({ pl: 2 })
   t.deepEqual(styles, [{ paddingLeft: '8px' }])
@@ -214,7 +237,7 @@ test('gridGap returns a scalar style', t => {
 test('gridGap uses the default scale', t => {
   const a = gridGap({
     theme: {},
-    gridGap: 2
+    gridGap: 2,
   })
 
   t.deepEqual(a, { gridGap: '8px' })
@@ -234,7 +257,7 @@ test('gridRowGap returns a scalar style', t => {
 test('gridRowGap uses the default scale', t => {
   const a = gridRowGap({
     theme: {},
-    gridRowGap: 2
+    gridRowGap: 2,
   })
 
   t.deepEqual(a, { gridRowGap: '8px' })
@@ -254,7 +277,7 @@ test('gridColumnGap returns a scalar style', t => {
 test('gridColumnGap uses the default scale', t => {
   const a = gridColumnGap({
     theme: {},
-    gridColumnGap: 2
+    gridColumnGap: 2,
   })
 
   t.deepEqual(a, { gridColumnGap: '8px' })
@@ -267,10 +290,10 @@ test('textStyle prop returns theme.textStyles object', t => {
         heading: {
           fontWeight: 'bold',
           lineHeight: 1.25,
-        }
-      }
+        },
+      },
     },
-    textStyle: 'heading'
+    textStyle: 'heading',
   })
   t.deepEqual(a, {
     fontWeight: 'bold',
@@ -284,14 +307,14 @@ test('colors prop returns theme.colorStyles object', t => {
       colorStyles: {
         dark: {
           color: '#fff',
-          backgroundColor: '#000'
-        }
-      }
+          backgroundColor: '#000',
+        },
+      },
     },
-    colors: 'dark'
+    colors: 'dark',
   })
   t.deepEqual(a, {
     color: '#fff',
-    backgroundColor: '#000'
+    backgroundColor: '#000',
   })
 })
