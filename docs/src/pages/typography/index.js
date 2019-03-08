@@ -12,10 +12,24 @@ import Future from '@styled-system/typography/future'
 import Baskerville from '@styled-system/typography/baskerville'
 import RRoboto from '@styled-system/typography/roboto'
 import PPoppins from '@styled-system/typography/poppins'
+import { Text } from '../../components'
 import Header from '../../Header'
 import Footer from '../../Footer'
 
-export const layout = 'hello'
+const Select = styled('select')({
+  fontFamily: 'inherit',
+  fontSize: '14px',
+  color: 'inherit',
+  backgroundColor: 'transparent',
+  border: '2px solid',
+  borderRadius: 8,
+  padding: 8,
+  appearance: 'none',
+  '&:focus': {
+    color: '#c0c',
+    outline: 'none',
+  }
+})
 
 const system = {
 }
@@ -112,15 +126,20 @@ export default props => {
     <ThemeProvider theme={system}>
       <Header>
         <div>
-          <label htmlFor='theme'>Theme</label>
-          <select
+          <Text
+            as='label'
+            htmlFor='theme'
+            fontSize={1}
+            mr={2}>
+            Theme
+          </Text>
+          <Select
             id='theme'
             name='theme'
             value={theme}
             onChange={e => {
               setTheme(e.target.value)
-            }}
-          >
+            }}>
             {names.map(name => (
               <option
                 key={name}
@@ -128,13 +147,17 @@ export default props => {
                 value={name}
               />
             ))}
-          </select>
+          </Select>
         </div>
       </Header>
       <Layout>
         <Readme />
       </Layout>
-      <Footer />
+      <Footer
+        maxWidth='none'
+        color='white'
+        bg='black'
+      />
     </ThemeProvider>
   )
 }

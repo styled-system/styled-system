@@ -12,6 +12,7 @@ export default props =>
     as='header'
     px={2}
     py={2}
+    alignItems='center'
     color='white'
     bg='black'>
     <NavLink as={Link} mr={2} href='/'>
