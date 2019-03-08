@@ -52,11 +52,13 @@ const defaultStyles = {
   img: {
     maxWidth: '100%',
     height: 'auto',
-  }
+  },
+  'h1 a, h2 a, h3 a, h4 a, h5 a, h6 a': {
+    color: 'inherit',
+  },
 }
 
 const typography = compose(
-  // props => props,
   fontFamily,
   fontSize,
   fontWeight,

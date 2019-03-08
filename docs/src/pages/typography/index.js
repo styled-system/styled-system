@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import Readme from '@styled-system/typography/README.md'
-
 import styled from '@emotion/styled'
 import { ThemeProvider } from 'emotion-theming'
 import { space, color } from 'styled-system'
@@ -13,6 +12,10 @@ import Future from '@styled-system/typography/future'
 import Baskerville from '@styled-system/typography/baskerville'
 import RRoboto from '@styled-system/typography/roboto'
 import PPoppins from '@styled-system/typography/poppins'
+import Header from '../../Header'
+import Footer from '../../Footer'
+
+export const layout = 'hello'
 
 const system = {
 }
@@ -107,28 +110,31 @@ export default props => {
   const Layout = themes[theme]
   return (
     <ThemeProvider theme={system}>
-      <div>
-        <label htmlFor='theme'>Theme</label>
-        <select
-          id='theme'
-          name='theme'
-          value={theme}
-          onChange={e => {
-            setTheme(e.target.value)
-          }}
-        >
-          {names.map(name => (
-            <option
-              key={name}
-              label={name}
-              value={name}
-            />
-          ))}
-        </select>
-      </div>
+      <Header>
+        <div>
+          <label htmlFor='theme'>Theme</label>
+          <select
+            id='theme'
+            name='theme'
+            value={theme}
+            onChange={e => {
+              setTheme(e.target.value)
+            }}
+          >
+            {names.map(name => (
+              <option
+                key={name}
+                label={name}
+                value={name}
+              />
+            ))}
+          </select>
+        </div>
+      </Header>
       <Layout>
         <Readme />
       </Layout>
+      <Footer />
     </ThemeProvider>
   )
 }
