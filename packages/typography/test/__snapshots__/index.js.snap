@@ -6,6 +6,15 @@ exports[`renders 1`] = `
   height: auto;
 }
 
+.emotion-0 h1 a,
+.emotion-0 h2 a,
+.emotion-0 h3 a,
+.emotion-0 h4 a,
+.emotion-0 h5 a,
+.emotion-0 h6 a {
+  color: inherit;
+}
+
 <div
   className="emotion-0"
 />
@@ -15,6 +24,15 @@ exports[`renders with element props 1`] = `
 .emotion-0 img {
   max-width: 100%;
   height: auto;
+}
+
+.emotion-0 h1 a,
+.emotion-0 h2 a,
+.emotion-0 h3 a,
+.emotion-0 h4 a,
+.emotion-0 h5 a,
+.emotion-0 h6 a {
+  color: inherit;
 }
 
 .emotion-0 h1 {
@@ -39,6 +57,15 @@ exports[`renders with props 1`] = `
 .emotion-0 img {
   max-width: 100%;
   height: auto;
+}
+
+.emotion-0 h1 a,
+.emotion-0 h2 a,
+.emotion-0 h3 a,
+.emotion-0 h4 a,
+.emotion-0 h5 a,
+.emotion-0 h6 a {
+  color: inherit;
 }
 
 <div

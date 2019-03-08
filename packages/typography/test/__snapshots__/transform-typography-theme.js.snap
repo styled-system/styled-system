@@ -333,6 +333,9 @@ Object {
     "paddingRight": 0,
     "paddingTop": 0,
   },
+  "html": Object {
+    "font": "118.75%/1.58 'Lora',serif",
+  },
   "img": Object {
     "marginBottom": "1.58rem",
     "marginLeft": 0,
