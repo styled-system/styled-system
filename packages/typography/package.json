@@ -19,7 +19,7 @@
     "emotion-theming": "^10.0.7",
     "jest": "^24.1.0",
     "jest-emotion": "^10.0.7",
-    "m0": "0.0.4",
+    "m0": "0.0.4-lite.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "typography-theme-lincoln": "^0.16.18"
@@ -27,7 +27,6 @@
   "dependencies": {
     "@emotion/core": "^10.0.7",
     "@emotion/styled": "^10.0.7",
-    "lodash.flattendeep": "^4.4.0",
     "lodash.merge": "^4.6.1",
     "lodash.omit": "^4.5.0",
     "lodash.pick": "^4.4.0",

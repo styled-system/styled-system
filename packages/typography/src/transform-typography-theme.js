@@ -5,7 +5,6 @@ import { tagNames } from './index'
 
 const splitFontShorthand = font => {
   const parts = font.split(/[/\s]/)
-  console.log(font, parts)
   return parts
 }
 

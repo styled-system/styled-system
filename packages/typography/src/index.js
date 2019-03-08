@@ -12,8 +12,6 @@ import {
   maxWidth,
 } from 'styled-system'
 import pick from 'lodash.pick'
-import flatten from 'lodash.flattendeep'
-import merge from 'lodash.merge'
 
 export const tagNames = [
   'h1',
@@ -76,10 +74,6 @@ const elementStyles = ({
   for (const key in elements) {
     const el = elements[key]
     const rules = typography({ theme, ...el })
-    // seems like emotion handles this??
-    // const flat = flatten(rules)
-    // const style = merge(el, ...flat)
-
     styles[`& ${key}`] = [ el, ...rules ]
   }
   return styles
