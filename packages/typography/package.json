@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "prepare": "babel src -d dist",
-    "start": "npx m0 docs/index.mdx",
+    "start": "m0 docs/index.mdx",
     "test": "jest"
   },
   "keywords": [],
@@ -19,6 +19,7 @@
     "emotion-theming": "^10.0.7",
     "jest": "^24.1.0",
     "jest-emotion": "^10.0.7",
+    "m0": "0.0.4",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "typography-theme-lincoln": "^0.16.18"
