@@ -14,8 +14,8 @@ import Baskerville from '@styled-system/typography/baskerville'
 import RRoboto from '@styled-system/typography/roboto'
 import PPoppins from '@styled-system/typography/poppins'
 
-export default props =>
-  <Readme />
+const system = {
+}
 
 const getFontHREF = fonts => '//fonts.googleapis.com/css?family=' +
   fonts.map(font => {
@@ -73,11 +73,19 @@ const Poppins = props =>
     <PPoppins {...props} />
   </>
 
+const configs = {
+  lincoln: transform(lincoln),
+}
 const Lincoln = props =>
   <>
     <GoogleFont theme={lincoln} />
     <Typography
-      {...merge(defaultProps, configs.lincoln, props)}
+      {...merge({
+        maxWidth: 768,
+        mx: 'auto',
+        px: [3,4],
+        py: 4,
+      }, configs.lincoln, props)}
     />
   </>
 
@@ -90,5 +98,38 @@ const themes = {
 
   // typography.js themes
   Lincoln,
+}
+
+const names = Object.keys(themes)
+
+export default props => {
+  const [ theme, setTheme ] = useState('Future')
+  const Layout = themes[theme]
+  return (
+    <ThemeProvider theme={system}>
+      <div>
+        <label htmlFor='theme'>Theme</label>
+        <select
+          id='theme'
+          name='theme'
+          value={theme}
+          onChange={e => {
+            setTheme(e.target.value)
+          }}
+        >
+          {names.map(name => (
+            <option
+              key={name}
+              label={name}
+              value={name}
+            />
+          ))}
+        </select>
+      </div>
+      <Layout>
+        <Readme />
+      </Layout>
+    </ThemeProvider>
+  )
 }
 

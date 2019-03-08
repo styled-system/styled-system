@@ -1,1 +1,1 @@
-module.exports = require('./poppins')
+module.exports = require('./dist/poppins')

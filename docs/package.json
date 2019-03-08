@@ -11,7 +11,7 @@
     "@mdx-js/mdx": "^0.18.0",
     "@mdx-js/tag": "^0.18.0",
     "@rebass/gatsby-theme-docs": "^1.0.0-6",
-    "@styled-system/typography": "^1.0.0-0",
+    "@styled-system/typography": "^1.0.0-1",
     "babel-plugin-styled-components": "^1.10.0",
     "core-js": "^2.6.5",
     "emotion-theming": "^10.0.7",
