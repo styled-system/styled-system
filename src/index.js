@@ -91,14 +91,14 @@ export const style = ({
   }
   func.propTypes[prop].meta = {
     prop,
-    themeKey: key
+    themeKey: key,
   }
 
   if (alias) {
     func.propTypes[alias] = cloneFunction(propType)
     func.propTypes[alias].meta = {
       prop: alias,
-      themeKey: key
+      themeKey: key,
     }
   }
 
@@ -136,7 +136,10 @@ export const variant = ({ key, prop = 'variant' }) => {
 const spaceScale = [0, 4, 8, 16, 32, 64, 128, 256, 512]
 
 const getSpace = (n, scale) => {
-  if (!num(n)) return n
+  if (!num(n)) {
+    return px(get(scale, n, n))
+  }
+
   const isNegative = n < 0
   const absolute = Math.abs(n)
   const value = get(scale, absolute)
