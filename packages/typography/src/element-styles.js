@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { Global } from '@emotion/core'
 import {
   compose,
   fontFamily,
@@ -13,6 +12,7 @@ import {
 } from 'styled-system'
 import pick from 'lodash.pick'
 
+// only parses specific typographic elements
 export const tagNames = [
   'h1',
   'h2',
@@ -45,8 +45,8 @@ export const tagNames = [
   'abbr',
 ]
 
-const defaultStyles = {
-  // TODO: add some generally useful resets
+// todo: add some generally useful resets
+export const defaultStyles = {
   img: {
     maxWidth: '100%',
     height: 'auto',
@@ -56,7 +56,7 @@ const defaultStyles = {
   },
 }
 
-const typography = compose(
+export const typography = compose(
   fontFamily,
   fontSize,
   fontWeight,
@@ -65,7 +65,13 @@ const typography = compose(
   color
 )
 
-const elementStyles = ({
+export const globalStyles = (themeOrProps) => {
+  const theme = themeOrProps.theme || themeOrProps
+  console.log(theme)
+  return {}
+}
+
+export const elementStyles = ({
   theme,
   ...props
 }) => {
@@ -79,20 +85,4 @@ const elementStyles = ({
   return styles
 }
 
-const Root = styled.div(
-  defaultStyles,
-  typography,
-  maxWidth,
-  elementStyles,
-  // handle other/nested CSS
-  props => props.css
-)
-
-// may not need the wrapper
-export const Typography = ({ html, ...props }) =>
-  <>
-    {html && <Global styles={{ html }} />}
-    <Root {...props} />
-  </>
-
-export default Typography
+export default elementStyles

@@ -1,15 +1,9 @@
 // Baskerville Typography Theme
-import React from 'react'
-import Typography from './index'
-import merge from 'lodash.merge'
-
-const config = {
-  fontFamily: 'Baskerville, monospace, Georgia, serif',
-  lineHeight: 1.625,
-  px: 4,
-  py: 4,
-  maxWidth: 896,
-  mx: 'auto',
+export const baskerville = {
+  root: {
+    fontFamily: 'Baskerville, monospace, Georgia, serif',
+    lineHeight: 1.625,
+  },
   a: {
     color: 'link',
   },
@@ -71,6 +65,7 @@ const config = {
     borderBottom: '1px solid',
     my: 6,
   },
+  // how to handle this?
   css: {
     'blockquote p': {
       fontSize: 'inherit',
@@ -78,18 +73,4 @@ const config = {
   }
 }
 
-export const Baskerville = props =>
-  <Typography
-    {...merge(config, props)}
-  />
-
-Baskerville.defaultProps = {
-  theme: {
-    colors: {
-      link: 'tomato',
-      muted: '#f6f6fc',
-    },
-  },
-}
-
-export default Baskerville
+export default baskerville
