@@ -2,6 +2,7 @@
 # Styled System Typography
 
 Add typographic styles to child elements using styled-system theme primitives – intended for MDX or markdown content
+https://styled-system.com/typography
 
 **EXPERIMENTAL/WIP**
 
