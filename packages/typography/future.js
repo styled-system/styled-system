@@ -1,1 +1,1 @@
-module.exports = require('./dist/future')
+module.exports = require('./dist/themes/future')

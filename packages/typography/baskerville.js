@@ -1,1 +1,1 @@
-module.exports = require('./dist/baskerville')
+module.exports = require('./dist/themes/baskerville')

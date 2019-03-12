@@ -1,1 +1,1 @@
-module.exports = require('./dist/roboto')
+module.exports = require('./dist/themes/roboto')

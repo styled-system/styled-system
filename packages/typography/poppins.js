@@ -1,1 +1,1 @@
-module.exports = require('./dist/poppins')
+module.exports = require('./dist/themes/poppins')

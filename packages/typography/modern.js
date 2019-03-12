@@ -1,1 +1,1 @@
-module.exports = require('./dist/modern')
+module.exports = require('./dist/themes/modern')
