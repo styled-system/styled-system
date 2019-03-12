@@ -1,5 +1,6 @@
 export const modern = {
-  root: {
+  body: {
+    fontFamily: 'system-ui, sans-serif',
     lineHeight: 1.5,
   },
   h1: {

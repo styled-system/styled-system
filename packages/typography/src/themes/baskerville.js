@@ -1,6 +1,6 @@
 // Baskerville Typography Theme
 export const baskerville = {
-  root: {
+  body: {
     fontFamily: 'Baskerville, monospace, Georgia, serif',
     lineHeight: 1.625,
   },

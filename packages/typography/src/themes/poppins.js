@@ -1,5 +1,5 @@
 export const poppins = {
-  root: {
+  body: {
     fontFamily: '"Poppins", sans-serif',
     lineHeight: 1.625,
   },
@@ -67,6 +67,7 @@ export const poppins = {
       styles: [400, 700, 900],
     },
   ],
+  googleFonts: '//fonts.googleapis.com/css?family=Poppins:400,700,900',
 }
 
 export default poppins

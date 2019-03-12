@@ -1,6 +1,6 @@
 // Future Typography Theme
 export const future = {
-  root: {
+  body: {
     fontFamily: '"Avenir Next", system-ui, sans-serif',
     lineHeight: 1.5,
   },

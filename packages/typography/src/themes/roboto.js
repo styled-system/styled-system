@@ -1,5 +1,5 @@
 export const roboto = {
-  root: {
+  body: {
     fontFamily: '"Roboto", system-ui, sans-serif',
     lineHeight: 1.5,
   },
@@ -55,10 +55,7 @@ export const roboto = {
     'li p': { margin: 0 },
     'blockquote p': { fontSize: 'inherit' },
   },
-  googleFonts: [
-    { name: 'Roboto', styles: [400,700] },
-    { name: 'Roboto Mono', styles: [400] },
-  ]
+  googleFonts: '//fonts.googleapis.com/css?family=Roboto:400,700|Roboto+Mono:400',
 }
 
 export default roboto
