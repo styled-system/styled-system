@@ -46,7 +46,7 @@ export const roboto = {
     px: 4,
     borderLeft: '4px solid',
   },
-  googleFonts: '//fonts.googleapis.com/css?family=Roboto:400,700|Roboto+Mono:400',
+  googleFonts: 'https://fonts.googleapis.com/css?family=Roboto:400,700|Roboto+Mono:400',
 }
 
 export default roboto

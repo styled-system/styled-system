@@ -50,7 +50,7 @@ export const poppins = {
     borderBottom: '3px solid',
     my: 6,
   },
-  googleFonts: '//fonts.googleapis.com/css?family=Poppins:400,700,900',
+  googleFonts: 'https://fonts.googleapis.com/css?family=Poppins:400,700,900',
 }
 
 export default poppins
