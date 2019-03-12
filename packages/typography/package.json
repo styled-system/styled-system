@@ -1,0 +1,41 @@
+{
+  "name": "@styled-system/typography",
+  "version": "1.0.0-4",
+  "description": "Add typographic styles to child elements using styled-system and themes",
+  "main": "dist/index.js",
+  "scripts": {
+    "prepare": "babel src -d dist",
+    "start": "gx docs",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "Brent Jackson <jxnblk@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "@emotion/core": "^10.0.9",
+    "@emotion/styled": "^10.0.9",
+    "emotion-theming": "^10.0.9",
+    "gx": "^2.0.0-16",
+    "jest": "^24.4.0",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-helmet": "^5.2.0",
+    "typography-theme-lincoln": "^0.16.19"
+  },
+  "dependencies": {
+    "lodash.merge": "^4.6.1",
+    "lodash.omit": "^4.5.0",
+    "lodash.pick": "^4.4.0",
+    "styled-system": "^4.0.3",
+    "typography": "^0.16.19"
+  },
+  "jest": {
+    "testMatch": [
+      "**/test/**/*.js"
+    ]
+  }
+}
