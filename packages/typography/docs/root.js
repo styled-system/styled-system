@@ -14,7 +14,7 @@ const Box = styled.div(
 )
 
 Box.defaultProps = {
-  maxWidth: 768,
+  maxWidth: 1024,
   mx: 'auto',
   px: [3, 4],
   py: 4,
@@ -39,6 +39,8 @@ export default props => {
           )}
         </Helmet>
         <Global styles={typography} />
+        {/*
+        */}
         <div>
           <select
             id='theme'

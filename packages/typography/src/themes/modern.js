@@ -19,13 +19,13 @@ export const modern = {
   },
   code: {
     // needs abstraction
-    color: 'rebeccapurple',
-    bg: '#f6f0f9',
+    // color: 'rebeccapurple',
+    // bg: '#f6f0f9',
   },
   pre: {
     p: [2, 3],
-    color: 'rebeccapurple',
-    bg: '#f6f0f9',
+    // color: 'rebeccapurple',
+    // bg: '#f6f0f9',
   },
 }
 

@@ -25,7 +25,7 @@ export const roboto = {
     mb: 4,
   },
   a: {
-    color: 'link',
+    // color: 'link',
     textDecoration: 'none',
     '&:hover': {
       textDecoration: 'underline',
@@ -34,12 +34,12 @@ export const roboto = {
   pre: {
     fontFamily: '"Roboto Mono", Menlo, monospace',
     p: 3,
-    color: 'link',
-    bg: 'muted',
+    // color: 'link',
+    // bg: 'muted',
   },
   code: {
     fontFamily: '"Roboto Mono", Menlo, monospace',
-    color: 'black',
+    // color: 'black',
   },
   samp: {
     fontFamily: '"Roboto Mono", Menlo, monospace',
@@ -51,6 +51,7 @@ export const roboto = {
     borderLeft: '4px solid',
   },
   css: {
+    // move to reset
     'pre code': { color: 'inherit' },
     'li p': { margin: 0 },
     'blockquote p': { fontSize: 'inherit' },

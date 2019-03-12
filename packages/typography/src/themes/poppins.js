@@ -4,7 +4,7 @@ export const poppins = {
     lineHeight: 1.625,
   },
   a: {
-    color: 'link',
+    // color: 'link',
   },
   h1: {
     fontSize: [5,6,7,8],
@@ -31,8 +31,8 @@ export const poppins = {
   pre: {
     fontFamily: '"Roboto Mono", Menlo, monospace',
     p: 3,
-    color: 'highlight',
-    bg: 'muted',
+    // color: 'highlight',
+    // bg: 'muted',
   },
   code: {
     fontFamily: '"Roboto Mono", Menlo, monospace',
@@ -51,7 +51,7 @@ export const poppins = {
     py: 4,
   },
   hr: {
-    color: 'highlight',
+    // color: 'highlight',
     border: 0,
     borderBottom: '3px solid',
     my: 6,

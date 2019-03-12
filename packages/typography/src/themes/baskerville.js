@@ -5,7 +5,7 @@ export const baskerville = {
     lineHeight: 1.625,
   },
   a: {
-    color: 'link',
+    // color: 'link',
   },
   h1: {
     fontSize: [5, 6, 7],
