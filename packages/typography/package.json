@@ -1,6 +1,6 @@
 {
   "name": "@styled-system/typography",
-  "version": "1.0.0-4",
+  "version": "1.0.0-5",
   "description": "Add typographic styles to child elements using styled-system and themes",
   "main": "dist/index.js",
   "scripts": {
