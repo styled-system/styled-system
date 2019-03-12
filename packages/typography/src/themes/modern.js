@@ -18,8 +18,12 @@ export const modern = {
     lineHeight: 1.25,
   },
   pre: {
+    fontFamily: 'monospace',
     p: [2, 3],
   },
+  code: {
+    fontFamily: 'monospace',
+  }
 }
 
 export default modern
