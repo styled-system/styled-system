@@ -1,107 +1,118 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders 1`] = `
-.emotion-0 img {
-  max-width: 100%;
-  height: auto;
+exports[`returns a styles object 1`] = `
+Object {
+  "body": Array [
+    Object {
+      "fontFamily": "\\"Avenir Next\\", system-ui, sans-serif",
+      "lineHeight": 1.5,
+    },
+    Object {
+      "fontFamily": "\\"Avenir Next\\", system-ui, sans-serif",
+    },
+    Object {
+      "lineHeight": 1.5,
+    },
+    Array [],
+    Array [],
+  ],
+  "code": Array [
+    Object {
+      "fontFamily": "monospace",
+      "fontSize": "85%",
+    },
+    Object {
+      "fontFamily": "monospace",
+    },
+    Object {
+      "fontSize": "85%",
+    },
+    Array [],
+    Array [],
+  ],
+  "h1": Array [
+    Object {
+      "fontSize": Array [
+        5,
+        6,
+      ],
+      "fontWeight": 600,
+      "letterSpacing": "0.2em",
+      "my": 5,
+      "textTransform": "uppercase",
+    },
+    Array [
+      Object {
+        "fontSize": "32px",
+      },
+      Object {
+        "@media screen and (min-width: 40em)": Object {
+          "fontSize": "48px",
+        },
+      },
+    ],
+    Object {
+      "fontWeight": 600,
+    },
+    Array [
+      Object {
+        "marginTop": "64px",
+      },
+      Object {
+        "marginBottom": "64px",
+      },
+    ],
+    Array [],
+  ],
+  "p": Array [
+    Object {
+      "fontSize": Array [
+        2,
+        3,
+      ],
+      "lineHeight": 1.625,
+      "maxWidth": "40em",
+      "my": 4,
+    },
+    Array [
+      Object {
+        "fontSize": "16px",
+      },
+      Object {
+        "@media screen and (min-width: 40em)": Object {
+          "fontSize": "20px",
+        },
+      },
+    ],
+    Object {
+      "lineHeight": 1.625,
+    },
+    Array [
+      Object {
+        "marginTop": "32px",
+      },
+      Object {
+        "marginBottom": "32px",
+      },
+    ],
+    Array [],
+  ],
+  "pre": Array [
+    Object {
+      "borderRadius": 8,
+      "fontFamily": "monospace",
+      "overflowX": "auto",
+      "p": 3,
+    },
+    Object {
+      "fontFamily": "monospace",
+    },
+    Array [
+      Object {
+        "padding": "16px",
+      },
+    ],
+    Array [],
+  ],
 }
-
-.emotion-0 h1 a,
-.emotion-0 h2 a,
-.emotion-0 h3 a,
-.emotion-0 h4 a,
-.emotion-0 h5 a,
-.emotion-0 h6 a {
-  color: inherit;
-}
-
-<div
-  className="emotion-0"
-/>
-`;
-
-exports[`renders with element props 1`] = `
-.emotion-0 img {
-  max-width: 100%;
-  height: auto;
-}
-
-.emotion-0 h1 a,
-.emotion-0 h2 a,
-.emotion-0 h3 a,
-.emotion-0 h4 a,
-.emotion-0 h5 a,
-.emotion-0 h6 a {
-  color: inherit;
-}
-
-.emotion-0 h1 {
-  font-size: 3px;
-  font-weight: 900;
-  font-size: 20px;
-  font-weight: 900;
-}
-
-<div
-  className="emotion-0"
-/>
-`;
-
-exports[`renders with props 1`] = `
-.emotion-0 {
-  font-family: fantasy;
-  line-height: 2;
-  color: tomato;
-}
-
-.emotion-0 img {
-  max-width: 100%;
-  height: auto;
-}
-
-.emotion-0 h1 a,
-.emotion-0 h2 a,
-.emotion-0 h3 a,
-.emotion-0 h4 a,
-.emotion-0 h5 a,
-.emotion-0 h6 a {
-  color: inherit;
-}
-
-<div
-  className="emotion-0"
-  color="tomato"
-  fontFamily="fantasy"
-/>
-`;
-
-exports[`renders with responsive element props 1`] = `
-.emotion-0 img {
-  max-width: 100%;
-  height: auto;
-}
-
-.emotion-0 h1 {
-  font-size: 20px;
-  font-weight: 900;
-  mt: 3px;
-  color: tomato;
-  margin-top: 16px;
-}
-
-@media screen and (min-width:40em) {
-  .emotion-0 h1 {
-    font-size: 24px;
-  }
-}
-
-@media screen and (min-width:52em) {
-  .emotion-0 h1 {
-    font-size: 32px;
-  }
-}
-
-<div
-  className="emotion-0"
-/>
 `;

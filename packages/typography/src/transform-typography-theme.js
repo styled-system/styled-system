@@ -24,18 +24,10 @@ export default theme => {
   ]
   const others = omit(styles, omitStyles)
 
-  // parse html.font
-  // const [ fontSize, lineHeight, fontFamily ] = splitFontShorthand(styles.html.font)
-
   const config = {
     ...elements,
-    css: {
-      ...root,
-      ...others,
-    },
-    html: {
-      font: styles.html.font,
-    }
+    body: root,
+    ...others,
   }
 
   return config

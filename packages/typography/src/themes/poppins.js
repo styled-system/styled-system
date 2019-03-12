@@ -3,9 +3,6 @@ export const poppins = {
     fontFamily: '"Poppins", sans-serif',
     lineHeight: 1.625,
   },
-  a: {
-    // color: 'link',
-  },
   h1: {
     fontSize: [5,6,7,8],
     fontWeight: 900,
@@ -31,8 +28,6 @@ export const poppins = {
   pre: {
     fontFamily: '"Roboto Mono", Menlo, monospace',
     p: 3,
-    // color: 'highlight',
-    // bg: 'muted',
   },
   code: {
     fontFamily: '"Roboto Mono", Menlo, monospace',
@@ -51,22 +46,10 @@ export const poppins = {
     py: 4,
   },
   hr: {
-    // color: 'highlight',
     border: 0,
     borderBottom: '3px solid',
     my: 6,
   },
-  css: {
-    'blockquote p': {
-      fontSize: 'inherit',
-    }
-  },
-  googleFonts: [
-    {
-      name: 'Poppins',
-      styles: [400, 700, 900],
-    },
-  ],
   googleFonts: '//fonts.googleapis.com/css?family=Poppins:400,700,900',
 }
 

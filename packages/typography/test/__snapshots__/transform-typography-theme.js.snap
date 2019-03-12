@@ -8,9 +8,32 @@ Object {
     "textDecoration": "none",
     "textShadow": ".03em 0 #fff,-.03em 0 #fff,0 .03em #fff,0 -.03em #fff,.06em 0 #fff,-.06em 0 #fff,.09em 0 #fff,-.09em 0 #fff,.12em 0 #fff,-.12em 0 #fff,.15em 0 #fff,-.15em 0 #fff",
   },
+  "a:hover,a:active": Object {
+    "backgroundImage": "none",
+    "textShadow": "none",
+  },
   "abbr": Object {
     "borderBottom": "1px dotted hsla(0,0%,0%,0.5)",
     "cursor": "help",
+  },
+  "abbr[title]": Object {
+    "borderBottom": "1px dotted hsla(0,0%,0%,0.5)",
+    "cursor": "help",
+    "textDecoration": "none",
+  },
+  "acronym": Object {
+    "borderBottom": "1px dotted hsla(0,0%,0%,0.5)",
+    "cursor": "help",
+  },
+  "address": Object {
+    "marginBottom": "1.58rem",
+    "marginLeft": 0,
+    "marginRight": 0,
+    "marginTop": 0,
+    "paddingBottom": 0,
+    "paddingLeft": 0,
+    "paddingRight": 0,
+    "paddingTop": 0,
   },
   "b": Object {
     "fontWeight": 700,
@@ -30,179 +53,39 @@ Object {
     "paddingRight": 0,
     "paddingTop": 0,
   },
-  "code": Object {
-    "fontSize": "0.85rem",
+  "blockquote *:last-child": Object {
+    "marginBottom": 0,
+  },
+  "blockquote > :last-child": Object {
+    "marginBottom": 0,
+  },
+  "blockquote cite": Object {
+    "color": "hsla(0,0%,0%,0.73)",
+    "fontSize": "1rem",
+    "fontStyle": "normal",
+    "fontWeight": 400,
     "lineHeight": "1.58rem",
   },
-  "css": Object {
+  "blockquote cite:before": Object {
+    "content": "\\"— \\"",
+  },
+  "body": Object {
     "MozFontFeatureSettings": "\\"kern\\", \\"liga\\", \\"clig\\", \\"calt\\"",
     "WebkitFontFeatureSettings": "\\"kern\\", \\"liga\\", \\"clig\\", \\"calt\\"",
-    "a:hover,a:active": Object {
-      "backgroundImage": "none",
-      "textShadow": "none",
-    },
-    "abbr[title]": Object {
-      "borderBottom": "1px dotted hsla(0,0%,0%,0.5)",
-      "cursor": "help",
-      "textDecoration": "none",
-    },
-    "acronym": Object {
-      "borderBottom": "1px dotted hsla(0,0%,0%,0.5)",
-      "cursor": "help",
-    },
-    "address": Object {
-      "marginBottom": "1.58rem",
-      "marginLeft": 0,
-      "marginRight": 0,
-      "marginTop": 0,
-      "paddingBottom": 0,
-      "paddingLeft": 0,
-      "paddingRight": 0,
-      "paddingTop": 0,
-    },
-    "blockquote *:last-child": Object {
-      "marginBottom": 0,
-    },
-    "blockquote > :last-child": Object {
-      "marginBottom": 0,
-    },
-    "blockquote cite": Object {
-      "color": "hsla(0,0%,0%,0.73)",
-      "fontSize": "1rem",
-      "fontStyle": "normal",
-      "fontWeight": 400,
-      "lineHeight": "1.58rem",
-    },
-    "blockquote cite:before": Object {
-      "content": "\\"— \\"",
-    },
     "boxSizing": "border-box",
     "color": "hsla(0,0%,0%,0.73)",
-    "dt": Object {
-      "fontWeight": 700,
-    },
-    "fieldset": Object {
-      "marginBottom": "1.58rem",
-      "marginLeft": 0,
-      "marginRight": 0,
-      "marginTop": 0,
-      "paddingBottom": 0,
-      "paddingLeft": 0,
-      "paddingRight": 0,
-      "paddingTop": 0,
-    },
-    "figure": Object {
-      "marginBottom": "1.58rem",
-      "marginLeft": 0,
-      "marginRight": 0,
-      "marginTop": 0,
-      "paddingBottom": 0,
-      "paddingLeft": 0,
-      "paddingRight": 0,
-      "paddingTop": 0,
-    },
     "font": "118.75%/1.58 'Lora',serif",
     "fontFamily": "'Lora',serif",
     "fontFeatureSettings": "\\"kern\\", \\"liga\\", \\"clig\\", \\"calt\\"",
     "fontKerning": "normal",
     "fontWeight": 400,
-    "form": Object {
-      "marginBottom": "1.58rem",
-      "marginLeft": 0,
-      "marginRight": 0,
-      "marginTop": 0,
-      "paddingBottom": 0,
-      "paddingLeft": 0,
-      "paddingRight": 0,
-      "paddingTop": 0,
-    },
-    "h1,h2,h3,h4,h5,h6": Object {
-      "marginBottom": "0.79rem",
-      "marginTop": "2.37rem",
-    },
-    "hgroup": Object {
-      "marginBottom": "1.58rem",
-      "marginLeft": 0,
-      "marginRight": 0,
-      "marginTop": 0,
-      "paddingBottom": 0,
-      "paddingLeft": 0,
-      "paddingRight": 0,
-      "paddingTop": 0,
-    },
-    "iframe": Object {
-      "marginBottom": "1.58rem",
-      "marginLeft": 0,
-      "marginRight": 0,
-      "marginTop": 0,
-      "paddingBottom": 0,
-      "paddingLeft": 0,
-      "paddingRight": 0,
-      "paddingTop": 0,
-    },
-    "li *:last-child": Object {
-      "marginBottom": 0,
-    },
-    "li > ol": Object {
-      "marginBottom": "calc(1.58rem / 2)",
-      "marginLeft": "1.58rem",
-      "marginTop": "calc(1.58rem / 2)",
-    },
-    "li > p": Object {
-      "marginBottom": "calc(1.58rem / 2)",
-    },
-    "li > ul": Object {
-      "marginBottom": "calc(1.58rem / 2)",
-      "marginLeft": "1.58rem",
-      "marginTop": "calc(1.58rem / 2)",
-    },
-    "li>ol,li>ul": Object {
-      "marginBottom": 0,
-      "marginLeft": "20px",
-    },
     "msFontFeatureSettings": "\\"kern\\", \\"liga\\", \\"clig\\", \\"calt\\"",
-    "noscript": Object {
-      "marginBottom": "1.58rem",
-      "marginLeft": 0,
-      "marginRight": 0,
-      "marginTop": 0,
-      "paddingBottom": 0,
-      "paddingLeft": 0,
-      "paddingRight": 0,
-      "paddingTop": 0,
-    },
-    "ol li": Object {
-      "paddingLeft": 0,
-    },
     "overflowY": "scroll",
-    "p *:last-child": Object {
-      "marginBottom": 0,
-    },
-    "td,th": Object {
-      "MozFontFeatureSettings": "\\"tnum\\"",
-      "WebkitFontFeatureSettings": "\\"tnum\\"",
-      "borderBottom": "1px solid hsla(0,0%,0%,0.12)",
-      "fontFeatureSettings": "\\"tnum\\"",
-      "msFontFeatureSettings": "\\"tnum\\"",
-      "paddingBottom": "calc(0.79rem - 1px)",
-      "paddingLeft": "1.05333rem",
-      "paddingRight": "1.05333rem",
-      "paddingTop": "0.79rem",
-      "textAlign": "left",
-    },
-    "th:first-child,td:first-child": Object {
-      "paddingLeft": 0,
-    },
-    "th:last-child,td:last-child": Object {
-      "paddingRight": 0,
-    },
-    "thead": Object {
-      "textAlign": "left",
-    },
-    "ul li": Object {
-      "paddingLeft": 0,
-    },
     "wordWrap": "break-word",
+  },
+  "code": Object {
+    "fontSize": "0.85rem",
+    "lineHeight": "1.58rem",
   },
   "dd": Object {
     "marginBottom": "1.58rem",
@@ -215,6 +98,39 @@ Object {
     "paddingTop": 0,
   },
   "dl": Object {
+    "marginBottom": "1.58rem",
+    "marginLeft": 0,
+    "marginRight": 0,
+    "marginTop": 0,
+    "paddingBottom": 0,
+    "paddingLeft": 0,
+    "paddingRight": 0,
+    "paddingTop": 0,
+  },
+  "dt": Object {
+    "fontWeight": 700,
+  },
+  "fieldset": Object {
+    "marginBottom": "1.58rem",
+    "marginLeft": 0,
+    "marginRight": 0,
+    "marginTop": 0,
+    "paddingBottom": 0,
+    "paddingLeft": 0,
+    "paddingRight": 0,
+    "paddingTop": 0,
+  },
+  "figure": Object {
+    "marginBottom": "1.58rem",
+    "marginLeft": 0,
+    "marginRight": 0,
+    "marginTop": 0,
+    "paddingBottom": 0,
+    "paddingLeft": 0,
+    "paddingRight": 0,
+    "paddingTop": 0,
+  },
+  "form": Object {
     "marginBottom": "1.58rem",
     "marginLeft": 0,
     "marginRight": 0,
@@ -239,6 +155,10 @@ Object {
     "paddingRight": 0,
     "paddingTop": 0,
     "textRendering": "optimizeLegibility",
+  },
+  "h1,h2,h3,h4,h5,h6": Object {
+    "marginBottom": "0.79rem",
+    "marginTop": "2.37rem",
   },
   "h2": Object {
     "color": "hsla(0,0%,0%,0.9)",
@@ -320,6 +240,16 @@ Object {
     "paddingTop": 0,
     "textRendering": "optimizeLegibility",
   },
+  "hgroup": Object {
+    "marginBottom": "1.58rem",
+    "marginLeft": 0,
+    "marginRight": 0,
+    "marginTop": 0,
+    "paddingBottom": 0,
+    "paddingLeft": 0,
+    "paddingRight": 0,
+    "paddingTop": 0,
+  },
   "hr": Object {
     "background": "hsla(0,0%,0%,0.2)",
     "border": "none",
@@ -333,8 +263,15 @@ Object {
     "paddingRight": 0,
     "paddingTop": 0,
   },
-  "html": Object {
-    "font": "118.75%/1.58 'Lora',serif",
+  "iframe": Object {
+    "marginBottom": "1.58rem",
+    "marginLeft": 0,
+    "marginRight": 0,
+    "marginTop": 0,
+    "paddingBottom": 0,
+    "paddingLeft": 0,
+    "paddingRight": 0,
+    "paddingTop": 0,
   },
   "img": Object {
     "marginBottom": "1.58rem",
@@ -354,6 +291,36 @@ Object {
   "li": Object {
     "marginBottom": "calc(1.58rem / 2)",
   },
+  "li *:last-child": Object {
+    "marginBottom": 0,
+  },
+  "li > ol": Object {
+    "marginBottom": "calc(1.58rem / 2)",
+    "marginLeft": "1.58rem",
+    "marginTop": "calc(1.58rem / 2)",
+  },
+  "li > p": Object {
+    "marginBottom": "calc(1.58rem / 2)",
+  },
+  "li > ul": Object {
+    "marginBottom": "calc(1.58rem / 2)",
+    "marginLeft": "1.58rem",
+    "marginTop": "calc(1.58rem / 2)",
+  },
+  "li>ol,li>ul": Object {
+    "marginBottom": 0,
+    "marginLeft": "20px",
+  },
+  "noscript": Object {
+    "marginBottom": "1.58rem",
+    "marginLeft": 0,
+    "marginRight": 0,
+    "marginTop": 0,
+    "paddingBottom": 0,
+    "paddingLeft": 0,
+    "paddingRight": 0,
+    "paddingTop": 0,
+  },
   "ol": Object {
     "listStyleImage": "none",
     "listStylePosition": "outside",
@@ -366,6 +333,9 @@ Object {
     "paddingRight": 0,
     "paddingTop": 0,
   },
+  "ol li": Object {
+    "paddingLeft": 0,
+  },
   "p": Object {
     "marginBottom": "1.58rem",
     "marginLeft": 0,
@@ -375,6 +345,9 @@ Object {
     "paddingLeft": 0,
     "paddingRight": 0,
     "paddingTop": 0,
+  },
+  "p *:last-child": Object {
+    "marginBottom": 0,
   },
   "pre": Object {
     "fontSize": "0.85rem",
@@ -409,8 +382,29 @@ Object {
     "paddingTop": 0,
     "width": "100%",
   },
+  "td,th": Object {
+    "MozFontFeatureSettings": "\\"tnum\\"",
+    "WebkitFontFeatureSettings": "\\"tnum\\"",
+    "borderBottom": "1px solid hsla(0,0%,0%,0.12)",
+    "fontFeatureSettings": "\\"tnum\\"",
+    "msFontFeatureSettings": "\\"tnum\\"",
+    "paddingBottom": "calc(0.79rem - 1px)",
+    "paddingLeft": "1.05333rem",
+    "paddingRight": "1.05333rem",
+    "paddingTop": "0.79rem",
+    "textAlign": "left",
+  },
   "th": Object {
     "fontWeight": 700,
+  },
+  "th:first-child,td:first-child": Object {
+    "paddingLeft": 0,
+  },
+  "th:last-child,td:last-child": Object {
+    "paddingRight": 0,
+  },
+  "thead": Object {
+    "textAlign": "left",
   },
   "ul": Object {
     "listStyleImage": "none",
@@ -423,6 +417,9 @@ Object {
     "paddingLeft": 0,
     "paddingRight": 0,
     "paddingTop": 0,
+  },
+  "ul li": Object {
+    "paddingLeft": 0,
   },
 }
 `;

@@ -4,9 +4,6 @@ export const future = {
     fontFamily: '"Avenir Next", system-ui, sans-serif',
     lineHeight: 1.5,
   },
-  a: {
-    // color: 'link',
-  },
   h1: {
     fontSize: [5, 6],
     fontWeight: 600,
@@ -16,8 +13,6 @@ export const future = {
   },
   pre: {
     fontFamily: 'monospace',
-    // color: 'highlight',
-    // bg: 'black',
     p: 3,
     borderRadius: 8,
     overflowX: 'auto',
@@ -25,8 +20,6 @@ export const future = {
   code: {
     fontFamily: 'monospace',
     fontSize: '85%',
-    // color: 'link',
-    // bg: 'black',
   },
   p: {
     fontSize: [2, 3],
@@ -34,17 +27,6 @@ export const future = {
     my: 4,
     maxWidth: '40em',
   },
-  css: {
-    // move to reset
-    'pre code': {
-      fontSize: 'inherit',
-      color: 'inherit',
-    },
-    'li > p': {
-      fontSize: 'inherit',
-      margin: 0,
-    }
-  }
 }
 
 export default future

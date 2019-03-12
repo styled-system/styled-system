@@ -4,9 +4,6 @@ export const baskerville = {
     fontFamily: 'Baskerville, monospace, Georgia, serif',
     lineHeight: 1.625,
   },
-  a: {
-    // color: 'link',
-  },
   h1: {
     fontSize: [5, 6, 7],
     lineHeight: 1.25,
@@ -65,12 +62,6 @@ export const baskerville = {
     borderBottom: '1px solid',
     my: 6,
   },
-  // how to handle this?
-  css: {
-    'blockquote p': {
-      fontSize: 'inherit',
-    }
-  }
 }
 
 export default baskerville

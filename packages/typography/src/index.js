@@ -11,7 +11,7 @@ import {
 import pick from 'lodash.pick'
 
 import * as themes from './themes'
-
+export { reset } from './reset'
 export { themes }
 
 export const tagNames = [

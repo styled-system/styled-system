@@ -25,7 +25,6 @@ export const roboto = {
     mb: 4,
   },
   a: {
-    // color: 'link',
     textDecoration: 'none',
     '&:hover': {
       textDecoration: 'underline',
@@ -34,12 +33,9 @@ export const roboto = {
   pre: {
     fontFamily: '"Roboto Mono", Menlo, monospace',
     p: 3,
-    // color: 'link',
-    // bg: 'muted',
   },
   code: {
     fontFamily: '"Roboto Mono", Menlo, monospace',
-    // color: 'black',
   },
   samp: {
     fontFamily: '"Roboto Mono", Menlo, monospace',
@@ -49,12 +45,6 @@ export const roboto = {
     m: 0,
     px: 4,
     borderLeft: '4px solid',
-  },
-  css: {
-    // move to reset
-    'pre code': { color: 'inherit' },
-    'li p': { margin: 0 },
-    'blockquote p': { fontSize: 'inherit' },
   },
   googleFonts: '//fonts.googleapis.com/css?family=Roboto:400,700|Roboto+Mono:400',
 }
