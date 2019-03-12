@@ -13,6 +13,7 @@ export const reset = {
   'pre code': {
     fontSize: 'inherit',
     color: 'inherit',
+    backgroundColor: 'inherit',
   },
   'li > p': {
     fontSize: 'inherit',

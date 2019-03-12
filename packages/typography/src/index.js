@@ -56,10 +56,6 @@ export const typographyStyles = compose(
   color
 )
 
-const getScopedSelector = key => {
-  return key.split(',').map(k => '& ' + key).join(', ')
-}
-
 export const typography = props => {
   // handle emotion's Global and css props
   const theme = props.theme || props
@@ -75,8 +71,7 @@ export const typography = props => {
       styles['&'] = [ el, ...rules ]
       continue
     }
-    const selector = scoped ? getScopedSelector(key) : key
-    styles[selector] = [ el, ...rules ]
+    styles[key] = [ el, ...rules ]
   }
 
   return styles
