@@ -71,6 +71,10 @@ export const typography = props => {
     const el = elements[key]
     const rules = typographyStyles({ theme, ...el })
     // flatten & merge??
+    if (scoped && key === 'body') {
+      styles['&'] = [ el, ...rules ]
+      continue
+    }
     const selector = scoped ? getScopedSelector(key) : key
     styles[selector] = [ el, ...rules ]
   }
