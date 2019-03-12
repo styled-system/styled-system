@@ -59,12 +59,18 @@ export const typographyStyles = compose(
 export const typography = props => {
   // handle emotion's Global and css props
   const theme = props.theme || props
+  theme.typography = theme.typography || {}
   const styles = {}
+  const scoped = theme.typography.scoped
   const elements = pick(theme.typography, tagNames)
   for (const key in elements) {
     const el = elements[key]
     const rules = typographyStyles({ theme, ...el })
     // flatten & merge??
+    if (scoped && key === 'body') {
+      styles['&'] = [ el, ...rules ]
+      continue
+    }
     styles[key] = [ el, ...rules ]
   }
 
