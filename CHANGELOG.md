@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## v4.0.5 2019-03-15
+
+- Fix for missing `propTypes` on `space` function
+
 ## v4.0.1 2019-02-27
 
 - Fix for props in `textStyles` and `colorStyles`
