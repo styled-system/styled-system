@@ -122,7 +122,13 @@ export const compose = (...funcs) => {
   return func
 }
 
-export const mapProps = mapper => func => props => func(mapper(props))
+export const mapProps = mapper => func => {
+  const next = props => func(mapper(props))
+  for (const key in func) {
+    next[key] = func[key]
+  }
+  return next
+}
 
 export const variant = ({ key, prop = 'variant' }) => {
   const fn = props => get(props.theme, [key, props[prop]].join('.'), null)

@@ -9,6 +9,7 @@ import {
   compose,
   variant,
   cloneFunction,
+  mapProps,
 } from '../src'
 
 const width = style({
@@ -269,4 +270,10 @@ test('array values longer than breakpoints does not reset returned style object'
   t.deepEqual(a, [
     { width: '100%' },
   ])
+})
+
+test('mapProps copies propTypes',  t => {
+  const margin = style({ prop: 'margin' })
+  const func = mapProps(props => props)(margin)
+  t.is(typeof func.propTypes, 'object')
 })

@@ -215,6 +215,12 @@ test('margin overrides m prop', t => {
   t.deepEqual(styles, [{ margin: '8px' }])
 })
 
+test('space includes propTypes', t => {
+  const { propTypes } = space
+  t.is(typeof propTypes, 'object')
+  t.is(typeof propTypes.m, 'function')
+})
+
 test('size returns width and height', t => {
   const styles = size({
     size: 4,
