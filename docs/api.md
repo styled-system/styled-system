@@ -15,6 +15,7 @@
 - [Misc](#misc)
 - [Variant styles](#variants)
 - [Utilities](#utilities)
+  - [compose](#compose)
   - [themeGet](#themeget)
   - [propTypes](#proptypes)
 - [Customize](#customize)
@@ -523,6 +524,33 @@ import {
 ---
 
 ## Utilities
+
+### compose
+
+The `compose` utility is used to combine multiple style functions together into a single one.
+This is used internally to create the `space`, `color`, `size`, and `borders` style functions.
+This utility can also be useful for creating consistent sets of style props across multiple components.
+
+```js
+import {
+  compose,
+  fontFamily,
+  fontSize,
+  fontWeight,
+  lineHeight,
+  space,
+  color
+} from 'styled-system'
+
+export const typography = compose(
+  fontFamily,
+  fontSize,
+  fontWeight,
+  lineHeight,
+  space,
+  color
+)
+```
 
 ### themeGet
 

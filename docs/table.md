@@ -105,7 +105,7 @@ Function Name | Prop            | CSS Property    | Theme Field
 `borderColor` | `borderColor` | `border-color` | `colors`
 `borderRadius`| `borderRadius` | `border-radius` | `radii`
 `boxShadow` | `boxShadow` | `box-shadow` | `shadows`
-`opacity`   | `opacity` | `opacity`  | `opacity`
+`opacity`   | `opacity` | `opacity`  | none
 `overflow` | `overflow` | `overflow` | none
 
 The `borders` function composes multiple border props together.
@@ -127,7 +127,7 @@ Function Name | Prop | CSS Property | Theme Field
 Function Name | Prop       | CSS Property    | Theme Field
 --------------|------------|-----------------|--------------
 `position` | `position` | `position` | none
-`zIndex` | `zIndex` | `z-index` | none
+`zIndex` | `zIndex` | `z-index` | `zIndices`
 `top` | `top` | `top` | none
 `right` | `right` | `right` | none
 `bottom` | `bottom` | `bottom` | none
