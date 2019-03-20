@@ -471,11 +471,11 @@ export const borders = compose(
   border,
   borderStyle,
   borderWidth,
-  borderColor,
   borderTop,
   borderRight,
   borderBottom,
   borderLeft,
+  borderColor,
   borderRadius
 )
 
