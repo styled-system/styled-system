@@ -326,6 +326,16 @@ test('colors prop returns theme.colorStyles object', t => {
 })
 
 test('borders prop returns correct sequence', t => {
-  const a = borders({ borderBottom: '1px solid', borderColor: 'red' })
-  t.deepEqual(a, [{ borderBottom: '1px solid' }, { borderColor: 'red' }])
+  const a = borders({
+    borderBottom: '1px solid',
+    borderWidth: '2px',
+    borderStyle: 'dashed',
+    borderColor: 'red',
+  })
+  t.deepEqual(a, [
+    { borderBottom: '1px solid' },
+    { borderWidth: '2px' },
+    { borderStyle: 'dashed' },
+    { borderColor: 'red' },
+  ])
 })

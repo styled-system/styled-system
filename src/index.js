@@ -469,12 +469,12 @@ export const borderRadius = style({
 
 export const borders = compose(
   border,
-  borderStyle,
-  borderWidth,
   borderTop,
   borderRight,
   borderBottom,
   borderLeft,
+  borderWidth,
+  borderStyle,
   borderColor,
   borderRadius
 )
