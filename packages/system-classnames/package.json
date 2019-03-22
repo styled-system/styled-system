@@ -18,8 +18,8 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.26.0",
     "nyc": "^11.4.1",
-    "react": "^16.2.0",
-    "react-test-renderer": "^16.2.0"
+    "react": "^16.8.4",
+    "react-test-renderer": "^16.8.4"
   },
   "ava": {
     "require": [
