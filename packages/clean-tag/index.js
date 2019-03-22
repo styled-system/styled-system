@@ -6,7 +6,7 @@ const allPropTypes = Object.keys(styles)
   .filter(key => typeof styles[key] === 'function')
   .reduce((a, key) => Object.assign(a, styles[key].propTypes), {})
 
-const blacklist = [ ...Object.keys(allPropTypes), 'theme' ]
+const omitProps = [ ...Object.keys(allPropTypes), 'theme' ]
 
 export const omit = (obj, keys) => {
   const next = {}
@@ -19,17 +19,17 @@ export const omit = (obj, keys) => {
 
 export const Tag = React.forwardRef(({
   is: Tag = 'div',
-  blacklist = [],
+  omitProps = [],
   ...props
 }, ref) => React.createElement(Tag, {
   ref,
-  ...omit(props, blacklist)
+  ...omit(props, omitProps)
 }))
 
 Tag.displayName = 'Clean.div'
 
 Tag.defaultProps = {
-  blacklist
+  omitProps: omitProps
 }
 
 tags.forEach(tag => {

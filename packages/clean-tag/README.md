@@ -45,15 +45,15 @@ Changes the underlying HTML element per component instance.
 <Heading is='h1' />
 ```
 
-## `blacklist` prop
+## `omitProps` prop
 
-Provide a custom blacklist of prop names.
+Provide a custom list of prop keys to remove from the backing styled component.
 
-The default blacklist is based on Styled System's propType definitions.
+The default list is based on Styled System's propType definitions.
 
 ```js
 <Heading
-  blacklist={[
+  omitProps={[
     'fontSize',
     'color'
   ]}
