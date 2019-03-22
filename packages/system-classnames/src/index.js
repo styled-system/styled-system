@@ -1,7 +1,7 @@
-const omit = blacklist => props => {
+const omit = propnames => props => {
   const next = {}
   for (let key in props) {
-    if (blacklist[key]) continue
+    if (propnames[key]) continue
     next[key] = props[key]
   }
   return next
@@ -14,13 +14,13 @@ const createMapper = ({
   props = [],
   getter = noop
 } = {}) => {
-  const blacklist = props.reduce((a, prop) => ({ ...a, [prop]: true }), {})
-  const clean = omit(blacklist)
+  const propnames = props.reduce((a, prop) => ({ ...a, [prop]: true }), {})
+  const clean = omit(propnames)
 
   const fn = props => {
     const classNames = []
     for (let prop in props) {
-      if (!blacklist[prop]) continue
+      if (!propnames[prop]) continue
       const value = props[prop]
       if (value === null || value === undefined) continue
       if (!Array.isArray(value)) {

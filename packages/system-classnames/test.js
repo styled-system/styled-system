@@ -8,7 +8,7 @@ test('returns a props map function', t => {
   t.is(typeof map, 'function')
 })
 
-test('removes blacklisted props', t => {
+test('removes configured props', t => {
   const map = createMapper({
     props: [ 'm', 'mx' ]
   })
