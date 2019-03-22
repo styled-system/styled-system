@@ -8,9 +8,9 @@ import {
   gridGap,
   gridRowGap,
   gridColumnGap,
-  buttonStyle,
   textStyle,
   colorStyle,
+  borders,
 } from '../src'
 
 const theme = {
@@ -323,4 +323,19 @@ test('colors prop returns theme.colorStyles object', t => {
     color: '#fff',
     backgroundColor: '#000',
   })
+})
+
+test('borders prop returns correct sequence', t => {
+  const a = borders({
+    borderBottom: '1px solid',
+    borderWidth: '2px',
+    borderStyle: 'dashed',
+    borderColor: 'red',
+  })
+  t.deepEqual(a, [
+    { borderBottom: '1px solid' },
+    { borderWidth: '2px' },
+    { borderStyle: 'dashed' },
+    { borderColor: 'red' },
+  ])
 })
