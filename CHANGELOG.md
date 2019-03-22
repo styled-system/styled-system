@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## v4.0.6 2019-03-21
+
+- Changes source order in `borders` #429
+
 ## v4.0.5 2019-03-15
 
 - Fix for missing `propTypes` on `space` function
