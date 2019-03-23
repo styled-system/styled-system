@@ -6,7 +6,7 @@
   "module": "dist/index.esm.js",
   "sideEffects": false,
   "scripts": {
-    "prepare": "mkdirp dist npm run build:cjs && npm run build:esm",
+    "prepare": "mkdirp dist && npm run build:cjs && npm run build:esm",
     "prettier": "prettier \"{src,test}/**/*.js\" --write",
     "clean": "rm -rf dist",
     "build:cjs": "NODE_ENV=cjs babel src -o dist/index.cjs.js",
