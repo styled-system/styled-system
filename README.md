@@ -10,6 +10,7 @@ https://styled-system.com
 [![Build Status][ci]][travis]
 [![Downloads][]][npm]
 [![Version][]][npm]
+[![spectrum-badge][]][spectrum]
 ![size][]
 ![MIT License][license]
 
@@ -19,10 +20,12 @@ https://styled-system.com
 [license]: https://flat.badgen.net/badge/license/MIT/blue
 [stars]: https://flat.badgen.net/github/stars/jxnblk/styled-system
 [size]: https://flat.badgen.net/bundlephobia/minzip/styled-system
+[spectrum-badge]: https://flat.badgen.net/badge/spectrum/community/purple
 
 [npm]: https://npmjs.com/package/styled-system
 [travis]: https://travis-ci.org/jxnblk/styled-system
 [github]: https://github.com/jxnblk/styled-system
+[spectrum]: https://spectrum.chat/styled-system
 
 
 ```sh
