@@ -28,6 +28,34 @@ All style utilities add props that accept arrays as values for mobile-first resp
 <Box p={[ 1, 2, 3, 4 ]} />
 ```
 
+## What it does
+
+This shortcut is an alternative to writing media queries out by hand.
+Given the following:
+
+```jsx
+<Box width={[ 1, 1/2, 1/4 ]} />
+```
+
+Using Styled System with a CSS-in-JS library will generate something like the following CSS:
+
+```css
+.Box-hash {
+  width: 100%;
+}
+
+@media screen and (min-width: 40em) {
+  .Box-hash {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 52em) {
+  .Box-hash {
+    width: 25%;
+  }
+}
+```
 
 ## Using objects
 
