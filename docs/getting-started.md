@@ -243,9 +243,10 @@ Read the [Responsive Styles][] docs for more information.
 ## Other Props
 
 Styled System includes pre-built functions for many other commonly used CSS properties.
-For a complete list, see the [Reference Table] of style functions.
+For a complete list, see the [Reference Table][] of style functions.
 
 
 [styled-components]: https://github.com/styled-components/styled-components
 [emotion]: https://github.com/emotion-js/emotion
 [responsive styles]: /responsive-styles
+[reference table]: /table
