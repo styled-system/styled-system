@@ -527,7 +527,7 @@ import {
 
 ### compose
 
-The `compose` utility is used to combine multiple style functions together into a single one.
+The `compose` utility is used to combine multiple style functions together into one.
 This is used internally to create the `space`, `color`, `size`, and `borders` style functions.
 This utility can also be useful for creating consistent sets of style props across multiple components.
 
