@@ -41,8 +41,6 @@ export default props => {
   }
   const { googleFonts } = themes[theme]
 
-  console.log(googleFonts)
-
   return (
     <ThemeProvider theme={system}>
       <Global styles={typography} />

@@ -1,6 +1,12 @@
 
 # Theme Specification
 
+**WIP**
+
+See [system.ui/theme](https://system-ui.com/theme)
+
+---
+
 The Styled System theme object is intended to be a general purpose format for storing design system style values and scales.
 The object itself is not coupled to Styled System's implementation and can be used in other similar libraries where using common style values in multiple parts of a code base is desirable.
 
