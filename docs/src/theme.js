@@ -1,11 +1,14 @@
+const colors = {
+  text: '#000',
+  background: '#fff',
+  primary: '#00f',
+  secondary: '#00a',
+  gray: '#eee',
+  lightgray: '#fafafa',
+}
+
 export default {
-  colors: {
-    text: '#000',
-    background: '#fff',
-    primary: '#00f',
-    secondary: '#00a',
-    lightgray: '#fafafa',
-  },
+  colors,
   fonts: {
     body: 'system-ui, sans-serif',
     monospace: 'Menlo, monospace',
@@ -82,10 +85,39 @@ export default {
         // pl: 2
         // textIndent: '1em',
       }
+    },
+    table: {
+      width: '100%',
+      my: 4,
+      borderColor: colors.gray,
+      borderCollapse: 'separate',
+      borderSpacing: 0,
+    },
+    th: {
+      textAlign: 'left',
+      verticalAlign: 'bottom',
+      paddingTop: '4px',
+      paddingBottom: '4px',
+      paddingRight: '4px',
+      paddingLeft: 0,
+      borderColor: 'inherit',
+      borderBottomWidth: '2px',
+      borderBottomStyle: 'solid'
+    },
+    td: {
+      textAlign: 'left',
+      verticalAlign: 'top',
+      paddingTop: '4px',
+      paddingBottom: '4px',
+      paddingRight: '4px',
+      paddingLeft: 0,
+      borderColor: 'inherit',
+      borderBottomWidth: '1px',
+      borderBottomStyle: 'solid'
     }
   },
   // block variants
-  blocks: {
+  layout: {
     layout: {},
     header: {
       color: 'text',

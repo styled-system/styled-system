@@ -22,6 +22,6 @@ export const Box = styled('div', { shouldForwardProp })(css({
 
 export const block = name => props => {
   const theme = props.theme || props
-  return css(theme.blocks[name])(props)
+  return css(theme.layout[name])(props)
 }
 
