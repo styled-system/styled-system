@@ -15,7 +15,7 @@ const Logo = ({
   style={{
     display: 'block',
     overflow: 'visible',
-    color: 'black',
+    color: 'inherit',
     fill: 'none',
     stroke: 'currentColor'
   }}>

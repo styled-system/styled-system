@@ -1,8 +1,7 @@
 import React from 'react'
-// import Hex from '../Hex'
-import Logo from '../Logo'
-import LogoWhite from '../LogoWhite'
-import { Box } from '../components'
+import Logo from '../logo'
+import LogoWhite from '../logo/white'
+import { Box } from '../system'
 
 export default props =>
   <>

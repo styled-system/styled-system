@@ -11,13 +11,13 @@
     "clean": "rm -rf dist",
     "build:cjs": "NODE_ENV=cjs babel src -o dist/index.cjs.js",
     "build:esm": "NODE_ENV=esm babel src -o dist/index.esm.js",
-    "logo-svg": "npx scrs docs/src/Logo.js --svg > docs/static/logo.svg",
-    "logo-white": "npx scrs docs/src/LogoWhite.js --svg > docs/static/logo-white.svg",
+    "logo": "npx repng docs/src/logo/index.js -d docs/static -f logo.png -w 512 -h 512",
+    "logo-svg": "npx scrs docs/src/logo/index.js --svg > docs/static/logo.svg",
+    "logo-white": "npx scrs docs/src/logo/white.js --svg > docs/static/logo-white.svg",
     "size": "npx bundlesize",
     "cover": "nyc report --reporter=html --reporter=lcov > coverage.lcov",
     "codecov": "nyc report --reporter=html --reporter=lcov > coverage.lcov && npx codecov",
-    "test": "nyc ava",
-    "todo_fix__logo": "npx repng docs/src/Logo.js -d docs -f logo.png -w 512 -h 512 -p '{\"size\":512}'"
+    "test": "nyc ava"
   },
   "keywords": [
     "react",

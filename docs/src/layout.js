@@ -1,17 +1,25 @@
 import React, { useState } from 'react'
 import styled from '@emotion/styled'
-import {
-  Flex,
-  Box,
-  Container,
-  Link,
-} from './components'
+import { flexDirection } from 'styled-system'
+import Link from './Link'
 import navigation from './navigation'
-import Navbar from './navbar'
+import { Box, css, block } from './system'
 
 const Header = styled(Box)({
+  width: '100%',
   height: 64,
-})
+  display: 'flex',
+  alignItems: 'center'
+}, block('header'))
+
+const Root = styled(Box)({
+  display: 'flex',
+  flexDirection: 'column',
+}, block('layout'))
+
+const Main = styled(Box)({
+  display: 'flex',
+}, flexDirection, block('main'))
 
 const Sidebar = styled(Box)({
   minWidth: 0,
@@ -21,15 +29,18 @@ const Sidebar = styled(Box)({
   position: 'sticky',
   top: 0,
   alignSelf: 'flex-start',
+  minHeight: 'calc(100vh - 0px)',
 },
   props => ({
     '@media screen and (max-width: 40em)': {
+      minHeight: 0,
       height: props.open ? 'auto' : 0,
       overflow: 'hidden',
       borderBottom: props.open ? '1px solid' : 0,
       // color: 'white', backgroundColor: 'black',
     }
-  })
+  }),
+  block('sidebar')
 )
 
 const Overlay = props =>
@@ -44,23 +55,57 @@ const Overlay = props =>
     }}
   />
 
+export const Container = styled(Box)(
+  css({
+    width: '100%',
+    maxWidth: 1024,
+    mx: 'auto',
+    p: 4,
+  }),
+  block('main')
+)
+Container.defaultProps = {
+  as: 'main',
+}
+
+const Pagination = styled(Box)(
+  block('pagination')
+)
+
 export default ({
   ...props
 }) => {
   const [ open, setOpen ] = useState(false)
 
   return (
-    <Flex flexDirection='column'>
-      <Navbar
-        open={open}
-        setOpen={setOpen}
-      />
+    <Root>
+      <Header>
+        <Link href='/'
+          css={css({
+            display: 'block',
+            fontWeight: 'bold',
+            textDecoration: 'none',
+            color: 'inherit',
+            p: 3,
+          })}>
+          Styled System
+        </Link>
+        <Box mx='auto' />
+        <button
+          style={{
+            margin: 16,
+          }}
+          onClick={e => {
+            setOpen(!open)
+          }}>
+          Menu
+        </button>
+      </Header>
       {open && <Overlay onClick={e => setOpen(false)} />}
-      <Flex flexDirection={[ 'column', 'row' ]}>
+      <Main flexDirection={[ 'column', 'row' ]}>
         <Sidebar
           open={open}
-          width={[ 1, 256, 320 ]}
-          bg='white'>
+          width={[ 1, 256, 320 ]}>
           {navigation.map(({ href, text }) => (
             <Box key={href}>
               <Link
@@ -90,11 +135,13 @@ export default ({
             GitHub
           </Link>
         </Sidebar>
-        <Container as='main'>
+        <Container>
           {props.children}
-          <pre>PAGINATION</pre>
+          <Pagination>
+            <pre>PAGINATION</pre>
+          </Pagination>
         </Container>
-      </Flex>
-    </Flex>
+      </Main>
+    </Root>
   )
 }
