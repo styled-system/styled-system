@@ -1,8 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Box } from '../system'
-import { Container } from '../layout'
-import Link from '../Link'
+import { Container, NavLink } from '../layout'
+import Link from '../link'
 import Badges from '../badges.md'
 import GettingStarted from '../../getting-started.md'
 import Hex from '../logo/hex'
@@ -78,16 +78,12 @@ export default ({
           display: 'flex',
         }}>
         <Box mx='auto' />
-        <Link href='/getting-started'
-          color='inherit'>
+        <NavLink href='/getting-started'>
           Docs
-        </Link>
-        <Link
-          href={meta.github}
-          ml={3}
-          color='inherit'>
+        </NavLink>
+        <NavLink href={meta.github}>
           GitHub
-        </Link>
+        </NavLink>
       </Box>
       <Container py={5}>
         <Box as='h1'
@@ -146,42 +142,30 @@ export default ({
         <GettingStarted />
       </Box>
       <Box py={4}>
-        <Box
-          as='h2'
-          fontSize={6}
-          mb={3}
-        >
-          Docs
-        </Box>
-        <ul>
-          <li>
-            <Link href='/responsive-styles'>Responsive Styles</Link>
-          </li>
-          <li>
-            <Link href='/how-it-works'>How it Works</Link>
-          </li>
-          <li>
-            <Link href='/api'>API</Link>
-          </li>
-          <li>
-            <Link href='/table'>Reference Table</Link>
-          </li>
-          <li>
-            <Link href='/custom-props'>Custom Props</Link>
-          </li>
-        </ul>
+        Continue on the next page:
+        <NavLink
+          href='/responsive-styles'
+          fontSize={5}
+          px={0}
+          mb={3}>
+          Responsive Styles
+        </NavLink>
       </Box>
     </Container>
     <Box as='footer'>
-      <Container>
-        <Box fontSize={1} mr={2}>
-          <b>
-            MIT License
-          </b>
+      <Container
+        css={{
+          display: 'flex',
+          alignItems: 'center',
+        }}>
+        <Box
+          fontWeight='bold'
+          mr={2}>
+          MIT License
         </Box>
-        <Link mr={2} href='https://github.com/jxnblk/styled-system'>
+        <NavLink href='https://github.com/jxnblk/styled-system'>
           GitHub
-        </Link>
+        </NavLink>
       </Container>
     </Box>
   </div>

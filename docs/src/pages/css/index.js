@@ -4,7 +4,7 @@ import Layout from '../../layout'
 
 export default props => {
   return (
-    <Layout>
+    <Layout {...props}>
       <Readme />
     </Layout>
   )

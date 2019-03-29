@@ -1,8 +1,10 @@
 export default {
   colors: {
-    primary: '#07c',
-    secondary: '#05a',
-    lightgray: '#f6f6ff',
+    text: '#000',
+    background: '#fff',
+    primary: '#00f',
+    secondary: '#00a',
+    lightgray: '#fafafa',
   },
   fonts: {
     body: 'system-ui, sans-serif',
@@ -74,21 +76,24 @@ export default {
       fontFamily: 'monospace',
       color: 'secondary',
     },
+    ul: {
+      pl: 3,
+      ul: {
+        // pl: 2
+        // textIndent: '1em',
+      }
+    }
   },
   // block variants
   blocks: {
-    layout: {
-    },
+    layout: {},
     header: {
       color: 'text',
-      bg: 'lightgray',
+      bg: 'white',
     },
     sidebar: {
-      // bg: 'lightgray',
+      bg: 'white',
     },
-    main: {
-      // bg: 'tomato',
-      // maxWidth: 512,
-    }
+    main: {}
   }
 }

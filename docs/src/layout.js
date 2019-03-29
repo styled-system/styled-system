@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import { flexDirection } from 'styled-system'
-import Link from './Link'
+import Link from './link'
 import navigation from './navigation'
 import { Box, css, block } from './system'
 
@@ -68,30 +68,44 @@ Container.defaultProps = {
   as: 'main',
 }
 
-const Pagination = styled(Box)(
+const Pagination = styled(Box)({
+  display: 'flex',
+  alignItems: 'center'
+},
   block('pagination')
 )
+
+export const NavLink = styled(Link)(css({
+  display: 'block',
+  fontWeight: 'bold',
+  textDecoration: 'none',
+  color: 'inherit',
+  px: 3,
+  py: 2,
+}))
 
 export default ({
   ...props
 }) => {
   const [ open, setOpen ] = useState(false)
+  const { pathname } = props.location
+  const index = navigation.findIndex(({ href }) => href === pathname)
+  const previous = navigation[index - 1]
+  const next = navigation[index + 1]
 
   return (
     <Root>
       <Header>
-        <Link href='/'
-          css={css({
-            display: 'block',
-            fontWeight: 'bold',
-            textDecoration: 'none',
-            color: 'inherit',
-            p: 3,
-          })}>
+        <NavLink href='/'>
           Styled System
-        </Link>
+        </NavLink>
         <Box mx='auto' />
         <button
+          css={{
+            '@media screen and (min-width: 40em)': {
+              display: 'none',
+            }
+          }}
           style={{
             margin: 16,
           }}
@@ -105,40 +119,40 @@ export default ({
       <Main flexDirection={[ 'column', 'row' ]}>
         <Sidebar
           open={open}
+          py={2}
           width={[ 1, 256, 320 ]}>
           {navigation.map(({ href, text }) => (
             <Box key={href}>
-              <Link
-                href={href}
-                color='inherit'
-                px={3}
-                py={2}
-                css={{
-                  display: 'block',
-                  fontWeight: 'bold',
-                  textDecoration: 'none',
-                }}>
+              <NavLink href={href}>
                 {text}
-              </Link>
+              </NavLink>
             </Box>
           ))}
-          <Link
-            href='https://github.com/styled-system/styled-system'
-            color='inherit'
-            px={3}
-            py={2}
-            css={{
-              display: 'block',
-              fontWeight: 'bold',
-              textDecoration: 'none',
-            }}>
+          <NavLink href='https://github.com/styled-system/styled-system'>
             GitHub
-          </Link>
+          </NavLink>
         </Sidebar>
         <Container>
           {props.children}
-          <Pagination>
-            <pre>PAGINATION</pre>
+          <Pagination
+            py={5}>
+            {previous && (
+              <NavLink
+                px={0}
+                fontSize={3}
+                href={previous.href}>
+                {previous.text}
+              </NavLink>
+            )}
+            <Box mx='auto' />
+            {next && (
+              <NavLink
+                px={0}
+                fontSize={3}
+                href={next.href}>
+                {next.text}
+              </NavLink>
+            )}
           </Pagination>
         </Container>
       </Main>

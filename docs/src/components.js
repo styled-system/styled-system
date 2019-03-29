@@ -1,5 +1,6 @@
 import React from 'react'
-import Link from './Link'
+import Link from './link'
+import wrapper from './toc-wrapper'
 
 const heading = Tag => ({ id, ...props }) =>
   <Tag id={id} {...props}>
@@ -9,6 +10,7 @@ const heading = Tag => ({ id, ...props }) =>
   </Tag>
 
 export default {
+  wrapper,
   h1: heading('h1'),
   h2: heading('h2'),
   h3: heading('h3'),
