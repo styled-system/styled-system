@@ -1,11 +1,10 @@
 import React from 'react'
-import {
-  Root,
-  Sidebar
-} from '@rebass/gatsby-theme-docs'
 import Readme from '@styled-system/css/README.md'
+// import { Root, Sidebar } from '@rebass/gatsby-theme-docs'
 
 export default props => {
+  return <Readme />
+  /*
   return (
     <Root>
       <Sidebar>
@@ -13,4 +12,5 @@ export default props => {
       </Sidebar>
     </Root>
   )
+  */
 }

@@ -1,11 +1,11 @@
 import React from 'react'
-import { NavLink } from '@rebass/gatsby-theme-docs'
 import {
   Box,
   Flex,
-  Container,
   Link,
-} from './components'
+} from '../../components'
+// import { NavLink } from '@rebass/gatsby-theme-docs'
+const NavLink = Link
 
 export default props =>
   <Flex

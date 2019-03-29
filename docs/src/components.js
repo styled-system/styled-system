@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import { Link as GatsbyLink } from 'gatsby'
 import isAbsoluteURL from 'is-absolute-url'
 import {
@@ -13,6 +13,7 @@ import {
   flex,
   alignItems,
   justifyContent,
+  flexDirection,
   flexWrap,
 } from 'styled-system'
 
@@ -28,10 +29,13 @@ export const Flex = styled(Box)({
 },
   alignItems,
   justifyContent,
-  flexWrap
+  flexWrap,
+  flexDirection
 )
 
-export const Container = styled(Box)(
+export const Container = styled(Box)({
+  minWidth: 0,
+},
   maxWidth
 )
 
@@ -99,7 +103,6 @@ export const Columns = styled(UL)({
   }
 })
 
-
 export const Blockquote = styled.blockquote({
 }, space, fontSize, fontWeight, lineHeight, color)
 
@@ -110,7 +113,21 @@ Blockquote.defaultProps = {
   fontWeight: 'bold',
 }
 
+const heading = defaults => ({ id, ...props }) =>
+  <Text
+    id={id}
+    {...defaults}
+    {...props}>
+    <a href={'#' + id}>
+      {props.children}
+    </a>
+  </Text>
+
 export default {
+  Link,
+  h1: heading({ as: 'h1', fontSize: [5, 6] }),
+  h2: heading({ as: 'h2', fontSize: [4, 5] }),
+  h3: heading({ as: 'h3', fontSize: 3 }),
   a: Link,
   pre: props => props.children,
   code: Pre,

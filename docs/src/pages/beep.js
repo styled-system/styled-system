@@ -1,5 +1,5 @@
 import React from 'react'
-import Hex from '../Hex'
+// import Hex from '../Hex'
 import Logo from '../Logo'
 import LogoWhite from '../LogoWhite'
 import { Box } from '../components'

@@ -5,11 +5,9 @@ import { ThemeProvider } from 'emotion-theming'
 import { Global } from '@emotion/core'
 import { space, maxWidth, color } from 'styled-system'
 import { Helmet } from 'react-helmet'
-import merge from 'lodash.merge'
 import { typography, themes } from '@styled-system/typography'
 import { Text } from '../../components'
-import Header from '../../Header'
-import Footer from '../../Footer'
+import Header from './Header'
 
 const Select = styled('select')({
   fontFamily: 'inherit',
@@ -85,11 +83,6 @@ export default props => {
         py={4}>
         <Readme />
       </Box>
-      <Footer
-        maxWidth='none'
-        color='white'
-        bg='black'
-      />
     </ThemeProvider>
   )
 }

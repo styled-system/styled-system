@@ -1,12 +1,14 @@
 import React from 'react'
-import { NavLink } from '@rebass/gatsby-theme-docs'
 import {
-  Box,
   Flex,
   Text,
   Container,
   Link,
 } from './components'
+
+// import { NavLink } from '@rebass/gatsby-theme-docs'
+// placeholder
+const NavLink = Link
 
 export default props =>
   <Container as='footer' py={5} {...props}>

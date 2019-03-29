@@ -1,3 +1,8 @@
+const remarkPlugins = [
+  require('remark-slug'),
+  require('remark-unwrap-images'),
+]
+
 module.exports = {
   siteMetadata: {
     title: 'Styled System',
@@ -5,7 +10,6 @@ module.exports = {
     author: '@jxnblk',
     install: 'npm i styled-system',
     github: 'https://github.com/styled-system/styled-system',
-    navigation: [],
     quotes: [
       {
         text: 'This is honestly my favourite way to build UI components right now',
@@ -44,24 +48,30 @@ text: 'If you like Tachyons you will love styled-system. If you don’t like Tac
       'Works with most CSS-in-JS libraries, including styled-components and emotion',
     ],
   },
-  __experimentalThemes: [
+  __experimentalThemes: [],
+  plugins: [
+    'gatsby-plugin-emotion',
+    'gatsby-plugin-react-helmet',
     {
-      resolve: '@rebass/gatsby-theme-docs',
+      resolve: 'gatsby-source-filesystem',
       options: {
-        navigation: [
-          { href: '/', text: 'Styled System' },
-          { href: '/getting-started', text: 'Getting Started' },
-          { href: '/responsive-styles', text: 'Responsive Styles' },
-          { href: '/how-it-works', text: 'How it Works' },
-          { href: '/custom-props', text: 'Custom Props' },
-          { href: '/api', text: 'API' },
-          { href: '/table', text: 'Reference Table' },
-          { href: '/theme-specification', text: 'Theme Specification' },
+        name: 'docs',
+        path: __dirname,
+        ignore: [
+          '**/public/**/*',
+          '**/.cache/**/*',
         ]
       }
-    }
-  ],
-  plugins: [
+    },
+    {
+      resolve: 'gatsby-mdx',
+      options: {
+        extensions: [
+          '.md', '.mdx'
+        ],
+        remarkPlugins,
+      }
+    },
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {

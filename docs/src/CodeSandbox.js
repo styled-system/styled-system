@@ -4,6 +4,7 @@ const src = 'https://codesandbox.io/embed/github/jxnblk/styled-system/tree/maste
 
 export default () =>
   <iframe
+    title='sandbox'
     src={src}
     style={{
       width: '100%',

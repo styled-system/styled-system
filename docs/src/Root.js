@@ -1,16 +1,20 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import { createGlobalStyle } from 'styled-components'
+import { Global } from '@emotion/core'
 
-const Style = createGlobalStyle`
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    font-family: system-ui, sans-serif;
-    line-height: 1.5;
-  }
-`
+const style = (
+  <Global
+    styles={{
+      '*': { boxSizing: 'border-box' },
+      body: {
+        margin: 0,
+        fontFamily: 'system-ui, sans-serif',
+        lineHeight: 1.5,
+      }
+    }}
+  />
+)
 
 const query = graphql`
   query {
@@ -23,7 +27,7 @@ const query = graphql`
   }
 `
 
-const Root = props => {
+export default props => {
   const data = useStaticQuery(query)
   const {
     title,
@@ -41,16 +45,8 @@ const Root = props => {
         <meta name='twitter:description' content={description} />
         <meta name='twitter:image' content='https://styled-system.com/logo.png' />
       </Helmet>
-      <Style />
+      {style}
       {props.children}
     </>
-  )
-}
-
-export const wrapPageElement = ({ element, props }) => {
-  return (
-    <Root>
-      {element}
-    </Root>
   )
 }
