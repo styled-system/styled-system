@@ -1,4 +1,6 @@
 
+export const toc = true
+
 # API
 
 ## Core
