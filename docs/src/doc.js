@@ -3,8 +3,6 @@ import { graphql } from 'gatsby'
 import MDXRenderer from 'gatsby-mdx/mdx-renderer'
 import Layout from './layout'
 
-import { useMDXComponents } from '@mdx-js/react'
-
 export const pageQuery = graphql`
   query($id: String!) {
     mdx(id: { eq: $id }) {
@@ -22,11 +20,6 @@ export const pageQuery = graphql`
 export default props => {
   const { code } = props.data.mdx
   const children = <MDXRenderer children={code.body} />
-
-    console.log(
-      'doc',
-      useMDXComponents()
-    )
 
   return (
     <Layout

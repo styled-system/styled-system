@@ -5,6 +5,16 @@ const colors = {
   secondary: '#00a',
   gray: '#eee',
   lightgray: '#fafafa',
+  modes: {
+    dark: {
+      text: '#fff',
+      background: '#000',
+      primary: '#0cf',
+      secondary: '#0fc',
+      gray: '#222',
+      lightgray: '#111',
+    },
+  }
 }
 
 export default {
@@ -118,13 +128,17 @@ export default {
   },
   // block variants
   layout: {
-    layout: {},
+    root: {
+      color: 'text',
+      bg: 'background',
+    },
     header: {
       color: 'text',
-      bg: 'white',
+      bg: 'background',
     },
     sidebar: {
-      bg: 'white',
+      color: 'text',
+      bg: 'background',
     },
     main: {}
   }

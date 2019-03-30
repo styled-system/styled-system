@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import { flexDirection } from 'styled-system'
+import { useAppContext } from './index'
 import Link from './link'
 import navigation from './navigation'
 import { Box, css, block } from './system'
@@ -12,16 +13,18 @@ const Header = styled(Box)({
   alignItems: 'center'
 }, block('header'))
 
-const Root = styled(Box)({
+const Root = styled(Box)(css({
   display: 'flex',
   flexDirection: 'column',
-}, block('layout'))
+  color: 'text',
+  bg: 'background',
+}), block('root'))
 
 const Main = styled(Box)({
   display: 'flex',
 }, flexDirection, block('main'))
 
-const Sidebar = styled(Box)({
+const Sidebar = styled(Box)(css({
   minWidth: 0,
   flex: 'none',
   overflowY: 'auto',
@@ -30,14 +33,15 @@ const Sidebar = styled(Box)({
   top: 0,
   alignSelf: 'flex-start',
   minHeight: 'calc(100vh - 0px)',
-},
+  color: 'text',
+  bg: 'background',
+}),
   props => ({
     '@media screen and (max-width: 40em)': {
       minHeight: 0,
       height: props.open ? 'auto' : 0,
       overflow: 'hidden',
       borderBottom: props.open ? '1px solid' : 0,
-      // color: 'white', backgroundColor: 'black',
     }
   }),
   block('sidebar')
@@ -87,6 +91,7 @@ export const NavLink = styled(Link)(css({
 export default ({
   ...props
 }) => {
+  const state = useAppContext()
   const [ open, setOpen ] = useState(false)
   const { pathname } = props.location
   const index = navigation.findIndex(({ href }) => href === pathname)
@@ -100,6 +105,12 @@ export default ({
           Styled System
         </NavLink>
         <Box mx='auto' />
+        <button
+          onClick={e => {
+            state.cycleMode()
+          }}>
+          {state.mode}
+        </button>
         <button
           css={{
             '@media screen and (min-width: 40em)': {

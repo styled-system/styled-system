@@ -1,8 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Box } from '../system'
+import { useAppContext } from '../index'
+import { Box, Styled } from '../system'
 import { Container, NavLink } from '../layout'
-import Link from '../link'
 import Badges from '../badges.md'
 import GettingStarted from '../../getting-started.md'
 import Hex from '../logo/hex'
@@ -131,9 +131,9 @@ export default ({
               m={0}>
               “{quote.text}”
             </Box>
-            <Link href={quote.href}>
+            <Styled.a href={quote.href}>
               – {quote.source}
-            </Link>
+            </Styled.a>
           </Box>
         ))}
       </Columns>
