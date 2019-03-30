@@ -162,7 +162,10 @@ export default {
   layout: {
     root: {},
     header: {},
-    sidebar: {},
+    sidebar: {
+      color: 'text',
+      bg: 'background',
+    },
     main: {}
   }
 }

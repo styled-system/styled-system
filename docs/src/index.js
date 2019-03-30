@@ -83,6 +83,7 @@ const getCustomColors = search => {
 
 const Root = props => {
   const [ mode, setMode ] = useState(modes[0])
+  const [ open, setOpen ] = useState(false)
 
   const theme = getTheme(mode)
   if (props.location && props.location.search) {
@@ -108,6 +109,9 @@ const Root = props => {
     mode,
     setMode,
     cycleMode,
+    open,
+    setOpen,
+    toggleOpen: () => setOpen(!open),
   }
 
   return (

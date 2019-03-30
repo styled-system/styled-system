@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { useAppContext } from '../index'
 import { Box, Styled } from '../system'
-import { Container, NavLink } from '../layout'
+import { Header, Container, NavLink } from '../layout'
 import Badges from '../badges.md'
 import GettingStarted from '../../getting-started.md'
 import Hex from '../logo/hex'
@@ -63,42 +63,35 @@ export default ({
   <div>
     <Box
       as='header'
-      color='white'
-      bg='black'
       css={{
-        minHeight: '100vh',
+        // minHeight: '100vh',
       }}>
-      <Box
-        px={3}
-        py={3}
-        css={{
-          display: 'flex',
-        }}>
-        <Box mx='auto' />
-        <NavLink href='/getting-started'>
-          Docs
-        </NavLink>
-        <NavLink href={meta.github}>
-          GitHub
-        </NavLink>
-      </Box>
+      <Header sidebar={false} />
       <Container py={5}>
-        <Box as='h1'
-          fontSize={[5]}
-          lineHeight='1.125'>
-          {meta.title}
-        </Box>
         <Hex />
-        <Box fontSize={[3, 4, 5]} fontWeight='bold'>
+        <Box
+          as='h1'
+          fontSize={[4, 4, 5]}
+          fontWeight='bold'>
           {meta.description}
         </Box>
         <Box
-          as='pre'
-          px={0}
-          fontFamily='monospace'
-          color='inherit'
-          backgroundColor='transparent'>
-          npm i styled-system
+          mx={-3}
+          css={{
+            display: 'flex',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+          }}>
+          <NavLink href='/getting-started'>Documentation</NavLink>
+          <NavLink href='https://github.com/styled-system/styled-system'>GitHub</NavLink>
+          <Box
+            as='pre'
+            px={3}
+            fontFamily='monospace'
+            color='inherit'
+            backgroundColor='transparent'>
+            npm i styled-system
+          </Box>
         </Box>
       </Container>
     </Box>

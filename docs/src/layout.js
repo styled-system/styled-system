@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { globalHistory } from '@reach/router'
 import styled from '@emotion/styled'
 import { flexDirection } from 'styled-system'
 import { useAppContext } from './index'
@@ -8,7 +7,7 @@ import navigation from './navigation'
 import { Box, css, block } from './system'
 import Burger from './system/burger'
 
-const Header = styled(Box)(css({
+const HeaderRoot = styled(Box)(css({
   width: '100%',
   height: 64,
   display: 'flex',
@@ -16,7 +15,68 @@ const Header = styled(Box)(css({
   position: 'relative',
   zIndex: 2,
   bg: 'background',
+  transition: 'background-color .2s ease-out',
 }), block('header'))
+
+export const Header = ({
+  sidebar = true,
+  ...props
+}) => {
+  const state = useAppContext()
+  return (
+    <HeaderRoot>
+      <NavLink href='/'>
+        Styled System
+      </NavLink>
+      <Box mx='auto' />
+      <button
+        title='Toggle Color Mode'
+        css={css({
+          appearance: 'none',
+          fontFamily: 'inherit',
+          fontSize: 10,
+          textTransform: 'uppercase',
+          letterSpacing: '0.1em',
+          fontWeight: 'bold',
+          border: 'none',
+          m: 3,
+          p: 2,
+          color: 'text',
+          bg: 'gray',
+          '&:focus': {
+            outline: '2px solid',
+          }
+        })}
+        onClick={e => {
+          e.preventDefault()
+          state.cycleMode()
+        }}>
+        {state.mode}
+      </button>
+      {sidebar && (
+        <button
+          title='Show Menu'
+          css={css({
+            appearances: 'none',
+            border: 0,
+            mr: 3,
+            p: 2,
+            color: 'inherit',
+            backgroundColor: 'transparent',
+            '&:focus': {
+              outline: '2px solid',
+            },
+            '@media screen and (min-width: 40em)': {
+              display: 'none',
+            }
+          })}
+          onClick={state.toggleOpen}>
+          <Burger />
+        </button>
+      )}
+    </HeaderRoot>
+  )
+}
 
 const Root = styled(Box)(css({
   display: 'flex',
@@ -36,16 +96,16 @@ const Sidebar = styled(Box)(css({
   top: 0,
   alignSelf: 'flex-start',
   minHeight: 'calc(100vh - 0px)',
+  transition: 'background-color .2s ease-out',
 }),
   props => ({
     '@media screen and (max-width: 40em)': {
       minHeight: 0,
       maxHeight: props.open ? '100vh' : 0,
-      height: 'auto', // props.open ? 'auto' : 0,
+      height: 'auto',
       transition: 'max-height .5s ease-out',
       overflow: 'hidden',
       boxShadow: `0 2px 8px rgba(0, 0, 0, .25)`,
-      // borderBottom: props.open ? '1px solid' : 0,
     }
   }),
   block('sidebar')
@@ -109,7 +169,6 @@ export default ({
   ...props
 }) => {
   const state = useAppContext()
-  const [ open, setOpen ] = useState(false)
   const { pathname } = props.location
   const index = navigation.findIndex(({ href }) => href === removeSlash(pathname))
   const previous = navigation[index - 1]
@@ -117,58 +176,12 @@ export default ({
 
   return (
     <Root>
-      <Header>
-        <NavLink href='/'>
-          Styled System
-        </NavLink>
-        <Box mx='auto' />
-        <button
-          title='Toggle Color Mode'
-          css={css({
-            appearance: 'none',
-            fontFamily: 'inherit',
-            fontSize: 10,
-            textTransform: 'uppercase',
-            letterSpacing: '0.1em',
-            fontWeight: 'bold',
-            border: 'none',
-            m: 3,
-            p: 2,
-            color: 'text',
-            bg: 'gray',
-            '&:focus': {
-              outline: '2px solid',
-            }
-          })}
-          onClick={e => {
-            e.preventDefault()
-            state.cycleMode()
-          }}>
-          {state.mode}
-        </button>
-        <button
-          title='Show Menu'
-          css={css({
-            appearances: 'none',
-            border: 0,
-            mr: 3,
-            p: 2,
-            color: 'inherit',
-            backgroundColor: 'transparent',
-            '@media screen and (min-width: 40em)': {
-              display: 'none',
-            }
-          })}
-          onClick={e => {
-            setOpen(!open)
-          }}>
-          <Burger />
-        </button>
-      </Header>
-      {open && <Overlay onClick={e => setOpen(false)} />}
+      <Header />
+      {state.open && <Overlay onClick={e => state.setOpen(false)} />}
       <Main flexDirection={[ 'column', 'row' ]}>
         <Sidebar
-          open={open}
+          open={state.open}
+          onClick={e => state.setOpen(false)}
           width={[ 1, 256, 320 ]}>
           {navigation.map(({ href, text }) => (
             <Box key={href}>
