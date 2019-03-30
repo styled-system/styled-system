@@ -1,5 +1,4 @@
 export default [
-  // { href: '/', text: 'Styled System' },
   { href: '/getting-started', text: 'Getting Started' },
   { href: '/responsive-styles', text: 'Responsive Styles' },
   { href: '/how-it-works', text: 'How it Works' },
@@ -9,6 +8,5 @@ export default [
   { href: '/theme-specification', text: 'Theme Specification' },
   { href: '/articles', text: 'Articles' },
 
-  // { href: '/typography', text: 'Typography' },
   { href: '/css', text: 'CSS' },
 ]

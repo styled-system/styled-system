@@ -75,8 +75,6 @@ const getCustomColors = search => {
     '%c%s',
     `padding:4px;color:${colors.text};background-color:${colors.background}`,
     ' Custom Colors ',
-    // 'color:black',
-    // ' ' + result.color + ' ' + result.base
   )
   return merge({}, defaults, colors)
 }

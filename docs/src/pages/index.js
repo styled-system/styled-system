@@ -61,11 +61,7 @@ export default ({
   }
 }) =>
   <div>
-    <Box
-      as='header'
-      css={{
-        // minHeight: '100vh',
-      }}>
+    <Box as='header'>
       <Header sidebar={false} />
       <Container py={5}>
         <Hex />
