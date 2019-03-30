@@ -2,7 +2,7 @@ import React from 'react'
 import {
   hex,
   inner
-} from './Hex'
+} from './hex'
 
 const Logo = ({
   size = 512,
@@ -15,7 +15,7 @@ const Logo = ({
   style={{
     display: 'block',
     overflow: 'visible',
-    color: 'black',
+    color: 'inherit',
     fill: 'none',
     stroke: 'currentColor'
   }}>

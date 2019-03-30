@@ -3,13 +3,10 @@ import Readme from '@styled-system/typography/README.md'
 import styled from '@emotion/styled'
 import { ThemeProvider } from 'emotion-theming'
 import { Global } from '@emotion/core'
-import { space, maxWidth, color } from 'styled-system'
 import { Helmet } from 'react-helmet'
-import merge from 'lodash.merge'
 import { typography, themes } from '@styled-system/typography'
-import { Text } from '../../components'
-import Header from '../../Header'
-import Footer from '../../Footer'
+import Layout from '../../layout'
+import { Box } from '../../system'
 
 const Select = styled('select')({
   fontFamily: 'inherit',
@@ -25,13 +22,6 @@ const Select = styled('select')({
     outline: 'none',
   }
 })
-
-const Box = styled('div')(
-  space,
-  maxWidth,
-  color
-)
-
 const names = Object.keys(themes)
 
 export default props => {
@@ -42,25 +32,25 @@ export default props => {
   const { googleFonts } = themes[theme]
 
   return (
-    <ThemeProvider theme={system}>
-      <Global styles={typography} />
-      <Helmet>
-        {googleFonts && (
-          <link
-            rel='stylesheet'
-            href={'https:' + googleFonts}
-          />
-        )}
-      </Helmet>
-      <Header>
-        <div>
-          <Text
+    <Layout {...props}>
+      <ThemeProvider theme={system}>
+        <Global styles={typography} />
+        <Helmet>
+          {googleFonts && (
+            <link
+              rel='stylesheet'
+              href={googleFonts}
+            />
+          )}
+        </Helmet>
+        <Box>
+          <Box
             as='label'
             htmlFor='theme'
             fontSize={1}
             mr={2}>
             Theme
-          </Text>
+          </Box>
           <Select
             id='theme'
             name='theme'
@@ -76,21 +66,16 @@ export default props => {
               />
             ))}
           </Select>
-        </div>
-      </Header>
-      <Box
-        mx='auto'
-        maxWidth={1024}
-        px={3}
-        py={4}>
-        <Readme />
-      </Box>
-      <Footer
-        maxWidth='none'
-        color='white'
-        bg='black'
-      />
-    </ThemeProvider>
+        </Box>
+        <Box
+          mx='auto'
+          maxWidth={1024}
+          px={3}
+          py={4}>
+          <Readme />
+        </Box>
+      </ThemeProvider>
+    </Layout>
   )
 }
 

@@ -23,11 +23,10 @@ const pattern = (
     id='hex'
     patternUnits='userSpaceOnUse'
     patternTransform='translate(-3.5 6)'
-    overflow='visible'
     viewBox='-14 -16 28 48'
     width='7'
     height='12'>
-    <g fill='none' strokeWidth={1} stroke='white'>
+    <g fill='none' strokeWidth={1} stroke='currentcolor'>
       <path d={hex} />
       <path d={hex} transform='translate(14 24)' />
       <g strokeWidth={1} opacity='0.5'>
@@ -43,21 +42,25 @@ export default ({
   width = 1024,
   height = 512,
 }) =>
-  <svg
-    viewBox='0 0 126 48'
-    width={width}
-    height={height}
+  <div
     style={{
-      maxWidth: '100%',
-      height: 'auto',
-      overflow: 'visible'
+      textAlign: 'center',
+      overflow: 'hidden',
     }}>
-    <defs>
-      {pattern}
-    </defs>
-    <rect
-      width='126'
-      height='48'
-      fill='url(#hex)'
-    />
-  </svg>
+    <svg
+      viewBox='0 0 126 48'
+      width={width}
+      height={height}
+      style={{
+        overflow: 'visible'
+      }}>
+      <defs>
+        {pattern}
+      </defs>
+      <rect
+        width='126'
+        height='48'
+        fill='url(#hex)'
+      />
+    </svg>
+  </div>

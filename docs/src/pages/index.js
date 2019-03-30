@@ -1,12 +1,11 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Box, Flex, Container, Text, Blockquote, Link, Columns, Pre } from '../components'
-import Logo from '../Logo'
+import { useAppContext } from '../index'
+import { Box, Styled } from '../system'
+import { Header, Container, NavLink } from '../layout'
 import Badges from '../badges.md'
-import CodeSandbox from '../CodeSandbox'
 import GettingStarted from '../../getting-started.md'
-import Footer from '../Footer'
-import Hex from '../Hex'
+import Hex from '../logo/hex'
 
 export const query = graphql`
   query Index {
@@ -27,6 +26,33 @@ export const query = graphql`
   }
 `
 
+const Columns = props =>
+  <Box
+    {...props}
+    as='ul'
+    p={0}
+    css={{
+      listStyle: 'none',
+      display: 'flex',
+      flexWrap: 'wrap',
+    }}
+  />
+
+const sandbox = (
+  <iframe
+    title='sandbox'
+    src='https://codesandbox.io/embed/github/jxnblk/styled-system/tree/master/examples/basic'
+    style={{
+      width: '100%',
+      height: '500px',
+      border: 0,
+      borderRadius: '4px',
+      overflow: 'hidden'
+    }}
+    sandbox='allow-modals allow-forms allow-popups allow-scripts allow-same-origin'
+  />
+)
+
 export default ({
   data: {
     site: {
@@ -35,102 +61,102 @@ export default ({
   }
 }) =>
   <div>
-    <Box
-      as='header'
-      color='white'
-      bg='black'
-      css={{
-        minHeight: '100vh',
-      }}>
-      <Flex px={3} py={3}>
-        <Box mx='auto' />
-        <Link href='/getting-started'
-          color='inherit'>
-          Docs
-        </Link>
-        <Link
-          href={meta.github}
-          ml={3}
-          color='inherit'>
-          GitHub
-        </Link>
-      </Flex>
-      <Container pt={[4, 5]} pb={[5, 6]}>
-        <Text as='h1'
-          fontSize={[5]}
-          lineHeight='1.125'>
-          {meta.title}
-        </Text>
+    <Box as='header'>
+      <Header sidebar={false} />
+      <Container py={5}>
         <Hex />
-        <Text fontSize={[3, 4, 5]} fontWeight='bold'>
+        <Box
+          as='h1'
+          fontSize={[4, 4, 5]}
+          fontWeight='bold'>
           {meta.description}
-        </Text>
-        <Pre
-          px={0}
-          color='inherit'
-          backgroundColor='transparent'>
-          npm i styled-system
-        </Pre>
+        </Box>
+        <Box
+          mx={-3}
+          css={{
+            display: 'flex',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+          }}>
+          <NavLink href='/getting-started'>Documentation</NavLink>
+          <NavLink href='https://github.com/styled-system/styled-system'>GitHub</NavLink>
+          <Box
+            as='pre'
+            px={3}
+            fontFamily='monospace'
+            color='inherit'
+            backgroundColor='transparent'>
+            npm i styled-system
+          </Box>
+        </Box>
       </Container>
     </Box>
     <Container py={5}>
       <Badges />
       <Box py={4}>
-        <Columns>
+        <Columns mx={-3}>
           {meta.features.map(feature => (
-            <li key={feature}>
-              <Text
-                fontSize={3}
-                mb={15}
-                fontWeight='bold'>
-                {feature}
-              </Text>
-            </li>
+            <Box
+              key={feature}
+              as='li'
+              width={[1, 1/2]}
+              p={3}
+              fontSize={3}
+              mb={15}
+              fontWeight='bold'>
+              {feature}
+            </Box>
           ))}
         </Columns>
       </Box>
-      <Columns py={4}>
+      <Columns mx={-3} py={4}>
         {meta.quotes.map(quote => (
-          <Box as='li' key={quote.text} mb={4}>
-            <Blockquote>
+          <Box as='li'
+            width={[ 1, 1/2 ]}
+            p={3}
+            key={quote.text} mb={4}>
+            <Box
+              as='blockquote'
+              fontSize={4}
+              fontWeight='bold'
+              m={0}>
               “{quote.text}”
-            </Blockquote>
-            <Link href={quote.href}>
+            </Box>
+            <Styled.a href={quote.href}>
               – {quote.source}
-            </Link>
+            </Styled.a>
           </Box>
         ))}
       </Columns>
-      <CodeSandbox />
+      {sandbox}
       <Box py={4}>
         <GettingStarted />
       </Box>
       <Box py={4}>
-        <Text
-          as='h2'
-          fontSize={6}
-          mb={3}
-        >
-          Docs
-        </Text>
-        <ul>
-          <li>
-            <Link href='/responsive-styles'>Responsive Styles</Link>
-          </li>
-          <li>
-            <Link href='/how-it-works'>How it Works</Link>
-          </li>
-          <li>
-            <Link href='/api'>API</Link>
-          </li>
-          <li>
-            <Link href='/table'>Reference Table</Link>
-          </li>
-          <li>
-            <Link href='/custom-props'>Custom Props</Link>
-          </li>
-        </ul>
+        Continue on the next page:
+        <NavLink
+          href='/responsive-styles'
+          fontSize={5}
+          px={0}
+          mb={3}>
+          Responsive Styles
+        </NavLink>
       </Box>
     </Container>
-    <Footer />
+    <Box as='footer'>
+      <Container
+        css={{
+          display: 'flex',
+          alignItems: 'center',
+        }}>
+        <Box
+          fontWeight='bold'
+          mr={2}>
+          MIT License
+        </Box>
+        <NavLink href='https://github.com/jxnblk/styled-system'>
+          GitHub
+        </NavLink>
+      </Container>
+    </Box>
   </div>

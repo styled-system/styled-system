@@ -1,3 +1,8 @@
+const remarkPlugins = [
+  require('remark-slug'),
+  require('remark-unwrap-images'),
+]
+
 module.exports = {
   siteMetadata: {
     title: 'Styled System',
@@ -5,12 +10,16 @@ module.exports = {
     author: '@jxnblk',
     install: 'npm i styled-system',
     github: 'https://github.com/styled-system/styled-system',
-    navigation: [],
     quotes: [
       {
         text: 'This is honestly my favourite way to build UI components right now',
         source: 'Varun Vachhar',
         href: 'https://varun.ca/styled-system/'
+      },
+      {
+        text: 'If you haven’t seen Styled System before, do yourself a favour and check it out. It’s been a huge influence in my thinking on component-oriented styles.',
+        source: 'Mark Dalgleish',
+        href: 'https://mobile.twitter.com/markdalgleish/status/1107732365474848768',
       },
       {
 text: 'The future of css-in-js is going to look something like styled-system with its responsive values.',
@@ -35,6 +44,7 @@ text: 'If you like Tachyons you will love styled-system. If you don’t like Tac
       },
     ],
     features: [
+      'Primitive building blocks for UI components',
       'Add style props that pick up values from a global theme',
       'Quickly set responsive font-size, margin, padding, width, and more with props',
       'Inspired by constraint-based design system principles',
@@ -44,24 +54,30 @@ text: 'If you like Tachyons you will love styled-system. If you don’t like Tac
       'Works with most CSS-in-JS libraries, including styled-components and emotion',
     ],
   },
-  __experimentalThemes: [
+  __experimentalThemes: [],
+  plugins: [
+    'gatsby-plugin-emotion',
+    'gatsby-plugin-react-helmet',
     {
-      resolve: '@rebass/gatsby-theme-docs',
+      resolve: 'gatsby-source-filesystem',
       options: {
-        navigation: [
-          { href: '/', text: 'Styled System' },
-          { href: '/getting-started', text: 'Getting Started' },
-          { href: '/responsive-styles', text: 'Responsive Styles' },
-          { href: '/how-it-works', text: 'How it Works' },
-          { href: '/custom-props', text: 'Custom Props' },
-          { href: '/api', text: 'API' },
-          { href: '/table', text: 'Reference Table' },
-          { href: '/theme-specification', text: 'Theme Specification' },
+        name: 'docs',
+        path: __dirname,
+        ignore: [
+          '**/public/**/*',
+          '**/.cache/**/*',
         ]
       }
-    }
-  ],
-  plugins: [
+    },
+    {
+      resolve: 'gatsby-mdx',
+      options: {
+        extensions: [
+          '.md', '.mdx'
+        ],
+        remarkPlugins,
+      }
+    },
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {

@@ -3,9 +3,7 @@
 
 Styled-system is a collection of utility functions that add style props
 to your React components
-and allows you to control styles based on global theme constants or *[tokens][]*.
-
-[tokens]: https://speakerdeck.com/jina/design-tokens-in-design-systems
+and allows you to control styles based on global theme constants or *[design tokens][]*.
 
 To use styled-system, install a CSS-in-JS library such as [styled-components][] or [emotion][].
 
@@ -250,3 +248,4 @@ For a complete list, see the [Reference Table][] of style functions.
 [emotion]: https://github.com/emotion-js/emotion
 [responsive styles]: /responsive-styles
 [reference table]: /table
+[design tokens]: https://speakerdeck.com/jina/design-tokens-in-design-systems

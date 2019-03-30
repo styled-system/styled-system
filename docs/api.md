@@ -1,27 +1,7 @@
 
-# API
+export const toc = true
 
-- [Core](#core)
-  - [space](#space) (margins & paddings)
-  - [width](#width)
-  - [fontSize](#fontsize)
-  - [color](#color) (and background-color)
-- [Typography](#typography)
-- [Layout](#layout)
-- [Flexbox](#flexbox)
-- [Grid Layout](#grid-layout)
-- [Borders](#borders)
-- [Position](#position)
-- [Misc](#misc)
-- [Variant styles](#variants)
-- [Utilities](#utilities)
-  - [compose](#compose)
-  - [themeGet](#themeget)
-  - [propTypes](#proptypes)
-- [Customize](#customize)
-  - [style](#style)
-  - [variant](#variant)
-- [Defaults](#defaults)
+# API
 
 ## Core
 

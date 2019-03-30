@@ -13,6 +13,7 @@ https://styled-system.com
 [![spectrum-badge][]][spectrum]
 ![size][]
 ![MIT License][license]
+[![system-ui/theme][system-ui-badge]](https://system-ui.com/theme)
 
 [ci]: https://flat.badgen.net/travis/jxnblk/styled-system
 [version]: https://flat.badgen.net/npm/v/styled-system
@@ -21,6 +22,7 @@ https://styled-system.com
 [stars]: https://flat.badgen.net/github/stars/jxnblk/styled-system
 [size]: https://flat.badgen.net/bundlephobia/minzip/styled-system
 [spectrum-badge]: https://flat.badgen.net/badge/spectrum/community/purple
+[system-ui-badge]: https://flat.badgen.net/badge/system-ui/theme/black
 
 [npm]: https://npmjs.com/package/styled-system
 [travis]: https://travis-ci.org/jxnblk/styled-system
@@ -49,6 +51,11 @@ npm i styled-system
 
 [party-parrot]: https://github.com/jmhobbs/cultofthepartyparrot.com/raw/master/parrots/parrot.gif
 
+
+> "If you haven't seen Styled System before, do yourself a favour and check it out. It's been a huge influence in my thinking on component-oriented styles."
+>
+> – [Mark Dalgleish][markdalgleish]
+
 <!--
 > "Fantastic set of tools that offer the ease and API of tachyons/functional CSS but, are way more customisable."
 >
@@ -71,7 +78,6 @@ npm i styled-system
 >
 > – [Adam Morse][mrmrs]
 
-[dalgleish]: https://mobile.twitter.com/markdalgleish/status/913191186944241665
 [mrmrs]: https://mobile.twitter.com/mrmrs_/status/913189805055401984
 
 
@@ -80,19 +86,15 @@ npm i styled-system
 Try the [examples](examples) on CodeSandbox
 
 - [Basic Example](https://codesandbox.io/s/github/jxnblk/styled-system/tree/master/examples/basic)
-
 - [Emotion](https://codesandbox.io/s/github/jxnblk/styled-system/tree/master/examples/emotion)
-<!--
-- [Theme Aliases](https://codesandbox.io/s/github/jxnblk/styled-system/tree/master/examples/theme-aliases)
-
--->
 
 
 ### Table of Contents
 
 - [Usage](#usage)
-- [Getting Started](#getting-started)
 - [Docs](#docs)
+- [Further Reading](#further-reading)
+- [Built with Styled System](#built-with-styled-system)
 - [Related](#related)
 
 ## Usage
@@ -183,13 +185,24 @@ To learn more, see the [Getting Started](docs/getting-started.md) guide or read 
 
 - [Component Based Design System With Styled-System][varun-post]
 - [Build Better Component Libraries with Styled System][alan-b-smith-post]
+- [Building a beautiful, reusable button with Styled System](https://johno.com/styled-system-button)
 - [Defining Component APIs in React](http://jxnblk.com/blog/defining-component-apis-in-react/)
+- [The Three Tenets of Styled System](https://jxnblk.com/blog/the-three-tenets-of-styled-system/)
 
+
+## Built with Styled System
+
+- [Primer Components](https://primer.style/components)
+- [Priceline Design System](https://pricelinelabs.github.io/design-system/)
+- [Cloudflare Design Color](https://cloudflare.design/color/)
+- [Styled System HTML](https://johnpolacek.github.io/styled-system-html/)
+- [Rebass](https://rebassjs.org)
+- [Rebass Grid](https://grid.rebassjs.org)
 
 ## Related
 
-- [Rebass](https://rebassjs.org)
-- [Rebass Grid](https://grid.rebassjs.org)
+- [System UI](https://system-ui.com)
+- [Spectrum.Chat Community](https://spectrum.chat/styled-system)
 - [styled-components][]
 - [emotion][]
 
@@ -199,10 +212,11 @@ To learn more, see the [Getting Started](docs/getting-started.md) guide or read 
 [alan-b-smith-post]: https://medium.com/styled-components/build-better-component-libraries-with-styled-system-4951653d54ee
 [david-tweet]: https://mobile.twitter.com/davidyeiser/status/965920740582285312
 
-<!-- new links -->
+<!-- extra links -->
 [cole-tweet]: https://mobile.twitter.com/colebemis/status/996565848138526721
 [mrmrs-elements]: https://github.com/mrmrs/elements
 [broccs-react-starter]: https://github.com/broccolini/react-website-starter
-[dalgleish]: https://mobile.twitter.com/markdalgleish/status/913191186944241665
+[markdalgleish]: https://mobile.twitter.com/markdalgleish/status/1107732365474848768
+[Varun Vachhar]: https://mobile.twitter.com/winkerVSbecks/status/955619873463431168
 
 [MIT License](LICENSE.md)
