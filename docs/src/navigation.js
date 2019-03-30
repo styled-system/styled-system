@@ -7,6 +7,7 @@ export default [
   { href: '/api', text: 'API' },
   { href: '/table', text: 'Reference Table' },
   { href: '/theme-specification', text: 'Theme Specification' },
+  { href: '/articles', text: 'Articles' },
 
   // { href: '/typography', text: 'Typography' },
   { href: '/css', text: 'CSS' },

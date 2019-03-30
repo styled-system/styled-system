@@ -10,7 +10,7 @@
     "@emotion/styled": "^10.0.10",
     "@mdx-js/mdx": "^1.0.0-alpha.16",
     "@mdx-js/react": "^1.0.0-alpha.16",
-    "@styled-system/css": "^1.0.1",
+    "@styled-system/css": "^1.0.2",
     "@styled-system/should-forward-prop": "^1.0.0",
     "@styled-system/typography": "^1.0.0-9",
     "emotion-mdx": "^1.0.0-3",

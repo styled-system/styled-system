@@ -13,6 +13,7 @@ https://styled-system.com
 [![spectrum-badge][]][spectrum]
 ![size][]
 ![MIT License][license]
+[![system-ui/theme][system-ui-badge]](https://system-ui.com/theme)
 
 [ci]: https://flat.badgen.net/travis/jxnblk/styled-system
 [version]: https://flat.badgen.net/npm/v/styled-system
@@ -21,6 +22,7 @@ https://styled-system.com
 [stars]: https://flat.badgen.net/github/stars/jxnblk/styled-system
 [size]: https://flat.badgen.net/bundlephobia/minzip/styled-system
 [spectrum-badge]: https://flat.badgen.net/badge/spectrum/community/purple
+[system-ui-badge]: https://flat.badgen.net/badge/system-ui/theme/black
 
 [npm]: https://npmjs.com/package/styled-system
 [travis]: https://travis-ci.org/jxnblk/styled-system
@@ -80,19 +82,14 @@ npm i styled-system
 Try the [examples](examples) on CodeSandbox
 
 - [Basic Example](https://codesandbox.io/s/github/jxnblk/styled-system/tree/master/examples/basic)
-
 - [Emotion](https://codesandbox.io/s/github/jxnblk/styled-system/tree/master/examples/emotion)
-<!--
-- [Theme Aliases](https://codesandbox.io/s/github/jxnblk/styled-system/tree/master/examples/theme-aliases)
-
--->
 
 
 ### Table of Contents
 
 - [Usage](#usage)
-- [Getting Started](#getting-started)
 - [Docs](#docs)
+- [Further Reading](#further-reading)
 - [Related](#related)
 
 ## Usage
@@ -183,7 +180,9 @@ To learn more, see the [Getting Started](docs/getting-started.md) guide or read 
 
 - [Component Based Design System With Styled-System][varun-post]
 - [Build Better Component Libraries with Styled System][alan-b-smith-post]
+- [Building a beautiful, reusable button with Styled System](https://johno.com/styled-system-button)
 - [Defining Component APIs in React](http://jxnblk.com/blog/defining-component-apis-in-react/)
+- [The Three Tenets of Styled System](https://jxnblk.com/blog/the-three-tenets-of-styled-system/)
 
 
 ## Related

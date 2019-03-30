@@ -10,7 +10,7 @@ const colors = {
       text: '#fff',
       background: '#000',
       primary: '#0cf',
-      secondary: '#0fc',
+      secondary: '#f0e',
       gray: '#222',
       lightgray: '#111',
     },
