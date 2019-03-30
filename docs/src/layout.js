@@ -87,7 +87,7 @@ export const NavLink = props =>
   <Link
     {...props}
     activeClassName='active'
-    css={css({
+    css={theme => css({
       display: 'block',
       fontWeight: 'bold',
       textDecoration: 'none',
@@ -100,7 +100,7 @@ export const NavLink = props =>
       '&.active': {
         color: 'primary',
       }
-    })}
+    })({ ...props, theme })}
   />
 
 const removeSlash = str => str.replace(/\/$/, '')

@@ -54,9 +54,41 @@ const getTheme = mode => merge({}, theme, {
   colors: get(theme.colors.modes, mode, theme.colors),
 })
 
+const getCustomColors = search => {
+  const reg = /^\?colors\=/
+  const hex = /^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/
+  if (!reg.test(search)) return null
+  const keys = [ 'text', 'background', 'primary', 'secondary', 'gray', 'lightgray' ]
+  const colors = search
+    .replace(reg, '')
+    .split(',')
+    .map(value => hex.test(value) ? '#' + value : value)
+    .reduce((a, value, i) => ({
+      ...a,
+      [keys[i]]: value
+    }), {})
+  const defaults = {
+    gray: 'rgba(0, 0, 0, .125)',
+    lightgray: 'rgba(0, 0, 0, .0625)',
+  }
+  console.log(
+    '%c%s',
+    `padding:4px;color:${colors.text};background-color:${colors.background}`,
+    ' Custom Colors ',
+    // 'color:black',
+    // ' ' + result.color + ' ' + result.base
+  )
+  return merge({}, defaults, colors)
+}
+
 const Root = props => {
   const [ mode, setMode ] = useState(modes[0])
 
+  const theme = getTheme(mode)
+  if (props.location && props.location.search) {
+    const colors = getCustomColors(props.location.search)
+    theme.colors = merge({}, theme.colors, colors)
+  }
   useEffect(() => {
     const initialMode = window.localStorage.getItem('mode') || modes[0]
     if (initialMode && initialMode !== mode) {
@@ -82,7 +114,7 @@ const Root = props => {
     <Context.Provider value={context}>
       <SystemProvider
         components={components}
-        theme={getTheme(mode)}>
+        theme={theme}>
         {style}
         {props.children}
       </SystemProvider>
@@ -113,11 +145,13 @@ const Page = props => {
 }
 
 export const wrapRootElement = ({ element, props }) =>
-  <Root>
+  <>
     {element}
-  </Root>
+  </>
 
 export const wrapPageElement = ({ element, props }) =>
-  <Page>
+<Root {...props}>
+  <Page {...props}>
     {element}
   </Page>
+</Root>
