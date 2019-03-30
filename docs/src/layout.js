@@ -93,7 +93,7 @@ export default ({
 }) => {
   const state = useAppContext()
   const [ open, setOpen ] = useState(false)
-  const { pathname } = props.location
+  const { pathname } = props.location || {}
   const index = navigation.findIndex(({ href }) => href === pathname)
   const previous = navigation[index - 1]
   const next = navigation[index + 1]
