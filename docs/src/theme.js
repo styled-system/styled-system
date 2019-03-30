@@ -14,6 +14,38 @@ const colors = {
       gray: '#222',
       lightgray: '#111',
     },
+    cyan: {
+      text: '#023',
+      background: '#0ff',
+      primary: '#03c',
+      secondary: '#01a',
+      gray: '#0cc',
+      lightgray: '#0ee',
+    },
+    gray: {
+      text: '#eef',
+      background: '#333336',
+      primary: '#09f',
+      secondary: '#0bf',
+      gray: '#55555a',
+      lightgray: '#444448',
+    },
+    book: {
+      text: '#322',
+      background: '#fff9f9',
+      primary: '#c30',
+      secondary: '#400',
+      gray: '#e9e6e6',
+      lightgray: '#f9f6f6',
+    },
+    magenta: {
+      text: '#203',
+      background: '#f3f',
+      primary: '#208',
+      secondary: '#106',
+      gray: '#c0c',
+      lightgray: '#e0e',
+    },
   }
 }
 
@@ -99,7 +131,7 @@ export default {
     table: {
       width: '100%',
       my: 4,
-      borderColor: colors.gray,
+      // borderColor: colors.gray,
       borderCollapse: 'separate',
       borderSpacing: 0,
     },
@@ -128,18 +160,9 @@ export default {
   },
   // block variants
   layout: {
-    root: {
-      color: 'text',
-      bg: 'background',
-    },
-    header: {
-      color: 'text',
-      bg: 'background',
-    },
-    sidebar: {
-      color: 'text',
-      bg: 'background',
-    },
+    root: {},
+    header: {},
+    sidebar: {},
     main: {}
   }
 }

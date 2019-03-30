@@ -32,7 +32,7 @@ export default props => {
   const { googleFonts } = themes[theme]
 
   return (
-    <Layout>
+    <Layout {...props}>
       <ThemeProvider theme={system}>
         <Global styles={typography} />
         <Helmet>

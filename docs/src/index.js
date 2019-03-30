@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { Global } from '@emotion/core'
@@ -18,6 +18,9 @@ const style = (
         lineHeight: 1.5,
         color: 'text',
         bg: 'background',
+        transitionProperty: 'background-color, color',
+        transitionDuration: '.2s',
+        transitionTimingFunction: 'ease-out',
       }
     })(theme)}
   />
@@ -40,20 +43,30 @@ export const useAppContext = () =>
 
 const modes = [
   'light',
-  'dark'
+  'dark',
+  'gray',
+  'cyan',
+  'book',
+  // 'magenta',
 ]
 
 const getTheme = mode => merge({}, theme, {
   colors: get(theme.colors.modes, mode, theme.colors),
 })
 
-const Page = props => {
-  const data = useStaticQuery(query)
+const Root = props => {
   const [ mode, setMode ] = useState(modes[0])
-  const {
-    title,
-    description,
-  } = data.site.siteMetadata
+
+  useEffect(() => {
+    const initialMode = window.localStorage.getItem('mode') || modes[0]
+    if (initialMode && initialMode !== mode) {
+      setMode(initialMode)
+    }
+  }, [])
+  useEffect(() => {
+    window.localStorage.setItem('mode', mode)
+  }, [ mode ])
+
   const cycleMode = () => {
     const i = (modes.indexOf(mode) + 1) % modes.length
     setMode(modes[i])
@@ -67,15 +80,6 @@ const Page = props => {
 
   return (
     <Context.Provider value={context}>
-      <Helmet>
-        <title>{title}</title>
-        <meta name='description' content={description} />
-        <meta name='twitter:card' content='summary' />
-        <meta name='twitter:site' content='@jxnblk' />
-        <meta name='twitter:title' content={title} />
-        <meta name='twitter:description' content={description} />
-        <meta name='twitter:image' content='https://styled-system.com/logo.png' />
-      </Helmet>
       <SystemProvider
         components={components}
         theme={getTheme(mode)}>
@@ -86,10 +90,32 @@ const Page = props => {
   )
 }
 
+const Page = props => {
+  const data = useStaticQuery(query)
+  const {
+    title,
+    description,
+  } = data.site.siteMetadata
+  return (
+    <>
+      <Helmet>
+        <title>{title}</title>
+        <meta name='description' content={description} />
+        <meta name='twitter:card' content='summary' />
+        <meta name='twitter:site' content='@jxnblk' />
+        <meta name='twitter:title' content={title} />
+        <meta name='twitter:description' content={description} />
+        <meta name='twitter:image' content='https://styled-system.com/logo.png' />
+      </Helmet>
+      {props.children}
+    </>
+  )
+}
+
 export const wrapRootElement = ({ element, props }) =>
-  <>
+  <Root>
     {element}
-  </>
+  </Root>
 
 export const wrapPageElement = ({ element, props }) =>
   <Page>

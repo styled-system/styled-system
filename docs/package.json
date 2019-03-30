@@ -26,7 +26,7 @@
     "lodash.merge": "^4.6.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.0",
+    "react-helmet": "^6.0.0-beta",
     "remark-slug": "^5.1.1",
     "remark-unwrap-images": "^0.2.0",
     "styled-system": "^4.1.0",

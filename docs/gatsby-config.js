@@ -17,6 +17,11 @@ module.exports = {
         href: 'https://varun.ca/styled-system/'
       },
       {
+        text: 'If you haven’t seen Styled System before, do yourself a favour and check it out. It’s been a huge influence in my thinking on component-oriented styles.',
+        source: 'Mark Dalgleish',
+        href: 'https://mobile.twitter.com/markdalgleish/status/1107732365474848768',
+      },
+      {
 text: 'The future of css-in-js is going to look something like styled-system with its responsive values.',
         source: 'Kye Hohenberger',
         href: 'https://mobile.twitter.com/tkh44/status/90547404372941619'
@@ -39,6 +44,7 @@ text: 'If you like Tachyons you will love styled-system. If you don’t like Tac
       },
     ],
     features: [
+      'Primitive building blocks for UI components',
       'Add style props that pick up values from a global theme',
       'Quickly set responsive font-size, margin, padding, width, and more with props',
       'Inspired by constraint-based design system principles',

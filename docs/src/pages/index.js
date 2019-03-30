@@ -32,12 +32,9 @@ const Columns = props =>
     as='ul'
     p={0}
     css={{
-      columnWidth: '320px',
-      columnGap: '32px',
       listStyle: 'none',
-      '& li': {
-        breakInside: 'avoid',
-      }
+      display: 'flex',
+      flexWrap: 'wrap',
     }}
   />
 
@@ -108,22 +105,27 @@ export default ({
     <Container py={5}>
       <Badges />
       <Box py={4}>
-        <Columns>
+        <Columns mx={-3}>
           {meta.features.map(feature => (
-            <li key={feature}>
-              <Box
-                fontSize={3}
-                mb={15}
-                fontWeight='bold'>
-                {feature}
-              </Box>
-            </li>
+            <Box
+              key={feature}
+              as='li'
+              width={[1, 1/2]}
+              p={3}
+              fontSize={3}
+              mb={15}
+              fontWeight='bold'>
+              {feature}
+            </Box>
           ))}
         </Columns>
       </Box>
-      <Columns py={4}>
+      <Columns mx={-3} py={4}>
         {meta.quotes.map(quote => (
-          <Box as='li' key={quote.text} mb={4}>
+          <Box as='li'
+            width={[ 1, 1/2 ]}
+            p={3}
+            key={quote.text} mb={4}>
             <Box
               as='blockquote'
               fontSize={4}
