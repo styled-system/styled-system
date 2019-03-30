@@ -51,6 +51,11 @@ npm i styled-system
 
 [party-parrot]: https://github.com/jmhobbs/cultofthepartyparrot.com/raw/master/parrots/parrot.gif
 
+
+> "If you haven't seen Styled System before, do yourself a favour and check it out. It's been a huge influence in my thinking on component-oriented styles."
+>
+> – [Mark Dalgleish][markdalgleish]
+
 <!--
 > "Fantastic set of tools that offer the ease and API of tachyons/functional CSS but, are way more customisable."
 >
@@ -73,7 +78,6 @@ npm i styled-system
 >
 > – [Adam Morse][mrmrs]
 
-[dalgleish]: https://mobile.twitter.com/markdalgleish/status/913191186944241665
 [mrmrs]: https://mobile.twitter.com/mrmrs_/status/913189805055401984
 
 
@@ -196,6 +200,7 @@ To learn more, see the [Getting Started](docs/getting-started.md) guide or read 
 
 ## Related
 
+- [Spectrum.Chat Community](https://spectrum.chat/styled-system)
 - [styled-components][]
 - [emotion][]
 
@@ -205,10 +210,11 @@ To learn more, see the [Getting Started](docs/getting-started.md) guide or read 
 [alan-b-smith-post]: https://medium.com/styled-components/build-better-component-libraries-with-styled-system-4951653d54ee
 [david-tweet]: https://mobile.twitter.com/davidyeiser/status/965920740582285312
 
-<!-- new links -->
+<!-- extra links -->
 [cole-tweet]: https://mobile.twitter.com/colebemis/status/996565848138526721
 [mrmrs-elements]: https://github.com/mrmrs/elements
 [broccs-react-starter]: https://github.com/broccolini/react-website-starter
-[dalgleish]: https://mobile.twitter.com/markdalgleish/status/913191186944241665
+[markdalgleish]: https://mobile.twitter.com/markdalgleish/status/1107732365474848768
+[Varun Vachhar]: https://mobile.twitter.com/winkerVSbecks/status/955619873463431168
 
 [MIT License](LICENSE.md)
