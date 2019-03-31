@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from '../link'
-import { Box, css } from './index'
+import { css } from './index'
 
 export default props =>
   <Link

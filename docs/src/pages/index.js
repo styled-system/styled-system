@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { useAppContext } from '../index'
 import { Box, Styled } from '../system'
 import { Header, Container, NavLink } from '../layout'
 import Badges from '../badges.md'

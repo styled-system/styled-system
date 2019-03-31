@@ -203,39 +203,6 @@ All styled-system functions accept arrays as values to set styles responsively u
 <Text fontSize={[ 3, 4, 5 ]} />
 ```
 
-Alternatively, if you define your theme breakpoints as an `object` or include aliases for breakpoints you can use the following syntax:
-
-```js
-// theme.js
-const breakpoints = [
-  '40em',
-  '52em',
-  '64em',
-  '80em',
-]
-
-// aliases
-breakpoints.sm = breakpoints[0]
-breakpoints.md = breakpoints[1]
-breakpoints.lg = breakpoints[2]
-breakpoints.xl = breakpoints[3]
-
-export default {
-  breakpoints,
-}
-```
-
-```jsx
-<Box
-  width={{
-    sm: 1,
-    md: 1/2,
-    lg: 1/4
-  }}
->
-</Box>
-```
-
 Read the [Responsive Styles][] docs for more information.
 
 ## Other Props

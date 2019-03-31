@@ -59,32 +59,30 @@ Using Styled System with a CSS-in-JS library will generate something like the fo
 
 ## Using objects
 
-Alternatively you can define your breakpoints as an `object` e.g.
+Alternatively, you can define breakpoints with aliases and use plain objects as values.
 
-```jsx
+```js
 // theme.js
+const breakpoints = [
+  '40em',
+  '52em',
+  '64em',
+  '80em',
+]
+
+// aliases
+breakpoints.sm = breakpoints[0]
+breakpoints.md = breakpoints[1]
+breakpoints.lg = breakpoints[2]
+breakpoints.xl = breakpoints[3]
+
 export default {
-  breakpoints: {
-    sm: 0,    // zero represents the default (for mobile-first approach)
-    md: '48em',
-    lg: '80em'
-  }
+  breakpoints,
 }
 ```
 
-And then pass an `object` to configure how the component should respond at these breakpoints:
-
 ```jsx
-<Box
-  width={{
-    sm: 1,    // 100% by default (no media query)
-    md: 1/2,  // 50% at 'md' (48em and up)
-    lg: 1/4   // 25% at 'lg' (80em and up)
-  }}
-/>
+<Box width={{ sm: 1, md: 1/2, lg: 1/4 }} />
 ```
 
-Note: it isn't necessary to set a value for each breakpoint. The following would only apply 50% width at the `md` breakpoint:
 
-```jsx
-<Box width={{ md: 1/2 }} />

@@ -55,7 +55,7 @@ const getTheme = mode => merge({}, theme, {
 })
 
 const getCustomColors = search => {
-  const reg = /^\?colors\=/
+  const reg = /^\?colors=/
   const hex = /^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/
   if (!reg.test(search)) return null
   const keys = [ 'text', 'background', 'primary', 'secondary', 'gray', 'lightgray' ]
