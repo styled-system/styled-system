@@ -6,6 +6,7 @@ import { Header, Container, NavLink } from '../layout'
 import Badges from '../badges.md'
 import GettingStarted from '../../getting-started.md'
 import Hex from '../logo/hex'
+import Button from '../system/button'
 
 export const query = graphql`
   query Index {
@@ -72,17 +73,23 @@ export default ({
           {meta.description}
         </Box>
         <Box
-          mx={-3}
+          my={4}
           css={{
             display: 'flex',
             alignItems: 'center',
             flexWrap: 'wrap',
           }}>
-          <NavLink href='/getting-started'>Documentation</NavLink>
-          <NavLink href='https://github.com/styled-system/styled-system'>GitHub</NavLink>
+          <Button href='/getting-started' mr={3}>
+            Documentation
+          </Button>
+          <NavLink
+            href='https://github.com/styled-system/styled-system'
+            mr={3}>
+            GitHub
+          </NavLink>
           <Box
             as='pre'
-            px={3}
+            px={0}
             fontFamily='monospace'
             color='inherit'
             backgroundColor='transparent'>
