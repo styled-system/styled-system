@@ -24,7 +24,7 @@ module.exports = {
       {
 text: 'The future of css-in-js is going to look something like styled-system with its responsive values.',
         source: 'Kye Hohenberger',
-        href: 'https://mobile.twitter.com/tkh44/status/90547404372941619'
+        href: 'https://mobile.twitter.com/kyehohenberger/status/905474043729416192'
       },
       {
         text: 'Coming from @tachyons_css, the styled-system utilities from @jxnblk is the missing link I’ve been looking for.',
