@@ -178,7 +178,7 @@ Theme Key         | CSS Properties
 `shadows`         | `box-shadow`, `text-shadow`
 `zIndices`        | `z-index`
 
-*Note:* Styled System does *not* current support the `widths` scale due to its fractional value transformation.
+*Note:* Styled System does *not* currently support the `widths` scale due to its fractional value transformation.
 
 ### Element Variants
 
