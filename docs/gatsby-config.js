@@ -22,7 +22,7 @@ module.exports = {
         href: 'https://mobile.twitter.com/markdalgleish/status/1107732365474848768',
       },
       {
-text: 'The future of css-in-js is going to look something like styled-system with its responsive values.',
+        text: 'The future of css-in-js is going to look something like styled-system with its responsive values.',
         source: 'Kye Hohenberger',
         href: 'https://mobile.twitter.com/kyehohenberger/status/905474043729416192'
       },
@@ -38,7 +38,7 @@ text: 'The future of css-in-js is going to look something like styled-system wit
         href: 'https://mobile.twitter.com/davidyeiser/status/965920740582285312'
       },
       {
-text: 'If you like Tachyons you will love styled-system. If you don’t like Tachyons, you will love styled-system.',
+        text: 'If you like Tachyons you will love styled-system. If you don’t like Tachyons, you will love styled-system.',
         source: 'Adam Morse',
         href: 'https://mobile.twitter.com/mrmrs_/status/913189805055401984'
       },
