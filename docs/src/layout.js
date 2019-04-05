@@ -2,10 +2,11 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { flexDirection } from 'styled-system'
 import { useAppContext } from './index'
-import Link from './link'
-import navigation from './navigation'
+import NavLink from './nav-link'
 import { Box, css, block } from './system'
 import Burger from './system/burger'
+import Sidebar from './sidebar'
+import Pagination from './pagination'
 
 const HeaderRoot = styled(Box)(css({
   width: '100%',
@@ -87,30 +88,6 @@ const Main = styled(Box)({
   display: 'flex',
 }, flexDirection, block('main'))
 
-const Sidebar = styled(Box)(css({
-  minWidth: 0,
-  flex: 'none',
-  overflowY: 'auto',
-  WebkitOverflowScrolling: 'touch',
-  position: 'sticky',
-  top: 0,
-  alignSelf: 'flex-start',
-  minHeight: 'calc(100vh - 0px)',
-  transition: 'background-color .2s ease-out',
-}),
-  props => ({
-    '@media screen and (max-width: 40em)': {
-      minHeight: 0,
-      maxHeight: props.open ? '100vh' : 0,
-      height: 'auto',
-      transition: 'max-height .5s ease-out',
-      overflow: 'hidden',
-      boxShadow: `0 2px 8px rgba(0, 0, 0, .25)`,
-    }
-  }),
-  block('sidebar')
-)
-
 const Overlay = props =>
   <Box
     {...props}
@@ -136,43 +113,10 @@ Container.defaultProps = {
   as: 'main',
 }
 
-const Pagination = styled(Box)({
-  display: 'flex',
-  alignItems: 'center'
-},
-  block('pagination')
-)
-
-export const NavLink = props =>
-  <Link
-    {...props}
-    activeClassName='active'
-    css={theme => css({
-      display: 'block',
-      fontWeight: 'bold',
-      textDecoration: 'none',
-      color: 'inherit',
-      px: 3,
-      py: 2,
-      '&:hover': {
-        color: 'primary',
-      },
-      '&.active': {
-        color: 'primary',
-      }
-    })({ ...props, theme })}
-  />
-
-const removeSlash = str => str.replace(/\/$/, '')
-
 export default ({
   ...props
 }) => {
   const state = useAppContext()
-  const { pathname } = props.location
-  const index = navigation.findIndex(({ href }) => href === removeSlash(pathname))
-  const previous = navigation[index - 1]
-  const next = navigation[index + 1]
 
   return (
     <Root>
@@ -182,41 +126,11 @@ export default ({
         <Sidebar
           open={state.open}
           onClick={e => state.setOpen(false)}
-          width={[ 1, 256, 320 ]}>
-          {navigation.map(({ href, text }) => (
-            <Box key={href}>
-              <NavLink href={href}>
-                {text}
-              </NavLink>
-            </Box>
-          ))}
-          <NavLink mb={4} href='https://github.com/styled-system/styled-system'>
-            GitHub
-          </NavLink>
-        </Sidebar>
+          width={[ 1, 256, 320 ]}
+        />
         <Container>
           {props.children}
-          <Pagination
-            py={5}>
-            {previous && (
-              <NavLink
-                px={0}
-                fontSize={3}
-                href={previous.href}>
-                {previous.text}
-              </NavLink>
-            )}
-            <Box mx='auto' />
-            {next && (
-              <NavLink
-                id='next-link'
-                px={0}
-                fontSize={3}
-                href={next.href}>
-                {next.text}
-              </NavLink>
-            )}
-          </Pagination>
+          <Pagination />
         </Container>
       </Main>
     </Root>
