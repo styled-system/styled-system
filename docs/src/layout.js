@@ -26,7 +26,12 @@ export const Header = ({
   const state = useAppContext()
   return (
     <HeaderRoot>
-      <NavLink href='/'>
+      <NavLink href='/'
+        css={{
+          '&.active': {
+            color: 'inherit'
+          }
+        }}>
         Styled System
       </NavLink>
       <Box mx='auto' />

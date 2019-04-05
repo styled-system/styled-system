@@ -5,7 +5,6 @@ import { css } from './system'
 export default props =>
   <Link
     {...props}
-    activeClassName='active'
     css={theme => css({
       display: 'block',
       fontWeight: 'bold',
