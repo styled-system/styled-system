@@ -15,6 +15,9 @@ const styles = {
     my: 0,
   },
   li: {
+    '& > ul': {
+      pl: 16,
+    }
   },
   a: {
     color: 'inherit',

@@ -31,5 +31,8 @@
     "remark-unwrap-images": "^0.2.0",
     "styled-system": "^4.1.0",
     "typography-theme-lincoln": "^0.16.19"
+  },
+  "devDependencies": {
+    "@rebass/emotion": "^3.1.0"
   }
 }
