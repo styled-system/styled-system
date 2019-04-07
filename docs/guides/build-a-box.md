@@ -1,7 +1,7 @@
 
 # Build a Box
 
-One of the most widely used styled component types is the primitive layout Box component.
+One of the most widely used styled component types is the coveted Box layout component.
 While many component libraries include a Box layout component already, you may want to create your own depending on the needs of your application.
 This guide will walk through creating a Box component like the one found in [Rebass](https://rebassjs.org/Box) and show you how you can add additional functionality using Styled System.
 
