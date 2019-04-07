@@ -44,7 +44,7 @@ export default props =>
         <Styled.h1>Demo</Styled.h1>
         <Styled.p>
           This is a demonstration of some of the theming capabilities in Styled System.
-          Use the controls to the right to adjust this page's theme in real-time.
+          Use the controls to the right to adjust this page’s theme in real-time.
         </Styled.p>
         <Styled.p>
           <em>Demo content below</em>
