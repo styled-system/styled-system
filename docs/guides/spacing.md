@@ -6,7 +6,7 @@ and Styled System is intended to work at a low enough level to support several o
 depending on your team's preferences.
 
 If you're not familiar with Styled System's `space` utility,
-you might want to read the [Getting Started](http://localhost:8000/getting-started/#margin--padding) documentation first.
+you might want to read the [Getting Started](/getting-started/#margin--padding) documentation first.
 
 
 ## Where does space belong?
