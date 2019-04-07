@@ -46,7 +46,7 @@ The navigation bar has a higher density layout with left and right padding of `3
 The content area below has a padding of `4` (`32px`) which equals the padding of the navigation bar and links added together.
 Notice how the text in the navigation bar and the content below still align with each other.
 
-This is a very simple example, but when adhering this approach across a large application, the effect can be profound.
+This is a very simple example, but when adhering to this approach across a large application, the effect can be profound.
 The default typographic scale (`fontSizes`) in Styled System is also loosely based on the same powers of two approach,
 which is intended to make web app design more effortlessly consistent.
 

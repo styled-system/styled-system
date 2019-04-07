@@ -34,7 +34,7 @@ Don't spend too much time debating what values to use in your `fontSizes` scale 
 trying to boil the ocean.
 Audit your current styles, normalize them, and decide on a good starting point with your team.
 If you're unsure whether or not you might need a `13px` font size at some point in the future, don't sweat it,
-because Styled System has a few options on how to handle that.
+because Styled System has a few options for handling those edge cases.
 
 ## Exceptions
 

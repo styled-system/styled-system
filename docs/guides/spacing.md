@@ -30,7 +30,7 @@ are consistent across your entire application.
 
 One of the simpler approaches comes from the early days of the web, and is a really great way to add space to UI.
 
-To create a spacer component with Styled System, you can either reuse a [Box component](/guides/building-a-box) or create a specialized component
+To create a spacer component with Styled System, you can either reuse a [Box component](/guides/build-a-box) or create a specialized component
 for this purpose.
 
 ```js

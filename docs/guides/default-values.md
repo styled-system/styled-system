@@ -32,7 +32,7 @@ Card.defaultProps = {
 export default Card
 ```
 
-With the default props above set, your Card component includes padding and a white background by default.
+With the default props above, your Card component will have padding and a white background by default.
 You can override these styles when needed by passing a prop to the component.
 
 ```jsx

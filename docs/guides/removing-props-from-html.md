@@ -36,7 +36,7 @@ const Box = styled('div', {
 ## Styled Components
 
 Unfortunately, Styled Components does not currently support an API to control which props are forwarded to the HTML element.
-If you'd like to see support for this, please leave a comment on their long-running issue:
+**If you'd like to see support for this, please leave a comment on their long-running issue:**
 
 **[Separate HTML attributes from styling props][styled components issue]**
 
