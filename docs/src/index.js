@@ -14,7 +14,7 @@ const style = (
       '*': { boxSizing: 'border-box' },
       body: {
         margin: 0,
-        fontFamily: 'system-ui, sans-serif',
+        fontFamily: 'body',
         lineHeight: 1.5,
         color: 'text',
         bg: 'background',

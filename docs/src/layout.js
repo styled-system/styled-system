@@ -109,7 +109,7 @@ export const Container = styled(Box)(
   css({
     width: '100%',
     maxWidth: 1024,
-    lineHeight: 1.75,
+    lineHeight: 'body',
     mx: 'auto',
     p: 4,
   }),

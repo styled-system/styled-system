@@ -55,6 +55,13 @@ export default {
     body: 'system-ui, sans-serif',
     monospace: 'Menlo, monospace',
   },
+  fontSizes: [
+    12, 14, 16, 18, 24, 32, 48, 64, 72
+  ],
+  lineHeights: {
+    body: 1.75,
+    heading: 1.25,
+  },
   // base component styles
   styles: {
     a: {
@@ -64,10 +71,11 @@ export default {
       }
     },
     p: {
-      fontSize: [ 2, '18px' ],
+      fontSize: [ 2, 3 ],
     },
     h1: {
       fontSize: [5, 6],
+      lineHeight: 'heading',
       a: {
         color: 'inherit',
         textDecoration: 'none',
@@ -75,6 +83,7 @@ export default {
     },
     h2: {
       fontSize: [4, 5],
+      lineHeight: 'heading',
       a: {
         color: 'inherit',
         textDecoration: 'none',
@@ -82,6 +91,7 @@ export default {
     },
     h3: {
       fontSize: 3,
+      lineHeight: 'heading',
       a: {
         color: 'inherit',
         textDecoration: 'none',
@@ -89,6 +99,7 @@ export default {
     },
     h4: {
       fontSize: 2,
+      lineHeight: 'heading',
       a: {
         color: 'inherit',
         textDecoration: 'none',
@@ -96,6 +107,7 @@ export default {
     },
     h5: {
       fontSize: 1,
+      lineHeight: 'heading',
       a: {
         color: 'inherit',
         textDecoration: 'none',
@@ -103,6 +115,7 @@ export default {
     },
     h6: {
       fontSize: 0,
+      lineHeight: 'heading',
       a: {
         color: 'inherit',
         textDecoration: 'none',
@@ -159,7 +172,12 @@ export default {
       borderColor: 'inherit',
       borderBottomWidth: '1px',
       borderBottomStyle: 'solid'
-    }
+    },
+    hr: {
+      border: 0,
+      borderBottom: '1px solid',
+      borderColor: 'lightgray',
+    },
   },
   // block variants
   layout: {

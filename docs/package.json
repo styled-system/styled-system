@@ -33,6 +33,7 @@
     "typography-theme-lincoln": "^0.16.19"
   },
   "devDependencies": {
-    "@rebass/emotion": "^3.1.0"
+    "@rebass/emotion": "^3.1.0",
+    "@styled-system/edit": "0.0.3"
   }
 }
