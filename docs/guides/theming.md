@@ -8,4 +8,5 @@ This page is a stub.
 - Define your own scale
 - Using Objects
 - Color abstractions
+- Extending the theme
 -->
