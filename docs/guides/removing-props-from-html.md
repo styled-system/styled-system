@@ -3,7 +3,7 @@
 
 Due to the nature of the popular `styled` higher order component,
 as an author you must rely on the CSS-in-JS library you're using to decide whether or not to forward props along to the HTML element.
-For the most part, these libraries do a good job of not forwarding props that are valid HTML attributes.
+For the most part, these libraries do a good job of not forwarding props that aren't valid HTML attributes.
 However, the Styled System API uses a few prop names that are either deprecated HTML attributes or SVG attributes and aren't intended to be rendered in the output HTML.
 While most browsers should handle these stray HTML attributes with no problem, there might be good reason to clean these up in production.
 
@@ -12,7 +12,7 @@ While most browsers should handle these stray HTML attributes with no problem, t
 Emotion has first-class support in its API for determining which props are forwarded to the HTML element with its [`shouldForwardProp`](https://emotion.sh/docs/styled#customizing-prop-forwarding) API.
 Styled System has a optional utility that can be passed directly to this API.
 
-Install the following utility to take ensure your Emotion styled components do not render style props as HTML.
+Install the following utility to make sure your Emotion styled components do not render style props as HTML.
 
 ```sh
 npm i @styled-system/should-forward-prop

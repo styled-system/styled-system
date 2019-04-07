@@ -109,6 +109,8 @@ export const Container = styled(Box)(
   css({
     width: '100%',
     maxWidth: 1024,
+    // lineHeight: 1.625,
+    lineHeight: 1.75,
     mx: 'auto',
     p: 4,
   }),
@@ -133,7 +135,10 @@ export default ({
           onClick={e => state.setOpen(false)}
           width={[ 1, 256, 320 ]}
         />
-        <Container>
+        <Container
+          css={{
+            maxWidth: 896,
+          }}>
           {props.children}
           <Pagination />
         </Container>

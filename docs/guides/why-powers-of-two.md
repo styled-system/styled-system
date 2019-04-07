@@ -10,7 +10,7 @@ base ten numbering systems aren't always the easiest to work with mathematically
 Computer displays for decades have been based on multiples of powers of two due to the constraints of binary data,
 but using powers of two for layout in screen design makes a lot of sense.
 
-When designing UI for the web, often elements are nested within other elements.
+When designing UI for the web, elements are often nested within other elements.
 This means that padding on a child element will be added to the padding of its parent.
 When you end up with multiple levels of nesting for different elements across a page,
 it can be difficult to keep things aligned if you're not using a spacing scale like the one
@@ -20,7 +20,7 @@ Styled System's spacing scale is based on powers of two because of the tendency 
 For example, say you have a navigation bar, where links have a small amount of padding to make the tap target larger,
 but less padding than the content below the navigation bar because that would space the links too far apart.
 When using a powers-of-two scale, the links' padding will be added to the navigation bar's padding,
-making it easier to align to a doubled padding side for the content below the bar.
+making it easier to align to items with double the padding below it.
 
 The following example is an attempt to demonstrate:
 

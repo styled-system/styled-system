@@ -5,7 +5,7 @@ Using arrays for theme constants and style props values can seem off-putting to 
 but can quickly become second-nature with a little effort.
 The rationale for using arrays for design scales stems from the idea of constraint-based design.
 Before using something like Styled System, it can seem scary to commit to such a limited data type,
-but Styled System gives you a few escape hatches in the rare case where you need to "break out" of the constraints encouraged in this library.
+but Styled System gives you a few escape hatches in the rare cases where you need to "break out" of the constraints encouraged in this library.
 
 The first question that comes up with approaches like this is always, "what if...".
 In software development, some people think that duplication is better than the wrong abstraction.
@@ -13,17 +13,17 @@ I tend to agree with this sentiment.
 Instead of asking *what if*, I encourage you to try the Styled System approach in a smaller application and see if the benefits
 of the constraints with this approach outweight the limitations.
 When using Styled System on a multidisciplinary team, you'll want to make sure you're entire team, including designers,
-are on board, but from my experience, a lot of designers want to work with constraints like the ones
+are on board, but from my experience, many designers will want to work with constraints like the ones
 encouraged here.
 
 ## Breakpoints
 
-The `breakpoints` scale in Styled System is one of the most difficult to alter after adopting this library.
-It's recommended to audit breakpoints that are currently in use and try to normalize them as much as possible.
+The `breakpoints` scale in Styled System is one of the most difficult to alter after introducing this library to an application.
+It's recommended to audit the breakpoints that are currently in use and try to normalize them as much as possible.
 Some people like to have a dozen or more breakpoints, but the reality of responsive design is that there are essentially two breakpoints: mobile and not-mobile.
-You'll probably want a more than two breakpoints to help with typographic style, but the most common responsive layouts
+You'll probably want more than two breakpoints to help with typographic style, but the most common responsive layouts
 rarely do anything extremely complex.
-Embrace your inner minimalist tendencies and see how much you can simplify your design system.
+Embrace your inner minimalist and see how much you can simplify your design system.
 
 ## Space, Font Sizes, and Other Scales
 

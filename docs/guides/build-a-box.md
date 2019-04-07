@@ -145,7 +145,7 @@ There are primarily two ways to extend styled components with libraries like [St
 ## `css` prop
 
 The `css` prop is a very popular way to handle one-off styles.
-If your Box component needs a small style change you can make it inline, or create and extended component for reuse.
+If your Box component needs a small style change you can make it inline or create an extended component for reuse.
 
 To use the `css` prop, you'll need to make sure you have either
 [`babel-plugin-styled-components`](https://www.styled-components.com/docs/api#css-prop) installed,
@@ -186,7 +186,8 @@ export default ({
 ## Extending with `styled`
 
 An alternative to using the `css` prop is to create a completely new styled component using the `styled` HOC.
-You can create these components anywhere, but it's common to create these in the same module where the component that's using it is located.
+You can create these components anywhere,
+but it's common to colocate these in the same module that they're used in.
 
 ```js
 import React from 'react'

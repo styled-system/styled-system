@@ -63,6 +63,9 @@ export default {
         color: 'secondary',
       }
     },
+    p: {
+      fontSize: [ 2, '18px' ],
+    },
     h1: {
       fontSize: [5, 6],
       a: {

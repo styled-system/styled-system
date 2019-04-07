@@ -69,7 +69,6 @@ This is exactly what [Rebass Space][] does and can be useful for tiled layouts o
 
 To target child elements you can either use the `React.Children` API to map over child elements, or use child CSS selectors.
 The use of child CSS selectors can lead to styling bugs and isn't generally recommended.
-For an example of the `React.Children` approach, view the source for [Rebass Space][].
 
 ```js
 // example using child CSS selectors
@@ -81,6 +80,40 @@ const SpaceChildren = styled.div`
     ${space}
   }
 `
+```
+
+The following example comes from [Rebass Space][].
+This approach does not create a wrapping element and does not rely on child CSS selectors.
+
+```jsx
+mport React from 'react'
+import styled from 'styled-components'
+import { space } from 'styled-system'
+
+const classnames = (...args) => args.join(' ')
+const getClassName = el => (el.props && el.props.className) || ''
+
+export const StyledChildren = ({
+  className,
+  children,
+  ...props
+}) => {
+  const styledChildren = React.Children.toArray(children)
+    .map(child => React.cloneElement(child, {
+      className: classnames(getClassName(child), className)
+    }))
+  return (
+    <>
+      {styledChildren}
+    </>
+  )
+}
+
+const SpaceChildren = styled(StyledChildren)(space)
+
+SpaceChildren.propTypes = space.propTypes
+
+export default SpaceChildren
 ```
 
 ## Space Props
