@@ -86,7 +86,7 @@ The following example comes from [Rebass Space][].
 This approach does not create a wrapping element and does not rely on child CSS selectors.
 
 ```jsx
-mport React from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { space } from 'styled-system'
 
