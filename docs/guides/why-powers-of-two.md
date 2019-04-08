@@ -24,7 +24,7 @@ making it easier to align to items with double the padding below it.
 
 The following example is an attempt to demonstrate:
 
-<Box>
+<Box color="black">
   <Flex px={3} bg='#eee'>
     <Box p={3} width='auto' bg='#ddd'>
       Link with padding `3`
@@ -51,5 +51,3 @@ The default typographic scale (`fontSizes`) in Styled System is also loosely bas
 which is intended to make web app design more effortlessly consistent.
 
 For further reading see [Mathematical Web Typography](https://jxnblk.com/blog/mathematical-web-typography/).
-
-
