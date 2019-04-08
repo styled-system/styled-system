@@ -142,7 +142,7 @@ that handle styles based on values defined in a theme.
 ## Responsive Style Props
 
 Set responsive width, margin, padding, font-size, and other properties with a shorthand array syntax.
-[Read more](docs/responsive-styles.md)
+[Read more](https://styled-system.com/responsive-styles)
 
 ```jsx
 // responsive width
@@ -158,7 +158,7 @@ Set responsive width, margin, padding, font-size, and other properties with a sh
 <Box p={[ 1, 2, 3 ]} />
 ```
 
-To learn more, see the [Getting Started](docs/getting-started.md) guide or read the docs.
+To learn more, see the [Getting Started](https://styled-system.com/getting-started) guide or read the docs.
 
 <!-- link shims for previous readme -->
 <a name='getting-started'></a>
