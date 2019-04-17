@@ -111,6 +111,19 @@ Box.displayName = 'Box'
 export default Box
 ```
 
+If you prefer using the plain object syntax with styled components, you can pass Styled System functions in as arguments.
+
+```js
+// example using object syntax
+const Box = styled('div')({
+  boxSizing: 'border-box',
+},
+  space,
+  width,
+  color
+)
+```
+
 ## Margin & Padding
 
 The `space` function adds margin and padding props.
