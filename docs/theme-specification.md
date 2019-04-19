@@ -183,7 +183,7 @@ Theme Key         | CSS Properties
 ### Element Variants
 
 Styled System includes the ability to define style object variants for particular element types.
-For example, button variants can be defined with the `button` key, which a Button component can then switch between on a per-instance basis.
+For example, button variants can be defined with the `buttons` key, which a Button component can then switch between on a per-instance basis.
 
 ```js
 // example button variants
