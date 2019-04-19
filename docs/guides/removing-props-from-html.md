@@ -44,7 +44,7 @@ Unfortunately, Styled Components does not currently support an API to control wh
 
 ## `css` Prop
 
-If your a fan of using the [`css` prop][], you can easily control which props are forwarded to the HTML element, just like in any other React component. It might be a little more work up front, but can be useful in some cases.
+If you're a fan of using the [`css` prop][], you can easily control which props are forwarded to the HTML element, just like in any other React component. It might be a little more work up front, but can be useful in some cases.
 
 ```js
 // example using Emotion's css prop
