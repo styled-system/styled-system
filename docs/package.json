@@ -3,13 +3,15 @@
   "name": "styled-system-docs",
   "scripts": {
     "start": "gatsby develop",
-    "build": "gatsby build"
+    "build": "gatsby build",
+    "clean": "gatsby clean"
   },
   "dependencies": {
     "@emotion/core": "^10.0.10",
     "@emotion/styled": "^10.0.10",
     "@mdx-js/mdx": "^1.0.0-alpha.16",
     "@mdx-js/react": "^1.0.0-alpha.16",
+    "@styled-system/babel-plugin": "0.0.10",
     "@styled-system/css": "^1.0.2",
     "@styled-system/should-forward-prop": "^1.0.0",
     "@styled-system/typography": "^1.0.0-9",
@@ -17,6 +19,7 @@
     "emotion-theming": "^10.0.10",
     "gatsby": "^2.3.4",
     "gatsby-mdx": "^0.5.5-ci.354",
+    "gatsby-plugin-compile-es6-packages": "^1.1.0",
     "gatsby-plugin-emotion": "^4.0.6",
     "gatsby-plugin-google-analytics": "^2.0.18",
     "gatsby-plugin-react-helmet": "^3.0.11",
