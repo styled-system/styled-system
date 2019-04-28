@@ -11,7 +11,7 @@ import {
   textStyle,
   colorStyle,
   borders,
-} from '../src/index2'
+} from '../src/index'
 
 const theme = {
   colors: {

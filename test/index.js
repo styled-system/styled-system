@@ -1,5 +1,5 @@
 import test from 'ava'
-import { style, compose, variant } from '../src/index2'
+import { style, compose, variant } from '../src/index'
 
 const width = style({
   prop: 'width',
