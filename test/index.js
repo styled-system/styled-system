@@ -263,16 +263,12 @@ test('variant prop can be customized', t => {
 
 test('array values longer than breakpoints does not reset returned style object', t => {
   const a = width({
-    width: [
-      '100%',,,,,'50%', '25%',
-    ]
+    width: ['100%', , , , , '50%', '25%'],
   })
-  t.deepEqual(a, [
-    { width: '100%' },
-  ])
+  t.deepEqual(a, [{ width: '100%' }])
 })
 
-test('mapProps copies propTypes',  t => {
+test('mapProps copies propTypes', t => {
   const margin = style({ prop: 'margin' })
   const func = mapProps(props => props)(margin)
   t.is(typeof func.propTypes, 'object')

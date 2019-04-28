@@ -1,9 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import styled, {
-  ThemeProvider,
-  injectGlobal
-} from 'styled-components'
+import styled, { ThemeProvider, injectGlobal } from 'styled-components'
 import {
   space,
   color,
@@ -18,16 +15,12 @@ injectGlobal`
 `
 
 const theme = {
-  fontSizes: [
-    12, 14, 16, 24, 32, 48, 64, 96, 128
-  ],
-  space: [
-    0, 4, 8, 16, 32, 64, 128, 256
-  ],
+  fontSizes: [12, 14, 16, 24, 32, 48, 64, 96, 128],
+  space: [0, 4, 8, 16, 32, 64, 128, 256],
   colors: {
     blue: '#07c',
     red: '#e10',
-  }
+  },
 }
 
 // aliases
@@ -74,7 +67,7 @@ const Heading = Text.withComponent('h1')
 Heading.defaultProps = {
   fontSize: 5,
   lineHeight: 1.5,
-  m: 0
+  m: 0,
 }
 
 class App extends React.Component {
@@ -82,19 +75,9 @@ class App extends React.Component {
     return (
       <ThemeProvider theme={theme}>
         <Root>
-          <Box
-            px='big'
-            py={[ '2.5', 'big' ]}
-            color='white'
-            bg='blue'
-          >
-            <Heading fontSize='big'>
-              styled-system
-            </Heading>
-            <Text
-              fontWeight='bold'>
-              Basic demo
-            </Text>
+          <Box px="big" py={['2.5', 'big']} color="white" bg="blue">
+            <Heading fontSize="big">styled-system</Heading>
+            <Text fontWeight="bold">Basic demo</Text>
           </Box>
         </Root>
       </ThemeProvider>

@@ -1,9 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import styled, {
-  ThemeProvider,
-  createGlobalStyle
-} from 'styled-components'
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 import {
   space,
   color,
@@ -19,17 +16,22 @@ const Style = createGlobalStyle`
 `
 
 const theme = {
-  fontSizes: [
-    12, 14, 16, 24, 32, 48, 64, 96, 128
-  ],
+  fontSizes: [12, 14, 16, 24, 32, 48, 64, 96, 128],
   space: [
     // margin and padding
-    0, 4, 8, 16, 32, 64, 128, 256
+    0,
+    4,
+    8,
+    16,
+    32,
+    64,
+    128,
+    256,
   ],
   colors: {
     blue: '#07c',
     red: '#e10',
-  }
+  },
 }
 
 const Root = styled.div`
@@ -70,7 +72,7 @@ const Heading = Text.withComponent('h1')
 Heading.defaultProps = {
   fontSize: 5,
   lineHeight: 1.5,
-  m: 0
+  m: 0,
 }
 
 class App extends React.Component {
@@ -79,20 +81,9 @@ class App extends React.Component {
       <ThemeProvider theme={theme}>
         <Root>
           <Style />
-          <Box
-            px={[ 3, 4 ]}
-            py={[ 5, 6 ]}
-            color='white'
-            bg='blue'
-          >
-            <Heading
-              fontSize={[ 4, 5, 6 ]}>
-              styled-system
-            </Heading>
-            <Text
-              fontWeight='bold'>
-              Basic demo
-            </Text>
+          <Box px={[3, 4]} py={[5, 6]} color="white" bg="blue">
+            <Heading fontSize={[4, 5, 6]}>styled-system</Heading>
+            <Text fontWeight="bold">Basic demo</Text>
           </Box>
         </Root>
       </ThemeProvider>
