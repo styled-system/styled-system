@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@styled-system/babel-plugin-example-gatsby",
+  "name": "@styled-system/babel-plugin-example",
   "main": "index.js",
   "scripts": {
     "start": "gatsby develop"
