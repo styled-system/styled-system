@@ -3,8 +3,7 @@
   "version": "4.1.1",
   "description": "Responsive, theme-based style props for building design systems with React",
   "main": "dist/styled-system.cjs.js",
-  "module": "dist/styled-system.es.js",
-  "jsnext:main": "dist/styled-system.es.js",
+  "module": "dist/styled-system.esm.js",
   "sideEffects": false,
   "scripts": {
     "prepare": "rollup -c",
@@ -49,7 +48,7 @@
     "rollup-plugin-commonjs": "^9.3.4",
     "rollup-plugin-node-resolve": "^4.2.3",
     "rollup-plugin-replace": "^2.2.0",
-    "rollup-plugin-uglify": "^6.0.2",
+    "rollup-plugin-terser": "^4.0.4",
     "styled-components": "^4.2.0"
   },
   "ava": {

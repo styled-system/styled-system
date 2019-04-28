@@ -4,7 +4,7 @@ import resolve from 'rollup-plugin-node-resolve'
 import babel from 'rollup-plugin-babel'
 import replace from 'rollup-plugin-replace'
 import commonjs from 'rollup-plugin-commonjs'
-import { uglify } from 'rollup-plugin-uglify'
+import { terser } from 'rollup-plugin-terser'
 import pkg from './package.json'
 
 function getConfig() {
@@ -27,13 +27,10 @@ function getConfig() {
 
   const esConfig = Object.assign({}, baseConfig, {
     output: {
-      file: `${DIST_DIR}/${buildName}.es.js`,
-      format: 'es',
+      file: `${DIST_DIR}/${buildName}.esm.js`,
+      format: 'esm',
     },
-    external: [
-      ...Object.keys(pkg.peerDependencies || {}),
-      ...Object.keys(pkg.dependencies || {}),
-    ],
+    external: id => !id.startsWith('.') && !id.startsWith('/'),
     plugins: [...baseConfig.plugins, resolve()],
   })
 
@@ -44,9 +41,7 @@ function getConfig() {
     },
   })
 
-  const globals = {
-    deepmerge: 'deepmerge',
-  }
+  const globals = {}
 
   const umdConfig = Object.assign({}, baseConfig, {
     output: {
@@ -69,14 +64,7 @@ function getConfig() {
     plugins: [
       ...umdConfig.plugins,
       replace({ 'process.env.NODE_ENV': JSON.stringify('production') }),
-      uglify({
-        compress: {
-          pure_getters: true,
-          unsafe: true,
-          unsafe_comps: true,
-          warnings: false,
-        },
-      }),
+      terser(),
     ],
   })
 
