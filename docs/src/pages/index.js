@@ -62,17 +62,16 @@ export default ({
   }
 }) =>
   <div>
-    <Box as='header'>
+    <header>
       <Header sidebar={false} />
       <Container py={5}>
         <Hex />
-        <Box
-          as='h1'
+        <h1
           fontSize={[4, 4, 5]}
           fontWeight='bold'>
           {meta.description}
-        </Box>
-        <Box
+        </h1>
+        <div
           my={4}
           css={{
             display: 'flex',
@@ -87,59 +86,56 @@ export default ({
             mr={3}>
             GitHub
           </NavLink>
-          <Box
-            as='pre'
+          <pre
             px={0}
             fontFamily='monospace'
             color='inherit'
             backgroundColor='transparent'>
             npm i styled-system
-          </Box>
-        </Box>
+          </pre>
+        </div>
       </Container>
-    </Box>
+    </header>
     <Container py={5}>
       <Badges />
-      <Box py={4}>
+      <div py={4}>
         <Columns mx={-3}>
           {meta.features.map(feature => (
-            <Box
+            <li
               key={feature}
-              as='li'
               width={[ '100%', '50%' ]}
               p={3}
               fontSize={3}
               mb={15}
               fontWeight='bold'>
               {feature}
-            </Box>
+            </li>
           ))}
         </Columns>
-      </Box>
+      </div>
       <Columns mx={-3} py={4}>
         {meta.quotes.map(quote => (
-          <Box as='li'
+          <li
             width={[ '100%', '50%' ]}
             p={3}
             key={quote.text} mb={4}>
-            <Box
-              as='blockquote'
+            <blockquote
               fontSize={4}
               fontWeight='bold'
               m={0}>
               “{quote.text}”
-            </Box>
+            </blockquote>
             <Styled.a href={quote.href}>
               – {quote.source}
             </Styled.a>
-          </Box>
+          </li>
         ))}
       </Columns>
       {sandbox}
-      <Box py={4}>
+      <div py={4}>
         <GettingStarted />
-      </Box>
-      <Box py={4}>
+      </div>
+      <div py={4}>
         Continue on the next page:
         <NavLink
           href='/responsive-styles'
@@ -148,22 +144,22 @@ export default ({
           mb={3}>
           Responsive Styles
         </NavLink>
-      </Box>
+      </div>
     </Container>
-    <Box as='footer'>
+    <footer>
       <Container
         css={{
           display: 'flex',
           alignItems: 'center',
         }}>
-        <Box
+        <div
           fontWeight='bold'
           mr={2}>
           MIT License
-        </Box>
+        </div>
         <NavLink href='https://github.com/jxnblk/styled-system'>
           GitHub
         </NavLink>
       </Container>
-    </Box>
+    </footer>
   </div>

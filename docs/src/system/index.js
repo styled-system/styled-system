@@ -1,10 +1,7 @@
 // prototype for theming utilities
 import React from 'react'
-import styled from '@emotion/styled'
 import { ComponentProvider } from 'emotion-mdx'
 import css from '@styled-system/css'
-import { width } from 'styled-system'
-import shouldForwardProp from '@styled-system/should-forward-prop'
 
 export { useComponents, Styled } from 'emotion-mdx'
 export { default as css } from '@styled-system/css'
@@ -15,10 +12,14 @@ export const SystemProvider = props =>
     transform={css}
   />
 
-export const Box = styled('div', { shouldForwardProp })(css({
-  boxSizing: 'border-box',
-  minWidth: 0,
-}), width)
+export const Box = ({ as: Tag = 'div', ...props }) =>
+  <Tag
+    {...props}
+    css={{
+      boxSizing: 'border-box',
+      minWidth: 0,
+    }}
+  />
 
 export const block = name => props => {
   const theme = props.theme || props
