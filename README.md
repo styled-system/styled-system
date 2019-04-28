@@ -88,8 +88,6 @@ Try the [examples](examples) on CodeSandbox
 - [Basic Example](https://codesandbox.io/s/github/jxnblk/styled-system/tree/master/examples/basic)
 - [Emotion](https://codesandbox.io/s/github/jxnblk/styled-system/tree/master/examples/emotion)
 
-https://codesandbox.io/s/github/jxnblk/styled-system/tree/docs-babel-plugin/examples/babel-plugin
-
 ### Table of Contents
 
 - [Usage](#usage)
