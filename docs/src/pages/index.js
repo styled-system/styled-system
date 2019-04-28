@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Styled } from '../system'
+import { Box, Styled } from '../system'
 import { Header, Container, } from '../layout'
 import NavLink from '../nav-link'
 import Badges from '../badges.md'
@@ -28,8 +28,9 @@ export const query = graphql`
 `
 
 const Columns = props =>
-  <ul
+  <Box
     {...props}
+    as='ul'
     p={0}
     css={{
       listStyle: 'none',
@@ -61,16 +62,17 @@ export default ({
   }
 }) =>
   <div>
-    <header>
+    <Box as='header'>
       <Header sidebar={false} />
       <Container py={5}>
         <Hex />
-        <h1
+        <Box
+          as='h1'
           fontSize={[4, 4, 5]}
           fontWeight='bold'>
           {meta.description}
-        </h1>
-        <div
+        </Box>
+        <Box
           my={4}
           css={{
             display: 'flex',
@@ -85,57 +87,59 @@ export default ({
             mr={3}>
             GitHub
           </NavLink>
-          <pre
+          <Box
+            as='pre'
             px={0}
             fontFamily='monospace'
             color='inherit'
             backgroundColor='transparent'>
             npm i styled-system
-          </pre>
-        </div>
+          </Box>
+        </Box>
       </Container>
-    </header>
+    </Box>
     <Container py={5}>
       <Badges />
-      <div py={4}>
+      <Box py={4}>
         <Columns mx={-3}>
           {meta.features.map(feature => (
-            <li
+            <Box
               key={feature}
-              css={{}}
-              width={[ '100%', '50%' ]}
+              as='li'
+              width={[1, 1/2]}
               p={3}
               fontSize={3}
               mb={15}
               fontWeight='bold'>
               {feature}
-            </li>
+            </Box>
           ))}
         </Columns>
-      </div>
+      </Box>
       <Columns mx={-3} py={4}>
         {meta.quotes.map(quote => (
-          <li
-            width={[ '100%', '50%' ]}
+          <Box as='li'
+            width={[ 1, 1/2 ]}
             p={3}
             key={quote.text} mb={4}>
-            <blockquote
+            <Box
+              as='blockquote'
               fontSize={4}
               fontWeight='bold'
               m={0}>
               “{quote.text}”
-            </blockquote>
+            </Box>
             <Styled.a href={quote.href}>
               – {quote.source}
             </Styled.a>
-          </li>
+          </Box>
         ))}
       </Columns>
       {sandbox}
-      <div py={4}>
+      <Box py={4}>
         <GettingStarted />
-      </div>
-      <div py={4}>
+      </Box>
+      <Box py={4}>
         Continue on the next page:
         <NavLink
           href='/responsive-styles'
@@ -144,22 +148,22 @@ export default ({
           mb={3}>
           Responsive Styles
         </NavLink>
-      </div>
+      </Box>
     </Container>
-    <footer>
+    <Box as='footer'>
       <Container
         css={{
           display: 'flex',
           alignItems: 'center',
         }}>
-        <div
+        <Box
           fontWeight='bold'
           mr={2}>
           MIT License
-        </div>
+        </Box>
         <NavLink href='https://github.com/jxnblk/styled-system'>
           GitHub
         </NavLink>
       </Container>
-    </footer>
+    </Box>
   </div>
