@@ -106,7 +106,7 @@ export default ({
             <Box
               key={feature}
               as='li'
-              width={[1, 1/2]}
+              width={[ '100%', '50%' ]}
               p={3}
               fontSize={3}
               mb={15}
@@ -119,7 +119,7 @@ export default ({
       <Columns mx={-3} py={4}>
         {meta.quotes.map(quote => (
           <Box as='li'
-            width={[ 1, 1/2 ]}
+            width={[ '100%', '50%' ]}
             p={3}
             key={quote.text} mb={4}>
             <Box
