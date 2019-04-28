@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Box, Styled } from '../system'
+import { Styled } from '../system'
 import { Header, Container, } from '../layout'
 import NavLink from '../nav-link'
 import Badges from '../badges.md'
@@ -28,9 +28,8 @@ export const query = graphql`
 `
 
 const Columns = props =>
-  <Box
+  <ul
     {...props}
-    as='ul'
     p={0}
     css={{
       listStyle: 'none',
@@ -103,6 +102,7 @@ export default ({
           {meta.features.map(feature => (
             <li
               key={feature}
+              css={{}}
               width={[ '100%', '50%' ]}
               p={3}
               fontSize={3}
