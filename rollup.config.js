@@ -1,78 +1,58 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import path from 'path'
-import resolve from 'rollup-plugin-node-resolve'
+import nodeResolve from 'rollup-plugin-node-resolve'
 import babel from 'rollup-plugin-babel'
 import replace from 'rollup-plugin-replace'
 import commonjs from 'rollup-plugin-commonjs'
 import { terser } from 'rollup-plugin-terser'
+import { sizeSnapshot } from 'rollup-plugin-size-snapshot'
 import pkg from './package.json'
 
-function getConfig() {
-  const name = 'styledSystem'
-  const buildName = 'styled-system'
+const input = 'src/index.js'
+const name = 'styledSystem'
 
-  const SOURCE_DIR = path.resolve(__dirname, 'src')
-  const DIST_DIR = path.resolve(__dirname, 'dist')
+const external = id => !id.startsWith('.') && !id.startsWith('/')
 
-  const baseConfig = {
-    input: `${SOURCE_DIR}/index.js`,
+const getBabelOptions = ({ useESModules }) => ({
+  exclude: '**/node_modules/**',
+  runtimeHelpers: true,
+  presets: [['@babel/preset-env', { loose: true, modules: false }]],
+  plugins: [
+    'babel-plugin-annotate-pure-calls',
+    ['@babel/plugin-transform-runtime', { useESModules }],
+  ],
+})
+
+export default [
+  {
+    input,
+    output: { file: `dist/styled-system.umd.js`, format: 'umd', name },
     plugins: [
-      babel({
-        runtimeHelpers: true,
-        exclude: 'node_modules/**',
-        configFile: path.join(__dirname, 'babel.config.js'),
-      }),
+      nodeResolve(),
+      commonjs(),
+      babel(getBabelOptions({ useESModules: true })),
+      replace({ 'process.env.NODE_ENV': JSON.stringify('development') }),
     ],
-  }
-
-  const esConfig = Object.assign({}, baseConfig, {
-    output: {
-      file: `${DIST_DIR}/${buildName}.esm.js`,
-      format: 'esm',
-    },
-    external: id => !id.startsWith('.') && !id.startsWith('/'),
-    plugins: [...baseConfig.plugins, resolve()],
-  })
-
-  const cjsConfig = Object.assign({}, esConfig, {
-    output: {
-      file: `${DIST_DIR}/${buildName}.cjs.js`,
-      format: 'cjs',
-    },
-  })
-
-  const globals = {}
-
-  const umdConfig = Object.assign({}, baseConfig, {
-    output: {
-      name,
-      file: `${DIST_DIR}/${buildName}.js`,
-      format: 'umd',
-      globals,
-      exports: 'named',
-      sourcemap: false,
-    },
-    external: Object.keys(globals),
-    plugins: [...baseConfig.plugins, resolve({ browser: true }), commonjs()],
-  })
-
-  const minConfig = Object.assign({}, umdConfig, {
-    output: {
-      ...umdConfig.output,
-      file: `${DIST_DIR}/${buildName}.min.js`,
-    },
+  },
+  {
+    input,
+    output: { file: 'dist/styled-system.min.js', format: 'umd', name },
     plugins: [
-      ...umdConfig.plugins,
+      nodeResolve(),
+      commonjs(),
+      babel(getBabelOptions({ useESModules: true })),
       replace({ 'process.env.NODE_ENV': JSON.stringify('production') }),
       terser(),
     ],
-  })
-
-  if (process.env.WATCH_MODE) {
-    return [esConfig, cjsConfig]
-  }
-
-  return [esConfig, cjsConfig, umdConfig, minConfig]
-}
-
-export default getConfig()
+  },
+  {
+    input,
+    output: { file: pkg.main, format: 'cjs' },
+    external,
+    plugins: [babel(getBabelOptions({ useESModules: false })), sizeSnapshot()],
+  },
+  {
+    input,
+    output: { file: pkg.module, format: 'esm' },
+    external,
+    plugins: [babel(getBabelOptions({ useESModules: true })), sizeSnapshot()],
+  },
+]
