@@ -45,7 +45,7 @@ export const merge = (a, b) => {
     if (!a[key]) {
       result[key] = b[key]
     } else {
-      result[key] = merge(a, b)
+      result[key] = merge(a[key], b[key])
     }
   })
   return result

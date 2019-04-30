@@ -10,6 +10,7 @@ import {
   variant,
   cloneFunction,
   mapProps,
+  merge,
 } from '../src'
 
 const width = style({
@@ -116,7 +117,7 @@ test('skips undefined responsive values', t => {
   })
 })
 
-test.skip('parses object values', t => {
+test('parses object values', t => {
   const style = width({
     width: {
       _: '100%',
@@ -272,4 +273,17 @@ test('mapProps copies propTypes', t => {
   const margin = style({ prop: 'margin' })
   const func = mapProps(props => props)(margin)
   t.is(typeof func.propTypes, 'object')
+})
+
+test('merge deeply merges', t => {
+  const result = merge(
+    { hello: { hi: 'beep' } },
+    { hello: { hey: 'boop' } },
+  )
+  t.deepEqual(result, {
+    hello: {
+      hi: 'beep',
+      hey: 'boop',
+    }
+  })
 })

@@ -58,6 +58,11 @@
       "bench",
       "examples",
       "packages/**/*"
+    ],
+    "reporter": [
+      "lcov",
+      "text-summary",
+      "html"
     ]
   },
   "bundlesize": [
