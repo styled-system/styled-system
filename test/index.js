@@ -1,5 +1,15 @@
 import test from 'ava'
-import { style, compose, variant } from '../src/index'
+import {
+  style,
+  compose,
+  variant,
+  get,
+  themeGet,
+  is,
+  num,
+  cloneFunction,
+  mapProps,
+} from '../src/index'
 
 const width = style({
   prop: 'width',
@@ -53,7 +63,6 @@ test('handles aliased props', t => {
 })
 
 // Impossible to ensure, due to perf issues
-
 // test('long form prop trumps aliased props', t => {
 //   const style = backgroundColor({
 //     theme,
@@ -75,7 +84,7 @@ test('returns 0', t => {
   t.deepEqual(style, { width: 0 })
 })
 
-test('returns an array of responsive style objects', t => {
+test('returns merged object of responsive styles', t => {
   const style = width({
     width: ['100%', '50%'],
   })
@@ -85,7 +94,7 @@ test('returns an array of responsive style objects', t => {
   })
 })
 
-test('returns an array of responsive style objects for all breakpoints', t => {
+test('returns merged object of responsive styles for all breakpoints', t => {
   const style = width({
     width: ['100%', '75%', '50%', '33%', '25%'],
   })
@@ -107,8 +116,7 @@ test('skips undefined responsive values', t => {
   })
 })
 
-// It is more strict now, see next test
-
+// Previous object parsing test
 // test('parses object values', t => {
 //   const style = width({
 //     width: {
@@ -122,73 +130,72 @@ test('skips undefined responsive values', t => {
 //   })
 // })
 
+// Object parsing work as expected...
+// Previous behaviour was kind of buggy for me
 test('parses object values', t => {
   const style = width({
     width: {
-      _: '100%',
+      0: '100%',
       1: '50%',
     },
   })
   t.deepEqual(style, {
+    width: '100%',
     '@media screen and (min-width: 40em)': { width: '50%' },
   })
 })
 
-// We will not export "get" anymore
+test('get returns a value', t => {
+  const a = get({ blue: '#0cf' }, 'blue')
+  t.is(a, '#0cf')
+})
 
-// test('get returns a value', t => {
-//   const a = get({ blue: '#0cf' }, 'blue')
-//   t.is(a, '#0cf')
-// })
+test('get returns the last argument if no value is found', t => {
+  const a = get(
+    {
+      blue: '#0cf',
+    },
+    'green',
+    '#0f0'
+  )
+  t.is(a, '#0f0')
+})
 
-// test('get returns the last argument if no value is found', t => {
-//   const a = get(
-//     {
-//       blue: '#0cf',
-//     },
-//     'green',
-//     '#0f0'
-//   )
-//   t.is(a, '#0f0')
-// })
+test('get returns 0', t => {
+  const a = get({}, 0)
+  const b = get({ space: [0, 4] }, 0)
+  t.is(a, 0)
+  t.is(b, 0)
+})
 
-// test('get returns 0', t => {
-//   const a = get({}, 0)
-//   const b = get({ space: [0, 4] }, 0)
-//   t.is(a, 0)
-//   t.is(b, 0)
-// })
+test('get returns deeply nested values', t => {
+  const a = get(
+    {
+      hi: {
+        hello: {
+          beep: 'boop',
+        },
+      },
+    },
+    'hi.hello.beep'
+  )
+  t.is(a, 'boop')
+})
 
-// test('get returns deeply nested values', t => {
-//   const a = get(
-//     {
-//       hi: {
-//         hello: {
-//           beep: 'boop',
-//         },
-//       },
-//     },
-//     'hi.hello.beep'
-//   )
-//   t.is(a, 'boop')
-// })
+test('themeGet returns values from the theme', t => {
+  const a = themeGet('colors.blue')({ theme })
+  t.is(a, '#07c')
+})
 
-// We will not export "themeGet" anymore
+test('themeGet does not throw when value doesnt exist', t => {
+  const a = themeGet('colors.blue.5')({ theme })
+  t.is(a, null)
+})
 
-// test('themeGet returns values from the theme', t => {
-//   const a = themeGet('colors.blue')({ theme })
-//   t.is(a, '#07c')
-// })
-
-// test('themeGet does not throw when value doesnt exist', t => {
-//   const a = themeGet('colors.blue.5')({ theme })
-//   t.is(a, null)
-// })
-
-// test('themeGet accepts a fallback', t => {
-//   const a = themeGet('colors.lightblue', '#0cf')({ theme })
-//   t.is(a, '#0cf')
-// })
+test('themeGet accepts a fallback', t => {
+  const a = themeGet('colors.lightblue', '#0cf')({ theme })
+  t.is(a, '#0cf')
+})
 
 test('compose combines style functions', t => {
   const colors = compose(
@@ -203,40 +210,34 @@ test('compose combines style functions', t => {
   t.deepEqual(styles, { color: 'tomato', backgroundColor: 'black' })
 })
 
-// We will not export "num" anymore
+test('num returns true for numbers', t => {
+  const isNumber = num(0)
+  t.true(isNumber)
+})
 
-// test('num returns true for numbers', t => {
-//   const isNumber = num(0)
-//   t.true(isNumber)
-// })
+test('num returns false for non-numbers', t => {
+  const isNumber = num(null)
+  t.false(isNumber)
+})
 
-// test('num returns false for non-numbers', t => {
-//   const isNumber = num(null)
-//   t.false(isNumber)
-// })
+test('is returns true for truthy values', t => {
+  const isValue = is(0)
+  t.true(isValue)
+})
 
-// We will not export "is" anymore
+test('is returns false for falsey values', t => {
+  const a = is(null)
+  const b = is(undefined)
+  t.false(a)
+  t.false(b)
+})
 
-// test('is returns true for truthy values', t => {
-//   const isValue = is(0)
-//   t.true(isValue)
-// })
-
-// test('is returns false for falsey values', t => {
-//   const a = is(null)
-//   const b = is(undefined)
-//   t.false(a)
-//   t.false(b)
-// })
-
-// We will not export "cloneFunction" anymore
-
-// test('cloneFunction creates a new function', t => {
-//   const func = () => 'hi'
-//   const b = cloneFunction(func)
-//   t.false(func === b)
-//   t.is(b(), 'hi')
-// })
+test('cloneFunction creates a new function', t => {
+  const func = () => 'hi'
+  const b = cloneFunction(func)
+  t.false(func === b)
+  t.is(b(), 'hi')
+})
 
 test('variant returns style objects from theme', t => {
   const buttons = variant({ key: 'buttons' })
@@ -283,10 +284,8 @@ test('array values longer than breakpoints does not reset returned style object'
   t.deepEqual(a, { width: '100%' })
 })
 
-// No longer relevant
-
-// test('mapProps copies propTypes',  t => {
-//   const margin = style({ prop: 'margin' })
-//   const func = mapProps(props => props)(margin)
-//   t.is(typeof func.propTypes, 'object')
-// })
+test('mapProps copies propTypes', t => {
+  const margin = style({ prop: 'margin' })
+  const func = mapProps(props => props)(margin)
+  t.is(typeof func.propTypes, 'object')
+})

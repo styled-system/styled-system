@@ -14,7 +14,6 @@ const external = id => !id.startsWith('.') && !id.startsWith('/')
 const getBabelOptions = ({ useESModules }) => ({
   exclude: '**/node_modules/**',
   runtimeHelpers: true,
-  presets: [['@babel/preset-env', { loose: true, modules: false }]],
   plugins: [
     'babel-plugin-annotate-pure-calls',
     ['@babel/plugin-transform-runtime', { useESModules }],
