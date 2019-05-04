@@ -38,16 +38,16 @@ const getValue = (n, scale) => get(scale, n)
 // loosely based on deepmerge package
 export const merge = (a, b) => {
   const result = {}
-  Object.keys(a).forEach(key => {
+  for (const key in a) {
     result[key] = a[key]
-  })
-  Object.keys(b).forEach(key => {
+  }
+  for (const key in b) {
     if (!a[key]) {
       result[key] = b[key]
     } else {
       result[key] = merge(a[key], b[key])
     }
-  })
+  }
   return result
 }
 
