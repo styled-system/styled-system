@@ -2,6 +2,28 @@
 
 ## Unreleased
 
+## v4.2.0 2019-05-04
+
+- Merge returned styles into a single object #473
+
+## v4.1.0 2019-03-28
+
+- #440
+- #442
+- #439
+- #438
+
+## v4.0.8 2019-03-23
+
+- Fix `.npmignore`
+
+## v4.0.7 2019-03-23
+
+- #434
+- #435
+- #433
+- #431
+
 ## v4.0.6 2019-03-21
 
 - Changes source order in `borders` #429
