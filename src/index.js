@@ -51,7 +51,13 @@ export const merge = (a, b) => {
   return result
 }
 
-const mergeAll = (...args) => args.reduce((acc, arg) => merge(acc, arg), {})
+const mergeAll = (...args) => {
+  let result = {}
+  for (let i = 0; i < args.length; i++) {
+    result = merge(result, args[i])
+  }
+  return result
+}
 
 export const style = ({
   prop,
