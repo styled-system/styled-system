@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## v4.2.1 2019-05-04
+
+- Fix build
+
 ## v4.2.0 2019-05-04
 
 - Merge returned styles into a single object #473
