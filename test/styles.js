@@ -22,7 +22,7 @@ const theme = {
 
 test('returns color values from theme', t => {
   const a = color({ theme, color: 'blue', bg: 'black' })
-  t.deepEqual(a, [{ color: '#07c' }, { backgroundColor: '#111' }])
+  t.deepEqual(a, { color: '#07c', backgroundColor: '#111' })
 })
 
 test('returns raw color values', t => {
@@ -31,7 +31,7 @@ test('returns raw color values', t => {
     color: 'inherit',
     bg: 'tomato',
   })
-  t.deepEqual(a, [{ color: 'inherit' }, { backgroundColor: 'tomato' }])
+  t.deepEqual(a, { color: 'inherit', backgroundColor: 'tomato' })
 })
 
 test('backgroundColor prop overrides bg prop', t => {
@@ -39,7 +39,7 @@ test('backgroundColor prop overrides bg prop', t => {
     backgroundColor: 'tomato',
     bg: 'blue',
   })
-  t.deepEqual(a, [{ backgroundColor: 'tomato' }])
+  t.deepEqual(a, { backgroundColor: 'tomato' })
 })
 
 test('returns a pixel font-size', t => {
@@ -76,22 +76,22 @@ test('returns an array of style objects', t => {
   const styles = space({
     m: '4px',
   })
-  t.deepEqual(styles, [{ margin: '4px' }])
+  t.deepEqual(styles, { margin: '4px' })
 })
 
 test('returns 0 values', t => {
   const styles = space({ m: 0 })
-  t.deepEqual(styles, [{ margin: 0 }])
+  t.deepEqual(styles, { margin: 0 })
 })
 
 test('returns negative pixel values', t => {
   const styles = space({ m: -2 })
-  t.deepEqual(styles, [{ margin: '-8px' }])
+  t.deepEqual(styles, { margin: '-8px' })
 })
 
 test('returns negative em values', t => {
   const styles = space({ m: '-16em' })
-  t.deepEqual(styles, [{ margin: '-16em' }])
+  t.deepEqual(styles, { margin: '-16em' })
 })
 
 test('returns negative theme values', t => {
@@ -101,7 +101,7 @@ test('returns negative theme values', t => {
     },
     m: -2,
   })
-  t.deepEqual(styles, [{ margin: '-8px' }])
+  t.deepEqual(styles, { margin: '-8px' })
 })
 
 test('returns positive theme values', t => {
@@ -111,27 +111,25 @@ test('returns positive theme values', t => {
     },
     m: 2,
   })
-  t.deepEqual(styles, [{ margin: '2em' }])
+  t.deepEqual(styles, { margin: '2em' })
 })
 
 test('returns responsive values', t => {
   const styles = space({
     m: [0, 2, 3],
   })
-  t.deepEqual(styles, [
-    [
-      { margin: 0 },
-      { '@media screen and (min-width: 40em)': { margin: '8px' } },
-      { '@media screen and (min-width: 52em)': { margin: '16px' } },
-    ],
-  ])
+  t.deepEqual(styles, {
+      margin: 0,
+      '@media screen and (min-width: 40em)': { margin: '8px' },
+      '@media screen and (min-width: 52em)': { margin: '16px' },
+  })
 })
 
 test('returns aliased values', t => {
   const styles = space({
     px: 2,
   })
-  t.deepEqual(styles, [{ paddingLeft: '8px' }, { paddingRight: '8px' }])
+  t.deepEqual(styles, { paddingLeft: '8px', paddingRight: '8px' })
 })
 
 test('returns string values from theme', t => {
@@ -141,7 +139,7 @@ test('returns string values from theme', t => {
     },
     padding: 1,
   })
-  t.deepEqual(styles, [{ padding: '1em' }])
+  t.deepEqual(styles, { padding: '1em' })
 })
 
 test('returns negative string values from theme', t => {
@@ -151,7 +149,7 @@ test('returns negative string values from theme', t => {
     },
     margin: -1,
   })
-  t.deepEqual(styles, [{ margin: '-1em' }])
+  t.deepEqual(styles, { margin: '-1em' })
 })
 
 test('returns values from theme object', t => {
@@ -162,17 +160,17 @@ test('returns values from theme object', t => {
     margin: 'sm',
   })
 
-  t.deepEqual(styles, [{ margin: '1px' }])
+  t.deepEqual(styles, { margin: '1px' })
 })
 
 test('pl prop sets paddingLeft', t => {
   const styles = space({ pl: 2 })
-  t.deepEqual(styles, [{ paddingLeft: '8px' }])
+  t.deepEqual(styles, { paddingLeft: '8px' })
 })
 
 test('pl prop sets paddingLeft 0', t => {
   const styles = space({ pl: 0 })
-  t.deepEqual(styles, [{ paddingLeft: 0 }])
+  t.deepEqual(styles, { paddingLeft: 0 })
 })
 
 test('px prop overrides pl prop', t => {
@@ -180,7 +178,7 @@ test('px prop overrides pl prop', t => {
     pl: 1,
     px: 2,
   })
-  t.deepEqual(styles, [{ paddingLeft: '8px' }, { paddingRight: '8px' }])
+  t.deepEqual(styles, { paddingLeft: '8px', paddingRight: '8px' })
 })
 
 test('py prop overrides pb prop', t => {
@@ -188,7 +186,7 @@ test('py prop overrides pb prop', t => {
     pb: 1,
     py: 2,
   })
-  t.deepEqual(styles, [{ paddingTop: '8px' }, { paddingBottom: '8px' }])
+  t.deepEqual(styles, { paddingTop: '8px', paddingBottom: '8px' })
 })
 
 test('mx prop overrides mr prop', t => {
@@ -196,7 +194,7 @@ test('mx prop overrides mr prop', t => {
     mr: 1,
     mx: 2,
   })
-  t.deepEqual(styles, [{ marginLeft: '8px' }, { marginRight: '8px' }])
+  t.deepEqual(styles, { marginLeft: '8px', marginRight: '8px' })
 })
 
 test('my prop overrides mt prop', t => {
@@ -204,7 +202,7 @@ test('my prop overrides mt prop', t => {
     mt: 1,
     my: 2,
   })
-  t.deepEqual(styles, [{ marginTop: '8px' }, { marginBottom: '8px' }])
+  t.deepEqual(styles, { marginTop: '8px', marginBottom: '8px' })
 })
 
 test('margin overrides m prop', t => {
@@ -212,7 +210,7 @@ test('margin overrides m prop', t => {
     m: 1,
     margin: 2,
   })
-  t.deepEqual(styles, [{ margin: '8px' }])
+  t.deepEqual(styles, { margin: '8px' })
 })
 
 test('space includes propTypes', t => {
@@ -225,7 +223,7 @@ test('size returns width and height', t => {
   const styles = size({
     size: 4,
   })
-  t.deepEqual(styles, [{ width: '4px' }, { height: '4px' }])
+  t.deepEqual(styles, { width: '4px', height: '4px' })
 })
 
 // grid
@@ -332,10 +330,10 @@ test('borders prop returns correct sequence', t => {
     borderStyle: 'dashed',
     borderColor: 'red',
   })
-  t.deepEqual(a, [
-    { borderBottom: '1px solid' },
-    { borderWidth: '2px' },
-    { borderStyle: 'dashed' },
-    { borderColor: 'red' },
-  ])
+  t.deepEqual(a, {
+    borderBottom: '1px solid',
+    borderWidth: '2px',
+    borderStyle: 'dashed',
+    borderColor: 'red',
+  })
 })

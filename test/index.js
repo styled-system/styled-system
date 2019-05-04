@@ -10,6 +10,7 @@ import {
   variant,
   cloneFunction,
   mapProps,
+  merge,
 } from '../src'
 
 const width = style({
@@ -88,32 +89,32 @@ test('returns an array of responsive style objects', t => {
   const style = width({
     width: ['100%', '50%'],
   })
-  t.deepEqual(style, [
-    { width: '100%' },
-    { '@media screen and (min-width: 40em)': { width: '50%' } },
-  ])
+  t.deepEqual(style, {
+    width: '100%',
+    '@media screen and (min-width: 40em)': { width: '50%' },
+  })
 })
 
 test('returns an array of responsive style objects for all breakpoints', t => {
   const style = width({
     width: ['100%', '75%', '50%', '33%', '25%'],
   })
-  t.deepEqual(style, [
-    { width: '100%' },
-    { '@media screen and (min-width: 40em)': { width: '75%' } },
-    { '@media screen and (min-width: 52em)': { width: '50%' } },
-    { '@media screen and (min-width: 64em)': { width: '33%' } },
-  ])
+  t.deepEqual(style, {
+    width: '100%',
+    '@media screen and (min-width: 40em)': { width: '75%' },
+    '@media screen and (min-width: 52em)': { width: '50%' },
+    '@media screen and (min-width: 64em)': { width: '33%' },
+  })
 })
 
 test('skips undefined responsive values', t => {
   const style = width({
     width: ['100%', , '50%'],
   })
-  t.deepEqual(style, [
-    { width: '100%' },
-    { '@media screen and (min-width: 52em)': { width: '50%' } },
-  ])
+  t.deepEqual(style, {
+    width: '100%',
+    '@media screen and (min-width: 52em)': { width: '50%' },
+  })
 })
 
 test('parses object values', t => {
@@ -123,10 +124,10 @@ test('parses object values', t => {
       2: '50%',
     },
   })
-  t.deepEqual(style, [
-    { width: '100%' },
-    { '@media screen and (min-width: 64em)': { width: '50%' } },
-  ])
+  t.deepEqual(style, {
+    width: '100%',
+    '@media screen and (min-width: 64em)': { width: '50%' },
+  })
 })
 
 test('get returns a value', t => {
@@ -191,7 +192,7 @@ test('compose combines style functions', t => {
     bg: 'black',
   })
   t.is(typeof colors, 'function')
-  t.deepEqual(styles, [{ color: 'tomato' }, { backgroundColor: 'black' }])
+  t.deepEqual(styles, { color: 'tomato', backgroundColor: 'black' })
 })
 
 test('num returns true for numbers', t => {
@@ -265,11 +266,24 @@ test('array values longer than breakpoints does not reset returned style object'
   const a = width({
     width: ['100%', , , , , '50%', '25%'],
   })
-  t.deepEqual(a, [{ width: '100%' }])
+  t.deepEqual(a, { width: '100%' })
 })
 
 test('mapProps copies propTypes', t => {
   const margin = style({ prop: 'margin' })
   const func = mapProps(props => props)(margin)
   t.is(typeof func.propTypes, 'object')
+})
+
+test('merge deeply merges', t => {
+  const result = merge(
+    { hello: { hi: 'beep' } },
+    { hello: { hey: 'boop' } },
+  )
+  t.deepEqual(result, {
+    hello: {
+      hi: 'beep',
+      hey: 'boop',
+    }
+  })
 })

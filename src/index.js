@@ -35,6 +35,30 @@ export const createMediaQuery = n => `@media screen and (min-width: ${px(n)})`
 
 const getValue = (n, scale) => get(scale, n)
 
+// loosely based on deepmerge package
+export const merge = (a, b) => {
+  const result = {}
+  for (const key in a) {
+    result[key] = a[key]
+  }
+  for (const key in b) {
+    if (!a[key]) {
+      result[key] = b[key]
+    } else {
+      result[key] = merge(a[key], b[key])
+    }
+  }
+  return result
+}
+
+const mergeAll = (...args) => {
+  let result = {}
+  for (let i = 0; i < args.length; i++) {
+    result = merge(result, args[i])
+  }
+  return result
+}
+
 export const style = ({
   prop,
   cssProperty,
@@ -83,7 +107,7 @@ export const style = ({
       styles.sort()
     }
 
-    return styles
+    return mergeAll(...styles)
   }
 
   func.propTypes = {
@@ -108,7 +132,7 @@ export const style = ({
 export const compose = (...funcs) => {
   const func = props => {
     const n = funcs.map(fn => fn(props)).filter(Boolean)
-    return n
+    return mergeAll(...n)
   }
 
   func.propTypes = {}
