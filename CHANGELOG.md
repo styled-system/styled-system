@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## v4.2.2 2019-05-08
+
+- Fix for `merge` utility #483
+
 ## v4.2.1 2019-05-04
 
 - Fix build
