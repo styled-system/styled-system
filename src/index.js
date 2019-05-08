@@ -42,7 +42,7 @@ export const merge = (a, b) => {
     result[key] = a[key]
   }
   for (const key in b) {
-    if (!a[key]) {
+    if (!a[key] || typeof a[key] !== 'object') {
       result[key] = b[key]
     } else {
       result[key] = merge(a[key], b[key])
