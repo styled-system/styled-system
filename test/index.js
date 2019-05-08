@@ -11,6 +11,7 @@ import {
   cloneFunction,
   mapProps,
   merge,
+  fontSize,
 } from '../src'
 
 const width = style({
@@ -287,5 +288,29 @@ test('merge deeply merges', t => {
       merge: 'me',
       and: 'all of us'
     }
+  })
+})
+
+test('variant can be composed', t => {
+  const system = compose(
+    variant({ key: 'typography' }),
+    fontSize,
+    color
+  )
+  const result = system({
+    theme: {
+      typography: {
+        primary: {
+          fontSize: '32px',
+          color: '#fff'
+        },
+      },
+    },
+    variant: 'primary',
+    color: '#111'
+  })
+  t.deepEqual(result, {
+    fontSize: '32px',
+    color: '#111'
   })
 })
