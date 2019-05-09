@@ -119,9 +119,9 @@ test('returns responsive values', t => {
     m: [0, 2, 3],
   })
   t.deepEqual(styles, {
-      margin: 0,
-      '@media screen and (min-width: 40em)': { margin: '8px' },
-      '@media screen and (min-width: 52em)': { margin: '16px' },
+    margin: 0,
+    '@media screen and (min-width: 40em)': { margin: '8px' },
+    '@media screen and (min-width: 52em)': { margin: '16px' },
   })
 })
 
