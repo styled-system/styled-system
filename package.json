@@ -4,6 +4,7 @@
     "prettier": "prettier \"packages/**/{src,test,examples}/**/*.js\" --write",
     "clean": "rm -rf packages/styled-system/dist",
     "build": "lerna bootstrap",
+    "publish": "lerna publish",
     "logo": "npx repng docs/src/logo/index.js -d docs/static -f logo.png -w 512 -h 512",
     "logo-svg": "npx scrs docs/src/logo/index.js --svg > docs/static/logo.svg",
     "logo-white": "npx scrs docs/src/logo/white.js --svg > docs/static/logo-white.svg",
