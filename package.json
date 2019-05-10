@@ -12,7 +12,7 @@
     "size": "npx bundlesize",
     "cover": "nyc report --reporter=html --reporter=lcov > coverage.lcov",
     "codecov": "nyc report --reporter=html --reporter=lcov > coverage.lcov && npx codecov",
-    "test": "nyc ava packages/**/test/*.js"
+    "test": "nyc ava"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -34,6 +34,9 @@
     "styled-components": "^4.2.0"
   },
   "ava": {
+    "files": [
+      "packages/**/test/*.js"
+    ],
     "require": [
       "@babel/register"
     ]
