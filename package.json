@@ -1,11 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "prepare": "mkdirp packages/styled-system/dist && npm run build:cjs && npm run build:esm",
     "prettier": "prettier \"packages/**/{src,test,examples}/**/*.js\" --write",
     "clean": "rm -rf packages/styled-system/dist",
-    "build:cjs": "NODE_ENV=cjs babel packages/styled-system/src -o packages/styled-system/dist/index.cjs.js",
-    "build:esm": "NODE_ENV=esm babel packages/styled-system/src -o packages/styled-system/dist/index.esm.js",
+    "build": "lerna bootstrap",
     "logo": "npx repng docs/src/logo/index.js -d docs/static -f logo.png -w 512 -h 512",
     "logo-svg": "npx scrs docs/src/logo/index.js --svg > docs/static/logo.svg",
     "logo-white": "npx scrs docs/src/logo/white.js --svg > docs/static/logo-white.svg",
