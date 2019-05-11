@@ -7,6 +7,7 @@ import { Box, css, block } from './system'
 import Burger from './system/burger'
 import Sidebar from './sidebar'
 import Pagination from './pagination'
+import EditLink from './edit-link'
 
 const HeaderRoot = styled(Box)(css({
   width: '100%',
@@ -139,6 +140,7 @@ export default ({
             maxWidth: 896,
           }}>
           {props.children}
+          <EditLink />
           <Pagination />
         </Container>
       </Main>
