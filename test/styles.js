@@ -11,7 +11,7 @@ import {
   textStyle,
   colorStyle,
   borders,
-} from '../src/index'
+} from '../src'
 
 const theme = {
   colors: {
@@ -34,14 +34,19 @@ test('returns raw color values', t => {
   t.deepEqual(a, { color: 'inherit', backgroundColor: 'tomato' })
 })
 
-// Impossible to ensure, due to perf issues
-// test('backgroundColor prop overrides bg prop', t => {
-//   const a = color({
-//     backgroundColor: 'tomato',
-//     bg: 'blue',
-//   })
-//   t.deepEqual(a, [{ backgroundColor: 'tomato' }])
-// })
+test('relies on object key order', t => {
+  const a = color({
+    backgroundColor: 'tomato',
+    bg: 'blue',
+  })
+  t.deepEqual(a, { backgroundColor: 'blue' })
+
+  const b = color({
+    bg: 'blue',
+    backgroundColor: 'tomato',
+  })
+  t.deepEqual(b, { backgroundColor: 'tomato' })
+})
 
 test('returns a pixel font-size', t => {
   const a = fontSize({ fontSize: 48 })
@@ -172,51 +177,6 @@ test('pl prop sets paddingLeft', t => {
 test('pl prop sets paddingLeft 0', t => {
   const styles = space({ pl: 0 })
   t.deepEqual(styles, { paddingLeft: 0 })
-})
-
-// The order of props matters
-test('px prop overrides pl prop', t => {
-  const styles = space({
-    pl: 1,
-    px: 2,
-  })
-  t.deepEqual(styles, { paddingLeft: '8px', paddingRight: '8px' })
-})
-
-// The order of props matters
-test('py prop overrides pb prop', t => {
-  const styles = space({
-    pb: 1,
-    py: 2,
-  })
-  t.deepEqual(styles, { paddingTop: '8px', paddingBottom: '8px' })
-})
-
-// The order of props matters
-test('mx prop overrides mr prop', t => {
-  const styles = space({
-    mr: 1,
-    mx: 2,
-  })
-  t.deepEqual(styles, { marginLeft: '8px', marginRight: '8px' })
-})
-
-// The order of props matters
-test('my prop overrides mt prop', t => {
-  const styles = space({
-    mt: 1,
-    my: 2,
-  })
-  t.deepEqual(styles, { marginTop: '8px', marginBottom: '8px' })
-})
-
-// The order of props matters
-test('margin overrides m prop', t => {
-  const styles = space({
-    m: 1,
-    margin: 2,
-  })
-  t.deepEqual(styles, { margin: '8px' })
 })
 
 test('space includes propTypes', t => {

@@ -4,7 +4,7 @@ const Benchmark = require('benchmark')
 const libs = [
   {
     name: 'actual',
-    module: require('../dist/styled-system.cjs'),
+    module: require('../dist/index.cjs'),
   },
   {
     name: 'v4',

@@ -1,3 +1,14 @@
-/*
-!/dist/**/*.js
-!/props.js
+.DS_Store
+.prettierrc
+.nyc_output
+.travis.yml
+coverage
+coverage.lcov
+benchmarks
+docs
+src
+examples
+babel.config.js
+test
+CONTRIBUTING.md
+CODE_OF_CONDUCT.md
