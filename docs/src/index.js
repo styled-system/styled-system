@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext, useEffect, useLayoutEffect } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { Global } from '@emotion/core'
@@ -18,9 +18,6 @@ const style = (
         lineHeight: 1.5,
         color: 'text',
         bg: 'background',
-        transitionProperty: 'background-color, color',
-        transitionDuration: '.2s',
-        transitionTimingFunction: 'ease-out',
       }
     })(theme)}
   />
@@ -83,20 +80,22 @@ const Root = props => {
   const [ mode, setMode ] = useState(modes[0])
   const [ open, setOpen ] = useState(false)
 
-  const theme = getTheme(mode)
-  if (props.location && props.location.search) {
-    const colors = getCustomColors(props.location.search)
-    theme.colors = merge({}, theme.colors, colors)
-  }
-  useEffect(() => {
+  useLayoutEffect(() => {
     const initialMode = window.localStorage.getItem('mode') || modes[0]
     if (initialMode && initialMode !== mode) {
       setMode(initialMode)
     }
   }, [])
+
   useEffect(() => {
     window.localStorage.setItem('mode', mode)
   }, [ mode ])
+
+  const theme = getTheme(mode)
+  if (props.location && props.location.search) {
+    const colors = getCustomColors(props.location.search)
+    theme.colors = merge({}, theme.colors, colors)
+  }
 
   const cycleMode = () => {
     const i = (modes.indexOf(mode) + 1) % modes.length
@@ -147,13 +146,11 @@ const Page = props => {
 }
 
 export const wrapRootElement = ({ element, props }) =>
-  <>
+  <Root {...props}>
     {element}
-  </>
+  </Root>
 
 export const wrapPageElement = ({ element, props }) =>
-<Root {...props}>
   <Page {...props}>
     {element}
   </Page>
-</Root>
