@@ -42,6 +42,7 @@
   },
   "nyc": {
     "exclude": [
+      "packages/**/dist",
       "packages/**/test/**/*",
       "**/babel.config.js",
       "docs",
