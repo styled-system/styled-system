@@ -59,7 +59,7 @@ Using Styled System with a CSS-in-JS library will generate something like the fo
 
 ## Using objects
 
-Alternatively, you can define breakpoints with aliases and use plain objects as values.
+Alternatively, you can define breakpoints with aliases and use plain objects as values. Use the alias `_` to define the base value.
 
 ```js
 // theme.js
@@ -82,7 +82,7 @@ export default {
 ```
 
 ```jsx
-<Box width={{ sm: 1, md: 1/2, lg: 1/4 }} />
+<Box width={{ _: 1, sm: 1, md: 1/2, lg: 1/4 }} />
 ```
 
 
