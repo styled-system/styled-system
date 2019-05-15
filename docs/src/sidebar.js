@@ -36,7 +36,6 @@ const Root = styled(Box)(css({
   top: 0,
   alignSelf: 'flex-start',
   minHeight: 'calc(100vh - 0px)',
-  transition: 'background-color .2s ease-out',
 }),
   props => ({
     '@media screen and (max-width: 40em)': {

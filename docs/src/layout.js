@@ -17,7 +17,6 @@ const HeaderRoot = styled(Box)(css({
   position: 'relative',
   zIndex: 2,
   bg: 'background',
-  transition: 'background-color .2s ease-out',
 }), block('header'))
 
 export const Header = ({
