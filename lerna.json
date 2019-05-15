@@ -1,6 +1,12 @@
 {
   "version": "independent",
-  "packages": [
-    "packages/*"
-  ]
+  "packages": ["packages/*"],
+  "create": {
+    "license": "MIT"
+  },
+  "command": {
+    "bootstrap": {
+      "npmClientArgs": ["--no-package-lock"]
+    }
+  }
 }
