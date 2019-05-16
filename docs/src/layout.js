@@ -120,6 +120,7 @@ Container.defaultProps = {
 }
 
 export default ({
+  banner,
   ...props
 }) => {
   const state = useAppContext()
@@ -128,6 +129,9 @@ export default ({
     <Root>
       <Header />
       {state.open && <Overlay onClick={e => state.setOpen(false)} />}
+      <Box>
+        {banner}
+      </Box>
       <Main flexDirection={[ 'column', 'row' ]}>
         <Sidebar
           open={state.open}
