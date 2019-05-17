@@ -76,6 +76,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.4.2",
+    "detect-browser": "^4.5.0",
     "prop-types": "^15.7.2"
   },
   "husky": {

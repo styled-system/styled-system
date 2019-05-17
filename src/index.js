@@ -1,4 +1,8 @@
+import { detect } from 'detect-browser'
 import PropTypes from 'prop-types'
+
+const browser = detect()
+const isIE = browser.name === 'edge' || browser.name === 'ie'
 
 export const defaultBreakpoints = [40, 52, 64].map(n => n + 'em')
 
@@ -104,7 +108,7 @@ export const style = ({
           styles.push({ [media]: rule })
         }
       }
-      styles.sort()
+      !isIE && styles.sort()
     }
 
     return mergeAll(...styles)
