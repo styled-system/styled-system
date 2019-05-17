@@ -108,7 +108,8 @@ export const style = ({
           styles.push({ [media]: rule })
         }
       }
-      !isIE && styles.sort()
+      styles.sort()
+      isIE && styles.reverse()
     }
 
     return mergeAll(...styles)
