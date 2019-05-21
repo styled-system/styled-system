@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 
-const isIE = /(MSIE )|(Trident\/)|(Edge\/)/.test(window.navigator.userAgent)
+const userAgent = global.window ? global.window.navigator.userAgent : ''
+const isIE = /(MSIE )|(Trident\/)|(Edge\/)/.test(userAgent)
 
 export const defaultBreakpoints = [40, 52, 64].map(n => n + 'em')
 
