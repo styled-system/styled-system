@@ -1,4 +1,3 @@
-import { detect } from 'detect-browser'
 import PropTypes from 'prop-types'
 
 const isIE = /(MSIE )|(Trident\/)|(Edge\/)/.test(window.navigator.userAgent)
