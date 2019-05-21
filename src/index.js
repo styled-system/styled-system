@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 
 const userAgent = global.window ? global.window.navigator.userAgent : ''
 const isIE = /(MSIE )|(Trident\/)|(Edge\/)/.test(userAgent)
+const compareForIE = (a, b) => (isIE ? -1 : 1)
 
 export const defaultBreakpoints = [40, 52, 64].map(n => n + 'em')
 
@@ -107,7 +108,7 @@ export const style = ({
           styles.push({ [media]: rule })
         }
       }
-      if (!isIE) styles.sort()
+      styles.sort(compareForIE)
     }
 
     return mergeAll(...styles)
