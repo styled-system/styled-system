@@ -4,11 +4,16 @@ import css from '@styled-system/css'
 
 const base = 'https://github.com/styled-system/styled-system/edit/master/docs'
 
+const getHREF = location => {
+  if (location.pathname === '/') return base + '/getting-started.md'
+  return base + location.pathname + '.md'
+}
+
 export default () => (
   <Location>
     {({location}) => (
       <a
-        href={base + location.pathname + '.md'}
+        href={getHREF(location)}
         css={css({
           display: 'inline-block',
           color: 'inherit',

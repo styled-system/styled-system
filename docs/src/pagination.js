@@ -18,6 +18,11 @@ const flattenLinks = children =>
 const PaginationWrapper = props => props.render(flattenLinks(props.children))
 
 const removeSlash = str => (str.length > 1 ? str.replace(/\/$/, '') : str)
+const removeHash = str => {
+  const i = str.indexOf('#')
+  if (i < 0) return str
+  return str.slice(0, i)
+}
 
 export default () => (
   <Location
@@ -29,7 +34,7 @@ export default () => (
           }}
           render={links => {
             const index = links.findIndex(
-              link => link.props.href === removeSlash(location.pathname)
+              link => removeHash(link.props.href) === removeSlash(location.pathname)
             )
             const hasPagination = index > -1
             const previous = links[index - 1]

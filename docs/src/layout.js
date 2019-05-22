@@ -17,7 +17,20 @@ const HeaderRoot = styled(Box)(css({
   position: 'relative',
   zIndex: 2,
   bg: 'background',
+  '@media screen and (max-width: 40em)': {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+  }
 }), block('header'))
+const HeaderSpacer = styled.div(css({
+  display: 'none',
+  '@media screen and (max-width: 40em)': {
+    display: 'block',
+    height: 64,
+  }
+}))
 
 export const Header = ({
   sidebar = true,
@@ -25,62 +38,65 @@ export const Header = ({
 }) => {
   const state = useAppContext()
   return (
-    <HeaderRoot>
-      <NavLink href='/'
-        css={{
-          '&.active': {
-            color: 'inherit'
-          }
-        }}>
-        Styled System
-      </NavLink>
-      <Box mx='auto' />
-      <button
-        title='Toggle Color Mode'
-        css={css({
-          appearance: 'none',
-          fontFamily: 'inherit',
-          fontSize: 10,
-          textTransform: 'uppercase',
-          letterSpacing: '0.1em',
-          fontWeight: 'bold',
-          border: 'none',
-          m: 3,
-          p: 2,
-          color: 'text',
-          bg: 'gray',
-          '&:focus': {
-            outline: '2px solid',
-          }
-        })}
-        onClick={e => {
-          e.preventDefault()
-          state.cycleMode()
-        }}>
-        {state.mode}
-      </button>
-      {sidebar && (
+    <>
+      <HeaderRoot>
+        <NavLink href='/'
+          css={{
+            '&.active': {
+              color: 'inherit'
+            }
+          }}>
+          Styled System
+        </NavLink>
+        <Box mx='auto' />
         <button
-          title='Show Menu'
+          title='Toggle Color Mode'
           css={css({
-            appearances: 'none',
-            border: 0,
-            mr: 3,
+            appearance: 'none',
+            fontFamily: 'inherit',
+            fontSize: 10,
+            textTransform: 'uppercase',
+            letterSpacing: '0.1em',
+            fontWeight: 'bold',
+            border: 'none',
+            m: 3,
             p: 2,
-            color: 'inherit',
-            backgroundColor: 'transparent',
+            color: 'text',
+            bg: 'gray',
             '&:focus': {
               outline: '2px solid',
-            },
-            '@media screen and (min-width: 40em)': {
-              display: 'none',
             }
           })}
-          onClick={state.toggleOpen}>
-          <Burger />
+          onClick={e => {
+            e.preventDefault()
+            state.cycleMode()
+          }}>
+          {state.mode}
         </button>
-      )}
-    </HeaderRoot>
+        {sidebar && (
+          <button
+            title='Show Menu'
+            css={css({
+              appearances: 'none',
+              border: 0,
+              mr: 3,
+              p: 2,
+              color: 'inherit',
+              backgroundColor: 'transparent',
+              '&:focus': {
+                outline: '2px solid',
+              },
+              '@media screen and (min-width: 40em)': {
+                display: 'none',
+              }
+            })}
+            onClick={state.toggleOpen}>
+            <Burger />
+          </button>
+        )}
+      </HeaderRoot>
+      <HeaderSpacer />
+    </>
   )
 }
 
@@ -120,6 +136,7 @@ Container.defaultProps = {
 }
 
 export default ({
+  banner,
   ...props
 }) => {
   const state = useAppContext()
@@ -128,6 +145,9 @@ export default ({
     <Root>
       <Header />
       {state.open && <Overlay onClick={e => state.setOpen(false)} />}
+      <Box>
+        {banner}
+      </Box>
       <Main flexDirection={[ 'column', 'row' ]}>
         <Sidebar
           open={state.open}
