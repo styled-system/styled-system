@@ -42,10 +42,9 @@ const Root = styled(Box)(css({
       position: 'fixed',
       top: '64px',
       minHeight: 0,
-      maxHeight: props.open ? '100vh' : 0,
+      maxHeight: props.open ? 'calc(100vh - 64px)' : 0,
       height: 'auto',
       transition: 'max-height .2s ease-out',
-      overflow: 'hidden',
       boxShadow: `0 2px 8px rgba(0, 0, 0, .25)`,
     }
   }),
