@@ -1,16 +1,9 @@
 import PropTypes from 'prop-types'
+import assign from 'object-assign'
 
 export const defaultBreakpoints = [40, 52, 64].map(n => n + 'em')
 
-export const propType = PropTypes.oneOfType([
-  PropTypes.number,
-  PropTypes.string,
-  PropTypes.array,
-  PropTypes.object,
-])
-
 export const cloneFunction = fn => (...args) => fn(...args)
-
 export const get = (obj, ...paths) => {
   const value = paths.reduce((a, path) => {
     if (is(a)) return a
@@ -19,18 +12,12 @@ export const get = (obj, ...paths) => {
   }, null)
   return is(value) ? value : paths[paths.length - 1]
 }
-
 export const themeGet = (path, fallback = null) => props =>
   get(props.theme, path, fallback)
-
 export const is = n => n !== undefined && n !== null
-
 export const isObject = n => typeof n === 'object' && n !== null
-
 export const num = n => typeof n === 'number' && !isNaN(n)
-
 export const px = n => (num(n) && n !== 0 ? n + 'px' : n)
-
 export const createMediaQuery = n => `@media screen and (min-width: ${px(n)})`
 
 const getValue = (n, scale) => get(scale, n)
@@ -50,7 +37,6 @@ export const merge = (a, b) => {
   }
   return result
 }
-
 const mergeAll = (...args) => {
   let result = {}
   for (let i = 0; i < args.length; i++) {
@@ -59,108 +45,163 @@ const mergeAll = (...args) => {
   return result
 }
 
+// new implementation
+export const createParser = (config = {}) => {
+  // const cache = {}
+  const parse = (props) => {
+    let styles = {}
+    for (const key in props) {
+      if (!config[key]) continue
+      const sx = config[key]
+      const raw = props[key]
+      const scale = get(props.theme, sx.scale, sx.defaults || {})
+      if (typeof raw === 'object') {
+        const breakpoints = get(props.theme, 'breakpoints', defaultBreakpoints)
+        if (Array.isArray(raw)) {
+          const media = [ null, ...breakpoints.map(createMediaQuery) ]
+          assign(styles,
+            parseResponsiveStyle(media, sx, scale, raw)
+          )
+          continue
+        }
+        if (raw !== null) {
+          assign(styles,
+            parseResponsiveObject(breakpoints, sx, scale, raw)
+          )
+        }
+        continue
+      }
+      assign(styles, sx(raw, scale))
+    }
+    // v4 shim
+    if (!Object.keys(styles).length) return null
+    return styles
+  }
+  parse.config = config
+  parse.propNames = Object.keys(config)
+  // parse.cache = cache
+  return parse
+}
+
+const parseResponsiveStyle = (mediaQueries, sx, scale, raw) => {
+  let styles = {}
+  raw.slice(0, mediaQueries.length).forEach((value, i) => {
+    const media = mediaQueries[i]
+    const style = sx(value, scale)
+    if (!media) {
+      assign(styles, style)
+    } else {
+      assign(styles, {
+        [media]: assign({}, styles[media], style)
+      })
+    }
+  })
+  return styles
+}
+
+const parseResponsiveObject = (breakpoints, sx, scale, raw) => {
+  let styles = {}
+  for (let key in raw) {
+    const breakpoint = breakpoints[key]
+    const value = raw[key]
+    const style = sx(value, scale)
+    if (!breakpoint) {
+      assign(styles, style)
+    } else {
+      const media = createMediaQuery(breakpoint)
+      assign(styles, {
+        [media]: assign({}, styles[media], style)
+      })
+    }
+  }
+  return styles
+}
+
+export const createStyleFunction = ({
+  properties,
+  property,
+  scale,
+  transform = getValue,
+  defaultScale,
+}) => {
+  properties = properties || [ property ]
+  const sx = (value, scale) => {
+    const result = {}
+    const n = transform(value, scale)
+    properties.forEach(prop => {
+      result[prop] = n
+    })
+    return result
+  }
+  sx.scale = scale
+  sx.defaults = defaultScale
+  return sx
+}
+
 export const style = ({
   prop,
   cssProperty,
   alias,
   key,
-  transformValue = getValue,
-  scale: defaultScale = {},
+  transformValue,
+  scale,
+  // new api
+  properties,
 }) => {
-  const property = cssProperty || prop
-  const func = props => {
-    const value = get(props, prop, alias, null)
-    if (!is(value)) return null
-    const scale = get(props.theme, key, defaultScale)
-    const createStyle = n =>
-      is(n)
-        ? {
-            [property]: transformValue(n, scale),
-          }
-        : null
-
-    if (!isObject(value)) return createStyle(value)
-
-    const breakpoints = get(props.theme, 'breakpoints', defaultBreakpoints)
-
-    const styles = []
-    if (Array.isArray(value)) {
-      styles.push(createStyle(value[0]))
-      for (let i = 1; i < value.slice(0, breakpoints.length + 1).length; i++) {
-        const rule = createStyle(value[i])
-        if (rule) {
-          const media = createMediaQuery(breakpoints[i - 1])
-          styles.push({ [media]: rule })
-        }
-      }
-    } else {
-      for (let key in value) {
-        const breakpoint = breakpoints[key]
-        const media = createMediaQuery(breakpoint)
-        const rule = createStyle(value[key])
-        if (!breakpoint) {
-          styles.unshift(rule)
-        } else {
-          styles.push({ [media]: rule })
-        }
-      }
-      styles.sort()
-    }
-
-    return mergeAll(...styles)
-  }
-
-  func.propTypes = {
-    [prop]: cloneFunction(propType),
-  }
-  func.propTypes[prop].meta = {
-    prop,
-    themeKey: key,
-  }
-
-  if (alias) {
-    func.propTypes[alias] = cloneFunction(propType)
-    func.propTypes[alias].meta = {
-      prop: alias,
-      themeKey: key,
-    }
-  }
-
-  return func
-}
-
-export const compose = (...funcs) => {
-  const func = props => {
-    const n = funcs.map(fn => fn(props)).filter(Boolean)
-    return mergeAll(...n)
-  }
-
-  func.propTypes = {}
-  funcs.forEach(fn => {
-    func.propTypes = {
-      ...func.propTypes,
-      ...fn.propTypes,
-    }
+  const config = {}
+  config[prop] = createStyleFunction({
+    properties,
+    property: cssProperty || prop,
+    scale: key,
+    defaultScale: scale,
+    transform: transformValue,
   })
+  if (alias) config[alias] = config[prop]
+  const parse = createParser(config)
 
-  return func
-}
-
-export const mapProps = mapper => func => {
-  const next = props => func(mapper(props))
-  for (const key in func) {
-    next[key] = func[key]
+  // v4 shim
+  parse.propTypes = {
+    [prop]: cloneFunction(propType)
   }
-  return next
+  if (alias) {
+    parse.propTypes[alias] = cloneFunction(propType)
+  }
+
+  return parse
 }
 
-export const variant = ({ key, prop = 'variant' }) => {
-  const fn = props => get(props.theme, [key, props[prop]].join('.'), null)
-  fn.propTypes = {
+export const compose = (...parsers) => {
+  let config = {}
+  let propTypes = {}
+  parsers.forEach(parser => {
+    assign(config, parser.config)
+    assign(propTypes, parser.propTypes)
+  })
+  const parser = createParser(config)
+  parser.propTypes = propTypes
+
+  return parser
+}
+
+export const variant = ({
+  key,
+  prop = 'variant'
+}) => {
+  const sx = (value, scale) => {
+    return get(scale, value, null)
+  }
+  sx.scale = key
+  const config = {
+    [prop]: sx
+  }
+  const parser = createParser(config)
+  // v4 shim
+  parser.propTypes = {
     [prop]: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   }
-  return fn
+  return parser
 }
+
 
 // space
 const spaceScale = [0, 4, 8, 16, 32, 64, 128, 256, 512]
@@ -259,29 +300,57 @@ export const paddingRight = style({
   scale: spaceScale,
 })
 
-export const space = mapProps(props => ({
-  ...props,
-  mt: is(props.my) ? props.my : props.mt,
-  mb: is(props.my) ? props.my : props.mb,
-  ml: is(props.mx) ? props.mx : props.ml,
-  mr: is(props.mx) ? props.mx : props.mr,
-  pt: is(props.py) ? props.py : props.pt,
-  pb: is(props.py) ? props.py : props.pb,
-  pl: is(props.px) ? props.px : props.pl,
-  pr: is(props.px) ? props.px : props.pr,
-}))(
-  compose(
-    margin,
-    marginTop,
-    marginBottom,
-    marginLeft,
-    marginRight,
-    padding,
-    paddingTop,
-    paddingBottom,
-    paddingLeft,
-    paddingRight
-  )
+export const marginX = style({
+  prop: 'marginX',
+  properties: [ 'marginLeft', 'marginRight' ],
+  alias: 'mx',
+  key: 'space',
+  transformValue: getSpace,
+  scale: spaceScale,
+})
+
+export const marginY = style({
+  prop: 'marginY',
+  properties: [ 'marginTop', 'marginBottom' ],
+  alias: 'my',
+  key: 'space',
+  transformValue: getSpace,
+  scale: spaceScale,
+})
+
+export const paddingX = style({
+  prop: 'paddingX',
+  properties: [ 'paddingLeft', 'paddingRight' ],
+  alias: 'px',
+  key: 'space',
+  transformValue: getSpace,
+  scale: spaceScale,
+})
+
+export const paddingY = style({
+  prop: 'paddingY',
+  properties: [ 'paddingTop', 'paddingBottom' ],
+  alias: 'py',
+  key: 'space',
+  transformValue: getSpace,
+  scale: spaceScale,
+})
+
+export const space = compose(
+  margin,
+  marginTop,
+  marginBottom,
+  marginLeft,
+  marginRight,
+  marginX,
+  marginY,
+  padding,
+  paddingTop,
+  paddingBottom,
+  paddingLeft,
+  paddingRight,
+  paddingX,
+  paddingY
 )
 
 // color
@@ -385,16 +454,12 @@ export const minHeight = style({
   transformValue: getPx,
 })
 
-export const size = mapProps(props => ({
-  ...props,
-  width: props.size,
-  height: props.size,
-}))(
-  compose(
-    width,
-    height
-  )
-)
+export const size = style({
+  prop: 'size',
+  properties: [ 'width', 'height' ],
+  key: 'sizes',
+  transformValue: getPx,
+})
 
 export const verticalAlign = style({ prop: 'verticalAlign' })
 
@@ -530,3 +595,20 @@ export const left = style({ prop: 'left', transformValue: getPx })
 export const buttonStyle = variant({ key: 'buttons' })
 export const textStyle = variant({ key: 'textStyles', prop: 'textStyle' })
 export const colorStyle = variant({ key: 'colorStyles', prop: 'colors' })
+
+// v4 api
+// deprecated
+export const mapProps = mapper => func => {
+  const next = props => func(mapper(props))
+  for (const key in func) {
+    next[key] = func[key]
+  }
+  return next
+}
+export const propType = PropTypes.oneOfType([
+  PropTypes.number,
+  PropTypes.string,
+  PropTypes.array,
+  PropTypes.object,
+])
+

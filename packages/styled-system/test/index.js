@@ -64,7 +64,7 @@ test('handles aliased props', () => {
   })
 })
 
-test('long form prop trumps aliased props', () => {
+test.skip('long form prop trumps aliased props', () => {
   const style = backgroundColor({
     theme,
     backgroundColor: 'black',
