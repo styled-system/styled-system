@@ -34,7 +34,8 @@
   },
   "ava": {
     "files": [
-      "packages/**/test/*.js"
+      "packages/**/test/*.js",
+      "packages/**/test.js"
     ],
     "require": [
       "@babel/register"
