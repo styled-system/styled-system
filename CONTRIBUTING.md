@@ -17,8 +17,8 @@ To submit a pull request, follow these steps
 
 1. Fork and clone this repo
 2. Create a branch for your changes
-3. Install dependencies with `npm install`
-4. Ensure tests are passing by running `npm test`
+3. Install dependencies with `yarn`
+4. Ensure tests are passing by running `yarn test`
 5. If you're fixing a bug, it's recommended to write a failing test before writing any code
 6. Make changes locally and commit them
 7. Try to make sure tests still pass and that there's 100% coverage
@@ -34,8 +34,7 @@ To view the documentation site locally, run the following:
 
 ```sh
 cd docs
-npm install
-npm start
+yarn && yarn start
 ```
 
 ## Architecture
@@ -47,9 +46,7 @@ To avoid additional build tools, the entire source code is in a single `src/inde
 with the core part of the library at the top and built-in style functions below.
 This allows users of this library to take advantage of features like tree-shaking in webpack.
 
-### Subpackages
+### Monorepo
 
-The `packages/` folder contains other npm packages and experiments related to the core library.
-Many of these have been made redundant by upstream changes in libraries like `styled-components` and `emotion`,
-but can be forked or used as a reference point for people using Styled System.
+This repo is set up as a monorepo using Yarn workspaces and Lerna.
 

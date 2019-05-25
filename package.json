@@ -1,5 +1,10 @@
 {
   "private": true,
+  "workspaces": [
+    "packages/*",
+    "examples/*",
+    "docs"
+  ],
   "scripts": {
     "prettier": "prettier \"packages/**/{src,test,examples}/**/*.js\" --write",
     "clean": "rm -rf packages/styled-system/dist",
@@ -63,10 +68,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jxnblk/styled-system.git"
-  },
-  "dependencies": {
-    "@babel/runtime": "^7.4.2",
-    "prop-types": "^15.7.2"
   },
   "husky": {
     "hooks": {
