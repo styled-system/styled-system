@@ -2,6 +2,14 @@
 # yarn lockfile v1
 
 
+"@2s/smooth-system@^4.2.2":
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/@2s/smooth-system/-/smooth-system-4.2.2.tgz#97cf19670ed8b26952a55543756aed0dae2d0954"
+  integrity sha512-3VSBs7RS3O49Z3Q2pOiVkmn6t+aFgPjq6NA/WlmqUS44ar1n02QjMhZXt5tuBx9WhnxssB/RvnwlIHpuETIicA==
+  dependencies:
+    "@babel/runtime" "^7.4.2"
+    prop-types "^15.7.2"
+
 "@babel/cli@^7.2.3", "@babel/cli@^7.4.4":
   version "7.4.4"
   resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.4.4.tgz#5454bb7112f29026a4069d8e6f0e1794e651966c"
