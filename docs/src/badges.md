@@ -1,7 +1,7 @@
 
 [![gh][]][github]
 [![stars][]][github]
-[![Build Status][ci]][travis]
+[![Build Status][circleci-badge]][circleci]
 [![Downloads][]][npm]
 [![Version][]][npm]
 ![size][]
@@ -9,7 +9,8 @@
 [![spectrum-badge][]][spectrum]
 [![system-ui/theme][system-ui-badge]](https://system-ui.com/theme)
 
-[ci]: https://flat.badgen.net/travis/styled-system/styled-system
+[circleci]: https://circleci.com/gh/styled-system/styled-system
+[circleci-badge]: https://flat.badgen.net/circleci/github/styled-system/styled-system/master
 [version]: https://flat.badgen.net/npm/v/styled-system
 [downloads]: https://flat.badgen.net/npm/dm/styled-system
 [license]: https://flat.badgen.net/badge/license/MIT/blue
@@ -20,6 +21,5 @@
 [spectrum-badge]: https://flat.badgen.net/badge/spectrum/community/purple
 
 [npm]: https://npmjs.com/package/styled-system
-[travis]: https://travis-ci.org/styled-system/styled-system
 [github]: https://github.com/styled-system/styled-system
 [spectrum]: https://spectrum.chat/styled-system
