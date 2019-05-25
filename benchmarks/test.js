@@ -2,6 +2,8 @@ const Benchmark = require('benchmark')
 
 const system = require('styled-system')
 const smooth = require('@2s/smooth-system')
+// build is broken on github
+// const smooth = require('smooth-system')
 
 const theme = {
   breakpoints: [

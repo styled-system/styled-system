@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@2s/smooth-system@^4.2.2":
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/@2s/smooth-system/-/smooth-system-4.2.2.tgz#97cf19670ed8b26952a55543756aed0dae2d0954"
-  integrity sha512-3VSBs7RS3O49Z3Q2pOiVkmn6t+aFgPjq6NA/WlmqUS44ar1n02QjMhZXt5tuBx9WhnxssB/RvnwlIHpuETIicA==
+"@2s/smooth-system@^4.2.2-0":
+  version "4.2.2-0"
+  resolved "https://registry.yarnpkg.com/@2s/smooth-system/-/smooth-system-4.2.2-0.tgz#3694220bc233f97c7ae6c9689f43e50bd1152727"
+  integrity sha512-6lCCznTVgnjy8sNfRy3ROpyTglRCZj8SkiwtZbjI+6Se+sAA5FKs5gxaif9Drmeg68B4X0AG5pRM07tL1iSMsw==
   dependencies:
     "@babel/runtime" "^7.4.2"
     prop-types "^15.7.2"
