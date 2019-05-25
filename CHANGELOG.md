@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+- Removes `propTypes` (use `.propNames` instead)
+- No longer converts numbers to `px` strings
+- Changes interal `get` utility
+- Removes: `isObject`, `is`, `px`, `num`, `createMediaQuery`, `defaultBreakpoints`
+- Removes: `merge`, `cloneFunction`,
+- No longer returns `null` (returns and empty object instead)
+- No longer converts padding to negative values (not needed)
+
 ## v4.2.2 2019-05-08
 
 - Fix for `merge` utility #483

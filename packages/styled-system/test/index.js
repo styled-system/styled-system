@@ -2,14 +2,8 @@ import {
   style,
   get,
   themeGet,
-  is,
-  num,
-  px,
   compose,
   variant,
-  cloneFunction,
-  mapProps,
-  merge,
   fontSize,
 } from '../src'
 
@@ -64,28 +58,12 @@ test('handles aliased props', () => {
   })
 })
 
-test.skip('long form prop trumps aliased props', () => {
-  const style = backgroundColor({
-    theme,
-    backgroundColor: 'black',
-    bg: 'blue',
-  })
-  expect(style).toEqual({
-    backgroundColor: '#111',
-  })
-})
-
-test('returns null', () => {
-  const style = color({})
-  expect(style).toBe(null)
-})
-
 test('returns 0', () => {
   const style = width({ width: 0 })
   expect(style).toEqual({ width: 0 })
 })
 
-test('returns an array of responsive style objects', () => {
+test('returns responsive style objects', () => {
   const style = width({
     width: ['100%', '50%'],
   })
@@ -95,7 +73,7 @@ test('returns an array of responsive style objects', () => {
   })
 })
 
-test('returns an array of responsive style objects for all breakpoints', () => {
+test('returns responsive style objects for all breakpoints', () => {
   const style = width({
     width: ['100%', '75%', '50%', '33%', '25%'],
   })
@@ -130,43 +108,6 @@ test('parses object values', () => {
   })
 })
 
-test('get returns a value', () => {
-  const a = get({ blue: '#0cf' }, 'blue')
-  expect(a).toBe('#0cf')
-})
-
-test('get returns the last argument if no value is found', () => {
-  const a = get(
-    {
-      blue: '#0cf',
-    },
-    'green',
-    '#0f0'
-  )
-  expect(a).toBe('#0f0')
-})
-
-test('get returns 0', () => {
-  const a = get({}, 0)
-  const b = get({ space: [0, 4] }, 0)
-  expect(a).toBe(0)
-  expect(b).toBe(0)
-})
-
-test('get returns deeply nested values', () => {
-  const a = get(
-    {
-      hi: {
-        hello: {
-          beep: 'boop',
-        },
-      },
-    },
-    'hi.hello.beep'
-  )
-  expect(a).toBe('boop')
-})
-
 test('themeGet returns values from the theme', () => {
   const a = themeGet('colors.blue')({ theme })
   expect(a).toBe('#07c')
@@ -193,35 +134,6 @@ test('compose combines style functions', () => {
   })
   expect(typeof colors).toBe('function')
   expect(styles).toEqual({ color: 'tomato', backgroundColor: 'black' })
-})
-
-test('num returns true for numbers', () => {
-  const isNumber = num(0)
-  expect(isNumber).toBe(true)
-})
-
-test('num returns false for non-numbers', () => {
-  const isNumber = num(null)
-  expect(isNumber).toBe(false)
-})
-
-test('is returns true for truthy values', () => {
-  const isValue = is(0)
-  expect(isValue).toBe(true)
-})
-
-test('is returns false for falsey values', () => {
-  const a = is(null)
-  const b = is(undefined)
-  expect(a).toBe(false)
-  expect(b).toBe(false)
-})
-
-test('cloneFunction creates a new function', () => {
-  const func = () => 'hi'
-  const b = cloneFunction(func)
-  expect(func === b).toBe(false)
-  expect(b()).toBe('hi')
 })
 
 test('variant returns style objects from theme', () => {
@@ -267,27 +179,6 @@ test('array values longer than breakpoints does not reset returned style object'
     width: ['100%', , , , , '50%', '25%'],
   })
   expect(a).toEqual({ width: '100%' })
-})
-
-test('mapProps copies propTypes', () => {
-  const margin = style({ prop: 'margin' })
-  const func = mapProps(props => props)(margin)
-  expect(typeof func.propTypes).toBe('object')
-})
-
-test('merge deeply merges', () => {
-  const result = merge(
-    { hello: { hi: 'beep', merge: 'me', and: 'me' } },
-    { hello: { hey: 'boop', merge: 'me', and: 'all of us' } }
-  )
-  expect(result).toEqual({
-    hello: {
-      hi: 'beep',
-      hey: 'boop',
-      merge: 'me',
-      and: 'all of us',
-    },
-  })
 })
 
 test('variant can be composed', () => {

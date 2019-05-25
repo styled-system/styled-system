@@ -43,12 +43,12 @@ test.skip('backgroundColor prop overrides bg prop', () => {
 
 test('returns a pixel font-size', () => {
   const a = fontSize({ fontSize: 48 })
-  expect(a).toEqual({ fontSize: '48px' })
+  expect(a).toEqual({ fontSize: 48 })
 })
 
 test('uses a default font-size scale', () => {
   const a = fontSize({ fontSize: 2 })
-  expect(a).toEqual({ fontSize: '16px' })
+  expect(a).toEqual({ fontSize: 16 })
 })
 
 test('returns a string font-size', () => {
@@ -63,7 +63,7 @@ test('returns a percentage based width', () => {
 
 test('returns a pixel based width', () => {
   const a = width({ width: 256 })
-  expect(a).toEqual({ width: '256px' })
+  expect(a).toEqual({ width: 256 })
 })
 
 test('returns a string width', () => {
@@ -85,7 +85,7 @@ test('returns 0 values', () => {
 
 test('returns negative pixel values', () => {
   const styles = space({ m: -2 })
-  expect(styles).toEqual({ margin: '-8px' })
+  expect(styles).toEqual({ margin: -8 })
 })
 
 test('returns negative em values', () => {
@@ -100,7 +100,7 @@ test('returns negative theme values', () => {
     },
     m: -2,
   })
-  expect(styles).toEqual({ margin: '-8px' })
+  expect(styles).toEqual({ margin: -8 })
 })
 
 test('returns positive theme values', () => {
@@ -119,8 +119,8 @@ test('returns responsive values', () => {
   })
   expect(styles).toEqual({
     margin: 0,
-    '@media screen and (min-width: 40em)': { margin: '8px' },
-    '@media screen and (min-width: 52em)': { margin: '16px' },
+    '@media screen and (min-width: 40em)': { margin: 8 },
+    '@media screen and (min-width: 52em)': { margin: 16 },
   })
 })
 
@@ -128,7 +128,7 @@ test('returns aliased values', () => {
   const styles = space({
     px: 2,
   })
-  expect(styles).toEqual({ paddingLeft: '8px', paddingRight: '8px' })
+  expect(styles).toEqual({ paddingLeft: 8, paddingRight: 8 })
 })
 
 test('returns string values from theme', () => {
@@ -158,12 +158,12 @@ test('returns values from theme object', () => {
     },
     margin: 'sm',
   })
-  expect(styles).toEqual({ margin: '1px' })
+  expect(styles).toEqual({ margin: 1 })
 })
 
 test('pl prop sets paddingLeft', () => {
   const styles = space({ pl: 2 })
-  expect(styles).toEqual({ paddingLeft: '8px' })
+  expect(styles).toEqual({ paddingLeft: 8 })
 })
 
 test('pl prop sets paddingLeft 0', () => {
@@ -176,7 +176,7 @@ test('px prop overrides pl prop', () => {
     pl: 1,
     px: 2,
   })
-  expect(styles).toEqual({ paddingLeft: '8px', paddingRight: '8px' })
+  expect(styles).toEqual({ paddingLeft: 8, paddingRight: 8 })
 })
 
 test('py prop overrides pb prop', () => {
@@ -184,7 +184,7 @@ test('py prop overrides pb prop', () => {
     pb: 1,
     py: 2,
   })
-  expect(styles).toEqual({ paddingTop: '8px', paddingBottom: '8px' })
+  expect(styles).toEqual({ paddingTop: 8, paddingBottom: 8 })
 })
 
 test('mx prop overrides mr prop', () => {
@@ -192,7 +192,7 @@ test('mx prop overrides mr prop', () => {
     mr: 1,
     mx: 2,
   })
-  expect(styles).toEqual({ marginLeft: '8px', marginRight: '8px' })
+  expect(styles).toEqual({ marginLeft: 8, marginRight: 8 })
 })
 
 test('my prop overrides mt prop', () => {
@@ -200,7 +200,7 @@ test('my prop overrides mt prop', () => {
     mt: 1,
     my: 2,
   })
-  expect(styles).toEqual({ marginTop: '8px', marginBottom: '8px' })
+  expect(styles).toEqual({ marginTop: 8, marginBottom: 8 })
 })
 
 test('margin overrides m prop', () => {
@@ -208,20 +208,14 @@ test('margin overrides m prop', () => {
     m: 1,
     margin: 2,
   })
-  expect(styles).toEqual({ margin: '8px' })
-})
-
-test('space includes propTypes', () => {
-  const { propTypes } = space
-  expect(typeof propTypes).toBe('object')
-  expect(typeof propTypes.m).toBe('function')
+  expect(styles).toEqual({ margin: 8 })
 })
 
 test('size returns width and height', () => {
   const styles = size({
     size: 4,
   })
-  expect(styles).toEqual({ width: '4px', height: '4px' })
+  expect(styles).toEqual({ width: 4, height: 4 })
 })
 
 // grid
@@ -232,7 +226,7 @@ test('gridGap returns a scalar style', () => {
     },
     gridGap: 3,
   })
-  expect(a).toEqual({ gridGap: '8px' })
+  expect(a).toEqual({ gridGap: 8 })
 })
 
 test('gridGap uses the default scale', () => {
@@ -240,7 +234,7 @@ test('gridGap uses the default scale', () => {
     theme: {},
     gridGap: 2,
   })
-  expect(a).toEqual({ gridGap: '8px' })
+  expect(a).toEqual({ gridGap: 8 })
 })
 
 test('gridRowGap returns a scalar style', () => {
@@ -250,7 +244,7 @@ test('gridRowGap returns a scalar style', () => {
     },
     gridRowGap: 3,
   })
-  expect(a).toEqual({ gridRowGap: '8px' })
+  expect(a).toEqual({ gridRowGap: 8 })
 })
 
 test('gridRowGap uses the default scale', () => {
@@ -258,7 +252,7 @@ test('gridRowGap uses the default scale', () => {
     theme: {},
     gridRowGap: 2,
   })
-  expect(a).toEqual({ gridRowGap: '8px' })
+  expect(a).toEqual({ gridRowGap: 8 })
 })
 
 test('gridColumnGap returns a scalar style', () => {
@@ -268,7 +262,7 @@ test('gridColumnGap returns a scalar style', () => {
     },
     gridColumnGap: 3,
   })
-  expect(a).toEqual({ gridColumnGap: '8px' })
+  expect(a).toEqual({ gridColumnGap: 8 })
 })
 
 test('gridColumnGap uses the default scale', () => {
@@ -276,7 +270,7 @@ test('gridColumnGap uses the default scale', () => {
     theme: {},
     gridColumnGap: 2,
   })
-  expect(a).toEqual({ gridColumnGap: '8px' })
+  expect(a).toEqual({ gridColumnGap: 8 })
 })
 
 test('textStyle prop returns theme.textStyles object', () => {
