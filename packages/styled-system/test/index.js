@@ -1,4 +1,3 @@
-import test from 'ava'
 import {
   style,
   get,
@@ -36,71 +35,71 @@ const theme = {
   },
 }
 
-test('returns a style function', t => {
+test('returns a style function', () => {
   const func = style({ prop: 'width' })
-  t.is(typeof func, 'function')
+  expect(typeof func).toBe('function')
 })
 
-test('function returns a style object', t => {
+test('function returns a style object', () => {
   const style = width({ width: '50%' })
-  t.deepEqual(style, {
+  expect(style).toEqual({
     width: '50%',
   })
 })
 
-test('returns values from theme', t => {
+test('returns values from theme', () => {
   const style = color({ theme, color: 'blue' })
-  t.deepEqual(style, {
+  expect(style).toEqual({
     color: '#07c',
   })
 })
 
-test('handles aliased props', t => {
+test('handles aliased props', () => {
   const style = backgroundColor({
     theme,
     bg: 'blue',
   })
-  t.deepEqual(style, {
+  expect(style).toEqual({
     backgroundColor: '#07c',
   })
 })
 
-test('long form prop trumps aliased props', t => {
+test('long form prop trumps aliased props', () => {
   const style = backgroundColor({
     theme,
     backgroundColor: 'black',
     bg: 'blue',
   })
-  t.deepEqual(style, {
+  expect(style).toEqual({
     backgroundColor: '#111',
   })
 })
 
-test('returns null', t => {
+test('returns null', () => {
   const style = color({})
-  t.is(style, null)
+  expect(style).toBe(null)
 })
 
-test('returns 0', t => {
+test('returns 0', () => {
   const style = width({ width: 0 })
-  t.deepEqual(style, { width: 0 })
+  expect(style).toEqual({ width: 0 })
 })
 
-test('returns an array of responsive style objects', t => {
+test('returns an array of responsive style objects', () => {
   const style = width({
     width: ['100%', '50%'],
   })
-  t.deepEqual(style, {
+  expect(style).toEqual({
     width: '100%',
     '@media screen and (min-width: 40em)': { width: '50%' },
   })
 })
 
-test('returns an array of responsive style objects for all breakpoints', t => {
+test('returns an array of responsive style objects for all breakpoints', () => {
   const style = width({
     width: ['100%', '75%', '50%', '33%', '25%'],
   })
-  t.deepEqual(style, {
+  expect(style).toEqual({
     width: '100%',
     '@media screen and (min-width: 40em)': { width: '75%' },
     '@media screen and (min-width: 52em)': { width: '50%' },
@@ -108,35 +107,35 @@ test('returns an array of responsive style objects for all breakpoints', t => {
   })
 })
 
-test('skips undefined responsive values', t => {
+test('skips undefined responsive values', () => {
   const style = width({
     width: ['100%', , '50%'],
   })
-  t.deepEqual(style, {
+  expect(style).toEqual({
     width: '100%',
     '@media screen and (min-width: 52em)': { width: '50%' },
   })
 })
 
-test('parses object values', t => {
+test('parses object values', () => {
   const style = width({
     width: {
       _: '100%',
       2: '50%',
     },
   })
-  t.deepEqual(style, {
+  expect(style).toEqual({
     width: '100%',
     '@media screen and (min-width: 64em)': { width: '50%' },
   })
 })
 
-test('get returns a value', t => {
+test('get returns a value', () => {
   const a = get({ blue: '#0cf' }, 'blue')
-  t.is(a, '#0cf')
+  expect(a).toBe('#0cf')
 })
 
-test('get returns the last argument if no value is found', t => {
+test('get returns the last argument if no value is found', () => {
   const a = get(
     {
       blue: '#0cf',
@@ -144,17 +143,17 @@ test('get returns the last argument if no value is found', t => {
     'green',
     '#0f0'
   )
-  t.is(a, '#0f0')
+  expect(a).toBe('#0f0')
 })
 
-test('get returns 0', t => {
+test('get returns 0', () => {
   const a = get({}, 0)
   const b = get({ space: [0, 4] }, 0)
-  t.is(a, 0)
-  t.is(b, 0)
+  expect(a).toBe(0)
+  expect(b).toBe(0)
 })
 
-test('get returns deeply nested values', t => {
+test('get returns deeply nested values', () => {
   const a = get(
     {
       hi: {
@@ -165,25 +164,25 @@ test('get returns deeply nested values', t => {
     },
     'hi.hello.beep'
   )
-  t.is(a, 'boop')
+  expect(a).toBe('boop')
 })
 
-test('themeGet returns values from the theme', t => {
+test('themeGet returns values from the theme', () => {
   const a = themeGet('colors.blue')({ theme })
-  t.is(a, '#07c')
+  expect(a).toBe('#07c')
 })
 
-test('themeGet does not throw when value doesnt exist', t => {
+test('themeGet does not throw when value doesnt exist', () => {
   const a = themeGet('colors.blue.5')({ theme })
-  t.is(a, null)
+  expect(a).toBe(null)
 })
 
-test('themeGet accepts a fallback', t => {
+test('themeGet accepts a fallback', () => {
   const a = themeGet('colors.lightblue', '#0cf')({ theme })
-  t.is(a, '#0cf')
+  expect(a).toBe('#0cf')
 })
 
-test('compose combines style functions', t => {
+test('compose combines style functions', () => {
   const colors = compose(
     color,
     backgroundColor
@@ -192,40 +191,40 @@ test('compose combines style functions', t => {
     color: 'tomato',
     bg: 'black',
   })
-  t.is(typeof colors, 'function')
-  t.deepEqual(styles, { color: 'tomato', backgroundColor: 'black' })
+  expect(typeof colors).toBe('function')
+  expect(styles).toEqual({ color: 'tomato', backgroundColor: 'black' })
 })
 
-test('num returns true for numbers', t => {
+test('num returns true for numbers', () => {
   const isNumber = num(0)
-  t.true(isNumber)
+  expect(isNumber).toBe(true)
 })
 
-test('num returns false for non-numbers', t => {
+test('num returns false for non-numbers', () => {
   const isNumber = num(null)
-  t.false(isNumber)
+  expect(isNumber).toBe(false)
 })
 
-test('is returns true for truthy values', t => {
+test('is returns true for truthy values', () => {
   const isValue = is(0)
-  t.true(isValue)
+  expect(isValue).toBe(true)
 })
 
-test('is returns false for falsey values', t => {
+test('is returns false for falsey values', () => {
   const a = is(null)
   const b = is(undefined)
-  t.false(a)
-  t.false(b)
+  expect(a).toBe(false)
+  expect(b).toBe(false)
 })
 
-test('cloneFunction creates a new function', t => {
+test('cloneFunction creates a new function', () => {
   const func = () => 'hi'
   const b = cloneFunction(func)
-  t.false(func === b)
-  t.is(b(), 'hi')
+  expect(func === b).toBe(false)
+  expect(b()).toBe('hi')
 })
 
-test('variant returns style objects from theme', t => {
+test('variant returns style objects from theme', () => {
   const buttons = variant({ key: 'buttons' })
   const a = buttons({
     theme: {
@@ -238,13 +237,13 @@ test('variant returns style objects from theme', t => {
     },
     variant: 'primary',
   })
-  t.deepEqual(a, {
+  expect(a).toEqual({
     padding: '32px',
     backgroundColor: 'tomato',
   })
 })
 
-test('variant prop can be customized', t => {
+test('variant prop can be customized', () => {
   const buttons = variant({ key: 'buttons', prop: 'type' })
   const a = buttons({
     theme: {
@@ -257,31 +256,31 @@ test('variant prop can be customized', t => {
     },
     type: 'primary',
   })
-  t.deepEqual(a, {
+  expect(a).toEqual({
     padding: '32px',
     backgroundColor: 'tomato',
   })
 })
 
-test('array values longer than breakpoints does not reset returned style object', t => {
+test('array values longer than breakpoints does not reset returned style object', () => {
   const a = width({
     width: ['100%', , , , , '50%', '25%'],
   })
-  t.deepEqual(a, { width: '100%' })
+  expect(a).toEqual({ width: '100%' })
 })
 
-test('mapProps copies propTypes', t => {
+test('mapProps copies propTypes', () => {
   const margin = style({ prop: 'margin' })
   const func = mapProps(props => props)(margin)
-  t.is(typeof func.propTypes, 'object')
+  expect(typeof func.propTypes).toBe('object')
 })
 
-test('merge deeply merges', t => {
+test('merge deeply merges', () => {
   const result = merge(
     { hello: { hi: 'beep', merge: 'me', and: 'me' } },
     { hello: { hey: 'boop', merge: 'me', and: 'all of us' } }
   )
-  t.deepEqual(result, {
+  expect(result).toEqual({
     hello: {
       hi: 'beep',
       hey: 'boop',
@@ -291,7 +290,7 @@ test('merge deeply merges', t => {
   })
 })
 
-test('variant can be composed', t => {
+test('variant can be composed', () => {
   const system = compose(
     variant({ key: 'typography' }),
     fontSize,
@@ -309,7 +308,7 @@ test('variant can be composed', t => {
     variant: 'primary',
     color: '#111',
   })
-  t.deepEqual(result, {
+  expect(result).toEqual({
     fontSize: '32px',
     color: '#111',
   })
