@@ -3,7 +3,21 @@ import assign from 'object-assign'
 
 export const defaultBreakpoints = [40, 52, 64].map(n => n + 'em')
 
+const scales = {
+  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
+}
+
 export const cloneFunction = fn => (...args) => fn(...args)
+/* new implementation
+export const get = (obj, key = '', def, p, undef) => {
+  key = key.split ? key.split('.') : [key]
+  for (p = 0; p < key.length; p++) {
+    obj = obj ? obj[key[p]] : undef
+  }
+  return obj === undef ? def : obj
+}
+*/
 export const get = (obj, ...paths) => {
   const value = paths.reduce((a, path) => {
     if (is(a)) return a
@@ -18,68 +32,48 @@ export const is = n => n !== undefined && n !== null
 export const isObject = n => typeof n === 'object' && n !== null
 export const num = n => typeof n === 'number' && !isNaN(n)
 export const px = n => (num(n) && n !== 0 ? n + 'px' : n)
-export const createMediaQuery = n => `@media screen and (min-width: ${px(n)})`
-
+export const createMediaQuery = n => `@media screen and (min-width: ${n})`
+const getPx = (n, scale) => px(get(scale, n))
 const getValue = (n, scale) => get(scale, n)
-
-// loosely based on deepmerge package
-export const merge = (a, b) => {
-  const result = {}
-  for (const key in a) {
-    result[key] = a[key]
-  }
-  for (const key in b) {
-    if (!a[key] || typeof a[key] !== 'object') {
-      result[key] = b[key]
-    } else {
-      result[key] = merge(a[key], b[key])
-    }
-  }
-  return result
-}
-const mergeAll = (...args) => {
-  let result = {}
-  for (let i = 0; i < args.length; i++) {
-    result = merge(result, args[i])
-  }
-  return result
-}
 
 // new implementation
 export const createParser = (config = {}) => {
-  // const cache = {}
+  const cache = {}
   const parse = (props) => {
     let styles = {}
     for (const key in props) {
       if (!config[key]) continue
       const sx = config[key]
       const raw = props[key]
-      const scale = get(props.theme, sx.scale, sx.defaults || {})
+      const scale = get(props.theme, sx.scale, sx.defaults)
+
       if (typeof raw === 'object') {
-        const breakpoints = get(props.theme, 'breakpoints', defaultBreakpoints)
+        cache.breakpoints = cache.breakpoints || get(props.theme, 'breakpoints', defaultBreakpoints)
         if (Array.isArray(raw)) {
-          const media = [ null, ...breakpoints.map(createMediaQuery) ]
+          cache.media = cache.media || [ null, ...cache.breakpoints.map(createMediaQuery) ]
           assign(styles,
-            parseResponsiveStyle(media, sx, scale, raw)
+            parseResponsiveStyle(cache.media, sx, scale, raw)
           )
           continue
         }
         if (raw !== null) {
           assign(styles,
-            parseResponsiveObject(breakpoints, sx, scale, raw)
+            parseResponsiveObject(cache.breakpoints, sx, scale, raw)
           )
         }
         continue
       }
+
       assign(styles, sx(raw, scale))
     }
+
     // v4 shim
     if (!Object.keys(styles).length) return null
     return styles
   }
   parse.config = config
   parse.propNames = Object.keys(config)
-  // parse.cache = cache
+  parse.cache = cache
   return parse
 }
 
@@ -204,11 +198,10 @@ export const variant = ({
 
 
 // space
-const spaceScale = [0, 4, 8, 16, 32, 64, 128, 256, 512]
 
 const getSpace = (n, scale) => {
   if (!num(n)) {
-    return px(get(scale, n, n))
+    return getPx(n, scale)
   }
 
   const isNegative = n < 0
@@ -225,7 +218,7 @@ export const margin = style({
   alias: 'm',
   key: 'space',
   transformValue: getSpace,
-  scale: spaceScale,
+  scale: scales.space,
 })
 
 export const marginTop = style({
@@ -233,7 +226,7 @@ export const marginTop = style({
   alias: 'mt',
   key: 'space',
   transformValue: getSpace,
-  scale: spaceScale,
+  scale: scales.space,
 })
 
 export const marginBottom = style({
@@ -241,7 +234,7 @@ export const marginBottom = style({
   alias: 'mb',
   key: 'space',
   transformValue: getSpace,
-  scale: spaceScale,
+  scale: scales.space,
 })
 
 export const marginLeft = style({
@@ -249,7 +242,7 @@ export const marginLeft = style({
   alias: 'ml',
   key: 'space',
   transformValue: getSpace,
-  scale: spaceScale,
+  scale: scales.space,
 })
 
 export const marginRight = style({
@@ -257,7 +250,7 @@ export const marginRight = style({
   alias: 'mr',
   key: 'space',
   transformValue: getSpace,
-  scale: spaceScale,
+  scale: scales.space,
 })
 
 export const padding = style({
@@ -265,7 +258,7 @@ export const padding = style({
   alias: 'p',
   key: 'space',
   transformValue: getSpace,
-  scale: spaceScale,
+  scale: scales.space,
 })
 
 export const paddingTop = style({
@@ -273,7 +266,7 @@ export const paddingTop = style({
   alias: 'pt',
   key: 'space',
   transformValue: getSpace,
-  scale: spaceScale,
+  scale: scales.space,
 })
 
 export const paddingBottom = style({
@@ -281,7 +274,7 @@ export const paddingBottom = style({
   alias: 'pb',
   key: 'space',
   transformValue: getSpace,
-  scale: spaceScale,
+  scale: scales.space,
 })
 
 export const paddingLeft = style({
@@ -289,7 +282,7 @@ export const paddingLeft = style({
   alias: 'pl',
   key: 'space',
   transformValue: getSpace,
-  scale: spaceScale,
+  scale: scales.space,
 })
 
 export const paddingRight = style({
@@ -297,7 +290,7 @@ export const paddingRight = style({
   alias: 'pr',
   key: 'space',
   transformValue: getSpace,
-  scale: spaceScale,
+  scale: scales.space,
 })
 
 export const marginX = style({
@@ -306,7 +299,7 @@ export const marginX = style({
   alias: 'mx',
   key: 'space',
   transformValue: getSpace,
-  scale: spaceScale,
+  scale: scales.space,
 })
 
 export const marginY = style({
@@ -315,7 +308,7 @@ export const marginY = style({
   alias: 'my',
   key: 'space',
   transformValue: getSpace,
-  scale: spaceScale,
+  scale: scales.space,
 })
 
 export const paddingX = style({
@@ -324,7 +317,7 @@ export const paddingX = style({
   alias: 'px',
   key: 'space',
   transformValue: getSpace,
-  scale: spaceScale,
+  scale: scales.space,
 })
 
 export const paddingY = style({
@@ -333,7 +326,7 @@ export const paddingY = style({
   alias: 'py',
   key: 'space',
   transformValue: getSpace,
-  scale: spaceScale,
+  scale: scales.space,
 })
 
 export const space = compose(
@@ -381,13 +374,11 @@ export const width = style({
 
 // typography
 
-export const getPx = (n, scale) => px(get(scale, n))
-
 export const fontSize = style({
   prop: 'fontSize',
   key: 'fontSizes',
+  scale: scales.fontSizes,
   transformValue: getPx,
-  scale: [12, 14, 16, 20, 24, 32, 48, 64, 72],
 })
 
 export const fontFamily = style({
@@ -416,7 +407,6 @@ export const fontStyle = style({
 export const letterSpacing = style({
   prop: 'letterSpacing',
   key: 'letterSpacings',
-  transformValue: getPx,
 })
 
 // layout
@@ -480,22 +470,22 @@ export const order = style({ prop: 'order' })
 export const gridGap = style({
   prop: 'gridGap',
   key: 'space',
+  scale: scales.space,
   transformValue: getPx,
-  scale: spaceScale,
 })
 
 export const gridColumnGap = style({
   prop: 'gridColumnGap',
   key: 'space',
+  scale: scales.space,
   transformValue: getPx,
-  scale: spaceScale,
 })
 
 export const gridRowGap = style({
   prop: 'gridRowGap',
   key: 'space',
+  scale: scales.space,
   transformValue: getPx,
-  scale: spaceScale,
 })
 
 export const gridColumn = style({ prop: 'gridColumn' })
@@ -553,7 +543,6 @@ export const borderLeft = style({
 export const borderRadius = style({
   prop: 'borderRadius',
   key: 'radii',
-  transformValue: getPx,
 })
 
 export const borders = compose(
@@ -596,6 +585,7 @@ export const buttonStyle = variant({ key: 'buttons' })
 export const textStyle = variant({ key: 'textStyles', prop: 'textStyle' })
 export const colorStyle = variant({ key: 'colorStyles', prop: 'colors' })
 
+//////// //////// //////// ////////
 // v4 api
 // deprecated
 export const mapProps = mapper => func => {
@@ -611,4 +601,26 @@ export const propType = PropTypes.oneOfType([
   PropTypes.array,
   PropTypes.object,
 ])
+// loosely based on deepmerge package
+export const merge = (a, b) => {
+  const result = {}
+  for (const key in a) {
+    result[key] = a[key]
+  }
+  for (const key in b) {
+    if (!a[key] || typeof a[key] !== 'object') {
+      result[key] = b[key]
+    } else {
+      result[key] = merge(a[key], b[key])
+    }
+  }
+  return result
+}
+const mergeAll = (...args) => {
+  let result = {}
+  for (let i = 0; i < args.length; i++) {
+    result = merge(result, args[i])
+  }
+  return result
+}
 

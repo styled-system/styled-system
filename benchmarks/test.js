@@ -1,7 +1,8 @@
 const Benchmark = require('benchmark')
 
-const system = require('styled-system')
+const system = require('system-v4')
 const smooth = require('@2s/smooth-system')
+const next = require('styled-system')
 // build is broken on github
 // const smooth = require('smooth-system')
 
@@ -13,7 +14,8 @@ const theme = {
     0, 4, 8, 16, 32, 64, 128, 256
   ],
   fontSizes: [
-    12, 14, 16, 24, 32, 48, 64
+    3, 6, 12, 24, 48, 96,
+    // 12, 14, 16, 24, 32, 48, 64
   ],
   colors: {
     text: 'black',
@@ -28,6 +30,7 @@ const tests = [
     libs: {
       system: system.space,
       smooth: smooth.space,
+      next: next.space,
     },
     run: fn => () => fn({
       theme,
@@ -43,6 +46,7 @@ const tests = [
     libs: {
       system: system.fontSize,
       smooth: smooth.fontSize,
+      next: next.fontSize,
     },
     run: fn => () => fn({
       theme,
@@ -54,6 +58,7 @@ const tests = [
     libs: {
       system: system.fontSize,
       smooth: smooth.fontSize,
+      next: next.fontSize,
     },
     run: fn => () => fn({
       theme,
@@ -72,6 +77,11 @@ const tests = [
         smooth.space,
         smooth.color,
         smooth.fontSize,
+      ),
+      next: next.compose(
+        next.space,
+        next.color,
+        next.fontSize,
       ),
     },
     run: fn => () => fn({
