@@ -1,0 +1,28 @@
+{
+  "name": "styled-system",
+  "version": "4.2.2",
+  "description": "Responsive, theme-based style props for building design systems with React",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "sideEffects": false,
+  "keywords": [
+    "react",
+    "css-in-js",
+    "styled-components",
+    "emotion"
+  ],
+  "author": "Brent Jackson",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.4.2",
+    "prop-types": "^15.7.2"
+  },
+  "scripts": {
+    "prepare": "mkdir -p dist && npm run build:cjs && npm run build:esm",
+    "build:cjs": "NODE_ENV=cjs babel src -o dist/index.cjs.js",
+    "build:esm": "NODE_ENV=esm babel src -o dist/index.esm.js"
+  }
+}
