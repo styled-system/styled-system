@@ -3,6 +3,8 @@ const Benchmark = require('benchmark')
 const system = require('system-v4')
 const smooth = require('@2s/smooth-system')
 const next = require('styled-system')
+const { css } = require('@styled-system/css')
+
 // build is broken on github
 // const smooth = require('smooth-system')
 
@@ -31,6 +33,7 @@ const tests = [
       system: system.space,
       smooth: smooth.space,
       next: next.space,
+      css: ({ theme, ...rest }) => css(rest)(theme),
     },
     run: fn => () => fn({
       theme,
@@ -47,6 +50,7 @@ const tests = [
       system: system.fontSize,
       smooth: smooth.fontSize,
       next: next.fontSize,
+      css: ({ theme, ...rest }) => css(rest)(theme),
     },
     run: fn => () => fn({
       theme,
@@ -59,6 +63,7 @@ const tests = [
       system: system.fontSize,
       smooth: smooth.fontSize,
       next: next.fontSize,
+      css: ({ theme, ...rest }) => css(rest)(theme),
     },
     run: fn => () => fn({
       theme,
@@ -83,6 +88,7 @@ const tests = [
         next.color,
         next.fontSize,
       ),
+      css: ({ theme, ...rest }) => css(rest)(theme),
     },
     run: fn => () => fn({
       theme,
@@ -105,7 +111,7 @@ tests.forEach(test => {
     const fn = test.libs[key]
     const t = test.run(fn)
     // debugging
-    // console.log(key, t())
+    console.log(key, t())
     suite.add(`${test.name}: ${key}`, t)
   })
 })

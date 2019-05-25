@@ -6,9 +6,11 @@
 - No longer converts numbers to `px` strings
 - Changes interal `get` utility
 - Removes: `isObject`, `is`, `px`, `num`, `createMediaQuery`, `defaultBreakpoints`
-- Removes: `merge`, `cloneFunction`,
+- Removes: `merge`, `cloneFunction`, `mapProps`
 - No longer returns `null` (returns and empty object instead)
 - No longer converts padding to negative values (not needed)
+- Faster
+- New APIs:
 
 ## v4.2.2 2019-05-08
 

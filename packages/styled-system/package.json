@@ -2,9 +2,7 @@
   "name": "styled-system",
   "version": "4.3.0-0",
   "description": "Responsive, theme-based style props for building design systems with React",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
-  "sideEffects": false,
+  "main": "dist/index.js",
   "keywords": [
     "react",
     "css-in-js",
@@ -22,8 +20,6 @@
     "prop-types": "^15.7.2"
   },
   "scripts": {
-    "prepare": "mkdir -p dist && npm run build:cjs && npm run build:esm",
-    "build:cjs": "NODE_ENV=cjs babel src -o dist/index.cjs.js",
-    "build:esm": "NODE_ENV=esm babel src -o dist/index.esm.js"
+    "prepare": "babel src -d dist"
   }
 }

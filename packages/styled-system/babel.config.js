@@ -1,1 +1,9 @@
-module.exports = require('../../babel.config')
+module.exports = {
+  presets: [
+    [
+      '@babel/preset-env', {
+        loose: true,
+      }
+    ]
+  ]
+}
