@@ -1,5 +1,5 @@
 {
-  "name": "styled-system-basic-demo",
+  "name": "@styled-system/responsive-objects-example",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

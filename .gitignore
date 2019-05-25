@@ -4,4 +4,4 @@ node_modules
 coverage*
 site
 public
-yarn.lock
+package-lock.json
