@@ -3,6 +3,7 @@
   "workspaces": [
     "packages/*",
     "examples/*",
+    "benchmarks",
     "docs"
   ],
   "scripts": {
@@ -14,6 +15,7 @@
     "logo-svg": "npx scrs docs/src/logo/index.js --svg > docs/static/logo.svg",
     "logo-white": "npx scrs docs/src/logo/white.js --svg > docs/static/logo-white.svg",
     "size": "npx bundlesize",
+    "benchmark": "yarn workspace benchmarks test",
     "cover": "yarn test --coverage",
     "codecov": "yarn cover && npx codecov",
     "test": "jest"
