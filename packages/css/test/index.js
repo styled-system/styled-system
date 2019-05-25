@@ -1,4 +1,3 @@
-import test from 'ava'
 import css from '../src'
 
 const theme = {
@@ -40,35 +39,35 @@ const theme = {
   }
 }
 
-test('returns a function', t => {
-  const res = css()
-  t.is(typeof res, 'function')
+test('returns a function', () => {
+  const result = css()
+  expect(typeof result).toBe('function')
 })
 
-test('returns an object', t => {
-  const res = css()()
-  t.is(typeof res, 'object')
+test('returns an object', () => {
+  const result = css()()
+  expect(typeof result).toBe('object')
 })
 
-test('returns styles', t => {
-  const res = css({
+test('returns styles', () => {
+  const result = css({
     fontSize: 32,
     color: 'blue',
     borderRadius: 4,
   })()
-  t.deepEqual(res, {
+  expect(result).toEqual({
     fontSize: 32,
     color: 'blue',
     borderRadius: 4,
   })
 })
 
-test('returns system props styles', t => {
-  const res = css({
+test('returns system props styles', () => {
+  const result = css({
     color: 'primary',
     fontSize: [ 2, 3, 4]
   })({ theme })
-  t.deepEqual(res, {
+  expect(result).toEqual({
     fontSize: 16,
     '@media screen and (min-width: 40em)': {
       fontSize: 24,
@@ -80,14 +79,14 @@ test('returns system props styles', t => {
   })
 })
 
-test('returns nested system props styles', t => {
-  const res = css({
+test('returns nested system props styles', () => {
+  const result = css({
     color: 'primary',
     '&:hover': {
       color: 'secondary',
     }
   })({ theme })
-  t.deepEqual(res, {
+  expect(result).toEqual({
     color: 'tomato',
     '&:hover': {
       color: 'cyan',
@@ -95,14 +94,14 @@ test('returns nested system props styles', t => {
   })
 })
 
-test('returns nested responsive styles', t => {
-  const res = css({
+test('returns nested responsive styles', () => {
+  const result = css({
     color: 'primary',
     h1: {
       py: [3, 4],
     }
   })({ theme })
-  t.deepEqual(res, {
+  expect(result).toEqual({
     color: 'tomato',
     h1: {
       paddingTop: 16,
@@ -115,8 +114,8 @@ test('returns nested responsive styles', t => {
   })
 })
 
-test('handles all core styled system props', t => {
-  const res = css({
+test('handles all core styled system props', () => {
+  const result = css({
     m: 0,
     mb: 2,
     mx: 'auto',
@@ -129,7 +128,7 @@ test('handles all core styled system props', t => {
     fontFamily: 'monospace',
     lineHeight: 'body',
   })({ theme })
-  t.deepEqual(res, {
+  expect(result).toEqual({
     margin: 0,
     marginBottom: 8,
     marginLeft: 'auto',
@@ -146,42 +145,42 @@ test('handles all core styled system props', t => {
   })
 })
 
-test('works with the css prop', t => {
-  const res = css({
+test('works with the css prop', () => {
+  const result = css({
     color: 'primary',
     m: 0,
     fontSize: 2,
   })(theme)
-  t.deepEqual(res, {
+  expect(result).toEqual({
     color: 'tomato',
     margin: 0,
     fontSize: 16,
   })
 })
 
-test('works with functional arguments', t => {
-  const res = css(t => ({
+test('works with functional arguments', () => {
+  const result = css(t => ({
     color: t.colors.primary,
   }))(theme)
-  t.deepEqual(res, {
+  expect(result).toEqual({
     color: 'tomato',
   })
 })
 
-test('supports functional values', t => {
-  const res = css({
+test('supports functional values', () => {
+  const result = css({
     color: t => t.colors.primary,
   })(theme)
-  t.deepEqual(res, {
+  expect(result).toEqual({
     color: 'tomato',
   })
 })
 
-test('returns variants from theme', t => {
-  const res = css({
+test('returns variants from theme', () => {
+  const result = css({
     variant: 'buttons.primary',
   })(theme)
-  t.deepEqual(res, {
+  expect(result).toEqual({
     padding: 16,
     fontWeight: 600,
     color: 'white',
@@ -190,11 +189,11 @@ test('returns variants from theme', t => {
   })
 })
 
-test('handles variants with responsive values', t => {
-  const res = css({
+test('handles variants with responsive values', () => {
+  const result = css({
     variant: 'text.caps',
   })(theme)
-  t.deepEqual(res, {
+  expect(result).toEqual({
     fontSize: 14,
     letterSpacing: '0.1em',
     textTransform: 'uppercase',
@@ -204,11 +203,11 @@ test('handles variants with responsive values', t => {
   })
 })
 
-test('handles responsive variants', t => {
-  const res = css({
+test('handles responsive variants', () => {
+  const result = css({
     variant: 'text.title',
   })(theme)
-  t.deepEqual(res, {
+  expect(result).toEqual({
     fontSize: 24,
     letterSpacing: '-0.01em',
     '@media screen and (min-width: 40em)': {
@@ -218,12 +217,12 @@ test('handles responsive variants', t => {
   })
 })
 
-test('handles negative margins from scale', t => {
+test('handles negative margins from scale', () => {
   const result = css({
     mt: -3,
     mx: -4,
   })(theme)
-  t.deepEqual(result, {
+  expect(result).toEqual({
     marginTop: -16,
     marginLeft: -32,
     marginRight: -32,
