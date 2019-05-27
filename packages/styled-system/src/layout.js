@@ -1,0 +1,45 @@
+// @styled-system/layout
+import { system, get } from '@styled-system/core'
+
+const isNumber = n => typeof n === 'number' && !isNaN(n)
+const getWidth = (n, scale) => get(scale, n, (!isNumber(n) || n > 1 ? n : n * 100 + '%'))
+
+const config = {
+  width: {
+    property: 'width',
+    scale: 'sizes',
+    transform: getWidth
+  },
+  height: {
+    property: 'height',
+    scale: 'sizes',
+  },
+  minWidth: {
+    property: 'minWidth',
+    scale: 'sizes',
+  },
+  minHeight: {
+    property: 'minHeight',
+    scale: 'sizes',
+  },
+  maxWidth: {
+    property: 'maxWidth',
+    scale: 'sizes',
+  },
+  maxHeight: {
+    property: 'maxHeight',
+    scale: 'sizes',
+  },
+  display: true,
+  verticalAlign: true,
+  size: {
+    properties: [
+      'width',
+      'height',
+    ],
+    scale: 'sizes'
+  },
+}
+
+export const layout = system(config)
+export default layout

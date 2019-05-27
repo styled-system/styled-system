@@ -1,5 +1,5 @@
 import { variant } from '../src'
-import { style, compose } from '@styled-system/core'
+import { system, compose } from '@styled-system/core'
 
 const theme = {
   colors: {
@@ -8,8 +8,8 @@ const theme = {
   },
 }
 
-const fontSize = style({ prop: 'fontSize' })
-const color = style({ prop: 'color' })
+const fontSize = system({ fontSize: true })
+const color = system({ color: true })
 
 test('variant returns style objects from theme', () => {
   const buttons = variant({ key: 'buttons' })
