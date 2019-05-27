@@ -12,6 +12,10 @@
 - Faster
 - New APIs:
 
+## v4.2.3 2019-05-27
+
+- Fix for sort order in IE #465
+
 ## v4.2.2 2019-05-08
 
 - Fix for `merge` utility #483

@@ -52,7 +52,7 @@ Margin and padding props follow a shorthand syntax for specifying direction.
 <Box m='auto' />
 
 // sets margin `8px` on all viewports and `16px` from the smallest breakpoint and up
-<Box m={[ 1, 2 ]} />
+<Box m={[ 2, 3 ]} />
 ```
 
 As of v4.0.0, verbose margin and padding props (e.g. `margin`, `marginTop`) can also be used instead of the shorthand props.
