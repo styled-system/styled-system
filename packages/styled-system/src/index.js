@@ -4,11 +4,9 @@ export {
   createStyleFunction,
   style,
   compose,
-} from './core'
+} from '@styled-system/core'
+export { variant } from '@styled-system/variant'
 
-// split up into separate packages
-export { variant } from './variant'
-export { themeGet } from './themeGet'
 export {
   margin,
   marginTop,

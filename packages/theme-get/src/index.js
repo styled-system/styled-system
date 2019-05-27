@@ -1,5 +1,5 @@
-import { get } from './core'
+import { get } from '@styled-system/core'
 
-// move to separate package
 export const themeGet = (path, fallback = null) => props =>
   get(props.theme, path, fallback)
+export default themeGet

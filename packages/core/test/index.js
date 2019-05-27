@@ -1,10 +1,7 @@
 import {
   style,
   get,
-  themeGet,
   compose,
-  variant,
-  fontSize,
 } from '../src'
 
 const width = style({
@@ -108,21 +105,6 @@ test('parses object values', () => {
   })
 })
 
-test('themeGet returns values from the theme', () => {
-  const a = themeGet('colors.blue')({ theme })
-  expect(a).toBe('#07c')
-})
-
-test('themeGet does not throw when value doesnt exist', () => {
-  const a = themeGet('colors.blue.5')({ theme })
-  expect(a).toBe(null)
-})
-
-test('themeGet accepts a fallback', () => {
-  const a = themeGet('colors.lightblue', '#0cf')({ theme })
-  expect(a).toBe('#0cf')
-})
-
 test('compose combines style functions', () => {
   const colors = compose(
     color,
@@ -136,71 +118,9 @@ test('compose combines style functions', () => {
   expect(styles).toEqual({ color: 'tomato', backgroundColor: 'black' })
 })
 
-test('variant returns style objects from theme', () => {
-  const buttons = variant({ key: 'buttons' })
-  const a = buttons({
-    theme: {
-      buttons: {
-        primary: {
-          padding: '32px',
-          backgroundColor: 'tomato',
-        },
-      },
-    },
-    variant: 'primary',
-  })
-  expect(a).toEqual({
-    padding: '32px',
-    backgroundColor: 'tomato',
-  })
-})
-
-test('variant prop can be customized', () => {
-  const buttons = variant({ key: 'buttons', prop: 'type' })
-  const a = buttons({
-    theme: {
-      buttons: {
-        primary: {
-          padding: '32px',
-          backgroundColor: 'tomato',
-        },
-      },
-    },
-    type: 'primary',
-  })
-  expect(a).toEqual({
-    padding: '32px',
-    backgroundColor: 'tomato',
-  })
-})
-
 test('array values longer than breakpoints does not reset returned style object', () => {
   const a = width({
     width: ['100%', , , , , '50%', '25%'],
   })
   expect(a).toEqual({ width: '100%' })
-})
-
-test('variant can be composed', () => {
-  const system = compose(
-    variant({ key: 'typography' }),
-    fontSize,
-    color
-  )
-  const result = system({
-    theme: {
-      typography: {
-        primary: {
-          fontSize: '32px',
-          color: '#fff',
-        },
-      },
-    },
-    variant: 'primary',
-    color: '#111',
-  })
-  expect(result).toEqual({
-    fontSize: '32px',
-    color: '#111',
-  })
 })

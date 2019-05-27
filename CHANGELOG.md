@@ -9,6 +9,7 @@
 - Removes: `merge`, `cloneFunction`, `mapProps`
 - No longer returns `null` (returns and empty object instead)
 - No longer converts padding to negative values (not needed)
+- Removes `themeGet` from main package, use `@styled-system/theme-get` instead
 - Faster
 - New APIs:
 

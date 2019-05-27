@@ -2,8 +2,8 @@ import {
   get,
   style,
   compose
-} from './core'
-import { variant } from './variant'
+} from '@styled-system/core'
+import { variant } from '@styled-system/variant'
 
 const defaults = {
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],

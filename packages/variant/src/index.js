@@ -1,4 +1,4 @@
-import { get, createParser } from './core'
+import { get, createParser } from '@styled-system/core'
 
 export const variant = ({
   key,
@@ -14,3 +14,5 @@ export const variant = ({
   const parser = createParser(config)
   return parser
 }
+
+export default variant

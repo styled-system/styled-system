@@ -31,7 +31,7 @@
     "react-helmet": "^6.0.0-beta",
     "remark-slug": "^5.1.1",
     "remark-unwrap-images": "^0.2.0",
-    "styled-system": "^4.2.2",
+    "styled-system": "5.0.0-0",
     "typography-theme-lincoln": "^0.16.19"
   },
   "devDependencies": {
