@@ -1,178 +1,74 @@
-import {
-  get,
-  style,
-  compose
-} from '@styled-system/core'
+import { get, system, compose } from '@styled-system/core'
 import { variant } from '@styled-system/variant'
+import { style } from './shim'
 
 const defaults = {
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
 }
 
-const isNumber = n => typeof n === 'number' && !isNaN(n)
-// space
 
-const getMargin = (n, scale) => {
-  if (!isNumber(n)) {
-    return get(scale, n, n)
-  }
+const configs = {}
 
-  const isNegative = n < 0
-  const absolute = Math.abs(n)
-  const value = get(scale, absolute)
-  if (!isNumber(value)) {
-    return isNegative ? '-' + value : value
+// move to @styled-system/color package
+configs.color = {
+  color: {
+    property: 'color',
+    scale: 'colors',
+  },
+  backgroundColor: {
+    property: 'backgroundColor',
+    scale: 'colors',
   }
-  return value * (isNegative ? -1 : 1)
 }
+configs.color.bg = configs.color.backgroundColor
 
-export const margin = style({
-  prop: 'margin',
-  alias: 'm',
-  key: 'space',
-  transformValue: getMargin,
-  scale: defaults.space,
-})
-
-export const marginTop = style({
-  prop: 'marginTop',
-  alias: 'mt',
-  key: 'space',
-  transformValue: getMargin,
-  scale: defaults.space,
-})
-
-export const marginBottom = style({
-  prop: 'marginBottom',
-  alias: 'mb',
-  key: 'space',
-  transformValue: getMargin,
-  scale: defaults.space,
-})
-
-export const marginLeft = style({
-  prop: 'marginLeft',
-  alias: 'ml',
-  key: 'space',
-  transformValue: getMargin,
-  scale: defaults.space,
-})
-
-export const marginRight = style({
-  prop: 'marginRight',
-  alias: 'mr',
-  key: 'space',
-  transformValue: getMargin,
-  scale: defaults.space,
-})
-
-export const marginX = style({
-  prop: 'marginX',
-  properties: [ 'marginLeft', 'marginRight' ],
-  alias: 'mx',
-  key: 'space',
-  transformValue: getMargin,
-  scale: defaults.space,
-})
-
-export const marginY = style({
-  prop: 'marginY',
-  properties: [ 'marginTop', 'marginBottom' ],
-  alias: 'my',
-  key: 'space',
-  transformValue: getMargin,
-  scale: defaults.space,
-})
-
-export const padding = style({
-  prop: 'padding',
-  alias: 'p',
-  key: 'space',
-  scale: defaults.space,
-})
-
-export const paddingTop = style({
-  prop: 'paddingTop',
-  alias: 'pt',
-  key: 'space',
-  scale: defaults.space,
-})
-
-export const paddingBottom = style({
-  prop: 'paddingBottom',
-  alias: 'pb',
-  key: 'space',
-  scale: defaults.space,
-})
-
-export const paddingLeft = style({
-  prop: 'paddingLeft',
-  alias: 'pl',
-  key: 'space',
-  scale: defaults.space,
-})
-
-export const paddingRight = style({
-  prop: 'paddingRight',
-  alias: 'pr',
-  key: 'space',
-  scale: defaults.space,
-})
-
-export const paddingX = style({
-  prop: 'paddingX',
-  properties: [ 'paddingLeft', 'paddingRight' ],
-  alias: 'px',
-  key: 'space',
-  scale: defaults.space,
-})
-
-export const paddingY = style({
-  prop: 'paddingY',
-  properties: [ 'paddingTop', 'paddingBottom' ],
-  alias: 'py',
-  key: 'space',
-  scale: defaults.space,
-})
-
-export const space = compose(
-  margin,
-  marginTop,
-  marginBottom,
-  marginLeft,
-  marginRight,
-  marginX,
-  marginY,
-  padding,
-  paddingTop,
-  paddingBottom,
-  paddingLeft,
-  paddingRight,
-  paddingX,
-  paddingY
-)
-
-// color
-export const textColor = style({
-  prop: 'color',
-  key: 'colors',
-})
-
-export const backgroundColor = style({
-  prop: 'backgroundColor',
-  alias: 'bg',
-  key: 'colors',
-})
-
-export const color = compose(
-  textColor,
-  backgroundColor
-)
+export const color = system(configs.color)
 
 // width
-const getWidth = (n, scale) => (!isNumber(n) || n > 1 ? n : n * 100 + '%')
+// move to @styled-system/layout
+const isNumber = n => typeof n === 'number' && !isNaN(n)
+const getWidth = (n, scale) => get(scale, n, (!isNumber(n) || n > 1 ? n : n * 100 + '%'))
 
+configs.layout = {
+  width: {
+    property: 'width',
+    scale: 'sizes',
+    transform: getWidth
+  },
+  height: {
+    property: 'height',
+    scale: 'sizes',
+  },
+  minWidth: {
+    property: 'minWidth',
+    scale: 'sizes',
+  },
+  minHeight: {
+    property: 'minHeight',
+    scale: 'sizes',
+  },
+  maxWidth: {
+    property: 'maxWidth',
+    scale: 'sizes',
+  },
+  maxHeight: {
+    property: 'maxHeight',
+    scale: 'sizes',
+  },
+  display: true,
+  size: {
+    properties: [
+      'width',
+      'height',
+    ],
+    scale: 'sizes'
+  },
+}
+
+export const layout = system(configs.layout)
+
+// legacy api
 export const width = style({
   prop: 'width',
   key: 'widths',
@@ -180,6 +76,30 @@ export const width = style({
 })
 
 // typography
+// move to @styled-system/typography (replace published package)
+configs.typography = {
+  fontSize: {
+    property: 'fontSize',
+    scale: 'fontSizes',
+    defaultScale: defaults.fontSizes,
+  },
+  fontWeight: {
+    property: 'fontWeight',
+    scale: 'fontWeights',
+  },
+  lineHeight: {
+    property: 'lineHeight',
+    scale: 'lineHeights',
+  },
+  letterSpacing: {
+    property: 'letterSpacing',
+    scale: 'letterSpacings',
+  },
+  fontStyle: true,
+  textAlign: true,
+}
+
+export const typography = system(configs.typography)
 
 export const fontSize = style({
   prop: 'fontSize',
@@ -253,7 +173,26 @@ export const size = style({
 
 export const verticalAlign = style({ prop: 'verticalAlign' })
 
+
 // flexbox
+// @styled-system/flexbox
+export const flexbox = system({
+  alignItems: true,
+  alignContent: true,
+  justifyItems: true,
+  justifyContent: true,
+  flexWrap: true,
+  flexDirection: true,
+  // item
+  flex: true,
+  flexGrow: true,
+  flexShrink: true,
+  flexBasis: true,
+  justifySelf: true,
+  alignSelf: true,
+  order: true,
+})
+
 export const alignItems = style({ prop: 'alignItems' })
 export const alignContent = style({ prop: 'alignContent' })
 export const justifyItems = style({ prop: 'justifyItems' })
@@ -267,6 +206,9 @@ export const alignSelf = style({ prop: 'alignSelf' })
 export const order = style({ prop: 'order' })
 
 // grid
+// @styled-system/grid
+export const grid = system({
+})
 export const gridGap = style({
   prop: 'gridGap',
   key: 'space',

@@ -25,7 +25,7 @@ export const get = (obj, key = '', def, p, undef) => {
   return obj === undef ? def : obj
 }
 
-export const createParser = (config = {}) => {
+export const createParser = (config) => {
   const cache = {}
   const parse = (props) => {
     let styles = {}
@@ -137,31 +137,6 @@ export const system = (args = {}) => {
 
   const parser = createParser(config)
   return parser
-}
-
-// v4 API shim
-export const style = ({
-  prop,
-  cssProperty,
-  alias,
-  key,
-  transformValue,
-  scale,
-  // new api
-  properties,
-}) => {
-  const config = {}
-  config[prop] = createStyleFunction({
-    properties,
-    property: cssProperty || prop,
-    scale: key,
-    defaultScale: scale,
-    transform: transformValue,
-  })
-  if (alias) config[alias] = config[prop]
-  const parse = createParser(config)
-
-  return parse
 }
 
 export const compose = (...parsers) => {

@@ -1,25 +1,30 @@
-import { style, compose } from '../src'
+import { system, compose } from '../src'
 
-const color = style({
-  prop: 'color',
-  key: 'colors',
+const color = system({
+  color: true,
+  bg: {
+    property: 'backgroundColor',
+  }
 })
 
-const backgroundColor = style({
-  prop: 'backgroundColor',
-  alias: 'bg',
-  key: 'colors',
+const fontSize = system({
+  fontSize: true,
 })
 
-test('compose combines style functions', () => {
-  const colors = compose(
+test('compose combines style parsers', () => {
+  const parser = compose(
     color,
-    backgroundColor
+    fontSize
   )
-  const styles = colors({
+  const styles = parser({
     color: 'tomato',
     bg: 'black',
+    fontSize: 32,
   })
-  expect(typeof colors).toBe('function')
-  expect(styles).toEqual({ color: 'tomato', backgroundColor: 'black' })
+  expect(typeof parser).toBe('function')
+  expect(styles).toEqual({
+    fontSize: 32,
+    color: 'tomato',
+    backgroundColor: 'black'
+  })
 })

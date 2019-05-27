@@ -69,3 +69,84 @@ test('merges multiple responsive styles', () => {
     },
   })
 })
+
+test('merges multiple responsive object styles', () => {
+  const parser = system({
+    margin: true,
+    padding: true,
+    width: true,
+  })
+  const styles = parser({
+    margin: { _: 0, 0: 4, 1: 8 },
+    padding: { _: 16, 0: 32, 1: 64 },
+    width: { _: '100%', 0: '50%' },
+  })
+  expect(styles).toEqual({
+    margin: 0,
+    padding: 16,
+    width: '100%',
+    '@media screen and (min-width: 40em)': {
+      margin: 4,
+      padding: 32,
+      width: '50%',
+    },
+    '@media screen and (min-width: 52em)': {
+      margin: 8,
+      padding: 64,
+    },
+  })
+})
+
+test('gets values from theme', () => {
+  const parser = system({
+    mx: {
+      properties: [ 'marginLeft', 'marginRight' ],
+      scale: 'space',
+    },
+    color: {
+      property: 'color',
+      scale: 'colors',
+    },
+  })
+  const style = parser({
+    theme: {
+      colors: {
+        primary: 'tomato',
+      },
+      space: [ 0, 6, 12, 24, 48, 96 ],
+    },
+    mx: [ 0, 1, 2, 3 ],
+    color: [ 'primary', 'black' ],
+  })
+  expect(style).toEqual({
+    color: 'tomato',
+    marginLeft: 0,
+    marginRight: 0,
+    '@media screen and (min-width: 40em)': {
+      color: 'black',
+      marginLeft: 6,
+      marginRight: 6,
+    },
+    '@media screen and (min-width: 52em)': {
+      marginLeft: 12,
+      marginRight: 12,
+    },
+    '@media screen and (min-width: 64em)': {
+      marginLeft: 24,
+      marginRight: 24,
+    },
+  })
+})
+
+test('ignores null values', () => {
+  const parser = system({
+    color: true,
+  })
+  const style = parser({ color: null })
+  expect(style).toEqual({})
+})
+
+test('returns a noop function with no arguments', () => {
+  const parser = system()
+  expect(typeof parser).toBe('function')
+})
