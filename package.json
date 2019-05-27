@@ -9,6 +9,7 @@
   "scripts": {
     "prettier": "prettier \"packages/**/{src,test,examples}/**/*.js\" --write",
     "clean": "rm -rf packages/styled-system/dist",
+    "prepare": "lerna run prepare",
     "build": "lerna bootstrap",
     "publish": "lerna publish",
     "logo": "npx repng docs/src/logo/index.js -d docs/static -f logo.png -w 512 -h 512",
