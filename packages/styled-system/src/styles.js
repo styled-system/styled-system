@@ -71,7 +71,7 @@ export const layout = system(configs.layout)
 // legacy api
 export const width = style({
   prop: 'width',
-  key: 'widths',
+  key: 'sizes',
   transformValue: getWidth,
 })
 
@@ -152,7 +152,7 @@ export const minWidth = style({
 
 export const height = style({
   prop: 'height',
-  key: 'heights',
+  key: 'sizes',
 })
 
 export const maxHeight = style({

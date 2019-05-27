@@ -70,6 +70,31 @@ test('returns a string width', () => {
   expect(a).toEqual({ width: 'auto' })
 })
 
+test('returns a width based on theme.sizes', () => {
+  const a = width({
+    theme: {
+      sizes: [ 24, 48 ]
+    },
+    width: 1,
+  })
+  expect(a).toEqual({ width: 48 })
+})
+
+test('returns fractional responsive widths', () => {
+  const a = width({
+    width: [ 1, 1/2, 1/4 ]
+  })
+  expect(a).toEqual({
+    width: '100%',
+    '@media screen and (min-width: 40em)': {
+      width: '50%',
+    },
+    '@media screen and (min-width: 52em)': {
+      width: '25%',
+    },
+  })
+})
+
 test('size returns width and height', () => {
   const styles = size({
     size: 4,
