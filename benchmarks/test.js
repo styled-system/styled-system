@@ -2,6 +2,7 @@ const Benchmark = require('benchmark')
 
 const system = require('system-v4')
 const smooth = require('@2s/smooth-system')
+const xstyle = require('@xstyled/system')
 const next = require('styled-system')
 const { css } = require('@styled-system/css')
 
@@ -30,10 +31,11 @@ const tests = [
   {
     name: 'space',
     libs: {
-      system: system.space,
-      smooth: smooth.space,
+      // system: system.space,
+      // smooth: smooth.space,
+      xstyle: xstyle.space,
       next: next.space,
-      css: ({ theme, ...rest }) => css(rest)(theme),
+      // css: ({ theme, ...rest }) => css(rest)(theme),
     },
     run: fn => () => fn({
       theme,
@@ -47,10 +49,11 @@ const tests = [
   {
     name: 'fontSize',
     libs: {
-      system: system.fontSize,
-      smooth: smooth.fontSize,
+      // system: system.fontSize,
+      // smooth: smooth.fontSize,
+      xstyle: xstyle.fontSize,
       next: next.fontSize,
-      css: ({ theme, ...rest }) => css(rest)(theme),
+      // css: ({ theme, ...rest }) => css(rest)(theme),
     },
     run: fn => () => fn({
       theme,
@@ -60,10 +63,11 @@ const tests = [
   {
     name: 'fontSize responsive',
     libs: {
-      system: system.fontSize,
-      smooth: smooth.fontSize,
+      // system: system.fontSize,
+      // smooth: smooth.fontSize,
+      xstyle: xstyle.fontSize,
       next: next.fontSize,
-      css: ({ theme, ...rest }) => css(rest)(theme),
+      // css: ({ theme, ...rest }) => css(rest)(theme),
     },
     run: fn => () => fn({
       theme,
@@ -73,22 +77,27 @@ const tests = [
   {
     name: 'compose',
     libs: {
-      system: system.compose(
-        system.space,
-        system.color,
-        system.fontSize,
-      ),
-      smooth: smooth.compose(
-        smooth.space,
-        smooth.color,
-        smooth.fontSize,
+      // system: system.compose(
+      //   system.space,
+      //   system.color,
+      //   system.fontSize,
+      // ),
+      // smooth: smooth.compose(
+      //   smooth.space,
+      //   smooth.color,
+      //   smooth.fontSize,
+      // ),
+      xstyle: xstyle.compose(
+        xstyle.space,
+        xstyle.color,
+        xstyle.fontSize,
       ),
       next: next.compose(
         next.space,
         next.color,
         next.fontSize,
       ),
-      css: ({ theme, ...rest }) => css(rest)(theme),
+      // css: ({ theme, ...rest }) => css(rest)(theme),
     },
     run: fn => () => fn({
       theme,
