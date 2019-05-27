@@ -17,6 +17,7 @@
   "dependencies": {
     "@babel/runtime": "^7.4.2",
     "@styled-system/core": "5.0.0-0",
+    "@styled-system/space": "5.0.0-0",
     "@styled-system/variant": "5.0.0-0",
     "object-assign": "^4.1.1"
   },

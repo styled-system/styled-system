@@ -22,6 +22,9 @@ export {
   paddingX,
   paddingY,
   space,
+} from '@styled-system/space'
+
+export {
   textColor,
   backgroundColor,
   color,
