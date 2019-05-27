@@ -1,5 +1,11 @@
 import PropTypes from 'prop-types'
 
+const compare = (a, b) => {
+  if (a < b) return -1
+  if (a > b) return 1
+  return 0
+}
+
 export const defaultBreakpoints = [40, 52, 64].map(n => n + 'em')
 
 export const propType = PropTypes.oneOfType([
@@ -104,7 +110,7 @@ export const style = ({
           styles.push({ [media]: rule })
         }
       }
-      styles.sort()
+      styles.sort(compare)
     }
 
     return mergeAll(...styles)
