@@ -1,6 +1,6 @@
 {
   "name": "@styled-system/emotion-demo",
-  "version": "0.1.0",
+  "version": "5.0.0-1",
   "private": true,
   "dependencies": {
     "@emotion/core": "^10.0.9",

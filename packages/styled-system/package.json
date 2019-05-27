@@ -1,6 +1,6 @@
 {
   "name": "styled-system",
-  "version": "5.0.0-0",
+  "version": "5.0.0-1",
   "description": "Responsive, theme-based style props for building design systems with React",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -16,12 +16,13 @@
     "microbundle": "^0.11.0"
   },
   "dependencies": {
-    "@styled-system/core": "^5.0.0-0",
-    "@styled-system/space": "^5.0.0-0",
-    "@styled-system/variant": "^5.0.0-0",
+    "@styled-system/core": "^5.0.0-1",
+    "@styled-system/space": "^5.0.0-1",
+    "@styled-system/variant": "^5.0.0-1",
     "object-assign": "^4.1.1"
   },
   "scripts": {
     "prepare": "microbundle"
-  }
+  },
+  "gitHead": "7e23464bf0f2fa8e3ecdf01ae39e9d3149e20917"
 }

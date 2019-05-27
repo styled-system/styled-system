@@ -1,6 +1,6 @@
 {
   "name": "@styled-system/css",
-  "version": "5.0.0-0",
+  "version": "5.0.0-1",
   "description": "Styled System for the `css` prop",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -22,5 +22,6 @@
   "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.4.4"
-  }
+  },
+  "gitHead": "7e23464bf0f2fa8e3ecdf01ae39e9d3149e20917"
 }
