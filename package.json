@@ -36,6 +36,14 @@
   "jest": {
     "testMatch": [
       "**/packages/**/test/*.js"
+    ],
+    "collectCoverageFrom": [
+      "**/packages/**/src/*.js"
+    ],
+    "coverageReporters": [
+      "lcov",
+      "text",
+      "html"
     ]
   },
   "bundlesize": [
