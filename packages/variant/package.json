@@ -1,6 +1,6 @@
 {
   "name": "@styled-system/variant",
-  "version": "5.0.0-1",
+  "version": "5.0.0-2",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "author": "Brent Jackson <jxnblk@gmail.com>",
@@ -11,7 +11,7 @@
     "build:esm": "NODE_ENV=esm babel src/index.js -o dist/index.esm.js"
   },
   "dependencies": {
-    "@styled-system/core": "^5.0.0-1"
+    "@styled-system/core": "^5.0.0-2"
   },
   "gitHead": "7e23464bf0f2fa8e3ecdf01ae39e9d3149e20917"
 }
