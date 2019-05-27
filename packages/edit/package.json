@@ -5,7 +5,7 @@
   "main": "dist.js",
   "scripts": {
     "prepare": "babel index.js -o dist.js",
-    "start": "gx docs"
+    "docs": "gx docs"
   },
   "keywords": [],
   "author": "Brent Jackson <jxnblk@gmail.com>",
