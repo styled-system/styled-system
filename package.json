@@ -19,6 +19,7 @@
     "benchmark": "yarn workspace benchmarks test",
     "cover": "yarn test --coverage",
     "codecov": "yarn cover && npx codecov",
+    "docs": "yarn workspace @styled-system/docs start",
     "test": "jest"
   },
   "devDependencies": {

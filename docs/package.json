@@ -1,6 +1,7 @@
 {
   "private": true,
-  "name": "styled-system-docs",
+  "name": "@styled-system/docs",
+  "version": "5.0.0-2",
   "scripts": {
     "start": "gatsby develop",
     "build": "gatsby build",
@@ -14,7 +15,6 @@
     "@styled-system/babel-plugin": "0.0.20",
     "@styled-system/css": "^2.0.2",
     "@styled-system/should-forward-prop": "^1.0.0",
-    "@styled-system/typography": "^1.0.0-9",
     "emotion-mdx": "^1.0.0-6",
     "emotion-theming": "^10.0.10",
     "gatsby": "^2.4.6",
@@ -31,7 +31,7 @@
     "react-helmet": "^6.0.0-beta",
     "remark-slug": "^5.1.1",
     "remark-unwrap-images": "^0.2.0",
-    "styled-system": "5.0.0-0",
+    "styled-system": "^5.0.0-2",
     "typography-theme-lincoln": "^0.16.19"
   },
   "devDependencies": {
