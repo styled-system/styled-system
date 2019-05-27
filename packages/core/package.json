@@ -1,0 +1,7 @@
+{
+  "name": "@styled-system/core",
+  "version": "5.0.0-0",
+  "main": "dist/index.js",
+  "author": "Brent Jackson <jxnblk@gmail.com>",
+  "license": "MIT"
+}
