@@ -2,12 +2,10 @@ export {
   get,
   createParser,
   createStyleFunction,
+  compose,
 } from '@styled-system/core'
 export { variant } from '@styled-system/variant'
-export {
-  style,
-  compose,
-} from './shim'
+export { style } from './shim'
 
 export {
   margin,

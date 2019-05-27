@@ -15,3 +15,5 @@ config.bgPosition = config.backgroundPosition
 config.bgRepeat = config.backgroundRepeat
 
 export const background = system(config)
+
+export default background
