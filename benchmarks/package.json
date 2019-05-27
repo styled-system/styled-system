@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "@2s/smooth-system": "^4.2.2-0",
+    "@xstyled/system": "^1.0.0",
     "benchmark": "^2.1.4",
     "smooth-system": "github:neoziro/styled-system#smooth-system-2",
     "styled-system": "^4.2.2"
