@@ -1,8 +1,4 @@
-import {
-  style,
-  get,
-  compose,
-} from '../src'
+import { style } from '../src'
 
 const width = style({
   prop: 'width',
@@ -103,19 +99,6 @@ test('parses object values', () => {
     width: '100%',
     '@media screen and (min-width: 64em)': { width: '50%' },
   })
-})
-
-test('compose combines style functions', () => {
-  const colors = compose(
-    color,
-    backgroundColor
-  )
-  const styles = colors({
-    color: 'tomato',
-    bg: 'black',
-  })
-  expect(typeof colors).toBe('function')
-  expect(styles).toEqual({ color: 'tomato', backgroundColor: 'black' })
 })
 
 test('array values longer than breakpoints does not reset returned style object', () => {

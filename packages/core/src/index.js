@@ -107,6 +107,26 @@ export const createStyleFunction = ({
   return sx
 }
 
+// new v5 API
+export const system = (args = {}) => {
+  const config = {}
+  Object.keys(args).forEach(key => {
+    const conf = args[key]
+    if (conf === true) {
+      // shortcut definition
+      config[key] = createStyleFunction({
+        property: key,
+        scale: key,
+      })
+      return
+    }
+    config[key] = createStyleFunction(conf)
+  })
+
+  const parser = createParser(config)
+  return parser
+}
+
 // v4 API shim
 export const style = ({
   prop,
