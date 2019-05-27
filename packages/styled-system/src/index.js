@@ -2,11 +2,10 @@ export {
   get,
   createParser,
   createStyleFunction,
-} from './core'
-export {
   style,
   compose,
-} from './shim'
+} from './core'
+// split up into separate packages
 export { variant } from './variant'
 export { themeGet } from './themeGet'
 export {

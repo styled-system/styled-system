@@ -1,8 +1,8 @@
-import { get } from './core'
 import {
+  get,
   style,
-  compose,
-} from './shim'
+  compose
+} from './core'
 import { variant } from './variant'
 
 const defaults = {
