@@ -1,12 +1,12 @@
 const Benchmark = require('benchmark')
 
 const system = require('system-v4')
-const smooth = require('@2s/smooth-system')
-const xstyle = require('@xstyled/system')
+const xstyled = require('@xstyled/system')
 const next = require('styled-system')
 const { space } = require('@styled-system/space')
 const { css } = require('@styled-system/css')
 
+// const smooth = require('@2s/smooth-system')
 // build is broken on github
 // const smooth = require('smooth-system')
 
@@ -32,11 +32,10 @@ const tests = [
   {
     name: 'space',
     libs: {
-      // system: system.space,
-      // smooth: smooth.space,
-      xstyle: xstyle.space,
+      system: system.space,
+      xstyled: xstyled.space,
       next: next.space,
-      space: space,
+      // space: space,
       // css: ({ theme, ...rest }) => css(rest)(theme),
     },
     run: fn => () => fn({
@@ -51,9 +50,8 @@ const tests = [
   {
     name: 'fontSize',
     libs: {
-      // system: system.fontSize,
-      // smooth: smooth.fontSize,
-      xstyle: xstyle.fontSize,
+      system: system.fontSize,
+      xstyled: xstyled.fontSize,
       next: next.fontSize,
       // css: ({ theme, ...rest }) => css(rest)(theme),
     },
@@ -65,9 +63,8 @@ const tests = [
   {
     name: 'fontSize responsive',
     libs: {
-      // system: system.fontSize,
-      // smooth: smooth.fontSize,
-      xstyle: xstyle.fontSize,
+      system: system.fontSize,
+      xstyled: xstyled.fontSize,
       next: next.fontSize,
       // css: ({ theme, ...rest }) => css(rest)(theme),
     },
@@ -79,20 +76,15 @@ const tests = [
   {
     name: 'compose',
     libs: {
-      // system: system.compose(
-      //   system.space,
-      //   system.color,
-      //   system.fontSize,
-      // ),
-      // smooth: smooth.compose(
-      //   smooth.space,
-      //   smooth.color,
-      //   smooth.fontSize,
-      // ),
-      xstyle: xstyle.compose(
-        xstyle.space,
-        xstyle.color,
-        xstyle.fontSize,
+      system: system.compose(
+        system.space,
+        system.color,
+        system.fontSize,
+      ),
+      xstyled: xstyled.compose(
+        xstyled.space,
+        xstyled.color,
+        xstyled.fontSize,
       ),
       next: next.compose(
         next.space,

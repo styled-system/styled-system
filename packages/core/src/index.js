@@ -75,7 +75,6 @@ const parseResponsiveStyle = (mediaQueries, sx, scale, raw) => {
         [media]: assign({}, styles[media], style)
       })
     }
-    // console.log(style, styles)
   })
   return styles
 }
