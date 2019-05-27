@@ -1,6 +1,6 @@
 {
   "name": "@styled-system/css",
-  "version": "2.0.4",
+  "version": "4.2.3",
   "description": "Styled System for the `css` prop",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
