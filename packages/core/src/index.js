@@ -1,5 +1,16 @@
 import assign from 'object-assign'
 
+export const merge = (a, b) => {
+  let result = assign({}, a, b)
+  for (const key in a) {
+    if (!a[key] || typeof b[key] !== 'object') continue
+    assign(result, {
+      [key]: assign(a[key], b[key])
+    })
+  }
+  return result
+}
+
 const defaults = {
   breakpoints: [40, 52, 64].map(n => n + 'em'),
 }
@@ -28,13 +39,13 @@ export const createParser = (config = {}) => {
         cache.breakpoints = cache.breakpoints || get(props.theme, 'breakpoints', defaults.breakpoints)
         if (Array.isArray(raw)) {
           cache.media = cache.media || [ null, ...cache.breakpoints.map(createMediaQuery) ]
-          assign(styles,
+          styles = merge(styles,
             parseResponsiveStyle(cache.media, sx, scale, raw)
           )
           continue
         }
         if (raw !== null) {
-          assign(styles,
+          styles = merge(styles,
             parseResponsiveObject(cache.breakpoints, sx, scale, raw)
           )
         }
@@ -64,6 +75,7 @@ const parseResponsiveStyle = (mediaQueries, sx, scale, raw) => {
         [media]: assign({}, styles[media], style)
       })
     }
+    // console.log(style, styles)
   })
   return styles
 }

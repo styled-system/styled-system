@@ -4,6 +4,7 @@ const system = require('system-v4')
 const smooth = require('@2s/smooth-system')
 const xstyle = require('@xstyled/system')
 const next = require('styled-system')
+const { space } = require('@styled-system/space')
 const { css } = require('@styled-system/css')
 
 // build is broken on github
@@ -35,6 +36,7 @@ const tests = [
       // smooth: smooth.space,
       xstyle: xstyle.space,
       next: next.space,
+      space: space,
       // css: ({ theme, ...rest }) => css(rest)(theme),
     },
     run: fn => () => fn({

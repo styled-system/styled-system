@@ -42,3 +42,30 @@ test('returns a style parser', () => {
     },
   })
 })
+
+test('merges multiple responsive styles', () => {
+  const parser = system({
+    margin: true,
+    padding: true,
+    width: true,
+  })
+  const styles = parser({
+    margin: [ 0, 4, 8 ],
+    padding: [ 16, 32, 64 ],
+    width: [ '100%', '50%' ],
+  })
+  expect(styles).toEqual({
+    margin: 0,
+    padding: 16,
+    width: '100%',
+    '@media screen and (min-width: 40em)': {
+      margin: 4,
+      padding: 32,
+      width: '50%',
+    },
+    '@media screen and (min-width: 52em)': {
+      margin: 8,
+      padding: 64,
+    },
+  })
+})
