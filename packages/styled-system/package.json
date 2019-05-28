@@ -15,8 +15,14 @@
     "@babel/cli": "^7.4.4"
   },
   "dependencies": {
+    "@styled-system/background": "^5.0.0-3",
+    "@styled-system/border": "^5.0.0-3",
+    "@styled-system/color": "^5.0.0-3",
     "@styled-system/core": "^5.0.0-3",
+    "@styled-system/flexbox": "^5.0.0-3",
+    "@styled-system/layout": "^5.0.0-3",
     "@styled-system/space": "^5.0.0-3",
+    "@styled-system/typography": "^5.0.0-3",
     "@styled-system/variant": "^5.0.0-3",
     "object-assign": "^4.1.1"
   },
