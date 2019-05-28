@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@styled-system/docs",
-  "version": "5.0.0-6",
+  "version": "5.0.0-7",
   "scripts": {
     "start": "gatsby develop",
     "build": "gatsby build",
@@ -13,7 +13,7 @@
     "@mdx-js/mdx": "^1.0.19",
     "@mdx-js/react": "^1.0.16",
     "@styled-system/babel-plugin": "0.0.20",
-    "@styled-system/css": "^5.0.0-6",
+    "@styled-system/css": "^5.0.0-7",
     "@styled-system/should-forward-prop": "^1.0.0",
     "emotion-mdx": "^1.0.0-6",
     "emotion-theming": "^10.0.10",
@@ -31,7 +31,7 @@
     "react-helmet": "^6.0.0-beta",
     "remark-slug": "^5.1.1",
     "remark-unwrap-images": "^0.2.0",
-    "styled-system": "^5.0.0-6",
+    "styled-system": "^5.0.0-7",
     "typography-theme-lincoln": "^0.16.19"
   },
   "devDependencies": {

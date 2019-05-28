@@ -1,6 +1,6 @@
 {
   "name": "@styled-system/theme-get",
-  "version": "5.0.0-6",
+  "version": "5.0.0-7",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "author": "Brent Jackson <jxnblk@gmail.com>",
@@ -11,9 +11,9 @@
     "build:esm": "NODE_ENV=esm babel src/index.js -o dist/index.esm.js"
   },
   "dependencies": {
-    "@styled-system/core": "^5.0.0-6"
+    "@styled-system/core": "^5.0.0-7"
   },
-  "gitHead": "7e23464bf0f2fa8e3ecdf01ae39e9d3149e20917",
+  "gitHead": "c435cc68097a8c0daffe07ee15fe357b8c431b66",
   "publishConfig": {
     "access": "public"
   }

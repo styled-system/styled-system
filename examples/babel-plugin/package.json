@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@styled-system/babel-plugin-example",
-  "version": "5.0.0-6",
+  "version": "5.0.0-7",
   "main": "index.js",
   "scripts": {
     "start": "gatsby develop"
