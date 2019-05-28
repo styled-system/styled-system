@@ -107,7 +107,6 @@ export {
   default as backgroundRepeat,
 } from '@styled-system/background'
 export {
-  default as position,
   default as zIndex,
   default as top,
   default as right,
