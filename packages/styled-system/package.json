@@ -3,7 +3,6 @@
   "version": "5.0.0-2",
   "description": "Responsive, theme-based style props for building design systems with React",
   "main": "dist/index.js",
-  "module": "dist/index.esm.js",
   "keywords": [
     "react",
     "css-in-js",
@@ -13,7 +12,7 @@
   "author": "Brent Jackson",
   "license": "MIT",
   "devDependencies": {
-    "microbundle": "^0.11.0"
+    "@babel/cli": "^7.4.4"
   },
   "dependencies": {
     "@styled-system/core": "^5.0.0-2",
@@ -22,7 +21,7 @@
     "object-assign": "^4.1.1"
   },
   "scripts": {
-    "prepare": "microbundle"
+    "prepare": "NODE_ENV=cjs babel src -d dist"
   },
   "gitHead": "7e23464bf0f2fa8e3ecdf01ae39e9d3149e20917"
 }

@@ -1,3 +1,10 @@
+import {
+  createStyleFunction,
+  createParser,
+  system,
+} from '@styled-system/core'
+import { variant } from '@styled-system/variant'
+
 export {
   get,
   createParser,
@@ -5,8 +12,6 @@ export {
   compose,
 } from '@styled-system/core'
 export { variant } from '@styled-system/variant'
-export { style } from './shim'
-
 export {
   margin,
   marginTop,
@@ -25,13 +30,12 @@ export {
 } from '@styled-system/space'
 
 // new packages
-export { color } from './color'
-export { layout } from './layout'
-export { typography } from './typography'
-export { flexbox } from './flexbox'
-export { border } from './border'
-export { background } from './background'
-
+export { color } from '@styled-system/color'
+export { layout } from '@styled-system/layout'
+export { typography } from '@styled-system/typography'
+export { flexbox } from '@styled-system/flexbox'
+export { border } from '@styled-system/border'
+export { background } from '@styled-system/background'
 
 // v4 api shims
 export {
@@ -44,7 +48,7 @@ export {
   default as size,
   default as verticalAlign,
   default as display,
-} from './layout'
+} from '@styled-system/layout'
 export {
   default as fontSize,
   default as fontFamily,
@@ -53,7 +57,7 @@ export {
   default as textAlign,
   default as fontStyle,
   default as letterSpacing,
-} from './typography'
+} from '@styled-system/typography'
 export {
   default as alignItems,
   default as alignContent,
@@ -68,7 +72,7 @@ export {
   default as justifySelf,
   default as alignSelf,
   default as order,
-} from './flexbox'
+} from '@styled-system/flexbox'
 export {
   default as gridGap,
   default as gridColumnGap,
@@ -82,7 +86,7 @@ export {
   default as gridTemplateRows,
   default as gridTemplateAreas,
   default as gridArea,
-} from './grid'
+} from '@styled-system/grid'
 export {
   default as borderWidth,
   default as borderStyle,
@@ -93,13 +97,13 @@ export {
   default as borderLeft,
   default as borderRadius,
   default as borders,
-} from './border'
+} from '@styled-system/border'
 export {
   default as backgroundImage,
   default as backgroundSize,
   default as backgroundPosition,
   default as backgroundRepeat,
-} from './background'
+} from '@styled-system/background'
 export {
   default as position,
   default as zIndex,
@@ -107,12 +111,45 @@ export {
   default as right,
   default as bottom,
   default as left,
-} from './position'
-export {
-  boxShadow,
-  opacity,
-  overflow,
-  buttonStyle,
-  textStyle,
-  colorStyle,
-} from './styles'
+} from '@styled-system/position'
+
+// v4 style API shim
+export const style = ({
+  prop,
+  cssProperty,
+  alias,
+  key,
+  transformValue,
+  scale,
+  // new api
+  properties,
+}) => {
+  const config = {}
+  config[prop] = createStyleFunction({
+    properties,
+    property: cssProperty || prop,
+    scale: key,
+    defaultScale: scale,
+    transform: transformValue,
+  })
+  if (alias) config[alias] = config[prop]
+  const parse = createParser(config)
+
+  return parse
+}
+
+// todo move to separate package
+export const boxShadow = system({
+  boxShadow: {
+    property: 'boxShadow',
+    scale: 'shadows',
+  }
+})
+
+export const opacity = system({ opacity: true })
+export const overflow = system({ overflow: true })
+
+// variants
+export const buttonStyle = variant({ key: 'buttons' })
+export const textStyle = variant({ key: 'textStyles', prop: 'textStyle' })
+export const colorStyle = variant({ key: 'colorStyles', prop: 'colors' })
