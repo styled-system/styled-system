@@ -165,12 +165,7 @@ Theme Key         | CSS Properties
 `fontWeights`     | `font-weight`
 `lineHeights`     | `line-height`
 `letterSpacings`  | `letter-spacing`
-`maxWidths`       | `max-width`
-`minWidths`       | `min-widths`
-`widths`          | `width`
-`maxHeights`      | `max-height`
-`minHeights`      | `min-height`
-`heights`         | `height`
+`sizes`           | `width`, `height`, `min-width`, `max-width`, `min-height`, `max-height`
 `borders`         | `border`, `border-top`, `border-right`, `border-bottom`, `border-left`
 `borderWidths`    | `border-width`
 `borderStyles`    | `border-style`
