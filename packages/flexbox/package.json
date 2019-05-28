@@ -1,12 +1,12 @@
 {
   "name": "@styled-system/flexbox",
-  "version": "5.0.0-3",
+  "version": "5.0.0-5",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "author": "Brent Jackson",
   "license": "MIT",
   "dependencies": {
-    "@styled-system/core": "^5.0.0-3"
+    "@styled-system/core": "^5.0.0-5"
   },
   "scripts": {
     "prepare": "mkdir -p dist && npm run build:cjs && npm run build:esm",
