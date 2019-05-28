@@ -23,5 +23,8 @@
   "devDependencies": {
     "@babel/cli": "^7.4.4"
   },
-  "gitHead": "7e23464bf0f2fa8e3ecdf01ae39e9d3149e20917"
+  "gitHead": "7e23464bf0f2fa8e3ecdf01ae39e9d3149e20917",
+  "publishConfig": {
+    "access": "public"
+  }
 }

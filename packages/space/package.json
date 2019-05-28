@@ -13,5 +13,8 @@
   "gitHead": "7e23464bf0f2fa8e3ecdf01ae39e9d3149e20917",
   "dependencies": {
     "@styled-system/core": "5.0.0-2"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

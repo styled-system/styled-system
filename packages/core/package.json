@@ -13,5 +13,8 @@
   "gitHead": "7e23464bf0f2fa8e3ecdf01ae39e9d3149e20917",
   "dependencies": {
     "object-assign": "^4.1.1"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
