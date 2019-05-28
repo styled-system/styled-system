@@ -1,11 +1,11 @@
 {
   "name": "@styled-system/color",
-  "version": "5.0.0-5",
+  "version": "5.0.0-alpha.0",
   "main": "dist/index.js",
   "author": "Brent Jackson",
   "license": "MIT",
   "dependencies": {
-    "@styled-system/core": "^5.0.0-5"
+    "@styled-system/core": "^5.0.0-alpha.0"
   },
   "scripts": {
     "prepare": "babel src -d dist"

@@ -1,18 +1,18 @@
 {
   "private": true,
   "name": "benchmarks",
-  "version": "5.0.0-5",
+  "version": "5.0.0-alpha.0",
   "scripts": {
     "test": "node test.js"
   },
   "dependencies": {
     "@2s/smooth-system": "^4.2.2-0",
     "@styled-system/css": "^2.0.4",
-    "@styled-system/space": "^5.0.0-5",
+    "@styled-system/space": "^5.0.0-alpha.0",
     "@xstyled/system": "^1.0.0",
     "benchmark": "^2.1.4",
     "smooth-system": "github:neoziro/styled-system#smooth-system-2",
-    "styled-system": "^5.0.0-5",
+    "styled-system": "^5.0.0-alpha.0",
     "system-v4": "npm:styled-system@4.2.2"
   }
 }

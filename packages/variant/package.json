@@ -1,6 +1,6 @@
 {
   "name": "@styled-system/variant",
-  "version": "5.0.0-5",
+  "version": "5.0.0-alpha.0",
   "main": "dist/index.js",
   "author": "Brent Jackson <jxnblk@gmail.com>",
   "license": "MIT",
@@ -8,7 +8,7 @@
     "prepare": "babel src -d dist"
   },
   "dependencies": {
-    "@styled-system/core": "^5.0.0-5"
+    "@styled-system/core": "^5.0.0-alpha.0"
   },
   "gitHead": "7e23464bf0f2fa8e3ecdf01ae39e9d3149e20917",
   "publishConfig": {

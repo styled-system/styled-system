@@ -1,6 +1,6 @@
 {
   "name": "@styled-system/jsx-basic-example",
-  "version": "5.0.0-5",
+  "version": "5.0.0-alpha.0",
   "private": true,
   "dependencies": {
     "@emotion/core": "^10.0.9",

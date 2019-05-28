@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@styled-system/docs",
-  "version": "5.0.0-5",
+  "version": "5.0.0-alpha.0",
   "scripts": {
     "start": "gatsby develop",
     "build": "gatsby build",
@@ -31,7 +31,7 @@
     "react-helmet": "^6.0.0-beta",
     "remark-slug": "^5.1.1",
     "remark-unwrap-images": "^0.2.0",
-    "styled-system": "^5.0.0-5",
+    "styled-system": "^5.0.0-alpha.0",
     "typography-theme-lincoln": "^0.16.19"
   },
   "devDependencies": {

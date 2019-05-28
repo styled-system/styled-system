@@ -1,6 +1,6 @@
 {
   "name": "@styled-system/css",
-  "version": "5.0.0-5",
+  "version": "5.0.0-alpha.0",
   "description": "Styled System for the `css` prop",
   "main": "dist/index.js",
   "sideEffects": false,
