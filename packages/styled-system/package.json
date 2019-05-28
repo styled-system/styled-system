@@ -1,6 +1,6 @@
 {
   "name": "styled-system",
-  "version": "5.0.0-5",
+  "version": "5.0.0-6",
   "description": "Responsive, theme-based style props for building design systems with React",
   "main": "dist/index.js",
   "keywords": [
@@ -15,17 +15,17 @@
     "@babel/cli": "^7.4.4"
   },
   "dependencies": {
-    "@styled-system/background": "^5.0.0-5",
-    "@styled-system/border": "^5.0.0-5",
-    "@styled-system/color": "^5.0.0-5",
-    "@styled-system/core": "^5.0.0-5",
-    "@styled-system/flexbox": "^5.0.0-5",
-    "@styled-system/grid": "5.0.0-5",
-    "@styled-system/layout": "^5.0.0-5",
-    "@styled-system/position": "^5.0.0-5",
-    "@styled-system/space": "^5.0.0-5",
-    "@styled-system/typography": "^5.0.0-5",
-    "@styled-system/variant": "^5.0.0-5",
+    "@styled-system/background": "^5.0.0-6",
+    "@styled-system/border": "^5.0.0-6",
+    "@styled-system/color": "^5.0.0-6",
+    "@styled-system/core": "^5.0.0-6",
+    "@styled-system/flexbox": "^5.0.0-6",
+    "@styled-system/grid": "^5.0.0-6",
+    "@styled-system/layout": "^5.0.0-6",
+    "@styled-system/position": "^5.0.0-6",
+    "@styled-system/space": "^5.0.0-6",
+    "@styled-system/typography": "^5.0.0-6",
+    "@styled-system/variant": "^5.0.0-6",
     "object-assign": "^4.1.1"
   },
   "scripts": {

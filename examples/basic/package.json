@@ -1,6 +1,6 @@
 {
   "name": "@styled-system/basic-demo",
-  "version": "5.0.0-5",
+  "version": "5.0.0-6",
   "private": true,
   "dependencies": {
     "react": "^16.8.5",
