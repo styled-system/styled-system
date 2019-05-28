@@ -1,6 +1,6 @@
 {
   "name": "@styled-system/space",
-  "version": "5.0.0-1",
+  "version": "5.0.0-3",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "author": "Brent Jackson <jxnblk@gmail.com>",
@@ -12,7 +12,7 @@
   },
   "gitHead": "7e23464bf0f2fa8e3ecdf01ae39e9d3149e20917",
   "dependencies": {
-    "@styled-system/core": "5.0.0-2"
+    "@styled-system/core": "^5.0.0-3"
   },
   "publishConfig": {
     "access": "public"

@@ -1,6 +1,6 @@
 {
   "name": "styled-system",
-  "version": "5.0.0-2",
+  "version": "5.0.0-3",
   "description": "Responsive, theme-based style props for building design systems with React",
   "main": "dist/index.js",
   "keywords": [
@@ -15,9 +15,9 @@
     "@babel/cli": "^7.4.4"
   },
   "dependencies": {
-    "@styled-system/core": "^5.0.0-2",
-    "@styled-system/space": "^5.0.0-1",
-    "@styled-system/variant": "^5.0.0-2",
+    "@styled-system/core": "^5.0.0-3",
+    "@styled-system/space": "^5.0.0-3",
+    "@styled-system/variant": "^5.0.0-3",
     "object-assign": "^4.1.1"
   },
   "scripts": {
