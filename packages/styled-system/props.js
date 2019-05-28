@@ -32,6 +32,7 @@ module.exports = [
   'lineHeight',
   'textAlign',
   'fontStyle',
+  'fontFamily',
   'letterSpacing',
   'display',
   'maxWidth',
