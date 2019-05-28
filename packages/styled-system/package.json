@@ -15,17 +15,17 @@
     "@babel/cli": "^7.4.4"
   },
   "dependencies": {
-    "@styled-system/background": "^5.0.0-7",
-    "@styled-system/border": "^5.0.0-7",
-    "@styled-system/color": "^5.0.0-7",
-    "@styled-system/core": "^5.0.0-7",
-    "@styled-system/flexbox": "^5.0.0-7",
-    "@styled-system/grid": "^5.0.0-7",
-    "@styled-system/layout": "^5.0.0-7",
-    "@styled-system/position": "^5.0.0-7",
-    "@styled-system/space": "^5.0.0-7",
-    "@styled-system/typography": "^5.0.0-7",
-    "@styled-system/variant": "^5.0.0-7",
+    "@styled-system/background": "5.0.0-7",
+    "@styled-system/border": "5.0.0-7",
+    "@styled-system/color": "5.0.0-7",
+    "@styled-system/core": "5.0.0-7",
+    "@styled-system/flexbox": "5.0.0-7",
+    "@styled-system/grid": "5.0.0-7",
+    "@styled-system/layout": "5.0.0-7",
+    "@styled-system/position": "5.0.0-7",
+    "@styled-system/space": "5.0.0-7",
+    "@styled-system/typography": "5.0.0-7",
+    "@styled-system/variant": "5.0.0-7",
     "object-assign": "^4.1.1"
   },
   "scripts": {
