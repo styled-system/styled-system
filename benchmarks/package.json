@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "benchmarks",
-  "version": "5.0.0-3",
+  "version": "5.0.0-4",
   "scripts": {
     "test": "node test.js"
   },
@@ -12,7 +12,7 @@
     "@xstyled/system": "^1.0.0",
     "benchmark": "^2.1.4",
     "smooth-system": "github:neoziro/styled-system#smooth-system-2",
-    "styled-system": "^5.0.0-3",
+    "styled-system": "^5.0.0-4",
     "system-v4": "npm:styled-system@4.2.2"
   }
 }

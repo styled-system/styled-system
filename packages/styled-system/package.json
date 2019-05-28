@@ -1,6 +1,6 @@
 {
   "name": "styled-system",
-  "version": "5.0.0-3",
+  "version": "5.0.0-4",
   "description": "Responsive, theme-based style props for building design systems with React",
   "main": "dist/index.js",
   "keywords": [
