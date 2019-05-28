@@ -552,7 +552,7 @@ literal should look like this:
 
 ```js
 import styled from 'styled-components'
-import { themeGet } from 'styled-system'
+import { themeGet } from '@styled-system/theme-get'
 
 const Box = styled.div`
   border-radius: ${themeGet('radii.small', '4px')};
@@ -564,7 +564,7 @@ function call and have `props` passed to it:
 
 ```js
 import styled from 'styled-components'
-import { themeGet } from 'styled-system'
+import { themeGet } from '@styled-system/theme-get'
 
 const Box = styled('div')(props => ({
   borderRadius: themeGet('radii.small', '4px')(props),
