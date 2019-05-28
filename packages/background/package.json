@@ -2,16 +2,13 @@
   "name": "@styled-system/background",
   "version": "5.0.0-5",
   "main": "dist/index.js",
-  "module": "dist/index.esm.js",
   "author": "Brent Jackson",
   "license": "MIT",
   "dependencies": {
     "@styled-system/core": "^5.0.0-5"
   },
   "scripts": {
-    "prepare": "mkdir -p dist && npm run build:cjs && npm run build:esm",
-    "build:cjs": "NODE_ENV=cjs babel src/index.js -o dist/index.js",
-    "build:esm": "NODE_ENV=esm babel src/index.js -o dist/index.esm.js"
+    "prepare": "babel src -d dist"
   },
   "publishConfig": {
     "access": "public"

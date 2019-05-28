@@ -27,7 +27,7 @@
     "object-assign": "^4.1.1"
   },
   "scripts": {
-    "prepare": "NODE_ENV=cjs babel src -d dist"
+    "prepare": "babel src -d dist"
   },
   "gitHead": "7e23464bf0f2fa8e3ecdf01ae39e9d3149e20917"
 }
