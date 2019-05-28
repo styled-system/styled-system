@@ -36,6 +36,8 @@ export { typography } from '@styled-system/typography'
 export { flexbox } from '@styled-system/flexbox'
 export { border } from '@styled-system/border'
 export { background } from '@styled-system/background'
+export { position } from '@styled-system/position'
+export { grid } from '@styled-system/grid'
 
 // v4 api shims
 export {

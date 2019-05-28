@@ -22,6 +22,7 @@
     "@styled-system/flexbox": "^5.0.0-5",
     "@styled-system/grid": "5.0.0-5",
     "@styled-system/layout": "^5.0.0-5",
+    "@styled-system/position": "^5.0.0-5",
     "@styled-system/space": "^5.0.0-5",
     "@styled-system/typography": "^5.0.0-5",
     "@styled-system/variant": "^5.0.0-5",
