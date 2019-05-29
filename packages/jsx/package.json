@@ -6,7 +6,7 @@
   "main": "es5.js",
   "module": "index.js",
   "scripts": {
-    "prepare": "babel index.js -o es5.js"
+    "prepare": "NODE_ENV=cjs babel --root-mode upward index.js -o es5.js"
   },
   "author": "Brent Jackson <jxnblk@gmail.com>",
   "license": "MIT",
