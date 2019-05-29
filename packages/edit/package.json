@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist.js",
   "scripts": {
-    "prepare": "NODE_ENV=cjs babel --root-mode upward index.js -o dist.js",
+    "prepare": "babel --root-mode upward index.js -o dist.js",
     "docs": "gx docs"
   },
   "keywords": [],
