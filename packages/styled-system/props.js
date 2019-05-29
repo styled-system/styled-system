@@ -89,6 +89,7 @@ module.exports = [
   'right',
   'bottom',
   'left',
+  'cursor',
   'buttons',
   'textStyles',
   'colorStyles',
