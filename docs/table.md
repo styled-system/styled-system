@@ -18,8 +18,6 @@
 | `space`       | `pl`, `paddingLeft`     | `padding-left`                     | `space`     |
 | `space`       | `px`                    | `padding-left` and `padding-right` | `space`     |
 | `space`       | `py`                    | `padding-top` and `padding-bottom` | `space`     |
-| `width`       | `width`                 | `width`                            | `sizes`     |
-| `fontSize`    | `fontSize`              | `font-size`                        | `fontSizes` |
 | `color`       | `color`                 | `color`                            | `colors`    |
 | `color`       | `bg`, `backgroundColor` | `background-color`                 | `colors`    |
 
@@ -27,6 +25,7 @@
 
 | Function Name   | Prop            | CSS Property     | Theme Field      |
 | --------------- | --------------- | ---------------- | ---------------- |
+| `fontSize`      | `fontSize`      | `font-size`      | `fontSizes`      |
 | `fontFamily`    | `fontFamily`    | `font-family`    | `fonts`          |
 | `textAlign`     | `textAlign`     | `text-align`     | none             |
 | `lineHeight`    | `lineHeight`    | `line-height`    | `lineHeights`    |
@@ -39,9 +38,10 @@
 | Function Name   | Prop            | CSS Property     | Theme Field |
 | --------------- | --------------- | ---------------- | ----------- |
 | `display`       | `display`       | `display`        | none        |
+| `width`         | `width`         | `width`          | `sizes`     |
+| `height`        | `height`        | `height`         | `sizes`     |
 | `maxWidth`      | `maxWidth`      | `max-width`      | `sizes`     |
 | `minWidth`      | `minWidth`      | `min-width`      | `sizes`     |
-| `height`        | `height`        | `height`         | `sizes`     |
 | `maxHeight`     | `maxHeight`     | `max-height`     | `sizes`     |
 | `minHeight`     | `minHeight`     | `min-height`     | `sizes`     |
 | `size`          | `size`          | `width` `height` | `sizes`     |
