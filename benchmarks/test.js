@@ -36,7 +36,7 @@ const tests = [
       xstyled: xstyled.space,
       next: next.space,
       // space: space,
-      // css: ({ theme, ...rest }) => css(rest)(theme),
+      css: ({ theme, ...rest }) => css(rest)(theme),
     },
     run: fn => () => fn({
       theme,
@@ -53,7 +53,7 @@ const tests = [
       system: system.fontSize,
       xstyled: xstyled.fontSize,
       next: next.fontSize,
-      // css: ({ theme, ...rest }) => css(rest)(theme),
+      css: ({ theme, ...rest }) => css(rest)(theme),
     },
     run: fn => () => fn({
       theme,
@@ -66,7 +66,7 @@ const tests = [
       system: system.fontSize,
       xstyled: xstyled.fontSize,
       next: next.fontSize,
-      // css: ({ theme, ...rest }) => css(rest)(theme),
+      css: ({ theme, ...rest }) => css(rest)(theme),
     },
     run: fn => () => fn({
       theme,
@@ -91,7 +91,7 @@ const tests = [
         next.color,
         next.fontSize,
       ),
-      // css: ({ theme, ...rest }) => css(rest)(theme),
+      css: ({ theme, ...rest }) => css(rest)(theme),
     },
     run: fn => () => fn({
       theme,

@@ -1,3 +1,5 @@
+import facepaint from 'facepaint'
+
 // based on https://github.com/developit/dlv
 export const get = (obj, key = '', def, p, undef) => {
   key = key.split ? key.split('.') : [key]
@@ -108,29 +110,15 @@ const transforms = {
   marginY: getMargin,
 }
 
+let parseResponsive
 export const responsive = styles => theme => {
-  const next = {}
-  const breakpoints = get(theme, 'breakpoints', [ '40em', '52em', '64em' ])
-  const mediaQueries = [ null, ...breakpoints.map(n => `@media screen and (min-width: ${n})`) ]
-
-  for (const key in styles) {
-    const value = styles[key]
-    if (!Array.isArray(value)) {
-      next[key] = value
-      continue
-    }
-    for (let i = 0; i < value.length; i++) {
-      const media = mediaQueries[i]
-      if (!media) {
-        next[key] = value[i]
-        continue
-      }
-      next[media] = next[media] || {}
-      next[media][key] = value[i]
-    }
+  if (!parseResponsive) {
+    const breakpoints = get(theme, 'breakpoints', [ '40em', '52em', '64em' ])
+    const mediaQueries = breakpoints.map(n => `@media screen and (min-width: ${n})`)
+    parseResponsive = facepaint(mediaQueries)
   }
-
-  return next
+  const [ result ] = parseResponsive(styles)
+  return result
 }
 
 export const css = args => (props = {}) => {

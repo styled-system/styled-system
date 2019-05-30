@@ -26,5 +26,8 @@
   "gitHead": "c435cc68097a8c0daffe07ee15fe357b8c431b66",
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "facepaint": "^1.2.1"
   }
 }
