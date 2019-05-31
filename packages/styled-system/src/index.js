@@ -113,6 +113,10 @@ export {
   default as bottom,
   default as left,
 } from '@styled-system/position'
+export {
+  boxShadow,
+  textShadow,
+} from '@styled-system/shadow'
 
 // v4 style API shim
 export const style = ({
@@ -138,14 +142,6 @@ export const style = ({
 
   return parse
 }
-
-// todo move to separate package
-export const boxShadow = system({
-  boxShadow: {
-    property: 'boxShadow',
-    scale: 'shadows',
-  }
-})
 
 export const opacity = system({ opacity: true })
 export const overflow = system({ overflow: true })
