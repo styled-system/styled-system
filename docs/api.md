@@ -2,9 +2,7 @@ export const toc = true
 
 # API
 
-## Core
-
-### space
+## space
 
 ```js
 import { space } from 'styled-system'
@@ -12,7 +10,7 @@ import { space } from 'styled-system'
 
 The space utility converts shorthand margin and padding props to margin and padding CSS declarations.
 
-- Numbers from 0-4 (or the length of `theme.space`) are converted to values on the [spacing scale](#defaults).
+- Numbers from 0 to the length of `theme.space` are converted to values on the [space scale](#defaults).
 - Negative values can be used for negative margins.
 - Numbers greater than the length of the `theme.space` array are converted to raw pixel values.
 - String values are passed as raw CSS values.
@@ -20,20 +18,23 @@ The space utility converts shorthand margin and padding props to margin and padd
 
 Margin and padding props follow a shorthand syntax for specifying direction.
 
-- `m`: margin
-- `mt`: margin-top
-- `mr`: margin-right
-- `mb`: margin-bottom
-- `ml`: margin-left
-- `mx`: margin-left and margin-right
-- `my`: margin-top and margin-bottom
-- `p`: padding
-- `pt`: padding-top
-- `pr`: padding-right
-- `pb`: padding-bottom
-- `pl`: padding-left
-- `px`: padding-left and padding-right
-- `py`: padding-top and padding-bottom
+Prop      | CSS Property
+----------|---------
+`margin`, `m` | margin
+`marginTop`, `mt` | margin-top
+`marginRight`, `mr` | margin-right
+`marginBottom`, `mb` | margin-bottom
+`marginLeft`, `ml` | margin-left
+`marginX`, `mx` | margin-left and margin-right
+`marginY`, `my` | margin-top and margin-bottom
+`padding`, `p` | padding
+`paddingTop`, `pt` | padding-top
+`paddingRight`, `pr` | padding-right
+`paddingBottom`, `pb` | padding-bottom
+`paddingLeft`, `pl` | padding-left
+`paddingX`, `px` | padding-left and padding-right
+`paddingY`, `py` | padding-top and padding-bottom
+
 
 ```jsx
 // examples (margin prop)
@@ -50,19 +51,19 @@ Margin and padding props follow a shorthand syntax for specifying direction.
 // sets margin `'auto'`
 <Box m='auto' />
 
-// sets margin `8px` on all viewports and `16px` from the smallest breakpoint and up
+// sets margin `8px` on all viewports and `16px` from the first breakpoint and up
 <Box m={[ 2, 3 ]} />
 ```
 
 As of v4.0.0, verbose margin and padding props (e.g. `margin`, `marginTop`) can also be used instead of the shorthand props.
 
-### width
+## layout
 
 ```js
-import { width } from 'styled-system'
+import { layout } from 'styled-system'
 ```
 
-The width utility parses a component's `width` prop and converts it into a CSS width declaration.
+The layout utility parses a component's `width` prop and converts it into a CSS width declaration.
 
 - Numbers from 0-1 are converted to percentage widths.
 - Numbers greater than 1 are converted to pixel values.
