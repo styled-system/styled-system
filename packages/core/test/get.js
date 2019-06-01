@@ -1,16 +1,14 @@
 import { get } from '../src'
 
 test('returns a deeply nested value', () => {
-  const a = get({
-    colors: {
-      blue: [
-        '#0cf',
-        '#0be',
-        '#09d',
-        '#07c',
-      ]
-    }
-  }, 'colors.blue.3')
+  const a = get(
+    {
+      colors: {
+        blue: ['#0cf', '#0be', '#09d', '#07c'],
+      },
+    },
+    'colors.blue.3'
+  )
   expect(a).toBe('#07c')
 })
 
@@ -20,7 +18,7 @@ test('supports fallback values', () => {
 })
 
 test('handles number values', () => {
-  const a = get([ 1, 2, 3 ], 0)
+  const a = get([1, 2, 3], 0)
   expect(a).toBe(1)
 })
 

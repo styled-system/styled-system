@@ -1,4 +1,4 @@
-# Table of Style Functions
+# Reference Table
 
 Styled System is organized into categories of style props.
 Each function provides the following props and maps to scales defined in a theme.
@@ -9,22 +9,22 @@ Each function provides the following props and maps to scales defined in a theme
 import { space } from 'styled-system'
 ```
 
-Prop                    | CSS Property                       | Theme Field |
------------------------ | ---------------------------------- | ----------- |
-`m`, `margin`           | `margin`                           | `space`     |
-`mt`, `marginTop`       | `margin-top`                       | `space`     |
-`mr`, `marginRight`     | `margin-right`                     | `space`     |
-`mb`, `marginBottom`    | `margin-bottom`                    | `space`     |
-`ml`, `marginLeft`      | `margin-left`                      | `space`     |
-`mx`                    | `margin-left` and `margin-right`   | `space`     |
-`my`                    | `margin-top` and `margin-bottom`   | `space`     |
-`p`, `padding`          | `padding`                          | `space`     |
-`pt`, `paddingTop`      | `padding-top`                      | `space`     |
-`pr`, `paddingRight`    | `padding-right`                    | `space`     |
-`pb`, `paddingBottom`   | `padding-bottom`                   | `space`     |
-`pl`, `paddingLeft`     | `padding-left`                     | `space`     |
-`px`                    | `padding-left` and `padding-right` | `space`     |
-`py`                    | `padding-top` and `padding-bottom` | `space`     |
+| Prop                  | CSS Property                       | Theme Field |
+| --------------------- | ---------------------------------- | ----------- |
+| `m`, `margin`         | `margin`                           | `space`     |
+| `mt`, `marginTop`     | `margin-top`                       | `space`     |
+| `mr`, `marginRight`   | `margin-right`                     | `space`     |
+| `mb`, `marginBottom`  | `margin-bottom`                    | `space`     |
+| `ml`, `marginLeft`    | `margin-left`                      | `space`     |
+| `mx`                  | `margin-left` and `margin-right`   | `space`     |
+| `my`                  | `margin-top` and `margin-bottom`   | `space`     |
+| `p`, `padding`        | `padding`                          | `space`     |
+| `pt`, `paddingTop`    | `padding-top`                      | `space`     |
+| `pr`, `paddingRight`  | `padding-right`                    | `space`     |
+| `pb`, `paddingBottom` | `padding-bottom`                   | `space`     |
+| `pl`, `paddingLeft`   | `padding-left`                     | `space`     |
+| `px`                  | `padding-left` and `padding-right` | `space`     |
+| `py`                  | `padding-top` and `padding-bottom` | `space`     |
 
 ## Color
 
@@ -32,10 +32,10 @@ Prop                    | CSS Property                       | Theme Field |
 import { color } from 'styled-system'
 ```
 
-Prop                    | CSS Property                       | Theme Field |
------------------------ | ---------------------------------- | ----------- |
-`color`                 | `color`                            | `colors`    |
-`bg`, `backgroundColor` | `background-color`                 | `colors`    |
+| Prop                    | CSS Property       | Theme Field |
+| ----------------------- | ------------------ | ----------- |
+| `color`                 | `color`            | `colors`    |
+| `bg`, `backgroundColor` | `background-color` | `colors`    |
 
 ## Typography
 
@@ -43,15 +43,15 @@ Prop                    | CSS Property                       | Theme Field |
 import { typography } from 'styled-system'
 ```
 
-Prop            | CSS Property     | Theme Field      |
---------------- | ---------------- | ---------------- |
-`fontFamily`    | `font-family`    | `fonts`          |
-`fontSize`      | `font-size`      | `fontSizes`      |
-`fontWeight`    | `font-weight`    | `fontWeights`    |
-`lineHeight`    | `line-height`    | `lineHeights`    |
-`letterSpacing` | `letter-spacing` | `letterSpacings` |
-`textAlign`     | `text-align`     | none             |
-`fontStyle`     | `font-style`     | none             |
+| Prop            | CSS Property     | Theme Field      |
+| --------------- | ---------------- | ---------------- |
+| `fontFamily`    | `font-family`    | `fonts`          |
+| `fontSize`      | `font-size`      | `fontSizes`      |
+| `fontWeight`    | `font-weight`    | `fontWeights`    |
+| `lineHeight`    | `line-height`    | `lineHeights`    |
+| `letterSpacing` | `letter-spacing` | `letterSpacings` |
+| `textAlign`     | `text-align`     | none             |
+| `fontStyle`     | `font-style`     | none             |
 
 ## Layout
 
@@ -59,17 +59,17 @@ Prop            | CSS Property     | Theme Field      |
 import { layout } from 'styled-system'
 ```
 
-Prop            | CSS Property     | Theme Field |
---------------- | ---------------- | ----------- |
-`width`         | `width`          | `sizes`     |
-`height`        | `height`         | `sizes`     |
-`minWidth`      | `min-width`      | `sizes`     |
-`maxWidth`      | `max-width`      | `sizes`     |
-`minHeight`     | `min-height`     | `sizes`     |
-`maxHeight`     | `max-height`     | `sizes`     |
-`size`          | `width` `height` | `sizes`     |
-`display`       | `display`        | none        |
-`verticalAlign` | `vertical-align` | none        |
+| Prop            | CSS Property     | Theme Field |
+| --------------- | ---------------- | ----------- |
+| `width`         | `width`          | `sizes`     |
+| `height`        | `height`         | `sizes`     |
+| `minWidth`      | `min-width`      | `sizes`     |
+| `maxWidth`      | `max-width`      | `sizes`     |
+| `minHeight`     | `min-height`     | `sizes`     |
+| `maxHeight`     | `max-height`     | `sizes`     |
+| `size`          | `width` `height` | `sizes`     |
+| `display`       | `display`        | none        |
+| `verticalAlign` | `vertical-align` | none        |
 
 ## Flexbox
 
@@ -77,81 +77,82 @@ Prop            | CSS Property     | Theme Field |
 import { flexbox } from 'styled-system'
 ```
 
-Prop              | CSS Property       | Theme Field |
-------------------| ------------------ | ----------- |
-`alignItems`      | `align-items`      | none        |
-`alignContent`    | `align-content`    | none        |
-`justifyItems`    | `justify-items`    | none        |
-`justifyContent`  | `justify-content`  | none        |
-`flexWrap`        | `flex-wrap`        | none        |
-`flexDirection`   | `flex-direction`   | none        |
-`flex`            | `flex` (shorthand) | none        |
-`flexGrow`        | `flex-grow`         | none
-`flexShrink`        | `flex-shrink`         | none
-`flexBasis`        | `flex-basis`         | none
-`justifySelf`     | `justify-self`     | none        |
-`alignSelf`       | `align-self`       | none        |
-`order`           | `order`            | none        |
+| Prop             | CSS Property       | Theme Field |
+| ---------------- | ------------------ | ----------- |
+| `alignItems`     | `align-items`      | none        |
+| `alignContent`   | `align-content`    | none        |
+| `justifyItems`   | `justify-items`    | none        |
+| `justifyContent` | `justify-content`  | none        |
+| `flexWrap`       | `flex-wrap`        | none        |
+| `flexDirection`  | `flex-direction`   | none        |
+| `flex`           | `flex` (shorthand) | none        |
+| `flexGrow`       | `flex-grow`        | none        |
+| `flexShrink`     | `flex-shrink`      | none        |
+| `flexBasis`      | `flex-basis`       | none        |
+| `justifySelf`    | `justify-self`     | none        |
+| `alignSelf`      | `align-self`       | none        |
+| `order`          | `order`            | none        |
 
 ## Grid Layout
 
-| Function Name         | Prop                  | CSS Property            | Theme Field |
-| --------------------- | --------------------- | ----------------------- | ----------- |
-| `gridGap`             | `gridGap`             | `grid-gap`              | `space`     |
-| `gridRowGap`          | `gridRowGap`          | `grid-row-gap`          | `space`     |
-| `gridColumnGap`       | `gridColumnGap`       | `grid-column-gap`       | `space`     |
-| `gridColumn`          | `gridColumn`          | `grid-column`           | none        |
-| `gridRow`             | `gridRow`             | `grid-row`              | none        |
-| `gridArea`            | `gridArea`            | `grid-area`             | none        |
-| `gridAutoFlow`        | `gridAutoFlow`        | `grid-auto-flow`        | none        |
-| `gridAutoRows`        | `gridAutoRows`        | `grid-auto-rows`        | none        |
-| `gridAutoColumns`     | `gridAutoColumns`     | `grid-auto-columns`     | none        |
-| `gridTemplateRows`    | `gridTemplateRows`    | `grid-template-rows`    | none        |
-| `gridTemplateColumns` | `gridTemplateColumns` | `grid-template-columns` | none        |
-| `gridTemplateAreas`   | `gridTemplateAreas`   | `grid-template-areas`   | none        |
+```js
+import { grid } from 'styled-system'
+```
+
+| Prop                  | CSS Property            | Theme Field |
+| --------------------- | ----------------------- | ----------- |
+| `gridGap`             | `grid-gap`              | `space`     |
+| `gridRowGap`          | `grid-row-gap`          | `space`     |
+| `gridColumnGap`       | `grid-column-gap`       | `space`     |
+| `gridColumn`          | `grid-column`           | none        |
+| `gridRow`             | `grid-row`              | none        |
+| `gridArea`            | `grid-area`             | none        |
+| `gridAutoFlow`        | `grid-auto-flow`        | none        |
+| `gridAutoRows`        | `grid-auto-rows`        | none        |
+| `gridAutoColumns`     | `grid-auto-columns`     | none        |
+| `gridTemplateRows`    | `grid-template-rows`    | none        |
+| `gridTemplateColumns` | `grid-template-columns` | none        |
+| `gridTemplateAreas`   | `grid-template-areas`   | none        |
 
 ## Background
 
-| Function Name        | Prop                 | CSS Property          | Theme Field |
-| -------------------- | -------------------- | --------------------- | ----------- |
-| `background`         | `background`         | `background`          | none        |
-| `backgroundImage`    | `backgroundImage`    | `background-image`    | none        |
-| `backgroundSize`     | `backgroundSize`     | `background-size`     | none        |
-| `backgroundPosition` | `backgroundPosition` | `background-position` | none        |
-| `backgroundRepeat`   | `backgroundRepeat`   | `background-repeat`   | none        |
+```js
+import { background } from 'styled-system'
+```
 
-## Misc
+| Prop                 | CSS Property          | Theme Field |
+| -------------------- | --------------------- | ----------- |
+| `background`         | `background`          | none        |
+| `backgroundImage`    | `background-image`    | none        |
+| `backgroundSize`     | `background-size`     | none        |
+| `backgroundPosition` | `background-position` | none        |
+| `backgroundRepeat`   | `background-repeat`   | none        |
 
-| Function Name  | Prop           | CSS Property    | Theme Field    |
-| -------------- | -------------- | --------------- | -------------- |
-| `border`       | `border`       | `border`        | `borders`      |
-| `borderTop`    | `borderTop`    | `border-top`    | `borders`      |
-| `borderRight`  | `borderRight`  | `border-right`  | `borders`      |
-| `borderBottom` | `borderBottom` | `border-bottom` | `borders`      |
-| `borderLeft`   | `borderLeft`   | `border-left`   | `borders`      |
-| `borderWidth`  | `borderWidth`  | `border-width`  | `borderWidths` |
-| `borderStyle`  | `borderStyle`  | `border-style`  | `borderStyles` |
-| `borderColor`  | `borderColor`  | `border-color`  | `colors`       |
-| `borderRadius` | `borderRadius` | `border-radius` | `radii`        |
-| `boxShadow`    | `boxShadow`    | `box-shadow`    | `shadows`      |
-| `opacity`      | `opacity`      | `opacity`       | none           |
-| `overflow`     | `overflow`     | `overflow`      | none           |
+## Border
 
-The `borders` function composes multiple border props together.
+```js
+import { border } from 'styled-system'
+```
 
-| Function Name | Prop           | CSS Property    | Theme Field    |
-| ------------- | -------------- | --------------- | -------------- |
-| `borders`     | `border`       | `border`        | `borders`      |
-| `borders`     | `borderTop`    | `border-top`    | `borders`      |
-| `borders`     | `borderRight`  | `border-right`  | `borders`      |
-| `borders`     | `borderBottom` | `border-bottom` | `borders`      |
-| `borders`     | `borderLeft`   | `border-left`   | `borders`      |
-| `borders`     | `borderWidth`  | `border-width`  | `borderWidths` |
-| `borders`     | `borderStyle`  | `border-style`  | `borderStyles` |
-| `borders`     | `borderColor`  | `border-color`  | `colors`       |
-| `borders`     | `borderRadius` | `border-radius` | `radii`        |
+| Prop           | CSS Property                   | Theme Field    |
+| -------------- | ------------------------------ | -------------- |
+| `border`       | `border`                       | `borders`      |
+| `borderWidth`  | `border-width`                 | `borderWidths` |
+| `borderStyle`  | `border-style`                 | `borderStyles` |
+| `borderColor`  | `border-color`                 | `colors`       |
+| `borderRadius` | `border-radius`                | `radii`        |
+| `borderTop`    | `border-top`                   | `borders`      |
+| `borderRight`  | `border-right`                 | `borders`      |
+| `borderBottom` | `border-bottom`                | `borders`      |
+| `borderLeft`   | `border-left`                  | `borders`      |
+| `borderX`      | `border-left` & `border-right` | `borders`      |
+| `borderY`      | `border-top` & `border-bottom` | `borders`      |
 
 ## Position
+
+```js
+import { position } from 'styled-system'
+```
 
 | Function Name | Prop       | CSS Property | Theme Field |
 | ------------- | ---------- | ------------ | ----------- |
@@ -162,10 +163,24 @@ The `borders` function composes multiple border props together.
 | `bottom`      | `bottom`   | `bottom`     | none        |
 | `left`        | `left`     | `left`       | none        |
 
-## Variant Styles
+## Variants
+
+```js
+import { textStyle, colorStyle, buttonStyle } from 'styled-system'
+```
 
 | Function Name | Prop        | CSS Property | Theme Field   |
 | ------------- | ----------- | ------------ | ------------- |
 | `textStyle`   | `textStyle` | style object | `textStyles`  |
 | `colorStyle`  | `colors`    | style object | `colorStyles` |
 | `buttonStyle` | `variant`   | style object | `buttons`     |
+
+---
+
+TODO
+
+| Prop        | CSS Property | Theme Field |
+| ----------- | ------------ | ----------- |
+| `opacity`   | `opacity`    | none        |
+| `overflow`  | `overflow`   | none        |
+| `boxShadow` | `box-shadow` | `shadows`   |

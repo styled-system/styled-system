@@ -1,4 +1,3 @@
-
 # Color Modes
 
 While there are many different ways to handle theming in a web application,
@@ -30,7 +29,7 @@ const colors = {
       lightgray: '#111',
     },
     // other color modes...
-  }
+  },
 }
 ```
 
@@ -45,7 +44,7 @@ By default the base colors are picked up by other components using Styled System
     body: {
       color: 'text',
       bg: 'background',
-    }
+    },
   })}
 />
 ```
@@ -72,36 +71,34 @@ const modes = [
 
 // merge the color mode with the base theme
 // to create a new theme object
-const getTheme = mode => merge({}, baseTheme, {
-  colors: get(baseTheme.colors.modes, mode, baseTheme.colors)
-})
+const getTheme = mode =>
+  merge({}, baseTheme, {
+    colors: get(baseTheme.colors.modes, mode, baseTheme.colors),
+  })
 
 export default props => {
   // state for changing modes dynamically
-  const [ mode, setMode ] = useState(modes[0])
+  const [mode, setMode] = useState(modes[0])
   const theme = getTheme(mode)
 
   return (
-    <ThemeProvider theme={theme}>
-      {/* application elements */}
-    </ThemeProvider>
+    <ThemeProvider theme={theme}>{/* application elements */}</ThemeProvider>
   )
 }
 ```
 
 Next you'll want to add the UI controls for changing between color modes.
 With this basic approach, you should be able to add as many different color modes to your site as you wish.
-Be sure that *all* components within your application are using color values from the theme (not hard-coded values) in order for this to work as expected.
+Be sure that _all_ components within your application are using color values from the theme (not hard-coded values) in order for this to work as expected.
 
 There are other ways to achieve a similar effect – this just demonstrates one approach.
 For a different approach to persisting data, you may want to look into the [`prefers-color-scheme`][] media query, but it only handles binary `light` or `dark` modes.
 You might also want to look into [CSS Custom Properties][],
 which can be defined as inline styles, but be aware that they are not supported in IE11.
 
-
 [`src/theme.js`]: https://github.com/styled-system/styled-system/blob/master/docs/src/theme.js
 [`prefers-color-scheme`]: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
-[CSS Custom Properties]: https://developer.mozilla.org/en-US/docs/Web/CSS/--*
+[css custom properties]: https://developer.mozilla.org/en-US/docs/Web/CSS/--*
 
 <!--
 - media query

@@ -1,4 +1,3 @@
-
 # Custom Style Props
 
 To extend styled-system for other CSS properties that aren't included in the library, use the [custom utilities](/api#customize) to create your own style functions.
@@ -16,7 +15,7 @@ import { style } from 'styled-system'
 
 const textDecoration = style({
   prop: 'textDecoration',
-  cssProperty: 'textDecoration'
+  cssProperty: 'textDecoration',
 })
 
 const Link = styled.a`
@@ -24,11 +23,10 @@ const Link = styled.a`
 `
 
 Link.propTypes = {
-  ...textDecoration.propTypes
+  ...textDecoration.propTypes,
 }
 
 export default Link
 ```
 
 Read more in the [custom utilities docs](/api#customize).
-

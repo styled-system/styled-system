@@ -17,27 +17,28 @@ const styles = {
   li: {
     '& > ul': {
       pl: 16,
-    }
+    },
   },
   a: {
     color: 'inherit',
     fontSize: 1,
     '&:hover': {
       color: 'primary',
-    }
-  }
+    },
+  },
 }
 
-const Root = styled(Box)(css({
-  minWidth: 0,
-  flex: 'none',
-  overflowY: 'auto',
-  WebkitOverflowScrolling: 'touch',
-  position: 'sticky',
-  top: 0,
-  alignSelf: 'flex-start',
-  minHeight: 'calc(100vh - 0px)',
-}),
+const Root = styled(Box)(
+  css({
+    minWidth: 0,
+    flex: 'none',
+    overflowY: 'auto',
+    WebkitOverflowScrolling: 'touch',
+    position: 'sticky',
+    top: 0,
+    alignSelf: 'flex-start',
+    minHeight: 'calc(100vh - 0px)',
+  }),
   props => ({
     '@media screen and (max-width: 40em)': {
       position: 'fixed',
@@ -47,16 +48,15 @@ const Root = styled(Box)(css({
       height: 'auto',
       transition: 'max-height .2s ease-out',
       boxShadow: `0 2px 8px rgba(0, 0, 0, .25)`,
-    }
+    },
   }),
   block('sidebar')
 )
 
-export default props =>
+export default props => (
   <Root {...props}>
-    <SystemProvider
-      theme={{ styles }}
-      components={components}>
+    <SystemProvider theme={{ styles }} components={components}>
       <Content />
     </SystemProvider>
   </Root>
+)

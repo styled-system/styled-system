@@ -1,4 +1,3 @@
-
 # Theme Specification
 
 **WIP**
@@ -18,9 +17,7 @@ These scales can be defined in multiple ways depending on needs, but tend to use
 
 ```js
 // example fontSizes scale as an array
-fontSizes: [
-  12, 14, 16, 20, 24, 32
-]
+fontSizes: [12, 14, 16, 20, 24, 32]
 ```
 
 ```js
@@ -50,9 +47,7 @@ For typically ordinal values like font sizes that are stored in arrays, it can b
 
 ```js
 // example fontSizes aliases
-fontSizes: [
-  12, 14, 16, 20, 24, 32
-]
+fontSizes: [12, 14, 16, 20, 24, 32]
 // aliases
 fontSizes.body = fontSizes[2]
 fontSizes.display = fontSizes[5]
@@ -60,7 +55,7 @@ fontSizes.display = fontSizes[5]
 
 ### Excluded Values
 
-Some CSS properties accept only a small, finite number of valid CSS values and should *not* be included as a scale object.
+Some CSS properties accept only a small, finite number of valid CSS values and should _not_ be included as a scale object.
 For example, the `text-align` property accepts the following values:
 `left`, `right`, `center`, `justify`, `justify-all`, `start`, `end`, or `match-parent`.
 Other properties that are intentionally excluded from this specification include: `float`, `clear`, `display`, `overflow`, `position`, `vertical-align`, `align-items`, `justify-content`, and `flex-direction`.
@@ -72,20 +67,17 @@ For example, the CSS property `font-size` is expected to use values from the `fo
 
 Some keys can be used for multiple CSS properties, where the data type is the same. The `color` object is intended to be used with any property that accepts a CSS color value, such as `background-color` or `border-color`.
 
-
 ### Space
 
 The `space` key is a specially-named scale intended for use with margin, padding, and other layout-related CSS properties.
 A space scale can be defined as either a plain object or an array, but by convention an array is preferred.
-This is an intentional constraint that makes it difficult to add *"one-off"* or *"in-between"* sizes that could lead to unwanted and rippling affects to layout.
+This is an intentional constraint that makes it difficult to add _"one-off"_ or _"in-between"_ sizes that could lead to unwanted and rippling affects to layout.
 
 When defining space scales as an array, it is conventional to use the value `0` as the first value so that `space[0] === 0`.
 
 ```js
 // example space scale
-space: [
-  0, 4, 8, 16, 32, 64
-]
+space: [0, 4, 8, 16, 32, 64]
 ```
 
 ```js
@@ -99,9 +91,7 @@ space: {
 
 ```js
 // example space scale with aliases
-space: [
-  0, 4, 8, 16, 32
-]
+space: [0, 4, 8, 16, 32]
 space.small = space[1]
 space.medium = space[2]
 space.large = space[3]
@@ -116,12 +106,12 @@ For example, using a margin value of `[ 0, 1, 2 ]` creates styles with multiple 
 
 ```js
 // given this breakpoints scale:
-breakpoints: [ '40em', '52em', '64em' ]
+breakpoints: ['40em', '52em', '64em']
 ```
 
 ```js
 // and this margin prop value
-m: [ 0, 1, 2 ]
+m: [0, 1, 2]
 ```
 
 ```js
@@ -156,24 +146,24 @@ mediaQueries: {
 The following is a list of theme object keys and their corresponding CSS properties.
 This list may be non-exhaustive.
 
-Theme Key         | CSS Properties
-------------------|--------------
-`space`           | `margin`, `margin-top`, `margin-right`, `margin-bottom`, `margin-left`, `padding`, `padding-top`, `padding-right`, `padding-bottom`, `padding-left`, `grid-gap`, `grid-column-gap`, `grid-row-gap`
-`fontSizes`       | `font-size`
-`colors`          | `color`, `background-color`, `border-color`
-`fonts`           | `font-family`
-`fontWeights`     | `font-weight`
-`lineHeights`     | `line-height`
-`letterSpacings`  | `letter-spacing`
-`sizes`           | `width`, `height`, `min-width`, `max-width`, `min-height`, `max-height`
-`borders`         | `border`, `border-top`, `border-right`, `border-bottom`, `border-left`
-`borderWidths`    | `border-width`
-`borderStyles`    | `border-style`
-`radii`           | `border-radius`
-`shadows`         | `box-shadow`, `text-shadow`
-`zIndices`        | `z-index`
+| Theme Key        | CSS Properties                                                                                                                                                                                     |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `space`          | `margin`, `margin-top`, `margin-right`, `margin-bottom`, `margin-left`, `padding`, `padding-top`, `padding-right`, `padding-bottom`, `padding-left`, `grid-gap`, `grid-column-gap`, `grid-row-gap` |
+| `fontSizes`      | `font-size`                                                                                                                                                                                        |
+| `colors`         | `color`, `background-color`, `border-color`                                                                                                                                                        |
+| `fonts`          | `font-family`                                                                                                                                                                                      |
+| `fontWeights`    | `font-weight`                                                                                                                                                                                      |
+| `lineHeights`    | `line-height`                                                                                                                                                                                      |
+| `letterSpacings` | `letter-spacing`                                                                                                                                                                                   |
+| `sizes`          | `width`, `height`, `min-width`, `max-width`, `min-height`, `max-height`                                                                                                                            |
+| `borders`        | `border`, `border-top`, `border-right`, `border-bottom`, `border-left`                                                                                                                             |
+| `borderWidths`   | `border-width`                                                                                                                                                                                     |
+| `borderStyles`   | `border-style`                                                                                                                                                                                     |
+| `radii`          | `border-radius`                                                                                                                                                                                    |
+| `shadows`        | `box-shadow`, `text-shadow`                                                                                                                                                                        |
+| `zIndices`       | `z-index`                                                                                                                                                                                          |
 
-*Note:* Styled System does *not* currently support the `widths` scale due to its fractional value transformation.
+_Note:_ Styled System does _not_ currently support the `widths` scale due to its fractional value transformation.
 
 ### Element Variants
 

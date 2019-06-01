@@ -1,4 +1,3 @@
-
 # How it Works
 
 Most CSS-in-JS libraries accept functions as arguments to create dynamic styles based on props.
@@ -31,7 +30,7 @@ import styled from 'styled-components'
 
 // works exactly the same as the previous function
 const getColor = props => ({
-  color: props.color
+  color: props.color,
 })
 
 const Box = styled.div`

@@ -1,4 +1,3 @@
-
 [![gh][]][github]
 [![stars][]][github]
 [![Build Status][circleci-badge]][circleci]
@@ -19,7 +18,6 @@
 [size]: https://flat.badgen.net/bundlephobia/minzip/styled-system
 [system-ui-badge]: https://flat.badgen.net/badge/system-ui/theme/black
 [spectrum-badge]: https://flat.badgen.net/badge/spectrum/community/purple
-
 [npm]: https://npmjs.com/package/styled-system
 [github]: https://github.com/styled-system/styled-system
 [spectrum]: https://spectrum.chat/styled-system

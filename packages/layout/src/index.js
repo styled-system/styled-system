@@ -2,13 +2,14 @@
 import { system, get } from '@styled-system/core'
 
 const isNumber = n => typeof n === 'number' && !isNaN(n)
-const getWidth = (n, scale) => get(scale, n, (!isNumber(n) || n > 1 ? n : n * 100 + '%'))
+const getWidth = (n, scale) =>
+  get(scale, n, !isNumber(n) || n > 1 ? n : n * 100 + '%')
 
 const config = {
   width: {
     property: 'width',
     scale: 'sizes',
-    transform: getWidth
+    transform: getWidth,
   },
   height: {
     property: 'height',
@@ -31,11 +32,8 @@ const config = {
     scale: 'sizes',
   },
   size: {
-    properties: [
-      'width',
-      'height',
-    ],
-    scale: 'sizes'
+    properties: ['width', 'height'],
+    scale: 'sizes',
   },
   display: true,
   verticalAlign: true,

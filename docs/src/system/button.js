@@ -2,7 +2,7 @@ import React from 'react'
 import Link from '../link'
 import { css } from './index'
 
-export default props =>
+export default props => (
   <Link
     {...props}
     css={css({
@@ -16,6 +16,7 @@ export default props =>
       bg: 'text',
       '&:hover': {
         bg: 'primary',
-      }
+      },
     })}
   />
+)

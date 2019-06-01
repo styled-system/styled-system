@@ -1,4 +1,3 @@
-
 export const toc = true
 
 # API
@@ -21,14 +20,14 @@ The space utility converts shorthand margin and padding props to margin and padd
 
 Margin and padding props follow a shorthand syntax for specifying direction.
 
-- `m`:  margin
+- `m`: margin
 - `mt`: margin-top
 - `mr`: margin-right
 - `mb`: margin-bottom
 - `ml`: margin-left
 - `mx`: margin-left and margin-right
 - `my`: margin-top and margin-bottom
-- `p`:  padding
+- `p`: padding
 - `pt`: padding-top
 - `pr`: padding-right
 - `pb`: padding-bottom
@@ -157,7 +156,7 @@ import {
   textAlign,
   lineHeight,
   fontWeight,
-  letterSpacing
+  letterSpacing,
 } from 'styled-system'
 ```
 
@@ -238,7 +237,7 @@ import {
   flex,
   justifySelf,
   alignSelf,
-  order
+  order,
 } from 'styled-system'
 ```
 
@@ -290,7 +289,7 @@ import {
   gridTemplateColumns,
   gridTemplateRows,
   gridTemplateAreas,
-  gridArea
+  gridArea,
 } from 'styled-system'
 ```
 
@@ -350,7 +349,7 @@ import {
   borderWidth,
   borderStyle,
   borderColor,
-  borderRadius
+  borderRadius,
 } from 'styled-system'
 ```
 
@@ -383,14 +382,7 @@ import { borders } from 'styled-system'
 
 ```js
 // style functions
-import {
-  position,
-  zIndex,
-  top,
-  right,
-  bottom,
-  left
-} from 'styled-system'
+import { position, zIndex, top, right, bottom, left } from 'styled-system'
 ```
 
 ```jsx
@@ -448,7 +440,7 @@ import {
 
 The variant style utilities allow you to define reusable style objects in your theme for things like text styles and color combinations.
 
-**NOTE:** the objects defined in the theme are *CSS style* objects, not component *props*. Styled system props **will not** work here to avoid conflating CSS style objects with component props.
+**NOTE:** the objects defined in the theme are _CSS style_ objects, not component _props_. Styled system props **will not** work here to avoid conflating CSS style objects with component props.
 
 ```js
 // example theme
@@ -456,17 +448,17 @@ const theme = {
   textStyles: {
     caps: {
       textTransform: 'uppercase',
-      letterSpacing: '0.2em'
-    }
+      letterSpacing: '0.2em',
+    },
   },
   colorStyles: {
     warning: {
       color: 'black',
-      backgroundColor: 'orange'
+      backgroundColor: 'orange',
     },
     error: {
       color: 'white',
-      backgroundColor: 'red'
+      backgroundColor: 'red',
     },
   },
   buttons: {
@@ -475,19 +467,15 @@ const theme = {
       backgroundColor: 'blue',
       '&:hover': {
         backgroundColor: 'black',
-      }
-    }
-  }
+      },
+    },
+  },
 }
 ```
 
 ```js
 // style functions
-import {
-  textStyle,
-  colorStyle,
-  buttonStyle
-} from 'styled-system'
+import { textStyle, colorStyle, buttonStyle } from 'styled-system'
 ```
 
 ```jsx
@@ -519,7 +507,7 @@ import {
   fontWeight,
   lineHeight,
   space,
-  color
+  color,
 } from 'styled-system'
 
 export const typography = compose(
@@ -585,7 +573,7 @@ const Box = styled.div`
 `
 
 Box.propTypes = {
-  ...width.propTypes
+  ...width.propTypes,
 }
 ```
 
@@ -614,7 +602,7 @@ const fontSize = style({
   // accessor function for transforming the value
   transformValue: n => n + 'px',
   // add a fallback scale object or array, if theme is not present
-  scale: [ 0, 4, 8, 16, 32 ],
+  scale: [0, 4, 8, 16, 32],
   // Optional prop alias
   alias: 'fs',
 })
@@ -624,11 +612,7 @@ const Text = styled.div`
 `
 
 // with a `theme.shadows` array
-const App = props => (
-  <Text fontSize={3}>
-    Hello
-  </Text>
-)
+const App = props => <Text fontSize={3}>Hello</Text>
 ```
 
 ### variant
@@ -640,14 +624,14 @@ import styled from 'styled-components'
 import { variant } from 'styled-system'
 
 const cardStyle = variant({
-  key: 'cards'
+  key: 'cards',
 })
 
 const Card = styled.div`
   ${cardStyle}
 `
 Card.defaultProps = {
-  variant: 'normal'
+  variant: 'normal',
 }
 // <Card variant='large' />
 ```
@@ -662,7 +646,7 @@ If no theme is provided, styled-system uses smart defaults for breakpoints.
 
 ```js
 // Default Breakpoints
-const breakpoints = [ '40em', '52em', '64em' ]
+const breakpoints = ['40em', '52em', '64em']
 // @media screen and (min-width: 40em)
 // @media screen and (min-width: 52em)
 // @media screen and (min-width: 64em)

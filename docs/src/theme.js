@@ -46,7 +46,7 @@ const colors = {
       gray: '#c0c',
       lightgray: '#e0e',
     },
-  }
+  },
 }
 
 export default {
@@ -55,9 +55,7 @@ export default {
     body: 'system-ui, sans-serif',
     monospace: 'Menlo, monospace',
   },
-  fontSizes: [
-    12, 14, 16, 18, 24, 32, 48, 64, 72
-  ],
+  fontSizes: [12, 14, 16, 18, 24, 32, 48, 64, 72],
   lineHeights: {
     body: 1.75,
     heading: 1.25,
@@ -68,10 +66,10 @@ export default {
       color: 'primary',
       '&:hover': {
         color: 'secondary',
-      }
+      },
     },
     p: {
-      fontSize: [ 2, 3 ],
+      fontSize: [2, 3],
     },
     h1: {
       fontSize: [5, 6],
@@ -79,7 +77,7 @@ export default {
       a: {
         color: 'inherit',
         textDecoration: 'none',
-      }
+      },
     },
     h2: {
       fontSize: [4, 5],
@@ -87,7 +85,7 @@ export default {
       a: {
         color: 'inherit',
         textDecoration: 'none',
-      }
+      },
     },
     h3: {
       fontSize: 3,
@@ -95,7 +93,7 @@ export default {
       a: {
         color: 'inherit',
         textDecoration: 'none',
-      }
+      },
     },
     h4: {
       fontSize: 2,
@@ -103,7 +101,7 @@ export default {
       a: {
         color: 'inherit',
         textDecoration: 'none',
-      }
+      },
     },
     h5: {
       fontSize: 1,
@@ -111,7 +109,7 @@ export default {
       a: {
         color: 'inherit',
         textDecoration: 'none',
-      }
+      },
     },
     h6: {
       fontSize: 0,
@@ -119,7 +117,7 @@ export default {
       a: {
         color: 'inherit',
         textDecoration: 'none',
-      }
+      },
     },
     pre: {
       fontFamily: 'monospace',
@@ -142,7 +140,7 @@ export default {
       ul: {
         // pl: 2
         // textIndent: '1em',
-      }
+      },
     },
     table: {
       width: '100%',
@@ -160,7 +158,7 @@ export default {
       paddingLeft: 0,
       borderColor: 'inherit',
       borderBottomWidth: '2px',
-      borderBottomStyle: 'solid'
+      borderBottomStyle: 'solid',
     },
     td: {
       textAlign: 'left',
@@ -171,7 +169,7 @@ export default {
       paddingLeft: 0,
       borderColor: 'inherit',
       borderBottomWidth: '1px',
-      borderBottomStyle: 'solid'
+      borderBottomStyle: 'solid',
     },
     hr: {
       border: 0,
@@ -187,6 +185,6 @@ export default {
       color: 'text',
       bg: 'background',
     },
-    main: {}
-  }
+    main: {},
+  },
 }

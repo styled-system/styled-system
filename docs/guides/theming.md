@@ -1,9 +1,8 @@
-
 # Theming
 
 Theming is an aspect of web application development that can be difficult to abstract.
 Every application has its own needs and Styled System is intended to be extremely flexible
-for most theming concerns while guiding you to the *pit of success*.
+for most theming concerns while guiding you to the _pit of success_.
 
 Styled System follows a convention for naming fields and scales in your theme,
 but leaves the organization of those scales up to you to decide.
@@ -15,7 +14,7 @@ then expand upon that when needed.
 
 ## Scales
 
-In Styled System, the objects used in your theme are referred to as *scales*.
+In Styled System, the objects used in your theme are referred to as _scales_.
 The intent behind these scales stems from constraint-based design,
 and they are meant to make it easy to do the right thing,
 but possible to handle one-off exceptions where needed.
@@ -32,7 +31,7 @@ the value can go from `fontSize={4}` to `fontSize={5}` while still conforming to
 
 For scales that tend to have an implied order, such as font-size, margin, and padding,
 it's recommended to use an array for storing those scales.
-Arrays are intentionally limiting, making it difficult to add *in-between* sizes in the future,
+Arrays are intentionally limiting, making it difficult to add _in-between_ sizes in the future,
 so be sure you have a good scale defined before using these widely in your application.
 
 One of the benefits of using arrays is the ability to use numbers that reference values on your scales.
@@ -40,11 +39,11 @@ For example, if you've added a `margin={2}` to a component in your application, 
 
 ## Aliases
 
-For *in-between* sizes that do become part of your design system, you can consider creating aliases to avoid major breaking changes.
+For _in-between_ sizes that do become part of your design system, you can consider creating aliases to avoid major breaking changes.
 For example, if you've defined `fontSizes` as an array, but would like to add a new value in at a later time, using JavaScript you can add a key to the array like this:
 
 ```js
-const fontSizes = [ 12, 14, 16, 20, 24, 32, 48 ]
+const fontSizes = [12, 14, 16, 20, 24, 32, 48]
 
 // aliased in-between value
 fontSizes.lede = 18
@@ -96,7 +95,7 @@ If you need to make the blue "just a little darker", it becomes a matter of incr
 
 ```jsx
 // Example using dot notation
-<Box color='blue.3' />
+<Box color="blue.3" />
 ```
 
 ## Mapping Values
@@ -136,4 +135,3 @@ Since the Styled System theme object is a plain object, you can extend the theme
 For example, if you have standard sizes for something like an avatar image that differ from other sizes used in your application,
 it might make sense to add those values as a scale to your theme.
 And remember, you can create [custom styled props](/custom-props) that map to any key in the theme.
-

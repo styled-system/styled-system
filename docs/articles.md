@@ -1,4 +1,3 @@
-
 # Articles
 
 - [Component Based Design System With Styled-System](https://varun.ca/styled-system/)
@@ -6,4 +5,3 @@
 - [Building a beautiful, reusable button with Styled System](https://johno.com/styled-system-button)
 - [Defining Component APIs in React](http://jxnblk.com/blog/defining-component-apis-in-react/)
 - [The Three Tenets of Styled System](https://jxnblk.com/blog/the-three-tenets-of-styled-system/)
-

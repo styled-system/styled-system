@@ -1,8 +1,4 @@
-import {
-  createStyleFunction,
-  createParser,
-  system,
-} from '@styled-system/core'
+import { createStyleFunction, createParser, system } from '@styled-system/core'
 import { variant } from '@styled-system/variant'
 
 export {
@@ -144,7 +140,7 @@ export const boxShadow = system({
   boxShadow: {
     property: 'boxShadow',
     scale: 'shadows',
-  }
+  },
 })
 
 export const opacity = system({ opacity: true })

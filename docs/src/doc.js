@@ -21,10 +21,5 @@ export default props => {
   const { code } = props.data.mdx
   const children = <MDXRenderer children={code.body} />
 
-  return (
-    <Layout
-      {...props}
-      children={children}
-    />
-  )
+  return <Layout {...props} children={children} />
 }

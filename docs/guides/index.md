@@ -1,4 +1,3 @@
-
 # Guides
 
 - [Build a Box](/guides/build-a-box)

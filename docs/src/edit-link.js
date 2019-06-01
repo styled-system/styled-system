@@ -11,14 +11,14 @@ const getHREF = location => {
 
 export default () => (
   <Location>
-    {({location}) => (
+    {({ location }) => (
       <a
         href={getHREF(location)}
         css={css({
           display: 'inline-block',
           color: 'inherit',
           fontSize: 1,
-          my: 4
+          my: 4,
         })}
       >
         Edit this page on GitHub

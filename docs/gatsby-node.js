@@ -12,10 +12,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   })
 }
 
-exports.createPages = async ({
-  graphql,
-  actions,
-}) => {
+exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(`
     {
       allMdx {

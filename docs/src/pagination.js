@@ -11,7 +11,7 @@ const flattenLinks = children =>
     if (!child.props || !child.props.children) return acc
     return React.Children.toArray([
       ...acc,
-      ...flattenLinks(child.props.children)
+      ...flattenLinks(child.props.children),
     ])
   }, [])
 
@@ -26,15 +26,16 @@ const removeHash = str => {
 
 export default () => (
   <Location
-    children={({location}) => {
+    children={({ location }) => {
       return (
         <Sidebar
           components={{
-            wrapper: PaginationWrapper
+            wrapper: PaginationWrapper,
           }}
           render={links => {
             const index = links.findIndex(
-              link => removeHash(link.props.href) === removeSlash(location.pathname)
+              link =>
+                removeHash(link.props.href) === removeSlash(location.pathname)
             )
             const hasPagination = index > -1
             const previous = links[index - 1]
@@ -50,17 +51,17 @@ export default () => (
                       fontWeight: 'bold',
                       fontSize: [2, 3],
                       '&:hover': {
-                        color: 'primary'
-                      }
-                    }
-                  }
+                        color: 'primary',
+                      },
+                    },
+                  },
                 }}
               >
                 <div
                   css={css({
                     display: 'flex',
                     justifyContent: 'space-between',
-                    py: 5
+                    py: 5,
                   })}
                 >
                   {hasPagination &&
@@ -71,7 +72,7 @@ export default () => (
                       <div>
                         <div
                           css={css({
-                            fontSize: 0
+                            fontSize: 0,
                           })}
                         >
                           Previous:
@@ -79,7 +80,7 @@ export default () => (
                         {previous.props.children}
                       </div>
                     )}
-                  <div css={{margin: 'auto'}} />
+                  <div css={{ margin: 'auto' }} />
                   {hasPagination &&
                     next &&
                     React.cloneElement(
@@ -88,7 +89,7 @@ export default () => (
                       <div>
                         <div
                           css={css({
-                            fontSize: 0
+                            fontSize: 0,
                           })}
                         >
                           Next:

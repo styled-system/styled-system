@@ -1,4 +1,3 @@
-
 # Migrating to v5
 
 While the internal implementation of Styled System was completely refactored in version 5,
@@ -44,11 +43,7 @@ For example, with v4 to add `width`, `height`, `display`, and other layout props
 
 ```js
 // version 4
-const Box = styled('div')(
-  width,
-  height,
-  display
-)
+const Box = styled('div')(width, height, display)
 ```
 
 In version 5, built-in styles are grouped, and the above can be replaced with:
@@ -60,20 +55,19 @@ const Box = styled('div')(layout)
 
 This API was inspired by [GitHub Primer][] and includes the following categories:
 
-Module        | Style Props
---------------|---------------
-`space`       | `margin`, `marginTop`, `marginRight`, `marginBottom`, `marginLeft`, `marginX`, `marginY`, `padding`, `paddingTop`, `paddingRight`, `paddingBottom`, `paddingLeft`, `paddingX`, `paddingY`, `m`, `mt`, `mr`, `mb`, `ml`, `mx`, `my`, `p`, `pt`, `pr`, `pb`, `pl`, `px`, `py`,
-`color`       | `color`, `backgroundColor`, `bg`
-`layout`      | `width`, `height`, `minWidth`, `minHeight`, `maxWidth`, `maxHeight`, `display`, `verticalAlign`, `size`
-`typography`  | `fontSize`, `fontWeight`, `lineHeight`, `letterSpacing`, `fontStyle`, `textAlign`
-`flexbox`     | `alignItems`, `alignContent`, `justifyItems`, `justifyContent`, `flexWrap`, `flexDirection`, `flex`, `flexGrow`, `flexShrink`, `flexBasis`, `justifySelf`, `alignSelf`, `order`
-`border`      | `border`, `borderWidth`, `borderStyle`, `borderColor`, `borderRadius`, `borderTop`, `borderRight`, `borderBottom`, `borderLeft`, `borderX`, `borderY`,
-`background`  | `background`, `backgroundImage`, `backgroundSize`, `backgroundPosition`, `backgroundRepeat`
-`position`    | `position`, `zIndex`, `top`, `right`, `bottom`, `left`
-`grid`        | `gridGap`, `gridColumnGap`, `gridRowGap`, `gridColumn`, `gridRow`, `gridAutoFlow`, `gridAutoColumns`, `gridAutoRows`, `gridTemplateColumns`, `gridTemplateRows`, `gridTemplateAreas`, `gridArea`,
+| Module       | Style Props                                                                                                                                                                                                                                                                  |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `space`      | `margin`, `marginTop`, `marginRight`, `marginBottom`, `marginLeft`, `marginX`, `marginY`, `padding`, `paddingTop`, `paddingRight`, `paddingBottom`, `paddingLeft`, `paddingX`, `paddingY`, `m`, `mt`, `mr`, `mb`, `ml`, `mx`, `my`, `p`, `pt`, `pr`, `pb`, `pl`, `px`, `py`, |
+| `color`      | `color`, `backgroundColor`, `bg`                                                                                                                                                                                                                                             |
+| `layout`     | `width`, `height`, `minWidth`, `minHeight`, `maxWidth`, `maxHeight`, `display`, `verticalAlign`, `size`                                                                                                                                                                      |
+| `typography` | `fontSize`, `fontWeight`, `lineHeight`, `letterSpacing`, `fontStyle`, `textAlign`                                                                                                                                                                                            |
+| `flexbox`    | `alignItems`, `alignContent`, `justifyItems`, `justifyContent`, `flexWrap`, `flexDirection`, `flex`, `flexGrow`, `flexShrink`, `flexBasis`, `justifySelf`, `alignSelf`, `order`                                                                                              |
+| `border`     | `border`, `borderWidth`, `borderStyle`, `borderColor`, `borderRadius`, `borderTop`, `borderRight`, `borderBottom`, `borderLeft`, `borderX`, `borderY`,                                                                                                                       |
+| `background` | `background`, `backgroundImage`, `backgroundSize`, `backgroundPosition`, `backgroundRepeat`                                                                                                                                                                                  |
+| `position`   | `position`, `zIndex`, `top`, `right`, `bottom`, `left`                                                                                                                                                                                                                       |
+| `grid`       | `gridGap`, `gridColumnGap`, `gridRowGap`, `gridColumn`, `gridRow`, `gridAutoFlow`, `gridAutoColumns`, `gridAutoRows`, `gridTemplateColumns`, `gridTemplateRows`, `gridTemplateAreas`, `gridArea`,                                                                            |
 
 [github primer]: https://primer.style/components/docs/system-props
-
 
 ### Compose
 
@@ -82,10 +76,7 @@ This will help ensure the best performance possible.
 
 ```js
 // v4
-const Box = styled('div')(
-  space,
-  color
-)
+const Box = styled('div')(space, color)
 ```
 
 ```js
@@ -106,9 +97,7 @@ While the `style` utility from v4 should continue to work as expected, you can t
 const transition = styled({
   prop: 'transition',
 })
-const Box = styled('div')(
-  transition,
-)
+const Box = styled('div')(transition)
 ```
 
 ```js

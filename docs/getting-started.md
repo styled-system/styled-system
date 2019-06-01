@@ -1,9 +1,8 @@
-
 # Getting Started
 
 Styled-system is a collection of utility functions that add style props
 to your React components
-and allows you to control styles based on global theme constants or *[design tokens][]*.
+and allows you to control styles based on global theme constants or _[design tokens][]_.
 
 To use Styled System, install a CSS-in-JS library such as [Styled Components][] or [Emotion][].
 
@@ -31,7 +30,7 @@ Now, this component will have two style props available: `color` to set foregrou
 (You can also use `backgroundColor` if you're adverse to terse naming conventions.)
 
 ```jsx
-<Box color='#fff' bg='tomato'>
+<Box color="#fff" bg="tomato">
   Tomato
 </Box>
 ```
@@ -46,8 +45,8 @@ export default {
     black: '#000e1a',
     white: '#fff',
     blue: '#007ce0',
-    navy: '#004175'
-  }
+    navy: '#004175',
+  },
 }
 ```
 
@@ -62,20 +61,18 @@ import { ThemeProvider } from 'styled-components'
 import theme from './theme'
 
 const App = props => (
-  <ThemeProvider theme={theme}>
-    {/* application elements */}
-  </ThemeProvider>
+  <ThemeProvider theme={theme}>{/* application elements */}</ThemeProvider>
 )
 
 export default App
 ```
 
-[ThemeProvider]: https://www.styled-components.com/docs/advanced#theming
+[themeprovider]: https://www.styled-components.com/docs/advanced#theming
 
 With the ThemeProvider added, the Box component now has access to the colors defined in the theme object.
 
 ```jsx
-<Box color='black' bg='blue'>
+<Box color="black" bg="blue">
   Blue Box
 </Box>
 ```
@@ -84,7 +81,7 @@ Styled-system will attempt to find a value based on keys in the theme and fallba
 
 ```jsx
 // this example uses the CSS color keyword `tomato` since it's not defined in the theme
-<Box bg='tomato' />
+<Box bg="tomato" />
 ```
 
 To make the Box component a little more useful, add a few more Styled System functions
@@ -107,9 +104,10 @@ If you prefer using the plain object syntax, you can pass Styled System function
 
 ```js
 // example using object syntax
-const Box = styled('div')({
-  boxSizing: 'border-box',
-},
+const Box = styled('div')(
+  {
+    boxSizing: 'border-box',
+  },
   space,
   layout,
   color
@@ -157,9 +155,7 @@ It's recommended to set `0` as the first value in the array.
 ```js
 // theme.js
 export default {
-  space: [
-    0, 4, 8, 16, 32, 64, 128, 256, 512
-  ]
+  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
 }
 ```
 
@@ -171,7 +167,6 @@ All spacing props accept numbers, strings, or arrays as values, where:
 - Margin props accept negative values to set negative margin
 - Arrays can be used for [responsive styles](#responsive-styles)
 - Note: numeric strings without a CSS unit will be used as indices for the array (e.g. `space['0']`)
-
 
 ## Layout
 
@@ -186,7 +181,6 @@ The `width` prop accepts number, string, or array values, where:
 - Arrays can be used for [responsive styles](#responsive-styles)
 - If an array is used to define `theme.sizes`, `width={0}` will return `theme.sizes[0]` and `width={1}` will return `theme.sizes[1]`
 
-
 ## Responsive Styles
 
 All Styled System functions accept arrays as values to set styles responsively using a mobile-first approach.
@@ -194,9 +188,9 @@ All Styled System functions accept arrays as values to set styles responsively u
 ```jsx
 <Box
   width={[
-    1,    // 100% below the smallest breakpoint (all viewports)
-    1/2,  // 50% from the next breakpoint and up
-    1/4   // 25% from the next breakpoint and up
+    1, // 100% below the smallest breakpoint (all viewports)
+    1 / 2, // 50% from the next breakpoint and up
+    1 / 4, // 25% from the next breakpoint and up
   ]}
 />
 ```
@@ -218,7 +212,6 @@ Read the [Responsive Styles][] docs for more information.
 
 Styled System includes pre-built functions for many other commonly used CSS properties.
 For a complete list, see the [Reference Table][] of style functions.
-
 
 [styled components]: https://github.com/styled-components/styled-components
 [emotion]: https://github.com/emotion-js/emotion
