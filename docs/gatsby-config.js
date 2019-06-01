@@ -1,4 +1,7 @@
 const remarkPlugins = [require('remark-slug'), require('remark-unwrap-images')]
+const gatsbyRemarkPlugins = [
+  'gatsby-remark-prismjs',
+]
 
 module.exports = {
   siteMetadata: {
@@ -61,7 +64,6 @@ module.exports = {
       'Works with most CSS-in-JS libraries, including styled-components and emotion',
     ],
   },
-  __experimentalThemes: [],
   plugins: [
     'gatsby-plugin-emotion',
     'gatsby-plugin-react-helmet',
@@ -74,10 +76,11 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-mdx',
+      resolve: 'gatsby-plugin-mdx',
       options: {
         extensions: ['.md', '.mdx'],
         remarkPlugins,
+        gatsbyRemarkPlugins,
       },
     },
     {

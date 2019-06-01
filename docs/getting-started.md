@@ -15,7 +15,7 @@ npm i styled-system styled-components
 Create a new component that uses style functions from Styled System.
 To start with, add the `color` function to the component's styles argument.
 
-```js
+```javascript
 import styled from 'styled-components'
 import { color } from 'styled-system'
 

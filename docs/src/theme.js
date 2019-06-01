@@ -3,8 +3,10 @@ const colors = {
   background: '#fff',
   primary: '#00f',
   secondary: '#00a',
+  highlight: '#c0f',
   gray: '#eee',
   lightgray: '#fafafa',
+  midgray: '#777',
   modes: {
     dark: {
       text: '#fff',
@@ -49,6 +51,66 @@ const colors = {
   },
 }
 
+const prism = {
+  [[
+    '.comment',
+    '.prolog',
+    '.doctype',
+    '.cdata',
+  ]]: {
+    color: 'midgray'
+  },
+  '.punctuation': {
+    color: 'midgray',
+  },
+  [[
+    '.property',
+    '.tag',
+    '.constant',
+    '.symbol',
+    '.deleted',
+  ]]: {
+    color: 'primary',
+  },
+  [[
+    '.boolean',
+    '.number',
+  ]]: {
+    color: 'secondary',
+  },
+  [[
+    '.selector',
+    '.attr-name',
+    '.string',
+    '.char',
+    '.builtin',
+    '.inserted',
+  ]]: {
+    color: 'highlight',
+  },
+  [[
+    '.operator',
+    '.entity',
+    '.url',
+    '.string',
+    '.variable',
+  ]]: {
+    color: 'highlight',
+  },
+  [[
+    '.atrule',
+    '.attr-value',
+    '.function',
+  ]]: {
+    color: 'primary',
+  },
+  '.keyword': {
+    color: 'primary',
+  },
+  '.regex': {},
+  '.important': {},
+}
+
 export default {
   colors,
   fonts: {
@@ -60,7 +122,6 @@ export default {
     body: 1.75,
     heading: 1.25,
   },
-  // base component styles
   styles: {
     a: {
       color: 'primary',
@@ -125,11 +186,11 @@ export default {
       my: 3,
       bg: 'lightgray',
       overflowX: 'auto',
+      ...prism,
     },
     code: {
       fontFamily: 'monospace',
       fontSize: 14,
-      color: 'secondary',
     },
     inlineCode: {
       fontFamily: 'monospace',
