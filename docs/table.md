@@ -1,67 +1,97 @@
 # Table of Style Functions
 
-## Core
+Styled System is organized into categories of style props.
+Each function provides the following props and maps to scales defined in a theme.
 
-| Function Name | Prop                    | CSS Property                       | Theme Field |
-| ------------- | ----------------------- | ---------------------------------- | ----------- |
-| `space`       | `m`, `margin`           | `margin`                           | `space`     |
-| `space`       | `mt`, `marginTop`       | `margin-top`                       | `space`     |
-| `space`       | `mr`, `marginRight`     | `margin-right`                     | `space`     |
-| `space`       | `mb`, `marginBottom`    | `margin-bottom`                    | `space`     |
-| `space`       | `ml`, `marginLeft`      | `margin-left`                      | `space`     |
-| `space`       | `mx`                    | `margin-left` and `margin-right`   | `space`     |
-| `space`       | `my`                    | `margin-top` and `margin-bottom`   | `space`     |
-| `space`       | `p`, `padding`          | `padding`                          | `space`     |
-| `space`       | `pt`, `paddingTop`      | `padding-top`                      | `space`     |
-| `space`       | `pr`, `paddingRight`    | `padding-right`                    | `space`     |
-| `space`       | `pb`, `paddingBottom`   | `padding-bottom`                   | `space`     |
-| `space`       | `pl`, `paddingLeft`     | `padding-left`                     | `space`     |
-| `space`       | `px`                    | `padding-left` and `padding-right` | `space`     |
-| `space`       | `py`                    | `padding-top` and `padding-bottom` | `space`     |
-| `color`       | `color`                 | `color`                            | `colors`    |
-| `color`       | `bg`, `backgroundColor` | `background-color`                 | `colors`    |
+## Space
+
+```js
+import { space } from 'styled-system'
+```
+
+Prop                    | CSS Property                       | Theme Field |
+----------------------- | ---------------------------------- | ----------- |
+`m`, `margin`           | `margin`                           | `space`     |
+`mt`, `marginTop`       | `margin-top`                       | `space`     |
+`mr`, `marginRight`     | `margin-right`                     | `space`     |
+`mb`, `marginBottom`    | `margin-bottom`                    | `space`     |
+`ml`, `marginLeft`      | `margin-left`                      | `space`     |
+`mx`                    | `margin-left` and `margin-right`   | `space`     |
+`my`                    | `margin-top` and `margin-bottom`   | `space`     |
+`p`, `padding`          | `padding`                          | `space`     |
+`pt`, `paddingTop`      | `padding-top`                      | `space`     |
+`pr`, `paddingRight`    | `padding-right`                    | `space`     |
+`pb`, `paddingBottom`   | `padding-bottom`                   | `space`     |
+`pl`, `paddingLeft`     | `padding-left`                     | `space`     |
+`px`                    | `padding-left` and `padding-right` | `space`     |
+`py`                    | `padding-top` and `padding-bottom` | `space`     |
+
+## Color
+
+```js
+import { color } from 'styled-system'
+```
+
+Prop                    | CSS Property                       | Theme Field |
+----------------------- | ---------------------------------- | ----------- |
+`color`                 | `color`                            | `colors`    |
+`bg`, `backgroundColor` | `background-color`                 | `colors`    |
 
 ## Typography
 
-| Function Name   | Prop            | CSS Property     | Theme Field      |
-| --------------- | --------------- | ---------------- | ---------------- |
-| `fontSize`      | `fontSize`      | `font-size`      | `fontSizes`      |
-| `fontFamily`    | `fontFamily`    | `font-family`    | `fonts`          |
-| `textAlign`     | `textAlign`     | `text-align`     | none             |
-| `lineHeight`    | `lineHeight`    | `line-height`    | `lineHeights`    |
-| `fontWeight`    | `fontWeight`    | `font-weight`    | `fontWeights`    |
-| `fontStyle`     | `fontStyle`     | `font-style`     | none             |
-| `letterSpacing` | `letterSpacing` | `letter-spacing` | `letterSpacings` |
+```js
+import { typography } from 'styled-system'
+```
+
+Prop            | CSS Property     | Theme Field      |
+--------------- | ---------------- | ---------------- |
+`fontFamily`    | `font-family`    | `fonts`          |
+`fontSize`      | `font-size`      | `fontSizes`      |
+`fontWeight`    | `font-weight`    | `fontWeights`    |
+`lineHeight`    | `line-height`    | `lineHeights`    |
+`letterSpacing` | `letter-spacing` | `letterSpacings` |
+`textAlign`     | `text-align`     | none             |
+`fontStyle`     | `font-style`     | none             |
 
 ## Layout
 
-| Function Name   | Prop            | CSS Property     | Theme Field |
-| --------------- | --------------- | ---------------- | ----------- |
-| `display`       | `display`       | `display`        | none        |
-| `width`         | `width`         | `width`          | `sizes`     |
-| `height`        | `height`        | `height`         | `sizes`     |
-| `maxWidth`      | `maxWidth`      | `max-width`      | `sizes`     |
-| `minWidth`      | `minWidth`      | `min-width`      | `sizes`     |
-| `maxHeight`     | `maxHeight`     | `max-height`     | `sizes`     |
-| `minHeight`     | `minHeight`     | `min-height`     | `sizes`     |
-| `size`          | `size`          | `width` `height` | `sizes`     |
-| `verticalAlign` | `verticalAlign` | `vertical-align` | none        |
+```js
+import { layout } from 'styled-system'
+```
+
+Prop            | CSS Property     | Theme Field |
+--------------- | ---------------- | ----------- |
+`width`         | `width`          | `sizes`     |
+`height`        | `height`         | `sizes`     |
+`minWidth`      | `min-width`      | `sizes`     |
+`maxWidth`      | `max-width`      | `sizes`     |
+`minHeight`     | `min-height`     | `sizes`     |
+`maxHeight`     | `max-height`     | `sizes`     |
+`size`          | `width` `height` | `sizes`     |
+`display`       | `display`        | none        |
+`verticalAlign` | `vertical-align` | none        |
 
 ## Flexbox
 
-| Function Name    | Prop             | CSS Property       | Theme Field |
-| ---------------- | ---------------- | ------------------ | ----------- |
-| `alignItems`     | `alignItems`     | `align-items`      | none        |
-| `justifyContent` | `justifyContent` | `justify-content`  | none        |
-| `flexWrap`       | `flexWrap`       | `flex-wrap`        | none        |
-| `flexDirection`  | `flexDirection`  | `flex-direction`   | none        |
-| `flex`           | `flex`           | `flex` (shorthand) | none        |
-| `alignContent`   | `alignContent`   | `align-content`    | none        |
-| `justifyItems`   | `justifyItems`   | `justify-items`    | none        |
-| `justifySelf`    | `justifySelf`    | `justify-self`     | none        |
-| `alignSelf`      | `alignSelf`      | `align-self`       | none        |
-| `order`          | `order`          | `order`            | none        |
-| `flexBasis`      | `flexBasis`      | `flex-basis`       | none        |
+```js
+import { flexbox } from 'styled-system'
+```
+
+Prop              | CSS Property       | Theme Field |
+------------------| ------------------ | ----------- |
+`alignItems`      | `align-items`      | none        |
+`alignContent`    | `align-content`    | none        |
+`justifyItems`    | `justify-items`    | none        |
+`justifyContent`  | `justify-content`  | none        |
+`flexWrap`        | `flex-wrap`        | none        |
+`flexDirection`   | `flex-direction`   | none        |
+`flex`            | `flex` (shorthand) | none        |
+`flexGrow`        | `flex-grow`         | none
+`flexShrink`        | `flex-shrink`         | none
+`flexBasis`        | `flex-basis`         | none
+`justifySelf`     | `justify-self`     | none        |
+`alignSelf`       | `align-self`       | none        |
+`order`           | `order`            | none        |
 
 ## Grid Layout
 

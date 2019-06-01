@@ -6,6 +6,10 @@ const defaults = {
 }
 
 const config = {
+  fontFamily: {
+    property: 'fontFamily',
+    scale: 'fonts',
+  },
   fontSize: {
     property: 'fontSize',
     scale: 'fontSizes',
@@ -23,8 +27,8 @@ const config = {
     property: 'letterSpacing',
     scale: 'letterSpacings',
   },
-  fontStyle: true,
   textAlign: true,
+  fontStyle: true,
 }
 
 export const typography = system(config)

@@ -30,8 +30,6 @@ const config = {
     property: 'maxHeight',
     scale: 'sizes',
   },
-  display: true,
-  verticalAlign: true,
   size: {
     properties: [
       'width',
@@ -39,6 +37,8 @@ const config = {
     ],
     scale: 'sizes'
   },
+  display: true,
+  verticalAlign: true,
 }
 
 export const layout = system(config)
