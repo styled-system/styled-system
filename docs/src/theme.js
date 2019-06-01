@@ -130,9 +130,6 @@ export default {
         color: 'secondary',
       },
     },
-    p: {
-      fontSize: [2, 3],
-    },
     h1: {
       fontSize: [5, 6],
       lineHeight: 'heading',
@@ -183,6 +180,7 @@ export default {
     },
     pre: {
       fontFamily: 'monospace',
+      fontSize: 1,
       p: 3,
       my: 3,
       bg: 'lightgray',
@@ -191,11 +189,12 @@ export default {
     },
     code: {
       fontFamily: 'monospace',
-      fontSize: 14,
+      // fontSize: '87.5%',
     },
     inlineCode: {
       fontFamily: 'monospace',
       color: 'secondary',
+      fontSize: '87.5%',
     },
     ul: {
       pl: 3,
@@ -238,15 +237,5 @@ export default {
       borderBottom: '1px solid',
       borderColor: 'lightgray',
     },
-  },
-  // block variants
-  layout: {
-    root: {},
-    header: {},
-    sidebar: {
-      color: 'text',
-      bg: 'background',
-    },
-    main: {},
   },
 }

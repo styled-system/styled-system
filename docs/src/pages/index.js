@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Box, Styled } from 'theme-ui'
+import { Box, Styled, css } from 'theme-ui'
 import Layout from '../layout'
 import { Header, Container } from '../layout'
 import NavLink from '../nav-link'
@@ -43,21 +43,6 @@ const Columns = props => (
   />
 )
 
-const sandbox = (
-  <iframe
-    title="sandbox"
-    src="https://codesandbox.io/embed/github/jxnblk/styled-system/tree/master/examples/basic"
-    style={{
-      width: '100%',
-      height: '500px',
-      border: 0,
-      borderRadius: '4px',
-      overflow: 'hidden',
-    }}
-    sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
-  />
-)
-
 const Banner = ({ meta }) => (
   <>
     <Container py={5}>
@@ -79,15 +64,14 @@ const Banner = ({ meta }) => (
         <NavLink href="https://github.com/styled-system/styled-system" mr={3}>
           GitHub
         </NavLink>
-        <Box
-          as="pre"
+        <Styled.pre
           px={0}
-          fontFamily="monospace"
-          color="inherit"
-          backgroundColor="transparent"
-        >
+          css={css({
+            color: 'inherit',
+            bg: 'transparent',
+          })}>
           npm i styled-system
-        </Box>
+        </Styled.pre>
       </Box>
     </Container>
     <Container>
@@ -99,10 +83,11 @@ const Banner = ({ meta }) => (
               key={feature}
               as="li"
               width={[1, 1 / 2]}
-              p={2}
-              fontSize={3}
-              fontWeight="bold"
-            >
+              css={css({
+                p: 3,
+                fontSize: 3,
+                fontWeight: 'bold',
+              })}>
               {feature}
             </Box>
           ))}
@@ -114,27 +99,21 @@ const Banner = ({ meta }) => (
       <Columns mx={-3} py={4}>
         {meta.quotes.map(quote => (
           <Box as="li" width={[1, 1 / 2]} p={3} key={quote.text} mb={0}>
-            <Box as="blockquote" fontSize={3} fontWeight="bold" m={0}>
+            <Box as="blockquote"
+              css={css({
+                fontSize: 3,
+                fontWeight: 'bold',
+                m: 0,
+              })}>
               “{quote.text}”
             </Box>
             <Styled.a href={quote.href}>– {quote.source}</Styled.a>
           </Box>
         ))}
       </Columns>
-      <Box py={4}
-        css={{
-          textAlign: 'center',
-          img: {
-            maxWidth: 128,
-            height: 'auto',
-            maxHeight: 64,
-            filter: 'grayscale(100%)',
-            margin: 32,
-          }
-        }}>
+      <Box py={4}>
         <Logos />
       </Box>
-      {sandbox}
     </Container>
   </>
 )

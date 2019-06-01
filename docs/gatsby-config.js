@@ -1,6 +1,15 @@
 const remarkPlugins = [require('remark-slug'), require('remark-unwrap-images')]
 const gatsbyRemarkPlugins = [
-  'gatsby-remark-prismjs',
+  {
+    resolve: 'gatsby-remark-prismjs',
+    options: {
+      aliases: {
+        sh: 'bash',
+        js: 'javascript',
+      },
+      noInlineHighlight: true,
+    }
+  }
 ]
 
 module.exports = {
@@ -66,6 +75,7 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-emotion',
+    'gatsby-plugin-theme-ui',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',

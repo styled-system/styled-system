@@ -4,7 +4,6 @@ import { Helmet } from 'react-helmet'
 import { Global } from '@emotion/core'
 import { ThemeProvider, ColorMode, css } from 'theme-ui'
 import components from './components'
-import theme from './theme'
 
 const style = (
   <Global
@@ -46,9 +45,7 @@ const Root = props => {
 
   return (
     <Context.Provider value={context}>
-      <ThemeProvider components={components} theme={theme}>
-        <ColorMode />
-        {style}
+      <ThemeProvider components={components}>
         {props.children}
       </ThemeProvider>
     </Context.Provider>
@@ -73,6 +70,7 @@ const Page = props => {
         />
         <link rel='icon' type='image/png' href='logo.png' />
       </Helmet>
+      {style}
       {props.children}
     </>
   )
