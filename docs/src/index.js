@@ -71,6 +71,7 @@ const Page = props => {
           name="twitter:image"
           content="https://styled-system.com/logo.png"
         />
+        <link rel='icon' type='image/png' href='logo.png' />
       </Helmet>
       {props.children}
     </>
