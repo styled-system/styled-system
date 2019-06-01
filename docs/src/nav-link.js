@@ -8,6 +8,7 @@ export default props => (
     css={theme =>
       css({
         display: 'block',
+        fontSize: 1,
         fontWeight: 'bold',
         textDecoration: 'none',
         color: 'inherit',
