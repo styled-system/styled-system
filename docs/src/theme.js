@@ -112,6 +112,7 @@ const prism = {
 }
 
 export default {
+  initialColorMode: 'light',
   colors,
   fonts: {
     body: 'system-ui, sans-serif',
