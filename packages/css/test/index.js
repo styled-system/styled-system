@@ -5,9 +5,7 @@ const theme = {
     primary: 'tomato',
     secondary: 'cyan',
   },
-  fontSizes: [
-    12, 14, 16, 24, 36
-  ],
+  fontSizes: [12, 14, 16, 24, 36],
   fonts: {
     monospace: 'Menlo, monospace',
   },
@@ -28,15 +26,15 @@ const theme = {
   },
   text: {
     caps: {
-      fontSize: [ 1, 2 ],
+      fontSize: [1, 2],
       letterSpacing: '0.1em',
       textTransform: 'uppercase',
     },
     title: {
-      fontSize: [ 3, 4 ],
-      letterSpacing: [ '-0.01em', '-0.02em']
+      fontSize: [3, 4],
+      letterSpacing: ['-0.01em', '-0.02em'],
     },
-  }
+  },
 }
 
 test('returns a function', () => {
@@ -65,7 +63,7 @@ test('returns styles', () => {
 test('returns system props styles', () => {
   const result = css({
     color: 'primary',
-    fontSize: [ 2, 3, 4]
+    fontSize: [2, 3, 4],
   })({ theme })
   expect(result).toEqual({
     fontSize: 16,
@@ -84,13 +82,13 @@ test('returns nested system props styles', () => {
     color: 'primary',
     '&:hover': {
       color: 'secondary',
-    }
+    },
   })({ theme })
   expect(result).toEqual({
     color: 'tomato',
     '&:hover': {
       color: 'cyan',
-    }
+    },
   })
 })
 
@@ -99,7 +97,7 @@ test('returns nested responsive styles', () => {
     color: 'primary',
     h1: {
       py: [3, 4],
-    }
+    },
   })({ theme })
   expect(result).toEqual({
     color: 'tomato',
@@ -109,8 +107,8 @@ test('returns nested responsive styles', () => {
       '@media screen and (min-width: 40em)': {
         paddingTop: 32,
         paddingBottom: 32,
-      }
-    }
+      },
+    },
   })
 })
 
@@ -199,7 +197,7 @@ test('handles variants with responsive values', () => {
     textTransform: 'uppercase',
     '@media screen and (min-width: 40em)': {
       fontSize: 16,
-    }
+    },
   })
 })
 
@@ -213,7 +211,7 @@ test('handles responsive variants', () => {
     '@media screen and (min-width: 40em)': {
       fontSize: 36,
       letterSpacing: '-0.02em',
-    }
+    },
   })
 })
 
