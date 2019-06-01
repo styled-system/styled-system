@@ -169,11 +169,11 @@ import { position } from 'styled-system'
 import { textStyle, colorStyle, buttonStyle } from 'styled-system'
 ```
 
-| Function Name | Prop        | CSS Property | Theme Field   |
-| ------------- | ----------- | ------------ | ------------- |
-| `textStyle`   | `textStyle` | style object | `textStyles`  |
-| `colorStyle`  | `colors`    | style object | `colorStyles` |
-| `buttonStyle` | `variant`   | style object | `buttons`     |
+| Function Name | Prop        | Theme Field   |
+| ------------- | ----------- | ------------- |
+| `textStyle`   | `textStyle` | `textStyles`  |
+| `colorStyle`  | `colors`    | `colorStyles` |
+| `buttonStyle` | `variant`   | `buttons`     |
 
 ---
 

@@ -520,9 +520,8 @@ export const typography = compose(
 )
 ```
 
+<!--
 ### themeGet
-
-<div id='theme' />
 
 The `themeGet` function is an existential getter function
 that can be used in any style declaration to get a value
@@ -559,6 +558,9 @@ const Box = styled('div')(props => ({
 }))
 ```
 
+-->
+
+<!--
 ### propTypes
 
 Prop type definitions are available for each style function to add to your component's propTypes object.
@@ -576,6 +578,7 @@ Box.propTypes = {
   ...width.propTypes,
 }
 ```
+-->
 
 ---
 

@@ -1,10 +1,15 @@
 import { get, createParser } from '@styled-system/core'
 
-export const variant = ({ key, prop = 'variant' }) => {
+export const variant = ({
+  scale,
+  prop = 'variant',
+  // shim for v4 API
+  key,
+}) => {
   const sx = (value, scale) => {
     return get(scale, value, null)
   }
-  sx.scale = key
+  sx.scale = scale || key
   const config = {
     [prop]: sx,
   }

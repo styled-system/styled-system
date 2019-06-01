@@ -1,17 +1,18 @@
 # Custom Style Props
 
-To extend styled-system for other CSS properties that aren't included in the library, use the [custom utilities](/api#customize) to create your own style functions.
+To extend Styled System for other CSS properties that aren't included in the library,
+use the [custom utilities](/api#customize) to create your own style functions.
 
-All styled-system functions rely on these low-level utilities.
+All Styled System functions rely on these low-level utilities.
 
-- `style` creates a non-responsive style function
-- `variant` creates a complex style function based on style objects defined in a theme
+- `system` creates a style prop function
+- `compose` combines multiple style prop functions into one
 
-## Example Usage
+## Example
 
 ```jsx
 import styled from 'styled-components'
-import { style } from 'styled-system'
+import { system } from 'styled-system'
 
 const textDecoration = style({
   prop: 'textDecoration',
@@ -19,14 +20,60 @@ const textDecoration = style({
 })
 
 const Link = styled.a`
-  ${textDecoration}
+  ${system({
+    textDecoration: true,
+    fontWeight: {
+      property: 'fontWeight',
+      scale: 'fontWeights',
+    }
+  })}
 `
 
-Link.propTypes = {
-  ...textDecoration.propTypes,
-}
-
 export default Link
+```
+
+The `system` function accepts an object with keys that represent style props for your component.
+Each key can define the following:
+
+- `property`: the CSS property to use in the returned style object
+- `properties`: an array of multiple properties (e.g. `[ 'marginLeft', 'marginRight' ]`)
+- `scale`: a string referencing a key in the `theme` object
+- `transform`: a function to transform the raw value based on the scale
+- `defaultScale` a fallback scale object for when there isn't one defined in the `theme` object
+
+### `transform`
+
+By default, Styled System will return either a value from the theme, based on a key, or the raw value.
+To change how a style prop value is transformed, provide a custom `transform` function.
+The function takes two arguments: `(value, scale)`, where `value` is the raw prop value, and `scale` is a theme scale object or array.
+
+### Shortcut definition
+
+If your style prop does not need to pick up values from the theme and the prop matches the intended CSS property, you can use a shortcut definition in the `system` function argument.
+
+```js
+system({
+  transition: true,
+})
+```
+
+This will take the `transition` prop and translate it into a style object.
+
+## Composition
+
+To combine multiple Styled System functions in a single component, use the `compose` utility.
+
+```js
+import styled from 'styled-components'
+import { space, layout, color, compose } from 'styled-system'
+
+const Box = styled('div')(
+  compose(
+    space,
+    layout,
+    color
+  )
+)
 ```
 
 Read more in the [custom utilities docs](/api#customize).
