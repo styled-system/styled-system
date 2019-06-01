@@ -1,6 +1,6 @@
 import React from 'react'
 import { Location } from '@reach/router'
-import { SystemProvider, css } from './system'
+import { ThemeProvider, css } from 'theme-ui'
 import Sidebar from './sidebar.mdx'
 
 const flattenLinks = children =>
@@ -42,7 +42,7 @@ export default () => (
             const next = links[index + 1]
 
             return (
-              <SystemProvider
+              <ThemeProvider
                 theme={{
                   styles: {
                     a: {
@@ -98,7 +98,7 @@ export default () => (
                       </div>
                     )}
                 </div>
-              </SystemProvider>
+              </ThemeProvider>
             )
           }}
         />

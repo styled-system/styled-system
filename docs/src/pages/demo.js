@@ -2,13 +2,13 @@ import React, { useContext } from 'react'
 import { EditProvider, EditContext, ThemeControls } from '@styled-system/edit'
 import { Global } from '@emotion/core'
 import Layout from '../layout'
-import { css, SystemProvider, Styled } from '../system'
+import { css, ThemeProvider, Styled } from 'theme-ui'
 import GettingStarted from '../../getting-started.md'
 
 const WrappedProvider = props => {
   const context = useContext(EditContext)
   return (
-    <SystemProvider theme={context.state}>
+    <ThemeProvider theme={context.state}>
       <Global
         styles={theme =>
           css({
@@ -21,7 +21,7 @@ const WrappedProvider = props => {
         }
       />
       {props.children}
-    </SystemProvider>
+    </ThemeProvider>
   )
 }
 

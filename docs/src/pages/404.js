@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { Box } from '../system'
+import { Box } from 'theme-ui'
 import Logo from '../logo'
 
 export default props => (

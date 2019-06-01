@@ -3,8 +3,8 @@ import styled from '@emotion/styled'
 import { flexDirection } from 'styled-system'
 import { useAppContext } from './index'
 import NavLink from './nav-link'
-import { Box, css, block } from './system'
-import Burger from './system/burger'
+import { Box, css } from 'theme-ui'
+import Burger from './burger'
 import Sidebar from './sidebar'
 import Pagination from './pagination'
 import EditLink from './edit-link'
@@ -25,7 +25,7 @@ const HeaderRoot = styled(Box)(
       right: 0,
     },
   }),
-  block('header')
+  // block('header')
 )
 const HeaderSpacer = styled.div(
   css({
@@ -111,7 +111,7 @@ const Root = styled(Box)(
     display: 'flex',
     flexDirection: 'column',
   }),
-  block('root')
+  // block('root')
 )
 
 const Main = styled(Box)(
@@ -119,7 +119,7 @@ const Main = styled(Box)(
     display: 'flex',
   },
   flexDirection,
-  block('main')
+  // block('main')
 )
 
 const Overlay = props => (
@@ -143,7 +143,7 @@ export const Container = styled(Box)(
     mx: 'auto',
     p: 4,
   }),
-  block('main')
+  // block('main')
 )
 Container.defaultProps = {
   as: 'main',

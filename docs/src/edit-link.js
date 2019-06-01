@@ -1,6 +1,6 @@
 import React from 'react'
 import { Location } from '@reach/router'
-import css from '@styled-system/css'
+import { css } from 'theme-ui'
 
 const base = 'https://github.com/styled-system/styled-system/edit/master/docs'
 

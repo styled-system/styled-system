@@ -14,9 +14,8 @@
     "@mdx-js/react": "^1.0.16",
     "@styled-system/babel-plugin": "0.0.20",
     "@styled-system/css": "^5.0.0-7",
+    "@styled-system/edit": "^0.0.5",
     "@styled-system/should-forward-prop": "^1.0.0",
-    "emotion-mdx": "^1.0.0-6",
-    "emotion-theming": "^10.0.10",
     "gatsby": "^2.4.6",
     "gatsby-plugin-emotion": "^4.0.6",
     "gatsby-plugin-google-analytics": "^2.0.20",
@@ -34,10 +33,8 @@
     "remark-slug": "^5.1.1",
     "remark-unwrap-images": "^0.2.0",
     "styled-system": "^5.0.0-8",
+    "theme-ui": "^0.0.17",
     "typography-theme-lincoln": "^0.16.19"
   },
-  "devDependencies": {
-    "@rebass/emotion": "^3.1.0",
-    "@styled-system/edit": "0.0.3"
-  }
+  "devDependencies": {}
 }

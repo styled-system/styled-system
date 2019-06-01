@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Styled } from './system'
+import { Box, Styled } from 'theme-ui'
 
 const headings = ['h2', 'h3']
 const getLinks = children =>

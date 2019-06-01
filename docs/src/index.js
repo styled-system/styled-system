@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet'
 import { Global } from '@emotion/core'
 import merge from 'lodash.merge'
 import get from 'lodash.get'
-import { SystemProvider, css } from './system'
+import { ThemeProvider, css } from 'theme-ui'
 import components from './components'
 import theme from './theme'
 
@@ -125,10 +125,10 @@ const Root = props => {
 
   return (
     <Context.Provider value={context}>
-      <SystemProvider components={components} theme={theme}>
+      <ThemeProvider components={components} theme={theme}>
         {style}
         {props.children}
-      </SystemProvider>
+      </ThemeProvider>
     </Context.Provider>
   )
 }

@@ -1,4 +1,4 @@
-import { Flex, Box } from '@rebass/emotion'
+import { Flex, Box } from 'theme-ui'
 
 # Why Powers of Two
 

@@ -1,7 +1,7 @@
 import React from 'react'
+import { Box } from 'theme-ui'
 import Logo from '../logo'
 import LogoWhite from '../logo/white'
-import { Box } from '../system'
 
 export default props => (
   <>

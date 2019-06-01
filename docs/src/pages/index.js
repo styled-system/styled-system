@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Box, Styled } from '../system'
+import { Box, Styled } from 'theme-ui'
 import Layout from '../layout'
 import { Header, Container } from '../layout'
 import NavLink from '../nav-link'
@@ -9,7 +9,7 @@ import Example from '../example.mdx'
 import Logos from '../logos.mdx'
 import GettingStarted from '../../getting-started.md'
 import Hex from '../logo/hex'
-import Button from '../system/button'
+import Button from '../button'
 
 export const query = graphql`
   query Index {

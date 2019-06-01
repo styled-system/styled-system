@@ -1,6 +1,6 @@
 import React from 'react'
-import Link from '../link'
-import { css } from './index'
+import { css } from 'theme-ui'
+import Link from './link'
 
 export default props => (
   <Link

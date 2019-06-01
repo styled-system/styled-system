@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { SystemProvider, Box, css, block } from './system'
+import { ThemeProvider, Box, css, } from 'theme-ui'
 import NavLink from './nav-link'
 import Content from './sidebar.mdx'
 
@@ -51,13 +51,13 @@ const Root = styled(Box)(
       boxShadow: `0 2px 8px rgba(0, 0, 0, .25)`,
     },
   }),
-  block('sidebar')
+  // block('sidebar')
 )
 
 export default props => (
   <Root {...props}>
-    <SystemProvider theme={{ styles }} components={components}>
+    <ThemeProvider theme={{ styles }} components={components}>
       <Content />
-    </SystemProvider>
+    </ThemeProvider>
   </Root>
 )
