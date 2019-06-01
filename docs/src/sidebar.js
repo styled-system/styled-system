@@ -36,8 +36,9 @@ const Root = styled(Box)(
     WebkitOverflowScrolling: 'touch',
     position: 'sticky',
     top: 0,
+    pb: 5,
     alignSelf: 'flex-start',
-    minHeight: 'calc(100vh - 0px)',
+    maxHeight: '100vh',
   }),
   props => ({
     '@media screen and (max-width: 40em)': {

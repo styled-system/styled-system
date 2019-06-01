@@ -5,6 +5,8 @@ import Layout from '../layout'
 import { Header, Container } from '../layout'
 import NavLink from '../nav-link'
 import Badges from '../badges.md'
+import Example from '../example.mdx'
+import Logos from '../logos.mdx'
 import GettingStarted from '../../getting-started.md'
 import Hex from '../logo/hex'
 import Button from '../system/button'
@@ -91,15 +93,14 @@ const Banner = ({ meta }) => (
     <Container>
       <Badges />
       <Box py={4}>
-        <Columns mx={-3}>
+        <Columns mx={-2}>
           {meta.features.map(feature => (
             <Box
               key={feature}
               as="li"
               width={[1, 1 / 2]}
-              p={3}
+              p={2}
               fontSize={3}
-              mb={15}
               fontWeight="bold"
             >
               {feature}
@@ -107,16 +108,32 @@ const Banner = ({ meta }) => (
           ))}
         </Columns>
       </Box>
+      <Box py={4}>
+        <Example />
+      </Box>
       <Columns mx={-3} py={4}>
         {meta.quotes.map(quote => (
-          <Box as="li" width={[1, 1 / 2]} p={3} key={quote.text} mb={4}>
-            <Box as="blockquote" fontSize={4} fontWeight="bold" m={0}>
+          <Box as="li" width={[1, 1 / 2]} p={3} key={quote.text} mb={0}>
+            <Box as="blockquote" fontSize={3} fontWeight="bold" m={0}>
               “{quote.text}”
             </Box>
             <Styled.a href={quote.href}>– {quote.source}</Styled.a>
           </Box>
         ))}
       </Columns>
+      <Box py={4}
+        css={{
+          textAlign: 'center',
+          img: {
+            maxWidth: 128,
+            height: 'auto',
+            maxHeight: 64,
+            filter: 'grayscale(100%)',
+            margin: 32,
+          }
+        }}>
+        <Logos />
+      </Box>
       {sandbox}
     </Container>
   </>

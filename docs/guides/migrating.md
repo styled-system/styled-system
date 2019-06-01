@@ -24,6 +24,7 @@ The following has been removed from v5 and you should make these changes to migr
 ## Changes
 
 - Number values are no longer converted to strings with `px` units. Most CSS-in-JS libraries now handle this, but if you need to use string values with units, provide them in your theme object and in prop values.
+- The theme keys `heights`, `minWidths`, `maxWidths`, `minHeights`, `maxHeights` have all been consolidated into a single `theme.sizes` scale
 - The internal `get` utility's implementation has changed, if you've made use of this utility, either fork the code from v4 or ensure that you are using it with the following arguments: `get(object, path, fallback)`
 - Functions no longer return `null`, but return an empty object (`{}`) instead
 - Negative padding values are no longer returned. This would have been invalid CSS and generally should not cause issues for migration.
