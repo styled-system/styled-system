@@ -21,6 +21,7 @@ const styles = {
   },
   a: {
     color: 'inherit',
+    fontSize: 1,
     '&:hover': {
       color: 'primary',
     }
