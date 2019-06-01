@@ -16,6 +16,8 @@
     "size": "npx bundlesize",
     "cover": "yarn test --coverage",
     "codecov": "yarn cover && npx codecov",
+    "docs": "yarn workspace @styled-system/docs start",
+    "docs:build": "yarn workspace @styled-system/docs build",
     "test": "jest"
   },
   "devDependencies": {
