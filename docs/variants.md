@@ -32,9 +32,11 @@ export default {
       color: colors.text,
       backgroundColor: colors.secondary,
     },
-  }
+  },
 }
 ```
+
+**NOTE:** the objects defined in the theme are _CSS style_ objects, not component _props_. Styled system props **will not** work here to avoid conflating CSS style objects with component props.
 
 Next, add variant utilities to your components.
 
@@ -43,10 +45,11 @@ Next, add variant utilities to your components.
 import styled from 'styled-components'
 import { buttonStyle } from 'styled-system'
 
-const Button = styled('button')({
-  appearance: 'none',
-  fontFamily: 'inherit',
-},
+const Button = styled('button')(
+  {
+    appearance: 'none',
+    fontFamily: 'inherit',
+  },
   buttonStyle
 )
 ```
@@ -82,8 +85,5 @@ const buttonSizes = variant({
   prop: 'size',
 })
 
-const Button = styled('button')(
-  buttonSizes
-)
+const Button = styled('button')(buttonSizes)
 ```
-

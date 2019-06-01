@@ -45,4 +45,3 @@ and return style objects,
 while making it simpler to use values from a theme and apply styles responsively across breakpoints.
 
 These style functions can be written on a one-off basis, but Styled System is meant to help **reduce boilerplate**, ensure a **consistent styling API**, and speed the development of component-based design systems.
-

@@ -25,7 +25,7 @@ const Link = styled.a`
     fontWeight: {
       property: 'fontWeight',
       scale: 'fontWeights',
-    }
+    },
   })}
 `
 
