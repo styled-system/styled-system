@@ -4,8 +4,47 @@ import { ThemeProvider, Box, css, } from 'theme-ui'
 import NavLink from './nav-link'
 import Content from './sidebar.mdx'
 
+const List = props => {
+  return <ul {...props} />
+}
+
+const ListItem = props => {
+  if (Array.isArray(props.children)) {
+    const [ name, children ] = props.children
+    return (
+      <li {...props}>
+        <details open>
+          <summary
+            css={css({
+              px: 3,
+              py: 2,
+              fontSize: 1,
+              fontWeight: 'bold',
+              cursor: 'pointer',
+              '::-webkit-details-marker': {
+                display: 'none',
+              }
+            })}>
+            {name.props.children}
+          </summary>
+          <div
+            css={css({
+              pl: 3
+            })}
+          >
+            {children}
+          </div>
+        </details>
+      </li>
+    )
+  }
+  return <li {...props} />
+}
+
 const components = {
   a: NavLink,
+  ul: List,
+  li: ListItem,
 }
 
 const styles = {
@@ -14,11 +53,7 @@ const styles = {
     px: 0,
     my: 0,
   },
-  li: {
-    '& > ul': {
-      pl: 16,
-    },
-  },
+  li: {},
   a: {
     color: 'inherit',
     fontSize: 1,
@@ -52,7 +87,6 @@ const Root = styled(Box)(
       boxShadow: `0 2px 8px rgba(0, 0, 0, .25)`,
     },
   }),
-  // block('sidebar')
 )
 
 export default props => (
