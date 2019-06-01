@@ -37,7 +37,7 @@ For styles that don't change frequently, it's generally better to [extend the co
 ```js
 // example Box.js
 import styled from 'styled-components'
-import { space, color, width, fontSize } from 'styled-system'
+import { space, color, layout } from 'styled-system'
 
 const Box = styled.div(
   {
@@ -46,23 +46,10 @@ const Box = styled.div(
   },
   space,
   color,
-  width,
-  fontSize
+  layout
 )
 
 export default Box
-```
-
-Optionally, add prop types for the style props.
-Prop type definitions are available for each Styled System function and can be merged by spreading the values.
-
-```js
-Box.propTypes = {
-  ...space.propTypes,
-  ...color.propTypes,
-  ...width.propTypes,
-  ...fontSize.propTypes,
-}
 ```
 
 With the component created above, you can quickly change styling contextually throughout your application.
@@ -85,11 +72,8 @@ import styled from 'styled-components'
 import {
   space,
   color,
-  width,
-  fontSize,
-  flex,
-  alignSelf,
-  order,
+  layout,
+  flexbox
 } from 'styled-system'
 
 const Box = styled.div(
@@ -99,22 +83,9 @@ const Box = styled.div(
   },
   space,
   color,
-  width,
-  fontSize,
-  flex,
-  alignSelf,
-  order
+  layout,
+  flexbox
 )
-
-Box.propTypes = {
-  ...space.propTypes,
-  ...color.propTypes,
-  ...width.propTypes,
-  ...fontSize.propTypes,
-  ...flex.propTypes,
-  ...alignSelf.propTypes,
-  ...order.propTypes,
-}
 
 export default Box
 ```

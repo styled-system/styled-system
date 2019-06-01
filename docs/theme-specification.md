@@ -1,13 +1,14 @@
 # Theme Specification
 
-**WIP**
-
-See [system.ui/theme](https://system-ui.com/theme)
 
 ---
 
 The Styled System theme object is intended to be a general purpose format for storing design system style values and scales.
-The object itself is not coupled to Styled System's implementation and can be used in other similar libraries where using common style values in multiple parts of a code base is desirable.
+The objects shape is based on the [System UI Theme Specification][].
+It is not coupled to Styled System's implementation and can be used in other similar libraries
+where using common style values in multiple parts of a code base is desirable.
+
+[system ui theme specification]: https://system-ui.com/theme
 
 ## Scale Objects
 
@@ -162,8 +163,6 @@ This list may be non-exhaustive.
 | `radii`          | `border-radius`                                                                                                                                                                                    |
 | `shadows`        | `box-shadow`, `text-shadow`                                                                                                                                                                        |
 | `zIndices`       | `z-index`                                                                                                                                                                                          |
-
-_Note:_ Styled System does _not_ currently support the `widths` scale due to its fractional value transformation.
 
 ### Element Variants
 

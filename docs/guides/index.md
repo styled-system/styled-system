@@ -5,7 +5,6 @@
 - [Default Values](/guides/default-values)
 - [Why Powers of Two](/guides/why-powers-of-two)
 - [Removing Props from HTML](/guides/removing-props-from-html)
-- [Component Types](/guides/component-types)
 - [Theming](/guides/theming)
 - [Array Scales](/guides/array-scales)
 - [Array Props](/guides/array-props)
