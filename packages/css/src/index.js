@@ -106,11 +106,8 @@ const transforms = {
 
 export const responsive = styles => theme => {
   const next = {}
-  const breakpoints = get(theme, 'breakpoints', ['40em', '52em', '64em'])
-  const mediaQueries = [
-    null,
-    ...breakpoints.map(n => `@media screen and (min-width: ${n})`),
-  ]
+  const breakpoints = get(theme, 'breakpoints', defaultBreakpoints)
+  const mediaQueries = [ null, ...breakpoints.map(n => `@media screen and (min-width: ${n})`) ]
 
   for (const key in styles) {
     const value = styles[key]
