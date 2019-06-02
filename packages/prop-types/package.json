@@ -1,0 +1,16 @@
+{
+  "name": "@styled-system/prop-types",
+  "version": "5.0.0-8",
+  "main": "index.js",
+  "author": "Brent Jackson",
+  "license": "MIT",
+  "peerDependencies": {
+    "styled-system": "^5.0.0-8"
+  },
+  "devDependencies": {
+    "styled-system": "^5.0.0-8"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2"
+  }
+}

@@ -12,9 +12,9 @@
     "sirv-cli": "^0.3.1"
   },
   "dependencies": {
-    "@styled-system/css": "2.0.0",
-    "emotion": "10.0.9",
-    "styled-system": "4.2.1",
+    "@styled-system/css": "5.0.0-7",
+    "emotion": "^10.0.9",
+    "styled-system": "5.0.0-8",
     "svelte": "^3.0.0"
   },
   "scripts": {

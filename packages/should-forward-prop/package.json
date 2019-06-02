@@ -9,6 +9,6 @@
   "dependencies": {
     "@emotion/is-prop-valid": "^0.7.3",
     "@emotion/memoize": "^0.7.1",
-    "styled-system": "^4.1.0"
+    "styled-system": "5.0.0-8"
   }
 }

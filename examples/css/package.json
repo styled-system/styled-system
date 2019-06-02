@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@emotion/core": "^10.0.9",
-    "@styled-system/css": "^2.0.0",
+    "@styled-system/css": "5.0.0-7",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-scripts": "^2.1.8"

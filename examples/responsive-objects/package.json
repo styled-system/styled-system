@@ -9,7 +9,7 @@
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-scripts": "^3.0.0",
-    "styled-system": "^4.0.6"
+    "styled-system": "5.0.0-8"
   },
   "scripts": {
     "start": "react-scripts start"
