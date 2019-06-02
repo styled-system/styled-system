@@ -1,4 +1,3 @@
-// @styled-system/layout
 import { system, get } from '@styled-system/core'
 
 const isNumber = n => typeof n === 'number' && !isNaN(n)

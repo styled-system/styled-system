@@ -1,4 +1,3 @@
-// @styled-system/background
 import { system } from '@styled-system/core'
 
 const config = {

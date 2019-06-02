@@ -1,4 +1,3 @@
-// @styled-system/border
 import { system } from '@styled-system/core'
 
 const config = {

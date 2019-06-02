@@ -1,7 +1,5 @@
-// @styled-system/grid
 import { system } from '@styled-system/core'
 
-// todo
 const defaults = {
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
 }

@@ -1,4 +1,3 @@
-// @styled-system/typography
 import { system } from '@styled-system/core'
 
 const defaults = {

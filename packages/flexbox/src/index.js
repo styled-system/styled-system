@@ -1,4 +1,3 @@
-// @styled-system/flexbox
 import { system } from '@styled-system/core'
 
 const config = {

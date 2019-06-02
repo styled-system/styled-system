@@ -1,6 +1,5 @@
 import { system } from '@styled-system/core'
 
-// move to @styled-system/color package
 const config = {
   color: {
     property: 'color',
