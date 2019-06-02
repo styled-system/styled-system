@@ -1,6 +1,6 @@
 {
   "name": "@styled-system/edit",
-  "version": "0.0.5",
+  "version": "5.0.0-9",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",

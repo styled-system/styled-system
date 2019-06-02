@@ -1,6 +1,6 @@
 {
   "name": "@styled-system/jsx",
-  "version": "0.0.3",
+  "version": "5.0.0-9",
   "description": "",
   "type": "module",
   "main": "dist/index.js",
