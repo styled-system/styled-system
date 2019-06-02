@@ -76,4 +76,3 @@ const Box = styled('div')(
 )
 ```
 
-Read more in the [custom utilities docs](/api#customize).
