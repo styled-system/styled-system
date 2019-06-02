@@ -133,6 +133,7 @@ const Page = props => {
     <>
       <Helmet>
         <title>{title}</title>
+        <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico'/>
         <meta name='description' content={description} />
         <meta name='twitter:card' content='summary' />
         <meta name='twitter:site' content='@jxnblk' />
