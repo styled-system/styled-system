@@ -3,8 +3,10 @@ const colors = {
   background: '#fff',
   primary: '#00f',
   secondary: '#00a',
+  highlight: '#c0f',
   gray: '#eee',
   lightgray: '#fafafa',
+  midgray: '#777',
   modes: {
     dark: {
       text: '#fff',
@@ -46,32 +48,87 @@ const colors = {
       gray: '#c0c',
       lightgray: '#e0e',
     },
-  }
+  },
+}
+
+const prism = {
+  [[
+    '.comment',
+    '.prolog',
+    '.doctype',
+    '.cdata',
+  ]]: {
+    color: 'midgray'
+  },
+  '.punctuation': {
+    color: 'midgray',
+  },
+  [[
+    '.property',
+    '.tag',
+    '.constant',
+    '.symbol',
+    '.deleted',
+  ]]: {
+    color: 'primary',
+  },
+  [[
+    '.boolean',
+    '.number',
+  ]]: {
+    color: 'secondary',
+  },
+  [[
+    '.selector',
+    '.attr-name',
+    '.string',
+    '.char',
+    '.builtin',
+    '.inserted',
+  ]]: {
+    color: 'highlight',
+  },
+  [[
+    '.operator',
+    '.entity',
+    '.url',
+    '.string',
+    '.variable',
+  ]]: {
+    color: 'highlight',
+  },
+  [[
+    '.atrule',
+    '.attr-value',
+    '.function',
+  ]]: {
+    color: 'primary',
+  },
+  '.keyword': {
+    color: 'primary',
+  },
+  '.regex': {},
+  '.important': {},
 }
 
 export default {
+  initialColorMode: 'light',
   colors,
   fonts: {
     body: 'system-ui, sans-serif',
     monospace: 'Menlo, monospace',
   },
-  fontSizes: [
-    12, 14, 16, 18, 24, 32, 48, 64, 72
-  ],
+  fontSizes: [12, 14, 16, 18, 24, 32, 48, 64, 72],
   lineHeights: {
     body: 1.75,
     heading: 1.25,
   },
-  // base component styles
   styles: {
     a: {
       color: 'primary',
       '&:hover': {
         color: 'secondary',
-      }
-    },
-    p: {
-      fontSize: [ 2, 3 ],
+      },
     },
     h1: {
       fontSize: [5, 6],
@@ -79,7 +136,7 @@ export default {
       a: {
         color: 'inherit',
         textDecoration: 'none',
-      }
+      },
     },
     h2: {
       fontSize: [4, 5],
@@ -87,7 +144,7 @@ export default {
       a: {
         color: 'inherit',
         textDecoration: 'none',
-      }
+      },
     },
     h3: {
       fontSize: 3,
@@ -95,7 +152,7 @@ export default {
       a: {
         color: 'inherit',
         textDecoration: 'none',
-      }
+      },
     },
     h4: {
       fontSize: 2,
@@ -103,7 +160,7 @@ export default {
       a: {
         color: 'inherit',
         textDecoration: 'none',
-      }
+      },
     },
     h5: {
       fontSize: 1,
@@ -111,7 +168,7 @@ export default {
       a: {
         color: 'inherit',
         textDecoration: 'none',
-      }
+      },
     },
     h6: {
       fontSize: 0,
@@ -119,30 +176,32 @@ export default {
       a: {
         color: 'inherit',
         textDecoration: 'none',
-      }
+      },
     },
     pre: {
       fontFamily: 'monospace',
+      fontSize: 1,
       p: 3,
       my: 3,
       bg: 'lightgray',
       overflowX: 'auto',
+      ...prism,
     },
     code: {
       fontFamily: 'monospace',
-      fontSize: 14,
-      color: 'secondary',
+      // fontSize: '87.5%',
     },
     inlineCode: {
       fontFamily: 'monospace',
       color: 'secondary',
+      fontSize: '87.5%',
     },
     ul: {
       pl: 3,
       ul: {
         // pl: 2
         // textIndent: '1em',
-      }
+      },
     },
     table: {
       width: '100%',
@@ -160,7 +219,7 @@ export default {
       paddingLeft: 0,
       borderColor: 'inherit',
       borderBottomWidth: '2px',
-      borderBottomStyle: 'solid'
+      borderBottomStyle: 'solid',
     },
     td: {
       textAlign: 'left',
@@ -171,7 +230,7 @@ export default {
       paddingLeft: 0,
       borderColor: 'inherit',
       borderBottomWidth: '1px',
-      borderBottomStyle: 'solid'
+      borderBottomStyle: 'solid',
     },
     hr: {
       border: 0,
@@ -179,14 +238,4 @@ export default {
       borderColor: 'lightgray',
     },
   },
-  // block variants
-  layout: {
-    root: {},
-    header: {},
-    sidebar: {
-      color: 'text',
-      bg: 'background',
-    },
-    main: {}
-  }
 }

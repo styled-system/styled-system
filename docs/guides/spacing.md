@@ -1,4 +1,3 @@
-
 # Spacing
 
 There are many ways to approach spacing (margin and padding) in a web application,
@@ -8,12 +7,11 @@ depending on your team's preferences.
 If you're not familiar with Styled System's `space` utility,
 you might want to read the [Getting Started](/getting-started/#margin--padding) documentation first.
 
-
 ## Where does space belong?
 
 Generally speaking, it's a good idea to avoid adding default margins to reusable components in React.
 Some people prefer to use a declarative approach by adding a "spacer" component in between other components.
-This is the *[spacer.gif][]* of React, and it's a completely acceptable practice, despite what some people may say.
+This is the _[spacer.gif][]_ of React, and it's a completely acceptable practice, despite what some people may say.
 
 [spacer.gif]: https://en.wikipedia.org/wiki/Spacer_GIF
 
@@ -56,7 +54,7 @@ The Spacer component is also really great for flexbox layouts, where `margin: au
 // example Spacer in flexbox
 <Flex>
   <Logo />
-  <Spacer m='auto' />
+  <Spacer m="auto" />
   <Link>Beep</Link>
   <Link>Boop</Link>
 </Flex>
@@ -93,20 +91,13 @@ import { space } from 'styled-system'
 const classnames = (...args) => args.join(' ')
 const getClassName = el => (el.props && el.props.className) || ''
 
-export const StyledChildren = ({
-  className,
-  children,
-  ...props
-}) => {
-  const styledChildren = React.Children.toArray(children)
-    .map(child => React.cloneElement(child, {
-      className: classnames(getClassName(child), className)
-    }))
-  return (
-    <>
-      {styledChildren}
-    </>
+export const StyledChildren = ({ className, children, ...props }) => {
+  const styledChildren = React.Children.toArray(children).map(child =>
+    React.cloneElement(child, {
+      className: classnames(getClassName(child), className),
+    })
   )
+  return <>{styledChildren}</>
 }
 
 const SpaceChildren = styled(StyledChildren)(space)
@@ -141,6 +132,5 @@ When using the component, you can adjust margin and padding in any direction nee
   Hello
 </Heading>
 ```
-
 
 [rebass space]: https://github.com/rebassjs/space

@@ -1,4 +1,3 @@
-
 # How it Works
 
 Most CSS-in-JS libraries accept functions as arguments to create dynamic styles based on props.
@@ -31,7 +30,7 @@ import styled from 'styled-components'
 
 // works exactly the same as the previous function
 const getColor = props => ({
-  color: props.color
+  color: props.color,
 })
 
 const Box = styled.div`
@@ -39,14 +38,10 @@ const Box = styled.div`
 `
 ```
 
-By using style objects instead of embedded CSS strings, styled-system is compatible with other libraries,
-such as [glamorous][] and [emotion][].
+By using style objects instead of embedded CSS strings, Styled System is compatible with a wide range of CSS-in-JS libraries.
 
-The core utilities in styled-system are built on this pattern and consist of functions that take `props` as an argument
+The core utilities in Styled System are built on this pattern and consist of functions that take `props` as an argument
 and return style objects,
 while making it simpler to use values from a theme and apply styles responsively across breakpoints.
 
-These style functions can be written on a one-off basis, but styled-system is meant to help **reduce boilerplate**, ensure a **consistent styling API**, and speed the development of React-based design systems.
-
-[glamorous]: https://github.com/paypal/glamorous
-[emotion]: https://github.com/emotion-js/emotion
+These style functions can be written on a one-off basis, but Styled System is meant to help **reduce boilerplate**, ensure a **consistent styling API**, and speed the development of component-based design systems.

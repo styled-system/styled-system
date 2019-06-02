@@ -1,4 +1,3 @@
-
 # Responsive Styles
 
 Often when working on responsive layouts, it's useful to adjust styles along a singular dimension –
@@ -34,7 +33,7 @@ This shortcut is an alternative to writing media queries out by hand.
 Given the following:
 
 ```jsx
-<Box width={[ 1, 1/2, 1/4 ]} />
+<Box width={[1, 1 / 2, 1 / 4]} />
 ```
 
 Using Styled System with a CSS-in-JS library will generate something like the following CSS:
@@ -63,12 +62,7 @@ Alternatively, you can define breakpoints with aliases and use plain objects as 
 
 ```js
 // theme.js
-const breakpoints = [
-  '40em',
-  '52em',
-  '64em',
-  '80em',
-]
+const breakpoints = ['40em', '52em', '64em', '80em']
 
 // aliases
 breakpoints.sm = breakpoints[0]
@@ -82,7 +76,7 @@ export default {
 ```
 
 ```jsx
-<Box width={{ 0: 1, sm: 1, md: 1/2, lg: 1/4 }} />
+<Box width={{ _: 1, sm: 1, md: 1 / 2, lg: 1 / 4 }} />
 ```
 
-
+Read more in the [Array Props Guide](/guides/array-props).

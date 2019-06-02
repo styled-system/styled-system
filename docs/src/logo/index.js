@@ -1,33 +1,30 @@
 import React from 'react'
-import {
-  hex,
-  inner
-} from './hex'
+import { hex, inner } from './hex'
 
-const Logo = ({
-  size = 512,
-}) =>
-<svg
-  xmlns='http://www.w3.org/2000/svg'
-  viewBox='-18 -18 36 36'
-  width={size}
-  height={size}
-  style={{
-    display: 'block',
-    overflow: 'visible',
-    color: 'inherit',
-    fill: 'none',
-    stroke: 'currentColor'
-  }}>
+const Logo = ({ size = 512 }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="-18 -18 36 36"
+    width={size}
+    height={size}
+    style={{
+      display: 'block',
+      overflow: 'visible',
+      color: 'inherit',
+      fill: 'none',
+      stroke: 'currentColor',
+    }}
+  >
     <g>
       <path d={hex} />
-      <path d={inner} strokeWidth='0.25'/>
+      <path d={inner} strokeWidth="0.25" />
     </g>
   </svg>
+)
 
-  Logo.defaultProps = {
-    ignore: true
-  }
+Logo.defaultProps = {
+  ignore: true,
+}
 
 export default Logo
 
@@ -53,4 +50,3 @@ const points = getPoints(6)
 
 const [ a, b, c, d, e, f ] = points
 */
-

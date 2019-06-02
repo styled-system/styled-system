@@ -73,7 +73,7 @@ test('returns a string width', () => {
 test('returns a width based on theme.sizes', () => {
   const a = width({
     theme: {
-      sizes: [ 24, 48 ]
+      sizes: [24, 48],
     },
     width: 1,
   })
@@ -82,7 +82,7 @@ test('returns a width based on theme.sizes', () => {
 
 test('returns fractional responsive widths', () => {
   const a = width({
-    width: [ 1, 1/2, 1/4 ]
+    width: [1, 1 / 2, 1 / 4],
   })
   expect(a).toEqual({
     width: '100%',

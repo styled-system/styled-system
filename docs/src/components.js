@@ -2,12 +2,11 @@ import React from 'react'
 import Link from './link'
 import wrapper from './toc-wrapper'
 
-const heading = Tag => ({ id, ...props }) =>
+const heading = Tag => ({ id, ...props }) => (
   <Tag id={id} {...props}>
-    <a href={'#' + id}>
-      {props.children}
-    </a>
+    <a href={'#' + id}>{props.children}</a>
   </Tag>
+)
 
 export default {
   wrapper,

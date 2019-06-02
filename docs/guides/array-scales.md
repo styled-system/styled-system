@@ -1,4 +1,3 @@
-
 # Array Scales
 
 Using arrays for theme constants and style props can seem off-putting to some at first,
@@ -10,7 +9,7 @@ but Styled System gives you a few escape hatches in the rare cases where you nee
 The first question that comes up with approaches like this is always, "what if...".
 In software development, some people think that duplication is better than the wrong abstraction.
 I tend to agree with this sentiment.
-Instead of asking *what if*, I encourage you to try the Styled System approach in a smaller application and see if the benefits
+Instead of asking _what if_, I encourage you to try the Styled System approach in a smaller application and see if the benefits
 of the constraints with this approach outweight the limitations.
 When using Styled System on a multidisciplinary team, you'll want to make sure you're entire team, including designers,
 are on board, but from my experience, many designers will want to work with constraints like the ones
@@ -52,7 +51,7 @@ If you've used JavaScript arrays to define your scales, you can easily add alias
 For example, say your `fontSizes` scale looks like the following:
 
 ```js
-fontSizes: [ 12, 14, 16, 20, 24, 32, 48, 64, 96 ]
+fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96]
 ```
 
 You find yourself using an `18px` font size in a lot of different places and don't want to hard-code that value throughout your application.
