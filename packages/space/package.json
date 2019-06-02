@@ -1,13 +1,13 @@
 {
   "name": "@styled-system/space",
-  "version": "5.0.0-10",
+  "version": "5.0.0-11",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "author": "Brent Jackson <jxnblk@gmail.com>",
   "license": "MIT",
-  "gitHead": "6934e3f2dee6923516bbcea39abff392a8ffdbc2",
+  "gitHead": "a6feb6009c58f2eb68f0c3120c5672f6cb54294f",
   "dependencies": {
-    "@styled-system/core": "^5.0.0-10"
+    "@styled-system/core": "^5.0.0-11"
   },
   "publishConfig": {
     "access": "public"

@@ -1,6 +1,6 @@
 {
   "name": "@styled-system/prop-types",
-  "version": "5.0.0-10",
+  "version": "5.0.0-11",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "author": "Brent Jackson",
@@ -9,10 +9,13 @@
     "styled-system": "^5.0.0-8"
   },
   "devDependencies": {
-    "styled-system": "^5.0.0-10"
+    "styled-system": "^5.0.0-11"
   },
   "dependencies": {
     "prop-types": "^15.7.2"
   },
-  "gitHead": "6934e3f2dee6923516bbcea39abff392a8ffdbc2"
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "a6feb6009c58f2eb68f0c3120c5672f6cb54294f"
 }
