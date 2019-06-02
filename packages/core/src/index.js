@@ -116,7 +116,7 @@ export const createStyleFunction = ({
   const sx = (value, scale) => {
     const result = {}
     const n = transform(value, scale)
-    if (n === null || n === false) return
+    if (n === null) return
     properties.forEach(prop => {
       result[prop] = n
     })
