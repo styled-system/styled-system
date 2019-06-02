@@ -27,6 +27,9 @@ const all = compose(
 
 export const props = all.propNames
 
-const regex = new RegExp(`^(${props.join('|')})$`)
+export const createShouldForwardProp = props => {
+  const regex = new RegExp(`^(${props.join('|')})$`)
+  return memoize(prop => isPropValid(prop) && !regex.test(prop))
+}
 
-export default memoize(prop => isPropValid(prop) && !regex.test(prop))
+export default createShouldForwardProp(props)
