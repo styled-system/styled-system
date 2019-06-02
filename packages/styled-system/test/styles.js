@@ -6,8 +6,6 @@ import {
   gridGap,
   gridRowGap,
   gridColumnGap,
-  textStyle,
-  colorStyle,
   borders,
 } from '../src'
 
@@ -155,42 +153,6 @@ test('gridColumnGap uses the default scale', () => {
     gridColumnGap: 2,
   })
   expect(a).toEqual({ gridColumnGap: 8 })
-})
-
-test('textStyle prop returns theme.textStyles object', () => {
-  const a = textStyle({
-    theme: {
-      textStyles: {
-        heading: {
-          fontWeight: 'bold',
-          lineHeight: 1.25,
-        },
-      },
-    },
-    textStyle: 'heading',
-  })
-  expect(a).toEqual({
-    fontWeight: 'bold',
-    lineHeight: 1.25,
-  })
-})
-
-test('colors prop returns theme.colorStyles object', () => {
-  const a = colorStyle({
-    theme: {
-      colorStyles: {
-        dark: {
-          color: '#fff',
-          backgroundColor: '#000',
-        },
-      },
-    },
-    colors: 'dark',
-  })
-  expect(a).toEqual({
-    color: '#fff',
-    backgroundColor: '#000',
-  })
 })
 
 test('borders prop returns correct sequence', () => {

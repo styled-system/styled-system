@@ -6,7 +6,6 @@ The main `styled-system` package is composed of several other packages that can 
 Package Name                | Exports
 ----------------------------|----
 `@styled-system/core`       | `system`, `createParser`, `createStyleFunction`, `get`
-`@styled-system/variant`    | `variant`
 `@styled-system/space`      | `space`, `margin`, `padding`
 `@styled-system/color`      | `color`
 `@styled-system/layout`     | `layout`
@@ -17,6 +16,7 @@ Package Name                | Exports
 `@styled-system/position`   | `position`
 `@styled-system/grid`       | `grid`
 `@styled-system/shadow`     | `shadow`
+`@styled-system/variant`    | `variant`, `textStyle` `buttonStyle`, `colorStyle`
 
 The Styled System ecosystem also includes these optional packages
 

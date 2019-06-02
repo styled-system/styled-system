@@ -1,4 +1,8 @@
-import { variant } from '../src'
+import {
+  variant,
+  textStyle,
+  colorStyle,
+} from '../src'
 import { system, compose } from '@styled-system/core'
 
 const theme = {
@@ -72,3 +76,40 @@ test('variant can be composed', () => {
     color: '#111',
   })
 })
+
+test('textStyle prop returns theme.textStyles object', () => {
+  const a = textStyle({
+    theme: {
+      textStyles: {
+        heading: {
+          fontWeight: 'bold',
+          lineHeight: 1.25,
+        },
+      },
+    },
+    textStyle: 'heading',
+  })
+  expect(a).toEqual({
+    fontWeight: 'bold',
+    lineHeight: 1.25,
+  })
+})
+
+test('colors prop returns theme.colorStyles object', () => {
+  const a = colorStyle({
+    theme: {
+      colorStyles: {
+        dark: {
+          color: '#fff',
+          backgroundColor: '#000',
+        },
+      },
+    },
+    colors: 'dark',
+  })
+  expect(a).toEqual({
+    color: '#fff',
+    backgroundColor: '#000',
+  })
+})
+

@@ -1,5 +1,4 @@
 import { createStyleFunction, createParser, system } from '@styled-system/core'
-import { variant } from '@styled-system/variant'
 
 export {
   get,
@@ -7,7 +6,6 @@ export {
   createStyleFunction,
   compose,
 } from '@styled-system/core'
-export { variant } from '@styled-system/variant'
 
 export { margin, padding, space } from '@styled-system/space'
 export { color } from '@styled-system/color'
@@ -19,6 +17,13 @@ export { background } from '@styled-system/background'
 export { position } from '@styled-system/position'
 export { grid } from '@styled-system/grid'
 export { shadow } from '@styled-system/shadow'
+
+export {
+  variant,
+  buttonStyle,
+  textStyle,
+  colorStyle
+} from '@styled-system/variant'
 
 // v4 api shims
 export {
@@ -121,8 +126,3 @@ export const style = ({
 
   return parse
 }
-
-// variants
-export const buttonStyle = variant({ key: 'buttons' })
-export const textStyle = variant({ key: 'textStyles', prop: 'textStyle' })
-export const colorStyle = variant({ key: 'colorStyles', prop: 'colors' })

@@ -7,7 +7,7 @@ Each function provides the following props and maps to scales defined in a theme
 
 ```js
 import { space } from 'styled-system'
-// or import space from '@styled-system/space'
+// or `import space from '@styled-system/space'`
 ```
 
 | Prop                  | CSS Property                       | Theme Field |
@@ -31,7 +31,7 @@ import { space } from 'styled-system'
 
 ```js
 import { color } from 'styled-system'
-// or import color from '@styled-system/color'
+// or `import color from '@styled-system/color'`
 ```
 
 | Prop                    | CSS Property       | Theme Field |
@@ -44,7 +44,7 @@ import { color } from 'styled-system'
 
 ```js
 import { typography } from 'styled-system'
-// or import typography from '@styled-system/typography'
+// or `import typography from '@styled-system/typography'`
 ```
 
 | Prop            | CSS Property     | Theme Field      |
@@ -61,7 +61,7 @@ import { typography } from 'styled-system'
 
 ```js
 import { layout } from 'styled-system'
-// or import layout from '@styled-system/layout'
+// or `import layout from '@styled-system/layout'`
 ```
 
 | Prop            | CSS Property     | Theme Field |
@@ -81,7 +81,7 @@ import { layout } from 'styled-system'
 
 ```js
 import { flexbox } from 'styled-system'
-// or import flexbox from '@styled-system/flexbox'
+// or `import flexbox from '@styled-system/flexbox'`
 ```
 
 | Prop             | CSS Property       | Theme Field |
@@ -104,7 +104,7 @@ import { flexbox } from 'styled-system'
 
 ```js
 import { grid } from 'styled-system'
-// or import grid from '@styled-system/grid'
+// or `import grid from '@styled-system/grid'`
 ```
 
 | Prop                  | CSS Property            | Theme Field |
@@ -126,7 +126,7 @@ import { grid } from 'styled-system'
 
 ```js
 import { background } from 'styled-system'
-// or import background from '@styled-system/background'
+// or `import background from '@styled-system/background'`
 ```
 
 | Prop                 | CSS Property          | Theme Field |
@@ -141,7 +141,7 @@ import { background } from 'styled-system'
 
 ```js
 import { border } from 'styled-system'
-// or import border from '@styled-system/border'
+// or `import border from '@styled-system/border'`
 ```
 
 | Prop           | CSS Property                   | Theme Field    |
@@ -191,6 +191,7 @@ Prop | CSS Property | Theme Field
 
 ```js
 import { textStyle, colorStyle, buttonStyle } from 'styled-system'
+// or `import { textStyle, colorStyle, buttonStyle } from '@styled-system/variant'`
 ```
 
 | Function Name | Prop        | Theme Field   |
