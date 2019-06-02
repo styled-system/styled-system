@@ -147,3 +147,18 @@ test('returns a noop function with no arguments', () => {
   const parser = system()
   expect(typeof parser).toBe('function')
 })
+
+test('skips null values in arrays', () => {
+  const parser = system({
+    fontSize: true,
+  })
+  const style = parser({
+    fontSize: [ 16, null, null, 18 ],
+  })
+  expect(style).toEqual({
+    fontSize: 16,
+    '@media screen and (min-width: 64em)': {
+      fontSize: 18,
+    }
+  })
+})

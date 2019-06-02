@@ -15,7 +15,7 @@ const defaults = {
   breakpoints: [40, 52, 64].map(n => n + 'em'),
 }
 const createMediaQuery = n => `@media screen and (min-width: ${n})`
-const getValue = (n, scale) => get(scale, n, n)
+const getValue = (n, scale) => n ? get(scale, n, n) : n
 
 export const get = (obj, key = '', def, p, undef) => {
   key = key.split ? key.split('.') : [key]
@@ -75,6 +75,7 @@ const parseResponsiveStyle = (mediaQueries, sx, scale, raw) => {
   raw.slice(0, mediaQueries.length).forEach((value, i) => {
     const media = mediaQueries[i]
     const style = sx(value, scale)
+    if (style === undefined) return
     if (!media) {
       assign(styles, style)
     } else {
@@ -115,6 +116,7 @@ export const createStyleFunction = ({
   const sx = (value, scale) => {
     const result = {}
     const n = transform(value, scale)
+    if (n === null || n === false) return
     properties.forEach(prop => {
       result[prop] = n
     })
