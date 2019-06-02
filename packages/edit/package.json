@@ -1,31 +1,22 @@
 {
   "name": "@styled-system/edit",
-  "version": "0.0.5",
+  "version": "5.0.0-12",
   "description": "",
-  "main": "dist.js",
-  "scripts": {
-    "prepare": "babel --root-mode upward index.js -o dist.js",
-    "docs": "gx docs"
-  },
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
   "keywords": [],
   "author": "Brent Jackson <jxnblk@gmail.com>",
   "license": "MIT",
-  "devDependencies": {
-    "@babel/cli": "^7.4.3",
-    "@babel/core": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
-    "@babel/preset-react": "^7.0.0",
-    "@styled-system/css": "^1.0.3",
-    "gx": "^2.0.0-23",
-    "react": "^16.8.6"
-  },
   "dependencies": {
     "@emotion/core": "^10.0.10",
     "color": "^3.1.0",
-    "emotion-theming": "^10.0.10",
     "lodash.get": "^4.4.2",
     "lodash.merge": "^4.6.1",
     "lodash.omit": "^4.5.0",
     "lodash.set": "^4.3.2"
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "a6feb6009c58f2eb68f0c3120c5672f6cb54294f"
 }

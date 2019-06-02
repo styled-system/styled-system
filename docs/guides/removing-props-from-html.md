@@ -1,4 +1,3 @@
-
 # Removing props from HTML elements
 
 Due to the nature of the popular `styled` higher order component,
@@ -26,11 +25,8 @@ import shouldForwardProp from '@styled-system/should-forward-prop'
 import { space, color } from 'styled-system'
 
 const Box = styled('div', {
-  shouldForwardProp
-})(
-  space,
-  color
-)
+  shouldForwardProp,
+})(space, color)
 ```
 
 ## Styled Components
@@ -51,15 +47,9 @@ If you're a fan of using the [`css` prop][], you can easily control which props 
 import React from 'react'
 import { color } from 'styled-system'
 
-export default ({
-  color,
-  bg,
-  ...props
-}) =>
-  <div
-    {...props}
-    css={theme => color({ theme, color, bg })}
-  />
+export default ({ color, bg, ...props }) => (
+  <div {...props} css={theme => color({ theme, color, bg })} />
+)
 ```
 
 [`css` prop]: https://emotion.sh/docs/css-prop

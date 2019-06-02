@@ -1,12 +1,10 @@
 {
-  "version": "independent",
-  "packages": ["packages/*"],
+  "version": "5.0.0-12",
+  "npmClient": "yarn",
+  "packages": [
+    "packages/*"
+  ],
   "create": {
     "license": "MIT"
-  },
-  "command": {
-    "bootstrap": {
-      "npmClientArgs": ["--no-package-lock"]
-    }
   }
 }

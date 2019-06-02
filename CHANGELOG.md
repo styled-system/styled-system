@@ -2,6 +2,20 @@
 
 ## Unreleased
 
+- Faster (fastest implementation yet)
+- New `system` API for custom style props
+- Built-in style props are now grouped into categories
+- Style functions are now available as separate packages (e.g. `@styled-system/core`, `@styled-system/space`)
+- Removes `propTypes` (use `.propNames` or the optional `@styled-system/prop-types` package instead)
+- No longer converts numbers to `px` strings
+- Changes interal `get` utility
+- Removes: `isObject`, `is`, `px`, `num`, `createMediaQuery`, `defaultBreakpoints`, `merge`, `cloneFunction`, `mapProps`
+- No longer returns `null` (returns and empty object instead)
+- No longer converts padding to negative values (not needed)
+- Removes `themeGet` from main package, use `@styled-system/theme-get` instead
+- The new `theme.sizes` scale replaces `heights`, `minHeights`, `maxHeights`, `minWidths`, and `maxWidths`; and is used for the `width` prop
+- Style functions now cache `theme.breakpoints`. If you rely on dynamically changing breakpoints in runtime, this is a breaking change
+
 ## v4.2.3 2019-05-27
 
 - Fix for sort order in IE #465

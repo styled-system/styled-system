@@ -1,11 +1,8 @@
-
 export const toc = true
 
 # API
 
-## Core
-
-### space
+## Space
 
 ```js
 import { space } from 'styled-system'
@@ -13,7 +10,7 @@ import { space } from 'styled-system'
 
 The space utility converts shorthand margin and padding props to margin and padding CSS declarations.
 
-- Numbers from 0-4 (or the length of `theme.space`) are converted to values on the [spacing scale](#defaults).
+- Numbers from 0 to the length of `theme.space` are converted to values on the [space scale](#defaults).
 - Negative values can be used for negative margins.
 - Numbers greater than the length of the `theme.space` array are converted to raw pixel values.
 - String values are passed as raw CSS values.
@@ -21,20 +18,22 @@ The space utility converts shorthand margin and padding props to margin and padd
 
 Margin and padding props follow a shorthand syntax for specifying direction.
 
-- `m`:  margin
-- `mt`: margin-top
-- `mr`: margin-right
-- `mb`: margin-bottom
-- `ml`: margin-left
-- `mx`: margin-left and margin-right
-- `my`: margin-top and margin-bottom
-- `p`:  padding
-- `pt`: padding-top
-- `pr`: padding-right
-- `pb`: padding-bottom
-- `pl`: padding-left
-- `px`: padding-left and padding-right
-- `py`: padding-top and padding-bottom
+| Prop                  | CSS Property                   |
+| --------------------- | ------------------------------ |
+| `margin`, `m`         | margin                         |
+| `marginTop`, `mt`     | margin-top                     |
+| `marginRight`, `mr`   | margin-right                   |
+| `marginBottom`, `mb`  | margin-bottom                  |
+| `marginLeft`, `ml`    | margin-left                    |
+| `marginX`, `mx`       | margin-left and margin-right   |
+| `marginY`, `my`       | margin-top and margin-bottom   |
+| `padding`, `p`        | padding                        |
+| `paddingTop`, `pt`    | padding-top                    |
+| `paddingRight`, `pr`  | padding-right                  |
+| `paddingBottom`, `pb` | padding-bottom                 |
+| `paddingLeft`, `pl`   | padding-left                   |
+| `paddingX`, `px`      | padding-left and padding-right |
+| `paddingY`, `py`      | padding-top and padding-bottom |
 
 ```jsx
 // examples (margin prop)
@@ -51,71 +50,13 @@ Margin and padding props follow a shorthand syntax for specifying direction.
 // sets margin `'auto'`
 <Box m='auto' />
 
-// sets margin `8px` on all viewports and `16px` from the smallest breakpoint and up
+// sets margin `8px` on all viewports and `16px` from the first breakpoint and up
 <Box m={[ 2, 3 ]} />
 ```
 
 As of v4.0.0, verbose margin and padding props (e.g. `margin`, `marginTop`) can also be used instead of the shorthand props.
 
-### width
-
-```js
-import { width } from 'styled-system'
-```
-
-The width utility parses a component's `width` prop and converts it into a CSS width declaration.
-
-- Numbers from 0-1 are converted to percentage widths.
-- Numbers greater than 1 are converted to pixel values.
-- String values are passed as raw CSS values.
-- And arrays are converted to [responsive width styles][responsive-styles].
-
-```jsx
-// examples
-
-// width `50%`
-<Box width={1/2} />
-
-// width `256px`
-<Box width={256} />
-
-// width `'2em'`
-<Box width='2em' />
-
-// width `100%` on all viewports and `50%` from the smallest breakpoint and up
-<Box width={[ 1, 1/2 ]} />
-```
-
-### fontSize
-
-```js
-import { fontSize } from 'styled-system'
-```
-
-The fontSize utility parses a component's `fontSize` prop and converts it into a CSS font-size declaration.
-
-- Numbers from 0-8 (or `theme.fontSizes.length`) are converted to values on the [font size scale](#defaults).
-- Numbers greater than `theme.fontSizes.length` are converted to raw pixel values.
-- String values are passed as raw CSS values.
-- And array values are converted into [responsive values][responsive-styles].
-
-```jsx
-// examples
-
-// font-size of `theme.fontSizes[3]`
-<Text fontSize={3} />
-
-// font-size `32px`
-<Text fontSize={32} />
-
-// font-size `'2em'`
-<Text fontSize='2em' />
-
-// font-size `10px` on all viewports and `12px` from the smallest breakpoint and up
-<Text fontSize={[ 10, 12 ]} />
-```
-
-### color
+## Color
 
 ```js
 import { color } from 'styled-system'
@@ -124,16 +65,14 @@ import { color } from 'styled-system'
 The color utility parses a component's `color` and `bg` props and converts them into CSS declarations.
 By default the raw value of the prop is returned.
 Color palettes can be configured with the [ThemeProvider][theming] to use keys as prop values, with support for dot notation.
-Array values are converted into [responsive values][responsive-styles].
 
 ```jsx
 // examples
-
-// picks the value defined in `theme.colors['blue']`
+// picks the value defined in `theme.colors.blue`
 <Box color='blue' />
 
 // picks up a nested color value using dot notation
-// `theme.colors['gray'][0]`
+// `theme.colors.gray[0]`
 <Box color='gray.0' />
 
 // raw CSS color value
@@ -146,22 +85,28 @@ Array values are converted into [responsive values][responsive-styles].
 <Box backgroundColor='blue' />
 ```
 
----
-
 ## Typography
 
 ```js
-// style functions
-import {
-  fontFamily,
-  textAlign,
-  lineHeight,
-  fontWeight,
-  letterSpacing
-} from 'styled-system'
+import { typography } from 'styled-system'
 ```
 
+Typography props include `fontFamily`, `fontSize`, `fontWeight`, `lineHeight`, `letterSpacing`, `textAlign`, and `fontStyle`.
+
 ```jsx
+// examples
+// font-size of `theme.fontSizes[3]`
+<Text fontSize={3} />
+
+// font-size `32px`
+<Text fontSize={32} />
+
+// font-size `'2em'`
+<Text fontSize='2em' />
+
+// font-size `10px` on all viewports and `12px` from the first breakpoint and up
+<Text fontSize={[ 10, 12 ]} />
+
 // fontFamily
 <Text fontFamily='mono' />
 
@@ -182,19 +127,37 @@ import {
 ## Layout
 
 ```js
-// style functions
-import {
-  display,
-  maxWidth,
-  minWidth,
-  height,
-  maxHeight,
-  minHeight,
-  size,
-} from 'styled-system'
+import { layout } from 'styled-system'
 ```
 
+The layout utility includes style props for `width`, `height`, `display`, `minWidth`, `minHeight`, `maxWidth`, `maxHeight`, `size`, and `verticalAlign`
+
+The `width` prop is transformed based on the following:
+
+- Numbers from 0-1 are converted to percentage widths.
+- Numbers greater than 1 are converted to pixel values.
+- String values are passed as raw CSS values.
+- And arrays are converted to [responsive width styles][responsive-styles].
+- If `theme.sizes` is defined, the `width` prop will attempt to pick up values from the theme
+
 ```jsx
+// examples
+
+// width `50%`
+<Box width={1/2} />
+
+// width `256px`
+<Box width={256} />
+
+// width `'2em'`
+<Box width='2em' />
+
+// width `100%` on all viewports and `50%` from the smallest breakpoint and up
+<Box width={[ 1, 1/2 ]} />
+
+// width from `theme.sizes`
+<Box width='medium' />
+
 // display
 <Box display='inline-block' />
 <Box display={[ 'block', 'inline-block' ]} />
@@ -227,20 +190,10 @@ import {
 ## Flexbox
 
 ```js
-// style functions
-import {
-  alignItems,
-  alignContent,
-  justifyContent,
-  flexWrap,
-  flexBasis,
-  flexDirection,
-  flex,
-  justifySelf,
-  alignSelf,
-  order
-} from 'styled-system'
+import { flexbox } from 'styled-system'
 ```
+
+The `flexbox` utility includes style props for `alignItems`, `alignContent`, `justifyItems`, `justifyContent`, `flexWrap`, `flexDirection`, `flex`, `flexGrow`, `flexShrink`, `flexBasis`, `justifySelf`, `alignSelf`, and `order`.
 
 ```jsx
 // alignItems
@@ -277,22 +230,10 @@ import {
 ## Grid Layout
 
 ```js
-// style functions
-import {
-  gridGap,
-  gridColumnGap,
-  gridRowGap,
-  gridColumn,
-  gridRow,
-  gridAutoFlow,
-  gridAutoColumns,
-  gridAutoRows,
-  gridTemplateColumns,
-  gridTemplateRows,
-  gridTemplateAreas,
-  gridArea
-} from 'styled-system'
+import { grid } from 'styled-system'
 ```
+
+The `grid` utility includes style props for `gridGap`, `gridColumnGap`, `gridRowGap`, `gridColumn`, `gridRow`, `gridAutoFlow`, `gridAutoColumns`, `gridAutoRows`, `gridTemplateColumns`, `gridTemplateRows`, `gridTemplateAreas`, and `gridArea`.
 
 ```jsx
 // gridGap
@@ -335,29 +276,31 @@ import {
 <Box gridArea='a' />
 ```
 
-## Borders
-
-The `borders` utility combines `border`, `borderTop`, `borderRight`, `borderBottom`, `borderLeft`, `borderWidth`, `borderStyle`, `borderColor`, and `borderRadius` props.
+## Background
 
 ```js
-// style functions
-import {
-  border,
-  borderTop,
-  borderRight,
-  borderBottom,
-  borderLeft,
-  borderWidth,
-  borderStyle,
-  borderColor,
-  borderRadius
-} from 'styled-system'
+import { background } from 'styled-system'
 ```
 
-```js
-// composed style function with all border props
-import { borders } from 'styled-system'
+The `background` utility includes style props for `backgroundImage`, `backgroundSize`, `backgroundPosition`, and `backgroundRepeat`.
+
+```jsx
+// example
+<Box
+  backgroundImage="kitten.png"
+  backgroundSize="cover"
+  backgroundPosition="center"
+  backgroundRepeat="repeat-x"
+/>
 ```
+
+## Border
+
+```js
+import { border } from 'styled-system'
+```
+
+The `border` utiilty includes style props for `border`, `borderTop`, `borderRight`, `borderBottom`, `borderLeft`, `borderWidth`, `borderStyle`, `borderColor`, and `borderRadius`.
 
 ```jsx
 <Box border='1px solid' />
@@ -382,16 +325,10 @@ import { borders } from 'styled-system'
 ## Position
 
 ```js
-// style functions
-import {
-  position,
-  zIndex,
-  top,
-  right,
-  bottom,
-  left
-} from 'styled-system'
+import { position } from 'styled-system'
 ```
+
+The `position` utility includes style props for `position`, `zIndex`, `top`, `right`, `bottom`, and `left`.
 
 ```jsx
 // position
@@ -409,132 +346,40 @@ import {
 />
 ```
 
-## Misc
+## Shadow
 
 ```js
-// style functions
-import {
-  boxShadow,
-  background,
-  backgroundImage,
-  backgroundSize,
-  backgroundPosition,
-  backgroundRepeat,
-  opacity,
-  overflow,
-} from 'styled-system'
+import { shadow } from 'styled-system'
 ```
+
+The `shadow` utility includes style props for `textShadow` and `boxShadow`.
 
 ```jsx
-// boxShadow
-<Box boxShadow={1} />
-
-// backgroundImage, backgroundSize, backgroundPosition, backgroundRepeat
-<Box
-  backgroundImage='kitten.png'
-  backgroundSize='cover'
-  backgroundPosition='center'
-  backgroundRepeat='repeat-x'
-/>
-
-// opacity
-<Box opacity={0.5} />
-
-// overflow
-<Box overflow='auto' />
-```
-
-## Variants
-
-The variant style utilities allow you to define reusable style objects in your theme for things like text styles and color combinations.
-
-**NOTE:** the objects defined in the theme are *CSS style* objects, not component *props*. Styled system props **will not** work here to avoid conflating CSS style objects with component props.
-
-```js
-// example theme
-const theme = {
-  textStyles: {
-    caps: {
-      textTransform: 'uppercase',
-      letterSpacing: '0.2em'
-    }
-  },
-  colorStyles: {
-    warning: {
-      color: 'black',
-      backgroundColor: 'orange'
-    },
-    error: {
-      color: 'white',
-      backgroundColor: 'red'
-    },
-  },
-  buttons: {
-    primary: {
-      color: 'white',
-      backgroundColor: 'blue',
-      '&:hover': {
-        backgroundColor: 'black',
-      }
-    }
-  }
-}
-```
-
-```js
-// style functions
-import {
-  textStyle,
-  colorStyle,
-  buttonStyle
-} from 'styled-system'
-```
-
-```jsx
-// textStyle
-<Text textStyle='caps' />
-
-// colorStyle
-<Box colors='warning' />
-
-// buttonStyle
-<Button variant='primary' />
+<Box textShadow="small" boxShadow="medium" />
 ```
 
 ---
 
-## Utilities
-
-### compose
+## Compose
 
 The `compose` utility is used to combine multiple style functions together into one.
-This is used internally to create the `space`, `color`, `size`, and `borders` style functions.
-This utility can also be useful for creating consistent sets of style props across multiple components.
+This utility can help improve performance when using multiple style props functions on the same component.
 
 ```js
-import {
-  compose,
-  fontFamily,
-  fontSize,
-  fontWeight,
-  lineHeight,
-  space,
-  color
-} from 'styled-system'
+import styled from 'styled-components'
+import { compose, typography, space, color } from 'styled-system'
 
-export const typography = compose(
-  fontFamily,
-  fontSize,
-  fontWeight,
-  lineHeight,
-  space,
-  color
+export const Text = styled('div')(
+  compose(
+    typography,
+    space,
+    color
+  )
 )
 ```
 
+<!--
 ### themeGet
-
-<div id='theme' />
 
 The `themeGet` function is an existential getter function
 that can be used in any style declaration to get a value
@@ -552,7 +397,7 @@ literal should look like this:
 
 ```js
 import styled from 'styled-components'
-import { themeGet } from 'styled-system'
+import { themeGet } from '@styled-system/theme-get'
 
 const Box = styled.div`
   border-radius: ${themeGet('radii.small', '4px')};
@@ -564,13 +409,16 @@ function call and have `props` passed to it:
 
 ```js
 import styled from 'styled-components'
-import { themeGet } from 'styled-system'
+import { themeGet } from '@styled-system/theme-get'
 
 const Box = styled('div')(props => ({
   borderRadius: themeGet('radii.small', '4px')(props),
 }))
 ```
 
+-->
+
+<!--
 ### propTypes
 
 Prop type definitions are available for each style function to add to your component's propTypes object.
@@ -585,101 +433,142 @@ const Box = styled.div`
 `
 
 Box.propTypes = {
-  ...width.propTypes
+  ...width.propTypes,
 }
 ```
+-->
 
 ---
 
-## Customize
+## System
 
-To create custom utilities for other CSS properties,
-use the following low-level utility functions.
+To create custom props for other CSS properties, use the `system` low-level utility.
+The `system` function takes a configuration object as its only argument and returns a style function that can be used like any other Styled System function.
+Each key in the configuration object can define the following:
 
-### style
-
-Create a style utility.
+- `property`: the CSS property to use in the returned style object
+- `properties`: an array of multiple properties (e.g. `[ 'marginLeft', 'marginRight' ]`)
+- `scale`: a string referencing a key in the `theme` object
+- `transform`: a function to transform the raw value based on the scale
+- `defaultScale` a fallback scale object for when there isn't one defined in the `theme` object
 
 ```js
+// example
 import styled from 'styled-components'
-import { style } from 'styled-system'
+import { system } from 'styled-system'
 
-const fontSize = style({
-  // React prop name and CSS property
-  prop: 'fontSize',
-  // CSS property (if different from prop argument)
-  cssProperty: 'fontSize',
-  // key for theme values
-  key: 'fontSizes',
-  // accessor function for transforming the value
-  transformValue: n => n + 'px',
-  // add a fallback scale object or array, if theme is not present
-  scale: [ 0, 4, 8, 16, 32 ],
-  // Optional prop alias
-  alias: 'fs',
-})
-
-const Text = styled.div`
-  ${fontSize}
-`
-
-// with a `theme.shadows` array
-const App = props => (
-  <Text fontSize={3}>
-    Hello
-  </Text>
+const Text = styled('div')(
+  system({
+    fontSize: {
+      property: 'fontSize',
+      scale: 'fontSizes',
+      defaultScale: [12, 14, 16, 20, 24, 32, 48],
+    },
+    lineHeight: {
+      property: 'lineHeight',
+      scale: 'lineHeights',
+    },
+    // shorthand definition
+    textAlign: true,
+  })
 )
 ```
 
-### variant
+By default, Styled System will return either a value from the theme, based on a key, or the raw value.
+To change how a style prop value is transformed, provide a custom `transform` function.
+The function takes two arguments: `(value, scale)`, where `value` is the raw prop value, and `scale` is a theme scale object or array.
 
-Create a style utility that maps props to style objects in a theme.
+## Variant
+
+Creates a custom style utility that maps props to style objects in a theme.
 
 ```js
 import styled from 'styled-components'
 import { variant } from 'styled-system'
 
 const cardStyle = variant({
-  key: 'cards'
+  key: 'cards',
 })
 
 const Card = styled.div`
   ${cardStyle}
 `
 Card.defaultProps = {
-  variant: 'normal'
+  variant: 'normal',
 }
 // <Card variant='large' />
+```
+
+## Variants
+
+The variant style utilities allow you to define reusable style objects in your theme for things like text styles and color combinations.
+
+**NOTE:** the objects defined in the theme are _CSS style_ objects, not component _props_. Styled system props **will not** work here to avoid conflating CSS style objects with component props.
+
+```js
+// example theme
+const theme = {
+  textStyles: {
+    caps: {
+      textTransform: 'uppercase',
+      letterSpacing: '0.2em',
+    },
+  },
+  colorStyles: {
+    warning: {
+      color: 'black',
+      backgroundColor: 'orange',
+    },
+    error: {
+      color: 'white',
+      backgroundColor: 'red',
+    },
+  },
+  buttons: {
+    primary: {
+      color: 'white',
+      backgroundColor: 'blue',
+      '&:hover': {
+        backgroundColor: 'black',
+      },
+    },
+  },
+}
+```
+
+```js
+import { textStyle, colorStyle, buttonStyle } from 'styled-system'
+```
+
+```jsx
+// textStyle
+<Text textStyle='caps' />
+
+// colorStyle
+<Box colors='warning' />
+
+// buttonStyle
+<Button variant='primary' />
 ```
 
 ---
 
 ## Defaults
 
-### Breakpoints
-
-If no theme is provided, styled-system uses smart defaults for breakpoints.
+Some style props include default, fallback scales if not defined in the `theme` object.
 
 ```js
 // Default Breakpoints
-const breakpoints = [ '40em', '52em', '64em' ]
+const breakpoints = ['40em', '52em', '64em']
 // @media screen and (min-width: 40em)
 // @media screen and (min-width: 52em)
 // @media screen and (min-width: 64em)
-```
 
-### Font Sizes
-
-```
 // default fontSizes
-const fontSizes = [ 12, 14, 16, 20, 24, 32, 48, 64, 72 ]
-```
+const fontSizes = [12, 14, 16, 20, 24, 32, 48, 64, 72]
 
-### Space
-
-```
 // default space for margin and padding
-const space = [ 0, 4, 8, 16, 32, 64, 128, 256, 512 ]
+const space = [0, 4, 8, 16, 32, 64, 128, 256, 512]
 ```
 
 [responsive-styles]: /responsive-styles

@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import jsx from '../index'
+import jsx from '../src'
 import renderer from 'react-test-renderer'
 import serializer, { matchers } from 'jest-emotion'
 import { ThemeContext } from '@emotion/core'

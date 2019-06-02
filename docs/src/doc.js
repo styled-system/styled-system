@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import MDXRenderer from 'gatsby-mdx/mdx-renderer'
+import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer'
 import Layout from './layout'
 
 export const pageQuery = graphql`
@@ -10,21 +10,14 @@ export const pageQuery = graphql`
       fields {
         slug
       }
-      code {
-        body
-      }
+      body
     }
   }
 `
 
 export default props => {
-  const { code } = props.data.mdx
-  const children = <MDXRenderer children={code.body} />
+  const { body } = props.data.mdx
+  const children = <MDXRenderer children={body} />
 
-  return (
-    <Layout
-      {...props}
-      children={children}
-    />
-  )
+  return <Layout {...props} children={children} />
 }

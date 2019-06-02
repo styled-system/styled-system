@@ -1,12 +1,12 @@
 {
   "name": "@styled-system/theme-aliases-example",
-  "version": "0.1.0",
+  "version": "5.0.0-7",
   "private": true,
   "dependencies": {
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "styled-components": "^4.2.0",
-    "styled-system": "^4.0.6"
+    "styled-system": "5.0.0-8"
   },
   "scripts": {}
 }

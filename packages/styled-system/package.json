@@ -1,10 +1,9 @@
 {
   "name": "styled-system",
-  "version": "4.2.4",
+  "version": "5.0.0-12",
   "description": "Responsive, theme-based style props for building design systems with React",
-  "main": "dist/index.cjs.js",
+  "main": "dist/index.js",
   "module": "dist/index.esm.js",
-  "sideEffects": false,
   "keywords": [
     "react",
     "css-in-js",
@@ -13,16 +12,20 @@
   ],
   "author": "Brent Jackson",
   "license": "MIT",
-  "devDependencies": {
-    "@babel/cli": "^7.2.3"
-  },
   "dependencies": {
-    "@babel/runtime": "^7.4.2",
-    "prop-types": "^15.7.2"
+    "@styled-system/background": "^5.0.0-12",
+    "@styled-system/border": "^5.0.0-12",
+    "@styled-system/color": "^5.0.0-12",
+    "@styled-system/core": "^5.0.0-12",
+    "@styled-system/flexbox": "^5.0.0-12",
+    "@styled-system/grid": "^5.0.0-12",
+    "@styled-system/layout": "^5.0.0-12",
+    "@styled-system/position": "^5.0.0-12",
+    "@styled-system/shadow": "^5.0.0-12",
+    "@styled-system/space": "^5.0.0-12",
+    "@styled-system/typography": "^5.0.0-12",
+    "@styled-system/variant": "^5.0.0-12",
+    "object-assign": "^4.1.1"
   },
-  "scripts": {
-    "prepare": "mkdir -p dist && npm run build:cjs && npm run build:esm",
-    "build:cjs": "NODE_ENV=cjs babel src -o dist/index.cjs.js",
-    "build:esm": "NODE_ENV=esm babel src -o dist/index.esm.js"
-  }
+  "gitHead": "a6feb6009c58f2eb68f0c3120c5672f6cb54294f"
 }
