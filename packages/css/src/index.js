@@ -10,12 +10,8 @@ export const get = (obj, key = '', def, p, undef) => {
 const defaultBreakpoints = [40, 52, 64].map(n => n + 'em')
 
 const defaultTheme = {
-  space: [
-    0, 4, 8, 16, 32, 64, 128, 256, 512
-  ],
-  fontSizes: [
-    12, 14, 16, 20, 24, 32, 48, 64, 72
-  ],
+  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
 }
 
 const aliases = {
@@ -37,10 +33,10 @@ const aliases = {
 }
 
 const directions = {
-  marginX: [ 'marginLeft', 'marginRight' ],
-  marginY: [ 'marginTop', 'marginBottom' ],
-  paddingX: [ 'paddingLeft', 'paddingRight' ],
-  paddingY: [ 'paddingTop', 'paddingBottom' ],
+  marginX: ['marginLeft', 'marginRight'],
+  marginY: ['marginTop', 'marginBottom'],
+  paddingX: ['paddingLeft', 'paddingRight'],
+  paddingY: ['paddingTop', 'paddingBottom'],
 }
 
 const scales = {
@@ -110,7 +106,7 @@ const transforms = {
 
 export const responsive = styles => theme => {
   const next = {}
-  const breakpoints = get(theme, 'breakpoints', [ '40em', '52em', '64em' ])
+  const breakpoints = get(theme, 'breakpoints', defaultBreakpoints)
   const mediaQueries = [ null, ...breakpoints.map(n => `@media screen and (min-width: ${n})`) ]
 
   for (const key in styles) {

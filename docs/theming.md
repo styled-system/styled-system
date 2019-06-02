@@ -1,4 +1,3 @@
-
 # Theming
 
 One of the core features of Styled System is the ability to quickly reference values defined in a theme in your components' props.
@@ -20,7 +19,5 @@ export default {
 A component with `color` props can pick up the `blue` value:
 
 ```jsx
-<Box color='blue' />
+<Box color="blue" />
 ```
-
-

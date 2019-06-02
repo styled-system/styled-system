@@ -9,23 +9,20 @@ test('returns a style parser', () => {
     },
     mx: {
       scale: 'space',
-      properties: [
-        'marginLeft',
-        'marginRight',
-      ]
-    }
+      properties: ['marginLeft', 'marginRight'],
+    },
   })
   expect(typeof parser).toBe('function')
   const styles = parser({
     theme: {
-      space: [ 0, 4, 8, 16, 32 ],
+      space: [0, 4, 8, 16, 32],
       colors: {
         primary: 'rebeccapurple',
-      }
+      },
     },
     color: 'tomato',
     backgroundColor: 'primary',
-    mx: [ 2, 3, 4 ],
+    mx: [2, 3, 4],
   })
   expect(styles).toEqual({
     color: 'tomato',
@@ -50,9 +47,9 @@ test('merges multiple responsive styles', () => {
     width: true,
   })
   const styles = parser({
-    margin: [ 0, 4, 8 ],
-    padding: [ 16, 32, 64 ],
-    width: [ '100%', '50%' ],
+    margin: [0, 4, 8],
+    padding: [16, 32, 64],
+    width: ['100%', '50%'],
   })
   expect(styles).toEqual({
     margin: 0,
@@ -100,7 +97,7 @@ test('merges multiple responsive object styles', () => {
 test('gets values from theme', () => {
   const parser = system({
     mx: {
-      properties: [ 'marginLeft', 'marginRight' ],
+      properties: ['marginLeft', 'marginRight'],
       scale: 'space',
     },
     color: {
@@ -113,10 +110,10 @@ test('gets values from theme', () => {
       colors: {
         primary: 'tomato',
       },
-      space: [ 0, 6, 12, 24, 48, 96 ],
+      space: [0, 6, 12, 24, 48, 96],
     },
-    mx: [ 0, 1, 2, 3 ],
-    color: [ 'primary', 'black' ],
+    mx: [0, 1, 2, 3],
+    color: ['primary', 'black'],
   })
   expect(style).toEqual({
     color: 'tomato',
@@ -149,4 +146,19 @@ test('ignores null values', () => {
 test('returns a noop function with no arguments', () => {
   const parser = system()
   expect(typeof parser).toBe('function')
+})
+
+test('skips null values in arrays', () => {
+  const parser = system({
+    fontSize: true,
+  })
+  const style = parser({
+    fontSize: [ 16, null, null, 18 ],
+  })
+  expect(style).toEqual({
+    fontSize: 16,
+    '@media screen and (min-width: 64em)': {
+      fontSize: 18,
+    }
+  })
 })

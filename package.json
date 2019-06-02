@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "prettier": "prettier \"packages/**/{src,test,examples}/**/*.js\" --write",
+    "prettier:docs": "prettier \"docs/**/*.{js,md}\" --write",
     "clean": "rm -rf packages/styled-system/dist",
     "prepare": "lerna run prepare",
     "build": "lerna bootstrap",

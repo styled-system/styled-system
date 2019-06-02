@@ -1,7 +1,4 @@
-import {
-  get,
-  system
-} from '@styled-system/core'
+import { get, system } from '@styled-system/core'
 
 const defaults = {
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
@@ -56,13 +53,13 @@ configs.margin = {
     defaultScale: defaults.space,
   },
   marginX: {
-    properties: [ 'marginLeft', 'marginRight' ],
+    properties: ['marginLeft', 'marginRight'],
     scale: 'space',
     transform: getMargin,
     defaultScale: defaults.space,
   },
   marginY: {
-    properties: [ 'marginTop', 'marginBottom' ],
+    properties: ['marginTop', 'marginBottom'],
     scale: 'space',
     transform: getMargin,
     defaultScale: defaults.space,
@@ -103,12 +100,12 @@ configs.padding = {
     defaultScale: defaults.space,
   },
   paddingX: {
-    properties: [ 'paddingLeft', 'paddingRight' ],
+    properties: ['paddingLeft', 'paddingRight'],
     scale: 'space',
     defaultScale: defaults.space,
   },
   paddingY: {
-    properties: [ 'paddingTop', 'paddingBottom' ],
+    properties: ['paddingTop', 'paddingBottom'],
     scale: 'space',
     defaultScale: defaults.space,
   },

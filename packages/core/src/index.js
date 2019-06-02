@@ -5,7 +5,7 @@ export const merge = (a, b) => {
   for (const key in a) {
     if (!a[key] || typeof b[key] !== 'object') continue
     assign(result, {
-      [key]: assign(a[key], b[key])
+      [key]: assign(a[key], b[key]),
     })
   }
   return result
@@ -15,7 +15,7 @@ const defaults = {
   breakpoints: [40, 52, 64].map(n => n + 'em'),
 }
 const createMediaQuery = n => `@media screen and (min-width: ${n})`
-const getValue = (n, scale) => get(scale, n, n)
+const getValue = (n, scale) => n ? get(scale, n, n) : n
 
 export const get = (obj, key = '', def, p, undef) => {
   key = key.split ? key.split('.') : [key]
@@ -25,9 +25,9 @@ export const get = (obj, key = '', def, p, undef) => {
   return obj === undef ? def : obj
 }
 
-export const createParser = (config) => {
+export const createParser = config => {
   const cache = {}
-  const parse = (props) => {
+  const parse = props => {
     let styles = {}
     for (const key in props) {
       if (!config[key]) continue
@@ -36,16 +36,23 @@ export const createParser = (config) => {
       const scale = get(props.theme, sx.scale, sx.defaults)
 
       if (typeof raw === 'object') {
-        cache.breakpoints = cache.breakpoints || get(props.theme, 'breakpoints', defaults.breakpoints)
+        cache.breakpoints =
+          cache.breakpoints ||
+          get(props.theme, 'breakpoints', defaults.breakpoints)
         if (Array.isArray(raw)) {
-          cache.media = cache.media || [ null, ...cache.breakpoints.map(createMediaQuery) ]
-          styles = merge(styles,
+          cache.media = cache.media || [
+            null,
+            ...cache.breakpoints.map(createMediaQuery),
+          ]
+          styles = merge(
+            styles,
             parseResponsiveStyle(cache.media, sx, scale, raw)
           )
           continue
         }
         if (raw !== null) {
-          styles = merge(styles,
+          styles = merge(
+            styles,
             parseResponsiveObject(cache.breakpoints, sx, scale, raw)
           )
         }
@@ -68,11 +75,12 @@ const parseResponsiveStyle = (mediaQueries, sx, scale, raw) => {
   raw.slice(0, mediaQueries.length).forEach((value, i) => {
     const media = mediaQueries[i]
     const style = sx(value, scale)
+    if (style === undefined) return
     if (!media) {
       assign(styles, style)
     } else {
       assign(styles, {
-        [media]: assign({}, styles[media], style)
+        [media]: assign({}, styles[media], style),
       })
     }
   })
@@ -90,7 +98,7 @@ const parseResponsiveObject = (breakpoints, sx, scale, raw) => {
     } else {
       const media = createMediaQuery(breakpoint)
       assign(styles, {
-        [media]: assign({}, styles[media], style)
+        [media]: assign({}, styles[media], style),
       })
     }
   }
@@ -104,10 +112,11 @@ export const createStyleFunction = ({
   transform = getValue,
   defaultScale,
 }) => {
-  properties = properties || [ property ]
+  properties = properties || [property]
   const sx = (value, scale) => {
     const result = {}
     const n = transform(value, scale)
+    if (n === null) return
     properties.forEach(prop => {
       result[prop] = n
     })
