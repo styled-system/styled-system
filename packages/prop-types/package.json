@@ -1,0 +1,22 @@
+{
+  "name": "@styled-system/prop-types",
+  "version": "5.0.0-8",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "author": "Brent Jackson",
+  "license": "MIT",
+  "scripts": {
+    "prepare": "mkdir -p dist && npm run build:cjs && npm run build:esm",
+    "build:cjs": "NODE_ENV=cjs babel src/index.js -o dist/index.js",
+    "build:esm": "NODE_ENV=esm babel src/index.js -o dist/index.esm.js"
+  },
+  "peerDependencies": {
+    "styled-system": "^5.0.0-8"
+  },
+  "devDependencies": {
+    "styled-system": "^5.0.0-8"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2"
+  }
+}
