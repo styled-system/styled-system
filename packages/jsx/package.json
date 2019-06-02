@@ -1,0 +1,28 @@
+{
+  "name": "@styled-system/jsx",
+  "version": "0.0.3",
+  "description": "",
+  "type": "module",
+  "main": "es5.js",
+  "module": "index.js",
+  "scripts": {
+    "prepare": "babel --root-mode upward index.js -o es5.js"
+  },
+  "author": "Brent Jackson <jxnblk@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@emotion/core": "^10.0.10",
+    "@styled-system/css": "^2.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.4.4",
+    "jest": "^24.7.1",
+    "jest-emotion": "^10.0.10",
+    "react": "^16.8.6",
+    "react-test-renderer": "^16.8.6"
+  }
+}
