@@ -2,13 +2,6 @@
 # yarn lockfile v1
 
 
-"@2s/smooth-system@^4.2.2-0":
-  version "4.2.2-0"
-  resolved "https://registry.yarnpkg.com/@2s/smooth-system/-/smooth-system-4.2.2-0.tgz#3694220bc233f97c7ae6c9689f43e50bd1152727"
-  dependencies:
-    "@babel/runtime" "^7.4.2"
-    prop-types "^15.7.2"
-
 "@babel/cli@^7.2.3", "@babel/cli@^7.4.3", "@babel/cli@^7.4.4":
   version "7.4.4"
   resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.4.4.tgz#5454bb7112f29026a4069d8e6f0e1794e651966c"
@@ -14549,13 +14542,6 @@ slide@^1.1.6:
 smart-buffer@4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/smart-buffer/-/smart-buffer-4.0.2.tgz#5207858c3815cc69110703c6b94e46c15634395d"
-
-"smooth-system@github:neoziro/styled-system#smooth-system-2":
-  version "4.2.2"
-  resolved "https://codeload.github.com/neoziro/styled-system/tar.gz/3d671b341318669a2eef0f565121720dfa8d3307"
-  dependencies:
-    "@babel/runtime" "^7.4.2"
-    prop-types "^15.7.2"
 
 snake-case@^2.1.0:
   version "2.1.0"

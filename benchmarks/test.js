@@ -3,12 +3,7 @@ const Benchmark = require('benchmark')
 const system = require('system-v4')
 const xstyled = require('@xstyled/system')
 const next = require('styled-system')
-const { space } = require('@styled-system/space')
 const { css } = require('@styled-system/css')
-
-// const smooth = require('@2s/smooth-system')
-// build is broken on github
-// const smooth = require('smooth-system')
 
 const theme = {
   breakpoints: [
@@ -18,8 +13,7 @@ const theme = {
     0, 4, 8, 16, 32, 64, 128, 256
   ],
   fontSizes: [
-    3, 6, 12, 24, 48, 96,
-    // 12, 14, 16, 24, 32, 48, 64
+    12, 14, 16, 24, 32, 48, 64
   ],
   colors: {
     text: 'black',
@@ -32,11 +26,10 @@ const tests = [
   {
     name: 'space',
     libs: {
-      system: system.space,
+      v4: system.space,
+      v5: next.space,
+      css: ({ theme, ...rest }) => css(rest)(theme),
       xstyled: xstyled.space,
-      next: next.space,
-      // space: space,
-      // css: ({ theme, ...rest }) => css(rest)(theme),
     },
     run: fn => () => fn({
       theme,
@@ -50,10 +43,10 @@ const tests = [
   {
     name: 'fontSize',
     libs: {
-      system: system.fontSize,
+      v4: system.fontSize,
+      v5: next.fontSize,
+      css: ({ theme, ...rest }) => css(rest)(theme),
       xstyled: xstyled.fontSize,
-      next: next.fontSize,
-      // css: ({ theme, ...rest }) => css(rest)(theme),
     },
     run: fn => () => fn({
       theme,
@@ -63,10 +56,10 @@ const tests = [
   {
     name: 'fontSize responsive',
     libs: {
-      system: system.fontSize,
+      v4: system.fontSize,
+      v5: next.fontSize,
+      css: ({ theme, ...rest }) => css(rest)(theme),
       xstyled: xstyled.fontSize,
-      next: next.fontSize,
-      // css: ({ theme, ...rest }) => css(rest)(theme),
     },
     run: fn => () => fn({
       theme,
@@ -76,22 +69,22 @@ const tests = [
   {
     name: 'compose',
     libs: {
-      system: system.compose(
+      v4: system.compose(
         system.space,
         system.color,
         system.fontSize,
       ),
+      v5: next.compose(
+        next.space,
+        next.color,
+        next.fontSize,
+      ),
+      css: ({ theme, ...rest }) => css(rest)(theme),
       xstyled: xstyled.compose(
         xstyled.space,
         xstyled.color,
         xstyled.fontSize,
       ),
-      next: next.compose(
-        next.space,
-        next.color,
-        next.fontSize,
-      ),
-      // css: ({ theme, ...rest }) => css(rest)(theme),
     },
     run: fn => () => fn({
       theme,
