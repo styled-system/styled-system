@@ -10,6 +10,7 @@ const config = {
     property: 'backgroundColor',
     scale: 'colors',
   },
+  opacity: true,
 }
 config.bg = config.backgroundColor
 

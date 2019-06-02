@@ -35,6 +35,7 @@ const config = {
     properties: ['width', 'height'],
     scale: 'sizes',
   },
+  overflow: true,
   display: true,
   verticalAlign: true,
 }

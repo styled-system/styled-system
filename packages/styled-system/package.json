@@ -23,6 +23,7 @@
     "@styled-system/grid": "5.0.0-7",
     "@styled-system/layout": "5.0.0-7",
     "@styled-system/position": "5.0.0-7",
+    "@styled-system/shadow": "5.0.0-7",
     "@styled-system/space": "5.0.0-7",
     "@styled-system/typography": "5.0.0-7",
     "@styled-system/variant": "5.0.0-7",

@@ -27,6 +27,7 @@ export {
 
 // new packages
 export { color } from '@styled-system/color'
+export { default as opacity } from '@styled-system/color'
 export { layout } from '@styled-system/layout'
 export { typography } from '@styled-system/typography'
 export { flexbox } from '@styled-system/flexbox'
@@ -46,6 +47,7 @@ export {
   default as size,
   default as verticalAlign,
   default as display,
+  default as overflow,
 } from '@styled-system/layout'
 export {
   default as fontSize,
@@ -109,6 +111,10 @@ export {
   default as bottom,
   default as left,
 } from '@styled-system/position'
+export {
+  boxShadow,
+  textShadow,
+} from '@styled-system/shadow'
 
 // v4 style API shim
 export const style = ({
@@ -134,17 +140,6 @@ export const style = ({
 
   return parse
 }
-
-// todo move to separate package
-export const boxShadow = system({
-  boxShadow: {
-    property: 'boxShadow',
-    scale: 'shadows',
-  },
-})
-
-export const opacity = system({ opacity: true })
-export const overflow = system({ overflow: true })
 
 // variants
 export const buttonStyle = variant({ key: 'buttons' })
