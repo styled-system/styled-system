@@ -4,5 +4,8 @@
   "useWorkspaces": true,
   "packages": [
     "packages/*"
-  ]
+  ],
+  "create": {
+    "license": "MIT"
+  }
 }
