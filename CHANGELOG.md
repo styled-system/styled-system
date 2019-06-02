@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## v5.0.0 2019-06-02
 
 - Faster (fastest implementation yet)
 - New `system` API for custom style props
