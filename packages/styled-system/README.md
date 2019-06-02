@@ -101,13 +101,13 @@ Try the [examples](examples) on CodeSandbox
 ```jsx
 // Example uses styled-components, but styled-system works with most other css-in-js libraries as well
 import styled from 'styled-components'
-import { space, width, fontSize, color } from 'styled-system'
+import { space, layout, typography, color } from 'styled-system'
 
 // Add styled-system functions to your component
 const Box = styled.div`
   ${space}
-  ${width}
-  ${fontSize}
+  ${layout}
+  ${typography}
   ${color}
 `
 ```
@@ -159,24 +159,18 @@ Set responsive width, margin, padding, font-size, and other properties with a sh
 
 To learn more, see the [Getting Started](https://styled-system.com/getting-started) guide or read the docs.
 
-<!-- link shims for previous readme -->
-<a name='getting-started'></a>
-<a name='how-it-works'></a>
-<a name='responsive-styles'></a>
-<a name='api'></a>
-<a name='system-components'></a>
-<a name='default-theme'></a>
-<a name='troubleshooting'></a>
-<a name='cleanelement'></a>
-
 ## Docs
 
 - [Getting Started](https://styled-system.com/getting-started)
 - [Responsive Styles](https://styled-system.com/responsive-styles)
 - [How it Works](https://styled-system.com/how-it-works)
-- [API](https://styled-system.com/api)
-- [Table of Style Functions](https://styled-system.com/table)
 - [Custom Props](https://styled-system.com/custom-props)
+- [Variants](https://styled-system.com/variants)
+- [API](https://styled-system.com/api)
+- [Reference Table](https://styled-system.com/table)
+- [Packages](https://styled-system.com/packages)
+- [Guides](https://styled-system.com/guides)
+- [@styled-system/css](https://styled-system.com/css)
 
 ---
 
