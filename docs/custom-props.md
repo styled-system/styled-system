@@ -59,6 +59,36 @@ system({
 
 This will take the `transition` prop and translate it into a style object.
 
+### Style prop function
+
+The `system` function returns a style prop function that can be used in Styled Components, Emotion, or other CSS-in-JS libraries.
+This function takes `props` as an argument and returns a style object.
+The style prop function includes a `.propNames` static array that can be used to detect which props the function accepts.
+
+### Aliases
+
+To create aliases for props with the `system` function, add a key for the aliased prop name.
+
+```js
+// example alias
+import { system } from 'styled-system'
+
+const config = {
+  color: {
+    property: 'color',
+    scale: 'colors',
+  },
+  backgroundColor: {
+    property: 'backgroundColor',
+    scale: 'colors',
+  }
+}
+// alias
+config.bg = config.backgroundColor
+
+export const color = system(config)
+```
+
 ## Composition
 
 To combine multiple Styled System functions in a single component, use the `compose` utility.

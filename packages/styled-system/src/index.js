@@ -8,24 +8,8 @@ export {
   compose,
 } from '@styled-system/core'
 export { variant } from '@styled-system/variant'
-export {
-  margin,
-  marginTop,
-  marginRight,
-  marginBottom,
-  marginLeft,
-  marginX,
-  padding,
-  paddingTop,
-  paddingRight,
-  paddingBottom,
-  paddingLeft,
-  paddingX,
-  paddingY,
-  space,
-} from '@styled-system/space'
 
-// new packages
+export { margin, padding, space } from '@styled-system/space'
 export { color } from '@styled-system/color'
 export { layout } from '@styled-system/layout'
 export { typography } from '@styled-system/typography'
@@ -34,6 +18,7 @@ export { border } from '@styled-system/border'
 export { background } from '@styled-system/background'
 export { position } from '@styled-system/position'
 export { grid } from '@styled-system/grid'
+export { boxShadow, textShadow } from '@styled-system/shadow'
 
 // v4 api shims
 export {
@@ -111,10 +96,6 @@ export {
   default as bottom,
   default as left,
 } from '@styled-system/position'
-export {
-  boxShadow,
-  textShadow,
-} from '@styled-system/shadow'
 
 // v4 style API shim
 export const style = ({

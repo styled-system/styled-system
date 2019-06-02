@@ -5,6 +5,7 @@
 - Faster (fastest implementation yet)
 - New `system` API for custom style props
 - Built-in style props are now grouped into categories
+- Style functions are now available as separate packages (e.g. `@styled-system/core`, `@styled-system/space`)
 - Removes `propTypes` (use `.propNames` or the optional `@styled-system/prop-types` package instead)
 - No longer converts numbers to `px` strings
 - Changes interal `get` utility
