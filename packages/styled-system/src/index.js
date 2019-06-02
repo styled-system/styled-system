@@ -27,7 +27,6 @@ export {
 
 // new packages
 export { color } from '@styled-system/color'
-export { default as opacity } from '@styled-system/color'
 export { layout } from '@styled-system/layout'
 export { typography } from '@styled-system/typography'
 export { flexbox } from '@styled-system/flexbox'
@@ -49,6 +48,7 @@ export {
   default as display,
   default as overflow,
 } from '@styled-system/layout'
+export { default as opacity } from '@styled-system/color'
 export {
   default as fontSize,
   default as fontFamily,
