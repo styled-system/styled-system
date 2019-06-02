@@ -39,6 +39,7 @@ const config = {
     ],
     scale: 'sizes'
   },
+  overflow: true
 }
 
 export const layout = system(config)
