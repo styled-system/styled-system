@@ -1,6 +1,6 @@
 {
   "name": "@styled-system/jsx",
-  "version": "5.0.0-9",
+  "version": "5.0.0-10",
   "description": "",
   "type": "module",
   "main": "dist/index.js",
@@ -10,5 +10,6 @@
   "dependencies": {
     "@emotion/core": "^10.0.10",
     "@styled-system/css": "^2.0.0"
-  }
+  },
+  "gitHead": "6934e3f2dee6923516bbcea39abff392a8ffdbc2"
 }

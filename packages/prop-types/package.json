@@ -1,6 +1,6 @@
 {
   "name": "@styled-system/prop-types",
-  "version": "5.0.0-9",
+  "version": "5.0.0-10",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "author": "Brent Jackson",
@@ -9,9 +9,10 @@
     "styled-system": "^5.0.0-8"
   },
   "devDependencies": {
-    "styled-system": "^5.0.0-9"
+    "styled-system": "^5.0.0-10"
   },
   "dependencies": {
     "prop-types": "^15.7.2"
-  }
+  },
+  "gitHead": "6934e3f2dee6923516bbcea39abff392a8ffdbc2"
 }
