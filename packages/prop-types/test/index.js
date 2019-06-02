@@ -1,4 +1,4 @@
-import propTypes from '../index'
+import propTypes from '../src'
 import {
   space,
   color,
