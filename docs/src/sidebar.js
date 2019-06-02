@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { ThemeProvider, Box, css, } from 'theme-ui'
+import { ThemeProvider, Box, css } from 'theme-ui'
 import NavLink from './nav-link'
 import Content from './sidebar.mdx'
 
@@ -50,7 +50,7 @@ const Root = styled(Box)(
       transition: 'max-height .2s ease-out',
       boxShadow: `0 2px 8px rgba(0, 0, 0, .25)`,
     },
-  }),
+  })
   // block('sidebar')
 )
 

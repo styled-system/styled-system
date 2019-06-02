@@ -36,25 +36,25 @@ If you've made use of the `.propTypes` object on Styled System functions, follow
 
 1. Install the prop types package
 
-  ```sh
-  npm install @styled-system/prop-types
-  ```
+```sh
+npm install @styled-system/prop-types
+```
 
 2. Replace existing prop type definitions in your components with prop types from the new package.
 
-  ```js
-  import styled from 'styled-components'
-  import { color, space } from 'styled-system'
-  import propTypes from '@styled-system/prop-types'
+```js
+import styled from 'styled-components'
+import { color, space } from 'styled-system'
+import propTypes from '@styled-system/prop-types'
 
-  const Box = styled('div')(color, space)
+const Box = styled('div')(color, space)
 
-  Box.propTypes = {
-    // new API
-    ...propTypes.color,
-    ...propTypes.space,
-  }
-  ```
+Box.propTypes = {
+  // new API
+  ...propTypes.color,
+  ...propTypes.space,
+}
+```
 
 ## New Features
 

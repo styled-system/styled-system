@@ -1,6 +1,5 @@
 # Theme Specification
 
-
 ---
 
 The Styled System theme object is intended to be a general purpose format for storing design system style values and scales.

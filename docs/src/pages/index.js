@@ -69,7 +69,8 @@ const Banner = ({ meta }) => (
           css={css({
             color: 'inherit',
             bg: 'transparent',
-          })}>
+          })}
+        >
           npm i styled-system
         </Styled.pre>
       </Box>
@@ -87,7 +88,8 @@ const Banner = ({ meta }) => (
                 p: 3,
                 fontSize: 3,
                 fontWeight: 'bold',
-              })}>
+              })}
+            >
               {feature}
             </Box>
           ))}
@@ -99,12 +101,14 @@ const Banner = ({ meta }) => (
       <Columns mx={-3} py={4}>
         {meta.quotes.map(quote => (
           <Box as="li" width={[1, 1 / 2]} p={3} key={quote.text} mb={0}>
-            <Box as="blockquote"
+            <Box
+              as="blockquote"
               css={css({
                 fontSize: 3,
                 fontWeight: 'bold',
                 m: 0,
-              })}>
+              })}
+            >
               “{quote.text}”
             </Box>
             <Styled.a href={quote.href}>– {quote.source}</Styled.a>

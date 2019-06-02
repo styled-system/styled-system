@@ -38,7 +38,7 @@ import { color } from 'styled-system'
 | ----------------------- | ------------------ | ----------- |
 | `color`                 | `color`            | `colors`    |
 | `bg`, `backgroundColor` | `background-color` | `colors`    |
-| `opacity`               | `opacity`           | none        |
+| `opacity`               | `opacity`          | none        |
 
 ## Typography
 
@@ -75,7 +75,7 @@ import { layout } from 'styled-system'
 | `size`          | `width` `height` | `sizes`     |
 | `display`       | `display`        | none        |
 | `verticalAlign` | `vertical-align` | none        |
-| `overflow`      | `overflow`        | none        |
+| `overflow`      | `overflow`       | none        |
 
 ## Flexbox
 
@@ -165,14 +165,14 @@ import { position } from 'styled-system'
 // or `import position from '@styled-system/position'`
 ```
 
-Prop       | CSS Property | Theme Field |
----------- | ------------ | ----------- |
-`position` | `position`   | none        |
-`zIndex`   | `z-index`    | `zIndices`  |
-`top`      | `top`        | none        |
-`right`    | `right`      | none        |
-`bottom`   | `bottom`     | none        |
-`left`     | `left`       | none        |
+| Prop       | CSS Property | Theme Field |
+| ---------- | ------------ | ----------- |
+| `position` | `position`   | none        |
+| `zIndex`   | `z-index`    | `zIndices`  |
+| `top`      | `top`        | none        |
+| `right`    | `right`      | none        |
+| `bottom`   | `bottom`     | none        |
+| `left`     | `left`       | none        |
 
 ## Shadow
 
@@ -181,11 +181,10 @@ import { shadow } from 'styled-system'
 // or `import shadow from '@styled-system/shadow'`
 ```
 
-Prop | CSS Property | Theme Field
----|---|---
-`textShadow` | `text-shadow` | `shadows`
-`boxShadow` | `box-shadow` | `shadows`
-
+| Prop         | CSS Property  | Theme Field |
+| ------------ | ------------- | ----------- |
+| `textShadow` | `text-shadow` | `shadows`   |
+| `boxShadow`  | `box-shadow`  | `shadows`   |
 
 ## Variants
 
@@ -199,4 +198,3 @@ import { textStyle, colorStyle, buttonStyle } from 'styled-system'
 | `textStyle`   | `textStyle` | `textStyles`  |
 | `colorStyle`  | `colors`    | `colorStyles` |
 | `buttonStyle` | `variant`   | `buttons`     |
-

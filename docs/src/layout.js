@@ -3,11 +3,7 @@ import styled from '@emotion/styled'
 import { flexDirection } from 'styled-system'
 import { useAppContext } from './index'
 import NavLink from './nav-link'
-import {
-  Box,
-  css,
-  useColorMode,
-} from 'theme-ui'
+import { Box, css, useColorMode } from 'theme-ui'
 import Burger from './burger'
 import Sidebar from './sidebar'
 import Pagination from './pagination'
@@ -28,7 +24,7 @@ const HeaderRoot = styled(Box)(
       left: 0,
       right: 0,
     },
-  }),
+  })
 )
 const HeaderSpacer = styled.div(
   css({
@@ -40,16 +36,10 @@ const HeaderSpacer = styled.div(
   })
 )
 
-const modes = [
-  'light',
-  'dark',
-  'gray',
-  'cyan',
-  'book',
-]
+const modes = ['light', 'dark', 'gray', 'cyan', 'book']
 
 export const Header = ({ sidebar = true, ...props }) => {
-  const [ mode, setMode ] = useColorMode()
+  const [mode, setMode] = useColorMode()
   const state = useAppContext()
   const cycleMode = () => {
     const i = (modes.indexOf(mode) + 1) % modes.length
@@ -88,7 +78,8 @@ export const Header = ({ sidebar = true, ...props }) => {
               outline: '2px solid',
             },
           })}
-          onClick={cycleMode}>
+          onClick={cycleMode}
+        >
           {mode}
         </button>
         {sidebar && (
@@ -123,14 +114,14 @@ const Root = styled(Box)(
   css({
     display: 'flex',
     flexDirection: 'column',
-  }),
+  })
 )
 
 const Main = styled(Box)(
   {
     display: 'flex',
   },
-  flexDirection,
+  flexDirection
 )
 
 const Overlay = props => (
@@ -153,7 +144,7 @@ export const Container = styled(Box)(
     lineHeight: 'body',
     mx: 'auto',
     p: 4,
-  }),
+  })
 )
 Container.defaultProps = {
   as: 'main',

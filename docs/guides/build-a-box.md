@@ -69,12 +69,7 @@ Add the following props to the Box.
 ```js
 // example Box.js
 import styled from 'styled-components'
-import {
-  space,
-  color,
-  layout,
-  flexbox
-} from 'styled-system'
+import { space, color, layout, flexbox } from 'styled-system'
 
 const Box = styled.div(
   {

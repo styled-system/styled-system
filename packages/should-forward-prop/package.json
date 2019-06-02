@@ -3,12 +3,10 @@
   "version": "1.0.0",
   "description": "Utility for filtering Styled System props with Emotion's shouldForwardProp option",
   "main": "dist/index.js",
+  "module": "dist/index.esm.js",
   "keywords": [],
   "author": "Brent Jackson <jxnblk@gmail.com>",
   "license": "MIT",
-  "scripts": {
-    "prepare": "babel src -d dist"
-  },
   "dependencies": {
     "@emotion/is-prop-valid": "^0.7.3",
     "@emotion/memoize": "^0.7.1",

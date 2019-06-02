@@ -81,7 +81,7 @@ const config = {
   backgroundColor: {
     property: 'backgroundColor',
     scale: 'colors',
-  }
+  },
 }
 // alias
 config.bg = config.backgroundColor
@@ -105,4 +105,3 @@ const Box = styled('div')(
   )
 )
 ```
-

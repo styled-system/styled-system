@@ -8,8 +8,8 @@ const gatsbyRemarkPlugins = [
         js: 'javascript',
       },
       noInlineHighlight: true,
-    }
-  }
+    },
+  },
 ]
 
 module.exports = {

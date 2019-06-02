@@ -355,10 +355,7 @@ import { shadow } from 'styled-system'
 The `shadow` utility includes style props for `textShadow` and `boxShadow`.
 
 ```jsx
-<Box
-  textShadow='small'
-  boxShadow='medium'
-/>
+<Box textShadow="small" boxShadow="medium" />
 ```
 
 ---

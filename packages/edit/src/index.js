@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx, ThemeContext } from '@emotion/core'
 import React, { useReducer, useContext } from 'react'
-import { ThemeProvider } from 'emotion-theming'
 import merge from 'lodash.merge'
 import omit from 'lodash.omit'
 import get from 'lodash.get'
@@ -32,7 +31,7 @@ export const EditProvider = ({
 
   return (
     <EditContext.Provider value={context}>
-      <ThemeProvider theme={state}>{children}</ThemeProvider>
+      <ThemeContext.Provider value={state}>{children}</ThemeContext.Provider>
     </EditContext.Provider>
   )
 }

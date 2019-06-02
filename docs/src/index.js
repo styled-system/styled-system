@@ -45,9 +45,7 @@ const Root = props => {
 
   return (
     <Context.Provider value={context}>
-      <ThemeProvider components={components}>
-        {props.children}
-      </ThemeProvider>
+      <ThemeProvider components={components}>{props.children}</ThemeProvider>
     </Context.Provider>
   )
 }
@@ -64,8 +62,11 @@ const Page = props => {
         <meta name="twitter:site" content="@jxnblk" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        <meta name='twitter:image' content='https://styled-system.com/logo.png' />
-        <link rel='icon' type='image/png' href='logo.png' />
+        <meta
+          name="twitter:image"
+          content="https://styled-system.com/logo.png"
+        />
+        <link rel="icon" type="image/png" href="logo.png" />
       </Helmet>
       {style}
       {props.children}

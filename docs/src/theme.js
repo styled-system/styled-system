@@ -52,56 +52,25 @@ const colors = {
 }
 
 const prism = {
-  [[
-    '.comment',
-    '.prolog',
-    '.doctype',
-    '.cdata',
-  ]]: {
-    color: 'midgray'
+  [['.comment', '.prolog', '.doctype', '.cdata']]: {
+    color: 'midgray',
   },
   '.punctuation': {
     color: 'midgray',
   },
-  [[
-    '.property',
-    '.tag',
-    '.constant',
-    '.symbol',
-    '.deleted',
-  ]]: {
+  [['.property', '.tag', '.constant', '.symbol', '.deleted']]: {
     color: 'primary',
   },
-  [[
-    '.boolean',
-    '.number',
-  ]]: {
+  [['.boolean', '.number']]: {
     color: 'secondary',
   },
-  [[
-    '.selector',
-    '.attr-name',
-    '.string',
-    '.char',
-    '.builtin',
-    '.inserted',
-  ]]: {
+  [['.selector', '.attr-name', '.string', '.char', '.builtin', '.inserted']]: {
     color: 'highlight',
   },
-  [[
-    '.operator',
-    '.entity',
-    '.url',
-    '.string',
-    '.variable',
-  ]]: {
+  [['.operator', '.entity', '.url', '.string', '.variable']]: {
     color: 'highlight',
   },
-  [[
-    '.atrule',
-    '.attr-value',
-    '.function',
-  ]]: {
+  [['.atrule', '.attr-value', '.function']]: {
     color: 'primary',
   },
   '.keyword': {

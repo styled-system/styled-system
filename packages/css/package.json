@@ -5,11 +5,6 @@
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "sideEffects": false,
-  "scripts": {
-    "prepare": "mkdir -p dist && npm run build:cjs && npm run build:esm",
-    "build:cjs": "NODE_ENV=cjs babel src/index.js -o dist/index.js",
-    "build:esm": "NODE_ENV=esm babel src/index.js -o dist/index.esm.js"
-  },
   "keywords": [
     "css",
     "css-in-js",
@@ -20,9 +15,6 @@
   ],
   "author": "Brent Jackson <jxnblk@gmail.com>",
   "license": "MIT",
-  "devDependencies": {
-    "@babel/cli": "^7.4.4"
-  },
   "gitHead": "c435cc68097a8c0daffe07ee15fe357b8c431b66",
   "publishConfig": {
     "access": "public"
