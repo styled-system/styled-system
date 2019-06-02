@@ -7,6 +7,7 @@ import {
   gridRowGap,
   gridColumnGap,
   borders,
+  shadow,
 } from '../src'
 
 const theme = {
@@ -167,5 +168,16 @@ test('borders prop returns correct sequence', () => {
     borderWidth: '2px',
     borderStyle: 'dashed',
     borderColor: 'red',
+  })
+})
+
+test('shadow handles boxShadow and textShadow props', () => {
+  const a = shadow({
+    textShadow: '0 -1px rgba(255, 255, 255, .25)',
+    boxShadow: 'none',
+  })
+  expect(a).toEqual({
+    textShadow: '0 -1px rgba(255, 255, 255, .25)',
+    boxShadow: 'none',
   })
 })

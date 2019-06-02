@@ -2038,9 +2038,105 @@
     lodash.get "^4.4.2"
     svg-tags "^1.0.0"
 
+"@styled-system/background@5.0.0-7":
+  version "5.0.0-7"
+  resolved "https://registry.yarnpkg.com/@styled-system/background/-/background-5.0.0-7.tgz#c9b7afe965e41376dda17d9d7acf0ce2338d2ef9"
+  dependencies:
+    "@styled-system/core" "^5.0.0-7"
+
+"@styled-system/border@5.0.0-7":
+  version "5.0.0-7"
+  resolved "https://registry.yarnpkg.com/@styled-system/border/-/border-5.0.0-7.tgz#1ea24ea7ec7a0ccd90f3392c6934065d03d5b450"
+  dependencies:
+    "@styled-system/core" "^5.0.0-7"
+
+"@styled-system/color@5.0.0-7":
+  version "5.0.0-7"
+  resolved "https://registry.yarnpkg.com/@styled-system/color/-/color-5.0.0-7.tgz#a6d56f1f7da008129dc87f7b86d2d290cd7f2f66"
+  dependencies:
+    "@styled-system/core" "^5.0.0-7"
+
+"@styled-system/core@5.0.0-7":
+  version "5.0.0-7"
+  resolved "https://registry.yarnpkg.com/@styled-system/core/-/core-5.0.0-7.tgz#798500c0ec6629d89202537a6b39964ff685387d"
+  dependencies:
+    object-assign "^4.1.1"
+
+"@styled-system/css@5.0.0-7":
+  version "5.0.0-7"
+  resolved "https://registry.yarnpkg.com/@styled-system/css/-/css-5.0.0-7.tgz#a7b457aed79c8da91378242f1add6ac1b8bd0965"
+
 "@styled-system/css@^2.0.0", "@styled-system/css@^2.0.4":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@styled-system/css/-/css-2.0.4.tgz#58c9043f48a6ff3a726820829407375a71d3ca0c"
+
+"@styled-system/edit@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@styled-system/edit/-/edit-0.0.5.tgz#38f48d921bb576265bb8fa67a1421fa4ce3f2be3"
+  dependencies:
+    "@emotion/core" "^10.0.10"
+    color "^3.1.0"
+    emotion-theming "^10.0.10"
+    lodash.get "^4.4.2"
+    lodash.merge "^4.6.1"
+    lodash.omit "^4.5.0"
+    lodash.set "^4.3.2"
+
+"@styled-system/flexbox@5.0.0-7":
+  version "5.0.0-7"
+  resolved "https://registry.yarnpkg.com/@styled-system/flexbox/-/flexbox-5.0.0-7.tgz#f141ddf7d1337f94501b1b67bfdffdbf601e9338"
+  dependencies:
+    "@styled-system/core" "^5.0.0-7"
+
+"@styled-system/grid@5.0.0-7":
+  version "5.0.0-7"
+  resolved "https://registry.yarnpkg.com/@styled-system/grid/-/grid-5.0.0-7.tgz#923d886457057f817b1b1b47c4d492268f38d697"
+  dependencies:
+    "@styled-system/core" "^5.0.0-7"
+
+"@styled-system/jsx@0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@styled-system/jsx/-/jsx-0.0.3.tgz#f12bc73bb7b7e3a1ea71eecc23a74acc5dcefc11"
+  dependencies:
+    "@emotion/core" "^10.0.10"
+    "@styled-system/css" "^2.0.0"
+
+"@styled-system/layout@5.0.0-7":
+  version "5.0.0-7"
+  resolved "https://registry.yarnpkg.com/@styled-system/layout/-/layout-5.0.0-7.tgz#5853c9ea1e636c1a68dd92ae6330f01ee2752d1a"
+  dependencies:
+    "@styled-system/core" "^5.0.0-7"
+
+"@styled-system/position@5.0.0-7":
+  version "5.0.0-7"
+  resolved "https://registry.yarnpkg.com/@styled-system/position/-/position-5.0.0-7.tgz#e992d85b9e1be6eb51ed2a4870c30d8d636b6b5f"
+  dependencies:
+    "@styled-system/core" "^5.0.0-7"
+
+"@styled-system/should-forward-prop@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@styled-system/should-forward-prop/-/should-forward-prop-1.0.0.tgz#fb909c09fe659a514d1abdf3a254c14f8b97ede4"
+  dependencies:
+    "@emotion/is-prop-valid" "^0.7.3"
+    styled-system "^4.1.0"
+
+"@styled-system/space@5.0.0-7":
+  version "5.0.0-7"
+  resolved "https://registry.yarnpkg.com/@styled-system/space/-/space-5.0.0-7.tgz#a0a58e9081fc0d2166d6c48de62f46c37a2f4c08"
+  dependencies:
+    "@styled-system/core" "^5.0.0-7"
+
+"@styled-system/typography@5.0.0-7":
+  version "5.0.0-7"
+  resolved "https://registry.yarnpkg.com/@styled-system/typography/-/typography-5.0.0-7.tgz#d1f9741fdaa3fe6c3ac47e82cc22d575253e3ae9"
+  dependencies:
+    "@styled-system/core" "^5.0.0-7"
+
+"@styled-system/variant@5.0.0-7":
+  version "5.0.0-7"
+  resolved "https://registry.yarnpkg.com/@styled-system/variant/-/variant-5.0.0-7.tgz#2aa13ba5e3e548d38d17536de4536e309287df2b"
+  dependencies:
+    "@styled-system/core" "^5.0.0-7"
 
 "@svgr/babel-plugin-add-jsx-attribute@^4.2.0":
   version "4.2.0"
@@ -14724,7 +14820,24 @@ styled-components@^4.2.0:
     stylis-rule-sheet "^0.0.10"
     supports-color "^5.5.0"
 
-styled-system@^4.0.0:
+styled-system@5.0.0-8:
+  version "5.0.0-8"
+  resolved "https://registry.yarnpkg.com/styled-system/-/styled-system-5.0.0-8.tgz#634b7e3c2ab2335fcc6b32eec6339e1f9d7d5233"
+  dependencies:
+    "@styled-system/background" "5.0.0-7"
+    "@styled-system/border" "5.0.0-7"
+    "@styled-system/color" "5.0.0-7"
+    "@styled-system/core" "5.0.0-7"
+    "@styled-system/flexbox" "5.0.0-7"
+    "@styled-system/grid" "5.0.0-7"
+    "@styled-system/layout" "5.0.0-7"
+    "@styled-system/position" "5.0.0-7"
+    "@styled-system/space" "5.0.0-7"
+    "@styled-system/typography" "5.0.0-7"
+    "@styled-system/variant" "5.0.0-7"
+    object-assign "^4.1.1"
+
+styled-system@^4.0.0, styled-system@^4.1.0:
   version "4.2.4"
   resolved "https://registry.yarnpkg.com/styled-system/-/styled-system-4.2.4.tgz#8909f91396c30b92295b4eddec5f7b89f8c8d767"
   dependencies:

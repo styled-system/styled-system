@@ -150,6 +150,7 @@ export const system = (args = {}) => {
 export const compose = (...parsers) => {
   let config = {}
   parsers.forEach(parser => {
+    if (!parser || !parser.config) return
     assign(config, parser.config)
   })
   const parser = createParser(config)
