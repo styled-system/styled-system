@@ -18,7 +18,6 @@
     "logo": "npx repng docs/src/logo/index.js -d docs/static -f logo.png -w 512 -h 512",
     "logo-svg": "npx scrs docs/src/logo/index.js --svg > docs/static/logo.svg",
     "logo-white": "npx scrs docs/src/logo/white.js --svg > docs/static/logo-white.svg",
-    "size": "npx bundlesize",
     "benchmark": "yarn workspace benchmarks test",
     "cover": "yarn test --coverage",
     "codecov": "yarn cover && npx codecov",
@@ -55,11 +54,6 @@
       "html"
     ]
   },
-  "bundlesize": [
-    {
-      "path": "dist/*"
-    }
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jxnblk/styled-system.git"
