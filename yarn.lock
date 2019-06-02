@@ -15026,7 +15026,7 @@ styled-system@^4.0.6, "system-v4@npm:styled-system@4.2.2":
     "@babel/runtime" "^7.4.2"
     prop-types "^15.7.2"
 
-styled-system@^4.0.8, styled-system@^4.1.0, styled-system@^4.1.0-0:
+styled-system@^4.0.8, styled-system@^4.1.0-0:
   version "4.2.4"
   resolved "https://registry.yarnpkg.com/styled-system/-/styled-system-4.2.4.tgz#8909f91396c30b92295b4eddec5f7b89f8c8d767"
   dependencies:
