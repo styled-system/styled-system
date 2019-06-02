@@ -7,6 +7,7 @@ Each function provides the following props and maps to scales defined in a theme
 
 ```js
 import { space } from 'styled-system'
+// or import space from '@styled-system/space'
 ```
 
 | Prop                  | CSS Property                       | Theme Field |
@@ -30,17 +31,20 @@ import { space } from 'styled-system'
 
 ```js
 import { color } from 'styled-system'
+// or import color from '@styled-system/color'
 ```
 
 | Prop                    | CSS Property       | Theme Field |
 | ----------------------- | ------------------ | ----------- |
 | `color`                 | `color`            | `colors`    |
 | `bg`, `backgroundColor` | `background-color` | `colors`    |
+| `opacity`               | `opacity`           | none        |
 
 ## Typography
 
 ```js
 import { typography } from 'styled-system'
+// or import typography from '@styled-system/typography'
 ```
 
 | Prop            | CSS Property     | Theme Field      |
@@ -57,6 +61,7 @@ import { typography } from 'styled-system'
 
 ```js
 import { layout } from 'styled-system'
+// or import layout from '@styled-system/layout'
 ```
 
 | Prop            | CSS Property     | Theme Field |
@@ -70,11 +75,13 @@ import { layout } from 'styled-system'
 | `size`          | `width` `height` | `sizes`     |
 | `display`       | `display`        | none        |
 | `verticalAlign` | `vertical-align` | none        |
+| `overflow`      | `overflow`        | none        |
 
 ## Flexbox
 
 ```js
 import { flexbox } from 'styled-system'
+// or import flexbox from '@styled-system/flexbox'
 ```
 
 | Prop             | CSS Property       | Theme Field |
@@ -97,6 +104,7 @@ import { flexbox } from 'styled-system'
 
 ```js
 import { grid } from 'styled-system'
+// or import grid from '@styled-system/grid'
 ```
 
 | Prop                  | CSS Property            | Theme Field |
@@ -118,6 +126,7 @@ import { grid } from 'styled-system'
 
 ```js
 import { background } from 'styled-system'
+// or import background from '@styled-system/background'
 ```
 
 | Prop                 | CSS Property          | Theme Field |
@@ -132,6 +141,7 @@ import { background } from 'styled-system'
 
 ```js
 import { border } from 'styled-system'
+// or import border from '@styled-system/border'
 ```
 
 | Prop           | CSS Property                   | Theme Field    |
@@ -152,16 +162,30 @@ import { border } from 'styled-system'
 
 ```js
 import { position } from 'styled-system'
+// or `import position from '@styled-system/position'`
 ```
 
-| Function Name | Prop       | CSS Property | Theme Field |
-| ------------- | ---------- | ------------ | ----------- |
-| `position`    | `position` | `position`   | none        |
-| `zIndex`      | `zIndex`   | `z-index`    | `zIndices`  |
-| `top`         | `top`      | `top`        | none        |
-| `right`       | `right`    | `right`      | none        |
-| `bottom`      | `bottom`   | `bottom`     | none        |
-| `left`        | `left`     | `left`       | none        |
+Prop       | CSS Property | Theme Field |
+---------- | ------------ | ----------- |
+`position` | `position`   | none        |
+`zIndex`   | `z-index`    | `zIndices`  |
+`top`      | `top`        | none        |
+`right`    | `right`      | none        |
+`bottom`   | `bottom`     | none        |
+`left`     | `left`       | none        |
+
+## Shadow
+
+```js
+import { shadow } from 'styled-system'
+// or `import shadow from '@styled-system/shadow'`
+```
+
+Prop | CSS Property | Theme Field
+---|---|---
+`textShadow` | `text-shadow` | `shadows`
+`boxShadow` | `box-shadow` | `shadows`
+
 
 ## Variants
 
@@ -175,12 +199,3 @@ import { textStyle, colorStyle, buttonStyle } from 'styled-system'
 | `colorStyle`  | `colors`    | `colorStyles` |
 | `buttonStyle` | `variant`   | `buttons`     |
 
----
-
-TODO
-
-| Prop        | CSS Property | Theme Field |
-| ----------- | ------------ | ----------- |
-| `opacity`   | `opacity`    | none        |
-| `overflow`  | `overflow`   | none        |
-| `boxShadow` | `box-shadow` | `shadows`   |

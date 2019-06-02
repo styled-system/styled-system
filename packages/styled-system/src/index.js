@@ -18,7 +18,7 @@ export { border } from '@styled-system/border'
 export { background } from '@styled-system/background'
 export { position } from '@styled-system/position'
 export { grid } from '@styled-system/grid'
-export { boxShadow, textShadow } from '@styled-system/shadow'
+export { shadow } from '@styled-system/shadow'
 
 // v4 api shims
 export {

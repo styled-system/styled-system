@@ -19,7 +19,7 @@ The following has been removed from v5 and you should make these changes to migr
   - `cloneFunction`
   - `mapProps`
   - `defaultBreakpoints`
-- Style functions no longer include a `propTypes` property. Use the `@styled-system/prop-types` utility instead (TK docs)
+- Style functions no longer include a `propTypes` property. Use the `@styled-system/prop-types` utility instead (See [Updating Prop Types](#updating-prop-types))
 
 ## Changes
 
@@ -29,6 +29,32 @@ The following has been removed from v5 and you should make these changes to migr
 - Functions no longer return `null`, but return an empty object (`{}`) instead
 - Negative padding values are no longer returned. This would have been invalid CSS and generally should not cause issues for migration.
 - The internal `merge` utility no longer deeply merges since it is not needed internally.
+
+## Updating Prop Types
+
+If you've made use of the `.propTypes` object on Styled System functions, follow these steps to migrate to version 5.
+
+1. Install the prop types package
+
+  ```sh
+  npm install @styled-system/prop-types
+  ```
+
+2. Replace existing prop type definitions in your components with prop types from the new package.
+
+  ```js
+  import styled from 'styled-components'
+  import { color, space } from 'styled-system'
+  import propTypes from '@styled-system/prop-types'
+
+  const Box = styled('div')(color, space)
+
+  Box.propTypes = {
+    // new API
+    ...propTypes.color,
+    ...propTypes.space,
+  }
+  ```
 
 ## New Features
 

@@ -193,6 +193,8 @@ The `width` prop is transformed based on the following:
 import { flexbox } from 'styled-system'
 ```
 
+The `flexbox` utility includes style props for `alignItems`, `alignContent`, `justifyItems`, `justifyContent`, `flexWrap`, `flexDirection`, `flex`, `flexGrow`, `flexShrink`, `flexBasis`, `justifySelf`, `alignSelf`, and `order`.
+
 ```jsx
 // alignItems
 <Flex alignItems='center' />
@@ -230,6 +232,8 @@ import { flexbox } from 'styled-system'
 ```js
 import { grid } from 'styled-system'
 ```
+
+The `grid` utility includes style props for `gridGap`, `gridColumnGap`, `gridRowGap`, `gridColumn`, `gridRow`, `gridAutoFlow`, `gridAutoColumns`, `gridAutoRows`, `gridTemplateColumns`, `gridTemplateRows`, `gridTemplateAreas`, and `gridArea`.
 
 ```jsx
 // gridGap
@@ -278,6 +282,8 @@ import { grid } from 'styled-system'
 import { background } from 'styled-system'
 ```
 
+The `background` utility includes style props for `backgroundImage`, `backgroundSize`, `backgroundPosition`, and `backgroundRepeat`.
+
 ```jsx
 // example
 <Box
@@ -290,11 +296,11 @@ import { background } from 'styled-system'
 
 ## Border
 
-Border props include `border`, `borderTop`, `borderRight`, `borderBottom`, `borderLeft`, `borderWidth`, `borderStyle`, `borderColor`, and `borderRadius`.
-
 ```js
 import { border } from 'styled-system'
 ```
+
+The `border` utiilty includes style props for `border`, `borderTop`, `borderRight`, `borderBottom`, `borderLeft`, `borderWidth`, `borderStyle`, `borderColor`, and `borderRadius`.
 
 ```jsx
 <Box border='1px solid' />
@@ -322,6 +328,8 @@ import { border } from 'styled-system'
 import { position } from 'styled-system'
 ```
 
+The `position` utility includes style props for `position`, `zIndex`, `top`, `right`, `bottom`, and `left`.
+
 ```jsx
 // position
 <Box position='absolute' />
@@ -338,56 +346,19 @@ import { position } from 'styled-system'
 />
 ```
 
-## Variants
-
-The variant style utilities allow you to define reusable style objects in your theme for things like text styles and color combinations.
-
-**NOTE:** the objects defined in the theme are _CSS style_ objects, not component _props_. Styled system props **will not** work here to avoid conflating CSS style objects with component props.
+## Shadow
 
 ```js
-// example theme
-const theme = {
-  textStyles: {
-    caps: {
-      textTransform: 'uppercase',
-      letterSpacing: '0.2em',
-    },
-  },
-  colorStyles: {
-    warning: {
-      color: 'black',
-      backgroundColor: 'orange',
-    },
-    error: {
-      color: 'white',
-      backgroundColor: 'red',
-    },
-  },
-  buttons: {
-    primary: {
-      color: 'white',
-      backgroundColor: 'blue',
-      '&:hover': {
-        backgroundColor: 'black',
-      },
-    },
-  },
-}
+import { shadow } from 'styled-system'
 ```
 
-```js
-import { textStyle, colorStyle, buttonStyle } from 'styled-system'
-```
+The `shadow` utility includes style props for `textShadow` and `boxShadow`.
 
 ```jsx
-// textStyle
-<Text textStyle='caps' />
-
-// colorStyle
-<Box colors='warning' />
-
-// buttonStyle
-<Button variant='primary' />
+<Box
+  textShadow='small'
+  boxShadow='medium'
+/>
 ```
 
 ---
@@ -529,6 +500,58 @@ Card.defaultProps = {
   variant: 'normal',
 }
 // <Card variant='large' />
+```
+
+## Variants
+
+The variant style utilities allow you to define reusable style objects in your theme for things like text styles and color combinations.
+
+**NOTE:** the objects defined in the theme are _CSS style_ objects, not component _props_. Styled system props **will not** work here to avoid conflating CSS style objects with component props.
+
+```js
+// example theme
+const theme = {
+  textStyles: {
+    caps: {
+      textTransform: 'uppercase',
+      letterSpacing: '0.2em',
+    },
+  },
+  colorStyles: {
+    warning: {
+      color: 'black',
+      backgroundColor: 'orange',
+    },
+    error: {
+      color: 'white',
+      backgroundColor: 'red',
+    },
+  },
+  buttons: {
+    primary: {
+      color: 'white',
+      backgroundColor: 'blue',
+      '&:hover': {
+        backgroundColor: 'black',
+      },
+    },
+  },
+}
+```
+
+```js
+import { textStyle, colorStyle, buttonStyle } from 'styled-system'
+```
+
+```jsx
+// textStyle
+<Text textStyle='caps' />
+
+// colorStyle
+<Box colors='warning' />
+
+// buttonStyle
+<Button variant='primary' />
 ```
 
 ---
