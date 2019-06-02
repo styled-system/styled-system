@@ -1,9 +1,8 @@
-
 # Showcase
 
 **This page is a stub. If you'd like to add your project to this page, please [Open a PR][].**
 
-[Open a PR]: https://github.com/styled-system/styled-system/blob/master/docs/showcase.md
+[open a pr]: https://github.com/styled-system/styled-system/blob/master/docs/showcase.md
 
 - [Primer Components](https://primer.style/components)
 - [Priceline Design System](https://pricelinelabs.github.io/design-system/)

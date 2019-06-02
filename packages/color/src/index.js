@@ -9,7 +9,7 @@ const config = {
   backgroundColor: {
     property: 'backgroundColor',
     scale: 'colors',
-  }
+  },
 }
 config.bg = config.backgroundColor
 

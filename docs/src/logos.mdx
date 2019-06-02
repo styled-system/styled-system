@@ -1,0 +1,49 @@
+import { ThemeProvider, Styled, Flex } from 'theme-ui'
+
+export default props =>
+  <ThemeProvider
+    theme={{
+      styles: {
+        root: {
+          textAlign: 'center',
+        },
+        img: {
+          height: 'auto',
+          filter: 'grayscale(100%) contrast(50%)',
+          mixBlendMode: 'multiply',
+          m: 4,
+        }
+      }
+    }}>
+    <Styled.root>
+      {props.children}
+    </Styled.root>
+  </ThemeProvider>
+
+### Used by
+
+<Flex
+  flexWrap='wrap'
+  alignItems='center'
+  justifyContent='space-around'>
+  <img
+    alt='GitHub logo'
+    src='https://github.githubassets.com/images/modules/logos_page/GitHub-Logo.png'
+    width='128'
+  />
+  <img
+    alt='Artsy logo'
+    src='https://erica-prince.com/wp-content/uploads/2018/08/artsy-logo.png'
+    width='128'
+  />
+  <img
+    alt='Cloudflare logo'
+    src='https://www.cloudflare.com/img/logo-cloudflare-dark.svg'
+    width='128'
+  />
+  <img
+    alt='Priceline logo'
+    src='https://www.freelogovectors.net/svg03/priceline-logo.svg'
+    width='160'
+  />
+</Flex>

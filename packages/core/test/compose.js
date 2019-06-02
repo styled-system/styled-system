@@ -4,7 +4,7 @@ const color = system({
   color: true,
   bg: {
     property: 'backgroundColor',
-  }
+  },
 })
 
 const fontSize = system({
@@ -25,6 +25,6 @@ test('compose combines style parsers', () => {
   expect(styles).toEqual({
     fontSize: 32,
     color: 'tomato',
-    backgroundColor: 'black'
+    backgroundColor: 'black',
   })
 })

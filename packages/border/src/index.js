@@ -39,17 +39,11 @@ const config = {
     scale: 'borders',
   },
   borderX: {
-    properties: [
-      'borderLeft',
-      'borderRight',
-    ],
+    properties: ['borderLeft', 'borderRight'],
     scale: 'borders',
   },
   borderY: {
-    properties: [
-      'borderTop',
-      'borderBottom',
-    ],
+    properties: ['borderTop', 'borderBottom'],
     scale: 'borders',
   },
 }

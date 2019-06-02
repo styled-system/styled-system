@@ -1,4 +1,3 @@
-
 # Scale Aliases
 
 This page is a stub.

@@ -1,4 +1,3 @@
-
 From [spectrum](https://spectrum.chat/thread/b9afb6f3-a675-4f97-bc78-66411292fab1)
 
     I'm sure Styled System isn't for everyone, but here's some of the thinking behind it.
