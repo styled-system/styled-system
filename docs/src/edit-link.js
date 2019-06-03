@@ -6,7 +6,7 @@ const base = 'https://github.com/styled-system/styled-system/edit/master/docs'
 
 const getHREF = location => {
   if (location.pathname === '/') return base + '/getting-started.md'
-  return base + location.pathname + '.md'
+  return base + location.pathname.replace(/\/+$/, '') + '.md'
 }
 
 export default () => (
