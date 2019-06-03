@@ -18,6 +18,7 @@ export { background } from '@styled-system/background'
 export { position } from '@styled-system/position'
 export { grid } from '@styled-system/grid'
 export { shadow } from '@styled-system/shadow'
+export { default as boxShadow, default as textShadow } from '@styled-system/shadow'
 
 export {
   variant,
