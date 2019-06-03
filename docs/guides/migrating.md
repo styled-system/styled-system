@@ -121,7 +121,7 @@ While the `style` utility from v4 should continue to work as expected, you can t
 
 ```js
 // v4
-const transition = styled({
+const transition = style({
   prop: 'transition',
 })
 const Box = styled('div')(transition)
