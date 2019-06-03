@@ -18,3 +18,16 @@ test('returns layout styles', () => {
     },
   })
 })
+
+test('props can be aliased', () => {
+  layout.config.w = layout.config.width
+  const style = layout({
+    w: [ 1, 1/2 ],
+  })
+  expect(style).toEqual({
+    width: '100%',
+    '@media screen and (min-width: 40em)': {
+      width: '50%',
+    }
+  })
+})
