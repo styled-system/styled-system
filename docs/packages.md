@@ -2,28 +2,28 @@
 
 The main `styled-system` package is composed of several other packages that can be installed and used on their own for special use-cases.
 
-| Package Name                | Exports                                                |
-| --------------------------- | ------------------------------------------------------ |
-| `@styled-system/core`       | `system`, `createParser`, `createStyleFunction`, `get` |
-| `@styled-system/space`      | `space`, `margin`, `padding`                           |
-| `@styled-system/color`      | `color`                                                |
-| `@styled-system/layout`     | `layout`                                               |
-| `@styled-system/typography` | `typography`                                           |
-| `@styled-system/flexbox`    | `flexbox`                                              |
-| `@styled-system/border`     | `border`                                               |
-| `@styled-system/background` | `background`                                           |
-| `@styled-system/position`   | `position`                                             |
-| `@styled-system/grid`       | `grid`                                                 |
-| `@styled-system/shadow`     | `shadow`                                               |
-| `@styled-system/variant`    | `variant`, `textStyle` `buttonStyle`, `colorStyle`     |
+| Package Name                                                                                                  | Exports                                                |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| [`@styled-system/core`](https://github.com/styled-system/styled-system/tree/master/packages/core)             | `system`, `createParser`, `createStyleFunction`, `get` |
+| [`@styled-system/space`](https://github.com/styled-system/styled-system/tree/master/packages/space)           | `space`, `margin`, `padding`                           |
+| [`@styled-system/color`](https://github.com/styled-system/styled-system/tree/master/packages/color)           | `color`                                                |
+| [`@styled-system/layout`](https://github.com/styled-system/styled-system/tree/master/packages/layout)         | `layout`                                               |
+| [`@styled-system/typography`](https://github.com/styled-system/styled-system/tree/master/packages/typography) | `typography`                                           |
+| [`@styled-system/flexbox`](https://github.com/styled-system/styled-system/tree/master/packages/flexbox)       | `flexbox`                                              |
+| [`@styled-system/border`](https://github.com/styled-system/styled-system/tree/master/packages/border)         | `border`                                               |
+| [`@styled-system/background`](https://github.com/styled-system/styled-system/tree/master/packages/background) | `background`                                           |
+| [`@styled-system/position`](https://github.com/styled-system/styled-system/tree/master/packages/position)     | `position`                                             |
+| [`@styled-system/grid`](https://github.com/styled-system/styled-system/tree/master/packages/grid)             | `grid`                                                 |
+| [`@styled-system/shadow`](https://github.com/styled-system/styled-system/tree/master/packages/shadow)         | `shadow`                                               |
+| [`@styled-system/variant`](https://github.com/styled-system/styled-system/tree/master/packages/variant)       | `variant`, `textStyle` `buttonStyle`, `colorStyle`     |
 
 The Styled System ecosystem also includes these optional packages
 
-| Package Name                         | Description                                                                       |
-| ------------------------------------ | --------------------------------------------------------------------------------- |
-| `@styled-system/css`                 | Styled System for the `css` prop                                                  |
-| `@styled-system/jsx`                 | Custom JSX pragma for using Styled System with the `css` prop                     |
-| `@styled-system/should-forward-prop` | Utility for filtering Styled System props with Emotion's shouldForwardProp option |
-| `@styled-system/prop-types`          | Prop type definitions for components built with Styled System                     |
-| `@styled-system/theme-get`           | Utility to safely access values from a theme                                      |
-| `@styled-system/edit`                | Debugging components for live editing Styled System theme objects                 |
+| Package Name                                                                                                                    | Description                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| [`@styled-system/css`](https://github.com/styled-system/styled-system/tree/master/packages/css)                                 | Styled System for the `css` prop                                                  |
+| [`@styled-system/jsx`](https://github.com/styled-system/styled-system/tree/master/packages/jsx)                                 | Custom JSX pragma for using Styled System with the `css` prop                     |
+| [`@styled-system/should-forward-prop`](https://github.com/styled-system/styled-system/tree/master/packages/should-forward-prop) | Utility for filtering Styled System props with Emotion's shouldForwardProp option |
+| [`@styled-system/prop-types`](https://github.com/styled-system/styled-system/tree/master/packages/prop-types)                   | Prop type definitions for components built with Styled System                     |
+| [`@styled-system/theme-get`](https://github.com/styled-system/styled-system/tree/master/packages/theme-get)                     | Utility to safely access values from a theme                                      |
+| [`@styled-system/edit`](https://github.com/styled-system/styled-system/tree/master/packages/edit)                               | Debugging components for live editing Styled System theme objects                 |
