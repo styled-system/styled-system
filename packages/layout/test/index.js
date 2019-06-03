@@ -18,3 +18,17 @@ test('returns layout styles', () => {
     },
   })
 })
+
+test('returns 0 from theme.sizes', () => {
+  const style = layout({
+    theme: {
+      size: [ 24, 48, 96 ],
+    },
+    width: 0,
+    height: 0,
+  })
+  expect(style).toEqual({
+    width: 24,
+    height: 24,
+  })
+})

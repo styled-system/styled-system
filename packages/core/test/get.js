@@ -27,7 +27,12 @@ test('handles undefined values', () => {
   expect(a).toBe(undefined)
 })
 
-test.skip('handles null values', () => {
+test('handles null values', () => {
   const a = get({}, null)
   expect(a).toBe(undefined)
+})
+
+test('returns 0 index items', () => {
+  const a = get([ 'a', 'b', 'c' ], 0)
+  expect(a).toBe('a')
 })
