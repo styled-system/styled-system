@@ -139,3 +139,12 @@ test('margin overrides m prop', () => {
   })
   expect(styles).toEqual({ margin: 8 })
 })
+
+test('handles margin with no theme', () => {
+  const styles = space({
+    mt: 12,
+  })
+  expect(styles).toEqual({
+    marginTop: 12,
+  })
+})

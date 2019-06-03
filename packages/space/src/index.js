@@ -13,7 +13,7 @@ const getMargin = (n, scale) => {
 
   const isNegative = n < 0
   const absolute = Math.abs(n)
-  const value = get(scale, absolute)
+  const value = get(scale, absolute, absolute)
   if (!isNumber(value)) {
     return isNegative ? '-' + value : value
   }
