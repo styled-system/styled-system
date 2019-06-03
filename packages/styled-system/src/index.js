@@ -1,10 +1,11 @@
-import { createStyleFunction, createParser, system } from '@styled-system/core'
+import { createStyleFunction, createParser } from '@styled-system/core'
 
 export {
   get,
   createParser,
   createStyleFunction,
   compose,
+  system,
 } from '@styled-system/core'
 
 export { margin, padding, space } from '@styled-system/space'
