@@ -1,6 +1,6 @@
 # Styled System Packages
 
-The main `styled-system` package is composed of several other packages that can be installed an used on their own for special use-cases.
+The main `styled-system` package is composed of several other packages that can be installed and used on their own for special use-cases.
 
 | Package Name                | Exports                                                |
 | --------------------------- | ------------------------------------------------------ |
