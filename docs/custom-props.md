@@ -14,7 +14,7 @@ All Styled System functions rely on these low-level utilities.
 import styled from 'styled-components'
 import { system } from 'styled-system'
 
-const textDecoration = style({
+const textDecoration = system({
   prop: 'textDecoration',
   cssProperty: 'textDecoration',
 })
