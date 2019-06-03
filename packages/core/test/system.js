@@ -135,6 +135,22 @@ test('gets values from theme', () => {
   })
 })
 
+test('gets 0 index values from theme', () => {
+  const parser = system({
+    width: {
+      property: 'width',
+      scale: 'sizes',
+    }
+  })
+  const style = parser({
+    theme: {
+      sizes: [ 24, 48 ],
+    },
+    width: 0,
+  })
+  expect(style).toEqual({ width: 24 })
+})
+
 test('ignores null values', () => {
   const parser = system({
     color: true,

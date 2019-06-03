@@ -15,7 +15,7 @@ const defaults = {
   breakpoints: [40, 52, 64].map(n => n + 'em'),
 }
 const createMediaQuery = n => `@media screen and (min-width: ${n})`
-const getValue = (n, scale) => n ? get(scale, n, n) : n
+const getValue = (n, scale) => get(scale, n, n)
 
 export const get = (obj, key, def, p, undef) => {
   key = key && key.split ? key.split('.') : [key]
