@@ -226,3 +226,27 @@ test('handles negative margins from scale', () => {
     marginRight: -32,
   })
 })
+
+test('handles layout values from sizes', () => {
+  const result = css({
+    width: [0, 1],
+    height: 0,
+  })({
+    sizes: [24, 48, 96],
+  })
+  expect(result).toEqual({
+    width: 24,
+    height: 24,
+    '@media screen and (min-width: 40em)': { width: 48 },
+  })
+})
+
+test('handles with percentage values', () => {
+  const result = css({
+    width: [1, 0.5],
+  })(theme)
+  expect(result).toEqual({
+    width: '100%',
+    '@media screen and (min-width: 40em)': { width: '50%' },
+  })
+})

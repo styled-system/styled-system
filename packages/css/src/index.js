@@ -7,6 +7,8 @@ export const get = (obj, key = '', def, p, undef) => {
   return obj === undef ? def : obj
 }
 
+const isNumber = n => typeof n === 'number' && !isNaN(n)
+
 const defaultBreakpoints = [40, 52, 64].map(n => n + 'em')
 
 const defaultTheme = {
@@ -94,6 +96,9 @@ const getMargin = (scale, value) => {
   return n * -1
 }
 
+const getWidth = (scale, value) =>
+  get(scale, value, !isNumber(value) || value > 1 ? value : value * 100 + '%')
+
 const transforms = {
   margin: getMargin,
   marginTop: getMargin,
@@ -102,12 +107,16 @@ const transforms = {
   marginLeft: getMargin,
   marginX: getMargin,
   marginY: getMargin,
+  width: getWidth,
 }
 
 export const responsive = styles => theme => {
   const next = {}
   const breakpoints = get(theme, 'breakpoints', defaultBreakpoints)
-  const mediaQueries = [ null, ...breakpoints.map(n => `@media screen and (min-width: ${n})`) ]
+  const mediaQueries = [
+    null,
+    ...breakpoints.map(n => `@media screen and (min-width: ${n})`),
+  ]
 
   for (const key in styles) {
     const value = styles[key]
