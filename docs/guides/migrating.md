@@ -121,7 +121,7 @@ While the `style` utility from v4 should continue to work as expected, you can t
 
 ```js
 // v4
-const transition = style({
+const transition = styled({
   prop: 'transition',
 })
 const Box = styled('div')(transition)
@@ -131,7 +131,7 @@ const Box = styled('div')(transition)
 // v5
 const Box = styled('div')(
   system({
-    transition: true,
+    transform: true,
   })
 )
 ```
@@ -146,7 +146,7 @@ const Box = styled('div')(
       scale: 'fontSizes',
     },
     // shortcut syntax
-    transition: true,
+    transform: true,
   })
 )
 ```
