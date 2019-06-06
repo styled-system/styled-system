@@ -19,3 +19,39 @@ Box.propTypes = {
   ...propTypes.color,
 }
 ```
+
+## Available Type Categories
+
+* `space`
+* `color`
+* `layout`
+* `typography`
+* `flexbox`
+* `border`
+* `background`
+* `position`
+* `grid`
+
+See props of each category in [the reference table](https://styled-system.com/table).
+
+## Custom Props
+
+```js
+import styled from 'styled-components'
+import { space, style } from 'styled-system'
+import propTypes, { propType } from '@styled-system/prop-types'
+
+const gap = style({
+	prop: 'gap',
+	cssProperty: 'gridGap',
+	key: 'space',
+	scale: DEFAULT_SCALE,
+});
+
+const Stack = styled('div')(space, gap);
+
+Stack.propTypes = {
+  ...propTypes.space,
+  gap: propType,
+}
+```
