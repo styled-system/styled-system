@@ -8,7 +8,7 @@ This helps prevent errors from throwing when a theme value is missing,
 which can be helpful when unit testing styled-components.
 
 ```sh
-npm i styled-system @styled-system/theme-get
+npm i @styled-system/theme-get
 ```
 
 ```js
