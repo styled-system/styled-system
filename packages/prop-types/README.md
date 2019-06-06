@@ -41,14 +41,17 @@ import styled from 'styled-components'
 import { space, style } from 'styled-system'
 import propTypes, { propType } from '@styled-system/prop-types'
 
-const gap = style({
-	prop: 'gap',
-	cssProperty: 'gridGap',
-	key: 'space',
-	scale: DEFAULT_SCALE,
-});
+const gridGap = system({
+  gap: {
+    property: 'gridGap',
+    scale: 'space',
+    defaultScale: [0, 4, 8, 16, 32, 64, 128, 256, 512]
+  }
+})
 
-const Stack = styled('div')(space, gap);
+const Stack = styled('div')(
+  compose(space, gridGap)
+)
 
 Stack.propTypes = {
   ...propTypes.space,
