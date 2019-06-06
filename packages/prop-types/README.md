@@ -38,7 +38,7 @@ See props of each category in [the reference table](https://styled-system.com/ta
 
 ```js
 import styled from 'styled-components'
-import { space, style } from 'styled-system'
+import { space, system } from 'styled-system'
 import propTypes, { propType } from '@styled-system/prop-types'
 
 const gridGap = system({
