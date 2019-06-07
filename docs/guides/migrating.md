@@ -112,7 +112,7 @@ const styleProps = compose(
   space,
   color
 )
-const Box = styled(styleProps)
+const Box = styled('div')(styleProps)
 ```
 
 ### Custom Styles
