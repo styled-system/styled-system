@@ -148,3 +148,22 @@ test('handles margin with no theme', () => {
     marginTop: 12,
   })
 })
+
+test('handles overriding margin/padding shortcut props', () => {
+  const styles = space({
+    m: 4,
+    mx: 3,
+    mr: 2,
+    p: 4,
+    py: 3,
+    pt: 2,
+  })
+  expect(styles).toEqual({
+    margin: 32,
+    marginLeft: 16,
+    marginRight: 8,
+    padding: 32,
+    paddingBottom: 16,
+    paddingTop: 8,
+  })
+})
