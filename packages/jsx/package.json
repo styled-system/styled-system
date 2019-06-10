@@ -9,7 +9,7 @@
   "license": "MIT",
   "dependencies": {
     "@emotion/core": "^10.0.10",
-    "@styled-system/css": "^2.0.0"
+    "@styled-system/css": "^5.0.5"
   },
   "gitHead": "a6feb6009c58f2eb68f0c3120c5672f6cb54294f"
 }
