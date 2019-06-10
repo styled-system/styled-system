@@ -6,7 +6,7 @@
     "test": "node test.js"
   },
   "dependencies": {
-    "@styled-system/css": "5.0.1",
+    "@styled-system/css": "5.0.5",
     "@xstyled/system": "^1.0.0",
     "benchmark": "^2.1.4",
     "styled-system": "^5.0.1",
