@@ -1,4 +1,5 @@
 import { system } from '../src'
+import { css, cache } from 'emotion'
 
 test('returns a style parser', () => {
   const parser = system({
@@ -177,4 +178,56 @@ test('skips null values in arrays', () => {
       fontSize: 18,
     }
   })
+})
+
+test('merges multiple responsive object styles and retains order', () => {
+  const parser = system({
+    margin: true,
+    padding: true,
+    width: true,
+  })
+  const styles = parser({
+    theme: {
+      breakpoints: {
+        xs: 0,
+        sm: '40em',
+        md: '52em',
+      }
+    },
+    margin: { xs: 0, sm: 4, md: 8 },
+    padding: { xs: 16, sm: 32, md: 64 },
+    width: { xs: '100%', sm: '50%' },
+  })
+  const keys = Object.keys(styles)
+  expect(keys).toEqual([
+    'margin',
+    '@media screen and (min-width: 40em)',
+    '@media screen and (min-width: 52em)',
+    'padding',
+    'width',
+  ])
+})
+
+test('emotion creates responsive styles from object values in order', () => {
+  const parser = system({
+    margin: true,
+    padding: true,
+    width: true,
+  })
+  const styles = parser({
+    theme: {
+      breakpoints: {
+        xs: 0,
+        sm: '40em',
+        md: '52em',
+      }
+    },
+    margin: { xs: 0, sm: 4, md: 8 },
+    padding: { xs: 16, sm: 32, md: 64 },
+    width: { xs: '100%', sm: '50%' },
+  })
+  const key = css(styles)
+  const raw = cache.registered[key]
+  // console.log(raw)
+  expect(typeof raw).toBe('string')
 })
