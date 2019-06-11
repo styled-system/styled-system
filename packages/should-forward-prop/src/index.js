@@ -10,7 +10,11 @@ import {
   border,
   background,
   position,
-  grid
+  grid,
+  shadow,
+  buttonStyle,
+  textStyle,
+  colorStyle
 } from 'styled-system'
 
 const all = compose(
@@ -22,7 +26,11 @@ const all = compose(
   border,
   background,
   position,
-  grid
+  grid,
+  shadow,
+  buttonStyle,
+  textStyle,
+  colorStyle
 )
 
 export const props = all.propNames
