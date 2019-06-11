@@ -1,3 +1,5 @@
+import assign from 'object-assign'
+
 // based on https://github.com/developit/dlv
 export const get = (obj, key = '', def, p, undef) => {
   key = key.split ? key.split('.') : [key]
@@ -129,7 +131,7 @@ export const responsive = styles => theme => {
   return next
 }
 
-export const css = args => (props = {}) => {
+export const css = (args, raw) => (props = {}) => {
   const theme = { ...defaultTheme, ...(props.theme || props) }
   let result = {}
   const obj = typeof args === 'function' ? args(theme) : args
@@ -162,7 +164,7 @@ export const css = args => (props = {}) => {
     }
   }
 
-  return result
+  return assign(result, raw)
 }
 
 export default css

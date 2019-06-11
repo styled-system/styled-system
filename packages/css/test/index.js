@@ -226,3 +226,16 @@ test('handles negative margins from scale', () => {
     marginRight: -32,
   })
 })
+
+test('raw values can be passed as second argument', () => {
+  const result = css({
+    mx: 'auto',
+  }, {
+    marginBottom: 4,
+  })(theme)
+  expect(result).toEqual({
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginBottom: 4,
+  })
+})
