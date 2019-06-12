@@ -9,6 +9,10 @@ import {
   background,
   position,
   grid,
+  shadow,
+  buttonStyle,
+  textStyle,
+  colorStyle
 } from 'styled-system'
 
 export const propType = PropTypes.oneOfType([
@@ -35,4 +39,8 @@ export default {
   background: createPropTypes(background.propNames),
   position: createPropTypes(position.propNames),
   grid: createPropTypes(grid.propNames),
+  shadow: createPropTypes(shadow.propNames),
+  buttonStyle: createPropTypes(buttonStyle.propNames),
+  textStyle: createPropTypes(textStyle.propNames),
+  colorStyle: createPropTypes(colorStyle.propNames),
 }
