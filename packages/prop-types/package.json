@@ -1,6 +1,6 @@
 {
   "name": "@styled-system/prop-types",
-  "version": "5.0.6",
+  "version": "5.0.8",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "author": "Brent Jackson",
