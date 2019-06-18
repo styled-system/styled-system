@@ -178,3 +178,19 @@ test('skips null values in arrays', () => {
     }
   })
 })
+
+test('parser.config can be used for extension', () => {
+  const parser = system({
+    borderRadius: true,
+    borderColor: true,
+  })
+  const extension = system(parser.config)
+  const style = parser({
+    borderRadius: 8,
+    borderColor: 'tomato',
+  })
+  expect(style).toEqual({
+    borderRadius: 8,
+    borderColor: 'tomato',
+  })
+})
