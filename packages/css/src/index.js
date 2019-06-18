@@ -75,6 +75,7 @@ const scales = {
   borderBottomRightRadius: 'radii',
   borderBottomLeftRadius: 'radii',
   boxShadow: 'shadows',
+  textShadow: 'shadows',
   zIndex: 'zIndices',
   width: 'sizes',
   minWidth: 'sizes',
