@@ -1,6 +1,6 @@
 {
   "name": "@styled-system/jsx",
-  "version": "5.0.6",
+  "version": "5.0.9",
   "description": "",
   "type": "module",
   "main": "dist/index.js",
@@ -9,7 +9,7 @@
   "license": "MIT",
   "dependencies": {
     "@emotion/core": "^10.0.10",
-    "@styled-system/css": "^5.0.5"
+    "@styled-system/css": "^5.0.9"
   },
   "gitHead": "a6feb6009c58f2eb68f0c3120c5672f6cb54294f"
 }
