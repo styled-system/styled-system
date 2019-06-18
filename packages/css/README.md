@@ -78,6 +78,7 @@ Property  | Theme Key
 `borderStyle` | `borderStyles`
 `borderRadius` | `radii`
 `boxShadow` | `shadows`
+`textShadow` | `shadows`
 `zIndex` | `zIndices`
 `width` | `sizes`
 `minWidth` | `sizes`
