@@ -77,15 +77,15 @@ When defining space scales as an array, it is conventional to use the value `0` 
 
 ```js
 // example space scale
-space: [0, 4, 8, 16, 32, 64]
+space: ['0px', '4px', '8px', '16px', '32px', '64px']
 ```
 
 ```js
 // example space scale object
 space: {
-  small: 4,
-  medium: 8,
-  large: 16,
+  small: '4px',
+  medium: '8px',
+  large: '16px',
 }
 ```
 
