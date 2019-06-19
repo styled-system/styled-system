@@ -14,4 +14,5 @@ const config = {
 config.bg = config.backgroundColor
 
 export const color = system(config)
+
 export default color

@@ -182,7 +182,10 @@ test('skips null values in arrays', () => {
 test('parser.config can be used for extension', () => {
   const parser = system({
     borderRadius: true,
-    borderColor: true,
+    borderColor: {
+      property: 'borderColor',
+      scale: 'colors',
+    },
   })
   const extension = system(parser.config)
   const style = parser({
