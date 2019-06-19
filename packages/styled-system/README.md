@@ -191,6 +191,7 @@ To learn more, see the [Getting Started](https://styled-system.com/getting-start
 - [Styled System HTML](https://johnpolacek.github.io/styled-system-html/)
 - [Rebass](https://rebassjs.org)
 - [Rebass Grid](https://grid.rebassjs.org)
+- [@datepicker-react/styled](https://github.com/tresko/react-datepicker)
 
 ## Related
 
