@@ -226,3 +226,18 @@ test('handles negative margins from scale', () => {
     marginRight: -32,
   })
 })
+
+test('handles negative top, left, bottom, and right from scale', () => {
+  const result = css({
+    top: -1,
+    right: -4,
+    bottom: -3,
+    left: -2,
+  })(theme)
+  expect(result).toEqual({
+    top: -4,
+    right: -32,
+    bottom: -16,
+    left: -8,
+  })
+})
