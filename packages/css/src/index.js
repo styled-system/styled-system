@@ -129,14 +129,14 @@ export const responsive = styles => theme => {
 
   for (const key in styles) {
     const value = styles[key]
-    if (value === null || value === undefined) continue
+    if (value == null) continue
     if (!Array.isArray(value)) {
       next[key] = value
       continue
     }
     for (let i = 0; i < value.length; i++) {
       const media = mediaQueries[i]
-      if (value[i] === null || value[i] === undefined) continue
+      if (value[i] == null) continue
       if (!media) {
         next[key] = value[i]
         continue
