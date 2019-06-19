@@ -68,6 +68,10 @@ Property  | Theme Key
 `paddingLeft`, `pl` | `space`
 `paddingX`, `px` | `space`
 `paddingY`, `py` | `space`
+`top` | `space`
+`bottom` | `space`
+`left` | `space`
+`right` | `space`
 `border` | `borders`
 `borderTop` | `borders`
 `borderRight` | `borders`

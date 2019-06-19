@@ -57,6 +57,10 @@ const scales = {
   paddingLeft: 'space',
   paddingX: 'space',
   paddingY: 'space',
+  top: 'space',
+  right: 'space',
+  bottom: 'space',
+  left: 'space',
   fontFamily: 'fonts',
   fontSize: 'fontSizes',
   fontWeight: 'fontWeights',
@@ -85,7 +89,7 @@ const scales = {
   maxHeight: 'sizes',
 }
 
-const getMargin = (scale, value) => {
+const positiveOrNegative = (scale, value) => {
   if (typeof value !== 'number' || value >= 0) {
     return get(scale, value, value)
   }
@@ -95,20 +99,33 @@ const getMargin = (scale, value) => {
   return n * -1
 }
 
-const transforms = {
-  margin: getMargin,
-  marginTop: getMargin,
-  marginRight: getMargin,
-  marginBottom: getMargin,
-  marginLeft: getMargin,
-  marginX: getMargin,
-  marginY: getMargin,
-}
+const transforms = [
+  'margin',
+  'marginTop',
+  'marginRight',
+  'marginBottom',
+  'marginLeft',
+  'marginX',
+  'marginY',
+  'top',
+  'bottom',
+  'left',
+  'right',
+].reduce(
+  (acc, curr) => ({
+    ...acc,
+    [curr]: positiveOrNegative,
+  }),
+  {}
+)
 
 export const responsive = styles => theme => {
   const next = {}
   const breakpoints = get(theme, 'breakpoints', defaultBreakpoints)
-  const mediaQueries = [ null, ...breakpoints.map(n => `@media screen and (min-width: ${n})`) ]
+  const mediaQueries = [
+    null,
+    ...breakpoints.map(n => `@media screen and (min-width: ${n})`),
+  ]
 
   for (const key in styles) {
     const value = styles[key]
