@@ -241,3 +241,15 @@ test('handles negative top, left, bottom, and right from scale', () => {
     left: -8,
   })
 })
+
+test('skip breakpoints', () => {
+  const result = css({
+    width: [ '100%', , '50%' ],
+  })(theme)
+  expect(result).toEqual({
+    width: '100%',
+    '@media screen and (min-width: 52em)': {
+      width: '50%',
+    }
+  })
+})

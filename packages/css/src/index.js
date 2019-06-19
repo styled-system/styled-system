@@ -1,6 +1,6 @@
 // based on https://github.com/developit/dlv
-export const get = (obj, key = '', def, p, undef) => {
-  key = key.split ? key.split('.') : [key]
+export const get = (obj, key, def, p, undef) => {
+  key = key && key.split ? key.split('.') : [key]
   for (p = 0; p < key.length; p++) {
     obj = obj ? obj[key[p]] : undef
   }
@@ -129,12 +129,14 @@ export const responsive = styles => theme => {
 
   for (const key in styles) {
     const value = styles[key]
+    if (value == null) continue
     if (!Array.isArray(value)) {
       next[key] = value
       continue
     }
     for (let i = 0; i < value.length; i++) {
       const media = mediaQueries[i]
+      if (value[i] == null) continue
       if (!media) {
         next[key] = value[i]
         continue
