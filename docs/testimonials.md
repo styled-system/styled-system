@@ -22,6 +22,10 @@
 >
 > – [David Yeiser][david-tweet]
 
+> "Styled System is one of the best libraries I have ever used."
+>
+> – [Miha Sedej](https://tresko.dev/theming-react-datepicker-datepicker-react-styled)
+
 [dalgleish]: https://mobile.twitter.com/markdalgleish/status/913191186944241665
 [mrmrs]: https://mobile.twitter.com/mrmrs_/status/913189805055401984
 [varun-post]: https://varun.ca/styled-system/
