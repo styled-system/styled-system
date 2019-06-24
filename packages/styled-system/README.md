@@ -1,4 +1,3 @@
-
 <img src='https://styled-system.com/logo.svg' width='128' height='128' />
 
 # Styled System
@@ -22,13 +21,11 @@ https://styled-system.com
 [size]: https://flat.badgen.net/bundlephobia/minzip/styled-system
 [spectrum-badge]: https://flat.badgen.net/badge/spectrum/community/purple
 [system-ui-badge]: https://flat.badgen.net/badge/system-ui/theme/black
-
 [npm]: https://npmjs.com/package/styled-system
 [github]: https://github.com/styled-system/styled-system
 [spectrum]: https://spectrum.chat/styled-system
 [circleci]: https://circleci.com/gh/styled-system/styled-system
 [circleci-badge]: https://flat.badgen.net/circleci/github/styled-system/styled-system/master
-
 
 ```sh
 npm i styled-system
@@ -50,7 +47,6 @@ npm i styled-system
 > – [Varun Vachhar][varun-post]
 
 [party-parrot]: https://github.com/jmhobbs/cultofthepartyparrot.com/raw/master/parrots/parrot.gif
-
 
 > "If you haven't seen Styled System before, do yourself a favour and check it out. It's been a huge influence in my thinking on component-oriented styles."
 >
@@ -78,8 +74,11 @@ npm i styled-system
 >
 > – [Adam Morse][mrmrs]
 
-[mrmrs]: https://mobile.twitter.com/mrmrs_/status/913189805055401984
+> "Styled System is one of the best libraries I have ever used."
+>
+> – [Miha Sedej](https://tresko.dev/theming-react-datepicker-datepicker-react-styled)
 
+[mrmrs]: https://mobile.twitter.com/mrmrs_/status/913189805055401984
 
 ## Try It Out
 
@@ -182,7 +181,6 @@ To learn more, see the [Getting Started](https://styled-system.com/getting-start
 - [Defining Component APIs in React](http://jxnblk.com/blog/defining-component-apis-in-react/)
 - [The Three Tenets of Styled System](https://jxnblk.com/blog/the-three-tenets-of-styled-system/)
 
-
 ## Built with Styled System
 
 - [Primer Components](https://primer.style/components)
@@ -207,10 +205,11 @@ To learn more, see the [Getting Started](https://styled-system.com/getting-start
 [david-tweet]: https://mobile.twitter.com/davidyeiser/status/965920740582285312
 
 <!-- extra links -->
+
 [cole-tweet]: https://mobile.twitter.com/colebemis/status/996565848138526721
 [mrmrs-elements]: https://github.com/mrmrs/elements
 [broccs-react-starter]: https://github.com/broccolini/react-website-starter
 [markdalgleish]: https://mobile.twitter.com/markdalgleish/status/1107732365474848768
-[Varun Vachhar]: https://mobile.twitter.com/winkerVSbecks/status/955619873463431168
+[varun vachhar]: https://mobile.twitter.com/winkerVSbecks/status/955619873463431168
 
 [MIT License](LICENSE.md)
