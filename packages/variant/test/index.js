@@ -113,3 +113,26 @@ test('colors prop returns theme.colorStyles object', () => {
   })
 })
 
+test('variants can use theme values', () => {
+  const buttons = variant({ scale: 'buttons', })
+  const a = buttons({
+    theme: {
+      colors: {
+        primary: 'tomato',
+      },
+      buttons: {
+        primary: {
+          p: 4,
+          color: '#fff',
+          bg: 'primary',
+        },
+      },
+    },
+    variant: 'primary',
+  })
+  expect(a).toEqual({
+    color: '#fff',
+    backgroundColor: 'tomato',
+    padding: 32,
+  })
+})
