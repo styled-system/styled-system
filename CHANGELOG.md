@@ -1,5 +1,9 @@
 # Changelog
 
+## v5.0.12 2019-06-25
+
+- Fix for parser config
+
 ## v5.0.11 2019-06-24
 
 - `@styled-system/css`: use `theme.space` in grid properties #574
