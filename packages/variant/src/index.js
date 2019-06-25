@@ -7,8 +7,8 @@ export const variant = ({
   // shim for v4 API
   key,
 }) => {
-  const sx = (value, scale) => {
-    return get(scale, value, null)
+  const sx = (value, scale, props) => {
+    return css(get(scale, value, null))(props.theme)
   }
   sx.scale = scale || key
   const config = {
