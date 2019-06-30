@@ -2228,15 +2228,6 @@
     "@emotion/core" "^10.0.10"
     "@styled-system/css" "^2.0.0"
 
-"@styled-system/should-forward-prop@5.0.5":
-  version "5.0.5"
-  resolved "https://registry.yarnpkg.com/@styled-system/should-forward-prop/-/should-forward-prop-5.0.5.tgz#79a96bd77407176db591c63e8e3286e5d5a23b00"
-  integrity sha512-xwJAZIn26Zz/1P3Fk9tFaYheF1k5+7+OAmUAnT7dYpyoq/rdnUQ8IvHbWr5L/tFkqm0+6ScT1dCkbnADmMimYA==
-  dependencies:
-    "@emotion/is-prop-valid" "^0.7.3"
-    "@emotion/memoize" "^0.7.1"
-    styled-system "^5.0.5"
-
 "@svgr/babel-plugin-add-jsx-attribute@^4.2.0":
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/@svgr/babel-plugin-add-jsx-attribute/-/babel-plugin-add-jsx-attribute-4.2.0.tgz#dadcb6218503532d6884b210e7f3c502caaa44b1"

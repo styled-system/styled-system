@@ -1,4 +1,13 @@
 import { createStyleFunction, createParser } from '@styled-system/core'
+// v4 api shims
+import layout from '@styled-system/layout'
+import color from '@styled-system/color'
+import typography from '@styled-system/typography'
+import flexbox from '@styled-system/flexbox'
+import grid from '@styled-system/grid'
+import border from '@styled-system/border'
+import background from '@styled-system/background'
+import position from '@styled-system/position'
 
 export {
   get,
@@ -27,15 +36,6 @@ export {
   colorStyle
 } from '@styled-system/variant'
 
-// v4 api shims
-import layout from '@styled-system/layout'
-import color from '@styled-system/color'
-import typography from '@styled-system/typography'
-import flexbox from '@styled-system/flexbox'
-import grid from '@styled-system/grid'
-import border from '@styled-system/border'
-import background from '@styled-system/background'
-import position from '@styled-system/position'
 const {
   width,
   height,
