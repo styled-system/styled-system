@@ -125,28 +125,53 @@ const transforms = [
 export const responsive = styles => theme => {
   const next = {}
   const breakpoints = get(theme, 'breakpoints', defaultBreakpoints)
-  const mediaQueries = [
-    null,
-    ...breakpoints.map(n => `@media screen and (min-width: ${n})`),
-  ]
+  let mediaQueries
+  if(Array.isArray(breakpoints)) {
+    mediaQueries = [null, ...breakpoints.map((n) => `@media screen and (min-width: ${n})`)]
+  }
+  else {
+    mediaQueries = {}
+    for (const key in breakpoints) {
+      mediaQueries[key] = `@media screen and (min-width: ${breakpoints[key]})`
+    }
+  }
 
   for (const key in styles) {
     const value = styles[key]
     if (value == null) continue
-    if (!Array.isArray(value)) {
-      next[key] = value
-      continue
-    }
-    for (let i = 0; i < value.length; i++) {
-      const media = mediaQueries[i]
-      if (value[i] == null) continue
-      if (!media) {
-        next[key] = value[i]
+    if(typeof value === 'object') {
+      if (Array.isArray(value)) {
+        for (const i in value) {
+          const media = mediaQueries[i]
+          if (value[i] == null) continue
+          if (!media) {
+            next[key] = value[i]
+            continue
+          }
+          next[media] = next[media] || {}
+          next[media][key] = value[i]
+        }
         continue
       }
-      next[media] = next[media] || {}
-      next[media][key] = value[i]
+      else {
+        for (const k in value) {
+          const media = mediaQueries[k]
+          if (value[k] == null) continue
+          if(k === '_' && value._) {
+            next[key] = value._
+            continue
+          }
+          if (!media) {
+            next[key] = value
+            continue
+          }
+          next[media] = next[media] || {}
+          next[media][key] = value[k]
+        }
+        continue
+      }
     }
+    next[key] = value
   }
 
   return next

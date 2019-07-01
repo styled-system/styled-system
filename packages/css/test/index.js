@@ -37,6 +37,15 @@ const theme = {
   },
 }
 
+const themeWithObjectBreakpoint =  {
+  ...theme,
+  breakpoints: {
+    xs: '40em',
+    sm: '52em',
+    md: '64em',
+  }
+};
+
 test('returns a function', () => {
   const result = css()
   expect(typeof result).toBe('function')
@@ -77,6 +86,23 @@ test('returns system props styles', () => {
   })
 })
 
+test('[theme:object breakpoints] returns system props styles', () => {
+  const result = css({
+    color: 'primary',
+    fontSize: { _: 2, xs: 3, sm: 4 },
+  })({ theme: themeWithObjectBreakpoint })
+  expect(result).toEqual({
+    fontSize: 16,
+    '@media screen and (min-width: 40em)': {
+      fontSize: 24,
+    },
+    '@media screen and (min-width: 52em)': {
+      fontSize: 36,
+    },
+    color: 'tomato',
+  })
+})
+
 test('returns nested system props styles', () => {
   const result = css({
     color: 'primary',
@@ -92,6 +118,21 @@ test('returns nested system props styles', () => {
   })
 })
 
+test('[theme:object breakpoints] returns nested system props styles', () => {
+  const result = css({
+    color: 'primary',
+    '&:hover': {
+      color: 'secondary',
+    },
+  })({ theme: themeWithObjectBreakpoint })
+  expect(result).toEqual({
+    color: 'tomato',
+    '&:hover': {
+      color: 'cyan',
+    },
+  })
+})
+
 test('returns nested responsive styles', () => {
   const result = css({
     color: 'primary',
@@ -99,6 +140,26 @@ test('returns nested responsive styles', () => {
       py: [3, 4],
     },
   })({ theme })
+  expect(result).toEqual({
+    color: 'tomato',
+    h1: {
+      paddingTop: 16,
+      paddingBottom: 16,
+      '@media screen and (min-width: 40em)': {
+        paddingTop: 32,
+        paddingBottom: 32,
+      },
+    },
+  })
+})
+
+test('[theme:object breakpoints]  returns nested responsive styles', () => {
+  const result = css({
+    color: 'primary',
+    h1: {
+      py: {_: 3, xs: 4},
+    },
+  })({ theme: themeWithObjectBreakpoint })
   expect(result).toEqual({
     color: 'tomato',
     h1: {
