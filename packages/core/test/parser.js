@@ -35,19 +35,58 @@ test('uses default breakpoints', () => {
   })
 })
 
-test('uses dynamically provided breakpoints', () => {
-  const styles = parser({
+test('uses dynamically changed breakpoints', () => {
+  const firstStyles = parser({
     theme: { ...theme, breakpoints: ['11em', '22em', '33em'] },
     fontSize: [1, 2, 3],
     color: ['primary', null, 'secondary'],
   })
-  expect(styles).toEqual({
+  expect(firstStyles).toEqual({
     color: 'rebeccapurple',
     fontSize: 4,
     '@media screen and (min-width: 11em)': {
       fontSize: 8,
     },
     '@media screen and (min-width: 22em)': {
+      fontSize: 16,
+      color: 'papayawhip',
+    },
+  })
+
+  const secondStyles = parser({
+    theme: {
+      ...theme,
+      breakpoints: ['9em', '8em', '7em'],
+    },
+    fontSize: [1, 2, 3],
+    color: ['primary', null, 'secondary'],
+  })
+  expect(secondStyles).toEqual({
+    color: 'rebeccapurple',
+    fontSize: 4,
+    '@media screen and (min-width: 9em)': {
+      fontSize: 8,
+    },
+    '@media screen and (min-width: 8em)': {
+      fontSize: 16,
+      color: 'papayawhip',
+    },
+  })
+
+  const thirdStyles = parser({
+    theme: {
+      ...theme,
+    },
+    fontSize: [1, 2, 3],
+    color: ['primary', null, 'secondary'],
+  })
+  expect(thirdStyles).toEqual({
+    color: 'rebeccapurple',
+    fontSize: 4,
+    '@media screen and (min-width: 40em)': {
+      fontSize: 8,
+    },
+    '@media screen and (min-width: 52em)': {
       fontSize: 16,
       color: 'papayawhip',
     },

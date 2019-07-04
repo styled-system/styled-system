@@ -36,14 +36,28 @@ export const createParser = config => {
       const scale = get(props.theme, sx.scale, sx.defaults)
 
       if (typeof raw === 'object') {
-        cache.breakpoints =
-          cache.breakpoints ||
-          get(props.theme, 'breakpoints', defaults.breakpoints)
+        // If a child theme provides breakpoints, the cached ones should be updated
+        const shouldCacheBeBusted = get(props.theme, 'breakpoints', [])
+        if (shouldCacheBeBusted) {
+          cache.breakpoints = get(
+            props.theme,
+            'breakpoints',
+            defaults.breakpoints
+          )
+        } else {
+          cache.breakpoints =
+            cache.breakpoints ||
+            get(props.theme, 'breakpoints', defaults.breakpoints)
+        }
         if (Array.isArray(raw)) {
-          cache.media = cache.media || [
-            null,
-            ...cache.breakpoints.map(createMediaQuery),
-          ]
+          if (shouldCacheBeBusted) {
+            cache.media = [null, ...cache.breakpoints.map(createMediaQuery)]
+          } else {
+            cache.media = cache.media || [
+              null,
+              ...cache.breakpoints.map(createMediaQuery),
+            ]
+          }
           styles = merge(
             styles,
             parseResponsiveStyle(cache.media, sx, scale, raw)
