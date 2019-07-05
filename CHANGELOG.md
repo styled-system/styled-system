@@ -1,5 +1,9 @@
 # Changelog
 
+## v5.0.13 2019-07-05
+
+- `@styled-system/css`: add support for `gap`, `rowGap`, and `columnGap` properties #596
+
 ## v5.0.12 2019-06-25
 
 - Fix for parser config
