@@ -103,7 +103,7 @@ If you need to make the blue "just a little darker", it becomes a matter of incr
 Depending on the theming needs of your application, it can be useful to map generic keys on a scale to more tangible names.
 For example, if your application requires a dark mode, or if you're building a whitelabel product, it might make sense to use an abstracted color naming system as opposed to using hue names.
 
-If you don't have a need to create this sort of abstraction, it can be much more effecient to use the same language that your team naturally uses. If your team says, "use the blue button", creating an abstraction for that name like "primary" can be more effort than it's worth.
+If you don't have a need to create this sort of abstraction, it can be much more efficient to use the same language that your team naturally uses. If your team says, "use the blue button", creating an abstraction for that name like "primary" can be more effort than it's worth.
 
 With Styled System, there's no right or wrong way to handle the definition of scales, but one useful approach is to create a base color object without any naming abstractions.
 
