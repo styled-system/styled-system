@@ -79,4 +79,4 @@ export default {
 <Box width={{ _: 1, sm: 1, md: 1 / 2, lg: 1 / 4 }} />
 ```
 
-Read more in the [Array Props Guide](/guides/array-props).
+Read more in the [Array Props Guide](/guides/array-props.md).
