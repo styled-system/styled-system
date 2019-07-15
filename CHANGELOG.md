@@ -1,5 +1,9 @@
 # Changelog
 
+## v5.0.15 2019-07-15
+
+- Export single-property functions for v4 shims #584
+
 ## v5.0.14 2019-07-15
 
 - Use `theme.space` for position props #598
