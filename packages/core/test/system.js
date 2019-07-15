@@ -190,3 +190,19 @@ test('includes single property functions', () => {
   expect(a).toEqual({ color: 'tomato' })
   expect(b).toEqual({ width: '100%' })
 })
+
+test('parser configs can be composed manually', () => {
+  const color = system({ color: true, backgroundColor: true })
+  const layout = system({ width: true, height: true })
+  const composed = system({ ...color.config, ...layout.config })
+  const style = composed({
+    color: 'tomato',
+    backgroundColor: 'black',
+    width: '100%',
+  })
+  expect(style).toEqual({
+    color: 'tomato',
+    backgroundColor: 'black',
+    width: '100%',
+  })
+})

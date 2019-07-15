@@ -148,6 +148,10 @@ export const system = (args = {}) => {
       })
       return
     }
+    if (typeof conf === 'function') {
+      config[key] = conf
+      return
+    }
     config[key] = createStyleFunction(conf)
   })
 
