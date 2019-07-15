@@ -169,10 +169,10 @@ import { position } from 'styled-system'
 | ---------- | ------------ | ----------- |
 | `position` | `position`   | none        |
 | `zIndex`   | `z-index`    | `zIndices`  |
-| `top`      | `top`        | none        |
-| `right`    | `right`      | none        |
-| `bottom`   | `bottom`     | none        |
-| `left`     | `left`       | none        |
+| `top`      | `top`        | `space`     |
+| `right`    | `right`      | `space`     |
+| `bottom`   | `bottom`     | `space`     |
+| `left`     | `left`       | `space`     |
 
 ## Shadow
 
