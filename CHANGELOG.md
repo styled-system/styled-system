@@ -1,5 +1,13 @@
 # Changelog
 
+## v5.0.13 2019-07-05
+
+- `@styled-system/css`: add support for `gap`, `rowGap`, and `columnGap` properties #596
+
+## v5.0.12 2019-06-25
+
+- Fix for parser config
+
 ## v5.0.11 2019-06-24
 
 - `@styled-system/css`: use `theme.space` in grid properties #574
