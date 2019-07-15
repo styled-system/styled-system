@@ -1,5 +1,9 @@
 # Changelog
 
+## v5.0.14 2019-07-15
+
+- Use `theme.space` for position props #598
+
 ## v5.0.13 2019-07-05
 
 - `@styled-system/css`: add support for `gap`, `rowGap`, and `columnGap` properties #596
