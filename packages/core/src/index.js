@@ -67,6 +67,14 @@ export const createParser = config => {
   parse.config = config
   parse.propNames = Object.keys(config)
   parse.cache = cache
+
+  const keys = Object.keys(config).filter(k => k !== 'config')
+  if (keys.length > 1) {
+    keys.forEach(key => {
+      parse[key] = createParser({ [key]: config[key] })
+    })
+  }
+
   return parse
 }
 

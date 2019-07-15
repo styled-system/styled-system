@@ -179,6 +179,18 @@ test('skips null values in arrays', () => {
   })
 })
 
+test('includes single property functions', () => {
+  const parser = system({
+    color: true,
+    backgroundColor: true,
+    width: true,
+  })
+  const a = parser.color({ color: 'tomato', backgroundColor: 'nope'  })
+  const b = parser.width({ width: '100%', color: 'tomato', backgroundColor: 'nope'  })
+  expect(a).toEqual({ color: 'tomato' })
+  expect(b).toEqual({ width: '100%' })
+})
+
 test('parser configs can be composed manually', () => {
   const color = system({ color: true, backgroundColor: true })
   const layout = system({ width: true, height: true })
