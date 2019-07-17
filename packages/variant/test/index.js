@@ -77,6 +77,25 @@ test('variant can be composed', () => {
   })
 })
 
+test('buttonStyle returns the same object as buttons', () => {
+  const buttonStyles = variant({ key: 'buttonStyles' })
+  const a = buttonStyles({
+    theme: {
+      buttonStyles: {
+        primary: {
+          padding: '32px',
+          backgroundColor: 'tomato',
+        },
+      },
+    },
+    variant: 'primary',
+  })
+  expect(a).toEqual({
+    padding: '32px',
+    backgroundColor: 'tomato',
+  })
+})
+
 test('textStyle prop returns theme.textStyles object', () => {
   const a = textStyle({
     theme: {
@@ -112,4 +131,3 @@ test('colors prop returns theme.colorStyles object', () => {
     backgroundColor: '#000',
   })
 })
-

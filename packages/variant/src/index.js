@@ -19,6 +19,7 @@ export const variant = ({
 
 export default variant
 
-export const buttonStyle = variant({ key: 'buttons' })
+export const buttonStyle =
+  variant({ key: 'buttons' }) || variant({ key: 'buttonStyles' })
 export const textStyle = variant({ key: 'textStyles', prop: 'textStyle' })
 export const colorStyle = variant({ key: 'colorStyles', prop: 'colors' })
