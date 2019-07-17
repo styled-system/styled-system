@@ -63,11 +63,11 @@ The `Button` component can now use the `variant` prop to change between a primar
 
 The built-in variants use the following props and theme keys:
 
-| Function Name | Prop        | Theme Key     |
-| ------------- | ----------- | ------------- |
-| `textStyle`   | `textStyle` | `textStyles`  |
-| `colorStyle`  | `colors`    | `colorStyles` |
-| `buttonStyle` | `variant`   | `buttons`     |
+| Function Name | Prop        | Theme Key                   |
+| ------------- | ----------- | --------------------------- |
+| `textStyle`   | `textStyle` | `textStyles`                |
+| `colorStyle`  | `colors`    | `colorStyles`               |
+| `buttonStyle` | `variant`   | `buttons` or `buttonStyles` |
 
 ## Custom Variants
 
