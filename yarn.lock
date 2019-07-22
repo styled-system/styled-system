@@ -2220,6 +2220,18 @@
   resolved "https://registry.yarnpkg.com/@styled-system/css/-/css-2.0.4.tgz#58c9043f48a6ff3a726820829407375a71d3ca0c"
   integrity sha512-Y7D+rqEpQk4311GDrzRtO5yreILywX8JiFYWyXhB5eG8Qz7kF4KKhpta54e5GA/FGFcPF47HVKjcuATf3hqsMQ==
 
+"@styled-system/edit@5.0.5":
+  version "5.0.5"
+  resolved "https://registry.yarnpkg.com/@styled-system/edit/-/edit-5.0.5.tgz#9ab7cfb0287d1c82fef372bb12f9c5bdfb2e8fd7"
+  integrity sha512-nzz3MLj9ouhLPrdlXjro3JjQBt8ruGc9JxeLP7BYlqN5vzLWYyJZ6M0A4nfk73D4QRROl9cpf2HKcZll65SARg==
+  dependencies:
+    "@emotion/core" "^10.0.10"
+    color "^3.1.0"
+    lodash.get "^4.4.2"
+    lodash.merge "^4.6.1"
+    lodash.omit "^4.5.0"
+    lodash.set "^4.3.2"
+
 "@styled-system/jsx@5.0.5":
   version "5.0.5"
   resolved "https://registry.yarnpkg.com/@styled-system/jsx/-/jsx-5.0.5.tgz#be4db3898103e58cf508593b0f733204763c1403"
@@ -15336,9 +15348,9 @@ supports-color@^6.1.0:
     has-flag "^3.0.0"
 
 svelte@^3.0.0:
-  version "3.6.1"
-  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.6.1.tgz#f6771e32c4e1e9c2a28f5886e26d849fd11d6754"
-  integrity sha512-4TaCyB0nBgpsdLBZ8T0ovIgbVpNoCmXnPvBkJ0v1P9RYY2gcYd7Yv1FX+O7hW4Ak1v8uVSKh6WU0XBlN2oZXEw==
+  version "3.6.7"
+  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.6.7.tgz#20e814b79aac4009d4bc1ecf0c9287a6bf7e96fb"
+  integrity sha512-9HzhPxWNLi+ZBhxL3HJ8jwwu+u+XfHtVF3uEJ2m8/JOdnaTC9D2qiEwOncgI7z/pN+VumgKQtZoHtvYCW6fHqg==
 
 svg-tags@^1.0.0:
   version "1.0.0"
