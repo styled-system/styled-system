@@ -1,5 +1,10 @@
 # Changelog
 
+## v5.0.16 2019-07-22
+
+- Update dependencies
+- `@styled-system/css`: fix for `p` paragraph/padding collision
+
 ## v5.0.15 2019-07-15
 
 - Export single-property functions for v4 shims #584
