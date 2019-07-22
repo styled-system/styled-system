@@ -2473,18 +2473,6 @@
   resolved "https://registry.yarnpkg.com/@styled-system/css/-/css-2.0.4.tgz#58c9043f48a6ff3a726820829407375a71d3ca0c"
   integrity sha512-Y7D+rqEpQk4311GDrzRtO5yreILywX8JiFYWyXhB5eG8Qz7kF4KKhpta54e5GA/FGFcPF47HVKjcuATf3hqsMQ==
 
-"@styled-system/edit@5.0.5":
-  version "5.0.5"
-  resolved "https://registry.yarnpkg.com/@styled-system/edit/-/edit-5.0.5.tgz#9ab7cfb0287d1c82fef372bb12f9c5bdfb2e8fd7"
-  integrity sha512-nzz3MLj9ouhLPrdlXjro3JjQBt8ruGc9JxeLP7BYlqN5vzLWYyJZ6M0A4nfk73D4QRROl9cpf2HKcZll65SARg==
-  dependencies:
-    "@emotion/core" "^10.0.10"
-    color "^3.1.0"
-    lodash.get "^4.4.2"
-    lodash.merge "^4.6.1"
-    lodash.omit "^4.5.0"
-    lodash.set "^4.3.2"
-
 "@styled-system/jsx@5.0.5":
   version "5.0.5"
   resolved "https://registry.yarnpkg.com/@styled-system/jsx/-/jsx-5.0.5.tgz#be4db3898103e58cf508593b0f733204763c1403"
@@ -2492,15 +2480,6 @@
   dependencies:
     "@emotion/core" "^10.0.10"
     "@styled-system/css" "^2.0.0"
-
-"@styled-system/should-forward-prop@5.0.10":
-  version "5.0.10"
-  resolved "https://registry.yarnpkg.com/@styled-system/should-forward-prop/-/should-forward-prop-5.0.10.tgz#e98d41b8837c41af98ba051caf8e46075f4032f7"
-  integrity sha512-h2GZH8p7CEaFWOG2nfFBmJ5NiWDBmzJMvnlKaymm/EPn8V3OKehmanB7Iw7+wAOEF6D5Zvnr4idZ1bvYqFLYAQ==
-  dependencies:
-    "@emotion/is-prop-valid" "^0.8.1"
-    "@emotion/memoize" "^0.7.1"
-    styled-system "^5.0.10"
 
 "@svgr/babel-plugin-add-jsx-attribute@^4.2.0":
   version "4.2.0"
@@ -5915,6 +5894,11 @@ deepmerge@4.0.0:
   resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.0.0.tgz#3e3110ca29205f120d7cb064960a39c3d2087c09"
   integrity sha512-YZ1rOP5+kHor4hMAH+HRQnBQHg+wvS1un1hAOuIcxcBy0hzcUf6Jg2a1w65kpoOUnurOfZbERwjI1TfZxNjcww==
 
+deepmerge@^3.2.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-3.3.0.tgz#d3c47fd6f3a93d517b14426b0628a17b0125f5f7"
+  integrity sha512-GRQOafGHwMHpjPx9iCvTgpu9NojZ49q794EEL94JVEw6VaeA8XTUyBKvAkOOjBX9oJNiV6G3P+T+tihFjo2TqA==
+
 default-gateway@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/default-gateway/-/default-gateway-4.2.0.tgz#167104c7500c2115f6dd69b0a536bb8ed720552b"
@@ -7673,13 +7657,10 @@ gatsby-plugin-react-helmet@^3.0.12:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-gatsby-plugin-theme-ui@^0.1.3:
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-theme-ui/-/gatsby-plugin-theme-ui-0.1.7.tgz#44a793a451d59dd877c37f260a03b5d1f1b5dc10"
-  integrity sha512-Bo6sW10a2ksk9dtM0cjgFp4Vp8RWrSLTfPU6ubG6DcvsVM1bcsLGB3C8QexWrSFMHs7owj6gGk8zUMZHo9TKSg==
-  dependencies:
-    loader-utils "^1.2.3"
-    lodash.merge "^4.6.1"
+gatsby-plugin-theme-ui@^0.2.6:
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-theme-ui/-/gatsby-plugin-theme-ui-0.2.6.tgz#b153a3897e03fa5d4c5e33d04db822d57790a39e"
+  integrity sha512-Vs8Fr/qOMCSC1W4uCDjCAHI1zN7NEMfgiKESVCtytPlvL1fZau+qytk3er7vrLn1IdBi1KtnPc2hJ/bHoIW1ZQ==
 
 gatsby-react-router-scroll@^2.1.3:
   version "2.1.3"
@@ -8496,6 +8477,11 @@ hast-util-to-parse5@^5.0.0:
     web-namespaces "^1.0.0"
     xtend "^4.0.1"
     zwitch "^1.0.0"
+
+hast-util-whitespace@^1.0.0:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/hast-util-whitespace/-/hast-util-whitespace-1.0.3.tgz#6d161b307bd0693b5ec000c7c7e8b5445109ee34"
+  integrity sha512-AlkYiLTTwPOyxZ8axq2/bCwRUPjIPBfrHkXuCR92B38b3lSdU22R5F/Z4DL6a2kxWpekWq1w6Nj48tWat6GeRA==
 
 hastscript@^5.0.0:
   version "5.1.0"
@@ -10697,11 +10683,6 @@ lodash.merge@^4.4.0, lodash.merge@^4.6.1:
   version "4.6.2"
   resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
   integrity sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==
-
-lodash.merge@^4.6.0:
-  version "4.6.1"
-  resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.1.tgz#adc25d9cb99b9391c59624f379fbba60d7111d54"
-  integrity sha512-AOYza4+Hf5z1/0Hztxpm2/xiPZgi/cjMqdnKTUWTBSKchJlxXXuUSxCCl8rJlf4g6yww/j6mA8nC8Hw/EZWxKQ==
 
 lodash.omit@^4.5.0:
   version "4.5.0"
@@ -14417,12 +14398,13 @@ remark-stringify@^6.0.0:
     unherit "^1.0.4"
     xtend "^4.0.1"
 
-remark-unwrap-images@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/remark-unwrap-images/-/remark-unwrap-images-0.2.0.tgz#d2480a849d824b25d3b693944b4d4d2bbe03f887"
-  integrity sha512-4BLvJgT46ZNAJYr2Ibg37HjSESb/iHdUz/ms25psZu7ta/GDyk/5bXR+9w/YFx9phSpNduP+mb+QE0VDExlHnA==
+remark-unwrap-images@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/remark-unwrap-images/-/remark-unwrap-images-1.0.0.tgz#25ae98c2c68bec7797eb27ea41642ae70c7d69db"
+  integrity sha512-/I3QL5Bi5OqXCN9tlgaQZ1UA62ZeElZxUEt4L3BwkvAF1/qYWlVtMOflyFyCLtbMCYhEqrLx4osKSgEEDZaH6Q==
   dependencies:
-    unist-util-visit-parents "^2.0.1"
+    hast-util-whitespace "^1.0.0"
+    unist-util-visit "^1.4.0"
 
 remark@^10.0.0:
   version "10.0.1"
@@ -16062,15 +16044,15 @@ text-table@0.2.0, text-table@^0.2.0:
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
 
-theme-ui@^0.1.3:
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/theme-ui/-/theme-ui-0.1.7.tgz#b4a07db8523cad7b0685e7b599b0c32952c26a22"
-  integrity sha512-Hs+iPyPBlcT1ieD6krMKa32JxTOoHy4gJaznT2KqhpzQ2fnQJBqTVXMF2AFrqHCHK+CaL1s+qqjb7q/NSqCccg==
+theme-ui@^0.2.14:
+  version "0.2.14"
+  resolved "https://registry.yarnpkg.com/theme-ui/-/theme-ui-0.2.14.tgz#3cb3f39ab09bcc05219d2652aad4cc93e956b6fa"
+  integrity sha512-mgtGWMVZxTVtFOBVvJ2jCU5RgG0590z4OlnldcKFFZPwo21jPsKjv3HpJnxXOQcfA2tYHPbGL5U8J6h0sA3gOw==
   dependencies:
+    "@emotion/is-prop-valid" "^0.8.1"
     "@styled-system/css" "^5.0.5"
-    lodash.merge "^4.6.0"
+    deepmerge "^3.2.0"
     react "^16.8.0"
-    styled-system "^5.0.5"
 
 throat@^4.0.0:
   version "4.1.0"
@@ -16581,7 +16563,7 @@ unist-util-visit-children@^1.0.0:
   resolved "https://registry.yarnpkg.com/unist-util-visit-children/-/unist-util-visit-children-1.1.3.tgz#92ba5807e3f54637be5de950263f9468942e7503"
   integrity sha512-/GQ8KNRrG+qD30H76FZNc6Ok+8XTu8lxJByN5LnQ4eQfqxda2gP0CPsCX63BRB26ZRMNf6i1c+jlvNlqysEoFg==
 
-unist-util-visit-parents@^2.0.0, unist-util-visit-parents@^2.0.1:
+unist-util-visit-parents@^2.0.0:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/unist-util-visit-parents/-/unist-util-visit-parents-2.1.2.tgz#25e43e55312166f3348cae6743588781d112c1e9"
   integrity sha512-DyN5vD4NE3aSeB+PXYNKxzGsfocxp6asDc2XXE3b0ekO2BaRUpBicbbUygfSvYfUz1IkmjFR1YF7dPklraMZ2g==
