@@ -162,22 +162,26 @@ export const css = args => (props = {}) => {
   const styles = responsive(obj)(theme)
 
   for (const key in styles) {
-    const prop = get(aliases, key, key)
-    const scaleName = get(scales, prop)
-    const scale = get(theme, scaleName, get(theme, prop, {}))
     const x = styles[key]
     const val = typeof x === 'function' ? x(theme) : x
+
     if (key === 'variant') {
       const variant = css(get(theme, val))(theme)
       result = { ...result, ...variant }
       continue
     }
+
     if (val && typeof val === 'object') {
-      result[prop] = css(val)(theme)
+      result[key] = css(val)(theme)
       continue
     }
+
+    const prop = get(aliases, key, key)
+    const scaleName = get(scales, prop)
+    const scale = get(theme, scaleName, get(theme, prop, {}))
     const transform = get(transforms, prop, get)
     const value = transform(scale, val, val)
+
     if (directions[prop]) {
       const dirs = directions[prop]
       for (let i = 0; i < dirs.length; i++) {
