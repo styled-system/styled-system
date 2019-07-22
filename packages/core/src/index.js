@@ -29,6 +29,8 @@ export const createParser = config => {
   const cache = {}
   const parse = props => {
     let styles = {}
+    const isCacheDisabled = props.theme && props.theme.disableStyledSystemCache
+
     for (const key in props) {
       if (!config[key]) continue
       const sx = config[key]
@@ -37,10 +39,10 @@ export const createParser = config => {
 
       if (typeof raw === 'object') {
         cache.breakpoints =
-          cache.breakpoints ||
+          (!isCacheDisabled && cache.breakpoints) ||
           get(props.theme, 'breakpoints', defaults.breakpoints)
         if (Array.isArray(raw)) {
-          cache.media = cache.media || [
+          cache.media = (!isCacheDisabled && cache.media) || [
             null,
             ...cache.breakpoints.map(createMediaQuery),
           ]
