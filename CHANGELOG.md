@@ -4,6 +4,7 @@
 
 - Update dependencies
 - `@styled-system/css`: fix for `p` paragraph/padding collision
+- Add option to disable breakpoint caching #595
 
 ## v5.0.15 2019-07-15
 
