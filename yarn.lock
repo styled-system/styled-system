@@ -2220,6 +2220,18 @@
   resolved "https://registry.yarnpkg.com/@styled-system/css/-/css-2.0.4.tgz#58c9043f48a6ff3a726820829407375a71d3ca0c"
   integrity sha512-Y7D+rqEpQk4311GDrzRtO5yreILywX8JiFYWyXhB5eG8Qz7kF4KKhpta54e5GA/FGFcPF47HVKjcuATf3hqsMQ==
 
+"@styled-system/edit@5.0.5":
+  version "5.0.5"
+  resolved "https://registry.yarnpkg.com/@styled-system/edit/-/edit-5.0.5.tgz#9ab7cfb0287d1c82fef372bb12f9c5bdfb2e8fd7"
+  integrity sha512-nzz3MLj9ouhLPrdlXjro3JjQBt8ruGc9JxeLP7BYlqN5vzLWYyJZ6M0A4nfk73D4QRROl9cpf2HKcZll65SARg==
+  dependencies:
+    "@emotion/core" "^10.0.10"
+    color "^3.1.0"
+    lodash.get "^4.4.2"
+    lodash.merge "^4.6.1"
+    lodash.omit "^4.5.0"
+    lodash.set "^4.3.2"
+
 "@styled-system/jsx@5.0.5":
   version "5.0.5"
   resolved "https://registry.yarnpkg.com/@styled-system/jsx/-/jsx-5.0.5.tgz#be4db3898103e58cf508593b0f733204763c1403"
@@ -2860,12 +2872,11 @@
     "@xtuc/long" "4.2.2"
 
 "@xstyled/system@^1.0.0":
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-1.5.2.tgz#7d784a479f27c8bd68960891ee7569cf0c543103"
-  integrity sha512-5ycbjH4UkNgxtHtVH0BxhuJlUWfbyXb6Cuv8mzIf15E5VrQhyKJ9NVOxKfNFNySr7LGd5VG8NK/JVAdE95vNyA==
+  version "1.8.4"
+  resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-1.8.4.tgz#c1760f27735f70eefab61ce43a74dc4e1e03600f"
+  integrity sha512-oY3ys+PpgMXcCTrtCHz2xqeOQuIImTtAJLhbeu1VWgHErLE4/fcEU2TRluFNzge7lDrZU6noGkFeRwjei7nyvA==
   dependencies:
     "@babel/runtime" "^7.4.4"
-    deepmerge "^3.2.0"
 
 "@xtuc/ieee754@^1.2.0":
   version "1.2.0"
@@ -5592,11 +5603,6 @@ deepmerge@3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-3.2.0.tgz#58ef463a57c08d376547f8869fdc5bcee957f44e"
   integrity sha512-6+LuZGU7QCNUnAJyX8cIrlzoEgggTM6B7mm+znKOX4t5ltluT9KLjN6g61ECMS0LTsLW7yDpNoxhix5FZcrIow==
-
-deepmerge@^3.2.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-3.3.0.tgz#d3c47fd6f3a93d517b14426b0628a17b0125f5f7"
-  integrity sha512-GRQOafGHwMHpjPx9iCvTgpu9NojZ49q794EEL94JVEw6VaeA8XTUyBKvAkOOjBX9oJNiV6G3P+T+tihFjo2TqA==
 
 default-gateway@^4.2.0:
   version "4.2.0"
