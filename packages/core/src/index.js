@@ -29,6 +29,8 @@ export const createParser = config => {
   const cache = {}
   const parse = props => {
     let styles = {}
+    const isCacheDisabled = props.theme && props.theme.disableStyledSystemCache
+
     for (const key in props) {
       if (!config[key]) continue
       const sx = config[key]
@@ -36,28 +38,14 @@ export const createParser = config => {
       const scale = get(props.theme, sx.scale, sx.defaults)
 
       if (typeof raw === 'object') {
-        // If a child theme provides breakpoints, the cached ones should be updated
-        const shouldCacheBeBusted = get(props.theme, 'breakpoints', [])
-        if (shouldCacheBeBusted) {
-          cache.breakpoints = get(
-            props.theme,
-            'breakpoints',
-            defaults.breakpoints
-          )
-        } else {
-          cache.breakpoints =
-            cache.breakpoints ||
-            get(props.theme, 'breakpoints', defaults.breakpoints)
-        }
+        cache.breakpoints =
+          (!isCacheDisabled && cache.breakpoints) ||
+          get(props.theme, 'breakpoints', defaults.breakpoints)
         if (Array.isArray(raw)) {
-          if (shouldCacheBeBusted) {
-            cache.media = [null, ...cache.breakpoints.map(createMediaQuery)]
-          } else {
-            cache.media = cache.media || [
-              null,
-              ...cache.breakpoints.map(createMediaQuery),
-            ]
-          }
+          cache.media = (!isCacheDisabled && cache.media) || [
+            null,
+            ...cache.breakpoints.map(createMediaQuery),
+          ]
           styles = merge(
             styles,
             parseResponsiveStyle(cache.media, sx, scale, raw)
@@ -81,6 +69,14 @@ export const createParser = config => {
   parse.config = config
   parse.propNames = Object.keys(config)
   parse.cache = cache
+
+  const keys = Object.keys(config).filter(k => k !== 'config')
+  if (keys.length > 1) {
+    keys.forEach(key => {
+      parse[key] = createParser({ [key]: config[key] })
+    })
+  }
+
   return parse
 }
 

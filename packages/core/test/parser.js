@@ -35,9 +35,34 @@ test('uses default breakpoints', () => {
   })
 })
 
+// Per default, we expect it to be impossible to override breakpoints
+test('does *not* use dynamically changed breakpoints', () => {
+  const styles = parser({
+    theme: { ...theme, breakpoints: ['11em', '22em', '33em'] },
+    fontSize: [1, 2, 3],
+    color: ['primary', null, 'secondary'],
+  })
+  expect(styles).toEqual({
+    color: 'rebeccapurple',
+    fontSize: 4,
+    '@media screen and (min-width: 40em)': {
+      fontSize: 8,
+    },
+    '@media screen and (min-width: 52em)': {
+      fontSize: 16,
+      color: 'papayawhip',
+    },
+  })
+})
+
+// With caching disabled, we expect it to be possible to change breakpoints
 test('uses dynamically changed breakpoints', () => {
   const firstStyles = parser({
-    theme: { ...theme, breakpoints: ['11em', '22em', '33em'] },
+    theme: {
+      ...theme,
+      breakpoints: ['11em', '22em', '33em'],
+      disableStyledSystemCache: true,
+    },
     fontSize: [1, 2, 3],
     color: ['primary', null, 'secondary'],
   })
@@ -57,6 +82,7 @@ test('uses dynamically changed breakpoints', () => {
     theme: {
       ...theme,
       breakpoints: ['9em', '8em', '7em'],
+      disableStyledSystemCache: true,
     },
     fontSize: [1, 2, 3],
     color: ['primary', null, 'secondary'],
@@ -74,19 +100,17 @@ test('uses dynamically changed breakpoints', () => {
   })
 
   const thirdStyles = parser({
-    theme: {
-      ...theme,
-    },
+    theme: theme,
     fontSize: [1, 2, 3],
     color: ['primary', null, 'secondary'],
   })
   expect(thirdStyles).toEqual({
     color: 'rebeccapurple',
     fontSize: 4,
-    '@media screen and (min-width: 40em)': {
+    '@media screen and (min-width: 9em)': {
       fontSize: 8,
     },
-    '@media screen and (min-width: 52em)': {
+    '@media screen and (min-width: 8em)': {
       fontSize: 16,
       color: 'papayawhip',
     },
