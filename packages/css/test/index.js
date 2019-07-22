@@ -253,3 +253,22 @@ test('skip breakpoints', () => {
     }
   })
 })
+
+test('padding shorthand does not collide with nested p selector', () => {
+  const result = css({
+    p: {
+      fontSize: 32,
+      color: 'tomato',
+      p: 2,
+    },
+    padding: 32,
+  })(theme)
+  expect(result).toEqual({
+    p: {
+      fontSize: 32,
+      color: 'tomato',
+      padding: 8,
+    },
+    padding: 32,
+  })
+})
