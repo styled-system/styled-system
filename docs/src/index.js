@@ -3,7 +3,6 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { Global } from '@emotion/core'
 import { ThemeProvider, ColorMode, css } from 'theme-ui'
-import components from './components'
 
 const style = (
   <Global
@@ -45,7 +44,7 @@ const Root = props => {
 
   return (
     <Context.Provider value={context}>
-      <ThemeProvider components={components}>{props.children}</ThemeProvider>
+      {props.children}
     </Context.Provider>
   )
 }

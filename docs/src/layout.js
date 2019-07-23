@@ -1,15 +1,16 @@
+/** @jsx jsx */
+import { jsx, css, useColorMode } from 'theme-ui'
 import React from 'react'
 import styled from '@emotion/styled'
 import { flexDirection } from 'styled-system'
 import { useAppContext } from './index'
 import NavLink from './nav-link'
-import { Box, css, useColorMode } from 'theme-ui'
 import Burger from './burger'
 import Sidebar from './sidebar'
 import Pagination from './pagination'
 import EditLink from './edit-link'
 
-const HeaderRoot = styled(Box)(
+const HeaderRoot = styled('div')(
   css({
     width: '100%',
     height: 64,
@@ -26,7 +27,7 @@ const HeaderRoot = styled(Box)(
     },
   })
 )
-const HeaderSpacer = styled.div(
+const HeaderSpacer = styled('div')(
   css({
     display: 'none',
     '@media screen and (max-width: 40em)': {
@@ -59,7 +60,7 @@ export const Header = ({ sidebar = true, ...props }) => {
         >
           Styled System
         </NavLink>
-        <Box mx="auto" />
+        <div sx={{ mx: "auto" }} />
         <button
           title="Toggle Color Mode"
           css={css({
@@ -110,14 +111,14 @@ export const Header = ({ sidebar = true, ...props }) => {
   )
 }
 
-const Root = styled(Box)(
+const Root = styled('div')(
   css({
     display: 'flex',
     flexDirection: 'column',
   })
 )
 
-const Main = styled(Box)(
+const Main = styled('div')(
   {
     display: 'flex',
   },
@@ -125,7 +126,7 @@ const Main = styled(Box)(
 )
 
 const Overlay = props => (
-  <Box
+  <div
     {...props}
     css={{
       position: 'fixed',
@@ -137,7 +138,7 @@ const Overlay = props => (
   />
 )
 
-export const Container = styled(Box)(
+export const Container = styled('div')(
   css({
     width: '100%',
     maxWidth: 1024,
@@ -157,7 +158,7 @@ export default ({ banner, ...props }) => {
     <Root>
       <Header />
       {state.open && <Overlay onClick={e => state.setOpen(false)} />}
-      <Box>{banner}</Box>
+      <div>{banner}</div>
       <Main flexDirection={['column', 'row']}>
         <Sidebar
           open={state.open}

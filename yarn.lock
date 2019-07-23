@@ -15632,10 +15632,10 @@ text-table@0.2.0, text-table@^0.2.0:
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
 
-theme-ui@^0.2.14:
-  version "0.2.15"
-  resolved "https://registry.yarnpkg.com/theme-ui/-/theme-ui-0.2.15.tgz#0038579a0c8175cd24ff043f2fd464efc6ccea63"
-  integrity sha512-Pg2mem43tk2J5ifJPtUofa/0csZjlwvdvnXePmwVuG/CACt7LexycsUNuCpJsov/czJnpbNH1n32W04YuZDhDw==
+theme-ui@^0.2.16:
+  version "0.2.16"
+  resolved "https://registry.yarnpkg.com/theme-ui/-/theme-ui-0.2.16.tgz#4a8071d38feb45190ab558ea7bf57da6f08fa713"
+  integrity sha512-0s+xtrcfv0bTs3uQdC6rBOdg7AaGPX0dOxgFI5WsbIlDzWvCQnOmb2lvrCo6CeD2r5Ad+xN+uI4U3pr9ER5LMg==
   dependencies:
     "@emotion/is-prop-valid" "^0.8.1"
     "@styled-system/css" "^5.0.5"

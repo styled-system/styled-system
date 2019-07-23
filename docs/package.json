@@ -5,6 +5,7 @@
   "scripts": {
     "start": "gatsby develop",
     "build": "gatsby build",
+    "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
   "dependencies": {
@@ -13,7 +14,7 @@
     "@mdx-js/mdx": "^1.0.19",
     "@mdx-js/react": "^1.0.16",
     "@styled-system/babel-plugin": "0.0.20",
-    "@styled-system/css": "^5.0.11",
+    "@styled-system/css": "^5.0.16",
     "@styled-system/edit": "^5.0.15",
     "@styled-system/should-forward-prop": "^5.0.15",
     "gatsby": "^2.4.6",
@@ -34,7 +35,7 @@
     "remark-slug": "^5.1.1",
     "remark-unwrap-images": "^1.0.0",
     "styled-system": "^5.0.0-8",
-    "theme-ui": "^0.2.14",
+    "theme-ui": "^0.2.16",
     "typography-theme-lincoln": "^0.16.19"
   },
   "devDependencies": {}

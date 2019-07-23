@@ -1,5 +1,6 @@
+/** @jsx jsx */
 import React from 'react'
-import { Box, Styled } from 'theme-ui'
+import { jsx, Styled } from 'theme-ui'
 
 const headings = ['h2', 'h3']
 const getLinks = children =>
@@ -22,8 +23,8 @@ const getLinks = children =>
 
 const List = ({ links }) => (
   <Styled.ul
-    pl={2}
-    css={{
+    sx={{
+      pl: 2,
       listStyle: 'none',
     }}
   >
@@ -40,16 +41,16 @@ const List = ({ links }) => (
 )
 
 const TOC = ({ links }) => (
-  <Box
-    px={2}
-    ml={2}
-    fontSize={1}
-    css={{
+  <div
+    sx={{
+      px: 2,
+      ml: 1,
+      fontSize: 1,
       float: 'right',
     }}
   >
     <List links={links} />
-  </Box>
+  </div>
 )
 
 export default props => {

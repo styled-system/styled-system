@@ -1,6 +1,7 @@
+/** @jsx jsx */
 import React from 'react'
 import styled from '@emotion/styled'
-import { ThemeProvider, Box, css } from 'theme-ui'
+import { jsx, ThemeProvider, css } from 'theme-ui'
 import NavLink from './nav-link'
 import Content from './sidebar.mdx'
 
@@ -27,7 +28,7 @@ const styles = {
   },
 }
 
-const Root = styled(Box)(
+const Root = styled('div')(
   css({
     minWidth: 0,
     flex: 'none',

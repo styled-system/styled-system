@@ -1,35 +1,35 @@
+/** @jsx jsx */
 import React from 'react'
 import { Link } from 'gatsby'
-import { Box } from 'theme-ui'
+import { jsx } from 'theme-ui'
 import Logo from '../logo'
 
 export default props => (
-  <Box
-    css={{
+  <div
+    sx={{
       display: 'flex',
       minHeight: '100vh',
       alignItems: 'center',
       justifyContent: 'center',
       textAlign: 'center',
-    }}
-  >
-    <Box p={4} mb={5}>
+    }}>
+    <div sx={{ p: 4, mb: 5 }}>
       <Link
         to="/"
         title="Home"
-        css={{
+        sx={{
           display: 'block',
           color: 'inherit',
         }}
       >
         <Logo size={256} />
       </Link>
-      <Box as="h1" m={0} mt={3} fontSize={6}>
+      <h1 sx={{ m: 0, mt: 3, fontSize: 6 }}>
         404
-      </Box>
-      <Box fontSize={5} fontWeight="bold">
+      </h1>
+      <div sx={{ fontSize: 5, fontWeight: 'bold' }}>
         Page not found
-      </Box>
-    </Box>
-  </Box>
+      </div>
+    </div>
+  </div>
 )
