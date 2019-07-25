@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`application of default props should not affect order of styles default props not provided to instance 1`] = `
+.emotion-0 {
+  padding: 0;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+<div
+  className="emotion-0"
+  p={0}
+  px={2}
+  py={1}
+/>
+`;
+
+exports[`application of default props should not affect order of styles default props provided to instance 1`] = `
+.emotion-0 {
+  padding: 0;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+<div
+  className="emotion-0"
+  p={0}
+  px={2}
+  py={1}
+/>
+`;
