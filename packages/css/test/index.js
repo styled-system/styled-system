@@ -272,3 +272,20 @@ test('padding shorthand does not collide with nested p selector', () => {
     padding: 32,
   })
 })
+
+test('ignores array values longer than breakpoints', () => {
+  const result = css({
+    width: [ 32, 64, 128, 256, 512 ]
+  })({
+    breakpoints: [ '32em', '40em' ],
+  })
+  expect(result).toEqual({
+    width: 32,
+    '@media screen and (min-width: 32em)': {
+      width: 64,
+    },
+    '@media screen and (min-width: 40em)': {
+      width: 128,
+    },
+  })
+})
