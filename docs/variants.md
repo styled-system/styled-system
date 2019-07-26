@@ -69,6 +69,7 @@ The built-in variants use the following props and theme keys:
 | `colorStyle`  | `colors`    | `colorStyles`               |
 | `buttonStyle` | `variant`   | `buttons` or `buttonStyles` |
 
+
 ## Custom Variants
 
 Creating custom variants allows you to extend this API in many ways.
