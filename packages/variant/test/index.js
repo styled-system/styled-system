@@ -1,8 +1,4 @@
-import {
-  variant,
-  textStyle,
-  colorStyle,
-} from '../src'
+import { variant, textStyle, colorStyle } from '../src'
 import { system, compose } from '@styled-system/core'
 
 const theme = {
@@ -50,6 +46,54 @@ test('variant prop can be customized', () => {
   expect(a).toEqual({
     padding: '32px',
     backgroundColor: 'tomato',
+  })
+})
+
+test('variant aliases key and scale', () => {
+  const buttons = variant({ scale: 'buttonSizes', prop: 'size' })
+  const a = buttons({
+    theme: {
+      buttonSizes: [
+        {
+          fontSize: 20,
+        },
+      ],
+    },
+    size: 0,
+  })
+  expect(a).toEqual({
+    fontSize: 20,
+  })
+})
+
+test('variant styles can be declared inline', () => {
+  const buttons = variant({
+    prop: 'variant',
+    variants: {
+      primary: {
+        backgroundColor: 'tomato',
+      },
+    },
+  })
+  const buttonSizes = variant({
+    prop: 'size',
+    scale: [
+      {
+        p: 3,
+      },
+    ],
+  })
+  const a = buttons({
+    variant: 'primary',
+  })
+  const b = buttonSizes({
+    size: 0,
+  })
+  expect(a).toEqual({
+    backgroundColor: 'tomato',
+  })
+  expect(b).toEqual({
+    p: 3,
   })
 })
 
@@ -112,4 +156,3 @@ test('colors prop returns theme.colorStyles object', () => {
     backgroundColor: '#000',
   })
 })
-
