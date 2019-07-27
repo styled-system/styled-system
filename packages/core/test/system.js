@@ -151,6 +151,31 @@ test('gets 0 index values from theme', () => {
   expect(style).toEqual({ width: 24 })
 })
 
+test('gets values from inline scale', () => {
+  const parser = system({
+    mx: {
+      scale: [0, 5, 10, 15, 20],
+      properties: ['marginLeft', 'marginRight'],
+    },
+  })
+  expect(typeof parser).toBe('function')
+  const styles = parser({
+    mx: [2, 3, 4],
+  })
+  expect(styles).toEqual({
+    marginLeft: 10,
+    marginRight: 10,
+    '@media screen and (min-width: 40em)': {
+      marginLeft: 15,
+      marginRight: 15,
+    },
+    '@media screen and (min-width: 52em)': {
+      marginLeft: 20,
+      marginRight: 20,
+    },
+  })
+})
+
 test('ignores null values', () => {
   const parser = system({
     color: true,
