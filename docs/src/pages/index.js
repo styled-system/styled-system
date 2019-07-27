@@ -1,6 +1,7 @@
+/** @jsx jsx */
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Box, Styled, css } from 'theme-ui'
+import { jsx, Styled, css } from 'theme-ui'
 import Layout from '../layout'
 import { Header, Container } from '../layout'
 import NavLink from '../nav-link'
@@ -31,11 +32,10 @@ export const query = graphql`
 `
 
 const Columns = props => (
-  <Box
+  <ul
     {...props}
-    as="ul"
-    p={0}
-    css={{
+    sx={{
+      p: 0,
       listStyle: 'none',
       display: 'flex',
       flexWrap: 'wrap',
@@ -47,12 +47,16 @@ const Banner = ({ meta }) => (
   <>
     <Container py={5}>
       <Hex />
-      <Box as="h1" fontSize={[4, 4, 5]} fontWeight="bold">
+      <h1
+        sx={{
+          fontSize: [ 4, 4, 5],
+          fontWeight: 'bold',
+        }}>
         {meta.description}
-      </Box>
-      <Box
-        my={4}
-        css={{
+      </h1>
+      <div
+        sx={{
+          my: 4,
           display: 'flex',
           alignItems: 'center',
           flexWrap: 'wrap',
@@ -73,51 +77,56 @@ const Banner = ({ meta }) => (
         >
           npm i styled-system
         </Styled.pre>
-      </Box>
+      </div>
     </Container>
     <Container>
       <Badges />
-      <Box py={4}>
-        <Columns mx={-2}>
+      <div sx={{ py: 4 }}>
+        <Columns sx={{ mx: -3 }}>
           {meta.features.map(feature => (
-            <Box
+            <li
               key={feature}
-              as="li"
-              width={[1, 1 / 2]}
-              css={css({
+              sx={{
+                width: [ '100%', '50%' ],
                 p: 3,
                 fontSize: 3,
                 fontWeight: 'bold',
-              })}
+              }}
             >
               {feature}
-            </Box>
+            </li>
           ))}
         </Columns>
-      </Box>
-      <Box py={4}>
+      </div>
+      <div sx={{ py: 4 }}>
         <Example />
-      </Box>
-      <Columns mx={-3} py={4}>
+      </div>
+      <Columns sx={{ mx: -3, py: 4 }}>
         {meta.quotes.map(quote => (
-          <Box as="li" width={[1, 1 / 2]} p={3} key={quote.text} mb={0}>
-            <Box
-              as="blockquote"
-              css={css({
+          <li
+            sx={{
+              width: [ '100%', '50%' ],
+              p: 3,
+              mb: 0,
+            }}
+            key={quote.text}
+            >
+            <blockquote
+              sx={{
                 fontSize: 3,
                 fontWeight: 'bold',
                 m: 0,
-              })}
+              }}
             >
               “{quote.text}”
-            </Box>
+            </blockquote>
             <Styled.a href={quote.href}>– {quote.source}</Styled.a>
-          </Box>
+          </li>
         ))}
       </Columns>
-      <Box py={4}>
+      <div sx={{ py: 4 }}>
         <Logos />
-      </Box>
+      </div>
     </Container>
   </>
 )
@@ -128,8 +137,8 @@ export default ({
   },
 }) => (
   <Layout banner={<Banner meta={meta} />}>
-    <Box id="getting-started" py={4}>
+    <div id="getting-started" sx={{ py: 4 }}>
       <GettingStarted />
-    </Box>
+    </div>
   </Layout>
 )

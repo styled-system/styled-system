@@ -64,6 +64,9 @@ const scales = {
   gridGap: 'space',
   gridColumnGap: 'space',
   gridRowGap: 'space',
+  gap: 'space',
+  columnGap: 'space',
+  rowGap: 'space',
   fontFamily: 'fonts',
   fontSize: 'fontSizes',
   fontWeight: 'fontWeights',
@@ -137,7 +140,7 @@ export const responsive = styles => theme => {
       next[key] = value
       continue
     }
-    for (let i = 0; i < value.length; i++) {
+    for (let i = 0; i < value.slice(0, mediaQueries.length).length; i++) {
       const media = mediaQueries[i]
       if (value[i] == null) continue
       if (!media) {
@@ -159,22 +162,26 @@ export const css = args => (props = {}) => {
   const styles = responsive(obj)(theme)
 
   for (const key in styles) {
-    const prop = get(aliases, key, key)
-    const scaleName = get(scales, prop)
-    const scale = get(theme, scaleName, get(theme, prop, {}))
     const x = styles[key]
     const val = typeof x === 'function' ? x(theme) : x
+
     if (key === 'variant') {
       const variant = css(get(theme, val))(theme)
       result = { ...result, ...variant }
       continue
     }
+
     if (val && typeof val === 'object') {
-      result[prop] = css(val)(theme)
+      result[key] = css(val)(theme)
       continue
     }
+
+    const prop = get(aliases, key, key)
+    const scaleName = get(scales, prop)
+    const scale = get(theme, scaleName, get(theme, prop, {}))
     const transform = get(transforms, prop, get)
     const value = transform(scale, val, val)
+
     if (directions[prop]) {
       const dirs = directions[prop]
       for (let i = 0; i < dirs.length; i++) {

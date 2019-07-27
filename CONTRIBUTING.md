@@ -3,7 +3,7 @@
 Styled System has a [Code of Conduct][].
 Please review and help enforce this code of conduct to help us foster an open and inclusive project.
 
-[code of conduct]: ./CODE_OF_CONDUCT.MD
+[code of conduct]: ./CODE_OF_CONDUCT.md
 
 ## How to Contribute
 

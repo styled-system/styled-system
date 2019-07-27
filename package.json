@@ -32,11 +32,11 @@
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.4.0",
-    "husky": "^2.3.0",
+    "husky": "^3.0.1",
     "jest": "^24.8.0",
     "jest-emotion": "^10.0.11",
     "lerna": "^3.13.4",
-    "lint-staged": "^8.1.5",
+    "lint-staged": "^9.2.0",
     "prettier": "^1.16.4",
     "react": "^16.8.5",
     "react-test-renderer": "^16.8.5"

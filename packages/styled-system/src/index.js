@@ -1,4 +1,13 @@
 import { createStyleFunction, createParser } from '@styled-system/core'
+// v4 api shims
+import layout from '@styled-system/layout'
+import color from '@styled-system/color'
+import typography from '@styled-system/typography'
+import flexbox from '@styled-system/flexbox'
+import grid from '@styled-system/grid'
+import border from '@styled-system/border'
+import background from '@styled-system/background'
+import position from '@styled-system/position'
 
 export {
   get,
@@ -27,82 +36,152 @@ export {
   colorStyle
 } from '@styled-system/variant'
 
-// v4 api shims
+const {
+  width,
+  height,
+  minWidth,
+  minHeight,
+  maxWidth,
+  maxHeight,
+  size,
+  verticalAlign,
+  display,
+  overflow,
+} = layout
+const { opacity } = color
+const {
+  fontSize,
+  fontFamily,
+  fontWeight,
+  lineHeight,
+  textAlign,
+  fontStyle,
+  letterSpacing,
+} = typography
+
+const {
+  alignItems,
+  alignContent,
+  justifyItems,
+  justifyContent,
+  flexWrap,
+  flexDirection,
+  flex,
+  flexGrow,
+  flexShrink,
+  flexBasis,
+  justifySelf,
+  alignSelf,
+  order,
+} = flexbox
+const {
+  gridGap,
+  gridColumnGap,
+  gridRowGap,
+  gridColumn,
+  gridRow,
+  gridAutoFlow,
+  gridAutoColumns,
+  gridAutoRows,
+  gridTemplateColumns,
+  gridTemplateRows,
+  gridTemplateAreas,
+  gridArea,
+} = grid
+const {
+  borderWidth,
+  borderStyle,
+  borderColor,
+  borderTop,
+  borderRight,
+  borderBottom,
+  borderLeft,
+  borderRadius,
+} = border
+const {
+  backgroundImage,
+  backgroundSize,
+  backgroundPosition,
+  backgroundRepeat,
+} = background
+const {
+  zIndex,
+  top,
+  right,
+  bottom,
+  left,
+} = position
+
+export { default as borders } from '@styled-system/border'
 export {
-  default as width,
-  default as height,
-  default as minWidth,
-  default as minHeight,
-  default as maxWidth,
-  default as maxHeight,
-  default as size,
-  default as verticalAlign,
-  default as display,
-  default as overflow,
-} from '@styled-system/layout'
-export { default as opacity } from '@styled-system/color'
-export {
-  default as fontSize,
-  default as fontFamily,
-  default as fontWeight,
-  default as lineHeight,
-  default as textAlign,
-  default as fontStyle,
-  default as letterSpacing,
-} from '@styled-system/typography'
-export {
-  default as alignItems,
-  default as alignContent,
-  default as justifyItems,
-  default as justifyContent,
-  default as flexWrap,
-  default as flexDirection,
-  default as flex,
-  default as flexGrow,
-  default as flexShrink,
-  default as flexBasis,
-  default as justifySelf,
-  default as alignSelf,
-  default as order,
-} from '@styled-system/flexbox'
-export {
-  default as gridGap,
-  default as gridColumnGap,
-  default as gridRowGap,
-  default as gridColumn,
-  default as gridRow,
-  default as gridAutoFlow,
-  default as gridAutoColumns,
-  default as gridAutoRows,
-  default as gridTemplateColumns,
-  default as gridTemplateRows,
-  default as gridTemplateAreas,
-  default as gridArea,
-} from '@styled-system/grid'
-export {
-  default as borderWidth,
-  default as borderStyle,
-  default as borderColor,
-  default as borderTop,
-  default as borderRight,
-  default as borderBottom,
-  default as borderLeft,
-  default as borderRadius,
-  default as borders,
-} from '@styled-system/border'
-export {
-  default as backgroundImage,
-  default as backgroundSize,
-  default as backgroundPosition,
-  default as backgroundRepeat,
-} from '@styled-system/background'
-export {
-  default as zIndex,
-  default as top,
-  default as right,
-  default as bottom,
-  default as left,
-} from '@styled-system/position'
+  width,
+  height,
+  minWidth,
+  minHeight,
+  maxWidth,
+  maxHeight,
+  size,
+  verticalAlign,
+  display,
+  overflow,
+  // color
+  opacity,
+  // typography
+  fontSize,
+  fontFamily,
+  fontWeight,
+  lineHeight,
+  textAlign,
+  fontStyle,
+  letterSpacing,
+  // flexbox
+  alignItems,
+  alignContent,
+  justifyItems,
+  justifyContent,
+  flexWrap,
+  flexDirection,
+  flex,
+  flexGrow,
+  flexShrink,
+  flexBasis,
+  justifySelf,
+  alignSelf,
+  order,
+  // grid
+  gridGap,
+  gridColumnGap,
+  gridRowGap,
+  gridColumn,
+  gridRow,
+  gridAutoFlow,
+  gridAutoColumns,
+  gridAutoRows,
+  gridTemplateColumns,
+  gridTemplateRows,
+  gridTemplateAreas,
+  gridArea,
+  // border
+  borderWidth,
+  borderStyle,
+  borderColor,
+  borderTop,
+  borderRight,
+  borderBottom,
+  borderLeft,
+  borderRadius,
+  // background
+  backgroundImage,
+  backgroundSize,
+  backgroundPosition,
+  backgroundRepeat,
+  // position
+  zIndex,
+  top,
+  right,
+  bottom,
+  left,
+}
 
 // v4 style API shim
 export const style = ({

@@ -1,4 +1,4 @@
-import { ThemeProvider, Styled, Flex } from 'theme-ui'
+import { jsx, ThemeProvider, Styled } from 'theme-ui'
 
 export default props =>
   <ThemeProvider
@@ -6,6 +6,15 @@ export default props =>
       styles: {
         root: {
           textAlign: 'center',
+        },
+        ul: {
+          display: 'flex',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+          justifyContent: 'center',
+          listStyle: 'none',
+          m: 0,
+          p: 0,
         },
         img: {
           height: 'auto',
@@ -22,28 +31,33 @@ export default props =>
 
 ### Used by
 
-<Flex
-  flexWrap='wrap'
-  alignItems='center'
-  justifyContent='space-around'>
+<ul>
+<li>
   <img
     alt='GitHub logo'
     src='https://github.githubassets.com/images/modules/logos_page/GitHub-Logo.png'
     width='128'
   />
+</li>
+<li>
   <img
     alt='Artsy logo'
     src='https://erica-prince.com/wp-content/uploads/2018/08/artsy-logo.png'
     width='128'
   />
+</li>
+<li>
   <img
     alt='Cloudflare logo'
     src='https://www.cloudflare.com/img/logo-cloudflare-dark.svg'
     width='128'
   />
+</li>
+<li>
   <img
     alt='Priceline logo'
     src='https://www.freelogovectors.net/svg03/priceline-logo.svg'
     width='160'
   />
-</Flex>
+</li>
+</ul>

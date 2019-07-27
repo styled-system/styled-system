@@ -1,6 +1,6 @@
 import React from 'react'
-import Link from './link'
-import wrapper from './toc-wrapper'
+import Link from '../link'
+import wrapper from '../toc-wrapper'
 
 const heading = Tag => ({ id, ...props }) => (
   <Tag id={id} {...props}>

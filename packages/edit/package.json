@@ -1,9 +1,8 @@
 {
   "name": "@styled-system/edit",
-  "version": "5.0.5",
+  "version": "5.0.15",
   "description": "",
   "main": "dist/index.js",
-  "module": "dist/index.esm.js",
   "keywords": [],
   "author": "Brent Jackson <jxnblk@gmail.com>",
   "license": "MIT",

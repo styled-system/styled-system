@@ -1,5 +1,23 @@
 # Changelog
 
+## v5.0.16 2019-07-22
+
+- Update dependencies
+- `@styled-system/css`: fix for `p` paragraph/padding collision
+- Add option to disable breakpoint caching #595
+
+## v5.0.15 2019-07-15
+
+- Export single-property functions for v4 shims #584
+
+## v5.0.14 2019-07-15
+
+- Use `theme.space` for position props #598
+
+## v5.0.13 2019-07-05
+
+- `@styled-system/css`: add support for `gap`, `rowGap`, and `columnGap` properties #596
+
 ## v5.0.12 2019-06-25
 
 - Fix for parser config

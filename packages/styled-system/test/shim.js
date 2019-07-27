@@ -1,4 +1,4 @@
-import { style } from '../src'
+import { style, width as systemWidth } from '../src'
 
 const width = style({
   prop: 'width',
@@ -104,6 +104,15 @@ test('parses object values', () => {
 test('array values longer than breakpoints does not reset returned style object', () => {
   const a = width({
     width: ['100%', , , , , '50%', '25%'],
+  })
+  expect(a).toEqual({ width: '100%' })
+})
+
+test('shimmed width only supports width prop', () => {
+  const a = systemWidth({
+    width: 1,
+    height: 32,
+    maxWidth: 768,
   })
   expect(a).toEqual({ width: '100%' })
 })
