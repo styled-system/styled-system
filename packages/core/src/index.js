@@ -1,4 +1,5 @@
 import assign from 'object-assign'
+import css from '@styled-system/css'
 
 export const merge = (a, b) => {
   let result = assign({}, a, b)
@@ -35,7 +36,10 @@ export const createParser = config => {
       if (!config[key]) continue
       const sx = config[key]
       const raw = props[key]
-      const scale = get(props.theme, sx.scale, sx.defaults)
+      const scale =
+        typeof sx.scale === 'object'
+          ? sx.scale
+          : get(props.theme, sx.scale, sx.defaults)
 
       if (typeof raw === 'object') {
         cache.breakpoints =

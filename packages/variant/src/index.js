@@ -5,11 +5,12 @@ export const variant = ({
   prop = 'variant',
   // shim for v4 API
   key,
+  variants,
 }) => {
   const sx = (value, scale) => {
     return get(scale, value, null)
   }
-  sx.scale = scale || key
+  sx.scale = variants || scale || key
   const config = {
     [prop]: sx,
   }
