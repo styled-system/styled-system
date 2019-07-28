@@ -27,6 +27,8 @@ import { space } from 'styled-system'
 | `px`                  | `padding-left` and `padding-right` | `space`     |
 | `py`                  | `padding-top` and `padding-bottom` | `space`     |
 
+Styled System provides subsets of `space` category: `margin` and `padding`.
+
 ## Color
 
 ```js
