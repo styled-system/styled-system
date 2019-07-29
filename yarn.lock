@@ -7392,9 +7392,9 @@ gatsby-telemetry@^1.1.7:
     uuid "3.3.2"
 
 gatsby@^2.3.32, gatsby@^2.4.6:
-  version "2.13.40"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.13.40.tgz#92e93ecc5e30f258022414d22f5f9fb2d09446c8"
-  integrity sha512-IWgViFUOVM0Tqtrt0eov5s5qUSeG3JFM8ToLuwvLa7ceUZ7FP12RMuPK9AhorjQJOZdzWOqF9lMGn8Gs2sMmrQ==
+  version "2.13.41"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.13.41.tgz#918e22432b4d487420e4bbf65fbbe1cdd8d3b05e"
+  integrity sha512-vTPAt4xq2WOqx8EOUA72zUb9joyYiYowK0eBmt4O+HEyDHnLieubO66srTgH0XDsdXKpc1Aivug9oeKgIV5vdQ==
   dependencies:
     "@babel/code-frame" "^7.0.0"
     "@babel/core" "^7.0.0"
