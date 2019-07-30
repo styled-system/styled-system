@@ -11,6 +11,15 @@ export const merge = (a, b) => {
   return result
 }
 
+// sort object-value responsive styles
+const sort = obj => {
+  const next = {}
+  Object.keys(obj).sort().forEach(key => {
+    next[key] = obj[key]
+  })
+  return next
+}
+
 const defaults = {
   breakpoints: [40, 52, 64].map(n => n + 'em'),
 }
@@ -29,6 +38,7 @@ export const createParser = config => {
   const cache = {}
   const parse = props => {
     let styles = {}
+    let shouldSort = false
     const isCacheDisabled = props.theme && props.theme.disableStyledSystemCache
 
     for (const key in props) {
@@ -57,11 +67,17 @@ export const createParser = config => {
             styles,
             parseResponsiveObject(cache.breakpoints, sx, scale, raw)
           )
+          shouldSort = true
         }
         continue
       }
 
       assign(styles, sx(raw, scale))
+    }
+
+    // sort object-based responsive styles
+    if (shouldSort) {
+      styles = sort(styles)
     }
 
     return styles
@@ -85,7 +101,6 @@ const parseResponsiveStyle = (mediaQueries, sx, scale, raw) => {
   raw.slice(0, mediaQueries.length).forEach((value, i) => {
     const media = mediaQueries[i]
     const style = sx(value, scale)
-    if (style === undefined) return
     if (!media) {
       assign(styles, style)
     } else {

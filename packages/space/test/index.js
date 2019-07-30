@@ -167,3 +167,70 @@ test('handles overriding margin/padding shortcut props', () => {
     paddingTop: 8,
   })
 })
+
+test('single directions override axes', () => {
+  const styles = space({
+    mx: 3,
+    ml: 1,
+    mr: 2,
+    px: 3,
+    pl: 1,
+    pr: 2,
+  })
+  expect(styles).toEqual({
+    marginLeft: 4,
+    marginRight: 8,
+    paddingLeft: 4,
+    paddingRight: 8,
+  })
+})
+
+test('supports object values', () => {
+  const styles = space({
+    m: {
+      _: 0,
+      0: 1,
+      1: 2,
+    }
+  })
+  expect(styles).toEqual({
+    margin: 0,
+    '@media screen and (min-width: 40em)': {
+      margin: 4,
+    },
+    '@media screen and (min-width: 52em)': {
+      margin: 8,
+    },
+  })
+})
+
+test('supports non-array breakpoints', () => {
+  const theme = {
+    disableStyledSystemCache: true,
+    breakpoints: {
+      small: '40em',
+      medium: '52em',
+    }
+  }
+  const styles = space({
+    theme,
+    p: {
+      small: 2,
+    },
+    m: {
+      _: 0,
+      small: 1,
+      medium: 2,
+    }
+  })
+  expect(styles).toEqual({
+    margin: 0,
+    '@media screen and (min-width: 40em)': {
+      margin: 4,
+      padding: 8,
+    },
+    '@media screen and (min-width: 52em)': {
+      margin: 8,
+    },
+  })
+})

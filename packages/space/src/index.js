@@ -1,4 +1,4 @@
-import { get, system } from '@styled-system/core'
+import { get, system, compose } from '@styled-system/core'
 
 const defaults = {
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
@@ -120,6 +120,6 @@ configs.padding.py = configs.padding.paddingY
 
 export const margin = system(configs.margin)
 export const padding = system(configs.padding)
-export const space = system({ ...configs.margin, ...configs.padding })
+export const space = compose(margin, padding)
 
 export default space

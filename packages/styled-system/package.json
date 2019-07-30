@@ -27,5 +27,10 @@
     "@styled-system/variant": "^5.0.16",
     "object-assign": "^4.1.1"
   },
-  "gitHead": "a6feb6009c58f2eb68f0c3120c5672f6cb54294f"
+  "gitHead": "a6feb6009c58f2eb68f0c3120c5672f6cb54294f",
+  "devDependencies": {
+    "@emotion/styled": "^10.0.14",
+    "jest-styled-components": "^6.3.3",
+    "styled-components": "^4.3.2"
+  }
 }
