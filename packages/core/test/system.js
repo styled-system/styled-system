@@ -219,6 +219,7 @@ test('supports non-array breakpoints object', () => {
   })
   const styles = parser({
     theme: {
+      disableStyledSystemCache: true,
       breakpoints: {
         sm: '32em',
         md: '40em',
@@ -243,3 +244,29 @@ test('supports non-array breakpoints object', () => {
   })
 })
 
+test('sorts media queries when responsive object values are used', () => {
+  const parser = system({
+    margin: true,
+    padding: true,
+    color: true,
+  })
+  const styles = parser({
+    theme: {
+      disableStyledSystemCache: true,
+      breakpoints: {
+        sm: '32em',
+        md: '40em',
+        lg: '64em',
+      }
+    },
+    padding: { _: 16, lg: 64 },
+    margin: { sm: 4, md: 8 },
+    color: { lg: 'tomato' },
+  })
+  expect(Object.keys(styles)).toEqual([
+    '@media screen and (min-width: 32em)',
+    '@media screen and (min-width: 40em)',
+    '@media screen and (min-width: 64em)',
+    'padding',
+  ])
+})
