@@ -1,4 +1,4 @@
-import { space, margin } from '../src'
+import { space } from '../src'
 
 test('returns style objects', () => {
   const styles = space({
