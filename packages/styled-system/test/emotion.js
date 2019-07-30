@@ -33,5 +33,31 @@ describe('emotion', () => {
     )
     expect(json).toMatchSnapshot()
   })
+
+  test('object breakpoints work with defaultProps', () => {
+    const Box = styled('div')(space)
+    const theme = {
+      disableStyledSystemCache: true,
+      breakpoints: {
+        small: '32em',
+        medium: '40em',
+      }
+    }
+    Box.defaultProps = {
+      theme,
+      p: {
+        _: 0,
+        medium: 4,
+      },
+      m: {
+        small: 2,
+        medium: 3,
+      }
+    }
+    const json = render(
+      <Box />
+    )
+    expect(json).toMatchSnapshot()
+  })
 })
 
