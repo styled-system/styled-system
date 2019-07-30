@@ -50,4 +50,15 @@ describe('styled-components', () => {
     expect(json).toHaveStyleRule('margin', '16px')
     expect(json).toHaveStyleRule('color', 'tomato')
   })
+
+  test('responsive styles are rendered in the correct order', () => {
+    const Box = styled('div')(space)
+    const json = render(
+      <Box
+        m={[1, 2, 3]}
+        p={[1, 2, 3]}
+      />
+    )
+    expect(json).toMatchSnapshot()
+  })
 })

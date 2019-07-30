@@ -173,6 +173,10 @@ test('skips null values in arrays', () => {
   })
   expect(style).toEqual({
     fontSize: 16,
+    // omitting these keys cause issues when using multiple
+    // responsive props together #561 #551 #549
+    '@media screen and (min-width: 40em)': {},
+    '@media screen and (min-width: 52em)': {},
     '@media screen and (min-width: 64em)': {
       fontSize: 18,
     }
@@ -206,3 +210,36 @@ test('parser configs can be composed manually', () => {
     width: '100%',
   })
 })
+
+test('supports non-array breakpoints object', () => {
+  const parser = system({
+    margin: true,
+    padding: true,
+    width: true,
+  })
+  const styles = parser({
+    theme: {
+      breakpoints: {
+        sm: '32em',
+        md: '40em',
+        lg: '64em',
+      }
+    },
+    margin: { _: 0, sm: 4, md: 8 },
+    padding: { _: 16, lg: 64 },
+  })
+  expect(styles).toEqual({
+    margin: 0,
+    padding: 16,
+    '@media screen and (min-width: 32em)': {
+      margin: 4,
+    },
+    '@media screen and (min-width: 40em)': {
+      margin: 8,
+    },
+    '@media screen and (min-width: 64em)': {
+      padding: 64,
+    },
+  })
+})
+
