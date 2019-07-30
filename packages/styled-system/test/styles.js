@@ -1,6 +1,7 @@
 import {
   color,
   width,
+  layout,
   fontSize,
   size,
   gridGap,
@@ -8,6 +9,7 @@ import {
   gridColumnGap,
   borders,
   shadow,
+  compose,
 } from '../src'
 
 const theme = {
@@ -180,4 +182,21 @@ test('shadow handles boxShadow and textShadow props', () => {
     textShadow: '0 -1px rgba(255, 255, 255, .25)',
     boxShadow: 'none',
   })
+})
+
+test('compose maintains media query order', () => {
+  const parser = compose(
+    color,
+    layout,
+  )
+  const a = parser({
+    bg: ['tomato', null, 'black'],
+    width: [ '100%', '50%', '25%' ],
+  })
+  expect(Object.keys(a)).toEqual([
+    'backgroundColor',
+    '@media screen and (min-width: 40em)',
+    '@media screen and (min-width: 52em)',
+    'width',
+  ])
 })
