@@ -167,3 +167,20 @@ test('handles overriding margin/padding shortcut props', () => {
     paddingTop: 8,
   })
 })
+
+test('single directions override axes', () => {
+  const styles = space({
+    mx: 3,
+    ml: 1,
+    mr: 2,
+    px: 3,
+    pl: 1,
+    pr: 2,
+  })
+  expect(styles).toEqual({
+    marginLeft: 4,
+    marginRight: 8,
+    paddingLeft: 4,
+    paddingRight: 8,
+  })
+})
