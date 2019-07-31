@@ -1,5 +1,16 @@
 # Changelog
 
+## v5.0.18 2019-07-31
+
+- Fix for incorrectly ordered `@media` rules when `null` values are used in multiple array-value props #638
+- Fix for incorrectly ordered `@media` rules with responsive object values
+- Added integration tests with Styled Components and Emotion
+- `@styled-system/prop-types` exports `createPropTypes`
+
+## v5.0.17 2019-07-30
+
+- Failed lerna publish
+
 ## v5.0.16 2019-07-22
 
 - Update dependencies
