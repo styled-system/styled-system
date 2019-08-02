@@ -100,36 +100,36 @@ test('pl prop sets paddingLeft 0', () => {
   expect(styles).toEqual({ paddingLeft: 0 })
 })
 
-test('px prop overrides pl prop', () => {
+test('pl prop overrides px prop', () => {
   const styles = space({
     pl: 1,
     px: 2,
   })
-  expect(styles).toEqual({ paddingLeft: 8, paddingRight: 8 })
+  expect(styles).toEqual({ paddingLeft: 4, paddingRight: 8 })
 })
 
-test('py prop overrides pb prop', () => {
+test('pb prop overrides py prop', () => {
   const styles = space({
     pb: 1,
     py: 2,
   })
-  expect(styles).toEqual({ paddingTop: 8, paddingBottom: 8 })
+  expect(styles).toEqual({ paddingTop: 8, paddingBottom: 4 })
 })
 
-test('mx prop overrides mr prop', () => {
+test('mr prop overrides mx prop', () => {
   const styles = space({
     mr: 1,
     mx: 2,
   })
-  expect(styles).toEqual({ marginLeft: 8, marginRight: 8 })
+  expect(styles).toEqual({ marginLeft: 8, marginRight: 4 })
 })
 
-test('my prop overrides mt prop', () => {
+test('mt prop overrides my prop', () => {
   const styles = space({
     mt: 1,
     my: 2,
   })
-  expect(styles).toEqual({ marginTop: 8, marginBottom: 8 })
+  expect(styles).toEqual({ marginTop: 4, marginBottom: 8 })
 })
 
 test('margin overrides m prop', () => {

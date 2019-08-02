@@ -270,3 +270,35 @@ test('sorts media queries when responsive object values are used', () => {
     'padding',
   ])
 })
+
+test('config supports sort option', () => {
+  const parser = system({
+    m: {
+      property: 'margin',
+      sort: -1
+    },
+    ml: {
+      scale: 'space',
+      property: 'marginLeft',
+    },
+    mr: {
+      scale: 'space',
+      property: 'marginRight',
+    },
+    mx: {
+      scale: 'space',
+      properties: ['marginLeft', 'marginRight'],
+    },
+  })
+  const a = parser({ mx: 8, m: 0 })
+  const b = parser({ mr: 8, m: 0 })
+  expect(a).toEqual({
+    margin: 0,
+    marginLeft: 8,
+    marginRight: 8,
+  })
+  expect(b).toEqual({
+    margin: 0,
+    marginRight: 8,
+  })
+})

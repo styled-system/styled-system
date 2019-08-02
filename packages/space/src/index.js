@@ -27,6 +27,7 @@ configs.margin = {
     scale: 'space',
     transform: getMargin,
     defaultScale: defaults.space,
+    sort: -1,
   },
   marginTop: {
     property: 'marginTop',
@@ -57,12 +58,14 @@ configs.margin = {
     scale: 'space',
     transform: getMargin,
     defaultScale: defaults.space,
+    sort: -1,
   },
   marginY: {
     properties: ['marginTop', 'marginBottom'],
     scale: 'space',
     transform: getMargin,
     defaultScale: defaults.space,
+    sort: -1,
   },
 }
 configs.margin.m = configs.margin.margin
@@ -78,6 +81,7 @@ configs.padding = {
     property: 'padding',
     scale: 'space',
     defaultScale: defaults.space,
+    sort: -1,
   },
   paddingTop: {
     property: 'paddingTop',
@@ -103,11 +107,13 @@ configs.padding = {
     properties: ['paddingLeft', 'paddingRight'],
     scale: 'space',
     defaultScale: defaults.space,
+    sort: -1,
   },
   paddingY: {
     properties: ['paddingTop', 'paddingBottom'],
     scale: 'space',
     defaultScale: defaults.space,
+    sort: -1,
   },
 }
 configs.padding.p = configs.padding.padding

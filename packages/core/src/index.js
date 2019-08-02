@@ -47,6 +47,7 @@ export const createParser = config => {
       const raw = props[key]
       const scale = get(props.theme, sx.scale, sx.defaults)
 
+      let style
       if (typeof raw === 'object') {
         cache.breakpoints =
           (!isCacheDisabled && cache.breakpoints) ||
@@ -56,23 +57,27 @@ export const createParser = config => {
             null,
             ...cache.breakpoints.map(createMediaQuery),
           ]
-          styles = merge(
-            styles,
-            parseResponsiveStyle(cache.media, sx, scale, raw)
-          )
-          continue
-        }
-        if (raw !== null) {
-          styles = merge(
-            styles,
-            parseResponsiveObject(cache.breakpoints, sx, scale, raw)
-          )
+          style = parseResponsiveStyle(cache.media, sx, scale, raw)
+          // styles = merge(
+          //   styles,
+          //   parseResponsiveStyle(cache.media, sx, scale, raw)
+          // )
+        } else if (raw !== null) {
+          style = parseResponsiveObject(cache.breakpoints, sx, scale, raw)
+          // styles = merge(
+          //   styles,
+          //   parseResponsiveObject(cache.breakpoints, sx, scale, raw)
+          // )
           shouldSort = true
         }
-        continue
+      } else {
+        style = sx(raw, scale)
       }
-
-      assign(styles, sx(raw, scale))
+      if (sx.sort && sx.sort < 0) {
+        styles = merge(style, styles)
+      } else {
+        styles = merge(styles, style)
+      }
     }
 
     // sort object-based responsive styles
@@ -136,6 +141,7 @@ export const createStyleFunction = ({
   scale,
   transform = getValue,
   defaultScale,
+  sort,
 }) => {
   properties = properties || [property]
   const sx = (value, scale) => {
@@ -149,6 +155,7 @@ export const createStyleFunction = ({
   }
   sx.scale = scale
   sx.defaults = defaultScale
+  sx.sort = sort
   return sx
 }
 
