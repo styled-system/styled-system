@@ -1,5 +1,9 @@
 # Changelog
 
+## v5.0.1r 2019-08-05
+
+- `@styled-system/css` allow functional values to return responsive array values #654
+
 ## v5.0.18 2019-07-31
 
 - Fix for incorrectly ordered `@media` rules when `null` values are used in multiple array-value props #638
