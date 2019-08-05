@@ -289,3 +289,15 @@ test('ignores array values longer than breakpoints', () => {
     },
   })
 })
+
+test('functional values can return responsive arrays', () => {
+  const result = css({
+    color: t => [t.colors.primary, t.colors.secondary],
+  })(theme)
+  expect(result).toEqual({
+    '@media screen and (min-width: 40em)': {
+      color: 'cyan',
+    },
+    color: 'tomato',
+  })
+})
