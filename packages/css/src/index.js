@@ -134,7 +134,9 @@ export const responsive = styles => theme => {
   ]
 
   for (const key in styles) {
-    const value = styles[key]
+    const value =
+      typeof styles[key] === 'function' ? styles[key](theme) : styles[key]
+
     if (value == null) continue
     if (!Array.isArray(value)) {
       next[key] = value
