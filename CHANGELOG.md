@@ -1,6 +1,6 @@
 # Changelog
 
-## v5.0.1r 2019-08-05
+## v5.0.19 2019-08-05
 
 - `@styled-system/css` allow functional values to return responsive array values #654
 
