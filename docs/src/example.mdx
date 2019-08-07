@@ -1,7 +1,26 @@
+import { Flex, Box } from 'reflexbox'
 
 ## Expressive, consistent UI components
 
 Styled System lets you quickly build custom UI components with constraint-based style props based on your own design system tokens.
+
+<Flex flexWrap={['wrap', 'nowrap']}>
+<Box width={[ 1, 1/2 ]}>
+
+```js
+import styled from '@emotion/styled'
+import { typography, space, color } from 'styled-system'
+
+const Box = styled('div')(
+  typography,
+  space,
+  color
+)
+```
+
+</Box>
+<Box px={2} />
+<Box width={[ 1, 1/2 ]}>
 
 ```jsx
 <Box
@@ -14,3 +33,6 @@ Styled System lets you quickly build custom UI components with constraint-based 
   Hello
 </Box>
 ```
+
+</Box>
+</Flex>

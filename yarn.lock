@@ -1036,7 +1036,7 @@
     "@emotion/utils" "0.11.2"
     "@emotion/weak-memoize" "0.2.3"
 
-"@emotion/core@^10.0.10", "@emotion/core@^10.0.9":
+"@emotion/core@^10.0.0", "@emotion/core@^10.0.10", "@emotion/core@^10.0.9":
   version "10.0.15"
   resolved "https://registry.yarnpkg.com/@emotion/core/-/core-10.0.15.tgz#b8489d85d64b45bd03abdb8a3d9639ba8a0328d0"
   integrity sha512-VHwwl3k/ddMfQOHYgOJryXOs2rGJ5AfKLQGm5AVolNonnr6tkmDI4nzIMNaPpveoXVs7sP0OrF24UunIPxveQw==
@@ -1097,17 +1097,6 @@
     "@emotion/utils" "0.11.2"
     csstype "^2.5.7"
 
-"@emotion/serialize@^0.11.9":
-  version "0.11.9"
-  resolved "https://registry.yarnpkg.com/@emotion/serialize/-/serialize-0.11.9.tgz#123e0f51d2dee9693fae1057bd7fc27b021d6868"
-  integrity sha512-/Cn4V81z3ZyFiDQRw8nhGFaHkxHtmCSSBUit4vgTuLA1BqxfJUYiqSq97tq/vV8z9LfIoqs6a9v6QrUFWZpK7A==
-  dependencies:
-    "@emotion/hash" "0.7.2"
-    "@emotion/memoize" "0.7.2"
-    "@emotion/unitless" "0.7.4"
-    "@emotion/utils" "0.11.2"
-    csstype "^2.5.7"
-
 "@emotion/sheet@0.9.3":
   version "0.9.3"
   resolved "https://registry.yarnpkg.com/@emotion/sheet/-/sheet-0.9.3.tgz#689f135ecf87d3c650ed0c4f5ddcbe579883564a"
@@ -1123,7 +1112,7 @@
     "@emotion/serialize" "^0.11.9"
     "@emotion/utils" "0.11.2"
 
-"@emotion/styled@^10.0.10", "@emotion/styled@^10.0.11", "@emotion/styled@^10.0.14", "@emotion/styled@^10.0.9":
+"@emotion/styled@^10.0.0", "@emotion/styled@^10.0.10", "@emotion/styled@^10.0.11", "@emotion/styled@^10.0.14", "@emotion/styled@^10.0.9":
   version "10.0.15"
   resolved "https://registry.yarnpkg.com/@emotion/styled/-/styled-10.0.15.tgz#bc99b968bdbf491db7bc474bb90c8fcdbe0f2f87"
   integrity sha512-vIKDo/hG741PNRpMnrJ6R8NnnjYfOBw3d6cb3yNckpjcp0NNq3ugE8/EjcYBU1Ke44nx2p00h5uzE396xOLJIg==
@@ -13998,6 +13987,18 @@ redux@^4.0.0:
   dependencies:
     loose-envify "^1.4.0"
     symbol-observable "^1.2.0"
+
+reflexbox@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/reflexbox/-/reflexbox-4.0.2.tgz#66b35021a97f220270cc49abf994313bc696ccad"
+  integrity sha512-j5vbfB/aLgGbyiioNlXdpSTK97nbR5t7HWeX4w4+rlJVCvqNjZs9SfyLhwE9v4u7C6FookW39m5PhlUCgArPeQ==
+  dependencies:
+    "@emotion/core" "^10.0.0"
+    "@emotion/styled" "^10.0.0"
+    "@styled-system/css" "^5.0.0"
+    "@styled-system/should-forward-prop" "^5.0.0"
+    react "^16.8.6"
+    styled-system "^5.0.0"
 
 regenerate-unicode-properties@^8.0.2:
   version "8.1.0"

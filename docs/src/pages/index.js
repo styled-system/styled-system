@@ -11,7 +11,7 @@ import Logos from '../logos.mdx'
 import GettingStarted from '../../getting-started.md'
 import Hex from '../logo/hex'
 import Button from '../button'
-import Nav from '../sidebar.mdx'
+import NavGrid from '../nav-grid'
 
 export const query = graphql`
   query Index {
@@ -61,9 +61,8 @@ const Banner = ({ meta }) => (
           display: 'flex',
           alignItems: 'center',
           flexWrap: 'wrap',
-        }}
-      >
-        <Button href="#getting-started" mr={3}>
+        }}>
+        <Button href="/getting-started" mr={3}>
           Documentation
         </Button>
         <NavLink href="https://github.com/styled-system/styled-system" mr={3}>
@@ -74,16 +73,13 @@ const Banner = ({ meta }) => (
           css={css({
             color: 'inherit',
             bg: 'transparent',
-          })}
-        >
+          })}>
           npm i styled-system
         </Styled.pre>
       </div>
+      <NavGrid />
     </Container>
     <Container>
-      <div>
-        <Nav />
-      </div>
       <Badges />
       <div sx={{ py: 4 }}>
         <Columns sx={{ mx: -3 }}>
