@@ -1,5 +1,9 @@
 # Changelog
 
+## v5.0.20 2019-08-07
+
+- Add theme support for more border properties #670 & #671
+
 ## v5.0.19 2019-08-05
 
 - `@styled-system/css` allow functional values to return responsive array values #654
