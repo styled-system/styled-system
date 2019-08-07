@@ -49,3 +49,21 @@ test('returns individual border styles', () => {
     borderLeftStyle: 'solid',
   })
 })
+
+test('returns border top and bottom radii', () => {
+  const style = border({
+    theme: {
+      radii: { small: 5 },
+    },
+    borderTopLeftRadius: 'small',
+    borderTopRightRadius: 'small',
+    borderBottomRightRadius: 'small',
+    borderBottomRightRadius: 'small',
+  })
+  expect(style).toEqual({
+    borderTopLeftRadius: 5,
+    borderTopRightRadius: 5,
+    borderBottomRightRadius: 5,
+    borderBottomRightRadius: 5,
+  })
+})

@@ -25,6 +25,14 @@ const config = {
     property: 'borderTop',
     scale: 'borders',
   },
+  borderTopLeftRadius: {
+    property: 'borderTopLeftRadius',
+    scale: 'radii',
+  },
+  borderTopRightRadius: {
+    property: 'borderTopRightRadius',
+    scale: 'radii',
+  },
   borderRight: {
     property: 'borderRight',
     scale: 'borders',
@@ -32,6 +40,14 @@ const config = {
   borderBottom: {
     property: 'borderBottom',
     scale: 'borders',
+  },
+  borderBottomLeftRadius: {
+    property: 'borderBottomLeftRadius',
+    scale: 'radii',
+  },
+  borderBottomRightRadius: {
+    property: 'borderBottomRightRadius',
+    scale: 'radii',
   },
   borderLeft: {
     property: 'borderLeft',
