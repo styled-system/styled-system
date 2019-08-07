@@ -1,6 +1,6 @@
 {
   "name": "styled-system",
-  "version": "5.0.18",
+  "version": "5.0.20",
   "description": "Responsive, theme-based style props for building design systems with React",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -14,7 +14,7 @@
   "license": "MIT",
   "dependencies": {
     "@styled-system/background": "^5.0.18",
-    "@styled-system/border": "^5.0.18",
+    "@styled-system/border": "^5.0.20",
     "@styled-system/color": "^5.0.18",
     "@styled-system/core": "^5.0.18",
     "@styled-system/flexbox": "^5.0.18",
