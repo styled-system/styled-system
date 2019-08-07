@@ -11,6 +11,7 @@ import Logos from '../logos.mdx'
 import GettingStarted from '../../getting-started.md'
 import Hex from '../logo/hex'
 import Button from '../button'
+import Nav from '../sidebar.mdx'
 
 export const query = graphql`
   query Index {
@@ -45,8 +46,8 @@ const Columns = props => (
 
 const Banner = ({ meta }) => (
   <>
+    <Hex />
     <Container py={5}>
-      <Hex />
       <h1
         sx={{
           fontSize: [ 4, 4, 5],
@@ -80,6 +81,9 @@ const Banner = ({ meta }) => (
       </div>
     </Container>
     <Container>
+      <div>
+        <Nav />
+      </div>
       <Badges />
       <div sx={{ py: 4 }}>
         <Columns sx={{ mx: -3 }}>
