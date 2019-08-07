@@ -35,6 +35,15 @@ const theme = {
       letterSpacing: ['-0.01em', '-0.02em'],
     },
   },
+  borderWidths: {
+    thin: 1,
+  },
+  borderStyles: {
+    thick: 'solid',
+  },
+  radii: {
+    small: 5,
+  },
 }
 
 test('returns a function', () => {
@@ -299,5 +308,44 @@ test('functional values can return responsive arrays', () => {
       color: 'cyan',
     },
     color: 'tomato',
+  })
+})
+
+test('returns individual border styles', () => {
+  const result = css({
+    borderTopWidth: 'thin',
+    borderTopColor: 'primary',
+    borderTopStyle: 'thick',
+    borderTopLeftRadius: 'small',
+    borderTopRightRadius: 'small',
+    borderBottomWidth: 'thin',
+    borderBottomColor: 'primary',
+    borderBottomStyle: 'thick',
+    borderBottomLeftRadius: 'small',
+    borderBottomRightRadius: 'small',
+    borderRightWidth: 'thin',
+    borderRightColor: 'primary',
+    borderRightStyle: 'thick',
+    borderLeftWidth: 'thin',
+    borderLeftColor: 'primary',
+    borderLeftStyle: 'thick',
+  })(theme)
+  expect(result).toEqual({
+    borderTopColor: 'tomato',
+    borderTopWidth: 1,
+    borderTopStyle: 'solid',
+    borderTopLeftRadius: 5,
+    borderTopRightRadius: 5,
+    borderBottomColor: 'tomato',
+    borderBottomWidth: 1,
+    borderBottomStyle: 'solid',
+    borderBottomLeftRadius: 5,
+    borderBottomRightRadius: 5,
+    borderRightColor: 'tomato',
+    borderRightWidth: 1,
+    borderRightStyle: 'solid',
+    borderLeftColor: 'tomato',
+    borderLeftWidth: 1,
+    borderLeftStyle: 'solid',
   })
 })
