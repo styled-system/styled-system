@@ -39,7 +39,7 @@ npm i styled-system
 - Typographic scale
 - Spacing scale for margin and padding
 - Works with any color palette
-- Works with most css-in-js libraries, including [styled-components][] & [emotion][emotion]
+- Works with most css-in-js libraries, including [Styled Components][] & [Emotion][]
 - Used in [Rebass](https://rebassjs.org), [Rebass Grid](https://rebassjs.org/grid/), and the [Priceline Design System](https://github.com/pricelinelabs/design-system)
 
 > "This is honestly my favourite way to build UI components right now ![party parrot][party-parrot]"
@@ -188,17 +188,19 @@ To learn more, see the [Getting Started](https://styled-system.com/getting-start
 - [Cloudflare Design Color](https://cloudflare.design/color/)
 - [Styled System HTML](https://johnpolacek.github.io/styled-system-html/)
 - [Rebass](https://rebassjs.org)
-- [Rebass Grid](https://grid.rebassjs.org)
+- [Reflexbox](https://rebassjs.org/reflexbox)
+- [Theme UI](https://theme-ui.com)
 - [@datepicker-react/styled](https://github.com/tresko/react-datepicker)
 
 ## Related
 
+- [Theme UI](https://theme-ui.com)
 - [System UI](https://system-ui.com)
 - [Spectrum.Chat Community](https://spectrum.chat/styled-system)
-- [styled-components][]
-- [emotion][]
+- [Styled Components][]
+- [Emotion][]
 
-[styled-components]: https://github.com/styled-components/styled-components
+[styled components]: https://github.com/styled-components/styled-components
 [emotion]: https://github.com/emotion-js/emotion
 [varun-post]: https://varun.ca/styled-system/
 [alan-b-smith-post]: https://medium.com/styled-components/build-better-component-libraries-with-styled-system-4951653d54ee

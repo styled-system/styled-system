@@ -8,6 +8,7 @@ import NavLink from '../nav-link'
 import Badges from '../badges.md'
 import Example from '../example.mdx'
 import Logos from '../logos.mdx'
+import BuiltWith from '../built-with.mdx'
 import GettingStarted from '../../getting-started.md'
 import Hex from '../logo/hex'
 import Button from '../button'
@@ -126,6 +127,9 @@ const Banner = ({ meta }) => (
       </Columns>
       <div sx={{ py: 4 }}>
         <Logos />
+      </div>
+      <div sx={{ py: 4 }}>
+        <BuiltWith />
       </div>
     </Container>
   </>
