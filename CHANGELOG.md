@@ -1,5 +1,9 @@
 # Changelog
 
+## v5.0.21 2019-08-07
+
+- Fix publish
+
 ## v5.0.20 2019-08-07
 
 - Add theme support for more border properties #670 & #671
