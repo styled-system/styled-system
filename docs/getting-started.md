@@ -1,8 +1,9 @@
 # Getting Started
 
-Styled-system is a collection of utility functions that add style props
+Styled System is a collection of utility functions that add style props
 to your React components
-and allows you to control styles based on global theme constants or _[design tokens][]_.
+and allows you to control styles based on a global theme object
+with typographic scales, colors, and layout properties.
 
 To use Styled System, install a CSS-in-JS library such as [Styled Components][] or [Emotion][].
 
@@ -77,7 +78,7 @@ With the ThemeProvider added, the Box component now has access to the colors def
 </Box>
 ```
 
-Styled-system will attempt to find a value based on keys in the theme and fallback to the raw value if it's not defined in the theme.
+Styled System will attempt to find a value based on keys in the theme and fallback to the raw value if it's not defined in the theme.
 
 ```jsx
 // this example uses the CSS color keyword `tomato` since it's not defined in the theme
@@ -217,4 +218,3 @@ For a complete list, see the [Reference Table][] of style functions.
 [emotion]: https://github.com/emotion-js/emotion
 [responsive styles]: /responsive-styles
 [reference table]: /table
-[design tokens]: https://speakerdeck.com/jina/design-tokens-in-design-systems

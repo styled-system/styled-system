@@ -33,10 +33,10 @@ export default () => (
             wrapper: PaginationWrapper,
           }}
           render={links => {
-            const index = links.findIndex(
-              link =>
-                removeHash(link.props.href) === removeSlash(location.pathname)
-            )
+            const index = links.findIndex(link => {
+              if (location.pathname === '/') return true
+              return removeHash(link.props.href) === removeSlash(location.pathname)
+            })
             const hasPagination = index > -1
             const previous = links[index - 1]
             const next = links[index + 1]

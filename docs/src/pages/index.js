@@ -11,6 +11,7 @@ import Logos from '../logos.mdx'
 import GettingStarted from '../../getting-started.md'
 import Hex from '../logo/hex'
 import Button from '../button'
+import NavGrid from '../nav-grid'
 
 export const query = graphql`
   query Index {
@@ -45,8 +46,8 @@ const Columns = props => (
 
 const Banner = ({ meta }) => (
   <>
+    <Hex />
     <Container py={5}>
-      <Hex />
       <h1
         sx={{
           fontSize: [ 4, 4, 5],
@@ -60,9 +61,8 @@ const Banner = ({ meta }) => (
           display: 'flex',
           alignItems: 'center',
           flexWrap: 'wrap',
-        }}
-      >
-        <Button href="#getting-started" mr={3}>
+        }}>
+        <Button href="/getting-started" mr={3}>
           Documentation
         </Button>
         <NavLink href="https://github.com/styled-system/styled-system" mr={3}>
@@ -73,14 +73,17 @@ const Banner = ({ meta }) => (
           css={css({
             color: 'inherit',
             bg: 'transparent',
-          })}
-        >
+          })}>
           npm i styled-system
         </Styled.pre>
       </div>
+      <NavGrid />
     </Container>
     <Container>
       <Badges />
+      <div sx={{ py: 4 }}>
+        <Example />
+      </div>
       <div sx={{ py: 4 }}>
         <Columns sx={{ mx: -3 }}>
           {meta.features.map(feature => (
@@ -97,9 +100,6 @@ const Banner = ({ meta }) => (
             </li>
           ))}
         </Columns>
-      </div>
-      <div sx={{ py: 4 }}>
-        <Example />
       </div>
       <Columns sx={{ mx: -3, py: 4 }}>
         {meta.quotes.map(quote => (
