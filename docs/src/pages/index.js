@@ -82,6 +82,9 @@ const Banner = ({ meta }) => (
     <Container>
       <Badges />
       <div sx={{ py: 4 }}>
+        <Example />
+      </div>
+      <div sx={{ py: 4 }}>
         <Columns sx={{ mx: -3 }}>
           {meta.features.map(feature => (
             <li
@@ -97,9 +100,6 @@ const Banner = ({ meta }) => (
             </li>
           ))}
         </Columns>
-      </div>
-      <div sx={{ py: 4 }}>
-        <Example />
       </div>
       <Columns sx={{ mx: -3, py: 4 }}>
         {meta.quotes.map(quote => (

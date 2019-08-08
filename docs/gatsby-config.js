@@ -73,9 +73,9 @@ module.exports = {
       'Quickly set responsive font-size, margin, padding, width, and more',
       'Inspired by constraint-based design system principles',
       'Typographic scale for consistent design',
-      'Spacing scale for margin, padding, and layout',
+      'White space scale for margin, padding, and layout',
       'Supports any color palette',
-      'Works with most CSS-in-JS libraries, including styled-components and emotion',
+      'Works with most CSS-in-JS libraries, including Styled Components and Emotion',
     ],
   },
   plugins: [
