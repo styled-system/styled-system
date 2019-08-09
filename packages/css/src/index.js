@@ -109,6 +109,10 @@ const scales = {
   height: 'sizes',
   minHeight: 'sizes',
   maxHeight: 'sizes',
+  flexBasis: 'sizes',
+  // svg
+  fill: 'colors',
+  stroke: 'colors',
 }
 
 const positiveOrNegative = (scale, value) => {
