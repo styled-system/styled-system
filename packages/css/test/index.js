@@ -15,6 +15,9 @@ const theme = {
   fontWeights: {
     bold: 600,
   },
+  sizes: {
+    sidebar: 320,
+  },
   buttons: {
     primary: {
       p: 3,
@@ -347,5 +350,25 @@ test('returns individual border styles', () => {
     borderLeftColor: 'tomato',
     borderLeftWidth: 1,
     borderLeftStyle: 'solid',
+  })
+})
+
+test('flexBasis uses theme.sizes', () => {
+  const style = css({
+    flexBasis: 'sidebar',
+  })(theme)
+  expect(style).toEqual({
+    flexBasis: 320,
+  })
+})
+
+test('fill and stroke use theme.colors', () => {
+  const style = css({
+    fill: 'primary',
+    stroke: 'secondary',
+  })(theme)
+  expect(style).toEqual({
+    fill: 'tomato',
+    stroke: 'cyan',
   })
 })
