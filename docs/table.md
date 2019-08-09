@@ -78,6 +78,8 @@ import { layout } from 'styled-system'
 | `display`       | `display`        | none        |
 | `verticalAlign` | `vertical-align` | none        |
 | `overflow`      | `overflow`       | none        |
+| `overflowX`     | `overflowX`      | none        |
+| `overflowY`     | `overflowY`      | none        |
 
 ## Flexbox
 

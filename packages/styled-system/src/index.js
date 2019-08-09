@@ -47,6 +47,8 @@ const {
   verticalAlign,
   display,
   overflow,
+  overflowX,
+  overflowY
 } = layout
 const { opacity } = color
 const {
@@ -124,6 +126,8 @@ export {
   verticalAlign,
   display,
   overflow,
+  overflowX,
+  overflowY,
   // color
   opacity,
   // typography

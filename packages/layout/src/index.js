@@ -35,6 +35,8 @@ const config = {
     scale: 'sizes',
   },
   overflow: true,
+  overflowX: true,
+  overflowY: true,
   display: true,
   verticalAlign: true,
 }
