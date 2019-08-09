@@ -1,5 +1,9 @@
 # Changelog
 
+## v5.0.22 2019-08-09
+
+- `@styled-system/css`: add support for `fill`, `stroke`, and `flexBasis` #679
+
 ## v5.0.21 2019-08-07
 
 - Fix publish
