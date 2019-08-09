@@ -50,7 +50,7 @@ By conforming to this standard, theme objects created with any of the libraries 
 - [Radix][] is a design system and component library for Modulz
 - [Styled System HTML][] is HTML elements extended as components, ready for theming via styled system
 - [Tachyons Styled React][] is Tachyons implemented with emotion and Styled System
-
+- [Hack Club Design System][] is [Hack Club][]’s design system/component library built on styled-components
 
 [rebass]: https://rebassjs.org
 [reflexbox]: https://rebassjs.org/reflexbox
@@ -61,6 +61,8 @@ By conforming to this standard, theme objects created with any of the libraries 
 [radix]: https://radix.modulz.app/docs/getting-started/
 [Styled System HTML]: https://johnpolacek.github.io/styled-system-html/
 [tachyons styled react]: https://github.com/tachyons-css/tachyons-styled-react
+[hack club design system]: https://design.hackclub.com
+[hack club]: https://hackclub.com/
 [theme specification]: https://github.com/system-ui/theme-specification
 [gatsby]: https://gatsbyjs.org
 [typography.js]: https://github.com/KyleAMathews/typography.js
