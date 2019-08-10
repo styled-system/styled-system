@@ -51,6 +51,21 @@ describe('styled-components', () => {
     expect(json).toHaveStyleRule('color', 'tomato')
   })
 
+  test('extended intermediate components keep their props with as prop', () => {
+    const StyledBox = styled('div')(space)
+    const Box = props => <StyledBox {...props} />
+    const Card = styled(Box)(color)
+    const json = render(
+      <Card
+        as='header'
+        m={3}
+        color='tomato'
+      />
+    )
+    expect(json).toHaveStyleRule('margin', '16px')
+    expect(json).toHaveStyleRule('color', 'tomato')
+  })
+
   test('responsive styles are rendered in the correct order', () => {
     const Box = styled('div')(space)
     const json = render(
