@@ -248,6 +248,8 @@ import { shadow } from 'styled-system'
 
 ## Variants
 
+**Note**: The prefered API for [variants](/variants) has changed. The following is a reference for legacy variant APIs.
+
 ```js
 import { textStyle, colorStyle, buttonStyle } from 'styled-system'
 // or `import { textStyle, colorStyle, buttonStyle } from '@styled-system/variant'`

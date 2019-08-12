@@ -1,15 +1,22 @@
 import { get, createParser } from '@styled-system/core'
+import css from '@styled-system/css'
 
 export const variant = ({
   scale,
   prop = 'variant',
+  // enables new api
+  variants = {},
   // shim for v4 API
   key,
 }) => {
-  const sx = (value, scale) => {
-    return get(scale, value, null)
+  let sx
+  if (Object.keys(variants).length) {
+    sx = (value, scale, props) => css(get(scale, value, null))(props.theme)
+  } else {
+    sx = (value, scale) => get(scale, value, null)
   }
   sx.scale = scale || key
+  sx.defaults = variants
   const config = {
     [prop]: sx,
   }
