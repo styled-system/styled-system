@@ -2879,9 +2879,17 @@
     "@xtuc/long" "4.2.2"
 
 "@xstyled/system@^1.0.0":
-  version "1.8.4"
-  resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-1.8.4.tgz#c1760f27735f70eefab61ce43a74dc4e1e03600f"
-  integrity sha512-oY3ys+PpgMXcCTrtCHz2xqeOQuIImTtAJLhbeu1VWgHErLE4/fcEU2TRluFNzge7lDrZU6noGkFeRwjei7nyvA==
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-1.10.0.tgz#4fc69cf4b33c2b0f1513b34e760d9dbd8e7b5766"
+  integrity sha512-2a2fMLBbenq3iqBTP1RrZkvCrAE3tnwKUQEc3mNdAdZDfQYYvdlEAAbOrCKKNGayDzzYI2Zjs20SBSQK7KSCnQ==
+  dependencies:
+    "@babel/runtime" "^7.4.4"
+    "@xstyled/util" "^1.10.0"
+
+"@xstyled/util@^1.10.0":
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/@xstyled/util/-/util-1.10.0.tgz#137912ee085b54d35020318c57f80dc3ea8635b0"
+  integrity sha512-y0+TrK3F5eL1JhYtsjhEqjEN2v4qd3yxfcuFaZDfUlXEf8mB1YlBzyDvBklaxeLmqkwpk3A8OPaaSYib59rocQ==
   dependencies:
     "@babel/runtime" "^7.4.4"
 
