@@ -16,6 +16,9 @@ const theme = {
     bold: 600,
   },
   sizes: {
+    small: 4,
+    medium: 8,
+    large: 16,
     sidebar: 320,
   },
   buttons: {
@@ -370,5 +373,27 @@ test('fill and stroke use theme.colors', () => {
   expect(style).toEqual({
     fill: 'tomato',
     stroke: 'cyan',
+  })
+})
+
+test('multiples are transformed', () => {
+  const style = css({
+    marginX: 2,
+    marginY: 2,
+    paddingX: 2,
+    paddingY: 2,
+    size: 'large',
+  })(theme)
+  expect(style).toEqual({
+    marginLeft: 8,
+    marginRight: 8,
+    marginTop: 8,
+    marginBottom: 8,
+    paddingLeft: 8,
+    paddingRight: 8,
+    paddingTop: 8,
+    paddingBottom: 8,
+    width: 16,
+    height: 16,
   })
 })

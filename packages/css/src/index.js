@@ -32,11 +32,12 @@ const aliases = {
   py: 'paddingY',
 }
 
-const directions = {
+const multiples = {
   marginX: ['marginLeft', 'marginRight'],
   marginY: ['marginTop', 'marginBottom'],
   paddingX: ['paddingLeft', 'paddingRight'],
   paddingY: ['paddingTop', 'paddingBottom'],
+  size: ['width', 'height'],
 }
 
 const scales = {
@@ -110,6 +111,7 @@ const scales = {
   minHeight: 'sizes',
   maxHeight: 'sizes',
   flexBasis: 'sizes',
+  size: 'sizes',
   // svg
   fill: 'colors',
   stroke: 'colors',
@@ -204,8 +206,9 @@ export const css = args => (props = {}) => {
     const transform = get(transforms, prop, get)
     const value = transform(scale, val, val)
 
-    if (directions[prop]) {
-      const dirs = directions[prop]
+    if (multiples[prop]) {
+      const dirs = multiples[prop]
+      
       for (let i = 0; i < dirs.length; i++) {
         result[dirs[i]] = value
       }
