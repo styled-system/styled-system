@@ -90,6 +90,7 @@ The following keys in your style object will work the same as Styled System prop
 | `height`                | `sizes`          |
 | `minHeight`             | `sizes`          |
 | `maxHeight`             | `sizes`          |
+| `size`                  | `sizes`          |
 
 ## Responsive Arrays
 

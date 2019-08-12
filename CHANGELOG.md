@@ -1,5 +1,15 @@
 # Changelog
 
+## v5.1.0 2019-08-12
+
+- New `variant` API with support for inline variant definitions and theme-based style objects #699
+
+## v5.0.23 2019-08-12
+
+- Add support for `overflowX` and `overflowY` #682
+- `@styled-system/css`: add support for `size` #684
+- Update dependencies
+
 ## v5.0.22 2019-08-09
 
 - `@styled-system/css`: add support for `fill`, `stroke`, and `flexBasis` #679

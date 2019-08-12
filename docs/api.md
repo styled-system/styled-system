@@ -130,7 +130,7 @@ Typography props include `fontFamily`, `fontSize`, `fontWeight`, `lineHeight`, `
 import { layout } from 'styled-system'
 ```
 
-The layout utility includes style props for `width`, `height`, `display`, `minWidth`, `minHeight`, `maxWidth`, `maxHeight`, `size`, and `verticalAlign`
+The layout utility includes style props for `width`, `height`, `display`, `minWidth`, `minHeight`, `maxWidth`, `maxHeight`, `size`, `verticalAlign`, `overflow`, `overflowX`, and `overflowY`.
 
 The `width` prop is transformed based on the following:
 
@@ -185,6 +185,15 @@ The `width` prop is transformed based on the following:
 // size (width & height)
 <Box size={32} />
 <Box size={[ 32, 48 ]} />
+
+// overflow
+<Box overflow='hidden' />
+
+// overflowX
+<Box overflowX='hidden' />
+
+// overflowY
+<Box overflowY='hidden' />
 ```
 
 ## Flexbox
@@ -480,18 +489,27 @@ The function takes two arguments: `(value, scale)`, where `value` is the raw pro
 
 ## Variant
 
-Creates a custom style utility that maps props to style objects in a theme.
+Creates a custom style utility to apply complex styles based on a single prop.
 
 ```js
 import styled from 'styled-components'
 import { variant } from 'styled-system'
 
-const cardStyle = variant({
-  key: 'cards',
-})
-
 const Card = styled.div`
-  ${cardStyle}
+  ${variant({
+    variants: {
+      normal: {
+        p: 2,
+        boxShadow: 'default',
+        borderRadius: 2,
+      },
+      large: {
+        p: 3,
+        boxShadow: 'large',
+        borderRadius: 4,
+      },
+    }
+  })}
 `
 Card.defaultProps = {
   variant: 'normal',
@@ -499,42 +517,9 @@ Card.defaultProps = {
 // <Card variant='large' />
 ```
 
-## Variants
+## Legacy Variants
 
-The variant style utilities allow you to define reusable style objects in your theme for things like text styles and color combinations.
-
-**NOTE:** the objects defined in the theme are _CSS style_ objects, not component _props_. Styled system props **will not** work here to avoid conflating CSS style objects with component props.
-
-```js
-// example theme
-const theme = {
-  textStyles: {
-    caps: {
-      textTransform: 'uppercase',
-      letterSpacing: '0.2em',
-    },
-  },
-  colorStyles: {
-    warning: {
-      color: 'black',
-      backgroundColor: 'orange',
-    },
-    error: {
-      color: 'white',
-      backgroundColor: 'red',
-    },
-  },
-  buttons: {
-    primary: {
-      color: 'white',
-      backgroundColor: 'blue',
-      '&:hover': {
-        backgroundColor: 'black',
-      },
-    },
-  },
-}
-```
+The legacy variants require styles to be defined in the theme object and do *not* use `@styled-system/css` for transformation.
 
 ```js
 import { textStyle, colorStyle, buttonStyle } from 'styled-system'
