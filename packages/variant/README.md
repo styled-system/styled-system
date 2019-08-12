@@ -11,24 +11,6 @@ import variant from '@styled-system/variant'
 
 const Button = styled('button')(
   variant({
-    prop: 'variant',
-    scale: 'buttons', // key for `theme.buttons`
-  })
-)
-
-// <Button variant='primary' />
-// <Button variant='secondary' />
-```
-
-## Component Variants
-
-```js
-import styled from 'styled-components'
-import { componentVariant } from '@styled-system/variant'
-
-const Button = styled('button')(
-  componentVariant({
-    prop: 'variant',
     variants: {
       primary: {
         color: 'white',
@@ -43,11 +25,19 @@ const Button = styled('button')(
         ':hover': {
           bg: 'black',
         }
-      }
+      },
     }
   })
 )
 
 // <Button variant='primary' />
+// <Button variant='secondary' />
 ```
 
+## Options
+
+- `variants`: object of theme-aware variant styles with user-defined shape
+- `prop`: (default `variant`) custom prop name for variant
+- `scale`: optional theme key for adding variants to the theme object
+
+MIT License
