@@ -175,7 +175,7 @@ import { border } from 'styled-system'
 
 <Box border={1} borderRadius={2}>
   Card
-</Box
+</Box>
 ```
 
 | Prop                      | CSS Property                   | Theme Field    |
@@ -236,7 +236,7 @@ import { shadow } from 'styled-system'
 
 <Text textShadow="2px 2px #ff0000" boxShadow="5px 10px #888888">
   Text with shadows
-</Text
+</Text>
 ```
 
 | Prop         | CSS Property  | Theme Field |
