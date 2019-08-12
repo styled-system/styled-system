@@ -1,56 +1,35 @@
 # Variants
 
-Variants can be useful for applying complex styles to a component based on a single prop.
-Styled System includes built-in variants for `textStyle`, `colorStyle`, and `buttonStyle`.
+Use the variant APII to apply complex styles to a component based on a single prop.
+This can be a handy way to support slight stylistic variations in button or typography components.
 
-To use variants, first define styles in your `theme` object.
+Import the variant function and pass in variant style objects in your component definition.
+When defining variants inline, you can use Styled System like syntax to pick up values from your theme.
 
-```js
-// example theme with variants
-import colors from './colors'
-
-export default {
-  ...colors,
-  textStyles: {
-    caps: {
-      textTransform: 'uppercase',
-      letterSpacing: '0.1em',
-    },
-  },
-  colorStyles: {
-    inverted: {
-      color: colors.background,
-      backgroundColor: colors.text,
-    },
-  },
-  buttons: {
-    primary: {
-      color: colors.white,
-      backgroundColor: colors.primary,
-    },
-    secondary: {
-      color: colors.text,
-      backgroundColor: colors.secondary,
-    },
-  },
-}
-```
-
-**NOTE:** the objects defined in the theme are _CSS style_ objects, not component _props_. Styled system props **will not** work here to avoid conflating CSS style objects with component props.
-
-Next, add variant utilities to your components.
+**Note**: Inline variants is a new feature in `v5.1.0`, and it uses [@styled-system/css][].
 
 ```js
 // example Button with variants
 import styled from 'styled-components'
-import { buttonStyle } from 'styled-system'
+import { variant } from 'styled-system'
 
 const Button = styled('button')(
   {
     appearance: 'none',
     fontFamily: 'inherit',
   },
-  buttonStyle
+  variant({
+    variants: {
+      primary: {
+        color: 'white',
+        bg: 'primary',
+      },
+      secondary: {
+        color: 'white',
+        bg: 'secondary',
+      },
+    }
+  })
 )
 ```
 
@@ -61,6 +40,86 @@ The `Button` component can now use the `variant` prop to change between a primar
 <Button variant='secondary'>Secondary</Button>
 ```
 
+## Custom Prop Name
+
+If you'd like to use a custom prop name other than `variant`, use the `prop` option.
+
+```js
+const Text = styled('div')(
+  variant({
+    prop: 'sizes',
+    variants: {
+      big: {
+        fontSize: 4,
+        lineHeight: 'heading',
+      },
+      small: {
+        fontSize: 1,
+        lineHeight: 'body',
+      },
+    }
+  })
+)
+```
+
+## Themeable Variants
+
+If you'd like to enable theming of variants from the global theme object, use the `scale` option to define the theme key to use for variants.
+
+```js
+const Button = styled('button')(
+  variant({
+    scale: 'buttons',
+    variants: {
+      primary: {
+        color: 'white',
+        bg: 'primary',
+      },
+      secondary: {
+        color: 'white',
+        bg: 'secondary',
+      },
+    },
+  })
+)
+```
+
+With the `scale` option above, the `theme.buttons` object can be used to overrided variants defined in the component.
+
+```js
+// example theme
+export default {
+  // base theme values...
+  // custom button variants
+  buttons: {
+    primary: {
+      color: 'white',
+      bg: 'red',
+    },
+    secondary: {
+      color: 'white',
+      bg: 'tomato',
+    },
+  }
+}
+```
+
+## Legacy API
+
+To continue using the previous variant API,
+without transforming style objects based on the theme,
+omit the `variants` option.
+
+```js
+// legacy API
+variant({
+  prop: 'size',
+  scale: 'typeSizes',
+})
+```
+
+### Built-in Variants
+
 The built-in variants use the following props and theme keys:
 
 | Function Name | Prop        | Theme Key     |
@@ -69,21 +128,5 @@ The built-in variants use the following props and theme keys:
 | `colorStyle`  | `colors`    | `colorStyles` |
 | `buttonStyle` | `variant`   | `buttons`     |
 
-## Custom Variants
+[@styled-system/css]: /css
 
-Creating custom variants allows you to extend this API in many ways.
-To create a custom variant, import the `variant` utility to create a style prop function.
-
-```js
-import styled from 'styled-components'
-import { variant } from 'styled-system'
-
-const buttonSizes = variant({
-  // theme key for variant definitions
-  scale: 'buttonSizes',
-  // component prop
-  prop: 'size',
-})
-
-const Button = styled('button')(buttonSizes)
-```
