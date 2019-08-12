@@ -1,12 +1,12 @@
 # Variants
 
-Use the variant APII to apply complex styles to a component based on a single prop.
+Use the variant API to apply complex styles to a component based on a single prop.
 This can be a handy way to support slight stylistic variations in button or typography components.
 
-Import the variant function and pass in variant style objects in your component definition.
+Import the variant function and pass variant style objects in your component definition.
 When defining variants inline, you can use Styled System like syntax to pick up values from your theme.
 
-**Note**: Inline variants is a new feature in `v5.1.0`, and it uses [@styled-system/css][].
+**Note**: Inline variants is a new feature in `v5.1.0`, which uses [@styled-system/css][].
 
 ```js
 // example Button with variants
@@ -47,7 +47,7 @@ If you'd like to use a custom prop name other than `variant`, use the `prop` opt
 ```js
 const Text = styled('div')(
   variant({
-    prop: 'sizes',
+    prop: 'size',
     variants: {
       big: {
         fontSize: 4,
@@ -60,6 +60,8 @@ const Text = styled('div')(
     }
   })
 )
+
+// <Text size='big' />
 ```
 
 ## Themeable Variants
