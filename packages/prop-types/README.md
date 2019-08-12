@@ -1,4 +1,3 @@
-
 # @styled-system/prop-types
 
 Add prop types to components built with Styled System
@@ -22,15 +21,15 @@ Box.propTypes = {
 
 ## Available Type Categories
 
-* `space`
-* `color`
-* `layout`
-* `typography`
-* `flexbox`
-* `border`
-* `background`
-* `position`
-* `grid`
+- `space`
+- `color`
+- `layout`
+- `typography`
+- `flexbox`
+- `border`
+- `background`
+- `position`
+- `grid`
 
 See props of each category in [the reference table](https://styled-system.com/table).
 
@@ -45,12 +44,15 @@ const gridGap = system({
   gap: {
     property: 'gridGap',
     scale: 'space',
-    defaultScale: [0, 4, 8, 16, 32, 64, 128, 256, 512]
-  }
+    defaultScale: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+  },
 })
 
 const Stack = styled('div')(
-  compose(space, gridGap)
+  compose(
+    space,
+    gridGap
+  )
 )
 
 Stack.propTypes = {

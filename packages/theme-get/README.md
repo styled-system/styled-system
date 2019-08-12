@@ -1,4 +1,3 @@
-
 # @styled-system/theme-get
 
 The `themeGet` function is an existential getter function
