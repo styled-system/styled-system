@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "name": "@styled-system/treat-example",
+  "version": "5.0.23",
+  "dependencies": {
+    "@styled-system/css": "^5.0.13",
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5",
+    "react-scripts": "^3.0.1",
+    "treat": "^1.0.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
