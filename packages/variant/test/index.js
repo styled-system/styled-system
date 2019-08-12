@@ -167,10 +167,99 @@ describe('component variant', () => {
     })
   })
 
+  test('can use a custom prop name', () => {
+    const comp = componentVariant({
+      prop: 'size',
+      variants: {
+        big: {
+          fontSize: 32,
+          fontWeight: 900,
+          lineHeight: 1.25,
+        },
+      }
+    })
+    const style = comp({ size: 'big' })
+    expect(style).toEqual({
+      fontSize: 32,
+      fontWeight: 900,
+      lineHeight: 1.25,
+    })
+  })
+
+  test('does not throw when no variants are found', () => {
+    const comp = componentVariant({})
+    let style
+    expect(() => {
+      style = comp({ variant: 'beep' })
+    }).not.toThrow()
+    expect(style).toEqual({})
+  })
+
+  test('returns empty object when no prop is provided', () => {
+    const comp = componentVariant({})
+    const style = comp({})
+    expect(style).toEqual({})
+  })
+
+  // todo: requires update to core createParser
+  test.skip('can be composed with other style props', () => {
+    // variant.config
+    // config.variant.scale // key
+    // config.variant.defaults
+    const parser = compose(
+      componentVariant({
+        variants: {
+          tomato: {
+            color: 'tomato',
+            fontSize: 20,
+            fontWeight: 'bold',
+          }
+        }
+      }),
+      color,
+      fontSize
+    )
+    const style = parser({
+      variant: 'tomato',
+      color: 'blue',
+      fontSize: 32,
+    })
+    expect(style).toEqual({
+      color: 'blue',
+      fontSize: 32,
+      fontWeight: 'bold',
+    })
+  })
+
   test.todo('can be used with other style props')
 
-  // which one?
+  test('theme-based variants override local variants', () => {
+    const comp = componentVariant({
+      variants: {
+        primary: {
+          color: 'white',
+          bg: 'blue',
+        }
+      },
+      scale: 'buttons',
+    })
+    const style = comp({
+      variant: 'primary',
+      theme: {
+        buttons: {
+          primary: {
+            color: 'black',
+            bg: 'cyan',
+          }
+        }
+      }
+    })
+    expect(style).toEqual({
+      color: 'black',
+      backgroundColor: 'cyan',
+    })
+  })
+
+  // OR should iit work this way??
   test.todo('falls back to variants defined in theme')
-  // OR
-  test.todo('theme-based variants override local variants')
 })

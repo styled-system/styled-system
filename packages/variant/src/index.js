@@ -30,12 +30,26 @@ export const componentVariant = ({
   variants = {},
   scale,
 }) => {
+  /* create parser approach
+   * todo: needs access to theme or props
+    const sx = (value, scale, props) => {
+      return css(get(scale, value, null))(props.theme)
+    }
+    sx.scale = scale
+    sx.defaults = variants
+    const config = {
+      [prop]: sx
+    }
+    const parser = createParser(config)
+    return parser
+  */
   const parser = props => {
     const name = props[prop]
-    if (!name) return null
-    const style = get(variants, name)
+    if (!name) return {}
+    const style = get(props.theme, `${scale}.${name}`,
+      get(variants, name)
+    )
     return css(style)(props.theme)
   }
-
   return parser
 }
