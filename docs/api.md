@@ -130,7 +130,7 @@ Typography props include `fontFamily`, `fontSize`, `fontWeight`, `lineHeight`, `
 import { layout } from 'styled-system'
 ```
 
-The layout utility includes style props for `width`, `height`, `display`, `minWidth`, `minHeight`, `maxWidth`, `maxHeight`, `size`, and `verticalAlign`
+The layout utility includes style props for `width`, `height`, `display`, `minWidth`, `minHeight`, `maxWidth`, `maxHeight`, `size`, `verticalAlign`, `overflow`, `overflowX`, and `overflowY`.
 
 The `width` prop is transformed based on the following:
 
@@ -185,6 +185,15 @@ The `width` prop is transformed based on the following:
 // size (width & height)
 <Box size={32} />
 <Box size={[ 32, 48 ]} />
+
+// overflow
+<Box overflow='hidden' />
+
+// overflowX
+<Box overflowX='hidden' />
+
+// overflowY
+<Box overflowY='hidden' />
 ```
 
 ## Flexbox
