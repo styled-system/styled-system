@@ -1,6 +1,6 @@
 {
   "name": "styled-system",
-  "version": "5.0.21",
+  "version": "5.0.23",
   "description": "Responsive, theme-based style props for building design systems with React",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -19,7 +19,7 @@
     "@styled-system/core": "^5.0.21",
     "@styled-system/flexbox": "^5.0.21",
     "@styled-system/grid": "^5.0.21",
-    "@styled-system/layout": "^5.0.21",
+    "@styled-system/layout": "^5.0.23",
     "@styled-system/position": "^5.0.21",
     "@styled-system/shadow": "^5.0.21",
     "@styled-system/space": "^5.0.21",

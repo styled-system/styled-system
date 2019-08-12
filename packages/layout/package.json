@@ -1,6 +1,6 @@
 {
   "name": "@styled-system/layout",
-  "version": "5.0.21",
+  "version": "5.0.23",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "author": "Brent Jackson",
