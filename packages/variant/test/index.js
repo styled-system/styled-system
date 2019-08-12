@@ -2,6 +2,7 @@ import {
   variant,
   textStyle,
   colorStyle,
+  componentVariant,
 } from '../src'
 import { system, compose } from '@styled-system/core'
 
@@ -113,3 +114,63 @@ test('colors prop returns theme.colorStyles object', () => {
   })
 })
 
+describe('component variant', () => {
+  test('returns a variant defined inline', () => {
+    const comp = componentVariant({
+      variants: {
+        primary: {
+          color: 'black',
+          bg: 'tomato',
+        },
+        secondary: {
+          color: 'white',
+          bg: 'purple',
+        },
+      }
+    })
+    const primary = comp({ variant: 'primary' })
+    const secondary = comp({ variant: 'secondary' })
+    expect(primary).toEqual({
+      color: 'black',
+      backgroundColor: 'tomato',
+    })
+    expect(secondary).toEqual({
+      color: 'white',
+      backgroundColor: 'purple',
+    })
+  })
+
+  test('returns theme-aware styles', () => {
+    const comp = componentVariant({
+      variants: {
+        primary: {
+          p: 3,
+          fontSize: 1,
+          color: 'white',
+          bg: 'primary',
+        },
+      }
+    })
+    const style = comp({
+      variant: 'primary',
+      theme: {
+        colors: {
+          primary: '#07c',
+        }
+      }
+    })
+    expect(style).toEqual({
+      padding: 16,
+      fontSize: 14,
+      color: 'white',
+      backgroundColor: '#07c',
+    })
+  })
+
+  test.todo('can be used with other style props')
+
+  // which one?
+  test.todo('falls back to variants defined in theme')
+  // OR
+  test.todo('theme-based variants override local variants')
+})

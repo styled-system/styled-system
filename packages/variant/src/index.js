@@ -1,4 +1,5 @@
 import { get, createParser } from '@styled-system/core'
+import css from '@styled-system/css'
 
 export const variant = ({
   scale,
@@ -22,3 +23,19 @@ export default variant
 export const buttonStyle = variant({ key: 'buttons' })
 export const textStyle = variant({ key: 'textStyles', prop: 'textStyle' })
 export const colorStyle = variant({ key: 'colorStyles', prop: 'colors' })
+
+// new api
+export const componentVariant = ({
+  prop = 'variant',
+  variants = {},
+  scale,
+}) => {
+  const parser = props => {
+    const name = props[prop]
+    if (!name) return null
+    const style = get(variants, name)
+    return css(style)(props.theme)
+  }
+
+  return parser
+}
