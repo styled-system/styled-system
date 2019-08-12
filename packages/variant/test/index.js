@@ -2,7 +2,6 @@ import {
   variant,
   textStyle,
   colorStyle,
-  componentVariant,
 } from '../src'
 import { system, compose } from '@styled-system/core'
 
@@ -116,7 +115,7 @@ test('colors prop returns theme.colorStyles object', () => {
 
 describe('component variant', () => {
   test('returns a variant defined inline', () => {
-    const comp = componentVariant({
+    const comp = variant({
       variants: {
         primary: {
           color: 'black',
@@ -141,7 +140,7 @@ describe('component variant', () => {
   })
 
   test('returns theme-aware styles', () => {
-    const comp = componentVariant({
+    const comp = variant({
       variants: {
         primary: {
           p: 3,
@@ -168,7 +167,7 @@ describe('component variant', () => {
   })
 
   test('can use a custom prop name', () => {
-    const comp = componentVariant({
+    const comp = variant({
       prop: 'size',
       variants: {
         big: {
@@ -187,7 +186,11 @@ describe('component variant', () => {
   })
 
   test('does not throw when no variants are found', () => {
-    const comp = componentVariant({})
+    const comp = variant({
+      variants: {
+        beep: {}
+      }
+    })
     let style
     expect(() => {
       style = comp({ variant: 'beep' })
@@ -196,18 +199,18 @@ describe('component variant', () => {
   })
 
   test('returns empty object when no prop is provided', () => {
-    const comp = componentVariant({})
+    const comp = variant({
+      variants: {
+        beep: {}
+      }
+    })
     const style = comp({})
     expect(style).toEqual({})
   })
 
-  // todo: requires update to core createParser
-  test.skip('can be composed with other style props', () => {
-    // variant.config
-    // config.variant.scale // key
-    // config.variant.defaults
+  test('can be composed with other style props', () => {
     const parser = compose(
-      componentVariant({
+      variant({
         variants: {
           tomato: {
             color: 'tomato',
@@ -219,22 +222,28 @@ describe('component variant', () => {
       color,
       fontSize
     )
-    const style = parser({
+    const a = parser({
+      variant: 'tomato',
+    })
+    const b = parser({
       variant: 'tomato',
       color: 'blue',
       fontSize: 32,
     })
-    expect(style).toEqual({
+    expect(a).toEqual({
+      color: 'tomato',
+      fontSize: 20,
+      fontWeight: 'bold',
+    })
+    expect(b).toEqual({
       color: 'blue',
       fontSize: 32,
       fontWeight: 'bold',
     })
   })
 
-  test.todo('can be used with other style props')
-
   test('theme-based variants override local variants', () => {
-    const comp = componentVariant({
+    const comp = variant({
       variants: {
         primary: {
           color: 'white',
@@ -259,7 +268,4 @@ describe('component variant', () => {
       backgroundColor: 'cyan',
     })
   })
-
-  // OR should iit work this way??
-  test.todo('falls back to variants defined in theme')
 })
