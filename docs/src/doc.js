@@ -17,7 +17,5 @@ export const pageQuery = graphql`
 
 export default props => {
   const { body } = props.data.mdx
-  const children = <MDXRenderer children={body} />
-
-  return <Layout {...props} children={children} />
+  return <MDXRenderer children={body} />
 }

@@ -162,7 +162,10 @@ export default ({ banner, ...props }) => {
       <Main flexDirection={['column', 'row']}>
         <Sidebar
           open={state.open}
-          onClick={e => state.setOpen(false)}
+          onClick={e => {
+            console.log('sidebar click')
+            state.setOpen(false)
+          }}
           width={[1, 256, 320]}
         />
         <Container
