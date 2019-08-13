@@ -120,6 +120,26 @@ variant({
 })
 ```
 
+## Migrating from Legacy API
+
+If you were previously using the legacy variant API, but would like to use theme-based values in your variants, it's recommended that you move the variant definitions inline into your component.
+If you're using the same variants across multiple components, you can create a base component that others extend.
+
+If you'd still like to keep variant definitions in your theme, but use theme-based style objects, you *must* add the `variants` option to the `variant` function call in your component with at least one variant defined.
+
+```js
+// to keep variant definitions in your theme,
+// but use theme-based style objects, add a `variants` option
+variant({
+  prop: 'variant',
+  scale: 'buttons',
+  variants: {
+    // can be blank to enable the new API
+    primary: {},
+  }
+})
+```
+
 ### Built-in Variants
 
 The built-in variants use the following props and theme keys:

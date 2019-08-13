@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { Global } from '@emotion/core'
 import { ThemeProvider, ColorMode, css } from 'theme-ui'
+import Layout from './layout'
 
 const style = (
   <Global
@@ -52,6 +53,19 @@ const Root = props => {
 const Page = props => {
   const data = useStaticQuery(query)
   const { title, description } = data.site.siteMetadata
+  const { pathname } = props.location
+
+  let content
+  if (pathname === '/') {
+    content = props.children
+  } else {
+    content = (
+      <Layout>
+        {props.children}
+      </Layout>
+    )
+  }
+
   return (
     <>
       <Helmet>
@@ -68,7 +82,7 @@ const Page = props => {
         <link rel="icon" type="image/png" href="logo.png" />
       </Helmet>
       {style}
-      {props.children}
+      {content}
     </>
   )
 }
