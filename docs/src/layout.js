@@ -163,7 +163,6 @@ export default ({ banner, ...props }) => {
         <Sidebar
           open={state.open}
           onClick={e => {
-            console.log('sidebar click')
             state.setOpen(false)
           }}
           width={[1, 256, 320]}
@@ -171,8 +170,7 @@ export default ({ banner, ...props }) => {
         <Container
           css={{
             maxWidth: 896,
-          }}
-        >
+          }}>
           {props.children}
           <EditLink />
           <Pagination />
