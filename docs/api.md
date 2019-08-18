@@ -296,7 +296,7 @@ The `background` utility includes style props for `backgroundImage`, `background
 ```jsx
 // example
 <Box
-  backgroundImage="kitten.png"
+  backgroundImage="url(kitten.png)"
   backgroundSize="cover"
   backgroundPosition="center"
   backgroundRepeat="repeat-x"
