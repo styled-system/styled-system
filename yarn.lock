@@ -26,7 +26,7 @@
   dependencies:
     "@babel/highlight" "^7.0.0"
 
-"@babel/core@7.5.5", "@babel/core@^7.0.0", "@babel/core@^7.1.0", "@babel/core@^7.4.0", "@babel/core@^7.4.3", "@babel/core@^7.4.4", "@babel/core@^7.4.5", "@babel/core@^7.5.5":
+"@babel/core@7.5.5", "@babel/core@^7.0.0", "@babel/core@^7.1.0", "@babel/core@^7.4.0", "@babel/core@^7.4.3", "@babel/core@^7.4.5", "@babel/core@^7.5.5":
   version "7.5.5"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.5.5.tgz#17b2686ef0d6bc58f963dddd68ab669755582c30"
   integrity sha512-i4qoSr2KTtce0DmkuuQBV4AuQgGPUcPXMr9L5MyYAtk06z068lQ10a4O009fe5OB/DfNV+h+qqT7ddNV8UnRjg==
@@ -713,7 +713,7 @@
     core-js "^2.6.5"
     regenerator-runtime "^0.13.2"
 
-"@babel/preset-env@7.5.5", "@babel/preset-env@^7.4.1", "@babel/preset-env@^7.4.2", "@babel/preset-env@^7.4.3", "@babel/preset-env@^7.4.4", "@babel/preset-env@^7.4.5":
+"@babel/preset-env@7.5.5", "@babel/preset-env@^7.4.1", "@babel/preset-env@^7.4.2", "@babel/preset-env@^7.4.3", "@babel/preset-env@^7.4.5":
   version "7.5.5"
   resolved "https://registry.yarnpkg.com/@babel/preset-env/-/preset-env-7.5.5.tgz#bc470b53acaa48df4b8db24a570d6da1fef53c9a"
   integrity sha512-GMZQka/+INwsMz1A5UEql8tG015h5j/qjptpKY2gJ7giy8ohzU710YciJB5rcKsWGWHiW3RUnHib0E5/m3Tp3A==
@@ -865,7 +865,7 @@
   dependencies:
     "@babel/plugin-syntax-jsx" "^7.2.0"
 
-"@emotion/babel-preset-css-prop@^10.0.5", "@emotion/babel-preset-css-prop@^10.0.9":
+"@emotion/babel-preset-css-prop@^10.0.5":
   version "10.0.14"
   resolved "https://registry.yarnpkg.com/@emotion/babel-preset-css-prop/-/babel-preset-css-prop-10.0.14.tgz#2b8508c4e8218b9ef239f9351e0e7bf137a32fbc"
   integrity sha512-gfjnldUq+5u1/S6UMqFE4fPrcWDlcxDIArZeYKk4hhSDb3IToMKfbezNTk52Dp7SMlb0Y22Co0ReBz4dh1IdhQ==
@@ -3540,7 +3540,7 @@ babel-preset-fbjs@^3.1.2:
     "@babel/plugin-transform-template-literals" "^7.0.0"
     babel-plugin-syntax-trailing-function-commas "^7.0.0-beta.0"
 
-babel-preset-gatsby@^0.2.7, babel-preset-gatsby@^0.2.8:
+babel-preset-gatsby@^0.2.8:
   version "0.2.8"
   resolved "https://registry.yarnpkg.com/babel-preset-gatsby/-/babel-preset-gatsby-0.2.8.tgz#976adb62bcf73f1a53374deb3a3a37b8880d5745"
   integrity sha512-Cks3TRbx0CvjwW25noYZwideKp/gH8RJypuwd8gJ/Y1JDXrE7Vnjkvct6QH61XLcX7QIkRoissvOt1QqNWyaIg==
@@ -5552,11 +5552,6 @@ deepmerge@4.0.0, deepmerge@^4.0.0:
   resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.0.0.tgz#3e3110ca29205f120d7cb064960a39c3d2087c09"
   integrity sha512-YZ1rOP5+kHor4hMAH+HRQnBQHg+wvS1un1hAOuIcxcBy0hzcUf6Jg2a1w65kpoOUnurOfZbERwjI1TfZxNjcww==
 
-deepmerge@^3.2.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-3.3.0.tgz#d3c47fd6f3a93d517b14426b0628a17b0125f5f7"
-  integrity sha512-GRQOafGHwMHpjPx9iCvTgpu9NojZ49q794EEL94JVEw6VaeA8XTUyBKvAkOOjBX9oJNiV6G3P+T+tihFjo2TqA==
-
 default-gateway@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/default-gateway/-/default-gateway-4.2.0.tgz#167104c7500c2115f6dd69b0a536bb8ed720552b"
@@ -7466,7 +7461,7 @@ gatsby-telemetry@^1.1.11:
     stack-utils "1.0.2"
     uuid "3.3.2"
 
-gatsby@^2.3.32, gatsby@^2.4.6:
+gatsby@^2.4.6:
   version "2.13.59"
   resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.13.59.tgz#31a56d7e113d42e01b3c1e621fe7ea315dfa57d6"
   integrity sha512-1/uwsFiKF439qvg0vhyEyr7V96C1pFYjQ8F6iyqpu2jqM3a8+77+hUyr9QnUee4vklqjawCgxJBYrRcT5kvr6A==
@@ -15825,20 +15820,10 @@ text-table@0.2.0, text-table@^0.2.0:
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
 
-theme-ui@^0.2.16:
-  version "0.2.26"
-  resolved "https://registry.yarnpkg.com/theme-ui/-/theme-ui-0.2.26.tgz#39119babddd617d6e789b5742c7a71af9d06a5fc"
-  integrity sha512-moGRQeh2ogYMumdJrPkuJhfV6ZN3emYXlm+iElPykq7L27qXH9zowmrfAziL2t0kL0hftW/N0doY7hMw72EGQg==
-  dependencies:
-    "@emotion/is-prop-valid" "^0.8.1"
-    "@styled-system/css" "^5.0.16"
-    deepmerge "^3.2.0"
-    react "^16.8.0"
-
-theme-ui@^0.2.33:
-  version "0.2.33"
-  resolved "https://registry.yarnpkg.com/theme-ui/-/theme-ui-0.2.33.tgz#610a0b7dc323f3bb2f2130e35cd5bc9c9e2f7d7e"
-  integrity sha512-JbMW96T7vkytFp5i+N1HNm7iYQKyY7I+/dkCU71Vo3K36CT1OLapVTRa89ZWCEZpou8E8fSd4Veg+Q4p3N9/Gg==
+theme-ui@^0.2.16, theme-ui@^0.2.33:
+  version "0.2.35"
+  resolved "https://registry.yarnpkg.com/theme-ui/-/theme-ui-0.2.35.tgz#6f953086878e2746298f38272e8cbb6344d3acff"
+  integrity sha512-NJJEtnLogIULuwL/dF15kfv+97ZR/rWFLccrR60iGCj6j8hk4krqO+g573hV4bowDorCFPA4yQb0HHZbm+1P1g==
   dependencies:
     "@emotion/is-prop-valid" "^0.8.1"
     "@styled-system/css" "^5.0.16"
