@@ -7,7 +7,7 @@ Usually a dark mode feature includes changes to the colors of a site without cha
 This guide will walk through one approach (the one used on this site) that includes multiple color modes that can be changed by the end user.
 
 Since the only styles that change between these color modes are the colors themselves, the different color palettes are stored in the `theme.colors` object.
-If you look at this site's [`src/theme.js`][] file, you'll see that it includes a nested `colors.modes` object for the different color schemes.
+If you look at this site's [theme file][], you'll see that it includes a nested `colors.modes` object for the different color schemes.
 Each color mode object matches the same shape as the base default colors and uses a simple naming abstraction for setting colors for the text, background, links, and other styles.
 This site's colors object looks something like the following:
 
@@ -96,7 +96,7 @@ For a different approach to persisting data, you may want to look into the [`pre
 You might also want to look into [CSS Custom Properties][],
 which can be defined as inline styles, but be aware that they are not supported in IE11.
 
-[`src/theme.js`]: https://github.com/styled-system/styled-system/blob/master/docs/src/theme.js
+[theme file]: https://github.com/styled-system/styled-system/blob/master/docs/src/gatsby-plugin-theme-ui/index.js
 [`prefers-color-scheme`]: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
 [css custom properties]: https://developer.mozilla.org/en-US/docs/Web/CSS/--*
 
