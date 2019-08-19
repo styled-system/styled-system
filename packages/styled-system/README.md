@@ -84,8 +84,8 @@ npm i styled-system
 
 Try the [examples](examples) on CodeSandbox
 
-- [Basic Example](https://codesandbox.io/s/github/jxnblk/styled-system/tree/master/examples/basic)
-- [Emotion](https://codesandbox.io/s/github/jxnblk/styled-system/tree/master/examples/emotion)
+- [Basic Example](https://codesandbox.io/s/github/styled-system/styled-system/tree/master/examples/basic)
+- [Emotion](https://codesandbox.io/s/github/styled-system/styled-system/tree/master/examples/emotion)
 
 ### Table of Contents
 
