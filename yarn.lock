@@ -5552,11 +5552,6 @@ deepmerge@4.0.0, deepmerge@^4.0.0:
   resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.0.0.tgz#3e3110ca29205f120d7cb064960a39c3d2087c09"
   integrity sha512-YZ1rOP5+kHor4hMAH+HRQnBQHg+wvS1un1hAOuIcxcBy0hzcUf6Jg2a1w65kpoOUnurOfZbERwjI1TfZxNjcww==
 
-deepmerge@^3.2.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-3.3.0.tgz#d3c47fd6f3a93d517b14426b0628a17b0125f5f7"
-  integrity sha512-GRQOafGHwMHpjPx9iCvTgpu9NojZ49q794EEL94JVEw6VaeA8XTUyBKvAkOOjBX9oJNiV6G3P+T+tihFjo2TqA==
-
 default-gateway@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/default-gateway/-/default-gateway-4.2.0.tgz#167104c7500c2115f6dd69b0a536bb8ed720552b"
@@ -15834,20 +15829,10 @@ text-table@0.2.0, text-table@^0.2.0:
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
 
-theme-ui@^0.2.16:
-  version "0.2.26"
-  resolved "https://registry.yarnpkg.com/theme-ui/-/theme-ui-0.2.26.tgz#39119babddd617d6e789b5742c7a71af9d06a5fc"
-  integrity sha512-moGRQeh2ogYMumdJrPkuJhfV6ZN3emYXlm+iElPykq7L27qXH9zowmrfAziL2t0kL0hftW/N0doY7hMw72EGQg==
-  dependencies:
-    "@emotion/is-prop-valid" "^0.8.1"
-    "@styled-system/css" "^5.0.16"
-    deepmerge "^3.2.0"
-    react "^16.8.0"
-
-theme-ui@^0.2.33:
-  version "0.2.33"
-  resolved "https://registry.yarnpkg.com/theme-ui/-/theme-ui-0.2.33.tgz#610a0b7dc323f3bb2f2130e35cd5bc9c9e2f7d7e"
-  integrity sha512-JbMW96T7vkytFp5i+N1HNm7iYQKyY7I+/dkCU71Vo3K36CT1OLapVTRa89ZWCEZpou8E8fSd4Veg+Q4p3N9/Gg==
+theme-ui@^0.2.16, theme-ui@^0.2.33:
+  version "0.2.35"
+  resolved "https://registry.yarnpkg.com/theme-ui/-/theme-ui-0.2.35.tgz#6f953086878e2746298f38272e8cbb6344d3acff"
+  integrity sha512-NJJEtnLogIULuwL/dF15kfv+97ZR/rWFLccrR60iGCj6j8hk4krqO+g573hV4bowDorCFPA4yQb0HHZbm+1P1g==
   dependencies:
     "@emotion/is-prop-valid" "^0.8.1"
     "@styled-system/css" "^5.0.16"
