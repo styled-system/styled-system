@@ -270,3 +270,19 @@ test('sorts media queries when responsive object values are used', () => {
     'padding',
   ])
 })
+
+test('transforms values', () => {
+  const parser = system({
+    margin: {
+      property: 'margin',
+      transform: (n, scale, props) => {
+        const m = props.multiply || 1
+        return m * n
+      }
+    }
+  })
+  const a = parser({ margin: 8 })
+  const b = parser({ margin: 12, multiply: 2 })
+  expect(a).toEqual({ margin: 8 })
+  expect(b).toEqual({ margin: 24 })
+})
