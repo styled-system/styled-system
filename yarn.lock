@@ -14175,9 +14175,9 @@ redux@^4.0.0:
     symbol-observable "^1.2.0"
 
 reflexbox@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/reflexbox/-/reflexbox-4.0.2.tgz#66b35021a97f220270cc49abf994313bc696ccad"
-  integrity sha512-j5vbfB/aLgGbyiioNlXdpSTK97nbR5t7HWeX4w4+rlJVCvqNjZs9SfyLhwE9v4u7C6FookW39m5PhlUCgArPeQ==
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/reflexbox/-/reflexbox-4.0.5.tgz#63a53702a111d16df6b1f0d6363b86be8ebc1fc6"
+  integrity sha512-SFWlrlKusgQVqjEimlLGNls3khjMlaTLrrF1H7YY7FfXv/mKK5mREDOW4l95D6Qa1kGoyM3hF+H5RLb3N6bCCA==
   dependencies:
     "@emotion/core" "^10.0.0"
     "@emotion/styled" "^10.0.0"
