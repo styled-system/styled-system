@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Update dependencies
+
 ## v5.1.1 2019-08-22
 
 - Fix for passing props through to transform function #723
