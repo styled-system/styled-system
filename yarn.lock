@@ -3327,15 +3327,15 @@ babel-plugin-dynamic-import-node@^1.2.0:
   dependencies:
     babel-plugin-syntax-dynamic-import "^6.18.0"
 
-babel-plugin-emotion@^10.0.14, babel-plugin-emotion@^10.0.15:
-  version "10.0.15"
-  resolved "https://registry.yarnpkg.com/babel-plugin-emotion/-/babel-plugin-emotion-10.0.15.tgz#2ce5bea191331ef65b3b9ae212a8f0e46ff97616"
-  integrity sha512-E3W68Zk8EcKpRUDW2tsFKi4gsavapMRjfr2/KKgG3l7l2zZpiKk0BxB59Ul9C0w0ekv6my/ylGOk2WroaqKXPw==
+babel-plugin-emotion@^10.0.14, babel-plugin-emotion@^10.0.15, babel-plugin-emotion@^10.0.17:
+  version "10.0.17"
+  resolved "https://registry.yarnpkg.com/babel-plugin-emotion/-/babel-plugin-emotion-10.0.17.tgz#5673fbed7b1ed61b4b98d5530f33c8a4d1b08484"
+  integrity sha512-KNuBadotqYWpQexHhHOu7M9EV1j2c+Oh/JJqBfEQDusD6mnORsCZKHkl+xYwK82CPQ/23wRrsBIEYnKjtbMQJw==
   dependencies:
     "@babel/helper-module-imports" "^7.0.0"
     "@emotion/hash" "0.7.2"
     "@emotion/memoize" "0.7.2"
-    "@emotion/serialize" "^0.11.9"
+    "@emotion/serialize" "^0.11.10"
     babel-plugin-macros "^2.0.0"
     babel-plugin-syntax-jsx "^6.18.0"
     convert-source-map "^1.5.0"
@@ -5964,11 +5964,11 @@ emotion-theming@^10.0.10, emotion-theming@^10.0.9:
     hoist-non-react-statics "^3.3.0"
 
 emotion@^10.0.9:
-  version "10.0.14"
-  resolved "https://registry.yarnpkg.com/emotion/-/emotion-10.0.14.tgz#d7702a6147de6e8ce863dacde98418a467c5fed4"
-  integrity sha512-6cTWfwqVGy9UinGSZQKRGyuRsRGkzlT0MaeH2pF4BvL7u6PnyTZeyHj4INwzpaXBLwA9C0JaFqS31J62RWUNNw==
+  version "10.0.17"
+  resolved "https://registry.yarnpkg.com/emotion/-/emotion-10.0.17.tgz#d71e99d2b01204dda109c13d069af4b191e70445"
+  integrity sha512-nShD/a7PKZ77hr517KfzKkHo1v26uPJBImRiYrl8IwIA4KRmI3vxVEA5pzw1TQTXD1iZl6YQtWhjOiiE+QPmTQ==
   dependencies:
-    babel-plugin-emotion "^10.0.14"
+    babel-plugin-emotion "^10.0.17"
     create-emotion "^10.0.14"
 
 encodeurl@~1.0.2:
