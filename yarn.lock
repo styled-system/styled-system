@@ -2287,15 +2287,15 @@
     loader-utils "^1.2.3"
 
 "@theme-ui/sidenav@^0.2.33":
-  version "0.2.35"
-  resolved "https://registry.yarnpkg.com/@theme-ui/sidenav/-/sidenav-0.2.35.tgz#117c5ed471ad9eb351857fbbf9bb981645fd6359"
-  integrity sha512-lAveQVZ0lQGPTohFYFRA7bhGL9QwDPNBCjiR3Ik4jbYLyR5fSYTHtYMsnObFGxvrA3BRpJt9SHioS8MUIA5R8Q==
+  version "0.2.41"
+  resolved "https://registry.yarnpkg.com/@theme-ui/sidenav/-/sidenav-0.2.41.tgz#224a8663abf82c1677d10d073776f3d704d84ed0"
+  integrity sha512-rCnMpCIG/BKicC7I3sJvN22uZMTBqnuAEXgUUJwa3z3mT4nVoG51wCXiIdw5G8MCvuYCsl0SfBifIEzuD02DJA==
   dependencies:
     "@emotion/core" "^10.0.14"
     "@mdx-js/react" "^1.0.21"
     deepmerge "^4.0.0"
     react "^16.8.6"
-    theme-ui "^0.2.35"
+    theme-ui "^0.2.41"
 
 "@types/babel__core@^7.1.0":
   version "7.1.2"
@@ -15911,7 +15911,7 @@ text-table@0.2.0, text-table@^0.2.0:
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
 
-theme-ui@^0.2.16, theme-ui@^0.2.35:
+theme-ui@^0.2.16, theme-ui@^0.2.41:
   version "0.2.41"
   resolved "https://registry.yarnpkg.com/theme-ui/-/theme-ui-0.2.41.tgz#51ea7160eadb6873972e453c4c68e59409af0fe1"
   integrity sha512-VketIz3vjXMcmXxTX+7QO4QDx69GqNocmGwrXqYwKngKEOYxvXl0clDZLQzNIZBdo+UZcYa8gKf/jyBXXQ2/xQ==
