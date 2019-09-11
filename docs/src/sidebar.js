@@ -15,6 +15,7 @@ export default props =>
     components={components}
     sx={{
       pb: 4,
+      pr: 2,
       ul: {
         listStyle: 'none',
         px: 0,

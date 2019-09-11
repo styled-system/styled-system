@@ -1,3 +1,5 @@
+import Note from './src/note'
+
 # Variants
 
 Use the variant API to apply complex styles to a component based on a single prop.
@@ -6,7 +8,11 @@ This can be a handy way to support slight stylistic variations in button or typo
 Import the variant function and pass variant style objects in your component definition.
 When defining variants inline, you can use Styled System like syntax to pick up values from your theme.
 
-**Note**: Inline variants is a new feature in `v5.1.0`, which uses [@styled-system/css][].
+<Note>
+
+Note: Inline variants is a new feature in `v5.1.0`, which uses [@styled-system/css][].
+
+</Note>
 
 ```js
 // example Button with variants
@@ -39,6 +45,12 @@ The `Button` component can now use the `variant` prop to change between a primar
 <Button variant='primary'>Primary</Button>
 <Button variant='secondary'>Secondary</Button>
 ```
+
+<Note>
+
+Note: When using CSS properties in a variant, avoid mixing these styles with conflicting Styled System props. For example, if your variant includes the `color` property, avoid using the `color` React prop in your components.
+
+</Note>
 
 ## Custom Prop Name
 

@@ -1,3 +1,5 @@
+import Note from './src/note'
+
 # Getting Started
 
 Styled System is a collection of utility functions that add style props
@@ -145,7 +147,11 @@ The margin and padding props use a shorthand syntax, similar to
 - `px` padding-left and padding-right
 - `py` padding-top and padding-bottom
 
+<Note>
+
 Note: you can also use longform prop names (e.g. `margin`, `paddingTop`) if you prefer.
+
+</Note>
 
 ### Space Theming
 

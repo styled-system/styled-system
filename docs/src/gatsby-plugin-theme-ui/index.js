@@ -3,7 +3,8 @@ const colors = {
   background: '#fff',
   primary: '#00f',
   secondary: '#00a',
-  highlight: '#c0f',
+  highlight: '#ededff',
+  accent: '#c0f',
   gray: '#eee',
   lightgray: '#fafafa',
   midgray: '#777',
@@ -15,6 +16,7 @@ const colors = {
       secondary: '#f0e',
       gray: '#222',
       lightgray: '#111',
+      highlight: '#001119',
     },
     cyan: {
       text: '#023',
@@ -23,6 +25,7 @@ const colors = {
       secondary: '#01a',
       gray: '#0cc',
       lightgray: '#0ee',
+      highlight: '#0de',
     },
     gray: {
       text: '#eef',
@@ -31,6 +34,7 @@ const colors = {
       secondary: '#0bf',
       gray: '#55555a',
       lightgray: '#444448',
+      highlight: '#33444c',
     },
     book: {
       text: '#322',
@@ -65,10 +69,10 @@ const prism = {
     color: 'secondary',
   },
   [['.selector', '.attr-name', '.string', '.char', '.builtin', '.inserted']]: {
-    color: 'highlight',
+    color: 'accent',
   },
   [['.operator', '.entity', '.url', '.string', '.variable']]: {
-    color: 'highlight',
+    color: 'accent',
   },
   [['.atrule', '.attr-value', '.function']]: {
     color: 'primary',
