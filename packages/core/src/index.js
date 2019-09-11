@@ -14,9 +14,14 @@ export const merge = (a, b) => {
 // sort object-value responsive styles
 const sort = obj => {
   const next = {}
-  Object.keys(obj).sort().forEach(key => {
-    next[key] = obj[key]
-  })
+  Object.keys(obj)
+    .sort((a, b) => a.localeCompare(b, undefined, {
+      numeric: true,
+      sensitivity: 'base',
+    }))
+    .forEach(key => {
+      next[key] = obj[key]
+    })
   return next
 }
 

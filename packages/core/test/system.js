@@ -257,9 +257,10 @@ test('sorts media queries when responsive object values are used', () => {
         sm: '32em',
         md: '40em',
         lg: '64em',
+        xl: '128em',
       }
     },
-    padding: { _: 16, lg: 64 },
+    padding: { _: 16, lg: 64, xl: 128 },
     margin: { sm: 4, md: 8 },
     color: { lg: 'tomato' },
   })
@@ -267,6 +268,7 @@ test('sorts media queries when responsive object values are used', () => {
     '@media screen and (min-width: 32em)',
     '@media screen and (min-width: 40em)',
     '@media screen and (min-width: 64em)',
+    '@media screen and (min-width: 128em)',
     'padding',
   ])
 })
