@@ -1,12 +1,12 @@
 {
   "name": "@styled-system/background",
-  "version": "5.1.1",
+  "version": "5.1.2",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "author": "Brent Jackson",
   "license": "MIT",
   "dependencies": {
-    "@styled-system/core": "^5.1.1"
+    "@styled-system/core": "^5.1.2"
   },
   "publishConfig": {
     "access": "public"
