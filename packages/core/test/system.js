@@ -183,6 +183,28 @@ test('skips null values in arrays', () => {
   })
 })
 
+test('skips null keeping media rule order', () => {
+  const parser = system({
+    fontSize: true,
+    margin: true,
+    padding: true,
+  })
+  const style = parser({
+    fontSize: [ 12, null, null, 14 ],
+    padding: [ 8, null, null, null, 16 ],
+    margin: [ 0, 4, 8 ],
+  })
+  const keys = Object.keys(style)
+  expect(keys).toEqual([
+    'fontSize',
+    '@media screen and (min-width: 40em)',
+    '@media screen and (min-width: 52em)',
+    '@media screen and (min-width: 64em)',
+    'padding',
+    'margin',
+  ])
+})
+
 test('includes single property functions', () => {
   const parser = system({
     color: true,
