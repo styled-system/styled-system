@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Update dependencies
+- Fix sort for media queries in plain object syntax #812
 
 ## v5.1.1 2019-08-22
 
