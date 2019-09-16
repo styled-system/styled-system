@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## v5.1.3 2019-09-16
+
 - Add `@styled-system/props` utility #824
 
 ## v5.1.2 2019-09-11
