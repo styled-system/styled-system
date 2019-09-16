@@ -155,5 +155,5 @@ When using the component, you can adjust margin, but not padding:
 // example usage
 <Paragraph mt={0} mb={4}>
   I have only margin props available
-</Heading>
+</Paragraph>
 ```
