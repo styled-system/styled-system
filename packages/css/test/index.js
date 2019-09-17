@@ -397,3 +397,12 @@ test('multiples are transformed', () => {
     height: 16,
   })
 })
+
+test('returns outline color from theme', () => {
+  const result = css({
+    outlineColor: 'primary',
+  })(theme)
+  expect(result).toEqual({
+    outlineColor: 'tomato'
+  })
+})
