@@ -101,6 +101,7 @@ const scales = {
   borderRightWidth: 'borderWidths',
   borderRightColor: 'colors',
   borderRightStyle: 'borderStyles',
+  outlineColor: 'colors',
   boxShadow: 'shadows',
   textShadow: 'shadows',
   zIndex: 'zIndices',
