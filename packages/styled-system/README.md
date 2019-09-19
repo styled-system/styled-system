@@ -40,7 +40,7 @@ npm i styled-system
 - Spacing scale for margin and padding
 - Works with any color palette
 - Works with most css-in-js libraries, including [styled-components][] & [emotion][emotion]
-- Used in [Rebass](https://rebassjs.org), [Rebass Grid](https://rebassjs.org/grid/), and the [Priceline Design System](https://github.com/pricelinelabs/design-system)
+- Used in [Rebass](https://rebassjs.org), [Rebass Reflexbox](https://rebassjs.org/reflexbox/), and the [Priceline Design System](https://github.com/pricelinelabs/design-system)
 
 > "This is honestly my favourite way to build UI components right now ![party parrot][party-parrot]"
 >
@@ -188,7 +188,7 @@ To learn more, see the [Getting Started](https://styled-system.com/getting-start
 - [Cloudflare Design Color](https://cloudflare.design/color/)
 - [Styled System HTML](https://johnpolacek.github.io/styled-system-html/)
 - [Rebass](https://rebassjs.org)
-- [Rebass Grid](https://grid.rebassjs.org)
+- [Rebass Reflexbox](https://rebassjs.org/reflexbox/)
 - [@datepicker-react/styled](https://github.com/tresko/react-datepicker)
 
 ## Related
