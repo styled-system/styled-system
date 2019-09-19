@@ -188,7 +188,7 @@ To learn more, see the [Getting Started](https://styled-system.com/getting-start
 - [Cloudflare Design Color](https://cloudflare.design/color/)
 - [Styled System HTML](https://johnpolacek.github.io/styled-system-html/)
 - [Rebass](https://rebassjs.org)
-- [Rebass Reflexbox](https://rebassjs.org/reflexbox/)
+- [Reflexbox](https://rebassjs.org/reflexbox/)
 - [@datepicker-react/styled](https://github.com/tresko/react-datepicker)
 
 ## Related
