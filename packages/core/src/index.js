@@ -15,10 +15,12 @@ export const merge = (a, b) => {
 const sort = obj => {
   const next = {}
   Object.keys(obj)
-    .sort((a, b) => a.localeCompare(b, undefined, {
-      numeric: true,
-      sensitivity: 'base',
-    }))
+    .sort((a, b) =>
+      a.localeCompare(b, undefined, {
+        numeric: true,
+        sensitivity: 'base',
+      })
+    )
     .forEach(key => {
       next[key] = obj[key]
     })
@@ -101,11 +103,11 @@ export const createParser = config => {
   return parse
 }
 
-const parseResponsiveStyle = (mediaQueries, sx, scale, raw, _props) => {
+const parseResponsiveStyle = (mediaQueries, sx, scale, raw, props) => {
   let styles = {}
   raw.slice(0, mediaQueries.length).forEach((value, i) => {
     const media = mediaQueries[i]
-    const style = sx(value, scale, _props)
+    const style = sx(value, scale, props)
     if (!media) {
       assign(styles, style)
     } else {
@@ -117,12 +119,12 @@ const parseResponsiveStyle = (mediaQueries, sx, scale, raw, _props) => {
   return styles
 }
 
-const parseResponsiveObject = (breakpoints, sx, scale, raw, _props) => {
+const parseResponsiveObject = (breakpoints, sx, scale, raw, props) => {
   let styles = {}
   for (let key in raw) {
     const breakpoint = breakpoints[key]
     const value = raw[key]
-    const style = sx(value, scale, _props)
+    const style = sx(value, scale, props)
     if (!breakpoint) {
       assign(styles, style)
     } else {
@@ -143,9 +145,9 @@ export const createStyleFunction = ({
   defaultScale,
 }) => {
   properties = properties || [property]
-  const sx = (value, scale, _props) => {
+  const sx = (value, scale, props) => {
     const result = {}
-    const n = transform(value, scale, _props)
+    const n = transform(value, scale, props)
     if (n === null) return
     properties.forEach(prop => {
       result[prop] = n

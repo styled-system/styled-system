@@ -45,7 +45,7 @@ Each key can define the following:
 
 By default, Styled System will return either a value from the theme, based on a key, or the raw value.
 To change how a style prop value is transformed, provide a custom `transform` function.
-The function takes two arguments: `(value, scale)`, where `value` is the raw prop value, and `scale` is a theme scale object or array.
+The function takes three arguments: `(value, scale, props)`, where `value` is the raw prop value, and `scale` is a theme scale object or array, and `props` are all the props passed to the component.
 
 ### Shortcut definition
 
