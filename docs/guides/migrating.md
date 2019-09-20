@@ -95,7 +95,7 @@ This API was inspired by [GitHub Primer][] and includes the following categories
 | `position`   | `position`, `zIndex`, `top`, `right`, `bottom`, `left`                                                                                                                                                                                                                       |
 | `grid`       | `gridGap`, `gridColumnGap`, `gridRowGap`, `gridColumn`, `gridRow`, `gridAutoFlow`, `gridAutoColumns`, `gridAutoRows`, `gridTemplateColumns`, `gridTemplateRows`, `gridTemplateAreas`, `gridArea`,                                                                            |
 
-[github primer]: https://primer.style/components/docs/system-props
+[github primer]: https://primer.style/components/system-props
 
 ### Compose
 
