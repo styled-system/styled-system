@@ -14119,15 +14119,14 @@ redux@^4.0.4:
     symbol-observable "^1.2.0"
 
 reflexbox@^4.0.2:
-  version "4.0.5"
-  resolved "https://registry.yarnpkg.com/reflexbox/-/reflexbox-4.0.5.tgz#63a53702a111d16df6b1f0d6363b86be8ebc1fc6"
-  integrity sha512-SFWlrlKusgQVqjEimlLGNls3khjMlaTLrrF1H7YY7FfXv/mKK5mREDOW4l95D6Qa1kGoyM3hF+H5RLb3N6bCCA==
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/reflexbox/-/reflexbox-4.0.6.tgz#fc756d2cc1ca493baf9b96bb27dd640ad8154cf1"
+  integrity sha512-UNUL4YoJEXAPjRKHuty1tuOk+LV1nDJ2KYViDcH7lYm5yU3AQ+EKNXxPU3E14bQNK/pE09b1hYl+ZKdA94tWLQ==
   dependencies:
     "@emotion/core" "^10.0.0"
     "@emotion/styled" "^10.0.0"
     "@styled-system/css" "^5.0.0"
     "@styled-system/should-forward-prop" "^5.0.0"
-    react "^16.8.6"
     styled-system "^5.0.0"
 
 regenerate-unicode-properties@^8.0.2:
