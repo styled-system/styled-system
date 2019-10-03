@@ -18,22 +18,24 @@ The space utility converts shorthand margin and padding props to margin and padd
 
 Margin and padding props follow a shorthand syntax for specifying direction.
 
-| Prop                  | CSS Property                   |
-| --------------------- | ------------------------------ |
-| `margin`, `m`         | margin                         |
-| `marginTop`, `mt`     | margin-top                     |
-| `marginRight`, `mr`   | margin-right                   |
-| `marginBottom`, `mb`  | margin-bottom                  |
-| `marginLeft`, `ml`    | margin-left                    |
-| `marginX`, `mx`       | margin-left and margin-right   |
-| `marginY`, `my`       | margin-top and margin-bottom   |
-| `padding`, `p`        | padding                        |
-| `paddingTop`, `pt`    | padding-top                    |
-| `paddingRight`, `pr`  | padding-right                  |
-| `paddingBottom`, `pb` | padding-bottom                 |
-| `paddingLeft`, `pl`   | padding-left                   |
-| `paddingX`, `px`      | padding-left and padding-right |
-| `paddingY`, `py`      | padding-top and padding-bottom |
+| Prop                   | CSS Property                   |
+| ---------------------- | ------------------------------ |
+| `margin`, `m`          | margin                         |
+| `marginTop`, `mt`      | margin-top                     |
+| `marginRight`, `mr`    | margin-right                   |
+| `marginBottom`, `mb`   | margin-bottom                  |
+| `marginLeft`, `ml`     | margin-left                    |
+| `marginX`, `mx`        | margin-left and margin-right   |
+| `marginY`, `my`        | margin-top and margin-bottom   |
+| `marginXBottom`, `mxb` | marginX and margin-bottom      |
+| `marginXTop`, `mxt`    | marginX and margin-top         |
+| `padding`, `p`         | padding                        |
+| `paddingTop`, `pt`     | padding-top                    |
+| `paddingRight`, `pr`   | padding-right                  |
+| `paddingBottom`, `pb`  | padding-bottom                 |
+| `paddingLeft`, `pl`    | padding-left                   |
+| `paddingX`, `px`       | padding-left and padding-right |
+| `paddingY`, `py`       | padding-top and padding-bottom |
 
 ```jsx
 // examples (margin prop)
@@ -508,7 +510,7 @@ const Card = styled.div`
         boxShadow: 'large',
         borderRadius: 4,
       },
-    }
+    },
   })}
 `
 Card.defaultProps = {
@@ -519,7 +521,7 @@ Card.defaultProps = {
 
 ## Legacy Variants
 
-The legacy variants require styles to be defined in the theme object and do *not* use `@styled-system/css` for transformation.
+The legacy variants require styles to be defined in the theme object and do _not_ use `@styled-system/css` for transformation.
 
 ```js
 import { textStyle, colorStyle, buttonStyle } from 'styled-system'

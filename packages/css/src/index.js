@@ -23,6 +23,8 @@ const aliases = {
   ml: 'marginLeft',
   mx: 'marginX',
   my: 'marginY',
+  mxb: 'marginXBottom',
+  mxt: 'marginXTop',
   p: 'padding',
   pt: 'paddingTop',
   pr: 'paddingRight',
@@ -35,6 +37,8 @@ const aliases = {
 const multiples = {
   marginX: ['marginLeft', 'marginRight'],
   marginY: ['marginTop', 'marginBottom'],
+  marginXBottom: ['marginLeft', 'marginRight', 'marginBottom'],
+  marginXTop: ['marginLeft', 'marginRight', 'marginBottom'],
   paddingX: ['paddingLeft', 'paddingRight'],
   paddingY: ['paddingTop', 'paddingBottom'],
   size: ['width', 'height'],
@@ -136,6 +140,8 @@ const transforms = [
   'marginLeft',
   'marginX',
   'marginY',
+  'marginXTop',
+  'marginXBottom',
   'top',
   'bottom',
   'left',
@@ -209,7 +215,7 @@ export const css = args => (props = {}) => {
 
     if (multiples[prop]) {
       const dirs = multiples[prop]
-      
+
       for (let i = 0; i < dirs.length; i++) {
         result[dirs[i]] = value
       }

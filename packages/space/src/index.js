@@ -64,6 +64,18 @@ configs.margin = {
     transform: getMargin,
     defaultScale: defaults.space,
   },
+  marginXBottom: {
+    properties: ['marginLeft', 'marginRight', 'marginBottom'],
+    scale: 'space',
+    transform: getMargin,
+    defaultScale: defaults.space,
+  },
+  marginXTop: {
+    properties: ['marginLeft', 'marginRight', 'marginTop'],
+    scale: 'space',
+    transform: getMargin,
+    defaultScale: defaults.space,
+  },
 }
 configs.margin.m = configs.margin.margin
 configs.margin.mt = configs.margin.marginTop
@@ -72,6 +84,8 @@ configs.margin.mb = configs.margin.marginBottom
 configs.margin.ml = configs.margin.marginLeft
 configs.margin.mx = configs.margin.marginX
 configs.margin.my = configs.margin.marginY
+configs.margin.mxb = configs.margin.marginXBottom
+configs.margin.mxt = configs.margin.marginXTop
 
 configs.padding = {
   padding: {
@@ -120,6 +134,9 @@ configs.padding.py = configs.padding.paddingY
 
 export const margin = system(configs.margin)
 export const padding = system(configs.padding)
-export const space = compose(margin, padding)
+export const space = compose(
+  margin,
+  padding
+)
 
 export default space

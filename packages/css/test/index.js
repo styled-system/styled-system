@@ -259,13 +259,13 @@ test('handles negative top, left, bottom, and right from scale', () => {
 
 test('skip breakpoints', () => {
   const result = css({
-    width: [ '100%', , '50%' ],
+    width: ['100%', , '50%'],
   })(theme)
   expect(result).toEqual({
     width: '100%',
     '@media screen and (min-width: 52em)': {
       width: '50%',
-    }
+    },
   })
 })
 
@@ -290,9 +290,9 @@ test('padding shorthand does not collide with nested p selector', () => {
 
 test('ignores array values longer than breakpoints', () => {
   const result = css({
-    width: [ 32, 64, 128, 256, 512 ]
+    width: [32, 64, 128, 256, 512],
   })({
-    breakpoints: [ '32em', '40em' ],
+    breakpoints: ['32em', '40em'],
   })
   expect(result).toEqual({
     width: 32,
@@ -403,6 +403,6 @@ test('returns outline color from theme', () => {
     outlineColor: 'primary',
   })(theme)
   expect(result).toEqual({
-    outlineColor: 'tomato'
+    outlineColor: 'tomato',
   })
 })

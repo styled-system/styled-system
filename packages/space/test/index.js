@@ -132,6 +132,22 @@ test('my prop overrides mt prop', () => {
   expect(styles).toEqual({ marginTop: 8, marginBottom: 8 })
 })
 
+test('mxb prop overrides mb prop', () => {
+  const styles = space({
+    mb: 1,
+    mxb: 2,
+  })
+  expect(styles).toEqual({ marginLeft: 8, marginRight: 8, marginBottom: 8 })
+})
+
+test('mxt prop overrides mt prop', () => {
+  const styles = space({
+    mt: 1,
+    mxt: 2,
+  })
+  expect(styles).toEqual({ marginLeft: 8, marginRight: 8, marginTop: 8 })
+})
+
 test('margin overrides m prop', () => {
   const styles = space({
     m: 1,
@@ -191,7 +207,7 @@ test('supports object values', () => {
       _: 0,
       0: 1,
       1: 2,
-    }
+    },
   })
   expect(styles).toEqual({
     margin: 0,
@@ -210,7 +226,7 @@ test('supports non-array breakpoints', () => {
     breakpoints: {
       small: '40em',
       medium: '52em',
-    }
+    },
   }
   const styles = space({
     theme,
@@ -221,7 +237,7 @@ test('supports non-array breakpoints', () => {
       _: 0,
       small: 1,
       medium: 2,
-    }
+    },
   })
   expect(styles).toEqual({
     margin: 0,
