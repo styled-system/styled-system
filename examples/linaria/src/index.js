@@ -94,7 +94,7 @@ Text.propTypes = {
   ...propTypes.fontWeight,
 }
 
-const Heading = withTheme(styled.h1`
+const Heading = styled(Text)`
   font-size: ${apply('fontSize')}px;
   line-height: ${apply('lineHeight')};
   margin: ${apply('margin')}px;
@@ -104,7 +104,7 @@ const Heading = withTheme(styled.h1`
   ${breakpoints[1]} {
     font-size: ${apply(`${breakpoints[1]}.fontSize`)}px;
   }
-`)
+`
 
 Heading.propTypes = {
   ...propTypes.fontSize,
@@ -124,7 +124,9 @@ export default class App extends React.Component {
       <ThemeProvider>
         <Root>
           <Box px={[3, 4]} py={[5, 6]} color="white" bg="blue">
-            <Heading fontSize={[4, 5, 6]}>styled-system</Heading>
+            <Heading as="h1" fontSize={[4, 5, 6]}>
+              styled-system
+            </Heading>
             <Text fontWeight="bold">Linaria demo</Text>
           </Box>
         </Root>
