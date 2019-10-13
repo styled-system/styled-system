@@ -51,6 +51,7 @@ By conforming to this standard, theme objects created with any of the libraries 
 - [Styled System HTML][] is HTML elements extended as components, ready for theming via styled system
 - [Tachyons Styled React][] is Tachyons implemented with emotion and Styled System
 - [Hack Club Design System][] is [Hack Club][]’s design system/component library built on styled-components
+- [Fluid System][] is a style props function transformer for generating fluid styles through Styled System
 
 [rebass]: https://rebassjs.org
 [reflexbox]: https://rebassjs.org/reflexbox
@@ -67,3 +68,4 @@ By conforming to this standard, theme objects created with any of the libraries 
 [gatsby]: https://gatsbyjs.org
 [typography.js]: https://github.com/KyleAMathews/typography.js
 [prism]: https://github.com/PrismJS/prism
+[fluid system]: https://github.com/galacemiguel/fluid-system
