@@ -7473,11 +7473,11 @@ gatsby-page-utils@^0.0.24:
     slash "^3.0.0"
 
 gatsby-plugin-emotion@^4.0.6:
-  version "4.1.9"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-emotion/-/gatsby-plugin-emotion-4.1.9.tgz#751b01b7200cfb0ff0f13d8bd61105d60a14ffd4"
-  integrity sha512-qwsuuf94xjDwVtpMBp9AmRZw7zgcnbe4+f4rH/7U8hRCKcHIDn35Edcoi5dbBkSD487Ko/2emvN59+ZGseikmw==
+  version "4.1.12"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-emotion/-/gatsby-plugin-emotion-4.1.12.tgz#0b1a542363fff1676dfc703ee5083c3215ac57af"
+  integrity sha512-sKWMHQ688qITqAqiage4dj2OZ6Dqw435B6hfhLfwHGX0LLb/yB4ZDDPxsOKZtjQn8FIKmacarzpq8oB3lRmWFA==
   dependencies:
-    "@babel/runtime" "^7.6.2"
+    "@babel/runtime" "^7.6.3"
     "@emotion/babel-preset-css-prop" "^10.0.17"
 
 gatsby-plugin-google-analytics@^2.0.20:
