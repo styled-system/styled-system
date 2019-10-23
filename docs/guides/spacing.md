@@ -136,7 +136,7 @@ When using the component, you can adjust margin and padding in any direction nee
 [rebass space]: https://github.com/rebassjs/space
 
 While the `space` utility is a perfect choice for most cases, it can be useful to add only margin or padding props to 
-a component. To handle those cases, Styled System provides subsets os the `space` utility: `padding` and `margin` utilities.
+a component. To handle those cases, Styled System provides subsets of the `space` utility: `padding` and `margin` utilities.
 
 The `padding` utility adds only padding props to a component and the `margin` utility adds only margin props. Usage of 
 the utilities are the same as the usage of `space` utility
