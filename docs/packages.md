@@ -15,7 +15,7 @@ The main `styled-system` package is composed of several other packages that can 
 | [`@styled-system/position`](https://github.com/styled-system/styled-system/tree/master/packages/position)     | `position`                                             |
 | [`@styled-system/grid`](https://github.com/styled-system/styled-system/tree/master/packages/grid)             | `grid`                                                 |
 | [`@styled-system/shadow`](https://github.com/styled-system/styled-system/tree/master/packages/shadow)         | `shadow`                                               |
-| [`@styled-system/variant`](https://github.com/styled-system/styled-system/tree/master/packages/variant)       | `variant`, `textStyle` `buttonStyle`, `colorStyle`     |
+| [`@styled-system/variant`](https://github.com/styled-system/styled-system/tree/master/packages/variant)       | `variant`, `textStyle`, `buttonStyle`, `colorStyle`     |
 
 The Styled System ecosystem also includes these optional packages
 
