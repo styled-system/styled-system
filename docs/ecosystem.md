@@ -1,7 +1,7 @@
 
 # Ecosystem
 
-Styled System is a low-level, framework-agnositic suite of utilities.
+Styled System is a low-level, framework-agnostic suite of utilities.
 It can be used with many different libraries, including React, Vue.js, Angular, Styled Components, Emotion, JSS, and more.
 While Styled System will always remain fairly low-level, there are many other libraries built on top of the core concepts and functionality included in this library.
 
@@ -49,7 +49,7 @@ By conforming to this standard, theme objects created with any of the libraries 
 
 - [Radix][] is a design system and component library for Modulz
 - [Styled System HTML][] is HTML elements extended as components, ready for theming via styled system
-- [Tachyons Styled React][] is Tachyons implemented with emotion and Styled System
+- [Tachyons Styled React][] is Tachyons implemented with Emotion and Styled System
 - [Hack Club Design System][] is [Hack Club][]’s design system/component library built on styled-components
 - [Fluid System][] is a style props function transformer for generating fluid styles through Styled System
 
