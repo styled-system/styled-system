@@ -50,7 +50,9 @@ export const createParser = config => {
       if (!config[key]) continue
       const sx = config[key]
       const raw = props[key]
-      const scale = get(props.theme, sx.scale, sx.defaults)
+      const scale = sx.getScale
+        ? sx.getScale(props.theme)
+        : get(props.theme, sx.scale, sx.defaults)
 
       if (typeof raw === 'object') {
         cache.breakpoints =

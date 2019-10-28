@@ -1,4 +1,4 @@
-import { get, createParser } from '@styled-system/core'
+import { get, merge, createParser } from '@styled-system/core'
 import css from '@styled-system/css'
 
 export const variant = ({
@@ -17,6 +17,7 @@ export const variant = ({
   }
   sx.scale = scale || key
   sx.defaults = variants
+  sx.getScale = theme => merge(variants, get(theme, sx.scale, {}))
   const config = {
     [prop]: sx,
   }

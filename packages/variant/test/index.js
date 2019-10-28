@@ -268,4 +268,50 @@ describe('component variant', () => {
       backgroundColor: 'cyan',
     })
   })
+
+  test('theme-based variants merge with local variants', () => {
+    const comp = variant({
+      variants: {
+        primary: {
+          color: 'white',
+          bg: 'blue',
+        },
+        secondary: {
+          color: 'white',
+          bg: 'green',
+        }
+      },
+      scale: 'buttons',
+    })
+    const a = comp({
+      variant: 'primary',
+      theme: {
+        buttons: {
+          primary: {
+            color: 'black',
+            bg: 'cyan',
+          }
+        }
+      }
+    })
+    const b = comp({
+      variant: 'secondary',
+      theme: {
+        buttons: {
+          primary: {
+            color: 'black',
+            bg: 'cyan',
+          }
+        }
+      }
+    })
+    expect(a).toEqual({
+      color: 'black',
+      backgroundColor: 'cyan',
+    })
+    expect(b).toEqual({
+      color: 'white',
+      backgroundColor: 'green',
+    })
+  })
 })
