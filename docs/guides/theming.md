@@ -118,7 +118,7 @@ const baseColors = {
 
 This base color object can then be mapped to a color abstraction.
 
-```
+```js
 // example color abstraction
 const colors = {
   text: baseColors.black,
