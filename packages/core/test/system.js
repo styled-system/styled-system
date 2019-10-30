@@ -258,11 +258,11 @@ test('sorts media queries when responsive object values are used', () => {
         md: '40em',
         lg: '64em',
         xl: '128em',
-      }
+      },
     },
     padding: { _: 16, lg: 64, xl: 128 },
-    margin: { sm: 4, md: 8 },
-    color: { lg: 'tomato' },
+    margin: { _: 0, sm: 4, md: 8 },
+    color: { _: 'olive', lg: 'tomato' },
   })
   expect(Object.keys(styles)).toEqual([
     '@media screen and (min-width: 32em)',
@@ -270,6 +270,40 @@ test('sorts media queries when responsive object values are used', () => {
     '@media screen and (min-width: 64em)',
     '@media screen and (min-width: 128em)',
     'padding',
+    'margin',
+    'color',
+  ])
+})
+
+test('sorts media queries when both responsive object and array values are allowed', () => {
+  const parser = system({
+    margin: true,
+    padding: true,
+    color: true,
+  })
+  const breakpoints = ['32em', '40em', '64em', '128em']
+  breakpoints['sm'] = '32em'
+  breakpoints['md'] = '40em'
+  breakpoints['lg'] = '64em'
+  breakpoints['xl'] = '128em'
+
+  const styles = parser({
+    theme: {
+      disableStyledSystemCache: true,
+      breakpoints,
+    },
+    padding: { _: 16, lg: 64, xl: 128 },
+    margin: { _: 0, sm: 4, md: 8 },
+    color: { _: 'olive', lg: 'tomato' },
+  })
+  expect(Object.keys(styles)).toEqual([
+    '@media screen and (min-width: 32em)',
+    '@media screen and (min-width: 40em)',
+    '@media screen and (min-width: 64em)',
+    '@media screen and (min-width: 128em)',
+    'padding',
+    'margin',
+    'color',
   ])
 })
 
