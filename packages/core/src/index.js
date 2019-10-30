@@ -13,16 +13,28 @@ export const merge = (a, b) => {
 
 // sort object-value responsive styles
 const sort = obj => {
-  const next = {}
-  Object.keys(obj)
-    .sort((a, b) => a.localeCompare(b, undefined, {
-      numeric: true,
-      sensitivity: 'base',
-    }))
+  const mediaUnsorted = {}
+  const mediaSorted = {}
+  const rest = {}
+  Object.keys(obj).forEach(key => {
+    if (key.startsWith('@media')) {
+      mediaUnsorted[key] = obj[key]
+    } else {
+      rest[key] = obj[key]
+    }
+  })
+  // Only sort queries that start with @media
+  Object.keys(mediaUnsorted)
+    .sort((a, b) =>
+      a.localeCompare(b, undefined, {
+        numeric: true,
+        sensitivity: 'base',
+      })
+    )
     .forEach(key => {
-      next[key] = obj[key]
+      mediaSorted[key] = mediaUnsorted[key]
     })
-  return next
+  return { ...mediaSorted, ...rest }
 }
 
 const defaults = {
@@ -56,6 +68,11 @@ export const createParser = config => {
         cache.breakpoints =
           (!isCacheDisabled && cache.breakpoints) ||
           get(props.theme, 'breakpoints', defaults.breakpoints)
+        cache.breakpointHasKeys =
+          (!isCacheDisabled && cache.breakpointHasKeys) ||
+          (cache.breakpoints == defaults.breakpoints ||
+            !Array.isArray(cache.breakpoints) ||
+            Object.keys(cache.breakpoints).length > cache.breakpoints.length)
         if (Array.isArray(raw)) {
           cache.media = (!isCacheDisabled && cache.media) || [
             null,
@@ -72,7 +89,8 @@ export const createParser = config => {
             styles,
             parseResponsiveObject(cache.breakpoints, sx, scale, raw, props)
           )
-          shouldSort = true
+          // Don't bother sorting style objects if we don't have key based breakpoints.
+          shouldSort = cache.breakpointHasKeys && true
         }
         continue
       }
