@@ -294,7 +294,7 @@ test('sorts media queries when both responsive object and array values are allow
     },
     padding: { _: 16, lg: 64, xl: 128 },
     margin: { _: 0, sm: 4, md: 8 },
-    color: { _: 'olive', lg: 'tomato' },
+    color: ['olive', 'tomato'],
   })
   expect(Object.keys(styles)).toEqual([
     '@media screen and (min-width: 32em)',
@@ -305,6 +305,24 @@ test('sorts media queries when both responsive object and array values are allow
     'margin',
     'color',
   ])
+  expect(styles).toEqual({
+    '@media screen and (min-width: 32em)': {
+      color: 'tomato',
+      margin: 4,
+    },
+    '@media screen and (min-width: 40em)': {
+      margin: 8,
+    },
+    '@media screen and (min-width: 64em)': {
+      padding: 64,
+    },
+    '@media screen and (min-width: 128em)': {
+      padding: 128,
+    },
+    color: 'olive',
+    margin: 0,
+    padding: 16,
+  })
 })
 
 test('transforms values', () => {
