@@ -4704,10 +4704,10 @@ chokidar@3.2.1:
   optionalDependencies:
     fsevents "~2.1.0"
 
-chokidar@3.2.3, chokidar@^3.0.2:
-  version "3.2.3"
-  resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.2.3.tgz#b9270a565d14f02f6bfdd537a6a2bbf5549b8c8c"
-  integrity sha512-GtrxGuRf6bzHQmXWRepvsGnXpkQkVU+D2/9a7dAe4a7v1NhrfZOZ2oKf76M3nOs46fFYL8D+Q8JYA4GYeJ8Cjw==
+chokidar@3.3.0, chokidar@^3.0.2:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.3.0.tgz#12c0714668c55800f659e262d4962a97faf554a6"
+  integrity sha512-dGmKLDdT3Gdl7fBUe8XK+gAtGmzy5Fn0XkkWQuYxGIgWVPPse2CxFA5mtrlD0TOHaHjEUqkWNyP1XdHoJES/4A==
   dependencies:
     anymatch "~3.1.1"
     braces "~3.0.2"
@@ -7322,7 +7322,7 @@ file-loader@^1.1.11:
     loader-utils "^1.0.2"
     schema-utils "^0.4.5"
 
-file-type@^12.3.1:
+file-type@^12.4.0:
   version "12.4.0"
   resolved "https://registry.yarnpkg.com/file-type/-/file-type-12.4.0.tgz#a9a399459e1940d9f34b3973039958f1f36a565e"
   integrity sha512-WTvyKq8yjtNmUtVAD8LGcTkvtCdJglM6ks2HTqEClm6+65XTqM6MoZYA1Vtra50DLRWLiM38fEs1y56f5VhnUA==
@@ -7678,10 +7678,10 @@ gatsby-cli@^2.8.5:
     ink "^2.5.0"
     ink-spinner "^3.0.1"
 
-gatsby-core-utils@^1.0.15, gatsby-core-utils@^1.0.17:
-  version "1.0.17"
-  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-1.0.17.tgz#f8a4d5d9b1d83c5799f187dca5ff86654cdfc4d8"
-  integrity sha512-5LOderWqZFGaTwwLgqDgad/5Hbf/WFD44ZmodqSJLYUOG8K0wv4PctlQ2/1UO+LZuKYanthYi3jAVgk4OooeSQ==
+gatsby-core-utils@^1.0.15, gatsby-core-utils@^1.0.19:
+  version "1.0.19"
+  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-1.0.19.tgz#670a0eefe8fc8517c5b87573be6cd817d4b1a96a"
+  integrity sha512-Fp5PBmAuqL+V5FTqjQ6d2Ow7a9OY6GlJVlS5wl/bbbGjRDtYJe7tqAxWThzeKDkLAsKUz2RP8AiJOSLWn1bDRg==
   dependencies:
     ci-info "2.0.0"
 
@@ -7815,21 +7815,21 @@ gatsby-remark-prismjs@^3.2.9:
     unist-util-visit "^1.4.1"
 
 gatsby-source-filesystem@^2.0.35:
-  version "2.1.35"
-  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.1.35.tgz#b0ae2de06b1100fa9f48e79a2f290e5a82d2d4ff"
-  integrity sha512-ZhARtQg078ogjj/LHVw8wFKok4LR97UXGoBf5QSH1glJVSu/oM1WWkpCCPsvjvdgXUO2BJVbNLo2ZXoG5d+U3g==
+  version "2.1.37"
+  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.1.37.tgz#2738e3031028730952e042cf45421873c2f18d58"
+  integrity sha512-RCTgRDFwHzH+WG0aFL39TB276lnaRwrSuTlulOTBGbITA6+zaIhmpjQk/gdhl3FQUz7tw3Or+xMhcqghsoAeCA==
   dependencies:
-    "@babel/runtime" "^7.6.3"
+    "@babel/runtime" "^7.7.2"
     better-queue "^3.8.10"
     bluebird "^3.7.1"
-    chokidar "3.2.3"
-    file-type "^12.3.1"
+    chokidar "3.3.0"
+    file-type "^12.4.0"
     fs-extra "^8.1.0"
-    gatsby-core-utils "^1.0.17"
+    gatsby-core-utils "^1.0.19"
     got "^7.1.0"
     md5-file "^3.2.3"
     mime "^2.4.4"
-    pretty-bytes "^4.0.2"
+    pretty-bytes "^5.3.0"
     progress "^2.0.3"
     read-chunk "^3.2.0"
     valid-url "^1.0.9"
@@ -13776,11 +13776,6 @@ prettier@^1.16.4:
   version "1.19.1"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.19.1.tgz#f7d7f5ff8a9cd872a7be4ca142095956a60797cb"
   integrity sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew==
-
-pretty-bytes@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/pretty-bytes/-/pretty-bytes-4.0.2.tgz#b2bf82e7350d65c6c33aa95aaa5a4f6327f61cd9"
-  integrity sha1-sr+C5zUNZcbDOqlaqlpPYyf2HNk=
 
 pretty-bytes@^5.1.0, pretty-bytes@^5.3.0:
   version "5.3.0"
