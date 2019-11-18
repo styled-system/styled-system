@@ -16332,9 +16332,9 @@ supports-color@^6.1.0:
     has-flag "^3.0.0"
 
 svelte@^3.0.0:
-  version "3.13.0"
-  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.13.0.tgz#a26ee9620b84613049406c4cacb1accf0bf962d1"
-  integrity sha512-BqIH6Q6li72goMRccIGlUqASVTBHf24YJ3mTXz0pDs6vP07o2Lv9bDGZgEPhO+zjO72dWJP5x3dLbGQt71P56g==
+  version "3.14.1"
+  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.14.1.tgz#dd884b5c0fcf8458333902cc7a64dea8ec3b64f8"
+  integrity sha512-7gMPjARR9D797MSVaiUkILVfqDaDLKRQAPTGK5kktSmrPWE0iuHRTKIdhpMOa/MSQBM94NMUv8owR4LXrhrgfQ==
 
 svg-parser@^2.0.0:
   version "2.0.1"
