@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## v5.1.4 2019-12-02
+
 - `@styled-system/css` add `outlineColor` support #825
 - Update dependencies
 
