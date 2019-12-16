@@ -16052,9 +16052,9 @@ supports-color@^6.1.0:
     has-flag "^3.0.0"
 
 svelte@^3.0.0:
-  version "3.16.1"
-  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.16.1.tgz#bc81664abe93118d6a2ca3adc1cb0f502ab72678"
-  integrity sha512-OqpE0519ZmaMa94ttCSTmpIrrZEGuUPc6TCXw4+DzeJbZOpru18i0gX4z9sv70k9hvHXLrwSdKKCmIFbrferIg==
+  version "3.16.4"
+  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.16.4.tgz#a14369c79d3a007bb1e13c8b52630efeca894096"
+  integrity sha512-+9k0fWp6q2AW0Niap+AIjERoRV9ZTj2yr+33JtjYHAxFRwTGdsy6UYnNThyrUNZPBHdlnbTuEt2V8p07jJGiZQ==
 
 svg-parser@^2.0.0:
   version "2.0.1"
