@@ -5,7 +5,7 @@ export const merge = (a, b) => {
   for (const key in a) {
     if (!a[key] || typeof b[key] !== 'object') continue
     assign(result, {
-      [key]: assign(a[key], b[key]),
+      [key]: assign({}, a[key], b[key]),
     })
   }
   return result
