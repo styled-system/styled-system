@@ -1052,7 +1052,7 @@
     "@emotion/babel-plugin-jsx-pragmatic" "^0.1.4"
     babel-plugin-emotion "^10.0.23"
 
-"@emotion/cache@^10.0.14", "@emotion/cache@^10.0.17":
+"@emotion/cache@^10.0.17":
   version "10.0.17"
   resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-10.0.17.tgz#3491a035f62f276620d586677bfc3d4fad0b8472"
   integrity sha512-442/miwbuwIDfSzfMqZNxuzxSEbskcz/bZ86QBYzEjFrr/oq9w+y5kJY1BHbGhDtr91GO232PZ5NN9XYMwr/Qg==
@@ -1061,6 +1061,16 @@
     "@emotion/stylis" "0.8.4"
     "@emotion/utils" "0.11.2"
     "@emotion/weak-memoize" "0.2.3"
+
+"@emotion/cache@^10.0.27":
+  version "10.0.27"
+  resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-10.0.27.tgz#7895db204e2c1a991ae33d51262a3a44f6737303"
+  integrity sha512-Zp8BEpbMunFsTcqAK4D7YTm3MvCp1SekflSLJH8lze2fCcSZ/yMkXHo8kb3t1/1Tdd3hAqf3Fb7z9VZ+FMiC9w==
+  dependencies:
+    "@emotion/sheet" "0.9.4"
+    "@emotion/stylis" "0.8.5"
+    "@emotion/utils" "0.11.3"
+    "@emotion/weak-memoize" "0.2.5"
 
 "@emotion/core@^10.0.0", "@emotion/core@^10.0.10", "@emotion/core@^10.0.14", "@emotion/core@^10.0.9":
   version "10.0.21"
@@ -1161,6 +1171,11 @@
   resolved "https://registry.yarnpkg.com/@emotion/sheet/-/sheet-0.9.3.tgz#689f135ecf87d3c650ed0c4f5ddcbe579883564a"
   integrity sha512-c3Q6V7Df7jfwSq5AzQWbXHa5soeE4F5cbqi40xn0CzXxWW9/6Mxq48WJEtqfWzbZtW9odZdnRAkwCQwN12ob4A==
 
+"@emotion/sheet@0.9.4":
+  version "0.9.4"
+  resolved "https://registry.yarnpkg.com/@emotion/sheet/-/sheet-0.9.4.tgz#894374bea39ec30f489bbfc3438192b9774d32e5"
+  integrity sha512-zM9PFmgVSqBw4zL101Q0HrBVTGmpAxFZH/pYx/cjJT5advXguvcgjHFTCaIO3enL/xr89vK2bh0Mfyj9aa0ANA==
+
 "@emotion/styled-base@^10.0.27":
   version "10.0.27"
   resolved "https://registry.yarnpkg.com/@emotion/styled-base/-/styled-base-10.0.27.tgz#d9efa307ae4e938fcc4d0596b40b7e8bc10f7c7c"
@@ -1183,6 +1198,11 @@
   version "0.8.4"
   resolved "https://registry.yarnpkg.com/@emotion/stylis/-/stylis-0.8.4.tgz#6c51afdf1dd0d73666ba09d2eb6c25c220d6fe4c"
   integrity sha512-TLmkCVm8f8gH0oLv+HWKiu7e8xmBIaokhxcEKPh1m8pXiV/akCiq50FvYgOwY42rjejck8nsdQxZlXZ7pmyBUQ==
+
+"@emotion/stylis@0.8.5":
+  version "0.8.5"
+  resolved "https://registry.yarnpkg.com/@emotion/stylis/-/stylis-0.8.5.tgz#deacb389bd6ee77d1e7fcaccce9e16c5c7e78e04"
+  integrity sha512-h6KtPihKFn3T9fuIrwvXXUOwlx3rfUvfZIcP5a6rh8Y7zjE3O06hT5Ss4S/YI1AYhuZ1kjaE/5EaOOI2NqSylQ==
 
 "@emotion/unitless@0.7.4", "@emotion/unitless@^0.7.0":
   version "0.7.4"
@@ -5218,15 +5238,15 @@ create-ecdh@^4.0.0:
     bn.js "^4.1.0"
     elliptic "^6.0.0"
 
-create-emotion@^10.0.14:
-  version "10.0.14"
-  resolved "https://registry.yarnpkg.com/create-emotion/-/create-emotion-10.0.14.tgz#4c140aaef6a9588ed47c926f9c4679e4719be43e"
-  integrity sha512-5G4naKMxokOur+94eDz7iPKBfwzy4wa/+0isnPhxXyosIQHBq7yvBy4jjdZw/nnRm7G3PM7P9Ug8mUmtoqcaHg==
+create-emotion@^10.0.27:
+  version "10.0.27"
+  resolved "https://registry.yarnpkg.com/create-emotion/-/create-emotion-10.0.27.tgz#cb4fa2db750f6ca6f9a001a33fbf1f6c46789503"
+  integrity sha512-fIK73w82HPPn/RsAij7+Zt8eCE8SptcJ3WoRMfxMtjteYxud8GDTKKld7MYwAX2TVhrw29uR1N/bVGxeStHILg==
   dependencies:
-    "@emotion/cache" "^10.0.14"
-    "@emotion/serialize" "^0.11.8"
-    "@emotion/sheet" "0.9.3"
-    "@emotion/utils" "0.11.2"
+    "@emotion/cache" "^10.0.27"
+    "@emotion/serialize" "^0.11.15"
+    "@emotion/sheet" "0.9.4"
+    "@emotion/utils" "0.11.3"
 
 create-hash@^1.1.0, create-hash@^1.1.2:
   version "1.2.0"
@@ -6232,12 +6252,12 @@ emotion-theming@^10.0.10, emotion-theming@^10.0.9:
     hoist-non-react-statics "^3.3.0"
 
 emotion@^10.0.9:
-  version "10.0.23"
-  resolved "https://registry.yarnpkg.com/emotion/-/emotion-10.0.23.tgz#b1722ca65f4d9955f0917cfcb7635bc34b52805c"
-  integrity sha512-H/x+5rJUnSvI0rdYsAFyDfuQwE0poZgTMj5TQsKirLzyHVWqs6CiUponsdE86sisXw0vS60j91HAbidJJeDt1g==
+  version "10.0.27"
+  resolved "https://registry.yarnpkg.com/emotion/-/emotion-10.0.27.tgz#f9ca5df98630980a23c819a56262560562e5d75e"
+  integrity sha512-2xdDzdWWzue8R8lu4G76uWX5WhyQuzATon9LmNeCy/2BHVC6dsEpfhN1a0qhELgtDVdjyEA6J8Y/VlI5ZnaH0g==
   dependencies:
-    babel-plugin-emotion "^10.0.23"
-    create-emotion "^10.0.14"
+    babel-plugin-emotion "^10.0.27"
+    create-emotion "^10.0.27"
 
 encodeurl@~1.0.2:
   version "1.0.2"
