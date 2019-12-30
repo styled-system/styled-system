@@ -2930,17 +2930,17 @@
     "@xtuc/long" "4.2.2"
 
 "@xstyled/system@^1.0.0":
-  version "1.14.0"
-  resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-1.14.0.tgz#c1497569d60c4d1d9303139ffd0fca0af8a556fe"
-  integrity sha512-f2cGUD4X4nQ3WjxUTDZLWZMLH0rN9GqoUizw7ZtHryA++2AvxwkJkaQNWP/VkR7PM5/KFJRdiYlCiVUG7xB0zA==
+  version "1.15.1"
+  resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-1.15.1.tgz#d5bc1034c7be6133fdf03e3874e9a16c2c3ed7e6"
+  integrity sha512-6Cse4M6Zf+M8K7W8y/neD1lYPc5LqyTTVWeFhhpejOSvEarK8FvKO+iwTrKRFwAC+/m9jBjBdUs/k5hxFh4jJw==
   dependencies:
     "@babel/runtime" "^7.7.2"
-    "@xstyled/util" "^1.14.0"
+    "@xstyled/util" "^1.15.1"
 
-"@xstyled/util@^1.14.0":
-  version "1.14.0"
-  resolved "https://registry.yarnpkg.com/@xstyled/util/-/util-1.14.0.tgz#467ca02df7cb6786e6d6eaf9d8a7aecf3269f52b"
-  integrity sha512-lLz0tVi2GpjBZ1P0y+CB+P+y2Pzymm2fxJk3AeDGe73OD1Silhw3dCTHTn+2R2O2rC8JSmErowOEUvIx5DZxvw==
+"@xstyled/util@^1.15.1":
+  version "1.15.1"
+  resolved "https://registry.yarnpkg.com/@xstyled/util/-/util-1.15.1.tgz#bd509dab8c52dc4c03bf994ca14ec59049d12db6"
+  integrity sha512-mi2eTWtwNCYXB3WOqVdkYE7Q1RU1rlMNH7GqGBO4gqKcNISyOyr7LrFovF6sP6wO4GlVlj1ZQAib28pBRNjMig==
   dependencies:
     "@babel/runtime" "^7.7.2"
 
