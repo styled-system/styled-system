@@ -80,3 +80,15 @@ export default {
 ```
 
 Read more in the [Array Props Guide](/guides/array-props).
+
+## Breakpoints Caching
+
+To help with performance, Styled System caches breakpoint values.
+If you need to change breakpoint values dynamically in your application, add the `disableStyledSystemCache` flag to your theme.
+
+```js
+// theme with cache disabled
+{
+  disableStyledSystemCache: true,
+}
+```
