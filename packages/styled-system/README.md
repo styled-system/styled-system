@@ -40,7 +40,7 @@ npm i styled-system
 - Spacing scale for margin and padding
 - Works with any color palette
 - Works with most css-in-js libraries, including [styled-components][] & [emotion][emotion]
-- Used in [Rebass](https://rebassjs.org), [Reflexbox](https://rebassjs.org/reflexbox/), and the [Priceline Design System](https://github.com/pricelinelabs/design-system)
+- Used in [Rebass](https://rebassjs.org), [Reflexbox](https://rebassjs.org/reflexbox/), and the [Priceline Design System](https://github.com/priceline/design-system)
 
 > "This is honestly my favourite way to build UI components right now ![party parrot][party-parrot]"
 >
