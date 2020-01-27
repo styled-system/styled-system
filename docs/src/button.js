@@ -1,11 +1,11 @@
-import React from 'react'
-import { css } from 'theme-ui'
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import Link from './link'
 
 export default props => (
   <Link
     {...props}
-    css={css({
+    sx={{
       display: 'inline-block',
       textDecoration: 'none',
       fontWeight: 'bold',
@@ -17,6 +17,6 @@ export default props => (
       '&:hover': {
         bg: 'primary',
       },
-    })}
+    }}
   />
 )

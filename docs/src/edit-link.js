@@ -1,6 +1,6 @@
-import React from 'react'
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import { Location } from '@reach/router'
-import { css } from 'theme-ui'
 
 // Removes preceding and trailing slashes
 const parsePage = string => string.replace(/\/+$/, '').substr(1)
@@ -37,12 +37,12 @@ export default () => (
               ? base + '/docs/getting-started.md'
               : getHREF(page)
           }
-          css={css({
+          sx={{
             display: 'inline-block',
             color: 'inherit',
             fontSize: 1,
             my: 4,
-          })}
+          }}
         >
           Edit this page on GitHub
         </a>

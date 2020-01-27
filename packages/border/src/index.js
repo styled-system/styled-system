@@ -1,6 +1,7 @@
 import { system } from '@styled-system/core'
 
-const config = {
+
+export const border = system({
   border: {
     property: 'border',
     scale: 'borders',
@@ -125,8 +126,6 @@ const config = {
     property: 'borderRightStyle',
     scale: 'borderStyles',
   },
-}
-
-export const border = system(config)
+})
 
 export default border

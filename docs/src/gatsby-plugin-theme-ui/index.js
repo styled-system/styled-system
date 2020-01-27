@@ -85,7 +85,7 @@ const prism = {
 }
 
 export default {
-  initialColorMode: 'light',
+  initialColorModeName: 'light',
   colors,
   fonts: {
     body: 'system-ui, sans-serif',
@@ -97,6 +97,10 @@ export default {
     heading: 1.25,
   },
   styles: {
+    root: {
+      fontFamily: 'body',
+      lineHeight: 'body',
+    },
     a: {
       color: 'primary',
       '&:hover': {
