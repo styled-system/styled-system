@@ -1,7 +1,6 @@
 import { system } from '@styled-system/core'
 
-
-export const border = system({
+const config = {
   border: {
     property: 'border',
     scale: 'borders',
@@ -62,70 +61,74 @@ export const border = system({
     properties: ['borderTop', 'borderBottom'],
     scale: 'borders',
   },
-  borderTopWidth: {
-    property: 'borderTopWidth',
-    scale: 'borderWidths',
-  },
-  borderTopColor: {
-    property: 'borderTopColor',
-    scale: 'colors',
-  },
-  borderTopStyle: {
-    property: 'borderTopStyle',
-    scale: 'borderStyles',
-  },
-  borderTopLeftRadius: {
-    property:'borderTopLeftRadius',
-    scale: 'radii',
-  },
-  borderTopRightRadius: {
-    property:'borderTopRightRadius',
-    scale: 'radii',
-  },
-  borderBottomWidth: {
-    property: 'borderBottomWidth',
-    scale: 'borderWidths',
-  },
-  borderBottomColor: {
-    property: 'borderBottomColor',
-    scale: 'colors',
-  },
-  borderBottomStyle: {
-    property: 'borderBottomStyle',
-    scale: 'borderStyles',
-  },
-  borderBottomLeftRadius: {
-    property:'borderBottomLeftRadius',
-    scale: 'radii',
-  },
-  borderBottomRightRadius: {
-    property:'borderBottomRightRadius',
-    scale: 'radii',
-  },
-  borderLeftWidth: {
-    property: 'borderLeftWidth',
-    scale: 'borderWidths',
-  },
-  borderLeftColor: {
-    property: 'borderLeftColor',
-    scale: 'colors',
-  },
-  borderLeftStyle: {
-    property: 'borderLeftStyle',
-    scale: 'borderStyles',
-  },
-  borderRightWidth: {
-    property: 'borderRightWidth',
-    scale: 'borderWidths',
-  },
-  borderRightColor: {
-    property: 'borderRightColor',
-    scale: 'colors',
-  },
-  borderRightStyle: {
-    property: 'borderRightStyle',
-    scale: 'borderStyles',
-  },
-})
+}
+
+config.borderTopWidth = {
+  property: 'borderTopWidth',
+  scale: 'borderWidths',
+}
+
+config.borderTopColor = {
+  property: 'borderTopColor',
+  scale: 'colors',
+}
+config.borderTopStyle = {
+  property: 'borderTopStyle',
+  scale: 'borderStyles',
+}
+config.borderTopLeftRadius = {
+  property:'borderTopLeftRadius',
+  scale: 'radii',
+}
+config.borderTopRightRadius = {
+  property:'borderTopRightRadius',
+  scale: 'radii',
+}
+config.borderBottomWidth = {
+  property: 'borderBottomWidth',
+  scale: 'borderWidths',
+}
+config.borderBottomColor = {
+  property: 'borderBottomColor',
+  scale: 'colors',
+}
+config.borderBottomStyle = {
+  property: 'borderBottomStyle',
+  scale: 'borderStyles',
+}
+config.borderBottomLeftRadius = {
+  property:'borderBottomLeftRadius',
+  scale: 'radii',
+}
+config.borderBottomRightRadius = {
+  property:'borderBottomRightRadius',
+  scale: 'radii',
+}
+config.borderLeftWidth = {
+  property: 'borderLeftWidth',
+  scale: 'borderWidths',
+}
+config.borderLeftColor = {
+  property: 'borderLeftColor',
+  scale: 'colors',
+}
+config.borderLeftStyle = {
+  property: 'borderLeftStyle',
+  scale: 'borderStyles',
+}
+config.borderRightWidth = {
+  property: 'borderRightWidth',
+  scale: 'borderWidths',
+}
+config.borderRightColor = {
+  property: 'borderRightColor',
+  scale: 'colors',
+}
+config.borderRightStyle = {
+  property: 'borderRightStyle',
+  scale: 'borderStyles',
+}
+
+export const border = system(config)
 
 export default border
