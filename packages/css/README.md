@@ -41,6 +41,8 @@ const Boop = styled('div')(
 )
 ```
 
+To make the css prop work with `styled-components`, `babel-plugin-styled-components` must be enabled.
+
 ## Theme Keys
 
 The following keys in your style object will work the same as Styled System props, pulling values from your `theme` object.
