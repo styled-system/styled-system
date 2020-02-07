@@ -8,3 +8,12 @@ test('returns constrasting text color styles', () => {
     color: 'white',
   })
 })
+
+test('returns contrasting text color when color is shorthand', () => {
+  const style = contrast({
+    backgroundColor: '#000',
+  })
+  expect(style).toEqual({
+    color: 'black',
+  })
+})
