@@ -116,3 +116,27 @@ test('uses dynamically changed breakpoints', () => {
     },
   })
 })
+
+test('uses custom media query breakpoints', () => {
+  const styles = parser({
+    theme: {
+      disableStyledSystemCache: true,
+      fontSize: [0, 4, 8, 16],
+      breakpoints: [
+        '@media only screen and (pointer: fine)',
+        '@media only screen and (pointer: coarse)',
+      ],
+    },
+    fontSize: [1, 2, 3],
+  })
+  console.log({ styles })
+  expect(styles).toEqual({
+    fontSize: 4,
+    '@media only screen and (pointer: fine)': {
+      fontSize: 8,
+    },
+    '@media only screen and (pointer: coarse)': {
+      fontSize: 16,
+    },
+  })
+})

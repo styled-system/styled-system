@@ -259,13 +259,13 @@ test('handles negative top, left, bottom, and right from scale', () => {
 
 test('skip breakpoints', () => {
   const result = css({
-    width: [ '100%', , '50%' ],
+    width: ['100%', , '50%'],
   })(theme)
   expect(result).toEqual({
     width: '100%',
     '@media screen and (min-width: 52em)': {
       width: '50%',
-    }
+    },
   })
 })
 
@@ -290,9 +290,9 @@ test('padding shorthand does not collide with nested p selector', () => {
 
 test('ignores array values longer than breakpoints', () => {
   const result = css({
-    width: [ 32, 64, 128, 256, 512 ]
+    width: [32, 64, 128, 256, 512],
   })({
-    breakpoints: [ '32em', '40em' ],
+    breakpoints: ['32em', '40em'],
   })
   expect(result).toEqual({
     width: 32,
@@ -403,6 +403,85 @@ test('returns outline color from theme', () => {
     outlineColor: 'primary',
   })(theme)
   expect(result).toEqual({
-    outlineColor: 'tomato'
+    outlineColor: 'tomato',
+  })
+})
+
+test('custom media query breakpoints object', () => {
+  const result = css({
+    fontSize: {
+      _: 16,
+      'break-0': 32,
+      'break-1': 64,
+    },
+    lineHeight: {
+      /* test no default */
+      'break-1': 128,
+    },
+
+    h1: {
+      fontSize: {
+        _: 500,
+        'break-1': 750,
+        'break-2': 1000,
+      },
+    },
+  })({
+    breakpoints: {
+      'break-0': '@media screen and (min-width: 40em)',
+      'break-1': '@media screen and (min-width: 52em)',
+      'break-2': '@media screen and (min-width: 90em)',
+    },
+  })
+  expect(result).toEqual({
+    fontSize: 16,
+    '@media screen and (min-width: 40em)': {
+      fontSize: 32,
+    },
+    '@media screen and (min-width: 52em)': {
+      fontSize: 64,
+      lineHeight: 128,
+    },
+    h1: {
+      fontSize: 500,
+      '@media screen and (min-width: 52em)': {
+        fontSize: 750,
+      },
+      '@media screen and (min-width: 90em)': {
+        fontSize: 1000,
+      },
+    },
+  })
+})
+
+test('custom media query breakpoints array', () => {
+  const result = css({
+    fontSize: [16, 32, 64],
+    lineHeight: [32, null, 128],
+    h1: {
+      lineHeight: [256, 512, null],
+    },
+  })({
+    breakpoints: [
+      '@media screen and (min-width: 40em)',
+      '@media screen and (min-width: 52em)',
+    ],
+  })
+  expect(result).toEqual({
+    fontSize: 16,
+    lineHeight: 32,
+    '@media screen and (min-width: 40em)': {
+      fontSize: 32,
+    },
+    '@media screen and (min-width: 52em)': {
+      fontSize: 64,
+      lineHeight: 128,
+    },
+    h1: {
+      lineHeight: 256,
+      '@media screen and (min-width: 40em)': {
+        lineHeight: 512,
+      },
+    },
   })
 })

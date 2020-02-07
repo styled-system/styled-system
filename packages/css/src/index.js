@@ -144,13 +144,48 @@ const transforms = [
   {}
 )
 
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith
+const stringStartsWith = (str, search) =>
+  str.substring(0, search.length) === search
+
+const createMediaQuery = n => {
+  if (typeof n === 'string' && stringStartsWith(n, '@media ')) {
+    return n
+  }
+  return `@media screen and (min-width: ${n})`
+}
+
+/**
+ * Convert breakpoints into an array of media queries
+ * @param {array|object} breakpoints
+ * @returns {array}
+ */
+const createMediaQueries = breakpoints => {
+  /**
+   * Convert to array if not already. E.g:
+   * {
+   *   key-0: '@media ...',
+   *   key-1: '20em',
+   * }
+   * => ['@media ...', '20em']
+   */
+  breakpoints = !Array.isArray(breakpoints)
+    ? Object.values(breakpoints)
+    : breakpoints
+
+  const mediaQueries = Array(breakpoints.length + 1)
+  mediaQueries[0] = null
+
+  for (let i = 1, ii = mediaQueries.length; i < ii; ++i) {
+    mediaQueries[i] = createMediaQuery(breakpoints[i - 1])
+  }
+  return mediaQueries
+}
+
 export const responsive = styles => theme => {
   const next = {}
   const breakpoints = get(theme, 'breakpoints', defaultBreakpoints)
-  const mediaQueries = [
-    null,
-    ...breakpoints.map(n => `@media screen and (min-width: ${n})`),
-  ]
+  const mediaQueries = createMediaQueries(breakpoints)
 
   for (const key in styles) {
     const value =
@@ -159,9 +194,36 @@ export const responsive = styles => theme => {
     if (value == null) continue
     if (!Array.isArray(value)) {
       next[key] = value
+
+      if (typeof breakpoints === 'object' && typeof value === 'object') {
+        // It's possible this object is simply a nested selector,
+        // such as `h1: {...}`, and not a breakpoint object
+        let isBreakpointObj = false
+
+        for (let bpkey in value) {
+          let media = breakpoints[bpkey]
+
+          // Check if key is a breakpoint key
+          if (!media) {
+            continue
+          }
+          isBreakpointObj = true
+
+          // Apply the breakpoint value to the result['@media...'] object
+          next[media] = next[media] || {}
+          next[media][key] = value[bpkey]
+        }
+
+        if (isBreakpointObj) {
+          // Replace the result object with the default value (can be undefined)
+          next[key] = next[key]._
+        }
+      }
       continue
     }
-    for (let i = 0; i < value.slice(0, mediaQueries.length).length; i++) {
+
+    const length = value.slice(0, mediaQueries.length).length
+    for (let i = 0; i < length; i++) {
       const media = mediaQueries[i]
       if (value[i] == null) continue
       if (!media) {
@@ -205,7 +267,7 @@ export const css = args => (props = {}) => {
 
     if (multiples[prop]) {
       const dirs = multiples[prop]
-      
+
       for (let i = 0; i < dirs.length; i++) {
         result[dirs[i]] = value
       }
