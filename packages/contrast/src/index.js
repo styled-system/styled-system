@@ -27,4 +27,5 @@ const config = {
   },
 };
 
-const contrast = system(config);
+export const contrast = system(config);
+export default contrast;
