@@ -14,6 +14,6 @@ test('returns contrasting text color when color is shorthand', () => {
     backgroundColor: '#000',
   })
   expect(style).toEqual({
-    color: 'black',
+    color: 'white',
   })
 })
