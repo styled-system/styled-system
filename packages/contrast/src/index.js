@@ -1,3 +1,5 @@
+import { system, get } from "@styled-system/core";
+
 const getContrastColor = (n, scale) => {
   let bgColor = get(scale, n, n);
 
