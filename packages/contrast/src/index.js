@@ -18,7 +18,7 @@ const getContrastColor = (n, scale) => {
 };
 
 const config = {
-  contrast: {
+  backgroundColor: {
     property: "color",
     scale: "colors",
     transform: getContrastColor,
