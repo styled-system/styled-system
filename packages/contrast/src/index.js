@@ -26,6 +26,7 @@ const config = {
     transform: getContrastColor,
   },
 };
+config.bg = config.backgroundColor;
 
 export const contrast = system(config);
 export default contrast;
