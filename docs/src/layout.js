@@ -63,7 +63,7 @@ export const Header = ({ sidebar = true, ...props }) => {
         <div sx={{ mx: "auto" }} />
         <button
           title="Toggle Color Mode"
-          css={css({
+          sx={{
             appearance: 'none',
             fontFamily: 'inherit',
             fontSize: 10,
@@ -78,7 +78,7 @@ export const Header = ({ sidebar = true, ...props }) => {
             '&:focus': {
               outline: '2px solid',
             },
-          })}
+          }}
           onClick={cycleMode}
         >
           {mode}
@@ -86,7 +86,7 @@ export const Header = ({ sidebar = true, ...props }) => {
         {sidebar && (
           <button
             title="Show Menu"
-            css={css({
+            sx={{
               appearances: 'none',
               border: 0,
               mr: 3,
@@ -99,7 +99,7 @@ export const Header = ({ sidebar = true, ...props }) => {
               '@media screen and (min-width: 40em)': {
                 display: 'none',
               },
-            })}
+            }}
             onClick={state.toggleOpen}
           >
             <Burger />
@@ -128,7 +128,7 @@ const Main = styled('div')(
 const Overlay = props => (
   <div
     {...props}
-    css={{
+    sx={{
       position: 'fixed',
       top: 0,
       bottom: 0,
@@ -168,7 +168,7 @@ export default ({ banner, ...props }) => {
           width={[1, 256, 320]}
         />
         <Container
-          css={{
+          sx={{
             maxWidth: 896,
           }}>
           {props.children}

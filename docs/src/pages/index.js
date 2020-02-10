@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import React from 'react'
 import { graphql } from 'gatsby'
-import { jsx, Styled, css } from 'theme-ui'
+import { jsx, Styled } from 'theme-ui'
 import Layout from '../layout'
 import { Header, Container } from '../layout'
 import NavLink from '../nav-link'
@@ -70,10 +70,10 @@ const Banner = ({ meta }) => (
         </NavLink>
         <Styled.pre
           px={0}
-          css={css({
+          sx={{
             color: 'inherit',
             bg: 'transparent',
-          })}>
+          }}>
           npm i styled-system
         </Styled.pre>
       </div>

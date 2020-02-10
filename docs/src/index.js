@@ -1,24 +1,7 @@
 import React, { useState, useContext, useEffect, useLayoutEffect } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import { Global } from '@emotion/core'
-import { ThemeProvider, ColorMode, css } from 'theme-ui'
 import Layout from './layout'
-
-const style = (
-  <Global
-    styles={theme =>
-      css({
-        '*': { boxSizing: 'border-box' },
-        body: {
-          margin: 0,
-          fontFamily: 'body',
-          lineHeight: 1.5,
-        },
-      })(theme)
-    }
-  />
-)
 
 const query = graphql`
   query {
@@ -81,7 +64,6 @@ const Page = props => {
         />
         <link rel="icon" type="image/png" href="logo.png" />
       </Helmet>
-      {style}
       {content}
     </>
   )
