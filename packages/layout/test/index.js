@@ -2,7 +2,7 @@ import layout from '../src'
 
 test('returns layout styles', () => {
   const style = layout({
-    width: [ 1, 1/2, 1/4 ],
+    width: [1, 1 / 2, 1 / 4],
     minHeight: 32,
     maxWidth: 768,
   })
@@ -22,7 +22,7 @@ test('returns layout styles', () => {
 test('returns 0 from theme.sizes', () => {
   const style = layout({
     theme: {
-      sizes: [ 24, 48, 96 ],
+      sizes: [24, 48, 96],
     },
     width: 0,
     height: 0,

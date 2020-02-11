@@ -14,7 +14,7 @@ import {
   shadow,
   buttonStyle,
   textStyle,
-  colorStyle
+  colorStyle,
 } from 'styled-system'
 
 const all = compose(

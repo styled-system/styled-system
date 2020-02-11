@@ -74,11 +74,11 @@ const config = {
     scale: 'borderStyles',
   },
   borderTopLeftRadius: {
-    property:'borderTopLeftRadius',
+    property: 'borderTopLeftRadius',
     scale: 'radii',
   },
   borderTopRightRadius: {
-    property:'borderTopRightRadius',
+    property: 'borderTopRightRadius',
     scale: 'radii',
   },
   borderBottomWidth: {
@@ -94,11 +94,11 @@ const config = {
     scale: 'borderStyles',
   },
   borderBottomLeftRadius: {
-    property:'borderBottomLeftRadius',
+    property: 'borderBottomLeftRadius',
     scale: 'radii',
   },
   borderBottomRightRadius: {
-    property:'borderBottomRightRadius',
+    property: 'borderBottomRightRadius',
     scale: 'radii',
   },
   borderLeftWidth: {

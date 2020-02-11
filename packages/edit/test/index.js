@@ -13,14 +13,16 @@ const theme = {
     text: 'black',
     background: 'white',
   },
-  fontSizes: [ 12, 14, 16, 20, 24, 32 ],
+  fontSizes: [12, 14, 16, 20, 24, 32],
 }
 
 test('renders', () => {
-  const json = renderer.create(
-    <EditProvider initialTheme={theme}>
-      <ThemeControls />
-    </EditProvider>
-  ).toJSON()
+  const json = renderer
+    .create(
+      <EditProvider initialTheme={theme}>
+        <ThemeControls />
+      </EditProvider>
+    )
+    .toJSON()
   expect(json).toMatchSnapshot()
 })

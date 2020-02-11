@@ -185,13 +185,10 @@ test('shadow handles boxShadow and textShadow props', () => {
 })
 
 test('compose maintains media query order', () => {
-  const parser = compose(
-    color,
-    layout,
-  )
+  const parser = compose(color, layout)
   const a = parser({
     bg: ['tomato', null, 'black'],
-    width: [ '100%', '50%', '25%' ],
+    width: ['100%', '50%', '25%'],
   })
   expect(Object.keys(a)).toEqual([
     'backgroundColor',

@@ -33,6 +33,6 @@ test('handles null values', () => {
 })
 
 test('returns 0 index items', () => {
-  const a = get([ 'a', 'b', 'c' ], 0)
+  const a = get(['a', 'b', 'c'], 0)
   expect(a).toBe('a')
 })

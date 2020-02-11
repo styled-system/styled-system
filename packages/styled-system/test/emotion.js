@@ -14,7 +14,7 @@ describe('emotion', () => {
     const Box = styled('div')(space)
     Box.defaultProps = {
       px: 0,
-      py: 0
+      py: 0,
     }
     const json = render(<Box px={2} py={1} />)
     expect(json).toHaveStyleRule('padding-left', '8px')
@@ -25,12 +25,7 @@ describe('emotion', () => {
 
   test('responsive styles are rendered in the correct order', () => {
     const Box = styled('div')(space)
-    const json = render(
-      <Box
-        m={[1, null, 3]}
-        p={[1, 2, 3]}
-      />
-    )
+    const json = render(<Box m={[1, null, 3]} p={[1, 2, 3]} />)
     expect(json).toMatchSnapshot()
   })
 
@@ -41,7 +36,7 @@ describe('emotion', () => {
       breakpoints: {
         small: '32em',
         medium: '40em',
-      }
+      },
     }
     Box.defaultProps = {
       theme,
@@ -52,12 +47,9 @@ describe('emotion', () => {
       m: {
         small: 2,
         medium: 3,
-      }
+      },
     }
-    const json = render(
-      <Box />
-    )
+    const json = render(<Box />)
     expect(json).toMatchSnapshot()
   })
 })
-

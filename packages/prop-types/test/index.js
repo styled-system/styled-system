@@ -12,7 +12,7 @@ import {
   shadow,
   buttonStyle,
   textStyle,
-  colorStyle
+  colorStyle,
 } from 'styled-system'
 
 test('includes prop types for all space prop names', () => {

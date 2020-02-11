@@ -12,7 +12,7 @@ import {
   shadow,
   buttonStyle,
   textStyle,
-  colorStyle
+  colorStyle,
 } from 'styled-system'
 
 export const propType = PropTypes.oneOfType([
@@ -23,10 +23,13 @@ export const propType = PropTypes.oneOfType([
 ])
 
 export const createPropTypes = props => {
-  return props.reduce((acc, name) => ({
-  ...acc,
-  [name]: propType,
-}), {})
+  return props.reduce(
+    (acc, name) => ({
+      ...acc,
+      [name]: propType,
+    }),
+    {}
+  )
 }
 
 export default {

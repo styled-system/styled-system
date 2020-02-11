@@ -205,7 +205,7 @@ export const css = args => (props = {}) => {
 
     if (multiples[prop]) {
       const dirs = multiples[prop]
-      
+
       for (let i = 0; i < dirs.length; i++) {
         result[dirs[i]] = value
       }

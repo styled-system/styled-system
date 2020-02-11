@@ -27,13 +27,16 @@ export { background } from '@styled-system/background'
 export { position } from '@styled-system/position'
 export { grid } from '@styled-system/grid'
 export { shadow } from '@styled-system/shadow'
-export { default as boxShadow, default as textShadow } from '@styled-system/shadow'
+export {
+  default as boxShadow,
+  default as textShadow,
+} from '@styled-system/shadow'
 
 export {
   variant,
   buttonStyle,
   textStyle,
-  colorStyle
+  colorStyle,
 } from '@styled-system/variant'
 
 const {
@@ -48,7 +51,7 @@ const {
   display,
   overflow,
   overflowX,
-  overflowY
+  overflowY,
 } = layout
 const { opacity } = color
 const {
@@ -106,13 +109,7 @@ const {
   backgroundPosition,
   backgroundRepeat,
 } = background
-const {
-  zIndex,
-  top,
-  right,
-  bottom,
-  left,
-} = position
+const { zIndex, top, right, bottom, left } = position
 
 export { default as borders } from '@styled-system/border'
 export {

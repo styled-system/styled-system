@@ -15,10 +15,12 @@ export const merge = (a, b) => {
 const sort = obj => {
   const next = {}
   Object.keys(obj)
-    .sort((a, b) => a.localeCompare(b, undefined, {
-      numeric: true,
-      sensitivity: 'base',
-    }))
+    .sort((a, b) =>
+      a.localeCompare(b, undefined, {
+        numeric: true,
+        sensitivity: 'base',
+      })
+    )
     .forEach(key => {
       next[key] = obj[key]
     })
