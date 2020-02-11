@@ -9,7 +9,7 @@ const components = {
   a: NavLink,
 }
 
-export default props =>
+export default props => (
   <Sidebar
     {...props}
     components={components}
@@ -34,3 +34,4 @@ export default props =>
       },
     }}
   />
+)

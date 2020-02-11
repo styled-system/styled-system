@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 
-export default props =>
+export default props => (
   <div
     {...props}
     sx={{
@@ -14,6 +14,7 @@ export default props =>
       borderLeft: t => `4px solid ${t.colors.accent}`,
       p: {
         m: 0,
-      }
+      },
     }}
   />
+)

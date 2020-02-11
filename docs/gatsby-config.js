@@ -64,7 +64,8 @@ module.exports = {
       {
         text: 'Styled System is one of the best libraries I have ever used.',
         source: 'Miha Sedej',
-        href: 'https://tresko.dev/theming-react-datepicker-datepicker-react-styled',
+        href:
+          'https://tresko.dev/theming-react-datepicker-datepicker-react-styled',
       },
     ],
     features: [

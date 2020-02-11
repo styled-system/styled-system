@@ -1,4 +1,3 @@
-
 # Ecosystem
 
 Styled System is a low-level, framework-agnostic suite of utilities.
@@ -6,7 +5,7 @@ It can be used with many different libraries, including React, Vue.js, Angular, 
 While Styled System will always remain fairly low-level, there are many other libraries built on top of the core concepts and functionality included in this library.
 
 If you're looking for a framework-agnostic utility for managing design constraints and scales within a design system,
-and want to build custom components with a consistent *learn-once-use-anywhere* API, Styled System is a perfect choice.
+and want to build custom components with a consistent _learn-once-use-anywhere_ API, Styled System is a perfect choice.
 
 If you're looking for something more batteries-included or something off-the-shelf that you can start using today,
 consider the following libraries, which are built on top of the core Styled System.
@@ -18,7 +17,7 @@ built with [Emotion][], [Styled Components][], and Styled System.
 Since it is built with Styled System, any theme object created for Styled System should work with Rebass.
 Rebass components include a consistent style props API, and can be used to build out larger component libraries.
 
-Rebass is completely themeable and includes a flexible *variants* API.
+Rebass is completely themeable and includes a flexible _variants_ API.
 Rebass is intended to serve as base components that you can extend to create custom component libraries and design systems.
 Rebass is also an excellent choice for building out prototypes and UI without needing to invest time in building a custom design system up-front.
 Rebass components can be used standalone or with apps built with [Theme UI][].
@@ -34,7 +33,7 @@ If you're looking for best-in-class developer ergonomics for handling flexbox la
 Theme UI is built with Styled System, [Emotion][], and [MDX][].
 It includes plugins and integrations for [Gatsby][], [Typography.js][], [Prism][], and more.
 Theme UI has first-class support for styling MDX and markdown content,
-and it also includes additional features like *[color modes][]* and a growing library of theme [presets](https://theme-ui.com/presets).
+and it also includes additional features like _[color modes][]_ and a growing library of theme [presets](https://theme-ui.com/presets).
 Use Theme UI if you're looking for a complete but flexible styling solution with theme-based design-constraints
 and developer ergonomics.
 
@@ -60,7 +59,7 @@ By conforming to this standard, theme objects created with any of the libraries 
 [styled components]: https://styled-components.com
 [mdx]: https://mdxjs.com
 [radix]: https://radix.modulz.app/docs/getting-started/
-[Styled System HTML]: https://johnpolacek.github.io/styled-system-html/
+[styled system html]: https://johnpolacek.github.io/styled-system-html/
 [tachyons styled react]: https://github.com/tachyons-css/tachyons-styled-react
 [hack club design system]: https://design.hackclub.com
 [hack club]: https://hackclub.com/

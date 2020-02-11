@@ -378,13 +378,7 @@ This utility can help improve performance when using multiple style props functi
 import styled from 'styled-components'
 import { compose, typography, space, color } from 'styled-system'
 
-export const Text = styled('div')(
-  compose(
-    typography,
-    space,
-    color
-  )
-)
+export const Text = styled('div')(compose(typography, space, color))
 ```
 
 <!--
@@ -508,7 +502,7 @@ const Card = styled.div`
         boxShadow: 'large',
         borderRadius: 4,
       },
-    }
+    },
   })}
 `
 Card.defaultProps = {
@@ -519,7 +513,7 @@ Card.defaultProps = {
 
 ## Legacy Variants
 
-The legacy variants require styles to be defined in the theme object and do *not* use `@styled-system/css` for transformation.
+The legacy variants require styles to be defined in the theme object and do _not_ use `@styled-system/css` for transformation.
 
 ```js
 import { textStyle, colorStyle, buttonStyle } from 'styled-system'

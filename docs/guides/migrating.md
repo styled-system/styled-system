@@ -24,7 +24,7 @@ The following has been removed from v5 and you should make these changes to migr
 ## Changes
 
 - Number values are no longer converted to strings with `px` units. Most CSS-in-JS libraries now handle this, but if you need to use string values with units, provide them in your theme object and in prop values.
-- The `theme.breakpoints` object *must* specify CSS units. Numbers are no longer converted to pixel values.
+- The `theme.breakpoints` object _must_ specify CSS units. Numbers are no longer converted to pixel values.
 - The theme keys `heights`, `minWidths`, `maxWidths`, `minHeights`, `maxHeights` have all been consolidated into a single `theme.sizes` scale
 - The internal `get` utility's implementation has changed, if you've made use of this utility, either fork the code from v4 or ensure that you are using it with the following arguments: `get(object, path, fallback)`
 - Functions no longer return `null`, but return an empty object (`{}`) instead
@@ -88,7 +88,7 @@ This API was inspired by [GitHub Primer][] and includes the following categories
 | `space`      | `margin`, `marginTop`, `marginRight`, `marginBottom`, `marginLeft`, `marginX`, `marginY`, `padding`, `paddingTop`, `paddingRight`, `paddingBottom`, `paddingLeft`, `paddingX`, `paddingY`, `m`, `mt`, `mr`, `mb`, `ml`, `mx`, `my`, `p`, `pt`, `pr`, `pb`, `pl`, `px`, `py`, |
 | `color`      | `color`, `backgroundColor`, `bg`                                                                                                                                                                                                                                             |
 | `layout`     | `width`, `height`, `minWidth`, `minHeight`, `maxWidth`, `maxHeight`, `display`, `verticalAlign`, `size`                                                                                                                                                                      |
-| `typography` | `fontFamily`, `fontSize`, `fontWeight`, `lineHeight`, `letterSpacing`, `fontStyle`, `textAlign`                                                                                                                                                                                            |
+| `typography` | `fontFamily`, `fontSize`, `fontWeight`, `lineHeight`, `letterSpacing`, `fontStyle`, `textAlign`                                                                                                                                                                              |
 | `flexbox`    | `alignItems`, `alignContent`, `justifyItems`, `justifyContent`, `flexWrap`, `flexDirection`, `flex`, `flexGrow`, `flexShrink`, `flexBasis`, `justifySelf`, `alignSelf`, `order`                                                                                              |
 | `border`     | `border`, `borderWidth`, `borderStyle`, `borderColor`, `borderRadius`, `borderTop`, `borderRight`, `borderBottom`, `borderLeft`, `borderX`, `borderY`,                                                                                                                       |
 | `background` | `background`, `backgroundImage`, `backgroundSize`, `backgroundPosition`, `backgroundRepeat`                                                                                                                                                                                  |
@@ -109,10 +109,7 @@ const Box = styled('div')(space, color)
 
 ```js
 // v5
-const styleProps = compose(
-  space,
-  color
-)
+const styleProps = compose(space, color)
 const Box = styled('div')(styleProps)
 ```
 

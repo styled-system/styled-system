@@ -41,16 +41,13 @@ const pattern = (
 
 export default ({ height = 384 }) => (
   <svg
-    width='100%'
+    width="100%"
     height={height}
     style={{
       overflow: 'visible',
-    }}>
+    }}
+  >
     <defs>{pattern}</defs>
-    <rect
-      width="100%"
-      height="100%"
-      fill="url(#hex)"
-    />
+    <rect width="100%" height="100%" fill="url(#hex)" />
   </svg>
 )

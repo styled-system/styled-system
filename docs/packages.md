@@ -15,7 +15,7 @@ The main `styled-system` package is composed of several other packages that can 
 | [`@styled-system/position`](https://github.com/styled-system/styled-system/tree/master/packages/position)     | `position`                                             |
 | [`@styled-system/grid`](https://github.com/styled-system/styled-system/tree/master/packages/grid)             | `grid`                                                 |
 | [`@styled-system/shadow`](https://github.com/styled-system/styled-system/tree/master/packages/shadow)         | `shadow`                                               |
-| [`@styled-system/variant`](https://github.com/styled-system/styled-system/tree/master/packages/variant)       | `variant`, `textStyle`, `buttonStyle`, `colorStyle`     |
+| [`@styled-system/variant`](https://github.com/styled-system/styled-system/tree/master/packages/variant)       | `variant`, `textStyle`, `buttonStyle`, `colorStyle`    |
 
 The Styled System ecosystem also includes these optional packages
 
@@ -27,4 +27,4 @@ The Styled System ecosystem also includes these optional packages
 | [`@styled-system/prop-types`](https://github.com/styled-system/styled-system/tree/master/packages/prop-types)                   | Prop type definitions for components built with Styled System                     |
 | [`@styled-system/theme-get`](https://github.com/styled-system/styled-system/tree/master/packages/theme-get)                     | Utility to safely access values from a theme                                      |
 | [`@styled-system/edit`](https://github.com/styled-system/styled-system/tree/master/packages/edit)                               | Debugging components for live editing Styled System theme objects                 |
-[`@styled-system/props`](https://github.com/styled-system/styled-system/tree/master/packages/props) | Utilities for working with Styled System Props
+| [`@styled-system/props`](https://github.com/styled-system/styled-system/tree/master/packages/props)                             | Utilities for working with Styled System Props                                    |

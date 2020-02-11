@@ -43,11 +43,7 @@ const Root = props => {
     toggleOpen: () => setOpen(!open),
   }
 
-  return (
-    <Context.Provider value={context}>
-      {props.children}
-    </Context.Provider>
-  )
+  return <Context.Provider value={context}>{props.children}</Context.Provider>
 }
 
 const Page = props => {
@@ -59,11 +55,7 @@ const Page = props => {
   if (pathname === '/') {
     content = props.children
   } else {
-    content = (
-      <Layout>
-        {props.children}
-      </Layout>
-    )
+    content = <Layout>{props.children}</Layout>
   }
 
   return (

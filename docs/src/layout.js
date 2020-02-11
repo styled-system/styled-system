@@ -60,7 +60,7 @@ export const Header = ({ sidebar = true, ...props }) => {
         >
           Styled System
         </NavLink>
-        <div sx={{ mx: "auto" }} />
+        <div sx={{ mx: 'auto' }} />
         <button
           title="Toggle Color Mode"
           css={css({
@@ -170,7 +170,8 @@ export default ({ banner, ...props }) => {
         <Container
           css={{
             maxWidth: 896,
-          }}>
+          }}
+        >
           {props.children}
           <EditLink />
           <Pagination />

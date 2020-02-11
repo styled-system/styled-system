@@ -9,8 +9,7 @@ const flattenLinks = children =>
     const parent = child.props && child.props.parentName
     if (type === 'a') {
       return [...acc, child]
-    }
-    else if (!child.props || !child.props.children) return acc
+    } else if (!child.props || !child.props.children) return acc
     else if (parent === 'li') return acc
     return React.Children.toArray([
       ...acc,
@@ -34,15 +33,13 @@ const wrapper = props => {
           textDecoration: 'none',
           ':hover,:focus': {
             color: 'primary',
-          }
-        }
-      }}>
+          },
+        },
+      }}
+    >
       {links}
     </div>
   )
 }
 
-export default () =>
-  <Sidebar
-    components={{ wrapper }}
-  />
+export default () => <Sidebar components={{ wrapper }} />

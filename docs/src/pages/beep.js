@@ -14,7 +14,8 @@ export default props => (
         mt: 4,
         bg: 'black',
         color: 'white',
-      }}>
+      }}
+    >
       <Logo />
     </div>
   </>

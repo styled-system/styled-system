@@ -97,11 +97,5 @@ To combine multiple Styled System functions in a single component, use the `comp
 import styled from 'styled-components'
 import { space, layout, color, compose } from 'styled-system'
 
-const Box = styled('div')(
-  compose(
-    space,
-    layout,
-    color
-  )
-)
+const Box = styled('div')(compose(space, layout, color))
 ```

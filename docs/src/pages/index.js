@@ -50,9 +50,10 @@ const Banner = ({ meta }) => (
     <Container py={5}>
       <h1
         sx={{
-          fontSize: [ 4, 4, 5],
+          fontSize: [4, 4, 5],
           fontWeight: 'bold',
-        }}>
+        }}
+      >
         {meta.description}
       </h1>
       <div
@@ -61,7 +62,8 @@ const Banner = ({ meta }) => (
           display: 'flex',
           alignItems: 'center',
           flexWrap: 'wrap',
-        }}>
+        }}
+      >
         <Button href="/getting-started" mr={3}>
           Documentation
         </Button>
@@ -73,7 +75,8 @@ const Banner = ({ meta }) => (
           css={css({
             color: 'inherit',
             bg: 'transparent',
-          })}>
+          })}
+        >
           npm i styled-system
         </Styled.pre>
       </div>
@@ -90,7 +93,7 @@ const Banner = ({ meta }) => (
             <li
               key={feature}
               sx={{
-                width: [ '100%', '50%' ],
+                width: ['100%', '50%'],
                 p: 3,
                 fontSize: 3,
                 fontWeight: 'bold',
@@ -105,12 +108,12 @@ const Banner = ({ meta }) => (
         {meta.quotes.map(quote => (
           <li
             sx={{
-              width: [ '100%', '50%' ],
+              width: ['100%', '50%'],
               p: 3,
               mb: 0,
             }}
             key={quote.text}
-            >
+          >
             <blockquote
               sx={{
                 fontSize: 3,

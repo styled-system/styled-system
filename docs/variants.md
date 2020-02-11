@@ -34,7 +34,7 @@ const Button = styled('button')(
         color: 'white',
         bg: 'secondary',
       },
-    }
+    },
   })
 )
 ```
@@ -69,7 +69,7 @@ const Text = styled('div')(
         fontSize: 1,
         lineHeight: 'body',
       },
-    }
+    },
   })
 )
 
@@ -114,7 +114,7 @@ export default {
       color: 'white',
       bg: 'tomato',
     },
-  }
+  },
 }
 ```
 
@@ -137,7 +137,7 @@ variant({
 If you were previously using the legacy variant API, but would like to use theme-based values in your variants, it's recommended that you move the variant definitions inline into your component.
 If you're using the same variants across multiple components, you can create a base component that others extend.
 
-If you'd still like to keep variant definitions in your theme, but use theme-based style objects, you *must* add the `variants` option to the `variant` function call in your component with at least one variant defined.
+If you'd still like to keep variant definitions in your theme, but use theme-based style objects, you _must_ add the `variants` option to the `variant` function call in your component with at least one variant defined.
 
 ```js
 // to keep variant definitions in your theme,
@@ -148,7 +148,7 @@ variant({
   variants: {
     // can be blank to enable the new API
     primary: {},
-  }
+  },
 })
 ```
 
@@ -163,4 +163,3 @@ The built-in variants use the following props and theme keys:
 | `buttonStyle` | `variant`   | `buttons`     |
 
 [@styled-system/css]: /css
-

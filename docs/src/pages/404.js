@@ -12,7 +12,8 @@ export default props => (
       alignItems: 'center',
       justifyContent: 'center',
       textAlign: 'center',
-    }}>
+    }}
+  >
     <div sx={{ p: 4, mb: 5 }}>
       <Link
         to="/"
@@ -24,12 +25,8 @@ export default props => (
       >
         <Logo size={256} />
       </Link>
-      <h1 sx={{ m: 0, mt: 3, fontSize: 6 }}>
-        404
-      </h1>
-      <div sx={{ fontSize: 5, fontWeight: 'bold' }}>
-        Page not found
-      </div>
+      <h1 sx={{ m: 0, mt: 3, fontSize: 6 }}>404</h1>
+      <div sx={{ fontSize: 5, fontWeight: 'bold' }}>Page not found</div>
     </div>
   </div>
 )

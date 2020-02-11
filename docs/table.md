@@ -8,10 +8,7 @@ Each function provides the following props and maps to scales defined in a theme
 ```js
 import { space } from 'styled-system'
 // or `import space from '@styled-system/space'`
-
-<Box m={2}>
-  Tomato
-</Box>
+;<Box m={2}>Tomato</Box>
 ```
 
 | Prop                  | CSS Property                       | Theme Field |
@@ -38,8 +35,7 @@ Styled System provides subsets of `space` category: `margin` and `padding`.
 ```js
 import { color } from 'styled-system'
 // or `import color from '@styled-system/color'`
-
-<Text color="white" bg="black">
+;<Text color="white" bg="black">
   Header
 </Text>
 ```
@@ -55,8 +51,7 @@ import { color } from 'styled-system'
 ```js
 import { typography } from 'styled-system'
 // or `import typography from '@styled-system/typography'`
-
-<Header fontFamily="Helvetica" fontSize={2}>
+;<Header fontFamily="Helvetica" fontSize={2}>
   Hello!
 </Header>
 ```
@@ -76,8 +71,7 @@ import { typography } from 'styled-system'
 ```js
 import { layout } from 'styled-system'
 // or `import layout from '@styled-system/layout'`
-
-<Box width="100%" height={32} overflow="hidden" />
+;<Box width="100%" height={32} overflow="hidden" />
 ```
 
 | Prop            | CSS Property     | Theme Field |
@@ -100,8 +94,7 @@ import { layout } from 'styled-system'
 ```js
 import { flexbox } from 'styled-system'
 // or `import flexbox from '@styled-system/flexbox'`
-
-<Flex alignItems="center" justifyContent="space-between">
+;<Flex alignItems="center" justifyContent="space-between">
   Blog
 </Flex>
 ```
@@ -127,8 +120,7 @@ import { flexbox } from 'styled-system'
 ```js
 import { grid } from 'styled-system'
 // or `import grid from '@styled-system/grid'`
-
-<Grid gridGap={2} gridAutoFlow="row dense">
+;<Grid gridGap={2} gridAutoFlow="row dense">
   Grid
 </Grid>
 ```
@@ -153,8 +145,7 @@ import { grid } from 'styled-system'
 ```js
 import { background } from 'styled-system'
 // or `import background from '@styled-system/background'`
-
-<Image
+;<Image
   backgroundImage="url('/images/dog.png')"
   backgroundPosition="center"
   backgroundRepeat="no-repeat"
@@ -174,8 +165,7 @@ import { background } from 'styled-system'
 ```js
 import { border } from 'styled-system'
 // or `import border from '@styled-system/border'`
-
-<Box border={1} borderRadius={2}>
+;<Box border={1} borderRadius={2}>
   Card
 </Box>
 ```
@@ -215,8 +205,7 @@ import { border } from 'styled-system'
 ```js
 import { position } from 'styled-system'
 // or `import position from '@styled-system/position'`
-
-<Box position="absolute" top={0} left={0} right={0} bottom={0}>
+;<Box position="absolute" top={0} left={0} right={0} bottom={0}>
   Cover
 </Box>
 ```
@@ -235,8 +224,7 @@ import { position } from 'styled-system'
 ```js
 import { shadow } from 'styled-system'
 // or `import shadow from '@styled-system/shadow'`
-
-<Text textShadow="2px 2px #ff0000" boxShadow="5px 10px #888888">
+;<Text textShadow="2px 2px #ff0000" boxShadow="5px 10px #888888">
   Text with shadows
 </Text>
 ```

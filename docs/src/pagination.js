@@ -3,7 +3,7 @@ import { Location } from '@reach/router'
 import { Pagination } from '@theme-ui/sidenav'
 import Sidebar from './sidebar.mdx'
 
-export default props =>
+export default props => (
   <Location
     children={({ location }) => (
       <Sidebar
@@ -15,3 +15,4 @@ export default props =>
       />
     )}
   />
+)
