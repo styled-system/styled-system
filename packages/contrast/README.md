@@ -10,7 +10,8 @@ Constrast is used the same way as any of the others it just has a few caveats
 
 1. It must be used in conjunction with a function that sets backgroundColor.
 2. It cannot be used inside of compose.
-3. If you want to be able to override the contrast color you must put the color function after the contrast one. Example below
+3. You must set backgroundColor on the component this is on otherwise it will default to white. Doesn't work with inherited backgroundColor.
+4. If you want to be able to override the contrast color you must put the color function after the contrast one. Example below.
 
 ```js
   Color is overridable.
