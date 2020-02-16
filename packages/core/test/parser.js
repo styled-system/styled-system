@@ -129,7 +129,7 @@ test('uses custom media query breakpoints', () => {
     },
     fontSize: [1, 2, 3],
   })
-  console.log({ styles })
+
   expect(styles).toEqual({
     fontSize: 4,
     '@media only screen and (pointer: fine)': {
