@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- `@styled-system/css` fix media query order #1137
 - Update dependencies
 
 ## v5.1.4 2019-12-02
