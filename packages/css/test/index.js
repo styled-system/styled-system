@@ -263,6 +263,7 @@ test('skip breakpoints', () => {
   })(theme)
   expect(result).toEqual({
     width: '100%',
+    '@media screen and (min-width: 40em)': {},
     '@media screen and (min-width: 52em)': {
       width: '50%',
     }
@@ -405,4 +406,53 @@ test('returns outline color from theme', () => {
   expect(result).toEqual({
     outlineColor: 'tomato'
   })
+})
+
+test('returns correct media query order', () => {
+  const result = css({
+    width: ['100%', , '50%'],
+    color: ['red', 'green', 'blue'],
+  })(theme)
+  const keys = Object.keys(result)
+  expect(keys).toEqual([
+    'width',
+    '@media screen and (min-width: 40em)',
+    '@media screen and (min-width: 52em)',
+    'color',
+  ])
+  expect(result).toEqual({
+    width: '100%',
+    '@media screen and (min-width: 40em)': {
+      color: 'green',
+    },
+    '@media screen and (min-width: 52em)': {
+      width: '50%',
+      color: 'blue',
+    },
+    color: 'red',
+  })
+})
+
+test('returns correct media query order 2', () => {
+  const result = css({
+    flexDirection: 'column',
+    justifyContent: [null, 'flex-start', 'flex-end'],
+    color: 'background',
+    height: '100%',
+    px: [2, 3, 4],
+    py: 4,
+  })(theme)
+  const keys = Object.keys(result)
+  expect(keys).toEqual([
+    'flexDirection',
+    'justifyContent',
+    '@media screen and (min-width: 40em)',
+    '@media screen and (min-width: 52em)',
+    'color',
+    'height',
+    'paddingLeft',
+    'paddingRight',
+    'paddingTop',
+    'paddingBottom',
+  ])
 })
