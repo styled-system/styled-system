@@ -13,7 +13,7 @@ const getContrastColor = (n, scale) => {
     const g = parseInt(hex.substr(2, 2), 16);
     const b = parseInt(hex.substr(4, 2), 16);
     const yiq = (r * 299 + g * 587 + b * 114) / 1000;
-    return yiq >= 128 ? "black" : "white";
+    return yiq >= 150 ? "black" : "white";
   };
 
   return get(scale, getContrastYIQ(bgColor), getContrastYIQ(bgColor));
