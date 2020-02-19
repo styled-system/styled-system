@@ -118,10 +118,11 @@ test('uses dynamically changed breakpoints', () => {
 })
 
 test('uses custom media query breakpoints', () => {
+  // Breakpoints is an array
   const styles = parser({
     theme: {
+      ...theme,
       disableStyledSystemCache: true,
-      fontSize: [0, 4, 8, 16],
       breakpoints: [
         '@media only screen and (pointer: fine)',
         '@media only screen and (pointer: coarse)',
@@ -130,7 +131,24 @@ test('uses custom media query breakpoints', () => {
     fontSize: [1, 2, 3],
   })
 
-  expect(styles).toEqual({
+  // Breakpoints is a key-value mapping
+  const styles2 = parser({
+    theme: {
+      ...theme,
+      disableStyledSystemCache: true,
+      breakpoints: {
+        'break-0': '@media only screen and (pointer: fine)',
+        'break-1': '@media only screen and (pointer: coarse)',
+      },
+    },
+    fontSize: {
+      _: 1,
+      'break-0': 2,
+      'break-1': 3,
+    },
+  })
+
+  const expected = {
     fontSize: 4,
     '@media only screen and (pointer: fine)': {
       fontSize: 8,
@@ -138,5 +156,7 @@ test('uses custom media query breakpoints', () => {
     '@media only screen and (pointer: coarse)': {
       fontSize: 16,
     },
-  })
+  }
+  expect(styles).toEqual(expected)
+  expect(styles2).toEqual(expected)
 })
