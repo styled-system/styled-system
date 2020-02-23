@@ -23,10 +23,10 @@ export const propType = PropTypes.oneOfType([
 ])
 
 export const createPropTypes = props => {
-  return props.reduce((acc, name) => ({
-  ...acc,
-  [name]: propType,
-}), {})
+  return props.reduce((acc, name) => {
+    acc[name] = propType
+    return acc
+  }, {})
 }
 
 export default {
