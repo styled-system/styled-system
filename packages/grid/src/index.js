@@ -10,6 +10,11 @@ const config = {
     scale: 'space',
     defaultScale: defaults.space,
   },
+  gap: {
+    property: 'gap',
+    scale: 'space',
+    defaultScale: defaults.space,
+  },
   gridColumnGap: {
     property: 'gridColumnGap',
     scale: 'space',
