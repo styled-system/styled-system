@@ -242,9 +242,13 @@ The `flexbox` utility includes style props for `alignItems`, `alignContent`, `ju
 import { grid } from 'styled-system'
 ```
 
-The `grid` utility includes style props for `gridGap`, `gridColumnGap`, `gridRowGap`, `gridColumn`, `gridRow`, `gridAutoFlow`, `gridAutoColumns`, `gridAutoRows`, `gridTemplateColumns`, `gridTemplateRows`, `gridTemplateAreas`, and `gridArea`.
+The `grid` utility includes style props for `gap`, `gridGap`, `gridColumnGap`, `gridRowGap`, `gridColumn`, `gridRow`, `gridAutoFlow`, `gridAutoColumns`, `gridAutoRows`, `gridTemplateColumns`, `gridTemplateRows`, `gridTemplateAreas`, and `gridArea`.
 
 ```jsx
+// gap
+<Box gap={10} />
+<Box gap={[ 1, 2 ]} />
+
 // gridGap
 <Box gridGap={10} />
 <Box gridGap={[ 1, 2 ]} />
