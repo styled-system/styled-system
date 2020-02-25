@@ -71,7 +71,11 @@ configs.margin.mr = configs.margin.marginRight
 configs.margin.mb = configs.margin.marginBottom
 configs.margin.ml = configs.margin.marginLeft
 configs.margin.mx = configs.margin.marginX
+configs.margin.marginHorizontal = configs.margin.marginX
+configs.margin.mh = configs.margin.marginX
 configs.margin.my = configs.margin.marginY
+configs.margin.marginVertical = configs.margin.marginY
+configs.margin.mv = configs.margin.marginY
 
 configs.padding = {
   padding: {
@@ -116,7 +120,11 @@ configs.padding.pr = configs.padding.paddingRight
 configs.padding.pb = configs.padding.paddingBottom
 configs.padding.pl = configs.padding.paddingLeft
 configs.padding.px = configs.padding.paddingX
+configs.padding.paddingHorizontal = configs.padding.paddingX
+configs.padding.ph = configs.padding.paddingX
 configs.padding.py = configs.padding.paddingY
+configs.padding.paddingVertical = configs.padding.paddingY
+configs.padding.pv = configs.padding.paddingY
 
 export const margin = system(configs.margin)
 export const padding = system(configs.padding)
