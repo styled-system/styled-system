@@ -21,15 +21,15 @@ import { space } from 'styled-system'
 | `mr`, `marginRight`   | `margin-right`                     | `space`     |
 | `mb`, `marginBottom`  | `margin-bottom`                    | `space`     |
 | `ml`, `marginLeft`    | `margin-left`                      | `space`     |
-| `mx`                  | `margin-left` and `margin-right`   | `space`     |
-| `my`                  | `margin-top` and `margin-bottom`   | `space`     |
+| `mx`, `marginX`       | `margin-left` and `margin-right`   | `space`     |
+| `my`, `marginY`       | `margin-top` and `margin-bottom`   | `space`     |
 | `p`, `padding`        | `padding`                          | `space`     |
 | `pt`, `paddingTop`    | `padding-top`                      | `space`     |
 | `pr`, `paddingRight`  | `padding-right`                    | `space`     |
 | `pb`, `paddingBottom` | `padding-bottom`                   | `space`     |
 | `pl`, `paddingLeft`   | `padding-left`                     | `space`     |
-| `px`                  | `padding-left` and `padding-right` | `space`     |
-| `py`                  | `padding-top` and `padding-bottom` | `space`     |
+| `px`, `paddingX`      | `padding-left` and `padding-right` | `space`     |
+| `py`, `paddingY`      | `padding-top` and `padding-bottom` | `space`     |
 
 Styled System provides subsets of `space` category: `margin` and `padding`.
 
