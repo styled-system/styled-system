@@ -1,30 +1,19 @@
 # Contrast
 
-## What is contrast?
+Constrast is a function that works in conjunction with the color function to automatically calculate whether the text color should be black or white based off of the background-color set on the component.
 
-Contrast is a function that will automatically take your backgroundColor and use that to work out whether to use black or white as the text color 
+Example below
 
-## How to use contrast?
-
-Constrast is used the same way as any of the others it just has a few caveats
-
-1. It must be used in conjunction with a function that sets backgroundColor.
-2. It cannot be used inside of compose.
-3. You must set backgroundColor on the component this is on otherwise it will default to white. Doesn't work with inherited backgroundColor.
-4. If you want to be able to override the contrast color you must put the color function after the contrast one. Example below.
-
-```js
-  Color is overridable.
-
-  const Box = styled.div`
-    ${contrast}
-    ${color}
-  `
-  
-  Color is not overridable.
-  
-  const Box = styled.div`
-    ${color}
-    ${contrast}
-  `
 ```
+  const Example = styled.div`
+    ${color}
+    ${contrast}
+  `;
+  
+  <Example bg="#FFF">BLACK</Example>
+  <Example bg="#000">WHITE</Example>
+```
+
+So the first would have black text as the background is a light one, and the second example would have white text as the background is a dark one.
+
+This will work for any color apart from the default browser colors.
