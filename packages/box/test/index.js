@@ -1,15 +1,17 @@
-import grid from '../src'
+import box from '../src'
 
-test('returns grid styles', () => {
-  const style = grid({
+test('returns box styles', () => {
+  const style = box({
     gap: [1,2,3],
     alignItems: 'center',
-    gridGap: 32,
+    placeItems: 'start end',
+    placeSelf: 'center stretch',
   })
   expect(style).toEqual({
     gap: 4,
     alignItems: 'center',
-    gridGap: 32,
+    placeItems: 'start end',
+    placeSelf: 'center stretch',
     '@media screen and (min-width: 40em)': {
       gap: 8,
     },

@@ -6,7 +6,8 @@
   "author": "Brent Jackson",
   "license": "MIT",
   "dependencies": {
-    "@styled-system/core": "^5.1.2"
+    "@styled-system/core": "^5.1.2",
+    "@styled-system/box": "^5.1.2"
   },
   "publishConfig": {
     "access": "public"
