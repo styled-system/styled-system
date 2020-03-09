@@ -7428,12 +7428,13 @@ gatsby-cli@^2.9.0:
     ink "^2.6.0"
     ink-spinner "^3.0.1"
 
-gatsby-core-utils@^1.0.28:
-  version "1.0.28"
-  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-1.0.28.tgz#aa66e49cdcc1892e7817a32fdd806cf5e16ea309"
-  integrity sha512-XWKR9Rk2v6iQkmBsTLCdI3adyC9PCh1s5BQ85nlGitlgcVVQq98jZlQdcy0v9mJOrTuce0uf5RqkeGDWFLekoA==
+gatsby-core-utils@^1.0.28, gatsby-core-utils@^1.0.30:
+  version "1.0.30"
+  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-1.0.30.tgz#c2b61017405b01e2f34f2c57117b4716c75e010f"
+  integrity sha512-+WYFxf9dT4u67vecXdROe9iF2jzPKoTVbWI3FYLCcNANY2Y/vEec11vhG5FnBHdLpgmD3cnLPdhCAileKWBldA==
   dependencies:
     ci-info "2.0.0"
+    configstore "^5.0.0"
     node-object-hash "^2.0.0"
 
 gatsby-graphiql-explorer@^0.2.34:
@@ -7482,9 +7483,9 @@ gatsby-plugin-google-analytics@^2.0.20:
     "@babel/runtime" "^7.7.6"
 
 gatsby-plugin-mdx@^1.0.5:
-  version "1.0.74"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-mdx/-/gatsby-plugin-mdx-1.0.74.tgz#c085082c2070b2f6b60190038caf58e22a199cd3"
-  integrity sha512-mN+68a1qmsNEC6zDDUFCbEUJ2a/1E7S7tlidFUy7doOAMVYkpvfJBpBI3IPoGHiIaOIreo0jj7BRDI6NA9nlxQ==
+  version "1.0.77"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-mdx/-/gatsby-plugin-mdx-1.0.77.tgz#f4be74c60c20113967da5d40cdaea51ffa45dea2"
+  integrity sha512-m8DJfAh4ZOFC2JDmdhR7QKkwiiu5Zd1vM94pmvxY5Z0R0desVr/LKIzG2iC1urmzHg36UhNhz/V/HZDFepDaYQ==
   dependencies:
     "@babel/core" "^7.7.5"
     "@babel/generator" "^7.7.4"
@@ -7501,7 +7502,7 @@ gatsby-plugin-mdx@^1.0.5:
     escape-string-regexp "^1.0.5"
     eval "^0.1.4"
     fs-extra "^8.1.0"
-    gatsby-core-utils "^1.0.28"
+    gatsby-core-utils "^1.0.30"
     gray-matter "^4.0.2"
     json5 "^2.1.1"
     loader-utils "^1.2.3"
