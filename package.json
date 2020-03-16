@@ -33,7 +33,7 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.4.0",
     "husky": "^4.0.10",
-    "jest": "^24.9.0",
+    "jest": "^25.1.0",
     "jest-emotion": "^10.0.11",
     "lerna": "^3.13.4",
     "lint-staged": "^10.0.0",
