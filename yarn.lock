@@ -1063,17 +1063,10 @@
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@7.9.0":
+"@babel/runtime@7.9.0", "@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.4", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7":
   version "7.9.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.9.0.tgz#337eda67401f5b066a6f205a3113d4ac18ba495b"
   integrity sha512-cTIudHnzuWLS56ik4DnRnqqNf8MkdUzV4iFFI1h7Jo9xvrpQROYaAnaSd2mHLQAzzZAPfATynX5ord6YlNYNMA==
-  dependencies:
-    regenerator-runtime "^0.13.4"
-
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.4", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7":
-  version "7.8.7"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.8.7.tgz#8fefce9802db54881ba59f90bb28719b4996324d"
-  integrity sha512-+AATMUFppJDw6aiR5NVPHqIQBlV/Pj8wY/EZH+lmvRdUo9xBaz/rF3alAwFJQavvKfeOlPE7oaaDHVbcySbCsg==
   dependencies:
     regenerator-runtime "^0.13.4"
 
@@ -8003,9 +7996,9 @@ gatsby-react-router-scroll@^2.1.24:
     warning "^3.0.0"
 
 gatsby-remark-prismjs@^3.2.9:
-  version "3.3.36"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-prismjs/-/gatsby-remark-prismjs-3.3.36.tgz#d0715c58a795bd032064906656b4204b8a6cd90f"
-  integrity sha512-zB3ugln115JMrypaf1FqllilJx5C56Vw6ze12MLw5BLlWUAPXbteTWtWbFHKPeLK6tSQDLs97d8zFYTqySgSuw==
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-prismjs/-/gatsby-remark-prismjs-3.4.1.tgz#455c60f24882a6167d3035806310d462b9d4f2ec"
+  integrity sha512-DPg4PjalrElXXZ3KZRiWiJiHIsXaee51nN2hCoGC2hfaXW8VdSjXhpBSSps9OWuB+QNmdTp/EP3FDiiwImjpUw==
   dependencies:
     "@babel/runtime" "^7.8.7"
     parse-numeric-range "^0.0.2"
