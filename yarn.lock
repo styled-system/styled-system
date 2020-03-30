@@ -8046,11 +8046,12 @@ gatsby-plugin-emotion@^4.0.6:
     "@emotion/babel-preset-css-prop" "^10.0.27"
 
 gatsby-plugin-google-analytics@^2.0.20:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-2.2.1.tgz#0dbc464dce05784ed80766bf51eba783f8970145"
-  integrity sha512-32RPqf+CRaaYlNDEx41zUM+xTwmE3U7SdRf0X3Wfs40TyfbZVsLD6tuOeRecJHlMiSZRAb9gLQORrV1/Lx3Cqg==
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-2.2.2.tgz#b4d2a10e1863bb4c92084a1778c4a2aab53292f5"
+  integrity sha512-at0eUPTyetGuPW1ceISAv58a9fwbwsLX9V5ucwKYShs98Spil/FWviukW0f1A2LUsWOGTiVJYReS7IVVw+FlIA==
   dependencies:
     "@babel/runtime" "^7.8.7"
+    minimatch "3.0.4"
 
 gatsby-plugin-mdx@^1.0.5:
   version "1.0.83"
