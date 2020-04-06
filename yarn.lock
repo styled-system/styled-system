@@ -15862,9 +15862,9 @@ rollup-plugin-node-resolve@^5.0.1:
     rollup-pluginutils "^2.8.1"
 
 rollup-plugin-svelte@^5.0.3:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-svelte/-/rollup-plugin-svelte-5.2.0.tgz#7d05bb00437643d0b11b5eac21f0eabab517aed1"
-  integrity sha512-6B7gRsJC/rS/ATEy3J51McsNgNcDFibRQ/L3rHsDMUYeCDCm3dsw3KEqf3WaxX0ZdApzZ1XWcnTXGQlwVPYpnQ==
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-svelte/-/rollup-plugin-svelte-5.2.1.tgz#f9d362d1b1d8cef0fa3782f2270f9261b715644c"
+  integrity sha512-wc93cN66sRpX6uFljVFqvWT6NU3V5ab/uLXKt2UiARuexFU/ctolzkmdXM7WM5iKdTX9scToS9sabJTJV4DUMA==
   dependencies:
     require-relative "^0.8.7"
     rollup-pluginutils "^2.8.2"
