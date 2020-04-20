@@ -152,6 +152,8 @@ export const createStyleFunction = ({
     })
     return result
   }
+  sx.properties = properties
+  sx.transform = transform
   sx.scale = scale
   sx.defaults = defaultScale
   return sx
