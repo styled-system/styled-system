@@ -8191,11 +8191,11 @@ gatsby-page-utils@^0.1.3:
     micromatch "^3.1.10"
 
 gatsby-plugin-emotion@^4.0.6:
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-emotion/-/gatsby-plugin-emotion-4.2.2.tgz#f2bc8665c6b24ca87ded883bbd91abbc436226d2"
-  integrity sha512-EbMmHRUi0q1C3XzXuQ4rUJt4L2kdJsd419iyXVniV9y8V82V5PFrr/FFMeo4ibCO3KxWqCELlpAvstW/Hkjy+w==
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-emotion/-/gatsby-plugin-emotion-4.3.0.tgz#3918806731b5df7a094e93e66ddc96acd1da0ae3"
+  integrity sha512-e4Z+xaaRdkmMY1qmTnNPzSJYkP/M9fOYm9mE/2sssDWvH5UwlmDPUMxMuDxDO722mbbB9RGEHxX4ElrsXH7Gcg==
   dependencies:
-    "@babel/runtime" "^7.8.7"
+    "@babel/runtime" "^7.9.2"
     "@emotion/babel-preset-css-prop" "^10.0.27"
 
 gatsby-plugin-google-analytics@^2.0.20:
