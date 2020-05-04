@@ -16,6 +16,31 @@ const parser = system({
   fontSize: true,
 })
 
+test.only('parses pseudo selectors', () => {
+  const styles = parser({
+    theme: theme,
+    fontSize: [1, 2, 3],
+    color: ['primary', null, 'secondary'],
+    _hover: {
+      color: 'secondary',
+    },
+  })
+  expect(styles).toEqual({
+    color: 'rebeccapurple',
+    fontSize: 4,
+    '&:hover': {
+      color: 'papayawhip',
+    },
+    '@media screen and (min-width: 40em)': {
+      fontSize: 8,
+    },
+    '@media screen and (min-width: 52em)': {
+      fontSize: 16,
+      color: 'papayawhip',
+    },
+  })
+})
+
 test('uses default breakpoints', () => {
   const styles = parser({
     theme: theme,

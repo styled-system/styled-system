@@ -12,24 +12,30 @@ export const merge = (a, b) => {
 }
 
 // sort object-value responsive styles
-const sort = obj => {
+const sort = (obj) => {
   const next = {}
   Object.keys(obj)
-    .sort((a, b) => a.localeCompare(b, undefined, {
-      numeric: true,
-      sensitivity: 'base',
-    }))
-    .forEach(key => {
+    .sort((a, b) =>
+      a.localeCompare(b, undefined, {
+        numeric: true,
+        sensitivity: 'base',
+      })
+    )
+    .forEach((key) => {
       next[key] = obj[key]
     })
   return next
 }
 
 const defaults = {
-  breakpoints: [40, 52, 64].map(n => n + 'em'),
+  breakpoints: [40, 52, 64].map((n) => n + 'em'),
 }
-const createMediaQuery = n => `@media screen and (min-width: ${n})`
+const createMediaQuery = (n) => `@media screen and (min-width: ${n})`
 const getValue = (n, scale) => get(scale, n, n)
+const PSEUDO_SELECTORS = {
+  _hover: '&:hover',
+  _focus: '&:focus',
+}
 
 export const get = (obj, key, def, p, undef) => {
   key = key && key.split ? key.split('.') : [key]
@@ -39,15 +45,18 @@ export const get = (obj, key, def, p, undef) => {
   return obj === undef ? def : obj
 }
 
-export const createParser = config => {
+export const createParser = (config) => {
   const cache = {}
-  const parse = props => {
+  const parse = (props) => {
     let styles = {}
     let shouldSort = false
     const isCacheDisabled = props.theme && props.theme.disableStyledSystemCache
 
-    for (const key in props) {
-      if (!config[key]) continue
+    const getCache = () =>
+      (!isCacheDisabled && cache.breakpoints) ||
+      get(props.theme, 'breakpoints', defaults.breakpoints)
+
+    const loop = () => {
       const sx = config[key]
       const raw = props[key]
       const scale = get(props.theme, sx.scale, sx.defaults)
@@ -56,6 +65,7 @@ export const createParser = config => {
         cache.breakpoints =
           (!isCacheDisabled && cache.breakpoints) ||
           get(props.theme, 'breakpoints', defaults.breakpoints)
+
         if (Array.isArray(raw)) {
           cache.media = (!isCacheDisabled && cache.media) || [
             null,
@@ -67,6 +77,7 @@ export const createParser = config => {
           )
           continue
         }
+
         if (raw !== null) {
           styles = merge(
             styles,
@@ -74,6 +85,89 @@ export const createParser = config => {
           )
           shouldSort = true
         }
+
+        continue
+      }
+    }
+
+    for (const key in props) {
+      if (!config[key]) {
+        if (PSEUDO_SELECTORS[key]) {
+          const nested = props[key]
+          for (const _key in nested) {
+            const sx = config[_key]
+            const raw = nested[_key]
+            const scale = get(props.theme, sx.scale, sx.defaults)
+
+            if (typeof raw === 'object') {
+              cache.breakpoints =
+                (!isCacheDisabled && cache.breakpoints) ||
+                get(props.theme, 'breakpoints', defaults.breakpoints)
+
+              if (Array.isArray(raw)) {
+                cache.media = (!isCacheDisabled && cache.media) || [
+                  null,
+                  ...cache.breakpoints.map(createMediaQuery),
+                ]
+                styles = merge(
+                  styles,
+                  parseResponsiveStyle(cache.media, sx, scale, raw, props)
+                )
+                continue
+              }
+
+              if (raw !== null) {
+                styles = merge(
+                  styles,
+                  parseResponsiveObject(
+                    cache.breakpoints,
+                    sx,
+                    scale,
+                    raw,
+                    props
+                  )
+                )
+                shouldSort = true
+              }
+
+              continue
+            }
+
+            assign(styles, { [PSEUDO_SELECTORS[key]]: sx(raw, scale, props) })
+          }
+        }
+        continue
+      }
+
+      const sx = config[key]
+      const raw = props[key]
+      const scale = get(props.theme, sx.scale, sx.defaults)
+
+      if (typeof raw === 'object') {
+        cache.breakpoints =
+          (!isCacheDisabled && cache.breakpoints) ||
+          get(props.theme, 'breakpoints', defaults.breakpoints)
+
+        if (Array.isArray(raw)) {
+          cache.media = (!isCacheDisabled && cache.media) || [
+            null,
+            ...cache.breakpoints.map(createMediaQuery),
+          ]
+          styles = merge(
+            styles,
+            parseResponsiveStyle(cache.media, sx, scale, raw, props)
+          )
+          continue
+        }
+
+        if (raw !== null) {
+          styles = merge(
+            styles,
+            parseResponsiveObject(cache.breakpoints, sx, scale, raw, props)
+          )
+          shouldSort = true
+        }
+
         continue
       }
 
@@ -91,9 +185,9 @@ export const createParser = config => {
   parse.propNames = Object.keys(config)
   parse.cache = cache
 
-  const keys = Object.keys(config).filter(k => k !== 'config')
+  const keys = Object.keys(config).filter((k) => k !== 'config')
   if (keys.length > 1) {
-    keys.forEach(key => {
+    keys.forEach((key) => {
       parse[key] = createParser({ [key]: config[key] })
     })
   }
@@ -101,11 +195,11 @@ export const createParser = config => {
   return parse
 }
 
-const parseResponsiveStyle = (mediaQueries, sx, scale, raw, _props) => {
+const parseResponsiveStyle = (mediaQueries, sx, scale, raw, props) => {
   let styles = {}
   raw.slice(0, mediaQueries.length).forEach((value, i) => {
     const media = mediaQueries[i]
-    const style = sx(value, scale, _props)
+    const style = sx(value, scale, props)
     if (!media) {
       assign(styles, style)
     } else {
@@ -117,12 +211,12 @@ const parseResponsiveStyle = (mediaQueries, sx, scale, raw, _props) => {
   return styles
 }
 
-const parseResponsiveObject = (breakpoints, sx, scale, raw, _props) => {
+const parseResponsiveObject = (breakpoints, sx, scale, raw, props) => {
   let styles = {}
   for (let key in raw) {
     const breakpoint = breakpoints[key]
     const value = raw[key]
-    const style = sx(value, scale, _props)
+    const style = sx(value, scale, props)
     if (!breakpoint) {
       assign(styles, style)
     } else {
@@ -143,11 +237,11 @@ export const createStyleFunction = ({
   defaultScale,
 }) => {
   properties = properties || [property]
-  const sx = (value, scale, _props) => {
+  const sx = (value, scale, props) => {
     const result = {}
-    const n = transform(value, scale, _props)
+    const n = transform(value, scale, props)
     if (n === null) return
-    properties.forEach(prop => {
+    properties.forEach((prop) => {
       result[prop] = n
     })
     return result
@@ -160,7 +254,7 @@ export const createStyleFunction = ({
 // new v5 API
 export const system = (args = {}) => {
   const config = {}
-  Object.keys(args).forEach(key => {
+  Object.keys(args).forEach((key) => {
     const conf = args[key]
     if (conf === true) {
       // shortcut definition
@@ -183,7 +277,7 @@ export const system = (args = {}) => {
 
 export const compose = (...parsers) => {
   let config = {}
-  parsers.forEach(parser => {
+  parsers.forEach((parser) => {
     if (!parser || !parser.config) return
     assign(config, parser.config)
   })
