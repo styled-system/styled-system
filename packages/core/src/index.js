@@ -29,13 +29,21 @@ const sort = (obj) => {
 
 const defaults = {
   breakpoints: [40, 52, 64].map((n) => n + 'em'),
+  modifierSelectors: {
+    _hover: '&:hover',
+    _focus: '&:focus',
+    _active: '&:active',
+    _visited: '&:visited',
+    _disabled: '&:disabled, &:disabled:focus, &:disabled:hover',
+    _first: '&:first-of-type',
+    _last: '&:last-of-type',
+    _even: '&:nth-of-type(even)',
+    _odd: '&:nth-of-type(odd)',
+    _readOnly: '&[readonly]',
+  },
 }
 const createMediaQuery = (n) => `@media screen and (min-width: ${n})`
 const getValue = (n, scale) => get(scale, n, n)
-const PSEUDO_SELECTORS = {
-  _hover: '&:hover',
-  _focus: '&:focus',
-}
 
 export const get = (obj, key, def, p, undef) => {
   key = key && key.split ? key.split('.') : [key]
@@ -45,7 +53,10 @@ export const get = (obj, key, def, p, undef) => {
   return obj === undef ? def : obj
 }
 
-export const createParser = (config) => {
+export const createParser = (
+  config,
+  modifierSelectors = defaults.modifierSelectors
+) => {
   const cache = {}
   const parse = (props) => {
     let styles = {}
@@ -87,12 +98,13 @@ export const createParser = (config) => {
     }
 
     for (const key in props) {
-      if (PSEUDO_SELECTORS[key]) {
-        const nested = props[key]
-        for (const _key in nested) {
-          styles[PSEUDO_SELECTORS[key]] = merge(
-            styles[PSEUDO_SELECTORS[key]],
-            loop(nested, _key)
+      if (modifierSelectors[key]) {
+        const pseudoSelector = modifierSelectors[key]
+        const pseudoStyles = props[key]
+        for (const _key in pseudoStyles) {
+          styles[pseudoSelector] = merge(
+            styles[pseudoSelector],
+            loop(pseudoStyles, _key)
           )
 
           // sort object-based responsive styles
