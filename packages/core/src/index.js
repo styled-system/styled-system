@@ -52,126 +52,61 @@ export const createParser = (config) => {
     let shouldSort = false
     const isCacheDisabled = props.theme && props.theme.disableStyledSystemCache
 
-    const getCache = () =>
+    cache.breakpoints =
       (!isCacheDisabled && cache.breakpoints) ||
       get(props.theme, 'breakpoints', defaults.breakpoints)
 
-    const loop = () => {
-      const sx = config[key]
-      const raw = props[key]
+    cache.media = (!isCacheDisabled && cache.media) || [
+      null,
+      ...cache.breakpoints.map(createMediaQuery),
+    ]
+
+    const loop = (_props, _key) => {
+      const sx = config[_key]
+      const raw = _props[_key]
       const scale = get(props.theme, sx.scale, sx.defaults)
 
       if (typeof raw === 'object') {
-        cache.breakpoints =
-          (!isCacheDisabled && cache.breakpoints) ||
-          get(props.theme, 'breakpoints', defaults.breakpoints)
-
         if (Array.isArray(raw)) {
-          cache.media = (!isCacheDisabled && cache.media) || [
-            null,
-            ...cache.breakpoints.map(createMediaQuery),
-          ]
-          styles = merge(
-            styles,
-            parseResponsiveStyle(cache.media, sx, scale, raw, props)
-          )
-          continue
+          return parseResponsiveStyle(cache.media, sx, scale, raw, _props)
         }
 
         if (raw !== null) {
-          styles = merge(
-            styles,
-            parseResponsiveObject(cache.breakpoints, sx, scale, raw, props)
+          return parseResponsiveObject(
+            cache.breakpoints,
+            sx,
+            scale,
+            raw,
+            _props
           )
           shouldSort = true
         }
-
-        continue
       }
+
+      return sx(raw, scale, props)
     }
 
     for (const key in props) {
-      if (!config[key]) {
-        if (PSEUDO_SELECTORS[key]) {
-          const nested = props[key]
-          for (const _key in nested) {
-            const sx = config[_key]
-            const raw = nested[_key]
-            const scale = get(props.theme, sx.scale, sx.defaults)
+      if (PSEUDO_SELECTORS[key]) {
+        const nested = props[key]
+        for (const _key in nested) {
+          styles[PSEUDO_SELECTORS[key]] = merge(
+            styles[PSEUDO_SELECTORS[key]],
+            loop(nested, _key)
+          )
 
-            if (typeof raw === 'object') {
-              cache.breakpoints =
-                (!isCacheDisabled && cache.breakpoints) ||
-                get(props.theme, 'breakpoints', defaults.breakpoints)
-
-              if (Array.isArray(raw)) {
-                cache.media = (!isCacheDisabled && cache.media) || [
-                  null,
-                  ...cache.breakpoints.map(createMediaQuery),
-                ]
-                styles = merge(
-                  styles,
-                  parseResponsiveStyle(cache.media, sx, scale, raw, props)
-                )
-                continue
-              }
-
-              if (raw !== null) {
-                styles = merge(
-                  styles,
-                  parseResponsiveObject(
-                    cache.breakpoints,
-                    sx,
-                    scale,
-                    raw,
-                    props
-                  )
-                )
-                shouldSort = true
-              }
-
-              continue
-            }
-
-            assign(styles, { [PSEUDO_SELECTORS[key]]: sx(raw, scale, props) })
+          // sort object-based responsive styles
+          if (shouldSort) {
+            styles[PSEUDO_SELECTORS[key]] = sort(styles[PSEUDO_SELECTORS[key]])
+            shouldSort = false
           }
         }
         continue
       }
 
-      const sx = config[key]
-      const raw = props[key]
-      const scale = get(props.theme, sx.scale, sx.defaults)
+      if (!config[key]) continue
 
-      if (typeof raw === 'object') {
-        cache.breakpoints =
-          (!isCacheDisabled && cache.breakpoints) ||
-          get(props.theme, 'breakpoints', defaults.breakpoints)
-
-        if (Array.isArray(raw)) {
-          cache.media = (!isCacheDisabled && cache.media) || [
-            null,
-            ...cache.breakpoints.map(createMediaQuery),
-          ]
-          styles = merge(
-            styles,
-            parseResponsiveStyle(cache.media, sx, scale, raw, props)
-          )
-          continue
-        }
-
-        if (raw !== null) {
-          styles = merge(
-            styles,
-            parseResponsiveObject(cache.breakpoints, sx, scale, raw, props)
-          )
-          shouldSort = true
-        }
-
-        continue
-      }
-
-      assign(styles, sx(raw, scale, props))
+      styles = merge(styles, loop(props, key))
     }
 
     // sort object-based responsive styles
