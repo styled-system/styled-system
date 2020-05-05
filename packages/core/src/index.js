@@ -67,11 +67,6 @@ export const createParser = (
       (!isCacheDisabled && cache.breakpoints) ||
       get(props.theme, 'breakpoints', defaults.breakpoints)
 
-    cache.media = (!isCacheDisabled && cache.media) || [
-      null,
-      ...cache.breakpoints.map(createMediaQuery),
-    ]
-
     const loop = (_props, _key) => {
       const sx = config[_key]
       const raw = _props[_key]
@@ -79,10 +74,16 @@ export const createParser = (
 
       if (typeof raw === 'object') {
         if (Array.isArray(raw)) {
+          cache.media = (!isCacheDisabled && cache.media) || [
+            null,
+            ...cache.breakpoints.map(createMediaQuery),
+          ]
+
           return parseResponsiveStyle(cache.media, sx, scale, raw, _props)
         }
 
         if (raw !== null) {
+          shouldSort = true
           return parseResponsiveObject(
             cache.breakpoints,
             sx,
@@ -90,7 +91,6 @@ export const createParser = (
             raw,
             _props
           )
-          shouldSort = true
         }
       }
 
