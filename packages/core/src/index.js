@@ -32,6 +32,7 @@ const defaults = {
   modifierSelectors: {
     _hover: '&:hover',
     _focus: '&:focus',
+    _focusWithin: '&:focus-within',
     _active: '&:active',
     _visited: '&:visited',
     _disabled: '&:disabled, &:disabled:focus, &:disabled:hover',
