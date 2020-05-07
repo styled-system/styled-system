@@ -1,13 +1,17 @@
-import { space, layout, color } from '../src'
+import {
+  space,
+  layout,
+  color,
+} from '../src'
 
 test('returns consistent responsive styles', () => {
   const a = layout({
-    display: ['none', 'block'],
-    width: ['100%', '100%', '50%', '25%'],
+    display: [ 'none', 'block' ],
+    width: [ '100%', '100%', '50%', '25%' ],
   })
   const b = layout({
-    width: ['100%', '100%', '50%', '25%'],
-    display: ['none', 'block'],
+    width: [ '100%', '100%', '50%', '25%' ],
+    display: [ 'none', 'block' ],
   })
   expect(a).toEqual({
     width: '100%',
@@ -41,8 +45,8 @@ test('returns consistent responsive styles', () => {
 
 test('null values return responsive styles in the correct order', () => {
   const a = space({
-    m: [1, null, 3],
-    p: [1, 2, 3],
+    m: [ 1, null, 3 ],
+    p: [ 1, 2, 3 ],
   })
 
   expect(Object.keys(a)).toEqual([
@@ -61,7 +65,7 @@ test('object values return responsive styles in the correct order', () => {
         small: '40em',
         medium: '52em',
         large: '64em',
-      },
+      }
     },
     m: { _: 0, small: 1, large: 3 },
     p: { _: 0, small: 1, medium: 2, large: 3 },

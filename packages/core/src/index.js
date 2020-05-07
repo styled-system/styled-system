@@ -54,7 +54,10 @@ export const get = (obj, key, def, p, undef) => {
   return obj === undef ? def : obj
 }
 
-export const createParser = (config, modifierSelectors) => {
+export const createParser = (
+  config,
+  modifierSelectors = defaults.modifierSelectors
+) => {
   const cache = {}
   const parse = (props) => {
     let styles = {}
