@@ -54,10 +54,7 @@ export const get = (obj, key, def, p, undef) => {
   return obj === undef ? def : obj
 }
 
-export const createParser = (
-  config,
-  modifierSelectors = defaults.modifierSelectors
-) => {
+export const createParser = (config, modifierSelectors) => {
   const cache = {}
   const parse = (props) => {
     let styles = {}
@@ -200,7 +197,7 @@ export const createStyleFunction = ({
 }
 
 // new v5 API
-export const system = (args = {}) => {
+export const system = (args = {}, modifiers = defaults.modifierSelectors) => {
   const config = {}
   Object.keys(args).forEach((key) => {
     const conf = args[key]
@@ -219,7 +216,7 @@ export const system = (args = {}) => {
     config[key] = createStyleFunction(conf)
   })
 
-  const parser = createParser(config)
+  const parser = createParser(config, modifiers)
   return parser
 }
 

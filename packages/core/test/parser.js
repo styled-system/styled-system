@@ -46,6 +46,50 @@ test('parses pseudo selectors', () => {
   })
 })
 
+test('supports custom modifiers', () => {
+  const customModifierParser = system(
+    {
+      color: {
+        property: 'color',
+        scale: 'colors',
+      },
+      fontSize: true,
+    },
+    { _hoverAndFocus: '&:hover, &:focus' }
+  )
+
+  const styles = customModifierParser({
+    theme: theme,
+    _hover: {
+      color: 'secondary',
+    },
+    _hoverAndFocus: {
+      color: 'secondary',
+      fontSize: [2, 1],
+    },
+    fontSize: [1, 2, 3],
+    color: ['primary', null, 'secondary'],
+  })
+  expect(styles).toEqual({
+    color: 'rebeccapurple',
+    fontSize: 4,
+    '&:hover, &:focus': {
+      color: 'papayawhip',
+      fontSize: 8,
+      '@media screen and (min-width: 40em)': {
+        fontSize: 4,
+      },
+    },
+    '@media screen and (min-width: 40em)': {
+      fontSize: 8,
+    },
+    '@media screen and (min-width: 52em)': {
+      fontSize: 16,
+      color: 'papayawhip',
+    },
+  })
+})
+
 test('uses default breakpoints', () => {
   const styles = parser({
     theme: theme,
