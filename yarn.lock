@@ -8343,14 +8343,17 @@ gatsby-cli@^2.12.23:
     ink "^2.7.1"
     ink-spinner "^3.0.1"
 
-gatsby-core-utils@^1.2.3:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-1.2.3.tgz#24d6fd7ebb607e08aa8356f77d6990cb4563e387"
-  integrity sha512-NjCPNpGqOuaNAJqU4m9z2pXVmv0DdifnRiFvJiVnz2pi/0qaVHGMErmOnkOJfaxD76LOcWEjPm9HOsB+GHgN7g==
+gatsby-core-utils@^1.2.3, gatsby-core-utils@^1.3.3:
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-1.3.3.tgz#f721600994c91743f3815e0c2c54f3f3947dbd62"
+  integrity sha512-kRcC7Fsn7puGeJERK5EZ3x4drPOnnYNlFygl1tEbpFIKdOhsWRlRF8es7uaqwyZBtBYJHVHHjCyJszRiJRZ5Sw==
   dependencies:
     ci-info "2.0.0"
     configstore "^5.0.1"
+    fs-extra "^8.1.0"
     node-object-hash "^2.0.0"
+    proper-lockfile "^4.1.1"
+    xdg-basedir "^4.0.0"
 
 gatsby-graphiql-explorer@^0.4.1:
   version "0.4.1"
@@ -8399,9 +8402,9 @@ gatsby-plugin-google-analytics@^2.0.20:
     minimatch "3.0.4"
 
 gatsby-plugin-mdx@^1.0.5:
-  version "1.2.8"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-mdx/-/gatsby-plugin-mdx-1.2.8.tgz#30cc8e7d2b650865580de1a90c961818dce4a8e3"
-  integrity sha512-68us1N3ckxx58PQN+QXQ82s/s6rbLAHQE2UrTH9c7R/se5C2IkIQz5YbmxleKCeZ6JsjCGP/uxNhmbcD9yrHpA==
+  version "1.2.12"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-mdx/-/gatsby-plugin-mdx-1.2.12.tgz#9afa731071674a9aebd99791e9256a165dd28cec"
+  integrity sha512-zoVXdn3WD1aAmrQikQAzLRrKYjT3h9cTr1Qh3tsHB6tTwjlf+Nbo3liITPVvJ9GwVfgcbL69/uuQ0q/BjU2kJQ==
   dependencies:
     "@babel/core" "^7.9.6"
     "@babel/generator" "^7.9.6"
@@ -8418,7 +8421,7 @@ gatsby-plugin-mdx@^1.0.5:
     escape-string-regexp "^1.0.5"
     eval "^0.1.4"
     fs-extra "^8.1.0"
-    gatsby-core-utils "^1.2.3"
+    gatsby-core-utils "^1.3.3"
     gray-matter "^4.0.2"
     json5 "^2.1.3"
     loader-utils "^1.4.0"
@@ -15263,6 +15266,15 @@ prop-types@^15.5.10, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
     loose-envify "^1.4.0"
     object-assign "^4.1.1"
     react-is "^16.8.1"
+
+proper-lockfile@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/proper-lockfile/-/proper-lockfile-4.1.1.tgz#284cf9db9e30a90e647afad69deb7cb06881262c"
+  integrity sha512-1w6rxXodisVpn7QYvLk706mzprPTAPCYAqxMvctmPN3ekuRk/kuGkGc82pangZiAt4R3lwSuUzheTTn0/Yb7Zg==
+  dependencies:
+    graceful-fs "^4.1.11"
+    retry "^0.12.0"
+    signal-exit "^3.0.2"
 
 property-information@^5.0.0, property-information@^5.3.0:
   version "5.4.0"
