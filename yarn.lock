@@ -17069,22 +17069,22 @@ single-trailing-newline@^1.0.0:
     detect-newline "^1.0.3"
 
 sirv-cli@^0.4.4:
-  version "0.4.5"
-  resolved "https://registry.yarnpkg.com/sirv-cli/-/sirv-cli-0.4.5.tgz#fecdfdd943000797f79c6652a1ce272cdb8df369"
-  integrity sha512-Fl6icSm0EwPrXSGid2xphMp//WNTSX2yENRAGnJuuZNmdc8LvE/BtdZD3MPn28ifAfDqTMwbB3dpcZojAIOiBg==
+  version "0.4.6"
+  resolved "https://registry.yarnpkg.com/sirv-cli/-/sirv-cli-0.4.6.tgz#c28ab20deb3b34637f5a60863dc350f055abca04"
+  integrity sha512-/Vj85/kBvPL+n9ibgX6FicLE8VjidC1BhlX67PYPBfbBAphzR6i0k0HtU5c2arejfU3uzq8l3SYPCwl1x7z6Ww==
   dependencies:
     console-clear "^1.1.0"
     get-port "^3.2.0"
     kleur "^3.0.0"
     local-access "^1.0.1"
     sade "^1.4.0"
-    sirv "^0.4.2"
+    sirv "^0.4.6"
     tinydate "^1.0.0"
 
-sirv@^0.4.2:
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/sirv/-/sirv-0.4.2.tgz#842ed22f3aab58faee84eea66cf66066e123d6db"
-  integrity sha512-dQbZnsMaIiTQPZmbGmktz+c74zt/hyrJEB4tdp2Jj0RNv9J6B/OWR5RyrZEvIn9fyh9Zlg2OlE2XzKz6wMKGAw==
+sirv@^0.4.6:
+  version "0.4.6"
+  resolved "https://registry.yarnpkg.com/sirv/-/sirv-0.4.6.tgz#185e44eb93d24009dd183b7494285c5180b81f22"
+  integrity sha512-rYpOXlNbpHiY4nVXxuDf4mXPvKz1reZGap/LkWp9TvcZ84qD/nPBjjH/6GZsgIjVMbOslnY8YYULAyP8jMn1GQ==
   dependencies:
     "@polka/url" "^0.5.0"
     mime "^2.3.1"
