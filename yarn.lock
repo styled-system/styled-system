@@ -8409,9 +8409,9 @@ gatsby-plugin-google-analytics@^2.0.20:
     minimatch "3.0.4"
 
 gatsby-plugin-mdx@^1.0.5:
-  version "1.2.12"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-mdx/-/gatsby-plugin-mdx-1.2.12.tgz#9afa731071674a9aebd99791e9256a165dd28cec"
-  integrity sha512-zoVXdn3WD1aAmrQikQAzLRrKYjT3h9cTr1Qh3tsHB6tTwjlf+Nbo3liITPVvJ9GwVfgcbL69/uuQ0q/BjU2kJQ==
+  version "1.2.13"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-mdx/-/gatsby-plugin-mdx-1.2.13.tgz#c24d207e4682e435f2e0c2d022091e729a0b9991"
+  integrity sha512-+V2Krem/XzSq9GW+eE6HmggaI9gnbxKHBEN1feNW61AvXY5rEOEJ2SntC9lmO2QliYwuVcdxJ7X8jsimqZoiEw==
   dependencies:
     "@babel/core" "^7.9.6"
     "@babel/generator" "^7.9.6"
