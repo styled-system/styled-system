@@ -98,7 +98,7 @@ const Button = styled('button')(
 )
 ```
 
-With the `scale` option above, the `theme.buttons` object can be used to overrided variants defined in the component.
+With the `scale` option above, the `theme.buttons` object can be used to override variants defined in the component.
 
 ```js
 // example theme
