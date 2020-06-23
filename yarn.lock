@@ -9342,9 +9342,9 @@ gatsby-page-utils@^0.2.9:
     micromatch "^3.1.10"
 
 gatsby-plugin-emotion@^4.0.6:
-  version "4.3.4"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-emotion/-/gatsby-plugin-emotion-4.3.4.tgz#f123f689cce1ee7be1f8b13630ecbdb348667209"
-  integrity sha512-H/s9+rSb3SmdkSZLbqDro79kbmiMRk1FVAfecBfAl2Qi7MRDgtNQwOTmJtJhVy6QAVGsnxsZY0sS9P6p3d6vjw==
+  version "4.3.5"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-emotion/-/gatsby-plugin-emotion-4.3.5.tgz#9ab45365e89a1207ae574a849b7156df16f34904"
+  integrity sha512-B2ac398qenHVQtqsJEyymYrJXbm+II24cVcbX/VZDAMxaSAsmhibOPdUR/keX484SuJ11i+qdJdEYvANWER2Xw==
   dependencies:
     "@babel/runtime" "^7.10.2"
     "@emotion/babel-preset-css-prop" "^10.0.27"
