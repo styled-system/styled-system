@@ -2885,9 +2885,9 @@
     unist-util-visit "2.0.2"
 
 "@mdx-js/react@^1.0.0", "@mdx-js/react@^1.0.16", "@mdx-js/react@^1.0.21", "@mdx-js/react@^1.5.2", "@mdx-js/react@^1.6.5":
-  version "1.6.5"
-  resolved "https://registry.yarnpkg.com/@mdx-js/react/-/react-1.6.5.tgz#70380f25209b62ef69349b7eef09fad7e1103824"
-  integrity sha512-y1Yu9baw3KokFrs7g5RxHpJNSU4e1zk/5bAJX94yVATglG5HyAL0lYMySU8YzebXNE+fJJMCx9CuiQHy2ezoew==
+  version "1.6.6"
+  resolved "https://registry.yarnpkg.com/@mdx-js/react/-/react-1.6.6.tgz#71ece2a24261eed0e184c0ef9814fcb77b1a4aee"
+  integrity sha512-zOOdNreHUNSFQ0dg3wYYg9sOGg2csf7Sk8JGBigeBq+4Xk4LO0QdycGAmgKNfeme+SyBV5LBIPjt1NNsScyWEQ==
 
 "@mdx-js/runtime@^1.6.5":
   version "1.6.5"
