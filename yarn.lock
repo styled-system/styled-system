@@ -313,13 +313,6 @@
   dependencies:
     "@babel/types" "^7.10.4"
 
-"@babel/helper-module-imports@^7.10.4":
-  version "7.10.4"
-  resolved "https://registry.yarnpkg.com/@babel/helper-module-imports/-/helper-module-imports-7.10.4.tgz#4c5c54be04bd31670a7382797d75b9fa2e5b5620"
-  integrity sha512-nEQJHqYavI217oD9+s5MUBzk6x1IlvoS9WTPfgG43CbMEeStE0v+r+TucWdx8KFGowPGvyOkDT9+7DHedIDnVw==
-  dependencies:
-    "@babel/types" "^7.10.4"
-
 "@babel/helper-module-transforms@^7.10.1", "@babel/helper-module-transforms@^7.9.0":
   version "7.10.1"
   resolved "https://registry.yarnpkg.com/@babel/helper-module-transforms/-/helper-module-transforms-7.10.1.tgz#24e2f08ee6832c60b157bb0936c86bef7210c622"
@@ -9139,9 +9132,9 @@ gatsby-page-utils@^0.2.12:
     micromatch "^3.1.10"
 
 gatsby-plugin-emotion@^4.0.6:
-  version "4.3.6"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-emotion/-/gatsby-plugin-emotion-4.3.6.tgz#d4b042c5efe62dc735484f09610ccf2a7f4891dd"
-  integrity sha512-jbE/2JzcJkT9jrU3OpdrJ5yAC0I7lP3nvCbIAGuebqkT0Pj6/sJA9TeJzUejFdmaGcpi5H829CRndlFh2jZOyA==
+  version "4.3.9"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-emotion/-/gatsby-plugin-emotion-4.3.9.tgz#05d6ff7ed645e8c72f9dc108f7094315d423cfe6"
+  integrity sha512-aNXay0Yh3Ssh3l4wmCrUXQyUrMPfVCn6dzUosS0tvalVuaHpqOUbX2jN+T2VWV+R/EZPUWjFBnAVdgcnqPXP7g==
   dependencies:
     "@babel/runtime" "^7.10.3"
     "@emotion/babel-preset-css-prop" "^10.0.27"
