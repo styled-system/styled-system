@@ -18,6 +18,11 @@ test('returns theme values', () => {
   expect(style).toEqual({ top: 4, right: 8, bottom: 16, left: 32 })
 })
 
+test('returns negative theme values', () => {
+  const style = position({ top: -1, right: -2, bottom: -3, left: -4 })
+  expect(style).toEqual({ top: -4, right: -8, bottom: -16, left: -32 })
+})
+
 test('returns pixel values', () => {
   const style = position({
     top: '1px',
