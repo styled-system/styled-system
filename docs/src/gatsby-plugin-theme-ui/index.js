@@ -11,7 +11,7 @@ const colors = {
   modes: {
     dark: {
       text: '#fff',
-      background: '#000',
+      background: '#1c1c1c',
       primary: '#0cf',
       secondary: '#f0e',
       gray: '#222',
