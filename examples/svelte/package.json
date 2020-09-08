@@ -9,7 +9,7 @@
     "rollup-plugin-node-resolve": "^5.0.1",
     "rollup-plugin-svelte": "^5.0.3",
     "rollup-plugin-terser": "^6.1.0",
-    "sirv-cli": "^0.4.4"
+    "sirv-cli": "^1.0.6"
   },
   "dependencies": {
     "@styled-system/css": "^5.0.13",
