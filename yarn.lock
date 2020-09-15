@@ -8996,11 +8996,11 @@ gatsby-recipes@^0.1.50:
     xstate "^4.11.0"
 
 gatsby-remark-prismjs@^3.2.9:
-  version "3.5.11"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-prismjs/-/gatsby-remark-prismjs-3.5.11.tgz#d5309f90411ba2fd3cb002a0accad509b7ae7591"
-  integrity sha512-AMtHZb+i7GAlRM3UINAhx+SN1aVLsIUcbEbD8d3zdBxGQTeM1cJTIJz2UjUzdCqujW9tgewaw9mE+u4SFuQtKA==
+  version "3.5.13"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-prismjs/-/gatsby-remark-prismjs-3.5.13.tgz#861c3646f777cc33cc0f503d745253bcefbed08b"
+  integrity sha512-dfDacOdbKq+u9FanylDIt+BrKMyw7eocNpoKSWXMXPXMWeo6ouiWQMLp8udtcTPM6J7Sb0mJo8cn517E/oGa0A==
   dependencies:
-    "@babel/runtime" "^7.10.3"
+    "@babel/runtime" "^7.11.2"
     parse-numeric-range "^0.0.2"
     unist-util-visit "^1.4.1"
 
