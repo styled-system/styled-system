@@ -8791,7 +8791,7 @@ gatsby-cli@^2.12.59:
     yargs "^15.3.1"
     yurnalist "^1.1.2"
 
-gatsby-core-utils@^1.3.11, gatsby-core-utils@^1.3.18, gatsby-core-utils@^1.3.19:
+gatsby-core-utils@^1.3.11, gatsby-core-utils@^1.3.19:
   version "1.3.19"
   resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-1.3.19.tgz#d7f9981fbc85affbbc09c96ac84c76c37615fc89"
   integrity sha512-nwiU17m2lihvN7IOkBTj4n2WKc7Eb569Vv7G8dmuwthmjIB6ml98Quno5fRBCz+2DBF6R60boDfc84Qdct1LPw==
@@ -18352,9 +18352,9 @@ supports-hyperlinks@^2.0.0:
     supports-color "^7.0.0"
 
 svelte@^3.0.0:
-  version "3.23.2"
-  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.23.2.tgz#f3e500384261a2e77b29681ee744c3c790fbcdc3"
-  integrity sha512-hE8GeTM83YVR4GY6/6PeDEcGct4JS5aCi+IYbCAa76oaPSfuF7L85DQYULQxlTK/KPWzw3L1GRGmC3oPG/PQoA==
+  version "3.25.0"
+  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.25.0.tgz#e7f89d11a2223ac02d29f75f82b2a9cca7fd7a54"
+  integrity sha512-CUfq+YTC5Q0tBg7Q9X/QxNutdEYp7ogdbcTZF3mrowOlp3+OF1ZexHwI0Io2VqFSDxht7TlA2lTIQC4RnhR1MQ==
 
 svg-parser@^2.0.0:
   version "2.0.3"
