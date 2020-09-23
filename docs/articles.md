@@ -5,3 +5,4 @@
 - [Building a beautiful, reusable button with Styled System](https://johno.com/styled-system-button)
 - [Defining Component APIs in React](http://jxnblk.com/blog/defining-component-apis-in-react/)
 - [The Three Tenets of Styled System](https://jxnblk.com/blog/the-three-tenets-of-styled-system/)
+- [Building A Design System In React with Styled System](https://zaat.dev/blog/building-a-design-system-in-react-with-styled-components/)
