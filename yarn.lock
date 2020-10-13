@@ -8781,7 +8781,7 @@ gatsby-cli@^2.12.59:
     yargs "^15.3.1"
     yurnalist "^1.1.2"
 
-gatsby-core-utils@^1.3.11, gatsby-core-utils@^1.3.21, gatsby-core-utils@^1.3.23:
+gatsby-core-utils@^1.3.11, gatsby-core-utils@^1.3.23:
   version "1.3.23"
   resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-1.3.23.tgz#5d99e86178b2aa3561f58fde4fdffbebecb0dd0c"
   integrity sha512-H6n6dDeRZ22HAJaBUIt5YjB/BSaE8Jq+kayMUv/YzL1RL2yFZ5lqcLwIL1OE2vWk1mQjMUBZCRxLODU0q1i3bQ==
@@ -8841,9 +8841,9 @@ gatsby-plugin-google-analytics@^2.0.20:
     minimatch "3.0.4"
 
 gatsby-plugin-mdx@^1.0.5:
-  version "1.2.44"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-mdx/-/gatsby-plugin-mdx-1.2.44.tgz#31bcb71ff3523378a18116d098b2ff6308d5f6c7"
-  integrity sha512-ITtx/Uv1cMeJv9qPZRWFbGcIK4s7gfX/cgBsLYBaGT2OF7PZJbM7WknEOtmnechE/EKBklYNcWNvxScPfnfVQQ==
+  version "1.2.46"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-mdx/-/gatsby-plugin-mdx-1.2.46.tgz#01b30e44e6b0fafa5461b04c20a58966a1d57188"
+  integrity sha512-2qy7usScn6dk2oIyVL2vb81t/hTtTQdAX4caBBjyMMOjx9XBEBnmEpNUpwv0IIvT34gXcYwDnL+X8iyYjzbkpg==
   dependencies:
     "@babel/core" "^7.11.6"
     "@babel/generator" "^7.11.6"
