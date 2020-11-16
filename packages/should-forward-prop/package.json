@@ -8,7 +8,7 @@
   "author": "Brent Jackson <jxnblk@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@emotion/is-prop-valid": "^0.8.1",
+    "@emotion/is-prop-valid": "^1.0.0",
     "@emotion/memoize": "^0.7.1",
     "styled-system": "^5.1.5"
   },
