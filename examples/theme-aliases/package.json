@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "react": "^16.8.5",
-    "react-dom": "^16.8.5",
+    "react-dom": "^17.0.1",
     "styled-components": "^5.0.0",
     "styled-system": "^5.0.15"
   },

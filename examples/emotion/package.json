@@ -7,7 +7,7 @@
     "@emotion/styled": "^10.0.9",
     "emotion-theming": "^10.0.9",
     "react": "^16.8.5",
-    "react-dom": "^16.8.5",
+    "react-dom": "^17.0.1",
     "react-scripts": "^3.0.1",
     "styled-system": "^5.0.15"
   },
