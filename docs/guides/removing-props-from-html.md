@@ -6,18 +6,19 @@ For the most part, these libraries do a good job of not forwarding props that ar
 However, the Styled System API uses a few prop names that are either deprecated HTML attributes or SVG attributes and aren't intended to be rendered in the output HTML.
 While most browsers should handle these stray HTML attributes with no problem, there might be good reason to clean these up in production.
 
-## Emotion
+## `shouldForwardProp`
 
-Emotion has first-class support in its API for determining which props are forwarded to the HTML element with its [`shouldForwardProp`](https://emotion.sh/docs/styled#customizing-prop-forwarding) API.
-Styled System has a optional utility that can be passed directly to this API.
+Both [Emotion](https://emotion.sh/docs/styled#customizing-prop-forwarding "Emotion – Customizing prop forwarding") and [Styled Components](https://styled-components.com/docs/api#shouldforwardprop "styled-components API Reference – shouldForwardProp") include support for determining which props are forwarded to the HTML element with their `shouldForwardProp` APIs.
 
-Install the following utility to make sure your Emotion styled components do not render style props as HTML.
+Styled System has a optional utility that can be passed directly to either API, making sure your components do not render style props as HTML. To use it, start by installing the following package:
 
 ```sh
 npm i @styled-system/should-forward-prop
 ```
 
-In your styled component definition, pass this utility function as an option to the `styled` HOC.
+### Emotion
+
+When using Emotion, pass this utility function as an option to the `styled` HOC.
 
 ```js
 import styled from '@emotion/styled'
@@ -29,14 +30,19 @@ const Box = styled('div', {
 })(space, color)
 ```
 
-## Styled Components
+### Styled Components
 
-Unfortunately, Styled Components does not currently support an API to control which props are forwarded to the HTML element.
-**If you'd like to see support for this, please leave a comment on their long-running issue:**
+With Styled Components, pass it as an option in the `withConfig` function.
 
-**[Separate HTML attributes from styling props][styled components issue]**
+```js
+import styled from 'styled-components'
+import shouldForwardProp from '@styled-system/should-forward-prop'
+import { space, color } from 'styled-system'
 
-[styled components issue]: https://github.com/styled-components/styled-components/issues/439
+const Box = styled('div').withConfig({
+  shouldForwardProp,
+})(space, color)
+```
 
 ## `css` Prop
 
