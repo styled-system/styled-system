@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@styled-system/css": "^5.0.13",
-    "emotion": "^10.0.9",
+    "emotion": "^11.0.0",
     "styled-system": "^5.0.15",
     "svelte": "^3.0.0"
   },
