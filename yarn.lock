@@ -18436,9 +18436,9 @@ supports-hyperlinks@^2.0.0:
     supports-color "^7.0.0"
 
 svelte@^3.0.0:
-  version "3.23.2"
-  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.23.2.tgz#f3e500384261a2e77b29681ee744c3c790fbcdc3"
-  integrity sha512-hE8GeTM83YVR4GY6/6PeDEcGct4JS5aCi+IYbCAa76oaPSfuF7L85DQYULQxlTK/KPWzw3L1GRGmC3oPG/PQoA==
+  version "3.31.1"
+  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.31.1.tgz#1a1e2a2fe4eeb72be5c2542735e035c49c45be87"
+  integrity sha512-Q8xVz5U/IFFNjgvVSjdzKJPAX0MFytFwiJo1HAPfGwM7LkHA+BN2q2kL8vKcJwjku7/509MapLov8C9SjogNRg==
 
 svg-parser@^2.0.0:
   version "2.0.3"
