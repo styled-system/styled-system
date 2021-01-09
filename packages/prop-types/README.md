@@ -31,6 +31,10 @@ Box.propTypes = {
 * `background`
 * `position`
 * `grid`
+* `shadow`
+* `buttonStyle`
+* `textStyle`
+* `colorStyle`
 
 See props of each category in [the reference table](https://styled-system.com/table).
 
