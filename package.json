@@ -70,6 +70,6 @@
     ]
   },
   "dependencies": {
-    "react-scripts": "^3.0.1"
+    "react-scripts": "^4.0.2"
   }
 }

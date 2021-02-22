@@ -8,7 +8,7 @@
     "emotion-theming": "^10.0.10",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
-    "react-scripts": "^3.0.0",
+    "react-scripts": "^4.0.2",
     "styled-system": "^5.0.15"
   },
   "scripts": {
