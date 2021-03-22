@@ -1391,10 +1391,10 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.3", "@babel/runtime@^7.11.2", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.4", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
-  version "7.11.2"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.11.2.tgz#f549c13c754cc40b87644b9fa9f09a6a95fe0736"
-  integrity sha512-TeWkU52so0mPtDcaCTxNBI/IHiz0pZgr8VEFqXFtZWpYD08ZB6FaSwVAS8MKRQAP3bYKiVjwysOJgMFY28o6Tw==
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.3", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.4", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
+  version "7.13.10"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.13.10.tgz#47d42a57b6095f4468da440388fdbad8bebf0d7d"
+  integrity sha512-4QPkjJq6Ns3V/RgpEahRk+AGfL0eO6RHHtTWoNNr5mO49G6B5+X6d6THgWEAvTrznU5xYpbAlVKRYcsCgh/Akw==
   dependencies:
     regenerator-runtime "^0.13.4"
 
@@ -8930,12 +8930,12 @@ gatsby-plugin-emotion@^4.0.6:
     "@babel/runtime" "^7.11.2"
     "@emotion/babel-preset-css-prop" "^10.0.27"
 
-gatsby-plugin-google-analytics@^2.0.20:
-  version "2.3.19"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-2.3.19.tgz#57e2567c63443efc0b83faf0bde18b621b29d8fc"
-  integrity sha512-U8HVZU3y/LoaD2UEU5h7YNsPfdJcRF11byGtiM6xE7hYqWr2YFVaKMf6L/AiREPtgaoE+YB2XfbfDrk2wUtEUA==
+gatsby-plugin-google-analytics@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-3.1.0.tgz#210c1ee3a7705f82490e89b21cb0b384ca1d4138"
+  integrity sha512-52+R1ahvLJf7po4yGJtNSme6fFruIpj8Uvhy53Fu2/eTjbu4kSyC1sfmO+vC8xD57M8FYGJy8mB1n4Up6vyyZA==
   dependencies:
-    "@babel/runtime" "^7.11.2"
+    "@babel/runtime" "^7.12.5"
     minimatch "3.0.4"
 
 gatsby-plugin-mdx@^1.0.5:
