@@ -9039,10 +9039,10 @@ gatsby-plugin-react-helmet@^3.0.12:
   dependencies:
     "@babel/runtime" "^7.11.2"
 
-gatsby-plugin-theme-ui@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-theme-ui/-/gatsby-plugin-theme-ui-0.3.0.tgz#ab84216536ae45abe09a6edf24156b9dbf50d6a5"
-  integrity sha512-Q2tS8EeYMy7AAtt6hvDtEsd1uwrLMjkDNqabyXhAo38AFoWQ0oKtq9u1YqbiRvp1TK06pAMPQQ3to48LAqc9Cw==
+gatsby-plugin-theme-ui@^0.6.2:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-theme-ui/-/gatsby-plugin-theme-ui-0.6.2.tgz#8a8336dfd9286e70e2a4627f5662992fa8b82911"
+  integrity sha512-4PiGxHmaLSAybfYtEj6A8vWGti2zJvTNhjrs63fK8eMjk3PCnuhdcs08SLaLnJhV4pd+9EEA0pgJ9jSmd2392Q==
 
 gatsby-plugin-typescript@^2.4.13:
   version "2.4.13"
