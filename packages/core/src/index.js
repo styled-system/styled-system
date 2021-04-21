@@ -105,7 +105,7 @@ const parseResponsiveStyle = (mediaQueries, sx, scale, raw, _props) => {
   let styles = {}
   raw.slice(0, mediaQueries.length).forEach((value, i) => {
     const media = mediaQueries[i]
-    const style = sx(value, scale, _props)
+    const style = sx(value, scale, _props, i)
     if (!media) {
       assign(styles, style)
     } else {
