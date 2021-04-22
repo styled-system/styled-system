@@ -3,7 +3,7 @@
   "version": "5.0.0-7",
   "private": true,
   "dependencies": {
-    "react": "^16.8.5",
+    "react": "^17.0.2",
     "react-dom": "^16.8.5",
     "styled-components": "^5.0.0",
     "styled-system": "^5.0.15"
