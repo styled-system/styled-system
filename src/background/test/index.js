@@ -1,4 +1,4 @@
-import background from '../src'
+import background from '..'
 
 test('returns background styles', () => {
   const style = background({ backgroundImage: 'url(kitten.gif)' })

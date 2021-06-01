@@ -1,4 +1,4 @@
-import { pick, omit } from '../src'
+import { pick, omit } from '..'
 
 const props = {
   id: 'hi',

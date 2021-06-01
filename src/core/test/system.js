@@ -1,4 +1,4 @@
-import { system } from '../src'
+import { system } from '..'
 
 test('returns a style parser', () => {
   const parser = system({

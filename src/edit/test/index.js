@@ -6,7 +6,7 @@ import {
   FieldSet,
   ThemeControls,
   ResetButton,
-} from '../src'
+} from '..'
 
 const theme = {
   colors: {

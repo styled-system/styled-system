@@ -2,7 +2,7 @@ import {
   space,
   layout,
   color,
-} from '../src'
+} from '..'
 
 test('returns consistent responsive styles', () => {
   const a = layout({

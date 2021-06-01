@@ -1,4 +1,4 @@
-import { style, width as systemWidth } from '../src'
+import { style, width as systemWidth } from '..'
 
 const width = style({
   prop: 'width',

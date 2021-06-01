@@ -30,7 +30,6 @@
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.4.0",
-    "@emotion/styled": "^10.0.14",
     "@rollup/plugin-commonjs": "17.1.0",
     "@rollup/plugin-node-resolve": "11.2.0",
     "csstype": "^3.0.8",
@@ -47,10 +46,10 @@
   },
   "jest": {
     "testMatch": [
-      "**/packages/**/test/*.js"
+      "**/src/**/test/*.js"
     ],
     "collectCoverageFrom": [
-      "**/packages/**/src/*.js"
+      "**/src/**/src/*.js"
     ],
     "coverageReporters": [
       "lcov",
@@ -74,7 +73,6 @@
     ]
   },
   "dependencies": {
-    "@rollup/plugin-node-resolve": "13.0.0",
     "color": "^3.1.0",
     "lodash.get": "^4.4.2",
     "lodash.merge": "^4.6.1",
@@ -82,7 +80,9 @@
     "lodash.set": "^4.3.2",
     "object-assign": "^4.1.1",
     "prop-types": "^15.7.2",
-    "react-scripts": "^3.0.1"
+    "react-scripts": "^3.0.1",
+    "@emotion/styled": "^10.0.14",
+    "@emotion/react": "^11.4.0"
   },
   "version": "5.1.9"
 }

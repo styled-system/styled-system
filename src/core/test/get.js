@@ -1,4 +1,4 @@
-import { get } from '../src'
+import { get } from '..'
 
 test('returns a deeply nested value', () => {
   const a = get(

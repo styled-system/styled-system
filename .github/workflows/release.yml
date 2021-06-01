@@ -24,9 +24,6 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: Test
-        run: yarn test
-
       - name: Create Tag
         id: tag_version
         uses: mathieudutour/github-tag-action@v5.3

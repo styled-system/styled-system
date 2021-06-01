@@ -1,4 +1,4 @@
-import shadow from '../src'
+import shadow from '..'
 
 test('returns shadow styles', () => {
   const style = shadow({

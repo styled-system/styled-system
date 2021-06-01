@@ -1,4 +1,4 @@
-import typography from '../src'
+import typography from '..'
 
 test('returns typography styles', () => {
   const style = typography({

@@ -10,7 +10,7 @@ import {
   borders,
   shadow,
   compose,
-} from '../src'
+} from '..'
 
 const theme = {
   colors: {

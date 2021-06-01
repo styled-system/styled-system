@@ -1,4 +1,4 @@
-import shouldForwardProp, { props } from '../src'
+import shouldForwardProp, { props } from '..'
 
 test('returns true for valid HTML attributes', () => {
   const should = shouldForwardProp('href')
