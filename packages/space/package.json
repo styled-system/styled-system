@@ -10,6 +10,6 @@
     "@styled-system/core": "^5.1.2"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "restricted"
   }
 }

@@ -22,7 +22,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.GIT_PACKAGES_TOKEN }}
 
       - name: Build
-        run: yarn build
+        run: yarn prepare
 
       - name: Test
         run: yarn test
