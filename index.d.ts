@@ -25,6 +25,8 @@
 
 import * as CSS from 'csstype';
 
+import { DefaultTheme } from 'styled-components';
+
 export function get(obj: any, ...paths: Array<string | number>): any;
 
 export type ObjectOrArray<T, K extends keyof any = keyof any> = T[] | Record<K, T | Record<K, T> | T[]>;
@@ -55,7 +57,7 @@ export interface Theme<TLength = TLengthStyledSystem> {
     textStyles?: ObjectOrArray<CSS.StandardProperties>;
 }
 
-export type RequiredTheme = Required<Theme>;
+export type RequiredTheme = Required<DefaultTheme>;
 
 export type ResponsiveValue<T, ThemeType extends Theme = RequiredTheme> =
   | T
@@ -1298,7 +1300,7 @@ export const background: styleFn;
  * Position
  */
 
-export interface ZIndexProps<T, ThemeType extends Theme = RequiredTheme> {
+export interface ZIndexProps<ThemeType extends Theme = RequiredTheme> {
     /**
      * The z-index CSS property sets the z-order of a positioned element and its descendants or
      * flex items. Overlapping elements with a larger z-index cover those with a smaller one.
