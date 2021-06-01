@@ -1,12 +1,13 @@
 {
   "name": "@tradersclub/styled-system",
   "typings": "index.d.ts",
-  "main": "dist/src/index.js",
+  "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "scripts": {
     "prettier": "prettier \"src/**/{src,test,examples}/**/*.js\" --write",
     "prettier:docs": "prettier \"docs/**/*.{js,md}\" --write",
     "clean": "rm -rf dist",
+    "build": "npx rollup -c",
     "prepare": "yarn build:cjs && yarn build:esm",
     "build:cjs": "NODE_ENV=cjs babel ./src/** -d ./dist --root-mode upward",
     "build:esm": "NODE_ENV=esm babel ./src/** -o ./dist/index.esm.js --root-mode upward",
@@ -29,6 +30,8 @@
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.4.0",
+    "@rollup/plugin-commonjs": "17.1.0",
+    "@rollup/plugin-node-resolve": "11.2.0",
     "@emotion/styled": "^10.0.14",
     "csstype": "^3.0.8",
     "husky": "^4.0.10",
@@ -71,6 +74,7 @@
     ]
   },
   "dependencies": {
+    "@rollup/plugin-node-resolve": "13.0.0",
     "color": "^3.1.0",
     "lodash.get": "^4.4.2",
     "lodash.merge": "^4.6.1",
@@ -80,5 +84,5 @@
     "prop-types": "^15.7.2",
     "react-scripts": "^3.0.1"
   },
-  "version": "5.1.7"
+  "version": "5.1.8"
 }
