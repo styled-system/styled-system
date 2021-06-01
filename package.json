@@ -30,9 +30,9 @@
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.4.0",
+    "@emotion/styled": "^10.0.14",
     "@rollup/plugin-commonjs": "17.1.0",
     "@rollup/plugin-node-resolve": "11.2.0",
-    "@emotion/styled": "^10.0.14",
     "csstype": "^3.0.8",
     "husky": "^4.0.10",
     "jest": "^26.0.1",
@@ -84,5 +84,5 @@
     "prop-types": "^15.7.2",
     "react-scripts": "^3.0.1"
   },
-  "version": "5.1.8"
+  "version": "5.1.9"
 }
