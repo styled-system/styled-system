@@ -1,7 +1,5 @@
 {
-  "name": "@tradersclub/styled-system",
   "private": true,
-  "typings": "index.d.ts",
   "workspaces": [
     "packages/*",
     "examples/*",
@@ -34,6 +32,7 @@
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.4.0",
+    "csstype": "^3.0.8",
     "husky": "^4.0.10",
     "jest": "^26.0.1",
     "jest-emotion": "^10.0.11",
