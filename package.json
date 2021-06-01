@@ -1,4 +1,5 @@
 {
+  "name": "@tradersclub/styled-system",
   "private": true,
   "workspaces": [
     "packages/*",
