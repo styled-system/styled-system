@@ -1,4 +1,4 @@
-import position from '../src'
+import position from '..'
 
 test('returns position styles', () => {
   const style = position({

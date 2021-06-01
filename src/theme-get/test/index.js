@@ -1,4 +1,4 @@
-import { themeGet } from '../src'
+import { themeGet } from '..'
 
 const theme = {
   colors: {

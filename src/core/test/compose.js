@@ -1,4 +1,4 @@
-import { system, compose } from '../src'
+import { system, compose } from '..'
 
 const color = system({
   color: true,

@@ -2,8 +2,8 @@ import {
   variant,
   textStyle,
   colorStyle,
-} from '../src'
-import { system, compose } from '../core'
+} from '..'
+import { system, compose } from '../../core'
 
 const theme = {
   colors: {

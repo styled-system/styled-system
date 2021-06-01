@@ -1,4 +1,4 @@
-import layout from '../src'
+import layout from '..'
 
 test('returns layout styles', () => {
   const style = layout({

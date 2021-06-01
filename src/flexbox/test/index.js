@@ -1,4 +1,4 @@
-import flexbox from '../src'
+import flexbox from '..'
 
 test('returns flexbox styles', () => {
   const style = flexbox({

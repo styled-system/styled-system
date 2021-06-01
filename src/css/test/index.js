@@ -1,4 +1,4 @@
-import css from '../src'
+import css from '..'
 
 const theme = {
   colors: {

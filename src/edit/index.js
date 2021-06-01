@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, ThemeContext } from '@emotion/core'
+import { jsx, ThemeContext } from '@emotion/react'
 import React, { useReducer, useContext } from 'react'
 import merge from 'lodash.merge'
 import omit from 'lodash.omit'

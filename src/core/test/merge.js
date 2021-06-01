@@ -1,4 +1,4 @@
-import { merge } from '../src'
+import { merge } from '..'
 
 test('deeply merges', () => {
   const result = merge(

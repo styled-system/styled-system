@@ -2,7 +2,7 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import styled from 'styled-components'
 import 'jest-styled-components'
-import { space, color } from '../src'
+import { space, color } from '..'
 
 const render = el => renderer.create(el).toJSON()
 

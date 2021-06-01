@@ -1,4 +1,4 @@
-import propTypes from '../src'
+import propTypes from '..'
 import {
   space,
   typography,
@@ -13,7 +13,7 @@ import {
   buttonStyle,
   textStyle,
   colorStyle
-} from 'styled-system'
+} from '../../styled-system'
 
 test('includes prop types for all space prop names', () => {
   const types = Object.keys(propTypes.space)
