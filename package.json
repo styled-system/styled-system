@@ -1,7 +1,8 @@
 {
   "name": "@tradersclub/styled-system",
   "typings": "index.d.ts",
-  "main": "dist/index.esm.js",
+  "main": "dist/styled-system/dist/index.js",
+  "module": "dist/styled-system/dist/index.esm.js",
   "scripts": {
     "prettier": "prettier \"packages/**/{src,test,examples}/**/*.js\" --write",
     "prettier:docs": "prettier \"docs/**/*.{js,md}\" --write",
