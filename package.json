@@ -1,15 +1,15 @@
 {
   "name": "@tradersclub/styled-system",
   "typings": "index.d.ts",
-  "main": "dist/styled-system/dist/index.js",
-  "module": "dist/styled-system/dist/index.esm.js",
+  "main": "dist/src/index.js",
+  "module": "dist/index.esm.js",
   "scripts": {
-    "prettier": "prettier \"packages/**/{src,test,examples}/**/*.js\" --write",
+    "prettier": "prettier \"src/**/{src,test,examples}/**/*.js\" --write",
     "prettier:docs": "prettier \"docs/**/*.{js,md}\" --write",
     "clean": "rm -rf dist",
     "prepare": "yarn build:cjs && yarn build:esm",
-    "build:cjs": "NODE_ENV=cjs babel src -d dist --root-mode upward",
-    "build:esm": "NODE_ENV=esm babel src -o dist/index.esm.js --root-mode upward",
+    "build:cjs": "NODE_ENV=cjs babel ./src/** -d ./dist --root-mode upward",
+    "build:esm": "NODE_ENV=esm babel ./src/** -o ./dist/index.esm.js --root-mode upward",
     "publish": "yarn publish",
     "logo": "npx repng docs/src/logo/index.js -d docs/static -f logo.png -w 512 -h 512",
     "logo-svg": "npx scrs docs/src/logo/index.js --svg > docs/static/logo.svg",
@@ -30,17 +30,17 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.4.0",
     "@emotion/styled": "^10.0.14",
-    "jest-styled-components": "^7.0.0",
-    "styled-components": "^5.0.0",
     "csstype": "^3.0.8",
     "husky": "^4.0.10",
     "jest": "^26.0.1",
     "jest-emotion": "^10.0.11",
+    "jest-styled-components": "^7.0.0",
     "lerna": "^3.13.4",
     "lint-staged": "^10.0.0",
     "prettier": "^2.0.1",
     "react": "^16.8.5",
-    "react-test-renderer": "^16.8.5"
+    "react-test-renderer": "^16.8.5",
+    "styled-components": "^5.0.0"
   },
   "jest": {
     "testMatch": [
@@ -71,13 +71,14 @@
     ]
   },
   "dependencies": {
-    "react-scripts": "^3.0.1",
-    "object-assign": "^4.1.1",
     "color": "^3.1.0",
     "lodash.get": "^4.4.2",
     "lodash.merge": "^4.6.1",
     "lodash.omit": "^4.5.0",
     "lodash.set": "^4.3.2",
-    "prop-types": "^15.7.2"
-  }
+    "object-assign": "^4.1.1",
+    "prop-types": "^15.7.2",
+    "react-scripts": "^3.0.1"
+  },
+  "version": "5.1.7"
 }
