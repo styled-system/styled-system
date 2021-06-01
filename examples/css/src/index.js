@@ -2,7 +2,7 @@
 import { jsx, Global, ThemeContext } from '@emotion/core'
 import React from 'react'
 import { render } from 'react-dom'
-import css from '@styled-system/css'
+import css from '../css'
 
 const theme = {
   fonts: {
@@ -66,7 +66,7 @@ export const App = props => {
           }}
         />
         <Heading>
-            @styled-system/css
+            ../css
           example
         </Heading>
         <pre
@@ -74,7 +74,7 @@ export const App = props => {
             fontFamily: 'monospace',
             color: 'primary'
           })}>
-          npm i @styled-system/css
+          npm i ../css
         </pre>
       </Root>
     </ThemeContext.Provider>
