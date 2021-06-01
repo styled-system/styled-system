@@ -1,5 +1,7 @@
 {
+  "name": "@tradersclub/styled-system",
   "private": true,
+  "typings": "index.d.ts",
   "workspaces": [
     "packages/*",
     "examples/*",
@@ -56,7 +58,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jxnblk/styled-system.git"
+    "url": "git+https://github.com/tradersclub/styled-system.git"
   },
   "husky": {
     "hooks": {
