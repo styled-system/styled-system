@@ -1,5 +1,7 @@
 {
-  "name": "styled-system",
+  "name": "@tradersclub/styled-system",
+  "private": true,
+  "typings": "index.d.ts",
   "version": "5.1.5",
   "description": "Responsive, theme-based style props for building design systems with React",
   "main": "dist/index.js",

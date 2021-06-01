@@ -9,6 +9,6 @@
     "styled-system": "^5.1.5"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "restricted"
   }
 }
