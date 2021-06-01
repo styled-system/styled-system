@@ -72,5 +72,6 @@
   },
   "dependencies": {
     "react-scripts": "^3.0.1"
-  }
+  },
+  "version": "5.2.0"
 }
