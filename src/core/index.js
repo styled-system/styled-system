@@ -32,6 +32,10 @@ const createMediaQuery = n => `@media screen and (min-width: ${n})`
 const getValue = (n, scale) => get(scale, n, n)
 
 export const get = (obj, key, def, p, undef) => {
+  if (obj[key]) {
+    return obj[key];
+  }
+
   key = key && key.split ? key.split('.') : [key]
   for (p = 0; p < key.length; p++) {
     obj = obj ? obj[key[p]] : undef
