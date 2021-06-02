@@ -5,6 +5,10 @@ const config = {
     property: 'color',
     scale: 'colors',
   },
+  textColor: {
+    property: 'color',
+    scale: 'colors',
+  },
   backgroundColor: {
     property: 'backgroundColor',
     scale: 'colors',
