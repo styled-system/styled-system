@@ -147,10 +147,13 @@ const transforms = [
 export const responsive = styles => theme => {
   const next = {}
   const breakpoints = get(theme, 'breakpoints', defaultBreakpoints)
-  const mediaQueries = [
-    null,
-    ...breakpoints.map(n => `@media screen and (min-width: ${n})`),
-  ]
+  const mediaQueries = Object.values(breakpoints).map((item) => {
+    if (item === '') {
+      return null;
+    }
+
+    return `@media screen and (min-width: ${item})`;
+  })
 
   for (const key in styles) {
     const value =
