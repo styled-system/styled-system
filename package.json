@@ -8,9 +8,6 @@
     "prettier:docs": "prettier \"docs/**/*.{js,md}\" --write",
     "clean": "rm -rf dist",
     "build": "npx rollup -c",
-    "prepare": "yarn build:cjs && yarn build:esm",
-    "build:cjs": "NODE_ENV=cjs babel ./src/** -d ./dist --root-mode upward",
-    "build:esm": "NODE_ENV=esm babel ./src/** -o ./dist/index.esm.js --root-mode upward",
     "publish": "yarn publish",
     "logo": "npx repng docs/src/logo/index.js -d docs/static -f logo.png -w 512 -h 512",
     "logo-svg": "npx scrs docs/src/logo/index.js --svg > docs/static/logo.svg",
@@ -87,5 +84,5 @@
     "prop-types": "^15.7.2",
     "react-scripts": "^3.0.1"
   },
-  "version": "5.2.4"
+  "version": "5.2.5"
 }
