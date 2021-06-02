@@ -1,10 +1,6 @@
 import { system } from '../core'
 
 const config = {
-  color: {
-    property: 'color',
-    scale: 'colors',
-  },
   textColor: {
     property: 'color',
     scale: 'colors',

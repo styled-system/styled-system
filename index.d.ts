@@ -305,7 +305,6 @@ export interface TextColorProps<ThemeType extends Theme = RequiredTheme, TVal = 
      *
      * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/color)
      */
-    color?: ResponsiveValue<TVal, ThemeType>;
     textColor?: ResponsiveValue<TVal, ThemeType>;
 }
 
