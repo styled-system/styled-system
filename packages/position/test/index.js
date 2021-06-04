@@ -18,6 +18,11 @@ test('returns theme values', () => {
   expect(style).toEqual({ top: 4, right: 8, bottom: 16, left: 32 })
 })
 
+test('returns theme values using inset', () => {
+  const style = position({ inset: 4 })
+  expect(style).toEqual({ top: 32, right: 32, bottom: 32, left: 32 })
+})
+
 test('returns pixel values', () => {
   const style = position({
     top: '1px',
@@ -30,5 +35,15 @@ test('returns pixel values', () => {
     right: '2px',
     bottom: '3px',
     left: '4px',
+  })
+})
+
+test('returns percent values using inset', () => {
+  const style = position({ inset: '25%' })
+  expect(style).toEqual({
+    top: '25%',
+    right: '25%',
+    bottom: '25%',
+    left: '25%',
   })
 })
