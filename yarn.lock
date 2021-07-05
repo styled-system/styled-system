@@ -16915,9 +16915,9 @@ remark-stringify@^8.1.0:
     xtend "^4.0.1"
 
 remark-unwrap-images@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/remark-unwrap-images/-/remark-unwrap-images-2.0.0.tgz#65134065e3605c64a37d22ab665058fc5286920f"
-  integrity sha512-uehiJU5U1ZNQxTKUlAKOQhVyFsc+9WWvamkuoF3ILdMpASHwA1JbzTOZcRWv+annYfDWuPSuoZAWdt1r0SlrfQ==
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/remark-unwrap-images/-/remark-unwrap-images-2.1.0.tgz#1dda005e8397c6f1792e4c8d38ed29602f9284cc"
+  integrity sha512-DpM7oEIXNjS3aDQpzxWrTWhUJcd5b8LznbSZnSPi1Yc3fJgLYJlx9uzkj5ekyp01PSBbSbPM2jq4959mcIetvA==
   dependencies:
     hast-util-whitespace "^1.0.0"
     unist-util-visit "^2.0.0"
