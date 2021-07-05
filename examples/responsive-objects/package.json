@@ -3,7 +3,7 @@
   "version": "5.0.0-7",
   "private": true,
   "dependencies": {
-    "@emotion/core": "^10.0.10",
+    "@emotion/core": "^11.0.0",
     "@emotion/styled": "^10.0.10",
     "emotion-theming": "^10.0.10",
     "react": "^16.8.5",

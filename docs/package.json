@@ -9,7 +9,7 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.10",
+    "@emotion/core": "^11.0.0",
     "@emotion/styled": "^10.0.11",
     "@mdx-js/mdx": "^1.0.19",
     "@mdx-js/react": "^1.0.16",
