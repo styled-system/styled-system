@@ -5,7 +5,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.9",
     "@emotion/styled": "^10.0.9",
-    "emotion-theming": "^10.0.9",
+    "emotion-theming": "^11.0.0",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-scripts": "^3.0.1",
