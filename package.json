@@ -34,7 +34,7 @@
     "@babel/register": "^7.4.0",
     "husky": "^4.0.10",
     "jest": "^26.0.1",
-    "jest-emotion": "^10.0.11",
+    "jest-emotion": "^11.0.0",
     "lerna": "^3.13.4",
     "lint-staged": "^10.0.0",
     "prettier": "^2.0.1",
