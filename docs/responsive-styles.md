@@ -70,13 +70,16 @@ breakpoints.md = breakpoints[1]
 breakpoints.lg = breakpoints[2]
 breakpoints.xl = breakpoints[3]
 
+// alias for mobile media query using "pointer: coarse"
+breakpoints.mobile = '@media only screen and (pointer: coarse)'
+
 export default {
   breakpoints,
 }
 ```
 
 ```jsx
-<Box width={{ _: 1, sm: 1, md: 1 / 2, lg: 1 / 4 }} />
+<Box width={{ _: 1, sm: 1, md: 1 / 2, lg: 1 / 4, mobile: 2 }} />
 ```
 
 Read more in the [Array Props Guide](/guides/array-props).

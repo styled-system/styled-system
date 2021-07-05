@@ -28,7 +28,16 @@ const sort = obj => {
 const defaults = {
   breakpoints: [40, 52, 64].map(n => n + 'em'),
 }
-const createMediaQuery = n => `@media screen and (min-width: ${n})`
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith
+const stringStartsWith = (str, search) =>
+  str.substring(0, search.length) === search
+
+const createMediaQuery = n => {
+  if (typeof n === 'string' && stringStartsWith(n, '@media ')) {
+    return n
+  }
+  return `@media screen and (min-width: ${n})`
+}
 const getValue = (n, scale) => get(scale, n, n)
 
 export const get = (obj, key, def, p, undef) => {
