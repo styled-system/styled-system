@@ -30,6 +30,11 @@ const config = {
     scale: 'space',
     defaultScale: defaults.space,
   },
+  inset: {
+    properties: ['top', 'right', 'bottom', 'left'],
+    scale: 'space',
+    defaultScale: defaults.space,
+  },
 }
 
 export const position = system(config)
