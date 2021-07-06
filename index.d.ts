@@ -308,6 +308,8 @@ export interface TextColorProps<ThemeType extends Theme = RequiredTheme, TVal = 
     textColor?: ResponsiveValue<TVal, ThemeType>;
 }
 
+export const textColor: styleFn;
+
 export interface BackgroundColorProps<ThemeType extends Theme = RequiredTheme, TVal = ThemeValue<'colors', ThemeType>> {
     /**
      * The color utility parses a component's `color` and `bg` props and converts them into CSS declarations.
