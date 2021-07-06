@@ -39,7 +39,7 @@ export const get = (obj, key, def, p, undef) => {
   return obj === undef ? def : obj
 }
 
-export const createParser = config => {
+export const createParser = (config, getScale = get) => {
   const cache = {}
   const parse = props => {
     let styles = {}
@@ -50,7 +50,7 @@ export const createParser = config => {
       if (!config[key]) continue
       const sx = config[key]
       const raw = props[key]
-      const scale = get(props.theme, sx.scale, sx.defaults)
+      const scale = getScale(props.theme, sx.scale, sx.defaults)
 
       if (typeof raw === 'object') {
         cache.breakpoints =
@@ -94,7 +94,7 @@ export const createParser = config => {
   const keys = Object.keys(config).filter(k => k !== 'config')
   if (keys.length > 1) {
     keys.forEach(key => {
-      parse[key] = createParser({ [key]: config[key] })
+      parse[key] = createParser({ [key]: config[key] }, getScale)
     })
   }
 

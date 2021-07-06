@@ -1,6 +1,11 @@
 import { get, createParser } from '@styled-system/core'
 import css from '@styled-system/css'
 
+const getMergedScale = (theme, scale, variants = {}) => {
+  const themeVariants = get(theme, scale) || {};
+  return {...variants, ...themeVariants};
+}
+
 export const variant = ({
   scale,
   prop = 'variant',
@@ -20,7 +25,7 @@ export const variant = ({
   const config = {
     [prop]: sx,
   }
-  const parser = createParser(config)
+  const parser = createParser(config, getMergedScale)
   return parser
 }
 
