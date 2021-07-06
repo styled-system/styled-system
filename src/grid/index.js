@@ -6,17 +6,17 @@ const defaults = {
 
 const config = {
   gridGap: {
-    property: 'gridGap',
+    property: 'gap',
     scale: 'space',
     defaultScale: defaults.space,
   },
   gridColumnGap: {
-    property: 'gridColumnGap',
+    property: 'columnGap',
     scale: 'space',
     defaultScale: defaults.space,
   },
   gridRowGap: {
-    property: 'gridRowGap',
+    property: 'rowGap',
     scale: 'space',
     defaultScale: defaults.space,
   },
