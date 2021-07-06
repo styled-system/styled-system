@@ -1,10 +1,7 @@
-import { system } from '@styled-system/core'
+import { system, compose } from '@styled-system/core'
+import box from '@styled-system/box'
 
 const config = {
-  alignItems: true,
-  alignContent: true,
-  justifyItems: true,
-  justifyContent: true,
   flexWrap: true,
   flexDirection: true,
   // item
@@ -12,11 +9,10 @@ const config = {
   flexGrow: true,
   flexShrink: true,
   flexBasis: true,
-  justifySelf: true,
-  alignSelf: true,
   order: true,
 }
 
-export const flexbox = system(config)
+const flex = system(config)
+export const flexbox = compose(flex, box)
 
 export default flexbox

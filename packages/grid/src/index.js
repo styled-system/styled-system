@@ -1,4 +1,5 @@
-import { system } from '@styled-system/core'
+import { system, compose } from '@styled-system/core'
+import box from '@styled-system/box'
 
 const defaults = {
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
@@ -31,5 +32,7 @@ const config = {
   gridArea: true,
 }
 
-export const grid = system(config)
+const gridConfig = system(config)
+export const grid = compose(gridConfig, box)
+
 export default grid

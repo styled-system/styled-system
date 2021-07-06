@@ -202,7 +202,7 @@ The `width` prop is transformed based on the following:
 import { flexbox } from 'styled-system'
 ```
 
-The `flexbox` utility includes style props for `alignItems`, `alignContent`, `justifyItems`, `justifyContent`, `flexWrap`, `flexDirection`, `flex`, `flexGrow`, `flexShrink`, `flexBasis`, `justifySelf`, `alignSelf`, and `order`.
+The `flexbox` utility includes style props for `alignItems`, `alignContent`, `justifyItems`, `justifyContent`, `placeItems`,`placeContent`, `flexWrap`, `flexDirection`, `flex`, `flexGrow`, `flexShrink`, `flexBasis`, `justifySelf`, `alignSelf`, and `order`.
 
 ```jsx
 // alignItems
@@ -213,6 +213,9 @@ The `flexbox` utility includes style props for `alignItems`, `alignContent`, `ju
 
 // justifyContent
 <Flex justifyContent='center' />
+
+// placeContent
+<Flex placeContent='center stretch' />
 
 // flexWrap
 <Flex flexWrap='wrap' />
@@ -242,9 +245,13 @@ The `flexbox` utility includes style props for `alignItems`, `alignContent`, `ju
 import { grid } from 'styled-system'
 ```
 
-The `grid` utility includes style props for `gridGap`, `gridColumnGap`, `gridRowGap`, `gridColumn`, `gridRow`, `gridAutoFlow`, `gridAutoColumns`, `gridAutoRows`, `gridTemplateColumns`, `gridTemplateRows`, `gridTemplateAreas`, and `gridArea`.
+The `grid` utility includes style props for `gap`, `gridGap`, `gridColumnGap`, `gridRowGap`, `gridColumn`, `gridRow`, `gridAutoFlow`, `gridAutoColumns`, `gridAutoRows`, `gridTemplateColumns`, `gridTemplateRows`, `gridTemplateAreas`,`gridArea`, `alignItems`, `alignContent`, `justifyItems`, `justifyContent`, `placeItems`,`placeContent`,`justifySelf`, and  `alignSelf`.
 
 ```jsx
+// gap
+<Box gap={10} />
+<Box gap={[ 1, 2 ]} />
+
 // gridGap
 <Box gridGap={10} />
 <Box gridGap={[ 1, 2 ]} />
