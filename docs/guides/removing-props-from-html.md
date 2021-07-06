@@ -31,12 +31,18 @@ const Box = styled('div', {
 
 ## Styled Components
 
-Unfortunately, Styled Components does not currently support an API to control which props are forwarded to the HTML element.
-**If you'd like to see support for this, please leave a comment on their long-running issue:**
+As of [release v5.1.0](https://styled-components.com/releases#v5.1.0) Styled Components has added a `shouldForwardProp` API. It isn't all that different from what Emotion is doing.
 
-**[Separate HTML attributes from styling props][styled components issue]**
+```js
+import styled from 'styled-components';
+import { typography } from 'styled-system';
 
-[styled components issue]: https://github.com/styled-components/styled-components/issues/439
+export const Header = styled.h1.withConfig({
+  shouldForwardProp: prop => !['fontSize'].includes(prop),
+})`
+  ${typography};
+`;
+```
 
 ## `css` Prop
 
