@@ -1,3 +1,4 @@
+
 # Removing props from HTML elements
 
 Due to the nature of the popular `styled` higher order component,
@@ -31,12 +32,27 @@ const Box = styled('div', {
 
 ## Styled Components
 
-Unfortunately, Styled Components does not currently support an API to control which props are forwarded to the HTML element.
+Untill version 5.1.0, Styled Components does not currently support an API to control which props are forwarded to the HTML element.
 **If you'd like to see support for this, please leave a comment on their long-running issue:**
 
 **[Separate HTML attributes from styling props][styled components issue]**
 
 [styled components issue]: https://github.com/styled-components/styled-components/issues/439
+
+**GOOD NEWS:** starting from version 5.1.0, thanks to [this pull request](https://github.com/styled-components/styled-components/pull/3006), it is possible to use the following syntax to avoid passing the props down to the dom:
+
+```js
+// example using StyledComponents
+import React from 'react'
+import { color } from 'styled-system'
+import shouldForwardProp from  "@styled-system/should-forward-prop";
+
+const MyComponent = styled.div.withConfig({
+shouldForwardProp
+})`
+/* Your styles here */
+`;
+```
 
 ## `css` Prop
 
