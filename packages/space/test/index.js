@@ -191,7 +191,7 @@ test('supports object values', () => {
       _: 0,
       0: 1,
       1: 2,
-    }
+    },
   })
   expect(styles).toEqual({
     margin: 0,
@@ -210,7 +210,7 @@ test('supports non-array breakpoints', () => {
     breakpoints: {
       small: '40em',
       medium: '52em',
-    }
+    },
   }
   const styles = space({
     theme,
@@ -221,7 +221,7 @@ test('supports non-array breakpoints', () => {
       _: 0,
       small: 1,
       medium: 2,
-    }
+    },
   })
   expect(styles).toEqual({
     margin: 0,
@@ -232,5 +232,49 @@ test('supports non-array breakpoints', () => {
     '@media screen and (min-width: 52em)': {
       margin: 8,
     },
+  })
+})
+
+test('supports non-array spacing', () => {
+  const theme = {
+    disableStyledSystemCache: true,
+    space: {
+      s: 4,
+      m: 8,
+      l: 12,
+    },
+  }
+  const styles = space({
+    theme,
+    p: 's',
+    m: 'm',
+  })
+  expect(styles).toEqual({
+    padding: 4,
+    margin: 8,
+  })
+})
+
+test('supports non-array spacing and negative theme value', () => {
+  const theme = {
+    disableStyledSystemCache: true,
+    space: {
+      s: 4,
+      m: 8,
+      l: 12,
+    },
+  }
+  const styles = space({
+    theme,
+    mt: 's',
+    mr: '-m',
+    mb: '-l',
+    ml: 'm',
+  })
+  expect(styles).toEqual({
+    marginTop: 4,
+    marginRight: -8,
+    marginBottom: -12,
+    marginLeft: 8,
   })
 })

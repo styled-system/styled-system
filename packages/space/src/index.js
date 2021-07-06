@@ -4,11 +4,31 @@ const defaults = {
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
 }
 
-const isNumber = n => typeof n === 'number' && !isNaN(n)
+const isNumber = (n) => typeof n === 'number' && !isNaN(n)
 
 const getMargin = (n, scale) => {
   if (!isNumber(n)) {
-    return get(scale, n, n)
+    const value = get(scale, n, n)
+
+    if (!isNumber(value)) {
+      const isNegative =
+        typeof value === 'string' ? value.startsWith('-') : false
+
+      if (!isNegative) {
+        return value
+      }
+
+      const absolute = value.slice(1)
+      const absoluteValue = get(scale, absolute, absolute)
+
+      if (!isNumber(absoluteValue)) {
+        return value
+      }
+
+      return absoluteValue * -1
+    }
+
+    return value
   }
 
   const isNegative = n < 0
