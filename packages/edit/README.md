@@ -1,9 +1,8 @@
-
 # @styled-system/edit
 
 **WIP** Debugging tool for live editing Styled System theme objects
 
-*Currently only works with Emotion*
+_Currently only works with Emotion_
 
 ```sh
 npm i @styled-system/edit
@@ -15,13 +14,14 @@ import { ThemeProvider } from 'emotion-theming'
 import { EditProvider, ThemeControls } from '@styled-system/edit'
 import theme from './theme'
 
-export default props =>
+export default props => (
   <ThemeProvider theme={theme}>
     <EditProvider>
       {props.children}
       <ThemeControls />
     </EditProvider>
   </ThemeProvider>
+)
 ```
 
 ## Components
@@ -38,14 +38,15 @@ import { ThemeProvider } from 'emotion-theming'
 import { EditProvider, ThemeControls } from '@styled-system/edit'
 import theme from './theme'
 
-export default props =>
+export default props => (
   <ThemeProvider theme={theme}>
     <EditProvider>
       {props.children}
-      <FieldSet name='colors' />
-      <FieldSet name='fontSizes' />
+      <FieldSet name="colors" />
+      <FieldSet name="fontSizes" />
     </EditProvider>
   </ThemeProvider>
+)
 ```
 
 ```jsx
@@ -55,14 +56,15 @@ import { ThemeProvider } from 'emotion-theming'
 import { EditProvider, ThemeControls } from '@styled-system/edit'
 import theme from './theme'
 
-export default props =>
+export default props => (
   <ThemeProvider theme={theme}>
     <EditProvider>
       {props.children}
-      <FieldSet name='colors.text' />
-      <FieldSet name='colors.background' />
+      <FieldSet name="colors.text" />
+      <FieldSet name="colors.background" />
     </EditProvider>
   </ThemeProvider>
+)
 ```
 
 ## `FieldSet`
@@ -83,5 +85,3 @@ export default props =>
 - `render` (function) render prop for custom field UI
 
 MIT License
-
-

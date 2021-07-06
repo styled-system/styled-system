@@ -7,6 +7,7 @@
   ],
   "scripts": {
     "prettier": "prettier \"packages/**/{src,test,examples}/**/*.js\" --write",
+    "prettier:readme": "prettier \"{examples,packages}/**/README.md\" --write",
     "prettier:docs": "prettier \"docs/**/*.{js,md}\" --write",
     "clean": "lerna exec -- rm -rf dist",
     "prepare": "yarn build:cjs && yarn build:esm",
