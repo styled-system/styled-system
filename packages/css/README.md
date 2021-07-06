@@ -93,6 +93,7 @@ Property  | Theme Key
 `minHeight` | `sizes`
 `maxHeight` | `sizes`
 `size` | `sizes`
+`transition` | `transitions`
 
 ## Responsive Arrays
 

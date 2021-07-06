@@ -50,6 +50,9 @@ const theme = {
   radii: {
     small: 5,
   },
+  transitions: {
+    text: 'color 300ms',
+  },
 }
 
 test('returns a function', () => {
@@ -455,4 +458,14 @@ test('returns correct media query order 2', () => {
     'paddingTop',
     'paddingBottom',
   ])
+})
+
+test('returns transition from theme', () => {
+  const result = css({
+    transition: 'text',
+  })(theme)
+
+  expect(result).toEqual({
+    transition: 'color 300ms',
+  })
 })

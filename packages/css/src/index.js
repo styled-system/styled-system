@@ -109,6 +109,7 @@ const scales = {
   maxHeight: 'sizes',
   flexBasis: 'sizes',
   size: 'sizes',
+  transition: 'transitions',
   // svg
   fill: 'colors',
   stroke: 'colors',
