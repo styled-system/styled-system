@@ -1,38 +1,33 @@
 // based on https://github.com/developit/dlv
-export var get = function get(obj, key, def, p, undef) {
-  var _key;
-
-  key = (_key = key) != null && _key.split ? key.split('.') : [key];
-
+export const get = (obj, key, def, p, undef) => {
+  key = key?.split ? key.split('.') : [key]
   for (p = 0; p < key.length; p++) {
-    var _obj;
-
-    obj = ((_obj = obj) == null ? void 0 : _obj[key[p]]) || undef;
+    obj = obj?.[key[p]] || undef
   }
+  return obj === undef ? def : obj
+}
 
-  return obj === undef ? def : obj;
-};
-
-var assign = function assign(target) {
-  for (var i = 0; i < (arguments.length <= 1 ? 0 : arguments.length - 1); i += 1) {
-    var other = i + 1 < 1 || arguments.length <= i + 1 ? undefined : arguments[i + 1];
-    var keys = Object.keys(other);
-
-    for (var j = 0; j < keys.length; j += 1) {
-      var key = keys[j];
-      target[key] = other[key];
+const assign = (target, ...others) => {
+  for (let i = 0; i < others.length; i += 1) {
+    const other = others[i];
+    const keys = Object.keys(other)
+    for (let j = 0; j < keys.length; j += 1) {
+      const key = keys[j]
+      target[key] = other[key]
     }
   }
 
-  return target;
-};
+  return target
+}
 
-var defaultBreakpoints = ['40em', '52em', '64em'];
-var defaultTheme = {
+const defaultBreakpoints = ['40em', '52em', '64em']
+
+const defaultTheme = {
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
-  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72]
-};
-var aliases = {
+  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
+}
+
+const aliases = {
   bg: 'backgroundColor',
   m: 'margin',
   mt: 'marginTop',
@@ -47,16 +42,18 @@ var aliases = {
   pb: 'paddingBottom',
   pl: 'paddingLeft',
   px: 'paddingX',
-  py: 'paddingY'
-};
-var multiples = {
+  py: 'paddingY',
+}
+
+const multiples = {
   marginX: ['marginLeft', 'marginRight'],
   marginY: ['marginTop', 'marginBottom'],
   paddingX: ['paddingLeft', 'paddingRight'],
   paddingY: ['paddingTop', 'paddingBottom'],
-  size: ['width', 'height']
-};
-var scales = {
+  size: ['width', 'height'],
+}
+
+const scales = {
   color: 'colors',
   backgroundColor: 'colors',
   borderColor: 'colors',
@@ -127,21 +124,20 @@ var scales = {
   size: 'sizes',
   // svg
   fill: 'colors',
-  stroke: 'colors'
-};
+  stroke: 'colors',
+}
 
-var positiveOrNegative = function positiveOrNegative(scale, value) {
+const positiveOrNegative = (scale, value) => {
   if (typeof value !== 'number' || value >= 0) {
-    return get(scale, value, value);
+    return get(scale, value, value)
   }
+  const absolute = Math.abs(value)
+  const n = get(scale, absolute, absolute)
+  if (typeof n === 'string') return '-' + n
+  return n * -1
+}
 
-  var absolute = Math.abs(value);
-  var n = get(scale, absolute, absolute);
-  if (typeof n === 'string') return '-' + n;
-  return n * -1;
-};
-
-var transforms = {
+const transforms = {
   'margin': positiveOrNegative,
   'marginTop': positiveOrNegative,
   'marginRight': positiveOrNegative,
@@ -152,104 +148,93 @@ var transforms = {
   'top': positiveOrNegative,
   'bottom': positiveOrNegative,
   'left': positiveOrNegative,
-  'right': positiveOrNegative
-};
-export var responsive = function responsive(styles) {
-  return function (theme) {
-    var next = {};
-    var breakpoints = get(theme, 'breakpoints', defaultBreakpoints);
-    var breakpointsLength = breakpoints.length;
-    var mediaQueries = new Array(breakpointsLength + 1);
-    mediaQueries[0] = null;
+  'right': positiveOrNegative,
+}
 
-    for (var j = 0; j < breakpointsLength; j += 1) {
-      mediaQueries[j + 1] = "@media screen and (min-width: " + breakpoints[j] + ")";
+export const responsive = styles => theme => {
+  const next = {}
+  const breakpoints = get(theme, 'breakpoints', defaultBreakpoints)
+  const breakpointsLength = breakpoints.length
+  const mediaQueries = new Array(breakpointsLength + 1)
+  mediaQueries[0] = null
+
+  for (let j = 0; j < breakpointsLength; j += 1) {
+    mediaQueries[j + 1] = `@media screen and (min-width: ${breakpoints[j]})`
+  }
+  if (typeof styles !== 'object' || styles === null) return {}
+  const keys = Object.keys(styles)
+  for (let i = 0; i < keys.length; i += 1) {
+    const key = keys[i]
+    const value =
+      typeof styles[key] === 'function' ? styles[key](theme) : styles[key]
+
+    if (value == null) continue
+    if (!Array.isArray(value)) {
+      next[key] = value
+      continue
     }
 
-    if (typeof styles !== 'object' || styles === null) return {};
-    var keys = Object.keys(styles);
+    const len = Math.min(value.length, mediaQueries.length)
+    for (let i = 0; i < len; i += 1) {
+      const media = mediaQueries[i]
+      if (!media) {
+        next[key] = value[i]
+        continue
+      }
+      next[media] = next[media] || {}
+      if (value[i] == null) continue
+      next[media][key] = value[i]
+    }
+  }
 
-    for (var i = 0; i < keys.length; i += 1) {
-      var key = keys[i];
-      var value = typeof styles[key] === 'function' ? styles[key](theme) : styles[key];
-      if (value == null) continue;
+  return next
+}
 
-      if (!Array.isArray(value)) {
-        next[key] = value;
-        continue;
+const css = args => (props = {}) => {
+  const theme = assign(Object.create(null), defaultTheme, props.theme || props)
+  const result = Object.create(null)
+  traverse(args, result)
+
+  function traverse(_args, carry) {
+    const obj = typeof _args === 'function' ? _args(theme) : _args
+    const styles = responsive(obj)(theme)
+
+    const keys = Object.keys(styles)
+    for (let i = 0; i < keys.length; i += 1) {
+      const key = keys[i]
+      let val = styles[key]
+      val = typeof val === 'function' ? val(theme) : val
+
+      if (key === 'variant') {
+        traverse(get(theme, val), carry)
+        continue
       }
 
-      var len = Math.min(value.length, mediaQueries.length);
+      if (typeof val === 'object') {
+        const child = carry[key] = Object.create(null)
+        traverse(val, child)
+        continue
+      }
 
-      for (var _i = 0; _i < len; _i += 1) {
-        var media = mediaQueries[_i];
+      const prop = get(aliases, key, key)
+      const scaleName = get(scales, prop)
+      const scale = get(theme, scaleName, get(theme, prop, {}))
+      const transform = get(transforms, prop, get)
+      const value = transform(scale, val, val)
 
-        if (!media) {
-          next[key] = value[_i];
-          continue;
+      if (multiples[prop]) {
+        const dirs = multiples[prop]
+
+        for (let j = 0; j < dirs.length; j += 1) {
+          carry[dirs[j]] = value
         }
-
-        next[media] = next[media] || {};
-        if (value[_i] == null) continue;
-        next[media][key] = value[_i];
+      } else {
+        carry[prop] = value
       }
     }
+  }
 
-    return next;
-  };
-};
+  return result
+}
 
-var css = function css(args) {
-  return function (props) {
-    if (props === void 0) {
-      props = {};
-    }
-
-    var theme = assign(Object.create(null), defaultTheme, props.theme || props);
-    var result = Object.create(null);
-    traverse(args, result);
-
-    function traverse(_args, carry) {
-      var obj = typeof _args === 'function' ? _args(theme) : _args;
-      var styles = responsive(obj)(theme);
-      var keys = Object.keys(styles);
-
-      for (var i = 0; i < keys.length; i += 1) {
-        var key = keys[i];
-        var val = styles[key];
-        val = typeof val === 'function' ? val(theme) : val;
-
-        if (key === 'variant') {
-          traverse(get(theme, val), carry);
-          continue;
-        }
-
-        if (typeof val === 'object') {
-          var child = carry[key] = Object.create(null);
-          traverse(val, child);
-          continue;
-        }
-
-        var prop = get(aliases, key, key);
-        var scaleName = get(scales, prop);
-        var scale = get(theme, scaleName, get(theme, prop, {}));
-        var transform = get(transforms, prop, get);
-        var value = transform(scale, val, val);
-
-        if (multiples[prop]) {
-          var dirs = multiples[prop];
-
-          for (var j = 0; j < dirs.length; j += 1) {
-            carry[dirs[j]] = value;
-          }
-        } else {
-          carry[prop] = value;
-        }
-      }
-    }
-
-    return result;
-  };
-};
-
-export default css;
+export default css
