@@ -1,13 +1,26 @@
 // based on https://github.com/developit/dlv
 export const get = (obj, key, def, p, undef) => {
-  key = key && key.split ? key.split('.') : [key]
+  key = key?.split ? key.split('.') : [key]
   for (p = 0; p < key.length; p++) {
-    obj = obj ? obj[key[p]] : undef
+    obj = obj?.[key[p]] || undef
   }
   return obj === undef ? def : obj
 }
 
-const defaultBreakpoints = [40, 52, 64].map(n => n + 'em')
+const assign = (target, ...others) => {
+  for (let i = 0; i < others.length; i += 1) {
+    const other = others[i];
+    const keys = Object.keys(other)
+    for (let j = 0; j < keys.length; j += 1) {
+      const key = keys[j]
+      target[key] = other[key]
+    }
+  }
+
+  return target
+}
+
+const defaultBreakpoints = ['40em', '52em', '64em']
 
 const defaultTheme = {
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
@@ -124,35 +137,34 @@ const positiveOrNegative = (scale, value) => {
   return n * -1
 }
 
-const transforms = [
-  'margin',
-  'marginTop',
-  'marginRight',
-  'marginBottom',
-  'marginLeft',
-  'marginX',
-  'marginY',
-  'top',
-  'bottom',
-  'left',
-  'right',
-].reduce(
-  (acc, curr) => ({
-    ...acc,
-    [curr]: positiveOrNegative,
-  }),
-  {}
-)
+const transforms = {
+  'margin': positiveOrNegative,
+  'marginTop': positiveOrNegative,
+  'marginRight': positiveOrNegative,
+  'marginBottom': positiveOrNegative,
+  'marginLeft': positiveOrNegative,
+  'marginX': positiveOrNegative,
+  'marginY': positiveOrNegative,
+  'top': positiveOrNegative,
+  'bottom': positiveOrNegative,
+  'left': positiveOrNegative,
+  'right': positiveOrNegative,
+}
 
 export const responsive = styles => theme => {
   const next = {}
   const breakpoints = get(theme, 'breakpoints', defaultBreakpoints)
-  const mediaQueries = [
-    null,
-    ...breakpoints.map(n => `@media screen and (min-width: ${n})`),
-  ]
+  const breakpointsLength = breakpoints.length
+  const mediaQueries = new Array(breakpointsLength + 1)
+  mediaQueries[0] = null
 
-  for (const key in styles) {
+  for (let j = 0; j < breakpointsLength; j += 1) {
+    mediaQueries[j + 1] = `@media screen and (min-width: ${breakpoints[j]})`
+  }
+  if (typeof styles !== 'object' || styles === null) return {}
+  const keys = Object.keys(styles)
+  for (let i = 0; i < keys.length; i += 1) {
+    const key = keys[i]
     const value =
       typeof styles[key] === 'function' ? styles[key](theme) : styles[key]
 
@@ -161,7 +173,9 @@ export const responsive = styles => theme => {
       next[key] = value
       continue
     }
-    for (let i = 0; i < value.slice(0, mediaQueries.length).length; i++) {
+
+    const len = Math.min(value.length, mediaQueries.length)
+    for (let i = 0; i < len; i += 1) {
       const media = mediaQueries[i]
       if (!media) {
         next[key] = value[i]
@@ -176,41 +190,47 @@ export const responsive = styles => theme => {
   return next
 }
 
-export const css = args => (props = {}) => {
-  const theme = { ...defaultTheme, ...(props.theme || props) }
-  let result = {}
-  const obj = typeof args === 'function' ? args(theme) : args
-  const styles = responsive(obj)(theme)
+const css = args => (props = {}) => {
+  const theme = assign(Object.create(null), defaultTheme, props.theme || props)
+  const result = Object.create(null)
+  traverse(args, result)
 
-  for (const key in styles) {
-    const x = styles[key]
-    const val = typeof x === 'function' ? x(theme) : x
+  function traverse(_args, carry) {
+    const obj = typeof _args === 'function' ? _args(theme) : _args
+    const styles = responsive(obj)(theme)
 
-    if (key === 'variant') {
-      const variant = css(get(theme, val))(theme)
-      result = { ...result, ...variant }
-      continue
-    }
+    const keys = Object.keys(styles)
+    for (let i = 0; i < keys.length; i += 1) {
+      const key = keys[i]
+      let val = styles[key]
+      val = typeof val === 'function' ? val(theme) : val
 
-    if (val && typeof val === 'object') {
-      result[key] = css(val)(theme)
-      continue
-    }
-
-    const prop = get(aliases, key, key)
-    const scaleName = get(scales, prop)
-    const scale = get(theme, scaleName, get(theme, prop, {}))
-    const transform = get(transforms, prop, get)
-    const value = transform(scale, val, val)
-
-    if (multiples[prop]) {
-      const dirs = multiples[prop]
-      
-      for (let i = 0; i < dirs.length; i++) {
-        result[dirs[i]] = value
+      if (key === 'variant') {
+        traverse(get(theme, val), carry)
+        continue
       }
-    } else {
-      result[prop] = value
+
+      if (typeof val === 'object') {
+        const child = carry[key] = Object.create(null)
+        traverse(val, child)
+        continue
+      }
+
+      const prop = get(aliases, key, key)
+      const scaleName = get(scales, prop)
+      const scale = get(theme, scaleName, get(theme, prop, {}))
+      const transform = get(transforms, prop, get)
+      const value = transform(scale, val, val)
+
+      if (multiples[prop]) {
+        const dirs = multiples[prop]
+
+        for (let j = 0; j < dirs.length; j += 1) {
+          carry[dirs[j]] = value
+        }
+      } else {
+        carry[prop] = value
+      }
     }
   }
 
