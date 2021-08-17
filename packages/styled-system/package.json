@@ -10,6 +10,10 @@
     "styled-components",
     "emotion"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/styled-system/styled-system.git"
+  },
   "author": "Brent Jackson",
   "license": "MIT",
   "dependencies": {
