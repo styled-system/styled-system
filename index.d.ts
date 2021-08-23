@@ -1513,6 +1513,61 @@ export interface ColorStyleProps<ThemeType extends Theme = RequiredTheme> {
 
 export const colorStyle: styleFn
 
+export const cursor: styleFn
+
+export interface CursorProps<ThemeType extends Theme = RequiredTheme> {
+  /**
+   * The cursor CSS property set one cursor to show when the mouse pointer is over an element.
+   *
+   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/cursor)
+   */
+  cursor?: ResponsiveValue<CSS.Property.Cursor, ThemeType>
+}
+
+export const animation: styleFn
+
+export interface AnimationProps<ThemeType extends Theme = RequiredTheme> {
+  /**
+   * The animation CSS property set one apply an animation between styles.
+   *
+   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/animation)
+   */
+  animation?: ResponsiveValue<CSS.Property.Animation, ThemeType>
+  animationName?: ResponsiveValue<CSS.Property.AnimationName, ThemeType>,
+  animationDuration?: ResponsiveValue<CSS.Property.AnimationDuration, ThemeType>,
+  animationTimingFunction?: ResponsiveValue<CSS.Property.AnimationTimingFunction, ThemeType>,
+  animationDelay?: ResponsiveValue<CSS.Property.AnimationDelay, ThemeType>,
+  animationDirection?: ResponsiveValue<CSS.Property.AnimationDirection, ThemeType>,
+  animationIterationCount?: ResponsiveValue<CSS.Property.AnimationIterationCount, ThemeType>,
+  animationFillMode?: ResponsiveValue<CSS.Property.AnimationFillMode, ThemeType>,
+  animationPlayState?: ResponsiveValue<CSS.Property.AnimationPlayState, ThemeType>,
+}
+
+export const objectFit: styleFn
+
+export interface ObjectFitProps<ThemeType extends Theme = RequiredTheme> {
+  /**
+   * The object fit CSS property specifies how the content of a replaced element should fit the box.
+   *
+   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit)
+   */
+  objectFit?: ResponsiveValue<CSS.Property.ObjectFit, ThemeType>
+}
+
+export const listStyle: styleFn
+
+export interface ListStyleProps<ThemeType extends Theme = RequiredTheme> {
+  /**
+   * The list-style CSS property allows you to set all the list style properties at once.
+   *
+   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style)
+   */
+  listStyle?: ResponsiveValue<CSS.Property.ListStyle, ThemeType>,
+  listStyleImage?: ResponsiveValue<CSS.Property.ListStyleImage, ThemeType>,
+  listStylePosition?: ResponsiveValue<CSS.Property.ListStylePosition, ThemeType>,
+  listStyleType?: ResponsiveValue<CSS.Property.ListStyleType, ThemeType>,
+}
+
 export interface StylesProps {
   space: typeof space
   margin: typeof margin
@@ -1592,6 +1647,10 @@ export interface StylesProps {
   textStyle: typeof textStyle
   colorStyle: typeof colorStyle
   buttonStyle: typeof buttonStyle
+  cursor: typeof cursor
+  animation: typeof animation
+  objectFit: typeof objectFit
+  listStyle: typeof listStyle
 }
 
 export const styles: StylesProps

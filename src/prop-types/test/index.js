@@ -12,7 +12,9 @@ import {
   shadow,
   buttonStyle,
   textStyle,
-  colorStyle
+  colorStyle,
+  cursor,
+  animation,
 } from '../../styled-system'
 
 test('includes prop types for all space prop names', () => {
@@ -78,4 +80,14 @@ test('includes prop types for all textStyle prop names', () => {
 test('includes prop types for all colorStyle prop names', () => {
   const types = Object.keys(propTypes.colorStyle)
   expect(types).toEqual(colorStyle.propNames)
+})
+
+test('includes prop types for all cursor prop names', () => {
+  const types = Object.keys(propTypes.colorStyle)
+  expect(types).toEqual(cursor.propNames)
+})
+
+test('includes prop types for all animation prop names', () => {
+  const types = Object.keys(propTypes.colorStyle)
+  expect(types).toEqual(animation.propNames)
 })

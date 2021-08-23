@@ -1,8 +1,4 @@
-import {
-  variant,
-  textStyle,
-  colorStyle,
-} from '..'
+import { variant, textStyle, colorStyle } from '..'
 import { system, compose } from '../../core'
 
 const theme = {
@@ -54,11 +50,7 @@ test('variant prop can be customized', () => {
 })
 
 test('variant can be composed', () => {
-  const system = compose(
-    variant({ key: 'typography' }),
-    fontSize,
-    color
-  )
+  const system = compose(variant({ key: 'typography' }), fontSize, color)
   const result = system({
     theme: {
       typography: {
@@ -125,7 +117,7 @@ describe('component variant', () => {
           color: 'white',
           bg: 'purple',
         },
-      }
+      },
     })
     const primary = comp({ variant: 'primary' })
     const secondary = comp({ variant: 'secondary' })
@@ -148,15 +140,15 @@ describe('component variant', () => {
           color: 'white',
           bg: 'primary',
         },
-      }
+      },
     })
     const style = comp({
       variant: 'primary',
       theme: {
         colors: {
           primary: '#07c',
-        }
-      }
+        },
+      },
     })
     expect(style).toEqual({
       padding: 16,
@@ -175,7 +167,7 @@ describe('component variant', () => {
           fontWeight: 900,
           lineHeight: 1.25,
         },
-      }
+      },
     })
     const style = comp({ size: 'big' })
     expect(style).toEqual({
@@ -188,8 +180,8 @@ describe('component variant', () => {
   test('does not throw when no variants are found', () => {
     const comp = variant({
       variants: {
-        beep: {}
-      }
+        beep: {},
+      },
     })
     let style
     expect(() => {
@@ -201,8 +193,8 @@ describe('component variant', () => {
   test('returns empty object when no prop is provided', () => {
     const comp = variant({
       variants: {
-        beep: {}
-      }
+        beep: {},
+      },
     })
     const style = comp({})
     expect(style).toEqual({})
@@ -216,8 +208,8 @@ describe('component variant', () => {
             color: 'tomato',
             fontSize: 20,
             fontWeight: 'bold',
-          }
-        }
+          },
+        },
       }),
       color,
       fontSize
@@ -248,7 +240,7 @@ describe('component variant', () => {
         primary: {
           color: 'white',
           bg: 'blue',
-        }
+        },
       },
       scale: 'buttons',
     })
@@ -259,9 +251,9 @@ describe('component variant', () => {
           primary: {
             color: 'black',
             bg: 'cyan',
-          }
-        }
-      }
+          },
+        },
+      },
     })
     expect(style).toEqual({
       color: 'black',

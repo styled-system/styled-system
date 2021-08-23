@@ -8,6 +8,8 @@ import grid from '../grid'
 import border from '../border'
 import background from '../background'
 import position from '../position'
+import animation from '../animation'
+import listStyle from '../list-style'
 
 export {
   get,
@@ -27,6 +29,10 @@ export { background } from '../background'
 export { position } from '../position'
 export { grid } from '../grid'
 export { shadow } from '../shadow'
+export { cursor } from '../cursor'
+export { animation } from '../animation'
+export { objectFit } from '../object-fit'
+export { listStyle } from '../list-style'
 export { default as boxShadow, default as textShadow } from '../shadow'
 
 export {
@@ -113,7 +119,21 @@ const {
   bottom,
   left,
 } = position
-
+const {
+  animationName,
+  animationDuration,
+  animationTimingFunction,
+  animationDelay,
+  animationDirection,
+  animationIterationCount,
+  animationFillMode,
+  animationPlayState,
+} = animation
+const {
+  listStyleImage,
+  listStylePosition,
+  listStyleType,
+} = listStyle
 export { default as borders } from '../border'
 export {
   width,
@@ -185,6 +205,19 @@ export {
   right,
   bottom,
   left,
+  // animation
+  animationName,
+  animationDuration,
+  animationTimingFunction,
+  animationDelay,
+  animationDirection,
+  animationIterationCount,
+  animationFillMode,
+  animationPlayState,
+  // list style
+  listStyleImage,
+  listStylePosition,
+  listStyleType,
 }
 
 // v4 style API shim
