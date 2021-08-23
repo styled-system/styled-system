@@ -343,11 +343,30 @@ export interface BackgroundColorProps<
 
 export const backgroundColor: styleFn
 
+export interface FillColorProps<
+  ThemeType extends Theme = RequiredTheme,
+  TVal = ThemeValue<'colors', ThemeType>
+> {
+  /**
+   * The color utility parses a component's `color` and `fill` props and converts them into CSS declarations.
+   * By default the raw value of the prop is returned.
+   *
+   * Color palettes can be configured with the ThemeProvider to use keys as prop values, with support for dot notation.
+   * Array values are converted into responsive values.
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/fill)
+   */
+  fill?: ResponsiveValue<TVal, ThemeType>
+}
+
+export const fillColor: styleFn
+
 export interface ColorProps<
   ThemeType extends Theme = RequiredTheme,
   TVal = ThemeValue<'colors', ThemeType>
 > extends TextColorProps<ThemeType, TVal>,
     BackgroundColorProps<ThemeType, TVal>,
+    FillColorProps<ThemeType, TVal>,
     OpacityProps {}
 
 export const color: styleFn
@@ -1651,6 +1670,7 @@ export interface StylesProps {
   animation: typeof animation
   objectFit: typeof objectFit
   listStyle: typeof listStyle
+  fillColor: typeof fillColor
 }
 
 export const styles: StylesProps

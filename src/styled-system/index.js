@@ -56,7 +56,7 @@ const {
   overflowX,
   overflowY
 } = layout
-const { opacity } = color
+const { opacity, fill: fillColor } = color
 const {
   fontSize,
   fontFamily,
@@ -150,6 +150,7 @@ export {
   overflowY,
   // color
   opacity,
+  fillColor,
   // typography
   fontSize,
   fontFamily,

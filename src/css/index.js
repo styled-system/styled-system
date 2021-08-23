@@ -43,6 +43,7 @@ const multiples = {
 const scales = {
   color: 'colors',
   backgroundColor: 'colors',
+  fill: 'colors',
   borderColor: 'colors',
   margin: 'space',
   marginTop: 'space',
