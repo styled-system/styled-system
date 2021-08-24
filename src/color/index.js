@@ -10,8 +10,8 @@ const config = {
     scale: 'colors',
   },
   fill: {
-    property: `fill`,
-    scale: `colors`,
+    property: 'fill',
+    scale: 'colors',
   },
   opacity: true,
 }
