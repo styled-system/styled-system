@@ -1,4 +1,4 @@
-import { system } from '../core'
+import { system } from '../core';
 
 const config = {
   textColor: {
@@ -14,8 +14,8 @@ const config = {
     scale: 'colors',
   },
   opacity: true,
-}
-config.bg = config.backgroundColor
+};
+config.bg = config.backgroundColor;
 
-export const color = system(config)
-export default color
+export const color = system(config);
+export default color;

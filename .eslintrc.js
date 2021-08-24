@@ -3,7 +3,11 @@ module.exports = {
     browser: true,
     es6: true,
   },
-  extends: ['eslint:recommended', 'plugin:react/recommended'],
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    `plugin:prettier/recommended`, // Make sure this is always the last element in the array.
+  ],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -17,4 +21,4 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {},
-}
+};
