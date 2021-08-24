@@ -1,10 +1,7 @@
-import { system } from '../core'
+import { system } from '../core';
 
 export const cursor = system({
-  cursor: {
-    property: 'cursor',
-    scale: 'cursors',
-  }
-})
+  cursor: true,
+});
 
-export default cursor
+export default cursor;

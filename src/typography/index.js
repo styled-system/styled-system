@@ -1,8 +1,8 @@
-import { system } from '../core'
+import { system } from '../core';
 
 const defaults = {
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
-}
+};
 
 const config = {
   fontFamily: {
@@ -26,9 +26,22 @@ const config = {
     property: 'letterSpacing',
     scale: 'letterSpacings',
   },
+  textTransform: {
+    property: 'textTransform',
+    scale: 'textTransforms',
+  },
+  textDecoration: {
+    property: 'textDecoration',
+    scale: 'textDecorations',
+  },
+  whiteSpace: {
+    property: 'whiteSpace',
+    scale: 'whiteSpaces',
+  },
+  textIndent: true,
   textAlign: true,
   fontStyle: true,
-}
+};
 
-export const typography = system(config)
-export default typography
+export const typography = system(config);
+export default typography;

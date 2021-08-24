@@ -1,10 +1,7 @@
-import { system } from '../core'
+import { system } from '../core';
 
 export const objectFit = system({
-  objectFit: {
-    property: 'objectFit',
-    scale: 'objectFits',
-  }
-})
+  objectFit: true,
+});
 
-export default objectFit
+export default objectFit;

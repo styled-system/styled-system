@@ -1,47 +1,52 @@
-import { createStyleFunction, createParser } from '../core'
+import { createStyleFunction, createParser } from '../core';
 // v4 api shims
-import layout from '../layout'
-import color from '../color'
-import typography from '../typography'
-import flexbox from '../flexbox'
-import grid from '../grid'
-import border from '../border'
-import background from '../background'
-import position from '../position'
-import animation from '../animation'
-import listStyle from '../list-style'
+import layout from '../layout';
+import color from '../color';
+import typography from '../typography';
+import flexbox from '../flexbox';
+import grid from '../grid';
+import border from '../border';
+import background from '../background';
+import position from '../position';
+import animation from '../animation';
+import listStyle from '../list-style';
 
-export {
-  get,
-  createParser,
-  createStyleFunction,
-  compose,
-  system,
-} from '../core'
+export { get, createParser, createStyleFunction, compose, system } from '../core';
 
-export { margin, padding, space } from '../space'
-export { color } from '../color'
-export { layout } from '../layout'
-export { typography } from '../typography'
-export { flexbox } from '../flexbox'
-export { border } from '../border'
-export { background } from '../background'
-export { position } from '../position'
-export { grid } from '../grid'
-export { shadow } from '../shadow'
-export { cursor } from '../cursor'
-export { animation } from '../animation'
-export { objectFit } from '../object-fit'
-export { listStyle } from '../list-style'
-export { default as boxShadow, default as textShadow } from '../shadow'
+export { space } from '../space';
+export { color } from '../color';
+export { layout } from '../layout';
+export { typography } from '../typography';
+export { flexbox } from '../flexbox';
+export { border } from '../border';
+export { background } from '../background';
+export { position } from '../position';
+export { grid } from '../grid';
+export { shadow } from '../shadow';
+export { cursor } from '../cursor';
+export { animation } from '../animation';
+export { objectFit } from '../object-fit';
+export { listStyle } from '../list-style';
+export { default as boxShadow, default as textShadow } from '../shadow';
 
-export {
-  variant,
-  buttonStyle,
-  textStyle,
-  colorStyle
-} from '../variant'
+export { variant, buttonStyle, textStyle, colorStyle } from '../variant';
 
+const {
+  padding,
+  paddingTop,
+  paddingRight,
+  paddingBottom,
+  paddingLeft,
+  paddingX,
+  paddingY,
+  margin,
+  marginTop,
+  marginRight,
+  marginBottom,
+  marginLeft,
+  marginX,
+  marginY,
+} = space;
 const {
   width,
   height,
@@ -54,9 +59,9 @@ const {
   display,
   overflow,
   overflowX,
-  overflowY
-} = layout
-const { opacity, fill: fillColor } = color
+  overflowY,
+} = layout;
+const { opacity, backgroundColor, fill: fillColor } = color;
 const {
   fontSize,
   fontFamily,
@@ -65,7 +70,11 @@ const {
   textAlign,
   fontStyle,
   letterSpacing,
-} = typography
+  textTransform,
+  textIndent,
+  textDecoration,
+  whiteSpace,
+} = typography;
 
 const {
   alignItems,
@@ -81,7 +90,7 @@ const {
   justifySelf,
   alignSelf,
   order,
-} = flexbox
+} = flexbox;
 const {
   gridGap,
   gridColumnGap,
@@ -95,7 +104,7 @@ const {
   gridTemplateRows,
   gridTemplateAreas,
   gridArea,
-} = grid
+} = grid;
 const {
   borderWidth,
   borderStyle,
@@ -105,20 +114,9 @@ const {
   borderBottom,
   borderLeft,
   borderRadius,
-} = border
-const {
-  backgroundImage,
-  backgroundSize,
-  backgroundPosition,
-  backgroundRepeat,
-} = background
-const {
-  zIndex,
-  top,
-  right,
-  bottom,
-  left,
-} = position
+} = border;
+const { backgroundImage, backgroundSize, backgroundPosition, backgroundRepeat } = background;
+const { zIndex, top, right, bottom, left } = position;
 const {
   animationName,
   animationDuration,
@@ -128,14 +126,26 @@ const {
   animationIterationCount,
   animationFillMode,
   animationPlayState,
-} = animation
-const {
-  listStyleImage,
-  listStylePosition,
-  listStyleType,
-} = listStyle
-export { default as borders } from '../border'
+} = animation;
+const { listStyleImage, listStylePosition, listStyleType } = listStyle;
+export { default as borders } from '../border';
 export {
+  // space
+  padding,
+  paddingTop,
+  paddingRight,
+  paddingBottom,
+  paddingLeft,
+  paddingX,
+  paddingY,
+  margin,
+  marginTop,
+  marginRight,
+  marginBottom,
+  marginLeft,
+  marginX,
+  marginY,
+  // layout
   width,
   height,
   minWidth,
@@ -149,6 +159,7 @@ export {
   overflowX,
   overflowY,
   // color
+  backgroundColor,
   opacity,
   fillColor,
   // typography
@@ -159,6 +170,10 @@ export {
   textAlign,
   fontStyle,
   letterSpacing,
+  textTransform,
+  textIndent,
+  textDecoration,
+  whiteSpace,
   // flexbox
   alignItems,
   alignContent,
@@ -219,7 +234,7 @@ export {
   listStyleImage,
   listStylePosition,
   listStyleType,
-}
+};
 
 // v4 style API shim
 export const style = ({
@@ -232,16 +247,16 @@ export const style = ({
   // new api
   properties,
 }) => {
-  const config = {}
+  const config = {};
   config[prop] = createStyleFunction({
     properties,
     property: cssProperty || prop,
     scale: key,
     defaultScale: scale,
     transform: transformValue,
-  })
-  if (alias) config[alias] = config[prop]
-  const parse = createParser(config)
+  });
+  if (alias) config[alias] = config[prop];
+  const parse = createParser(config);
 
-  return parse
-}
+  return parse;
+};
