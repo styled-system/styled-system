@@ -4,19 +4,7 @@
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "scripts": {
-    "prettier": "prettier \"src/**/{src,test,examples}/**/*.js\" --write",
-    "prettier:docs": "prettier \"docs/**/*.{js,md}\" --write",
-    "clean": "rm -rf dist",
     "build": "npx rollup -c",
-    "logo": "npx repng docs/src/logo/index.js -d docs/static -f logo.png -w 512 -h 512",
-    "logo-svg": "npx scrs docs/src/logo/index.js --svg > docs/static/logo.svg",
-    "logo-white": "npx scrs docs/src/logo/white.js --svg > docs/static/logo-white.svg",
-    "benchmark": "yarn workspace benchmarks test",
-    "cover": "yarn test --coverage",
-    "codecov": "yarn cover && npx codecov",
-    "start": "yarn workspace @styled-system/docs start",
-    "docs": "yarn workspace @styled-system/docs start",
-    "docs:build": "yarn workspace @styled-system/docs build",
     "test": "jest"
   },
   "devDependencies": {
@@ -80,16 +68,7 @@
     ]
   },
   "dependencies": {
-    "@emotion/react": "^11.4.0",
-    "@emotion/styled": "^10.0.14",
-    "color": "^3.1.0",
-    "lodash.get": "^4.4.2",
-    "lodash.merge": "^4.6.1",
-    "lodash.omit": "^4.5.0",
-    "lodash.set": "^4.3.2",
-    "object-assign": "^4.1.1",
-    "prop-types": "^15.7.2",
-    "react-scripts": "^3.0.1"
+    "object-assign": "4.1.1"
   },
   "version": "5.7.2"
 }
