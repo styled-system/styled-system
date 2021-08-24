@@ -28,6 +28,7 @@
     "@babel/register": "7.13.16",
     "@rollup/plugin-commonjs": "17.1.0",
     "@rollup/plugin-node-resolve": "11.2.0",
+    "@types/styled-components": "5.1.12",
     "csstype": "3.0.8",
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.3.0",
@@ -42,6 +43,9 @@
     "react": "16.13.1",
     "react-test-renderer": "16.13.1",
     "styled-components": "5.1.1"
+  },
+  "peerDependencies": {
+    "styled-components": ">=5"
   },
   "jest": {
     "testMatch": [
