@@ -26,10 +26,13 @@ const config = {
     property: 'letterSpacing',
     scale: 'letterSpacings',
   },
+  textIndent: {
+    property: 'textIndent',
+    scale: 'space',
+  },
   textTransform: true,
   textDecoration: true,
   whiteSpace: true,
-  textIndent: true,
   textAlign: true,
   fontStyle: true,
 };
