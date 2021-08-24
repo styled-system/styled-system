@@ -26,18 +26,9 @@ const config = {
     property: 'letterSpacing',
     scale: 'letterSpacings',
   },
-  textTransform: {
-    property: 'textTransform',
-    scale: 'textTransforms',
-  },
-  textDecoration: {
-    property: 'textDecoration',
-    scale: 'textDecorations',
-  },
-  whiteSpace: {
-    property: 'whiteSpace',
-    scale: 'whiteSpaces',
-  },
+  textTransform: true,
+  textDecoration: true,
+  whiteSpace: true,
   textIndent: true,
   textAlign: true,
   fontStyle: true,
