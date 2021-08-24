@@ -68,15 +68,17 @@ const scales = {
   gap: 'space',
   columnGap: 'space',
   rowGap: 'space',
+  // typography
   fontFamily: 'fonts',
   fontSize: 'fontSizes',
   fontWeight: 'fontWeights',
   lineHeight: 'lineHeights',
   letterSpacing: 'letterSpacings',
-  textIndent: 'spacee',
+  textIndent: 'space',
   textTransform: 'textTransforms',
   textDecoration: 'textDecorations',
   whiteSpace: 'whiteSpaces',
+  // border
   border: 'borders',
   borderTop: 'borders',
   borderRight: 'borders',

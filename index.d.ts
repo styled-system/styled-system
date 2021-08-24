@@ -66,14 +66,17 @@ export type ResponsiveValue<T, ThemeType extends Theme = RequiredTheme> =
   | null
   | Partial<Record<keyof ThemeType['breakpoints'], T>>;
 
-export type ThemeValue<K extends keyof ThemeType, ThemeType, TVal = any> =
-  ThemeType[K] extends TVal[]
-    ? number
-    : ThemeType[K] extends Record<infer E, TVal>
-    ? E
-    : ThemeType[K] extends ObjectOrArray<infer F>
-    ? F
-    : never;
+export type ThemeValue<
+  K extends keyof ThemeType,
+  ThemeType,
+  TVal = any,
+> = ThemeType[K] extends TVal[]
+  ? number
+  : ThemeType[K] extends Record<infer E, TVal>
+  ? E
+  : ThemeType[K] extends ObjectOrArray<infer F>
+  ? F
+  : never;
 
 export interface SpaceProps<
   ThemeType extends Theme = RequiredTheme,
@@ -476,7 +479,7 @@ export const textTransform: styleFn;
 
 export interface TextIndentProps<
   ThemeType extends Theme = RequiredTheme,
-  TVal = ThemeValue<'textIndents', ThemeType>,
+  TVal = ThemeValue<'space', ThemeType>,
 > {
   /**
    * The text-indent CSS property sets the spacing behavior between text characters.

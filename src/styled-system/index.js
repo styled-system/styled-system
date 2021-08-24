@@ -1,6 +1,7 @@
 import { createStyleFunction, createParser } from '../core';
 // v4 api shims
 import layout from '../layout';
+import space from '../space';
 import color from '../color';
 import typography from '../typography';
 import flexbox from '../flexbox';
@@ -61,19 +62,19 @@ const {
   overflowX,
   overflowY,
 } = layout;
-const { opacity, backgroundColor, fill: fillColor } = color;
+const { textColor, opacity, backgroundColor, fill: fillColor } = color;
 const {
-  fontSize,
   fontFamily,
+  fontSize,
   fontWeight,
   lineHeight,
-  textAlign,
-  fontStyle,
   letterSpacing,
-  textTransform,
   textIndent,
+  textTransform,
   textDecoration,
   whiteSpace,
+  textAlign,
+  fontStyle,
 } = typography;
 
 const {
@@ -159,21 +160,22 @@ export {
   overflowX,
   overflowY,
   // color
+  textColor,
   backgroundColor,
   opacity,
   fillColor,
   // typography
-  fontSize,
   fontFamily,
+  fontSize,
   fontWeight,
   lineHeight,
-  textAlign,
-  fontStyle,
   letterSpacing,
-  textTransform,
   textIndent,
+  textTransform,
   textDecoration,
   whiteSpace,
+  textAlign,
+  fontStyle,
   // flexbox
   alignItems,
   alignContent,
