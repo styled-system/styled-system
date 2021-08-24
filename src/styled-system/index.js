@@ -24,6 +24,7 @@ export { background } from '../background';
 export { position } from '../position';
 export { grid } from '../grid';
 export { shadow } from '../shadow';
+export { css } from '../css';
 export { cursor } from '../cursor';
 export { animation } from '../animation';
 export { objectFit } from '../object-fit';
