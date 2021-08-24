@@ -172,7 +172,7 @@ test('works with the css prop', () => {
 })
 
 test('works with functional arguments', () => {
-  const result = css(t => ({
+  const result = css((t) => ({
     color: t.colors.primary,
   }))(theme)
   expect(result).toEqual({
@@ -182,7 +182,7 @@ test('works with functional arguments', () => {
 
 test('supports functional values', () => {
   const result = css({
-    color: t => t.colors.primary,
+    color: (t) => t.colors.primary,
   })(theme)
   expect(result).toEqual({
     color: 'tomato',
@@ -259,14 +259,14 @@ test('handles negative top, left, bottom, and right from scale', () => {
 
 test('skip breakpoints', () => {
   const result = css({
-    width: [ '100%', , '50%' ],
+    width: ['100%', , '50%'],
   })(theme)
   expect(result).toEqual({
     width: '100%',
     '@media screen and (min-width: 40em)': {},
     '@media screen and (min-width: 52em)': {
       width: '50%',
-    }
+    },
   })
 })
 
@@ -291,9 +291,9 @@ test('padding shorthand does not collide with nested p selector', () => {
 
 test('ignores array values longer than breakpoints', () => {
   const result = css({
-    width: [ 32, 64, 128, 256, 512 ]
+    width: [32, 64, 128, 256, 512],
   })({
-    breakpoints: [ '32em', '40em' ],
+    breakpoints: ['32em', '40em'],
   })
   expect(result).toEqual({
     width: 32,
@@ -308,7 +308,7 @@ test('ignores array values longer than breakpoints', () => {
 
 test('functional values can return responsive arrays', () => {
   const result = css({
-    color: t => [t.colors.primary, t.colors.secondary],
+    color: (t) => [t.colors.primary, t.colors.secondary],
   })(theme)
   expect(result).toEqual({
     '@media screen and (min-width: 40em)': {
@@ -404,7 +404,7 @@ test('returns outline color from theme', () => {
     outlineColor: 'primary',
   })(theme)
   expect(result).toEqual({
-    outlineColor: 'tomato'
+    outlineColor: 'tomato',
   })
 })
 

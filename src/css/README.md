@@ -56,6 +56,7 @@ The following keys in your style object will work the same as Styled System prop
 | `letterSpacing`         | `letterSpacings` |
 | `color`                 | `colors`         |
 | `backgroundColor`, `bg` | `colors`         |
+| `fill`,                 | `colors`         |
 | `margin`, `m`           | `space`          |
 | `marginTop`, `mt`       | `space`          |
 | `marginRight`, `mr`     | `space`          |

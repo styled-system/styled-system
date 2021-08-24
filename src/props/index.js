@@ -12,7 +12,11 @@ import {
   shadow,
   buttonStyle,
   textStyle,
-  colorStyle
+  colorStyle,
+  cursor,
+  animation,
+  objectFit,
+  listStyle,
 } from '../styled-system'
 
 const all = compose(
@@ -28,7 +32,11 @@ const all = compose(
   shadow,
   buttonStyle,
   textStyle,
-  colorStyle
+  colorStyle,
+  cursor,
+  animation,
+  objectFit,
+  listStyle,
 )
 
 const regex = new RegExp(`^(${all.propNames.join('|')})$`)

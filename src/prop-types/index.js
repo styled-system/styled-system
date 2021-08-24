@@ -12,7 +12,11 @@ import {
   shadow,
   buttonStyle,
   textStyle,
-  colorStyle
+  colorStyle,
+  cursor,
+  animation,
+  objectFit,
+  listStyle,
 } from '../styled-system'
 
 export const propType = PropTypes.oneOfType([
@@ -43,4 +47,8 @@ export default {
   buttonStyle: createPropTypes(buttonStyle.propNames),
   textStyle: createPropTypes(textStyle.propNames),
   colorStyle: createPropTypes(colorStyle.propNames),
+  cursor: createPropTypes(cursor.propNames),
+  animation: createPropTypes(animation.propNames),
+  objectFit: createPropTypes(objectFit.propNames),
+  listStyle: createPropTypes(listStyle.propNames),
 }

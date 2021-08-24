@@ -1,18 +1,18 @@
 // based on https://github.com/developit/dlv
 export const get = (obj, key, def, p, undef) => {
-  key = key && key.split && obj && !obj[key] ? key.split('.') : [key]
+  key = key && key.split && obj && !obj[key] ? key.split('.') : [key];
   for (p = 0; p < key.length; p++) {
-    obj = obj ? obj[key[p]] : undef
+    obj = obj ? obj[key[p]] : undef;
   }
-  return obj === undef ? def : obj
-}
+  return obj === undef ? def : obj;
+};
 
-const defaultBreakpoints = [40, 52, 64].map((n) => n + 'em')
+const defaultBreakpoints = [40, 52, 64].map((n) => n + 'em');
 
 const defaultTheme = {
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
-}
+};
 
 const aliases = {
   bg: 'backgroundColor',
@@ -30,7 +30,7 @@ const aliases = {
   pl: 'paddingLeft',
   px: 'paddingX',
   py: 'paddingY',
-}
+};
 
 const multiples = {
   marginX: ['marginLeft', 'marginRight'],
@@ -38,7 +38,7 @@ const multiples = {
   paddingX: ['paddingLeft', 'paddingRight'],
   paddingY: ['paddingTop', 'paddingBottom'],
   size: ['width', 'height'],
-}
+};
 
 const scales = {
   color: 'colors',
@@ -68,11 +68,17 @@ const scales = {
   gap: 'space',
   columnGap: 'space',
   rowGap: 'space',
+  // typography
   fontFamily: 'fonts',
   fontSize: 'fontSizes',
   fontWeight: 'fontWeights',
   lineHeight: 'lineHeights',
   letterSpacing: 'letterSpacings',
+  textIndent: 'space',
+  textTransform: 'textTransforms',
+  textDecoration: 'textDecorations',
+  whiteSpace: 'whiteSpaces',
+  // border
   border: 'borders',
   borderTop: 'borders',
   borderRight: 'borders',
@@ -112,17 +118,17 @@ const scales = {
   // svg
   fill: 'colors',
   stroke: 'colors',
-}
+};
 
 const positiveOrNegative = (scale, value) => {
   if (typeof value !== 'number' || value >= 0) {
-    return get(scale, value, value)
+    return get(scale, value, value);
   }
-  const absolute = Math.abs(value)
-  const n = get(scale, absolute, absolute)
-  if (typeof n === 'string') return '-' + n
-  return n * -1
-}
+  const absolute = Math.abs(value);
+  const n = get(scale, absolute, absolute);
+  if (typeof n === 'string') return '-' + n;
+  return n * -1;
+};
 
 const transforms = [
   'margin',
@@ -141,85 +147,84 @@ const transforms = [
     ...acc,
     [curr]: positiveOrNegative,
   }),
-  {}
-)
+  {},
+);
 
 export const responsive = (styles) => (theme) => {
-  const next = {}
-  const breakpoints = get(theme, 'breakpoints', defaultBreakpoints)
+  const next = {};
+  const breakpoints = get(theme, 'breakpoints', defaultBreakpoints);
   const mediaQueries = Object.values(breakpoints).map((item) => {
     if (item === '') {
-      return null
+      return null;
     }
 
-    return `@media screen and (min-width: ${item})`
-  })
+    return `@media screen and (min-width: ${item})`;
+  });
 
   for (const key in styles) {
-    const value =
-      typeof styles[key] === 'function' ? styles[key](theme) : styles[key]
+    const value = typeof styles[key] === 'function' ? styles[key](theme) : styles[key];
 
-    if (value == null) continue
+    if (value == null) continue;
     if (!Array.isArray(value)) {
-      next[key] = value
-      continue
+      next[key] = value;
+      continue;
     }
     for (let i = 0; i < value.slice(0, mediaQueries.length).length; i++) {
-      const media = mediaQueries[i]
+      const media = mediaQueries[i];
       if (!media) {
-        next[key] = value[i]
-        continue
+        next[key] = value[i];
+        continue;
       }
-      next[media] = next[media] || {}
-      if (value[i] == null) continue
-      next[media][key] = value[i]
+      next[media] = next[media] || {};
+      if (value[i] == null) continue;
+      next[media][key] = value[i];
     }
   }
 
-  return next
-}
+  return next;
+};
 
 export const css =
   (args) =>
   (props = {}) => {
-    const theme = { ...defaultTheme, ...(props.theme || props) }
-    let result = {}
-    const obj = typeof args === 'function' ? args(theme) : args
-    const styles = responsive(obj)(theme)
+    const theme = { ...defaultTheme, ...(props.theme || props) };
+    let result = {};
+    const obj = typeof args === 'function' ? args(theme) : args;
+    const styles = responsive(obj)(theme);
 
     for (const key in styles) {
-      const x = styles[key]
-      const val = typeof x === 'function' ? x(theme) : x
+      const x = styles[key];
+      const val = typeof x === 'function' ? x(theme) : x;
 
       if (key === 'variant') {
-        const variant = css(get(theme, val))(theme)
-        result = { ...result, ...variant }
-        continue
+        const variant = css(get(theme, val))(theme);
+        result = { ...result, ...variant };
+        continue;
       }
 
       if (val && typeof val === 'object') {
-        result[key] = css(val)(theme)
-        continue
+        result[key] = css(val)(theme);
+        continue;
       }
 
-      const prop = get(aliases, key, key)
-      const scaleName = get(scales, prop)
-      const scale = get(theme, scaleName, get(theme, prop, {}))
-      const transform = get(transforms, prop, get)
-      const value = transform(scale, val, val)
+      const prop = get(aliases, key, key);
+      const scaleName = get(scales, prop);
+      const scale = get(theme, scaleName, get(theme, prop, {}));
+      const transform = get(transforms, prop, get);
+      const value = transform(scale, val, val);
 
       if (multiples[prop]) {
-        const dirs = multiples[prop]
+        const dirs = multiples[prop];
 
         for (let i = 0; i < dirs.length; i++) {
-          result[dirs[i]] = value
+          result[dirs[i]] = value;
         }
       } else {
-        result[prop] = value
+        result[prop] = value;
       }
     }
 
-    return result
-  }
+    return result;
+  };
 
-export default css
+export default css;
