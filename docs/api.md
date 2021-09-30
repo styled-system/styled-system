@@ -279,7 +279,7 @@ The `grid` utility includes style props for `gridGap`, `gridColumnGap`, `gridRow
 <Box gridTemplateRows='auto' />
 
 // gridTemplateAreas
-<Box gridTemplateAreas='a b' />
+<Box gridTemplateAreas=' "a a b" "a a b" "c c c" ' />
 
 // gridArea
 <Box gridArea='a' />
