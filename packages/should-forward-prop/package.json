@@ -3,6 +3,11 @@
   "version": "5.1.5",
   "description": "Utility for filtering Styled System props with Emotion's shouldForwardProp option",
   "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/styled-system/styled-system.git",
+    "directory": "packages/should-forward-prop"
+  },
   "module": "dist/index.esm.js",
   "keywords": [],
   "author": "Brent Jackson <jxnblk@gmail.com>",
