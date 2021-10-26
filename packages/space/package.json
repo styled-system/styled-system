@@ -3,6 +3,11 @@
   "version": "5.1.2",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/styled-system/styled-system.git",
+    "directory": "packages/space"
+  },
   "author": "Brent Jackson <jxnblk@gmail.com>",
   "license": "MIT",
   "gitHead": "a6feb6009c58f2eb68f0c3120c5672f6cb54294f",
