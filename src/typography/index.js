@@ -35,6 +35,7 @@ const config = {
   whiteSpace: true,
   textAlign: true,
   fontStyle: true,
+  textOverflow: true,
 };
 
 export const typography = system(config);
