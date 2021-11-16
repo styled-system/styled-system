@@ -513,6 +513,17 @@ export interface TextDecorationProps<ThemeType extends Theme = RequiredTheme> {
 
 export const textDecoration: styleFn;
 
+export interface TextOverflowProps<ThemeType extends Theme = RequiredTheme> {
+  /**
+   * The text-overflow CSS property sets how hidden overflow content is signaled to users. It can be clipped, display an ellipsis ('…'), or display a custom string.
+   *
+   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow)
+   */
+  textOverflow?: ResponsiveValue<CSS.Property.TextOverflow, ThemeType>;
+}
+
+export const textOverflow: styleFn;
+
 /**
  * A convenience style group containing props related to typography such as fontFamily, fontSize, fontWeight, etc.
  *
@@ -528,6 +539,7 @@ export interface TypographyProps<ThemeType extends Theme = RequiredTheme>
     FontStyleProps<ThemeType>,
     TextAlignProps<ThemeType>,
     TextDecorationProps<ThemeType>,
+    TextOverflowProps<ThemeType>,
     WhiteSpaceProps<ThemeType>,
     TextIndentProps<ThemeType>,
     TextTransformProps<ThemeType> {}
@@ -1654,6 +1666,7 @@ export interface StylesProps {
   letterSpacing: typeof letterSpacing;
   textTransform: typeof textTransform;
   textDecoration: typeof textDecoration;
+  textOverflow: typeof textOverflow;
   textIndent: typeof textIndent;
   whiteSpace: typeof whiteSpace;
   display: typeof display;
