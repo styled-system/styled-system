@@ -61,10 +61,15 @@ export interface Theme<TLength = TLengthStyledSystem> {
 
 export type RequiredTheme = Required<DefaultTheme>;
 
+export type BreakpointsValue<T, ThemeType extends Theme = RequiredTheme> = Record<
+  keyof ThemeType['breakpoints'],
+  T
+>;
+
 export type ResponsiveValue<T, ThemeType extends Theme = RequiredTheme> =
   | T
   | null
-  | Partial<Record<keyof ThemeType['breakpoints'], T>>;
+  | Partial<BreakpointsValue<T, ThemeType>>;
 
 export type ThemeValue<
   K extends keyof ThemeType,
