@@ -31,12 +31,26 @@ const Box = styled('div', {
 
 ## Styled Components
 
-Unfortunately, Styled Components does not currently support an API to control which props are forwarded to the HTML element.
-**If you'd like to see support for this, please leave a comment on their long-running issue:**
+Styled Components (as of [5.1.0](https://styled-components.com/releases#v5.1.0)) has a `shouldForwardProp` to control which props are forwarded to the HTML element.
 
-**[Separate HTML attributes from styling props][styled components issue]**
+```sh
+npm i @styled-system/should-forward-prop
+```
 
-[styled components issue]: https://github.com/styled-components/styled-components/issues/439
+In your styled component definition, pass this utility function as config to the `styled` HOC.
+
+```js
+import styled from 'styled-components'
+import shouldForwardProp from '@styled-system/should-forward-prop'
+import { space, color } from 'styled-system'
+
+const Box = styled.div.withConfig({
+  shouldForwardProp,
+ })`
+	${space}
+	${color}
+`
+```
 
 ## `css` Prop
 
