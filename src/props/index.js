@@ -39,12 +39,15 @@ const all = compose(
   listStyle,
 )
 
-const regex = new RegExp(`^(${all.propNames.join('|')})$`)
+const propNames = all.propNames.reduce((acc, current) => {
+  acc[current] = true;
+  return acc;
+}, {});
 
 export const omit = props => {
   const next = {}
   for (let key in props) {
-    if (regex.test(key)) continue
+    if (propNames[key]) continue
     next[key] = props[key]
   }
   return next
@@ -53,8 +56,8 @@ export const omit = props => {
 export const pick = props => {
   const next = {}
   for (let key in props) {
-    if (!regex.test(key)) continue
-    next[key] = props[key]
+    if (!propNames[key]) continue
+    next[`$${key}`] = props[key]
   }
   return next
 }
