@@ -1,5 +1,6 @@
 {
   "name": "@tradersclub/styled-system",
+  "version": "6.0.0--beta5",
   "typings": "index.d.ts",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -10,13 +11,14 @@
   "devDependencies": {
     "@babel/cli": "7.14.3",
     "@babel/core": "7.14.3",
+    "@babel/eslint-parser": "7.22.9",
+    "@babel/plugin-syntax-import-assertions": "7.22.5",
     "@babel/plugin-transform-runtime": "7.14.3",
     "@babel/preset-env": "7.14.2",
     "@babel/preset-react": "7.13.13",
     "@babel/register": "7.13.16",
     "@rollup/plugin-commonjs": "17.1.0",
     "@rollup/plugin-node-resolve": "11.2.0",
-    "@types/styled-components": "5.1.12",
     "csstype": "3.0.8",
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.3.0",
@@ -29,12 +31,12 @@
     "lerna": "3.22.1",
     "lint-staged": "10.5.4",
     "prettier": "2.3.2",
-    "react": "16.13.1",
+    "react": "18.2.0",
     "react-test-renderer": "16.13.1",
-    "styled-components": "5.1.1"
+    "styled-components": "6.0.4"
   },
   "peerDependencies": {
-    "styled-components": ">=5"
+    "styled-components": ">=6"
   },
   "jest": {
     "testMatch": [
@@ -70,5 +72,8 @@
   "dependencies": {
     "object-assign": "4.1.1"
   },
-  "version": "5.8.1"
+  "engines": {
+    "npm": ">=8.0.0",
+    "node": ">=17.0.0"
+  }
 }
