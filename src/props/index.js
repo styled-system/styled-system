@@ -17,7 +17,7 @@ import {
   animation,
   objectFit,
   listStyle,
-} from '../styled-system'
+} from '../styled-system';
 
 const all = compose(
   space,
@@ -37,27 +37,25 @@ const all = compose(
   animation,
   objectFit,
   listStyle,
-)
+);
 
 const propNames = all.propNames.reduce((acc, current) => {
   acc[current] = true;
   return acc;
 }, {});
 
-export const omit = props => {
-  const next = {}
-  for (let key in props) {
-    if (propNames[key]) continue
-    next[key] = props[key]
-  }
-  return next
-}
+export const omit = (props) => {
+  return props.reduce((acc, key) => {
+    if (!propNames[key]) {
+      acc[key] = props[key];
+    }
+  }, {});
+};
 
-export const pick = props => {
-  const next = {}
-  for (let key in props) {
-    if (!propNames[key]) continue
-    next[`$${key}`] = props[key]
-  }
-  return next
-}
+export const pick = (props) => {
+  return props.reduce((acc, key) => {
+    if (propNames[key]) {
+      acc[key?.[0] !== '$' ? `$${key}` : key] = props[key];
+    }
+  }, {});
+};
