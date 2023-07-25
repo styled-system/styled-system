@@ -2,44 +2,49 @@ name: Release
 on:
   push:
     branches:
-      - master
-  workflow_dispatch:
+      - main
 
+concurrency:
+  group: ci-release-${{ github.ref }}
+  cancel-in-progress: false
+
+ 
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Setup
-        uses: actions/setup-node@v1
+        uses: actions/checkout@v3
         with:
-          node-version: 14
+          fetch-depth: 0
+
+      - name: Use Node.js 19
+        uses: actions/setup-node@v3
+        with:
+          node-version: '19'
           registry-url: https://npm.pkg.github.com/
 
+      - name: Cache node modules
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            node_modules
+            .yarn/cache
+          fail-on-cache-miss: true
+          key: node-modules-${{ runner.os }}-${{ hashFiles('**/package.json') }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            node-modules-${{ runner.os }}-${{ hashFiles('**/package.json') }}-
+            node-modules-${{ runner.os }}-
+
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        if: steps.cache.outputs.cache-hit != 'true' # It will run install dependencies just if hash of yarn.lock changed
+        run: yarn install --immutable
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GIT_PACKAGES_TOKEN }}
 
       - name: Build
         run: yarn build
-
-      - name: Create Tag
-        id: tag_version
-        uses: mathieudutour/github-tag-action@v5.3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Create Release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ steps.tag_version.outputs.new_tag }}
-          release_name: ${{ steps.tag_version.outputs.new_tag }}
-          body: ${{ steps.tag_version.outputs.changelog }}
 
       - name: Update Github Name
         run: git config user.name TradersClubCI
@@ -47,13 +52,15 @@ jobs:
       - name: Update Github Email
         run: git config user.email tradersclub.com.br@gmail.com
 
-      - name: Commit Updated Version
-        run: npm version ${{ steps.tag_version.outputs.new_version }}
+      - name: Clean working directory
+        run: git reset --hard
 
-      - name: Push Updated Version
-        run: git push
-
-      - name: Publish
-        run: npm publish
+      - name: Publish Release
+        uses: LumaKernel/npm-release-pack-action@v1.0.1
+        id: release
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GIT_PACKAGES_TOKEN }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_command: npm publish --scope @tradersclub
+          generate_release_notes: true
