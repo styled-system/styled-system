@@ -429,7 +429,7 @@ export interface LineHeightProps<
    *
    * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height)
    */
-  lineHeight?: ResponsiveValue<TVal, ThemeType>;
+  lineHeight?: ResponsiveValue<TVal | `${string}px`, ThemeType>;
 }
 
 export const lineHeight: styleFn;

@@ -1,6 +1,6 @@
 {
   "name": "@tradersclub/styled-system",
-  "version": "6.0.1",
+  "version": "6.0.2",
   "typings": "index.d.ts",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
