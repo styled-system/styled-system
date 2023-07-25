@@ -1,12 +1,13 @@
 {
   "name": "@tradersclub/styled-system",
-  "version": "6.0.0",
+  "version": "6.0.1",
   "typings": "index.d.ts",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "scripts": {
     "build": "npx rollup -c",
-    "test": "jest"
+    "test": "jest",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "@babel/cli": "7.14.3",
