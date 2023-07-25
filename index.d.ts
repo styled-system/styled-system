@@ -245,19 +245,19 @@ export interface MarginProps<ThemeType extends Theme = RequiredTheme>
     | 'marginY'
     | 'mx'
     | 'marginX'
-  > {}
+  > { }
 
 export interface MarginTopProps<ThemeType extends Theme = RequiredTheme>
-  extends Pick<SpaceProps<ThemeType>, 'mt' | 'marginTop'> {}
+  extends Pick<SpaceProps<ThemeType>, 'mt' | 'marginTop'> { }
 
 export interface MarginBottomProps<ThemeType extends Theme = RequiredTheme>
-  extends Pick<SpaceProps<ThemeType>, 'mb' | 'marginBottom'> {}
+  extends Pick<SpaceProps<ThemeType>, 'mb' | 'marginBottom'> { }
 
 export interface MarginLeftProps<ThemeType extends Theme = RequiredTheme>
-  extends Pick<SpaceProps<ThemeType>, 'ml' | 'marginLeft'> {}
+  extends Pick<SpaceProps<ThemeType>, 'ml' | 'marginLeft'> { }
 
 export interface MarginRightProps<ThemeType extends Theme = RequiredTheme>
-  extends Pick<SpaceProps<ThemeType>, 'mr' | 'marginRight'> {}
+  extends Pick<SpaceProps<ThemeType>, 'mr' | 'marginRight'> { }
 
 export const margin: styleFn;
 export const marginTop: styleFn;
@@ -282,19 +282,19 @@ export interface PaddingProps<ThemeType extends Theme = RequiredTheme>
     | 'paddingY'
     | 'px'
     | 'paddingX'
-  > {}
+  > { }
 
 export interface PaddingTopProps<ThemeType extends Theme = RequiredTheme>
-  extends Pick<SpaceProps<ThemeType>, 'pt' | 'paddingTop'> {}
+  extends Pick<SpaceProps<ThemeType>, 'pt' | 'paddingTop'> { }
 
 export interface PaddingBottomProps<ThemeType extends Theme = RequiredTheme>
-  extends Pick<SpaceProps<ThemeType>, 'pb' | 'paddingBottom'> {}
+  extends Pick<SpaceProps<ThemeType>, 'pb' | 'paddingBottom'> { }
 
 export interface PaddingLeftProps<ThemeType extends Theme = RequiredTheme>
-  extends Pick<SpaceProps<ThemeType>, 'pl' | 'paddingLeft'> {}
+  extends Pick<SpaceProps<ThemeType>, 'pl' | 'paddingLeft'> { }
 
 export interface PaddingRightProps<ThemeType extends Theme = RequiredTheme>
-  extends Pick<SpaceProps<ThemeType>, 'pr' | 'paddingRight'> {}
+  extends Pick<SpaceProps<ThemeType>, 'pr' | 'paddingRight'> { }
 
 export const padding: styleFn;
 export const paddingTop: styleFn;
@@ -365,9 +365,9 @@ export interface ColorProps<
   ThemeType extends Theme = RequiredTheme,
   TVal = ThemeValue<'colors', ThemeType>,
 > extends TextColorProps<ThemeType, TVal>,
-    BackgroundColorProps<ThemeType, TVal>,
-    FillColorProps<ThemeType, TVal>,
-    OpacityProps {}
+  BackgroundColorProps<ThemeType, TVal>,
+  FillColorProps<ThemeType, TVal>,
+  OpacityProps { }
 
 export const color: styleFn;
 
@@ -537,17 +537,17 @@ export const textOverflow: styleFn;
  */
 export interface TypographyProps<ThemeType extends Theme = RequiredTheme>
   extends FontFamilyProps<ThemeType>,
-    FontSizeProps<ThemeType>,
-    FontWeightProps<ThemeType>,
-    LineHeightProps<ThemeType>,
-    LetterSpacingProps<ThemeType>,
-    FontStyleProps<ThemeType>,
-    TextAlignProps<ThemeType>,
-    TextDecorationProps<ThemeType>,
-    TextOverflowProps<ThemeType>,
-    WhiteSpaceProps<ThemeType>,
-    TextIndentProps<ThemeType>,
-    TextTransformProps<ThemeType> {}
+  FontSizeProps<ThemeType>,
+  FontWeightProps<ThemeType>,
+  LineHeightProps<ThemeType>,
+  LetterSpacingProps<ThemeType>,
+  FontStyleProps<ThemeType>,
+  TextAlignProps<ThemeType>,
+  TextDecorationProps<ThemeType>,
+  TextOverflowProps<ThemeType>,
+  WhiteSpaceProps<ThemeType>,
+  TextIndentProps<ThemeType>,
+  TextTransformProps<ThemeType> { }
 
 export const typography: styleFn;
 
@@ -629,6 +629,18 @@ export interface HeightProps<
 }
 
 export const height: styleFn;
+
+export interface TransformProps<
+  ThemeType extends Theme = RequiredTheme,
+  TVal = CSS.Property.Transform,
+> {
+  /**
+   * The transform CSS property lets you rotate, scale, skew, or translate an element. 
+   * It modifies the coordinate space of the CSS visual formatting model.
+   * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/transform)
+   */
+  transform?: ResponsiveValue<TVal, ThemeType>;
+}
 
 export interface MaxHeightProps<
   ThemeType extends Theme = RequiredTheme,
@@ -859,18 +871,18 @@ export const flexShrink: styleFn;
  */
 export interface FlexboxProps<ThemeType extends Theme = RequiredTheme>
   extends AlignItemsProps<ThemeType>,
-    AlignContentProps<ThemeType>,
-    JustifyItemsProps<ThemeType>,
-    JustifyContentProps<ThemeType>,
-    FlexWrapProps<ThemeType>,
-    FlexDirectionProps<ThemeType>,
-    FlexProps<ThemeType>,
-    FlexGrowProps<ThemeType>,
-    FlexShrinkProps<ThemeType>,
-    FlexBasisProps<ThemeType>,
-    JustifySelfProps<ThemeType>,
-    AlignSelfProps<ThemeType>,
-    OrderProps<ThemeType> {}
+  AlignContentProps<ThemeType>,
+  JustifyItemsProps<ThemeType>,
+  JustifyContentProps<ThemeType>,
+  FlexWrapProps<ThemeType>,
+  FlexDirectionProps<ThemeType>,
+  FlexProps<ThemeType>,
+  FlexGrowProps<ThemeType>,
+  FlexShrinkProps<ThemeType>,
+  FlexBasisProps<ThemeType>,
+  JustifySelfProps<ThemeType>,
+  AlignSelfProps<ThemeType>,
+  OrderProps<ThemeType> { }
 
 export const flexbox: styleFn;
 
@@ -1047,17 +1059,17 @@ export const gridArea: styleFn;
  */
 export interface GridProps<ThemeType extends Theme = RequiredTheme>
   extends GridGapProps<ThemeType>,
-    GridColumnGapProps<ThemeType>,
-    GridRowGapProps<ThemeType>,
-    GridColumnProps<ThemeType>,
-    GridRowProps<ThemeType>,
-    GridAutoFlowProps<ThemeType>,
-    GridAutoColumnsProps<ThemeType>,
-    GridAutoRowsProps<ThemeType>,
-    GridTemplateColumnsProps<ThemeType>,
-    GridTemplateRowsProps<ThemeType>,
-    GridTemplateAreasProps<ThemeType>,
-    GridAreaProps<ThemeType> {}
+  GridColumnGapProps<ThemeType>,
+  GridRowGapProps<ThemeType>,
+  GridColumnProps<ThemeType>,
+  GridRowProps<ThemeType>,
+  GridAutoFlowProps<ThemeType>,
+  GridAutoColumnsProps<ThemeType>,
+  GridAutoRowsProps<ThemeType>,
+  GridTemplateColumnsProps<ThemeType>,
+  GridTemplateRowsProps<ThemeType>,
+  GridTemplateAreasProps<ThemeType>,
+  GridAreaProps<ThemeType> { }
 
 export const grid: styleFn;
 
@@ -1071,15 +1083,15 @@ export const grid: styleFn;
  */
 export interface LayoutProps<ThemeType extends Theme = RequiredTheme>
   extends WidthProps<ThemeType>,
-    HeightProps<ThemeType>,
-    MinWidthProps<ThemeType>,
-    MinHeightProps<ThemeType>,
-    MaxWidthProps<ThemeType>,
-    MaxHeightProps<ThemeType>,
-    DisplayProps<ThemeType>,
-    VerticalAlignProps<ThemeType>,
-    SizeProps<ThemeType>,
-    OverflowProps<ThemeType> {}
+  HeightProps<ThemeType>,
+  MinWidthProps<ThemeType>,
+  MinHeightProps<ThemeType>,
+  MaxWidthProps<ThemeType>,
+  MaxHeightProps<ThemeType>,
+  DisplayProps<ThemeType>,
+  VerticalAlignProps<ThemeType>,
+  SizeProps<ThemeType>,
+  OverflowProps<ThemeType> { }
 
 export const layout: styleFn;
 
@@ -1299,14 +1311,14 @@ export const borderRadius: styleFn;
 
 export interface BordersProps<ThemeType extends Theme = RequiredTheme>
   extends BorderProps<ThemeType>,
-    BorderTopProps<ThemeType>,
-    BorderRightProps<ThemeType>,
-    BorderBottomProps<ThemeType>,
-    BorderLeftProps<ThemeType>,
-    BorderWidthProps<ThemeType>,
-    BorderColorProps<ThemeType>,
-    BorderStyleProps<ThemeType>,
-    BorderRadiusProps<ThemeType> {}
+  BorderTopProps<ThemeType>,
+  BorderRightProps<ThemeType>,
+  BorderBottomProps<ThemeType>,
+  BorderLeftProps<ThemeType>,
+  BorderWidthProps<ThemeType>,
+  BorderColorProps<ThemeType>,
+  BorderStyleProps<ThemeType>,
+  BorderRadiusProps<ThemeType> { }
 
 export const borders: styleFn;
 
@@ -1314,13 +1326,13 @@ export interface BorderProps<
   ThemeType extends Theme = RequiredTheme,
   TVal = CSS.Property.Border<TLengthStyledSystem>,
 > extends BorderWidthProps<ThemeType>,
-    BorderStyleProps<ThemeType>,
-    BorderColorProps<ThemeType>,
-    BorderRadiusProps<ThemeType>,
-    BorderTopProps<ThemeType>,
-    BorderRightProps<ThemeType>,
-    BorderBottomProps<ThemeType>,
-    BorderLeftProps<ThemeType> {
+  BorderStyleProps<ThemeType>,
+  BorderColorProps<ThemeType>,
+  BorderRadiusProps<ThemeType>,
+  BorderTopProps<ThemeType>,
+  BorderRightProps<ThemeType>,
+  BorderBottomProps<ThemeType>,
+  BorderLeftProps<ThemeType> {
   /**
    * The border CSS property sets an element's border. It's a shorthand for border-width, border-style,
    * and border-color.
@@ -1361,7 +1373,7 @@ export const textShadow: styleFn;
 
 export interface ShadowProps<ThemeType extends Theme = RequiredTheme>
   extends BoxShadowProps<ThemeType>,
-    TextShadowProps<ThemeType> {}
+  TextShadowProps<ThemeType> { }
 
 export const shadow: styleFn;
 
@@ -1466,9 +1478,9 @@ export interface BackgroundProps<
   ThemeType extends Theme = RequiredTheme,
   TVal = CSS.Property.Background<TLengthStyledSystem>,
 > extends BackgroundImageProps<ThemeType>,
-    BackgroundSizeProps<ThemeType>,
-    BackgroundPositionProps<ThemeType>,
-    BackgroundRepeatProps<ThemeType> {
+  BackgroundSizeProps<ThemeType>,
+  BackgroundPositionProps<ThemeType>,
+  BackgroundRepeatProps<ThemeType> {
   /**
    * The background shorthand CSS property sets all background style properties at once,
    * such as color, image, origin and size, repeat method, and others.
@@ -1558,10 +1570,10 @@ export const left: styleFn;
 
 export interface PositionProps<ThemeType extends Theme = RequiredTheme>
   extends ZIndexProps<ThemeType>,
-    TopProps<ThemeType>,
-    RightProps<ThemeType>,
-    BottomProps<ThemeType>,
-    LeftProps<ThemeType> {
+  TopProps<ThemeType>,
+  RightProps<ThemeType>,
+  BottomProps<ThemeType>,
+  LeftProps<ThemeType> {
   /**
    * The position CSS property specifies how an element is positioned in a document.
    * The top, right, bottom, and left properties determine the final location of positioned elements.
