@@ -31,7 +31,6 @@ jobs:
           path: |
             node_modules
             .yarn/cache
-          fail-on-cache-miss: true
           key: node-modules-${{ runner.os }}-${{ hashFiles('**/package.json') }}-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             node-modules-${{ runner.os }}-${{ hashFiles('**/package.json') }}-
