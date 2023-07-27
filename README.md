@@ -95,6 +95,24 @@ Try the [examples](examples) on CodeSandbox
 - [Built with Styled System](#built-with-styled-system)
 - [Related](#related)
 
+## Setup (React Native only)
+Style property values rely heavily on the concept of media breakpoints and responsive values (e.g. em, vh, vw), concepts that do not translate well to React Native.
+
+Unfortunately since TypeScript types from a library cannot be overriden safely the solution is to use patch-package.
+
+Here are the steps to fix your environment:
+
+1. Make sure patch-package is properly installed and configured, to know how check the [docs](https://github.com/ds300/patch-package).
+2. Open `node_modules/@tradersclub/styled-system/index.d.ts`
+3. Change the definition of `ResponsiveValue` removing the `| Partial<BreakpointsValue<T, ThemeType>>`, it should become something similar to this:   
+```TypeScript
+export type ResponsiveValue<T, ThemeType extends Theme = RequiredTheme> = T extends undefined | null
+  ? null
+  : T;
+```
+4. Save your changes by running `yarn patch-package`
+
+
 ## Usage
 
 ```jsx

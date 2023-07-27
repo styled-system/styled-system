@@ -37,7 +37,7 @@ export type Scale = ObjectOrArray<number | string>;
 
 export type TLengthStyledSystem = string | 0 | number;
 
-export interface Theme<TLength = TLengthStyledSystem> {
+export interface Theme {
   breakpoints?: ObjectOrArray<number | string | symbol>;
   mediaQueries?: { [size: string]: string };
   space?: ObjectOrArray<CSS.Property.Margin<number | string>>;
@@ -45,13 +45,13 @@ export interface Theme<TLength = TLengthStyledSystem> {
   colors?: ObjectOrArray<CSS.Property.Color>;
   fonts?: ObjectOrArray<CSS.Property.FontFamily>;
   fontWeights?: ObjectOrArray<CSS.Property.FontWeight>;
-  lineHeights?: ObjectOrArray<CSS.Property.LineHeight<TLength>>;
-  letterSpacings?: ObjectOrArray<CSS.Property.LetterSpacing<TLength>>;
+  lineHeights?: ObjectOrArray<CSS.Property.LineHeight<TLengthStyledSystem>>;
+  letterSpacings?: ObjectOrArray<CSS.Property.LetterSpacing<TLengthStyledSystem>>;
   sizes?: ObjectOrArray<CSS.Property.Height<{}> | CSS.Property.Width<{}>>;
   borders?: ObjectOrArray<CSS.Property.Border<{}>>;
   borderStyles?: ObjectOrArray<CSS.Property.Border<{}>>;
-  borderWidths?: ObjectOrArray<CSS.Property.BorderWidth<TLength>>;
-  radii?: ObjectOrArray<CSS.Property.BorderRadius<TLength>>;
+  borderWidths?: ObjectOrArray<CSS.Property.BorderWidth<TLengthStyledSystem>>;
+  radii?: ObjectOrArray<CSS.Property.BorderRadius<TLengthStyledSystem>>;
   shadows?: ObjectOrArray<CSS.Property.BoxShadow>;
   zIndices?: ObjectOrArray<CSS.Property.ZIndex>;
   buttons?: ObjectOrArray<CSS.StandardProperties>;
@@ -66,20 +66,18 @@ export type BreakpointsValue<T, ThemeType extends Theme = RequiredTheme> = Recor
   T
 >;
 
-export type ResponsiveValue<T, ThemeType extends Theme = RequiredTheme> =
-  | T
-  | null
-  | Partial<BreakpointsValue<T, ThemeType>>;
+export type ResponsiveValue<T, ThemeType extends Theme = RequiredTheme> = T extends undefined | null
+  ? null
+  : T | Partial<BreakpointsValue<T, ThemeType>>;
 
 export type ThemeValue<
-  K extends keyof ThemeType,
-  ThemeType,
-  TVal = any,
-> = ThemeType[K] extends TVal[]
+  K extends keyof CurrentTheme,
+  CurrentTheme extends Theme
+> = CurrentTheme[K] extends TLengthStyledSystem[]
   ? number
-  : ThemeType[K] extends Record<infer E, TVal>
+  : CurrentTheme[K] extends Record<infer E, TLengthStyledSystem>
   ? E
-  : ThemeType[K] extends ObjectOrArray<infer F>
+  : CurrentTheme[K] extends ObjectOrArray<infer F>
   ? F
   : never;
 
