@@ -1,12 +1,11 @@
 // based on https://github.com/developit/dlv
-export const get = (obj, key, def, p, undef) => {
+export const get = (obj, key, def, undef) => {
   key = key && key.split && obj && !obj[key] ? key.split('.') : [key];
-  for (p = 0; p < key.length; p++) {
-    obj = obj ? obj[key[p]] : undef;
+  for (let i = 0; i < key.length; i++) {
+    obj = obj ? obj[key[i]] : undef;
   }
   return obj === undef ? def : obj;
 };
-
 const defaultBreakpoints = [40, 52, 64].map((n) => n + 'em');
 
 const defaultTheme = {
@@ -40,7 +39,7 @@ const multiples = {
   size: ['width', 'height'],
 };
 
-const scales = {
+export const scales = {
   color: 'colors',
   backgroundColor: 'colors',
   borderColor: 'colors',
@@ -130,7 +129,7 @@ const positiveOrNegative = (scale, value) => {
   return n * -1;
 };
 
-const transforms = [
+export const transforms = [
   'margin',
   'marginTop',
   'marginRight',
@@ -184,16 +183,14 @@ export const responsive = (styles) => (theme) => {
   return next;
 };
 
-export const css =
-  (args) =>
+export const css = (args) =>
   (props = {}) => {
     const theme = { ...defaultTheme, ...(props.theme || props) };
     let result = {};
     const obj = typeof args === 'function' ? args(theme) : args;
     const styles = responsive(obj)(theme);
 
-    for (const key in styles) {
-      const x = styles[key];
+    for (const [key, x] of Object.entries(styles)) {
       const val = typeof x === 'function' ? x(theme) : x;
 
       if (key === 'variant') {
@@ -209,16 +206,14 @@ export const css =
 
       const prop = get(aliases, key, key);
       const scaleName = get(scales, prop);
-      const scale = get(theme, scaleName, get(theme, prop, {}));
+      const scale = get(theme, `${scaleName}`, get(theme, prop, {}));
       const transform = get(transforms, prop, get);
       const value = transform(scale, val, val);
 
       if (multiples[prop]) {
-        const dirs = multiples[prop];
-
-        for (let i = 0; i < dirs.length; i++) {
-          result[dirs[i]] = value;
-        }
+        multiples[prop].forEach((dir) => {
+          result[dir] = value;
+        });
       } else {
         result[prop] = value;
       }

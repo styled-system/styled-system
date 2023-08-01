@@ -1,6 +1,6 @@
 import { system } from '../core'
 
-const config = {
+export const flexBoxConfig = {
   alignItems: true,
   alignContent: true,
   justifyItems: true,
@@ -17,6 +17,6 @@ const config = {
   order: true,
 }
 
-export const flexbox = system(config)
+export const flexbox = system(flexBoxConfig)
 
 export default flexbox

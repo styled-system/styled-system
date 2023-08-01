@@ -1,6 +1,6 @@
 import { system } from '../core';
 
-const config = {
+export const animationConfig = {
   animation: true,
   animationName: true,
   animationDuration: true,
@@ -12,6 +12,6 @@ const config = {
   animationPlayState: true,
 };
 
-export const animation = system(config);
+export const animation = system(animationConfig);
 
 export default animation;

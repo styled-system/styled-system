@@ -1,6 +1,6 @@
-import { system } from '../core'
+import { system } from '../core';
 
-const config = {
+export const borderConfig = {
   border: {
     property: 'border',
     scale: 'borders',
@@ -61,74 +61,74 @@ const config = {
     properties: ['borderTop', 'borderBottom'],
     scale: 'borders',
   },
-}
+};
 
-config.borderTopWidth = {
+borderConfig.borderTopWidth = {
   property: 'borderTopWidth',
   scale: 'borderWidths',
-}
+};
 
-config.borderTopColor = {
+borderConfig.borderTopColor = {
   property: 'borderTopColor',
   scale: 'colors',
-}
-config.borderTopStyle = {
+};
+borderConfig.borderTopStyle = {
   property: 'borderTopStyle',
   scale: 'borderStyles',
-}
-config.borderTopLeftRadius = {
-  property:'borderTopLeftRadius',
+};
+borderConfig.borderTopLeftRadius = {
+  property: 'borderTopLeftRadius',
   scale: 'radii',
-}
-config.borderTopRightRadius = {
-  property:'borderTopRightRadius',
+};
+borderConfig.borderTopRightRadius = {
+  property: 'borderTopRightRadius',
   scale: 'radii',
-}
-config.borderBottomWidth = {
+};
+borderConfig.borderBottomWidth = {
   property: 'borderBottomWidth',
   scale: 'borderWidths',
-}
-config.borderBottomColor = {
+};
+borderConfig.borderBottomColor = {
   property: 'borderBottomColor',
   scale: 'colors',
-}
-config.borderBottomStyle = {
+};
+borderConfig.borderBottomStyle = {
   property: 'borderBottomStyle',
   scale: 'borderStyles',
-}
-config.borderBottomLeftRadius = {
-  property:'borderBottomLeftRadius',
+};
+borderConfig.borderBottomLeftRadius = {
+  property: 'borderBottomLeftRadius',
   scale: 'radii',
-}
-config.borderBottomRightRadius = {
-  property:'borderBottomRightRadius',
+};
+borderConfig.borderBottomRightRadius = {
+  property: 'borderBottomRightRadius',
   scale: 'radii',
-}
-config.borderLeftWidth = {
+};
+borderConfig.borderLeftWidth = {
   property: 'borderLeftWidth',
   scale: 'borderWidths',
-}
-config.borderLeftColor = {
+};
+borderConfig.borderLeftColor = {
   property: 'borderLeftColor',
   scale: 'colors',
-}
-config.borderLeftStyle = {
+};
+borderConfig.borderLeftStyle = {
   property: 'borderLeftStyle',
   scale: 'borderStyles',
-}
-config.borderRightWidth = {
+};
+borderConfig.borderRightWidth = {
   property: 'borderRightWidth',
   scale: 'borderWidths',
-}
-config.borderRightColor = {
+};
+borderConfig.borderRightColor = {
   property: 'borderRightColor',
   scale: 'colors',
-}
-config.borderRightStyle = {
+};
+borderConfig.borderRightStyle = {
   property: 'borderRightStyle',
   scale: 'borderStyles',
-}
+};
 
-export const border = system(config)
+export const border = system(borderConfig);
 
-export default border
+export default border;

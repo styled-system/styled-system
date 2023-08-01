@@ -1747,4 +1747,6 @@ export interface StylesProps {
   fillColor: typeof fillColor;
 }
 
+export const shouldForwardProp: (prop: string) => boolean;
+
 export const styles: StylesProps;

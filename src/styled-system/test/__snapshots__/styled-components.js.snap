@@ -6,14 +6,14 @@ exports[`styled-components responsive styles are rendered in the correct order 1
   padding: 4px;
 }
 
-@media screen and (min-width:40em) {
+@media screen and (min-width: 40em) {
   .c0 {
     margin: 8px;
     padding: 8px;
   }
 }
 
-@media screen and (min-width:52em) {
+@media screen and (min-width: 52em) {
   .c0 {
     margin: 16px;
     padding: 16px;
@@ -22,5 +22,19 @@ exports[`styled-components responsive styles are rendered in the correct order 1
 
 <div
   className="c0"
+  m={
+    Array [
+      1,
+      2,
+      3,
+    ]
+  }
+  p={
+    Array [
+      1,
+      2,
+      3,
+    ]
+  }
 />
 `;

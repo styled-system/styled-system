@@ -20,23 +20,23 @@ const theme = {
 }
 
 test('returns color values from theme', () => {
-  const a = color({ theme, color: 'blue', bg: 'black' })
-  expect(a).toEqual({ color: '#07c', backgroundColor: '#111' })
+  const a = color({ theme, fill: 'blue', bg: 'black' })
+  expect(a).toEqual({ fill: '#07c', backgroundColor: '#111' })
 })
 
 test('returns raw color values', () => {
   const a = color({
     theme,
-    color: 'inherit',
+    fill: 'inherit',
     bg: 'tomato',
   })
-  expect(a).toEqual({ color: 'inherit', backgroundColor: 'tomato' })
+  expect(a).toEqual({ fill: 'inherit', backgroundColor: 'tomato' })
 })
 
-test.skip('backgroundColor prop overrides bg prop', () => {
+test('backgroundColor prop overrides bg prop', () => {
   const a = color({
-    backgroundColor: 'tomato',
     bg: 'blue',
+    backgroundColor: 'tomato',
   })
   expect(a).toEqual({ backgroundColor: 'tomato' })
 })
@@ -111,7 +111,7 @@ test('gridGap returns a scalar style', () => {
     },
     gridGap: 3,
   })
-  expect(a).toEqual({ gridGap: 8 })
+  expect(a).toEqual({ gap: 8 })
 })
 
 test('gridGap uses the default scale', () => {
@@ -119,7 +119,7 @@ test('gridGap uses the default scale', () => {
     theme: {},
     gridGap: 2,
   })
-  expect(a).toEqual({ gridGap: 8 })
+  expect(a).toEqual({ gap: 8 })
 })
 
 test('gridRowGap returns a scalar style', () => {
@@ -129,7 +129,7 @@ test('gridRowGap returns a scalar style', () => {
     },
     gridRowGap: 3,
   })
-  expect(a).toEqual({ gridRowGap: 8 })
+  expect(a).toEqual({ rowGap: 8 })
 })
 
 test('gridRowGap uses the default scale', () => {
@@ -137,7 +137,7 @@ test('gridRowGap uses the default scale', () => {
     theme: {},
     gridRowGap: 2,
   })
-  expect(a).toEqual({ gridRowGap: 8 })
+  expect(a).toEqual({ rowGap: 8 })
 })
 
 test('gridColumnGap returns a scalar style', () => {
@@ -147,7 +147,7 @@ test('gridColumnGap returns a scalar style', () => {
     },
     gridColumnGap: 3,
   })
-  expect(a).toEqual({ gridColumnGap: 8 })
+  expect(a).toEqual({ columnGap: 8 })
 })
 
 test('gridColumnGap uses the default scale', () => {
@@ -155,7 +155,7 @@ test('gridColumnGap uses the default scale', () => {
     theme: {},
     gridColumnGap: 2,
   })
-  expect(a).toEqual({ gridColumnGap: 8 })
+  expect(a).toEqual({ columnGap: 8 })
 })
 
 test('borders prop returns correct sequence', () => {

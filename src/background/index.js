@@ -1,6 +1,6 @@
 import { system } from '../core'
 
-const config = {
+export const backgroundConfig = {
   background: true,
   backgroundImage: true,
   backgroundSize: true,
@@ -8,11 +8,11 @@ const config = {
   backgroundRepeat: true,
 }
 
-config.bgImage = config.backgroundImage
-config.bgSize = config.backgroundSize
-config.bgPosition = config.backgroundPosition
-config.bgRepeat = config.backgroundRepeat
+backgroundConfig.bgImage = backgroundConfig.backgroundImage
+backgroundConfig.bgSize = backgroundConfig.backgroundSize
+backgroundConfig.bgPosition = backgroundConfig.backgroundPosition
+backgroundConfig.bgRepeat = backgroundConfig.backgroundRepeat
 
-export const background = system(config)
+export const background = system(backgroundConfig)
 
 export default background

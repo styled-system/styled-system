@@ -12,6 +12,7 @@ import position from '../position';
 import animation from '../animation';
 import listStyle from '../list-style';
 
+export { shouldForwardProp } from '../shouldForwardProp';
 export { get, createParser, createStyleFunction, compose, system } from '../core';
 
 export { space } from '../space';

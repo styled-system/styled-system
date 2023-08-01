@@ -1,27 +1,27 @@
-import { get, system, compose } from '../core'
+import { get, system, compose } from '../core';
 
 const defaults = {
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
-}
+};
 
-const isNumber = n => typeof n === 'number' && !isNaN(n)
+const isNumber = (n) => typeof n === 'number' && !isNaN(n);
 
 const getMargin = (n, scale) => {
   if (!isNumber(n)) {
-    return get(scale, n, n)
+    return get(scale, n, n);
   }
 
-  const isNegative = n < 0
-  const absolute = Math.abs(n)
-  const value = get(scale, absolute, absolute)
+  const isNegative = n < 0;
+  const absolute = Math.abs(n);
+  const value = get(scale, absolute, absolute);
   if (!isNumber(value)) {
-    return isNegative ? '-' + value : value
+    return isNegative ? '-' + value : value;
   }
-  return value * (isNegative ? -1 : 1)
-}
+  return value * (isNegative ? -1 : 1);
+};
 
-const configs = {}
-configs.margin = {
+export const spaceConfig = {};
+spaceConfig.margin = {
   margin: {
     property: 'margin',
     scale: 'space',
@@ -64,16 +64,16 @@ configs.margin = {
     transform: getMargin,
     defaultScale: defaults.space,
   },
-}
-configs.margin.m = configs.margin.margin
-configs.margin.mt = configs.margin.marginTop
-configs.margin.mr = configs.margin.marginRight
-configs.margin.mb = configs.margin.marginBottom
-configs.margin.ml = configs.margin.marginLeft
-configs.margin.mx = configs.margin.marginX
-configs.margin.my = configs.margin.marginY
+};
+spaceConfig.margin.m = spaceConfig.margin.margin;
+spaceConfig.margin.mt = spaceConfig.margin.marginTop;
+spaceConfig.margin.mr = spaceConfig.margin.marginRight;
+spaceConfig.margin.mb = spaceConfig.margin.marginBottom;
+spaceConfig.margin.ml = spaceConfig.margin.marginLeft;
+spaceConfig.margin.mx = spaceConfig.margin.marginX;
+spaceConfig.margin.my = spaceConfig.margin.marginY;
 
-configs.padding = {
+spaceConfig.padding = {
   padding: {
     property: 'padding',
     scale: 'space',
@@ -109,17 +109,17 @@ configs.padding = {
     scale: 'space',
     defaultScale: defaults.space,
   },
-}
-configs.padding.p = configs.padding.padding
-configs.padding.pt = configs.padding.paddingTop
-configs.padding.pr = configs.padding.paddingRight
-configs.padding.pb = configs.padding.paddingBottom
-configs.padding.pl = configs.padding.paddingLeft
-configs.padding.px = configs.padding.paddingX
-configs.padding.py = configs.padding.paddingY
+};
+spaceConfig.padding.p = spaceConfig.padding.padding;
+spaceConfig.padding.pt = spaceConfig.padding.paddingTop;
+spaceConfig.padding.pr = spaceConfig.padding.paddingRight;
+spaceConfig.padding.pb = spaceConfig.padding.paddingBottom;
+spaceConfig.padding.pl = spaceConfig.padding.paddingLeft;
+spaceConfig.padding.px = spaceConfig.padding.paddingX;
+spaceConfig.padding.py = spaceConfig.padding.paddingY;
 
-export const margin = system(configs.margin)
-export const padding = system(configs.padding)
-export const space = compose(margin, padding)
+export const margin = system(spaceConfig.margin);
+export const padding = system(spaceConfig.padding);
+export const space = compose(margin, padding);
 
-export default space
+export default space;

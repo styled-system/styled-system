@@ -1,6 +1,6 @@
 import { system } from '../core';
 
-const config = {
+export const colorConfig = {
   textColor: {
     property: 'color',
     scale: 'colors',
@@ -15,7 +15,7 @@ const config = {
   },
   opacity: true,
 };
-config.bg = config.backgroundColor;
+colorConfig.bg = colorConfig.backgroundColor;
 
-export const color = system(config);
+export const color = system(colorConfig);
 export default color;

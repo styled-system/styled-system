@@ -4,7 +4,7 @@ const defaults = {
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
 };
 
-const config = {
+export const typographyConfig = {
   fontFamily: {
     property: 'fontFamily',
     scale: 'fonts',
@@ -38,5 +38,5 @@ const config = {
   textOverflow: true,
 };
 
-export const typography = system(config);
+export const typography = system(typographyConfig);
 export default typography;
