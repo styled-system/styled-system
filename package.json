@@ -5,7 +5,7 @@
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "scripts": {
-    "build": "npx rollup -c",
+    "build": "yarn rollup -c",
     "test": "jest",
     "prepublishOnly": "npm run build"
   },
@@ -34,6 +34,7 @@
     "prettier": "2.3.2",
     "react": "18.2.0",
     "react-test-renderer": "18.2.0",
+    "rollup": "3.27.0",
     "styled-components": "6.0.5"
   },
   "peerDependencies": {
