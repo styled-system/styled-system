@@ -1,4 +1,4 @@
-<img src='https://styled-system.com/logo.svg' width='128' height='128' />
+<img src='https://avatars.githubusercontent.com/u/47362392?v=3&s=75' width='128' height='128' />
 
 # Styled System
 
