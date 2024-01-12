@@ -6,6 +6,12 @@ import { scales, transforms } from '../css';
 import { flexBoxConfig } from '../flexbox';
 import { spaceConfig } from '../space';
 import { typographyConfig } from '../typography';
+import { layoutConfig } from '../layout';
+import { positionConfig } from '../position';
+import { objectFitConfig } from '../object-fit';
+import { listStyleConfig } from '../list-style';
+import { gridConfig } from '../grid';
+import { cursorConfig } from '../cursor';
 
 export function shouldForwardProp(propName) {
   return !(
@@ -17,6 +23,12 @@ export function shouldForwardProp(propName) {
     flexBoxConfig[propName] ||
     spaceConfig[propName] ||
     scales[propName] ||
+    layoutConfig[propName] ||
+    positionConfig[propName] ||
+    objectFitConfig[propName] ||
+    listStyleConfig[propName] ||
+    gridConfig[propName] ||
+    cursorConfig[propName] ||
     transforms[propName]
   );
 }

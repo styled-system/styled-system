@@ -1,7 +1,9 @@
 import { system } from '../core';
 
-export const objectFit = system({
+export const objectFitConfig = {
   objectFit: true,
-});
+};
+
+export const objectFit = system(objectFitConfig);
 
 export default objectFit;

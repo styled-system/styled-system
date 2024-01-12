@@ -1,12 +1,12 @@
 import { system } from '../core';
 
-const config = {
+export const listStyleConfig = {
   listStyle: true,
   listStyleImage: true,
   listStylePosition: true,
   listStyleType: true,
 };
 
-export const listStyle = system(config);
+export const listStyle = system(listStyleConfig);
 
 export default listStyle;

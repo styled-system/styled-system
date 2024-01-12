@@ -15,6 +15,28 @@ describe('shouldForwardProp_function', () => {
     expect(shouldForwardProp('invalidPropName')).toBe(true);
   });
 
+  it('invalid prop name returns true', () => {
+    expect(shouldForwardProp('overflowY')).toBe(false);
+  });
+
+  it('invalid prop name returns true', () => {
+    expect(shouldForwardProp('zIndex')).toBe(false);
+  });
+
+  it('invalid prop name returns true', () => {
+    expect(shouldForwardProp('objectFit')).toBe(false);
+  });
+
+  it('invalid prop name returns true', () => {
+    expect(shouldForwardProp('cursor')).toBe(false);
+  });
+  it('invalid prop name returns true', () => {
+    expect(shouldForwardProp('gridColumnGap')).toBe(false);
+  });
+  it('invalid prop name returns true', () => {
+    expect(shouldForwardProp('listStylePosition')).toBe(false);
+  });
+
   // Tests that an empty string passed to shouldForwardProp returns true
   it('empty string returns true', () => {
     expect(shouldForwardProp('')).toBe(true);

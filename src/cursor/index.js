@@ -1,7 +1,9 @@
 import { system } from '../core';
 
-export const cursor = system({
+export const cursorConfig = {
   cursor: true,
-});
+};
+
+export const cursor = system(cursorConfig);
 
 export default cursor;

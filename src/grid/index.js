@@ -1,10 +1,10 @@
-import { system } from '../core'
+import { system } from '../core';
 
 const defaults = {
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
-}
+};
 
-const config = {
+export const gridConfig = {
   gridGap: {
     property: 'gap',
     scale: 'space',
@@ -29,7 +29,7 @@ const config = {
   gridTemplateRows: true,
   gridTemplateAreas: true,
   gridArea: true,
-}
+};
 
-export const grid = system(config)
-export default grid
+export const grid = system(gridConfig);
+export default grid;

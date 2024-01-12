@@ -1,10 +1,10 @@
-import { system } from '../core'
+import { system } from '../core';
 
 const defaults = {
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
-}
+};
 
-const config = {
+export const positionConfig = {
   position: true,
   zIndex: {
     property: 'zIndex',
@@ -30,8 +30,8 @@ const config = {
     scale: 'space',
     defaultScale: defaults.space,
   },
-}
+};
 
-export const position = system(config)
+export const position = system(positionConfig);
 
-export default position
+export default position;

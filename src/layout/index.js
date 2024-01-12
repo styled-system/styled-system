@@ -1,10 +1,9 @@
-import { system, get } from '../core'
+import { system, get } from '../core';
 
-const isNumber = n => typeof n === 'number' && !isNaN(n)
-const getWidth = (n, scale) =>
-  get(scale, n, !isNumber(n) || n > 1 ? n : n * 100 + '%')
+const isNumber = (n) => typeof n === 'number' && !isNaN(n);
+const getWidth = (n, scale) => get(scale, n, !isNumber(n) || n > 1 ? n : n * 100 + '%');
 
-const config = {
+export const layoutConfig = {
   width: {
     property: 'width',
     scale: 'sizes',
@@ -39,7 +38,7 @@ const config = {
   overflowY: true,
   display: true,
   verticalAlign: true,
-}
+};
 
-export const layout = system(config)
-export default layout
+export const layout = system(layoutConfig);
+export default layout;
