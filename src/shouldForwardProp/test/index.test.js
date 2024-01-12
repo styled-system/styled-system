@@ -28,6 +28,34 @@ describe('shouldForwardProp_function', () => {
   });
 
   it('invalid prop name returns true', () => {
+    expect(shouldForwardProp('textShadow')).toBe(false);
+  });
+
+  it('invalid prop name returns true', () => {
+    expect(shouldForwardProp('colors')).toBe(false);
+  });
+
+  it('invalid prop name returns true', () => {
+    expect(shouldForwardProp('textStyle')).toBe(false);
+  });
+
+  it('invalid prop name returns true', () => {
+    expect(shouldForwardProp('variant')).toBe(false);
+  });
+
+  it('invalid prop name returns true', () => {
+    expect(shouldForwardProp('size')).toBe(false);
+  });
+
+  it('invalid prop name returns true', () => {
+    expect(shouldForwardProp('typography')).toBe(false);
+  });
+
+  it('invalid prop name returns true', () => {
+    expect(shouldForwardProp('type')).toBe(false);
+  });
+
+  it('invalid prop name returns true', () => {
     expect(shouldForwardProp('cursor')).toBe(false);
   });
   it('invalid prop name returns true', () => {

@@ -29,6 +29,13 @@ export function shouldForwardProp(propName) {
     listStyleConfig[propName] ||
     gridConfig[propName] ||
     cursorConfig[propName] ||
-    transforms[propName]
+    transforms[propName] ||
+    // Used in our custom variation logic
+    propName === 'variant' ||
+    propName === 'size' ||
+    propName === 'typography' ||
+    propName === 'type' ||
+    propName === 'colors' ||
+    propName === 'textStyle'
   );
 }
