@@ -66,17 +66,16 @@ export type BreakpointsValue<T, ThemeType extends Theme = RequiredTheme> = Recor
   T
 >;
 
-export type ResponsiveValue<T, ThemeType extends Theme = RequiredTheme> = T extends undefined | null
-  ? null
-  : T | Partial<BreakpointsValue<T, ThemeType>>;
+export type ResponsiveValue<T, ThemeType extends Theme = RequiredTheme> =
+  T | { [P in keyof ThemeType['breakpoints']]?: T };
 
 export type ThemeValue<
   K extends keyof CurrentTheme,
   CurrentTheme extends Theme
 > = CurrentTheme[K] extends TLengthStyledSystem[]
-  ? number
+  ? number | string
   : CurrentTheme[K] extends Record<infer E, TLengthStyledSystem>
-  ? E
+  ? E | ResponsiveValue<E, CurrentTheme>
   : CurrentTheme[K] extends ObjectOrArray<infer F>
   ? F
   : never;
